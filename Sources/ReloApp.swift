@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 @main
@@ -83,3 +84,14 @@ struct MainTabView: View {
         .tabViewStyle(.tabBarOnly)
     }
 }
+
+#else
+
+@main
+struct ReloApp {
+    static func main() {
+        print("ReloApp: SwiftUI is not available on this platform. Business logic compiled successfully.")
+    }
+}
+
+#endif

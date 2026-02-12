@@ -1,3 +1,4 @@
+#if canImport(SwiftUI)
 import SwiftUI
 
 struct CalendarView: View {
@@ -378,3 +379,5 @@ struct EventEditorSheet: View {
 #Preview {
     CalendarView()
 }
+
+#endif
