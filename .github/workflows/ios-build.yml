@@ -20,19 +20,15 @@ jobs:
       - name: Create simulator if needed
         run: |
           RUNTIME=$(xcrun simctl list runtimes | grep -i "ios" | tail -1 | awk '{print $NF}')
-          echo "Using runtime: $RUNTIME"
-
           if ! xcrun simctl list devices available | grep -qi iphone; then
             xcrun simctl create "MyiPhone" "com.apple.CoreSimulator.SimDeviceType.iPhone-16" "$RUNTIME"
           fi
-
           UDID=$(xcrun simctl list devices available | grep -i iphone | head -1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}')
           echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
 
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
-
           xcodebuild build \
             -scheme ReloApp \
             -sdk iphonesimulator \
@@ -58,68 +54,58 @@ jobs:
           BINARY="$PRODUCTS/ReloApp"
 
           if [ ! -f "$BINARY" ]; then
-            echo "ERROR: Binary not found at $BINARY"
+            echo "ERROR: Binary not found"
             find build/derivedData/Build/Products -type f | head -20
             exit 1
           fi
 
-          # SPM executables don't produce .app bundles, so we build one manually
+          # Create .app bundle structure
           APP_DIR="$PRODUCTS/ReloApp.app"
-          mkdir -p "$APP_DIR"
+          mkdir -p "$APP_DIR/Frameworks"
           cp "$BINARY" "$APP_DIR/ReloApp"
 
-          # Create Info.plist required for .app bundle
-          cat > "$APP_DIR/Info.plist" << 'PLIST'
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-          <plist version="1.0">
-          <dict>
-              <key>CFBundleExecutable</key>
-              <string>ReloApp</string>
-              <key>CFBundleIdentifier</key>
-              <string>com.reloapp.app</string>
-              <key>CFBundleName</key>
-              <string>ReloApp</string>
-              <key>CFBundleDisplayName</key>
-              <string>ReloApp</string>
-              <key>CFBundleVersion</key>
-              <string>1</string>
-              <key>CFBundleShortVersionString</key>
-              <string>1.0.0</string>
-              <key>CFBundlePackageType</key>
-              <string>APPL</string>
-              <key>CFBundleSupportedPlatforms</key>
-              <array>
-                  <string>iPhoneSimulator</string>
-              </array>
-              <key>MinimumOSVersion</key>
-              <string>18.0</string>
-              <key>DTPlatformName</key>
-              <string>iphonesimulator</string>
-              <key>UIDeviceFamily</key>
-              <array>
-                  <integer>1</integer>
-                  <integer>2</integer>
-              </array>
-              <key>UILaunchScreen</key>
-              <dict/>
-              <key>UIRequiredDeviceCapabilities</key>
-              <array>
-                  <string>arm64</string>
-              </array>
-              <key>UISupportedInterfaceOrientations</key>
-              <array>
-                  <string>UIInterfaceOrientationPortrait</string>
-                  <string>UIInterfaceOrientationLandscapeLeft</string>
-                  <string>UIInterfaceOrientationLandscapeRight</string>
-              </array>
-          </dict>
-          </plist>
-          PLIST
+          # Copy any Swift frameworks the binary depends on
+          if [ -d "$PRODUCTS/PackageFrameworks" ]; then
+            cp -R "$PRODUCTS/PackageFrameworks/"*.framework "$APP_DIR/Frameworks/" 2>/dev/null || true
+          fi
 
-          echo "Created .app bundle at: $APP_DIR"
+          # Create PkgInfo
+          echo -n "APPL????" > "$APP_DIR/PkgInfo"
+
+          # Create Info.plist (no leading whitespace)
+          /usr/libexec/PlistBuddy -c "Add :CFBundleExecutable string ReloApp" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string com.reloapp.app" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleName string ReloApp" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleDisplayName string ReloApp" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleVersion string 1" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleShortVersionString string 1.0.0" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundlePackageType string APPL" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms array" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms:0 string iPhoneSimulator" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :MinimumOSVersion string 18.0" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :DTPlatformName string iphonesimulator" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :DTSDKName string iphonesimulator18.2" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily array" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily:0 integer 1" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily:1 integer 2" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UILaunchScreen dict" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UIRequiredDeviceCapabilities array" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UIRequiredDeviceCapabilities:0 string arm64" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:1 string UIInterfaceOrientationLandscapeLeft" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:2 string UIInterfaceOrientationLandscapeRight" "$APP_DIR/Info.plist"
+
+          # Verify
+          echo "=== App bundle contents ==="
           ls -la "$APP_DIR"
+          echo "=== Info.plist ==="
+          cat "$APP_DIR/Info.plist"
+          echo "=== Binary info ==="
+          file "$APP_DIR/ReloApp"
+          lipo -info "$APP_DIR/ReloApp"
 
+          # Zip
           cd "$PRODUCTS"
           zip -r "$GITHUB_WORKSPACE/ReloApp-Simulator.zip" ReloApp.app
 
