@@ -19,10 +19,16 @@ jobs:
           xcodegen generate
 
           # Downgrade objectVersion from 77 to 56 for Xcode 15 compatibility
-          PBXPROJ="ReloApp.xcodeproj/project.pbxproj"
+          PBXPROJ="GoThere.xcodeproj/project.pbxproj"
           sed -i '' 's/objectVersion = [0-9]*/objectVersion = 56/' "$PBXPROJ"
           echo "objectVersion set to:"
           grep "objectVersion" "$PBXPROJ"
+
+      - name: Resolve SPM packages
+        run: |
+          xcodebuild -resolvePackageDependencies \
+            -project GoThere.xcodeproj \
+            -scheme GoThere
 
       - name: Build for iOS Simulator
         run: |
@@ -32,8 +38,8 @@ jobs:
           echo "Using simulator: $UDID"
 
           xcodebuild build \
-            -project ReloApp.xcodeproj \
-            -scheme ReloApp \
+            -project GoThere.xcodeproj \
+            -scheme GoThere \
             -sdk iphonesimulator \
             -destination "id=$UDID" \
             -configuration Debug \
@@ -63,13 +69,13 @@ jobs:
           cat "$APP_PATH/Info.plist" 2>/dev/null || plutil -p "$APP_PATH/Info.plist"
 
           cd "$(dirname "$APP_PATH")"
-          zip -r "$GITHUB_WORKSPACE/ReloApp-Simulator.zip" "$(basename "$APP_PATH")"
+          zip -r "$GITHUB_WORKSPACE/GoThere-Simulator.zip" "$(basename "$APP_PATH")"
           echo "=== Zip size ==="
-          ls -lh "$GITHUB_WORKSPACE/ReloApp-Simulator.zip"
+          ls -lh "$GITHUB_WORKSPACE/GoThere-Simulator.zip"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ReloApp-Simulator
-          path: ReloApp-Simulator.zip
+          name: GoThere-Simulator
+          path: GoThere-Simulator.zip
           retention-days: 30

@@ -1,19 +1,25 @@
 workflows:
   ios-simulator-build:
     name: Build iOS Simulator App
-    max_build_duration: 30
+    max_build_duration: 60
     instance_type: mac_mini_m2
     environment:
       xcode: 16.2
       vars:
-        XCODE_PROJECT: "ReloApp.xcodeproj"
-        XCODE_SCHEME: "ReloApp"
+        XCODE_PROJECT: "GoThere.xcodeproj"
+        XCODE_SCHEME: "GoThere"
     scripts:
       - name: Install XcodeGen
         script: brew install xcodegen
 
       - name: Generate Xcode project
         script: xcodegen generate
+
+      - name: Resolve SPM packages
+        script: |
+          xcodebuild -resolvePackageDependencies \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME"
 
       - name: Build for iOS Simulator
         script: |
@@ -34,8 +40,8 @@ workflows:
           echo "Found: $APP_PATH"
           ls -la "$APP_PATH"
           cd "$(dirname "$APP_PATH")"
-          zip -r "$CM_BUILD_DIR/ReloApp-Simulator.zip" "$(basename "$APP_PATH")"
-          ls -lh "$CM_BUILD_DIR/ReloApp-Simulator.zip"
+          zip -r "$CM_BUILD_DIR/GoThere-Simulator.zip" "$(basename "$APP_PATH")"
+          ls -lh "$CM_BUILD_DIR/GoThere-Simulator.zip"
 
     artifacts:
       - "*.zip"
