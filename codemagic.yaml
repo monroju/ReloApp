@@ -5,6 +5,9 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       xcode: 16.2
+      vars:
+        XCODE_PROJECT: "ReloApp.xcodeproj"
+        XCODE_SCHEME: "ReloApp"
     scripts:
       - name: Install XcodeGen
         script: brew install xcodegen
@@ -15,8 +18,8 @@ workflows:
       - name: Build for iOS Simulator
         script: |
           xcodebuild build \
-            -project ReloApp.xcodeproj \
-            -scheme ReloApp \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
             -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             -configuration Debug \
