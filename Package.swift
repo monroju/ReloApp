@@ -1,19 +1,16 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 5.10
 
 import PackageDescription
 
 let package = Package(
     name: "ReloApp",
     platforms: [
-        .iOS(.v18),
+        .iOS(.v17),
     ],
     targets: [
         .executableTarget(
             name: "ReloApp",
-            path: "Sources",
-            swiftSettings: [
-                .swiftLanguageMode(.v5),
-            ]
+            path: "Sources"
         ),
     ]
 )

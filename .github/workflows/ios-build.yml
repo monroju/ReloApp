@@ -7,37 +7,31 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15
+    runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode and install iOS platform
+      - name: Show Xcode and simulator info
         run: |
-          sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
           xcodebuild -version
-          xcodebuild -downloadPlatform iOS
-
-      - name: Create simulator if needed
-        run: |
-          RUNTIME=$(xcrun simctl list runtimes | grep -i "ios" | tail -1 | awk '{print $NF}')
-          if ! xcrun simctl list devices available | grep -qi iphone; then
-            xcrun simctl create "MyiPhone" "com.apple.CoreSimulator.SimDeviceType.iPhone-16" "$RUNTIME"
-          fi
-          UDID=$(xcrun simctl list devices available | grep -i iphone | head -1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}')
-          echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
+          xcrun simctl list runtimes
+          xcrun simctl list devices available | grep -i iphone | head -5
 
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
+
+          UDID=$(xcrun simctl list devices available | grep -i iphone | head -1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}')
+          echo "Using simulator: $UDID"
+
           xcodebuild build \
             -scheme ReloApp \
             -sdk iphonesimulator \
-            -destination "id=$SIMULATOR_UDID" \
+            -destination "id=$UDID" \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            ARCHS=arm64 \
             2>&1 | tee build.log
 
       - name: Show build errors on failure
@@ -45,8 +39,6 @@ jobs:
         run: |
           echo "=== BUILD ERRORS ==="
           grep -A2 "error:" build.log 2>/dev/null || echo "No error lines found"
-          echo "=== WARNINGS ==="
-          grep "warning:" build.log 2>/dev/null | head -20 || echo "No warnings"
 
       - name: Package .app bundle for Appetize.io
         run: |
@@ -59,20 +51,18 @@ jobs:
             exit 1
           fi
 
-          # Create .app bundle structure
           APP_DIR="$PRODUCTS/ReloApp.app"
           mkdir -p "$APP_DIR/Frameworks"
           cp "$BINARY" "$APP_DIR/ReloApp"
 
-          # Copy any Swift frameworks the binary depends on
+          # Copy Swift framework dependencies
           if [ -d "$PRODUCTS/PackageFrameworks" ]; then
             cp -R "$PRODUCTS/PackageFrameworks/"*.framework "$APP_DIR/Frameworks/" 2>/dev/null || true
           fi
 
-          # Create PkgInfo
           echo -n "APPL????" > "$APP_DIR/PkgInfo"
 
-          # Create Info.plist (no leading whitespace)
+          # Generate valid Info.plist with PlistBuddy
           /usr/libexec/PlistBuddy -c "Add :CFBundleExecutable string ReloApp" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :CFBundleIdentifier string com.reloapp.app" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :CFBundleName string ReloApp" "$APP_DIR/Info.plist"
@@ -82,30 +72,21 @@ jobs:
           /usr/libexec/PlistBuddy -c "Add :CFBundlePackageType string APPL" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms array" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :CFBundleSupportedPlatforms:0 string iPhoneSimulator" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :MinimumOSVersion string 18.0" "$APP_DIR/Info.plist"
+          /usr/libexec/PlistBuddy -c "Add :MinimumOSVersion string 17.0" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :DTPlatformName string iphonesimulator" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :DTSDKName string iphonesimulator18.2" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily array" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily:0 integer 1" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UIDeviceFamily:1 integer 2" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UILaunchScreen dict" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :UIRequiredDeviceCapabilities array" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :UIRequiredDeviceCapabilities:0 string arm64" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations array" "$APP_DIR/Info.plist"
           /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:0 string UIInterfaceOrientationPortrait" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:1 string UIInterfaceOrientationLandscapeLeft" "$APP_DIR/Info.plist"
-          /usr/libexec/PlistBuddy -c "Add :UISupportedInterfaceOrientations:2 string UIInterfaceOrientationLandscapeRight" "$APP_DIR/Info.plist"
 
-          # Verify
-          echo "=== App bundle contents ==="
+          echo "=== Bundle contents ==="
           ls -la "$APP_DIR"
-          echo "=== Info.plist ==="
-          cat "$APP_DIR/Info.plist"
-          echo "=== Binary info ==="
+          echo "=== Binary ==="
           file "$APP_DIR/ReloApp"
           lipo -info "$APP_DIR/ReloApp"
 
-          # Zip
           cd "$PRODUCTS"
           zip -r "$GITHUB_WORKSPACE/ReloApp-Simulator.zip" ReloApp.app
 
