@@ -38,7 +38,7 @@ struct SignUpView: View {
             Image(systemName: "person.badge.plus")
                 .font(.system(size: 56))
                 .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
 
             Text("Create Account")
                 .font(.largeTitle.bold())

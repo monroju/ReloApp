@@ -38,7 +38,7 @@ struct LoginView: View {
             Image(systemName: "globe.desk")
                 .font(.system(size: 56))
                 .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accentColor)
 
             Text("Welcome Back")
                 .font(.largeTitle.bold())

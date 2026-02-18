@@ -56,7 +56,7 @@ struct HomeDashboardView: View {
                 Image(systemName: "pencil.circle.fill")
                     .font(.title2)
                     .symbolRenderingMode(.hierarchical)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.accentColor)
             }
         }
         .padding()
@@ -188,12 +188,12 @@ struct HomeDashboardView: View {
                 Spacer()
                 Text("\(viewModel.progressStats.percentage)%")
                     .font(.title3.bold())
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.accentColor)
                     .contentTransition(.numericText())
             }
 
             ProgressView(value: Double(viewModel.progressStats.percentage), total: 100)
-                .tint(.accent)
+                .tint(Color.accentColor)
                 .scaleEffect(y: 2)
 
             HStack(spacing: 16) {
@@ -269,7 +269,7 @@ struct HomeDashboardView: View {
             }
 
             ProgressView(value: Double(group.completedCount), total: max(Double(group.totalCount), 1))
-                .tint(group.completedCount == group.totalCount ? .green : .accent)
+                .tint(group.completedCount == group.totalCount ? .green : Color.accentColor)
 
             ForEach(group.tasks.prefix(3)) { task in
                 taskRow(task)
@@ -278,7 +278,7 @@ struct HomeDashboardView: View {
             if group.tasks.count > 3 {
                 Text("+\(group.tasks.count - 3) more")
                     .font(.caption)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.accentColor)
                     .padding(.leading, 28)
             }
         }
@@ -376,7 +376,7 @@ struct HomeDashboardView: View {
                 ForEach(viewModel.recentDocuments) { doc in
                     HStack(spacing: 10) {
                         Image(systemName: "doc.text.fill")
-                            .foregroundStyle(.accent)
+                            .foregroundStyle(Color.accentColor)
                         Text(doc.name)
                             .font(.subheadline)
                             .lineLimit(1)
@@ -552,7 +552,7 @@ struct ProfileEditView: View {
                     LabeledContent("Completion") {
                         Text("\(viewModel.progressStats.percentage)%")
                             .bold()
-                            .foregroundStyle(.accent)
+                            .foregroundStyle(Color.accentColor)
                     }
                 }
             }

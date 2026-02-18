@@ -118,7 +118,7 @@ struct CalendarView: View {
                     HStack(spacing: 2) {
                         ForEach(0..<min(count, 3), id: \.self) { _ in
                             Circle()
-                                .fill(isSelected ? .white : .accent)
+                                .fill(isSelected ? .white : Color.accentColor)
                                 .frame(width: 4, height: 4)
                         }
                     }
@@ -142,7 +142,7 @@ struct CalendarView: View {
 
     private func dayForeground(isSelected: Bool, isToday: Bool) -> Color {
         if isSelected { return .white }
-        if isToday { return .accentColor }
+        if isToday { return Color.accentColor }
         return .primary
     }
 
@@ -166,7 +166,7 @@ struct CalendarView: View {
                 Image(systemName: "plus.circle.fill")
                     .font(.title2)
                     .symbolRenderingMode(.hierarchical)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.accentColor)
             }
         }
         .padding(.horizontal, 4)
