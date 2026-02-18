@@ -1,4 +1,3 @@
-#if canImport(SwiftUI)
 import SwiftUI
 
 // MARK: - HomeDashboardView
@@ -586,5 +585,3 @@ struct ProfileEditView: View {
 #Preview {
     HomeDashboardView()
 }
-
-#endif

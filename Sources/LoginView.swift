@@ -1,4 +1,3 @@
-#if canImport(SwiftUI)
 import SwiftUI
 
 struct LoginView: View {
@@ -188,5 +187,3 @@ struct LoginView: View {
 #Preview {
     LoginView()
 }
-
-#endif
