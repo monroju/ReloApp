@@ -13,8 +13,8 @@ settings:
     CURRENT_PROJECT_VERSION: "1"
 
 packages:
-  FirebaseAuth:
-    url: https://github.com/nicklama/firebase-ios-sdk-xcframeworks
+  firebase-ios-sdk:
+    url: https://github.com/firebase/firebase-ios-sdk.git
     from: "11.6.0"
 
 targets:
@@ -33,9 +33,9 @@ targets:
         INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
         CODE_SIGN_ENTITLEMENTS: GoThere/App/GoThere.entitlements
     dependencies:
-      - package: FirebaseAuth
+      - package: firebase-ios-sdk
         product: FirebaseAuth
-      - package: FirebaseAuth
+      - package: firebase-ios-sdk
         product: FirebaseFirestore
-      - package: FirebaseAuth
+      - package: firebase-ios-sdk
         product: FirebaseStorage
