@@ -17,8 +17,12 @@ jobs:
       - name: Generate Xcode project
         run: |
           xcodegen generate
-          echo "=== Generated project ==="
-          ls -la *.xcodeproj
+
+          # Downgrade objectVersion from 77 to 56 for Xcode 15 compatibility
+          PBXPROJ="ReloApp.xcodeproj/project.pbxproj"
+          sed -i '' 's/objectVersion = [0-9]*/objectVersion = 56/' "$PBXPROJ"
+          echo "objectVersion set to:"
+          grep "objectVersion" "$PBXPROJ"
 
       - name: Build for iOS Simulator
         run: |
