@@ -11,20 +11,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode 16
+      - name: Select Xcode 16 and install iOS Simulator
         run: |
           sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
           xcodebuild -version
-          swift --version
+
+          # Install iOS 18 simulator runtime (required on macos-15 runners)
+          xcodebuild -downloadPlatform iOS
+
+          # List available simulators to confirm
+          xcrun simctl list devices available | grep iPhone | head -5
 
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
 
+          # Pick the first available iPhone simulator
+          DEVICE=$(xcrun simctl list devices available | grep "iPhone" | head -1 | sed 's/.*(\(.*\)) .*/\1/')
+          echo "Using simulator device: $DEVICE"
+
           xcodebuild build \
             -scheme ReloApp \
             -sdk iphonesimulator \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination "id=$DEVICE" \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
@@ -35,9 +44,9 @@ jobs:
         if: failure()
         run: |
           echo "=== BUILD ERRORS ==="
-          grep -A2 "error:" build.log || echo "No error lines found"
+          grep -A2 "error:" build.log 2>/dev/null || echo "No error lines found in build.log"
           echo "=== WARNINGS ==="
-          grep "warning:" build.log | head -20 || echo "No warnings"
+          grep "warning:" build.log 2>/dev/null | head -20 || echo "No warnings"
 
       - name: Zip .app bundle for Appetize.io
         run: |
