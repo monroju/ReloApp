@@ -1,0 +1,27 @@
+name: iOS 18 Build & Logic Check
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Set up Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app
+      - name: Build for iOS Simulator
+        run: |
+          # Pre-boot the simulator to prevent timeout
+          xcrun simctl boot "iPhone 16" || true
+
+          # Build with code signing disabled
+          xcodebuild build \
+            -scheme ReloApp \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -derivedDataPath build/derivedData \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY=""
