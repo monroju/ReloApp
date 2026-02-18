@@ -11,33 +11,49 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode 16 and install iOS Simulator
+      - name: Select Xcode and install iOS platform
         run: |
           sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
           xcodebuild -version
 
-          # Install iOS 18 simulator runtime (required on macos-15 runners)
+          # Download iOS simulator runtime
           xcodebuild -downloadPlatform iOS
 
-          # List available simulators to confirm
-          xcrun simctl list devices available | grep iPhone | head -5
+          # Debug: show what simulators are available
+          echo "=== Available runtimes ==="
+          xcrun simctl list runtimes
+          echo "=== Available iPhone devices ==="
+          xcrun simctl list devices available | grep -i iphone || echo "No iPhone devices found"
+
+      - name: Create simulator if needed
+        run: |
+          # Create a simulator device if none exists
+          RUNTIME=$(xcrun simctl list runtimes | grep -i "ios" | tail -1 | awk '{print $NF}')
+          echo "Using runtime: $RUNTIME"
+
+          if ! xcrun simctl list devices available | grep -qi iphone; then
+            echo "No iPhone simulator found, creating one..."
+            xcrun simctl create "MyiPhone" "com.apple.CoreSimulator.SimDeviceType.iPhone-16" "$RUNTIME"
+          fi
+
+          # Get the device UDID
+          UDID=$(xcrun simctl list devices available | grep -i iphone | head -1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}')
+          echo "SIMULATOR_UDID=$UDID" >> $GITHUB_ENV
+          echo "Using simulator UDID: $UDID"
 
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
 
-          # Pick the first available iPhone simulator
-          DEVICE=$(xcrun simctl list devices available | grep "iPhone" | head -1 | sed 's/.*(\(.*\)) .*/\1/')
-          echo "Using simulator device: $DEVICE"
-
           xcodebuild build \
             -scheme ReloApp \
             -sdk iphonesimulator \
-            -destination "id=$DEVICE" \
+            -destination "id=$SIMULATOR_UDID" \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
+            ARCHS=arm64 \
             2>&1 | tee build.log
 
       - name: Show build errors on failure
