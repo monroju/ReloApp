@@ -12,26 +12,39 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Select Xcode 16
-        run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+        run: |
+          sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
+          xcodebuild -version
+          swift --version
 
       - name: Build for iOS Simulator
         run: |
-          xcrun simctl boot "iPhone 16" || true
+          set -o pipefail
 
           xcodebuild build \
             -scheme ReloApp \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGN_IDENTITY=""
+            CODE_SIGN_IDENTITY="" \
+            2>&1 | tee build.log
+
+      - name: Show build errors on failure
+        if: failure()
+        run: |
+          echo "=== BUILD ERRORS ==="
+          grep -A2 "error:" build.log || echo "No error lines found"
+          echo "=== WARNINGS ==="
+          grep "warning:" build.log | head -20 || echo "No warnings"
 
       - name: Zip .app bundle for Appetize.io
         run: |
           APP_PATH=$(find build/derivedData/Build/Products -name "*.app" -type d | head -1)
           if [ -z "$APP_PATH" ]; then
             echo "ERROR: No .app bundle found"
+            find build/derivedData/Build/Products -type d | head -20
             exit 1
           fi
           echo "Found app at: $APP_PATH"

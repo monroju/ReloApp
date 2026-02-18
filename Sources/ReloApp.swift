@@ -73,18 +73,15 @@ struct MainTabView: View {
 
     var body: some View {
         TabView(selection: $coordinator.selectedTab) {
-            HomeDashboardView()
-                .tabItem {
-                    Label("Dashboard", systemImage: "square.grid.2x2")
-                }
-                .tag(AppTab.dashboard)
+            Tab("Dashboard", systemImage: "square.grid.2x2", value: .dashboard) {
+                HomeDashboardView()
+            }
 
-            CalendarView()
-                .tabItem {
-                    Label("Calendar", systemImage: "calendar")
-                }
-                .tag(AppTab.calendar)
+            Tab("Calendar", systemImage: "calendar", value: .calendar) {
+                CalendarView()
+            }
         }
+        .tabViewStyle(.tabBarOnly)
     }
 }
 
