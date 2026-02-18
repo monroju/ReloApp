@@ -29,7 +29,7 @@ final class SignUpViewModel {
         let hasUpper = password.range(of: "[A-Z]", options: .regularExpression) != nil
         let hasDigit = password.range(of: "[0-9]", options: .regularExpression) != nil
         let hasSpecial = password.range(of: "[^a-zA-Z0-9]", options: .regularExpression) != nil
-        let score = [hasUpper, hasDigit, hasSpecial, len >= 10].filter(\.self).count
+        let score = [hasUpper, hasDigit, hasSpecial, len >= 10].filter { $0 }.count
         switch score {
         case 0...1: return .weak
         case 2:     return .fair
