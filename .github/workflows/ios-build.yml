@@ -1,27 +1,43 @@
-name: iOS 18 Build & Logic Check
+name: Build iOS Simulator App
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-14
     steps:
-      - uses: actions/checkout@v5
-      - name: Set up Xcode
-        run: sudo xcode-select -s /Applications/Xcode.app
+      - uses: actions/checkout@v4
+
       - name: Build for iOS Simulator
         run: |
-          # Pre-boot the simulator to prevent timeout
           xcrun simctl boot "iPhone 16" || true
 
-          # Build with code signing disabled
           xcodebuild build \
             -scheme ReloApp \
+            -sdk iphonesimulator \
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
+
+      - name: Zip .app bundle for Appetize.io
+        run: |
+          APP_PATH=$(find build/derivedData/Build/Products -name "*.app" -type d | head -1)
+          if [ -z "$APP_PATH" ]; then
+            echo "ERROR: No .app bundle found"
+            exit 1
+          fi
+          echo "Found app at: $APP_PATH"
+          cd "$(dirname "$APP_PATH")"
+          zip -r "$GITHUB_WORKSPACE/ReloApp-Simulator.zip" "$(basename "$APP_PATH")"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ReloApp-Simulator
+          path: ReloApp-Simulator.zip
+          retention-days: 30

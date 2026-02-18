@@ -264,10 +264,9 @@ struct CalendarView: View {
                 .shadow(color: .black.opacity(0.1), radius: 8, y: 4)
                 .padding(.bottom, 24)
                 .transition(.move(edge: .bottom).combined(with: .opacity))
-                .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        withAnimation { viewModel.dismissToast() }
-                    }
+                .task {
+                    try? await Task.sleep(for: .seconds(2))
+                    withAnimation { viewModel.dismissToast() }
                 }
         }
     }
