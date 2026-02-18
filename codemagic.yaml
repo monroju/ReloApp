@@ -4,16 +4,13 @@ workflows:
     max_build_duration: 30
     instance_type: mac_mini_m2
     environment:
-      xcode: 15.4
+      xcode: 16.2
     scripts:
       - name: Install XcodeGen
         script: brew install xcodegen
 
       - name: Generate Xcode project
-        script: |
-          xcodegen generate
-          # Fix objectVersion for Xcode 15 compat
-          sed -i '' 's/objectVersion = [0-9]*/objectVersion = 56/' ReloApp.xcodeproj/project.pbxproj
+        script: xcodegen generate
 
       - name: Build for iOS Simulator
         script: |
@@ -21,7 +18,7 @@ workflows:
             -project ReloApp.xcodeproj \
             -scheme ReloApp \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
             -configuration Debug \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
@@ -31,8 +28,11 @@ workflows:
       - name: Package for Appetize.io
         script: |
           APP_PATH=$(find build/derivedData/Build/Products/Debug-iphonesimulator -name "*.app" -type d | head -1)
+          echo "Found: $APP_PATH"
+          ls -la "$APP_PATH"
           cd "$(dirname "$APP_PATH")"
           zip -r "$CM_BUILD_DIR/ReloApp-Simulator.zip" "$(basename "$APP_PATH")"
+          ls -lh "$CM_BUILD_DIR/ReloApp-Simulator.zip"
 
     artifacts:
       - "*.zip"
