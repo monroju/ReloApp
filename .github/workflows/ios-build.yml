@@ -29,18 +29,20 @@ jobs:
             -project GoThere.xcodeproj \
             -scheme GoThere
 
+      - name: List available simulators
+        run: |
+          xcrun simctl list runtimes
+          xcrun simctl list devices available | head -30
+
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
-
-          UDID=$(xcrun simctl list devices available | grep -i "iphone" | head -1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}')
-          echo "Using simulator: $UDID"
 
           xcodebuild build \
             -project GoThere.xcodeproj \
             -scheme GoThere \
             -sdk iphonesimulator \
-            -destination "id=$UDID" \
+            -destination "generic/platform=iOS Simulator" \
             -configuration Debug \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
