@@ -1,0 +1,310 @@
+[
+  {
+    "title": "Research Portugal visa options (D7 vs D8)",
+    "description": "D7 is for passive income (pension, investments, rentals). D8 is for digital nomads with remote employment income. Both are popular pathways for Americans.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 1,
+    "links": [
+      { "label": "Portugal Visa Portal", "url": "https://www.vistos.mne.gov.pt/" },
+      { "label": "VFS Global Portugal", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+    ]
+  },
+  {
+    "title": "Confirm your consulate jurisdiction (where you must apply)",
+    "description": "Portuguese visa applications are tied to your legal US residence. Confirm the correct consulate (Washington DC, New York, Boston, San Francisco, etc.).",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 2,
+    "links": [
+      { "label": "VFS Global Portugal", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+    ]
+  },
+  {
+    "title": "Decide on D7 (passive income) or D8 (digital nomad) track",
+    "description": "D7 requires proof of passive income. D8 requires proof of remote employment/self-employment with income threshold.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 3
+  },
+  {
+    "title": "Research cost of living in different Portuguese cities",
+    "description": "Lisbon is most expensive, Porto is mid-range, Algarve/Braga/Coimbra are more affordable. Consider your lifestyle needs.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 4,
+    "links": [
+      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Portugal" }
+    ]
+  },
+  {
+    "title": "Decide on initial city + accommodation strategy",
+    "description": "Short-term rental for first months vs signing a long-term lease. Consider Lisbon, Porto, Braga, Algarve, or smaller towns.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 5
+  },
+  {
+    "title": "Start learning Portuguese (apps, courses, tutors)",
+    "description": "Not strictly required but highly recommended. European Portuguese differs from Brazilian Portuguese.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 6,
+    "links": [
+      { "label": "Duolingo", "url": "https://www.duolingo.com" },
+      { "label": "Practice Portuguese", "url": "https://www.practiceportuguese.com/" }
+    ]
+  },
+  {
+    "title": "Budget plan: visa fees, travel, housing deposit, NIF/bank setup",
+    "description": "Estimate all costs including application fees, flights, first/last month rent, and initial setup costs.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 7
+  },
+  {
+    "title": "Passport validity check (6+ months beyond intended stay)",
+    "description": "Ensure your passport has at least 6 months validity and blank pages for visa stamps.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 1
+  },
+  {
+    "title": "Obtain FBI background check",
+    "description": "Request your Identity History Summary from the FBI. This is required for the Portuguese visa application.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 2,
+    "links": [
+      { "label": "FBI Background Check", "url": "https://www.edo.cjis.gov/" }
+    ]
+  },
+  {
+    "title": "Get apostille for FBI background check",
+    "description": "The FBI background check must be apostilled by the US Department of State for use in Portugal.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 3,
+    "links": [
+      { "label": "State Dept Apostille", "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html" }
+    ]
+  },
+  {
+    "title": "Gather proof of passive income (D7) or employment income (D8)",
+    "description": "D7: pension statements, investment income, rental income. D8: employment contract, pay stubs, tax returns showing remote income.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 4
+  },
+  {
+    "title": "Gather bank statements (3-6 months)",
+    "description": "Show consistent income and savings buffer. Statements should demonstrate the minimum income threshold for your chosen visa.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 5
+  },
+  {
+    "title": "Secure Portuguese-compliant health insurance",
+    "description": "Must cover medical expenses in Portugal without co-pays. Travel insurance for initial period, then transition to Portuguese coverage.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 6,
+    "links": [
+      { "label": "SafetyWing", "url": "https://safetywing.com/" },
+      { "label": "Cigna Global", "url": "https://www.cigna.com/individuals-families/international/" }
+    ]
+  },
+  {
+    "title": "Arrange proof of accommodation in Portugal",
+    "description": "Rental agreement, Airbnb booking confirmation, or letter from host. Address needed for visa application.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 7
+  },
+  {
+    "title": "Obtain NIF (Portuguese tax number) remotely",
+    "description": "You can get a NIF before arriving through a fiscal representative. Required for opening bank accounts and signing leases.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 8,
+    "links": [
+      { "label": "NIF Guide", "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-fiscal-number-nif/" }
+    ]
+  },
+  {
+    "title": "Obtain passport-sized photos (Portuguese specifications)",
+    "description": "3.5cm x 4.5cm, white background, recent photo. Check specific consulate requirements.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 9
+  },
+  {
+    "title": "Complete visa application form",
+    "description": "Fill out the national visa application form for Portugal. Available from VFS Global or consulate website.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 10
+  },
+  {
+    "title": "Build complete application packet (checklist review)",
+    "description": "Organize all documents: passport, photos, application form, background check with apostille, income proof, insurance, accommodation proof.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 1
+  },
+  {
+    "title": "Schedule visa appointment through VFS Global",
+    "description": "Most US applicants apply through VFS Global. Book appointment well in advance.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 2,
+    "links": [
+      { "label": "VFS Global Appointment", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+    ]
+  },
+  {
+    "title": "Submit visa application and biometrics",
+    "description": "Attend appointment with all documents. Biometrics (fingerprints) will be collected.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 3
+  },
+  {
+    "title": "Track visa application status",
+    "description": "Monitor application through VFS Global tracking system. Processing typically takes 2-4 months.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 4
+  },
+  {
+    "title": "Receive visa approval and collect passport",
+    "description": "Visa sticker will be placed in passport. Note: You must enter Portugal within the validity period of the visa.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 5
+  },
+  {
+    "title": "Book flights to Portugal",
+    "description": "Book within your visa validity window. Consider flying into Lisbon or Porto depending on your destination.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 6
+  },
+  {
+    "title": "Enter Portugal within visa validity period",
+    "description": "Your D7/D8 visa is valid for 4 months. You must enter Portugal and schedule your residency appointment within this window.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 1
+  },
+  {
+    "title": "Open Portuguese bank account",
+    "description": "With your NIF and passport, open a bank account. Popular options: ActivoBank, Millennium BCP, Novo Banco, or digital banks like N26.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 2,
+    "links": [
+      { "label": "ActivoBank", "url": "https://www.activobank.pt/" }
+    ]
+  },
+  {
+    "title": "Register local address",
+    "description": "Sign a rental contract or register your address with local authorities. Address needed for residency card.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 3
+  },
+  {
+    "title": "Schedule SEF/AIMA residency appointment",
+    "description": "Book appointment with immigration services (AIMA, formerly SEF) for your residence permit. Do this ASAP as slots fill quickly.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 4,
+    "links": [
+      { "label": "AIMA Portal", "url": "https://www.aima.gov.pt/" }
+    ]
+  },
+  {
+    "title": "Get Portuguese phone number/SIM card",
+    "description": "Major carriers: MEO, NOS, Vodafone. Prepaid SIMs available at airports and shops.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 5
+  },
+  {
+    "title": "Set up utilities (if signing long-term lease)",
+    "description": "Electricity (EDP), water (local provider), gas, and internet (MEO, NOS, Vodafone).",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 6
+  },
+  {
+    "title": "Register with local health center (Centro de Saúde)",
+    "description": "With residency permit, you can register for SNS (public healthcare). Get your Número de Utente.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 7
+  },
+  {
+    "title": "Attend AIMA residency appointment",
+    "description": "Bring all documents: passport, visa, NIF, proof of address, insurance, income proof, photos.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 1
+  },
+  {
+    "title": "Submit biometrics for residence card",
+    "description": "Fingerprints and photo taken at AIMA appointment. Card will be mailed to your address.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 2
+  },
+  {
+    "title": "Receive residence card (Título de Residência)",
+    "description": "Card typically arrives by mail within 2-4 weeks. This is your official residency proof.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 3
+  },
+  {
+    "title": "Understand Portuguese tax obligations",
+    "description": "After 183 days, you become a Portuguese tax resident. Consider NHR (Non-Habitual Resident) status for tax benefits.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 4,
+    "links": [
+      { "label": "NHR Tax Regime", "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-non-habitual-resident-tax-regime/" }
+    ]
+  },
+  {
+    "title": "Set reminder for residence permit renewal",
+    "description": "Initial permits are typically 2 years. Mark your calendar for renewal 60-90 days before expiry.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 5
+  },
+  {
+    "title": "Plan path to permanent residency",
+    "description": "After 5 years of legal residence, you can apply for permanent residency. Maintain documentation and address history.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 6
+  },
+  {
+    "title": "Exchange US driver's license (if applicable)",
+    "description": "US licenses can be used for limited time. Check requirements for exchanging to Portuguese license.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 7,
+    "links": [
+      { "label": "IMT License Info", "url": "https://www.imt-ip.pt/" }
+    ]
+  },
+  {
+    "title": "Document storage and backup system",
+    "description": "Maintain digital and physical copies of all residency documents, insurance, bank statements, and tax filings.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "pt_d7_passive_income",
+    "order": 8
+  }
+]

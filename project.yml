@@ -23,6 +23,9 @@ targets:
     platform: iOS
     sources:
       - GoThere
+    resources:
+      - path: GoThere/Seeds
+        type: folder
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.gothere.app

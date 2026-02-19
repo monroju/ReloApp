@@ -1,0 +1,364 @@
+[
+  {
+    "title": "Research Spain visa options",
+    "description": "Start with Non-Lucrative, Work, Student, or Digital Nomad basics. Confirm which options apply to your situation.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 1,
+    "links": [
+      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" },
+      { "label": "Long-stay visa overview", "url": "https://www.schengenvisainfo.com/long-stay-visas/" }
+    ]
+  },
+  {
+    "title": "Confirm your consulate jurisdiction",
+    "description": "Spanish visa applications are usually tied to where you legally reside. Confirm the correct consulate before preparing documents.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 2,
+    "links": [
+      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" }
+    ]
+  },
+  {
+    "title": "Choose the appropriate visa type for your situation",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 3
+  },
+  {
+    "title": "Research cost of living in different Spanish cities/regions",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 4,
+    "links": [
+      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/" }
+    ]
+  },
+  {
+    "title": "Decide on a target city or region in Spain",
+    "description": "Consider jobs/schools, healthcare access, climate, transit, and housing costs.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 5
+  },
+  {
+    "title": "Start learning Spanish (apps, courses, tutors)",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 6,
+    "links": [
+      { "label": "Duolingo", "url": "https://www.duolingo.com" },
+      { "label": "Instituto Cervantes", "url": "https://www.cervantes.es/" }
+    ]
+  },
+  {
+    "title": "Estimate monthly budget and proof-of-funds requirements",
+    "description": "Calculate required savings/income for your chosen visa and your family size. Build a conservative buffer.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "es_non_lucrative",
+    "order": 7
+  },
+  {
+    "title": "Ensure passport is valid for at least 6 months beyond intended stay",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 1
+  },
+  {
+    "title": "Request certified copies of birth/marriage certificates (if needed)",
+    "description": "Many consulates require certified copies, plus apostille and sworn translations depending on your case.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 2
+  },
+  {
+    "title": "Plan apostille and sworn translation timeline",
+    "description": "Apostilles and sworn translations can take weeks. Confirm which documents require each.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 3
+  },
+  {
+    "title": "Complete visa application form (specific to consulate)",
+    "description": "Fill the long-stay visa form required by your consulate.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 4,
+    "links": [
+      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" }
+    ]
+  },
+  {
+    "title": "Obtain passport-sized photos (meeting specifications)",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 5
+  },
+  {
+    "title": "Gather proof of financial means (bank statements, investments)",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 6
+  },
+  {
+    "title": "Secure Spanish-compliant health insurance",
+    "description": "Confirm it meets consulate requirements (often: full coverage, no co-pays, valid for Spain, for the required duration).",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 7,
+    "links": [
+      { "label": "Visa insurance overview", "url": "https://www.schengenvisainfo.com/visa-insurance/" }
+    ]
+  },
+  {
+    "title": "Obtain medical certificate (apostilled if required by consulate)",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 8
+  },
+  {
+    "title": "Obtain police clearance certificate (FBI background check, apostilled)",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 9,
+    "links": [
+      { "label": "FBI Background Check", "url": "https://www.edo.cjis.gov/" }
+    ]
+  },
+  {
+    "title": "Arrange proof of accommodation in Spain",
+    "description": "Rental agreement, hotel booking, or invitation letter from host.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 10
+  },
+  {
+    "title": "Get sworn translations of necessary documents",
+    "description": "Any documents not in Spanish need official sworn translations.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "es_non_lucrative",
+    "order": 11
+  },
+  {
+    "title": "Pay the visa application fee",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 1
+  },
+  {
+    "title": "Schedule visa appointment at the Spanish consulate",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 2
+  },
+  {
+    "title": "Submit visa application and attend interview (if required)",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 3
+  },
+  {
+    "title": "Track visa application status",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 4
+  },
+  {
+    "title": "Receive visa approval and collect passport with visa",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 5
+  },
+  {
+    "title": "Book flights to Spain",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 6
+  },
+  {
+    "title": "Arrange temporary accommodation in Spain for arrival",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 7,
+    "links": [
+      { "label": "Booking.com", "url": "https://www.booking.com" },
+      { "label": "Airbnb", "url": "https://www.airbnb.com" }
+    ]
+  },
+  {
+    "title": "Secure long-term housing (if not done)",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 8,
+    "links": [
+      { "label": "Idealista", "url": "https://www.idealista.com/en/" },
+      { "label": "Fotocasa", "url": "https://www.fotocasa.es/en/" }
+    ]
+  },
+  {
+    "title": "Notify US banks and credit card companies of travel/move",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 9
+  },
+  {
+    "title": "Set up mail forwarding in the US",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 10
+  },
+  {
+    "title": "Digitize and securely store important documents",
+    "description": "Keep encrypted backups (passport, visa, apostilles, insurance, bank statements, birth certificates).",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "es_non_lucrative",
+    "order": 11
+  },
+  {
+    "title": "Arrive in Spain",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 1
+  },
+  {
+    "title": "Register on the Padrón (Empadronamiento) at your local town hall",
+    "description": "You'll often need the padrón certificate for TIE, school enrollment, and some utilities.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 2
+  },
+  {
+    "title": "Obtain NIE (Número de Identificación de Extranjero) if not issued with visa",
+    "description": "Often handled alongside the TIE process. Required for most admin tasks.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 3,
+    "links": [
+      { "label": "NIE info / EX-15", "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex15" }
+    ]
+  },
+  {
+    "title": "Schedule TIE appointment (Cita Previa) within 30 days",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 4,
+    "links": [
+      { "label": "Cita Previa Portal", "url": "https://sede.administracionespublicas.gob.es/icpplustie/" }
+    ]
+  },
+  {
+    "title": "Fill out EX-17 application form for TIE",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 5,
+    "links": [
+      { "label": "Form EX-17 (TIE Application)", "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex17" }
+    ]
+  },
+  {
+    "title": "Pay TASA 790-012 fee for TIE",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 6,
+    "links": [
+      { "label": "Modelo 790 fees", "url": "https://sede.policia.gob.es/portalCiudadano/modelos790" }
+    ]
+  },
+  {
+    "title": "Attend TIE appointment with documents",
+    "description": "Bring passport, photos, EX-17, tasa receipt, padrón, and visa copy.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 7
+  },
+  {
+    "title": "Open/finalize Spanish bank account",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 8
+  },
+  {
+    "title": "Set up utilities (electricity, water, internet, gas)",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 9
+  },
+  {
+    "title": "Get a Spanish phone number/SIM card",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 10
+  },
+  {
+    "title": "Register for public healthcare (if eligible) or confirm private coverage",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 11
+  },
+  {
+    "title": "Register with a local doctor (Centro de Salud)",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 12
+  },
+  {
+    "title": "Set up Cl@ve (digital identity) for online government services",
+    "description": "Cl@ve helps you use Spanish public administration portals for appointments, taxes, and paperwork.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 1
+  },
+  {
+    "title": "Create a system for storing and renewing residency documents",
+    "description": "Track renewal deadlines for TIE, insurance policies, passport expiration, and required supporting documents.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 2
+  },
+  {
+    "title": "Confirm your tax residency status and obligations (Spain + US)",
+    "description": "If you live in Spain long enough, you may become a Spanish tax resident. Understand timelines, reporting, and US filing overlap.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 3
+  },
+  {
+    "title": "Choose a Spanish tax advisor (gestor) if your situation is complex",
+    "description": "Recommended if you have US income, investments, self-employment, or multiple countries involved.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 4
+  },
+  {
+    "title": "Set up recurring bill payments",
+    "description": "Use direct debit (domiciliación) where appropriate to avoid missed payments and admin friction.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 5
+  },
+  {
+    "title": "Register children for school or childcare (if applicable)",
+    "description": "Confirm enrollment requirements, local zoning/catchment rules, and required documents.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 6
+  },
+  {
+    "title": "Exchange US driver's license for Spanish one (within 6 months)",
+    "description": "Confirm whether you must exchange, re-test, or obtain a Spanish license depending on your state.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 7,
+    "links": [
+      { "label": "DGT License Exchange", "url": "https://sede.dgt.gob.es/es/permisos-de-conducir/canje-de-permisos/" }
+    ]
+  },
+  {
+    "title": "Review insurance coverage annually",
+    "description": "As your residency and life changes, your insurance needs change too (health, renters/home, liability).",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "es_non_lucrative",
+    "order": 8
+  }
+]

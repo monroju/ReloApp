@@ -30,6 +30,8 @@ final class DestinationRepository: ObservableObject {
                     self.activeVisaTrackId = data["activeVisaTrackId"] as? String ?? DestinationConfig.spainNonLucrative
                 }
             }
+            // Seed tasks for the active destination if needed
+            await seedDestinationIfNeeded(activeDestinationId)
         } catch {
             print("Error loading active destination: \(error)")
         }
@@ -46,6 +48,8 @@ final class DestinationRepository: ObservableObject {
             "activeDestinationId": destinationId,
             "activeVisaTrackId": defaultTrack
         ], merge: true)
+        // Seed tasks for this destination if needed
+        await seedDestinationIfNeeded(destinationId)
         startListeningTasks()
     }
 
@@ -81,6 +85,71 @@ final class DestinationRepository: ObservableObject {
         taskListener = nil
     }
 
+    // MARK: - Seed Tasks
+
+    /// Seeds destination tasks from bundled JSON if the destination has no tasks yet.
+    func seedDestinationIfNeeded(_ destinationId: String) async {
+        guard let uid = AuthService.shared.uid else { return }
+
+        let tasksCol = db.collection("users").document(uid)
+            .collection("destinations").document(destinationId)
+            .collection("tasks")
+
+        do {
+            // Check if tasks already exist
+            let existing = try await tasksCol.limit(to: 1).getDocuments()
+            guard existing.documents.isEmpty else { return }
+
+            // Load seed JSON from bundle
+            guard let seedTasks = Self.loadSeedJSON(for: destinationId) else {
+                print("No seed file for \(destinationId)")
+                return
+            }
+
+            // Batch write seed tasks
+            let batch = db.batch()
+            for seed in seedTasks {
+                let ref = tasksCol.document()
+                var data: [String: Any] = [
+                    "destinationId": destinationId,
+                    "visaTrackId": seed.visaTrackId,
+                    "phaseId": seed.phaseId,
+                    "title": seed.title,
+                    "completed": false,
+                    "seeded": true,
+                    "order": seed.order,
+                    "createdAt": FieldValue.serverTimestamp()
+                ]
+                if let desc = seed.description { data["description"] = desc }
+                if let links = seed.links {
+                    data["links"] = links.map { ["label": $0.label, "url": $0.url] }
+                }
+                let seedKey = DestinationTask.generateSeedKey(
+                    destinationId: destinationId,
+                    visaTrackId: seed.visaTrackId,
+                    phaseId: seed.phaseId,
+                    title: seed.title
+                )
+                data["seedKey"] = seedKey
+                batch.setData(data, forDocument: ref)
+            }
+            try await batch.commit()
+            print("Seeded \(seedTasks.count) tasks for \(destinationId)")
+        } catch {
+            print("Error seeding \(destinationId): \(error)")
+        }
+    }
+
+    private static func loadSeedJSON(for destinationId: String) -> [SeedTask]? {
+        // Try with subdirectory first, then without (XcodeGen may flatten resources)
+        let url = Bundle.main.url(forResource: "\(destinationId)_tasks", withExtension: "json", subdirectory: "Seeds")
+            ?? Bundle.main.url(forResource: "\(destinationId)_tasks", withExtension: "json")
+        guard let url, let data = try? Data(contentsOf: url) else {
+            return nil
+        }
+        return try? JSONDecoder().decode([SeedTask].self, from: data)
+    }
+
     func toggleTaskCompleted(_ task: DestinationTask) async throws {
         guard let uid = AuthService.shared.uid, let id = task.id else { return }
         let ref = db.collection("users").document(uid)
@@ -103,4 +172,20 @@ final class DestinationRepository: ObservableObject {
             try await ref.updateData(["dueAt": FieldValue.delete()])
         }
     }
+}
+
+// MARK: - Seed Task JSON Model
+
+private struct SeedTask: Decodable {
+    let title: String
+    let description: String?
+    let phaseId: String
+    let visaTrackId: String
+    let order: Int
+    let links: [SeedLink]?
+}
+
+private struct SeedLink: Decodable {
+    let label: String
+    let url: String
 }

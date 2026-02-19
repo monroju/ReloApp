@@ -1,0 +1,312 @@
+[
+  {
+    "title": "Research Mexico residency options",
+    "description": "Temporary Resident (1-4 years) vs Permanent Resident. Most Americans start with Temporary Resident via economic solvency.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 1,
+    "links": [
+      { "label": "INM Mexico", "url": "https://www.inm.gob.mx/" },
+      { "label": "Mexican Consulate Locator", "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados" }
+    ]
+  },
+  {
+    "title": "Select your Mexican consulate",
+    "description": "Apply at the consulate with jurisdiction over your US residence. Requirements can vary by consulate - check their specific requirements.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 2,
+    "links": [
+      { "label": "Consulate Locator", "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados" }
+    ]
+  },
+  {
+    "title": "Choose Mexico entry city and plan INM office visit",
+    "description": "After getting your visa sticker, you'll exchange it for a resident card at INM within 30 days of entry. Research INM offices in your destination city.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 3
+  },
+  {
+    "title": "Research cost of living in target Mexican cities",
+    "description": "CDMX, Guadalajara, Mérida, Puerto Vallarta, San Miguel de Allende, Oaxaca - each has different costs and expat communities.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 4,
+    "links": [
+      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Mexico" }
+    ]
+  },
+  {
+    "title": "Budget for consulate fees + INM fees + resident card",
+    "description": "Consulate visa fee, INM processing fee, and resident card fee are all separate. Budget approximately $400-600 USD total.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 5
+  },
+  {
+    "title": "Choose long-term city and housing strategy",
+    "description": "Many expats do short-term rentals first to explore neighborhoods before committing to a long-term lease.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 6,
+    "links": [
+      { "label": "Inmuebles24", "url": "https://www.inmuebles24.com/" },
+      { "label": "Segundamano", "url": "https://www.segundamano.mx/" }
+    ]
+  },
+  {
+    "title": "Start learning Spanish",
+    "description": "While many expat areas have English speakers, Spanish is essential for daily life, bureaucracy, and integration.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 7,
+    "links": [
+      { "label": "Duolingo", "url": "https://www.duolingo.com" },
+      { "label": "SpanishPod101", "url": "https://www.spanishpod101.com/" }
+    ]
+  },
+  {
+    "title": "Passport validity check",
+    "description": "Ensure passport has at least 6 months validity beyond your intended stay and blank pages for stamps.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 1
+  },
+  {
+    "title": "Prepare financial solvency proof (Option A: Bank Balance)",
+    "description": "Show bank statements with minimum balance held for 12 consecutive months. Amount varies by consulate but typically around $43,000 USD or more.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 2
+  },
+  {
+    "title": "Prepare financial solvency proof (Option B: Monthly Income)",
+    "description": "Show proof of regular monthly income for past 6 months. Minimum typically around $2,600 USD/month - check your consulate's specific requirements.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 3
+  },
+  {
+    "title": "Gather bank statements (6-12 months)",
+    "description": "Original bank statements showing account holder name, account number, and balances. Some consulates require bank letterhead.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 4
+  },
+  {
+    "title": "Gather investment account statements (if applicable)",
+    "description": "Investment accounts can count toward financial solvency. Get official statements from brokerage.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 5
+  },
+  {
+    "title": "Prepare proof of income (employment letter, pay stubs, tax returns)",
+    "description": "If using income method, gather W-2s, pay stubs, or employer letter confirming salary.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 6
+  },
+  {
+    "title": "Obtain passport-sized photos (Mexican specifications)",
+    "description": "Check your consulate's specific photo requirements - size, background color, and format may vary.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 7
+  },
+  {
+    "title": "Complete visa application form",
+    "description": "Download and complete the visa application form from your consulate's website. Some consulates have online systems.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 8
+  },
+  {
+    "title": "Prepare marriage/birth certificates (if applicable)",
+    "description": "If applying for family members, gather certified copies with apostilles. May need Spanish translations.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 9
+  },
+  {
+    "title": "Schedule consulate appointment",
+    "description": "Book appointment at your Mexican consulate. Wait times vary - schedule well in advance.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 1
+  },
+  {
+    "title": "Attend consulate appointment",
+    "description": "Bring all documents: passport, photos, application form, financial proof. Brief interview is typical.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 2
+  },
+  {
+    "title": "Pay visa fee at consulate",
+    "description": "Fee is paid at the appointment. Check accepted payment methods (cash, credit card, money order).",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 3
+  },
+  {
+    "title": "Receive visa sticker in passport",
+    "description": "If approved, visa sticker is placed in passport. This is valid for 180 days to enter Mexico and begin residency process.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 4
+  },
+  {
+    "title": "Verify visa details (dates, entries, name spelling)",
+    "description": "Check all information on the visa sticker for accuracy before leaving the consulate.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 5
+  },
+  {
+    "title": "Book flights to Mexico",
+    "description": "Enter Mexico within the visa validity period. Your visa sticker is NOT a resident card - you must exchange it at INM within 30 days.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 6
+  },
+  {
+    "title": "Enter Mexico within visa window",
+    "description": "Present visa sticker at immigration. You'll receive an FMM stamp and have 30 days to complete INM process.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 1
+  },
+  {
+    "title": "Keep your FMM form safe",
+    "description": "The FMM (tourist card) portion stamped at entry is critical. Do not lose it - needed for INM appointment.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 2
+  },
+  {
+    "title": "Schedule INM appointment for resident card exchange",
+    "description": "Book 'Canje' appointment at INM within 30 days of entry. This exchanges your visa sticker for actual resident card.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 3,
+    "links": [
+      { "label": "INM Appointments", "url": "https://www.inm.gob.mx/tramites/publico/estancia.html" }
+    ]
+  },
+  {
+    "title": "Pay INM fees (bank deposit)",
+    "description": "Pay the INM processing fee at a bank before your appointment. Keep the payment receipt.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 4
+  },
+  {
+    "title": "Attend INM appointment",
+    "description": "Bring passport, FMM, consulate visa, payment receipt, photos, and proof of address. Fingerprints and photo taken.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 5
+  },
+  {
+    "title": "Receive temporary resident card",
+    "description": "Card is typically ready for pickup within 2-4 weeks. This is your official Mexican residency document.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 6
+  },
+  {
+    "title": "Get CURP (Mexican ID number)",
+    "description": "With your resident card, obtain a CURP. This is Mexico's national ID number needed for many services.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 7,
+    "links": [
+      { "label": "CURP Portal", "url": "https://www.gob.mx/curp/" }
+    ]
+  },
+  {
+    "title": "Consider RFC (tax ID) if planning to work or invoice",
+    "description": "RFC is Mexico's tax ID. Needed if you'll have Mexican income, open certain accounts, or sign some contracts.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 8,
+    "links": [
+      { "label": "SAT Portal", "url": "https://www.sat.gob.mx/" }
+    ]
+  },
+  {
+    "title": "Open Mexican bank account",
+    "description": "With resident card and proof of address, open a bank account. Popular: BBVA, Santander, Banorte, or digital banks.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 9
+  },
+  {
+    "title": "Get Mexican phone number",
+    "description": "Telcel, AT&T Mexico, or Movistar. Prepaid SIMs available everywhere. Consider postpaid plan once you have bank account.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 10
+  },
+  {
+    "title": "Understand residency renewal schedule",
+    "description": "Temporary Resident is valid 1-4 years (as granted). Track your expiration date and renewal deadline.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 1
+  },
+  {
+    "title": "Set calendar reminder for renewal (30-60 days before expiry)",
+    "description": "Begin renewal process before your card expires. Late renewals can complicate your status.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 2
+  },
+  {
+    "title": "Track time toward permanent residency",
+    "description": "After 4 consecutive years as Temporary Resident, you can apply for Permanent Residency. Maintain continuous residency.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 3
+  },
+  {
+    "title": "Understand Mexican tax obligations",
+    "description": "If you become a Mexican tax resident (183+ days), you may owe Mexican taxes on worldwide income. Consult a tax professional.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 4
+  },
+  {
+    "title": "Maintain US tax compliance",
+    "description": "US citizens must file US taxes regardless of residence. Report foreign accounts (FBAR) if balances exceed $10,000.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 5
+  },
+  {
+    "title": "Register with IMSS or get private health insurance",
+    "description": "IMSS is Mexico's public healthcare system. Private insurance is also widely available and affordable.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 6,
+    "links": [
+      { "label": "IMSS", "url": "http://www.imss.gob.mx/" }
+    ]
+  },
+  {
+    "title": "Document storage and backup system",
+    "description": "Keep digital and physical copies of resident card, CURP, passport, bank statements, and tax documents.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 7
+  },
+  {
+    "title": "Consider Mexican driver's license",
+    "description": "US licenses work temporarily but getting a Mexican license simplifies things. Requirements vary by state.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "mx_temp_resident_economic_solvency",
+    "order": 8
+  }
+]
