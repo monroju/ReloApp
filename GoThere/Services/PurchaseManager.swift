@@ -69,7 +69,7 @@ final class PurchaseManager: ObservableObject {
     private func listenForTransactions() -> Task<Void, Never> {
         Task.detached { [weak self] in
             for await result in StoreTransaction.updates {
-                if let transaction = try? self?.checkVerified(result) {
+                if let transaction = try? await self?.checkVerified(result) {
                     await self?.updatePurchased(transaction)
                     await transaction.finish()
                 }
