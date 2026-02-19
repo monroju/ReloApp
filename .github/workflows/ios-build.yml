@@ -17,6 +17,11 @@ jobs:
           xcodebuild -version
           swift --version
 
+      - name: Install iOS Simulator runtime
+        run: |
+          xcodebuild -downloadPlatform iOS
+          xcrun simctl list runtimes
+
       - name: Install XcodeGen
         run: brew install xcodegen
 
@@ -29,20 +34,34 @@ jobs:
             -project GoThere.xcodeproj \
             -scheme GoThere
 
-      - name: List available simulators
-        run: |
-          xcrun simctl list runtimes
-          xcrun simctl list devices available | head -30
-
       - name: Build for iOS Simulator
         run: |
           set -o pipefail
+
+          # Find an available iPhone simulator
+          DEST=$(xcrun simctl list devices available -j | python3 -c "
+          import json, sys
+          data = json.load(sys.stdin)
+          for runtime, devices in data['devices'].items():
+              if 'iOS' in runtime:
+                  for d in devices:
+                      if 'iPhone' in d['name'] and d['isAvailable']:
+                          print(d['udid']); sys.exit(0)
+          " 2>/dev/null || true)
+
+          if [ -n "$DEST" ]; then
+            echo "Using simulator: $DEST"
+            DESTINATION="id=$DEST"
+          else
+            echo "No specific simulator found, using generic"
+            DESTINATION="generic/platform=iOS Simulator"
+          fi
 
           xcodebuild build \
             -project GoThere.xcodeproj \
             -scheme GoThere \
             -sdk iphonesimulator \
-            -destination "generic/platform=iOS Simulator" \
+            -destination "$DESTINATION" \
             -configuration Debug \
             -derivedDataPath build/derivedData \
             CODE_SIGNING_ALLOWED=NO \
