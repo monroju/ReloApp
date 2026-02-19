@@ -2,6 +2,8 @@ import Foundation
 import StoreKit
 import FirebaseFirestore
 
+private typealias StoreTransaction = StoreKit.Transaction
+
 /// Manages in-app purchases using StoreKit 2.
 @MainActor
 final class PurchaseManager: ObservableObject {
@@ -47,7 +49,7 @@ final class PurchaseManager: ObservableObject {
     }
 
     func restorePurchases() async {
-        for await result in Transaction.currentEntitlements {
+        for await result in StoreTransaction.currentEntitlements {
             if let transaction = try? checkVerified(result) {
                 await updatePurchased(transaction)
             }
@@ -66,7 +68,7 @@ final class PurchaseManager: ObservableObject {
 
     private func listenForTransactions() -> Task<Void, Never> {
         Task.detached { [weak self] in
-            for await result in Transaction.updates {
+            for await result in StoreTransaction.updates {
                 if let transaction = try? self?.checkVerified(result) {
                     await self?.updatePurchased(transaction)
                     await transaction.finish()
@@ -75,7 +77,7 @@ final class PurchaseManager: ObservableObject {
         }
     }
 
-    private func checkVerified(_ result: VerificationResult<Transaction>) throws -> Transaction {
+    private func checkVerified(_ result: VerificationResult<StoreTransaction>) throws -> StoreTransaction {
         switch result {
         case .unverified:
             throw StoreError.failedVerification
@@ -84,7 +86,7 @@ final class PurchaseManager: ObservableObject {
         }
     }
 
-    private func updatePurchased(_ transaction: Transaction) async {
+    private func updatePurchased(_ transaction: StoreTransaction) async {
         switch transaction.productID {
         case Self.productPortugal:
             unlockedCountries.insert("portugal")
