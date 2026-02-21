@@ -15,7 +15,7 @@ final class AuthService: ObservableObject {
     private init() {
         // Use in-memory auth persistence on simulators (fixes keychain errors on Appetize.io)
         #if targetEnvironment(simulator)
-        Auth.auth().useUserAccessGroup(nil)
+        try? Auth.auth().useUserAccessGroup(nil)
         #endif
 
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
