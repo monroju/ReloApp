@@ -34,8 +34,11 @@ final class AuthViewModel: ObservableObject {
         errorMessage = nil
         do {
             try await auth.signIn(email: email, password: password)
-        } catch {
-            errorMessage = error.localizedDescription
+        } catch let error as NSError {
+            // Show Firebase error code for easier debugging
+            let code = error.code
+            let msg = error.localizedDescription
+            errorMessage = "(\(code)) \(msg)"
         }
         isLoading = false
     }
