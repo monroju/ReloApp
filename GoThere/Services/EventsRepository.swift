@@ -1,7 +1,7 @@
 import Foundation
 import FirebaseFirestore
 
-/// Manages calendar events in Firestore.
+/// Manages calendar events in Firestore, with local fallback for guest mode.
 final class EventsRepository: ObservableObject {
     static let shared = EventsRepository()
 
@@ -10,15 +10,26 @@ final class EventsRepository: ObservableObject {
     private let db = Firestore.firestore()
     private var listener: ListenerRegistration?
 
+    private var localEvents: [EventItem] = []
+    private var localIdCounter = 0
+
+    private var isGuest: Bool { AuthService.shared.isGuest }
+
     private init() {}
 
     private var eventsCollection: CollectionReference? {
-        guard let uid = AuthService.shared.uid else { return nil }
+        guard !isGuest, let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid).collection("events")
     }
 
     func startListening() {
         stopListening()
+
+        if isGuest {
+            events = localEvents
+            return
+        }
+
         guard let col = eventsCollection else {
             events = []
             return
@@ -43,6 +54,18 @@ final class EventsRepository: ObservableObject {
     }
 
     func addEvent(title: String, date: Date, notes: String? = nil) async throws {
+        if isGuest {
+            localIdCounter += 1
+            let event = EventItem(
+                id: "local_\(localIdCounter)",
+                title: title,
+                dateMillis: date.timeIntervalSince1970 * 1000,
+                notes: notes
+            )
+            localEvents.append(event)
+            await MainActor.run { events = localEvents }
+            return
+        }
         guard let col = eventsCollection else { return }
         var data: [String: Any] = [
             "title": title,
@@ -59,11 +82,25 @@ final class EventsRepository: ObservableObject {
     }
 
     func updateTitle(eventId: String, title: String) async throws {
+        if isGuest {
+            if let idx = localEvents.firstIndex(where: { $0.id == eventId }) {
+                localEvents[idx].title = title
+                await MainActor.run { events = localEvents }
+            }
+            return
+        }
         guard let col = eventsCollection else { return }
         try await col.document(eventId).updateData(["title": title])
     }
 
     func updateDate(eventId: String, date: Date) async throws {
+        if isGuest {
+            if let idx = localEvents.firstIndex(where: { $0.id == eventId }) {
+                localEvents[idx].dateMillis = date.timeIntervalSince1970 * 1000
+                await MainActor.run { events = localEvents }
+            }
+            return
+        }
         guard let col = eventsCollection else { return }
         try await col.document(eventId).updateData([
             "dateMillis": date.timeIntervalSince1970 * 1000
@@ -71,6 +108,11 @@ final class EventsRepository: ObservableObject {
     }
 
     func deleteEvent(eventId: String) async throws {
+        if isGuest {
+            localEvents.removeAll { $0.id == eventId }
+            await MainActor.run { events = localEvents }
+            return
+        }
         guard let col = eventsCollection else { return }
         try await col.document(eventId).delete()
     }

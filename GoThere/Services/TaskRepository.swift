@@ -2,7 +2,7 @@ import Foundation
 import FirebaseFirestore
 import Combine
 
-/// Manages user tasks in Firestore.
+/// Manages user tasks in Firestore, with local fallback for guest mode.
 final class TaskRepository: ObservableObject {
     static let shared = TaskRepository()
 
@@ -11,15 +11,28 @@ final class TaskRepository: ObservableObject {
     private let db = Firestore.firestore()
     private var listener: ListenerRegistration?
 
+    /// In-memory store used when the user is a guest (no Firestore access).
+    private var localTasks: [TaskItem] = []
+    private var localIdCounter = 0
+
+    private var isGuest: Bool { AuthService.shared.isGuest }
+
     private init() {}
 
     private var tasksCollection: CollectionReference? {
-        guard let uid = AuthService.shared.uid else { return nil }
+        guard !isGuest, let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid).collection("tasks")
     }
 
     func startListening() {
         stopListening()
+
+        // Guest mode — use local in-memory tasks
+        if isGuest {
+            tasks = localTasks
+            return
+        }
+
         guard let col = tasksCollection else {
             tasks = []
             return
@@ -44,6 +57,15 @@ final class TaskRepository: ObservableObject {
     }
 
     func addTask(_ task: TaskItem) async throws {
+        if isGuest {
+            localIdCounter += 1
+            var t = task
+            t.id = "local_\(localIdCounter)"
+            t.createdAt = Date()
+            localTasks.append(t)
+            await MainActor.run { tasks = localTasks }
+            return
+        }
         guard let col = tasksCollection else { return }
         var data: [String: Any] = [
             "title": task.title,
@@ -60,11 +82,25 @@ final class TaskRepository: ObservableObject {
     }
 
     func toggleCompleted(_ task: TaskItem) async throws {
+        if isGuest {
+            if let idx = localTasks.firstIndex(where: { $0.id == task.id }) {
+                localTasks[idx].completed.toggle()
+                await MainActor.run { tasks = localTasks }
+            }
+            return
+        }
         guard let col = tasksCollection, let id = task.id else { return }
         try await col.document(id).updateData(["completed": !task.completed])
     }
 
     func setDue(_ task: TaskItem, date: Date?) async throws {
+        if isGuest {
+            if let idx = localTasks.firstIndex(where: { $0.id == task.id }) {
+                localTasks[idx].dueAt = date
+                await MainActor.run { tasks = localTasks }
+            }
+            return
+        }
         guard let col = tasksCollection, let id = task.id else { return }
         if let date = date {
             try await col.document(id).updateData(["dueAt": Timestamp(date: date)])
@@ -74,11 +110,27 @@ final class TaskRepository: ObservableObject {
     }
 
     func deleteTask(_ task: TaskItem) async throws {
+        if isGuest {
+            localTasks.removeAll { $0.id == task.id }
+            await MainActor.run { tasks = localTasks }
+            return
+        }
         guard let col = tasksCollection, let id = task.id else { return }
         try await col.document(id).delete()
     }
 
     func insertTasks(_ tasks: [TaskItem]) async throws {
+        if isGuest {
+            for task in tasks {
+                localIdCounter += 1
+                var t = task
+                t.id = "local_\(localIdCounter)"
+                t.createdAt = Date()
+                localTasks.append(t)
+            }
+            await MainActor.run { self.tasks = localTasks }
+            return
+        }
         guard let col = tasksCollection else { return }
         let batch = db.batch()
         for task in tasks {
