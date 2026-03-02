@@ -45,14 +45,14 @@ struct CalendarScreenView: View {
                     // Events for selected date
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Text("Events for \(vm.selectedDate, style: .date)")
+                            Text("Schedule for \(vm.selectedDate, style: .date)")
                                 .font(.headline)
                             Spacer()
                         }
                         .padding(.horizontal)
 
                         if vm.eventsForSelectedDate.isEmpty {
-                            Text("No events for this date")
+                            Text("No events for this date.")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                                 .padding(.horizontal)

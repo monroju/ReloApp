@@ -6,7 +6,6 @@ struct ResourcesView: View {
     @StateObject private var vm = ResourcesViewModel()
     @State private var expandedCategories: Set<String> = []
 
-    // Country-specific resource categories
     private var resourceCategories: [(String, String, [(String, String, String)])] {
         switch vm.selectedCountry {
         case "portugal":
@@ -48,7 +47,7 @@ struct ResourcesView: View {
                     ("Expats in Mexico", "https://www.expatsinmexico.com/", "Online community"),
                 ]),
             ]
-        default: // spain
+        default:
             return [
                 ("Visas & Immigration", "doc.text.fill", [
                     ("Spain Immigration (Exteriores)", "https://www.exteriores.gob.es/Consulados/", "Official consulate portal"),
@@ -74,90 +73,63 @@ struct ResourcesView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 0) {
-                // Country picker
-                Picker("Country", selection: $vm.selectedCountry) {
-                    ForEach(DestinationConfig.allDestinations) { dest in
-                        Text("\(dest.flagEmoji) \(dest.name)").tag(dest.id)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    // Country picker
+                    Picker("Country", selection: $vm.selectedCountry) {
+                        ForEach(DestinationConfig.allDestinations) { dest in
+                            Text("\(dest.flagEmoji) \(dest.name)").tag(dest.id)
+                        }
                     }
-                }
-                .pickerStyle(.segmented)
-                .padding()
+                    .pickerStyle(.segmented)
 
-                List {
-                    // Expandable resource categories
+                    // Expandable resource categories (matches Android accordion)
                     ForEach(resourceCategories, id: \.0) { category, icon, resources in
-                        Section {
-                            DisclosureGroup(
-                                isExpanded: Binding(
-                                    get: { expandedCategories.contains(category) },
-                                    set: { isExpanded in
-                                        if isExpanded {
-                                            expandedCategories.insert(category)
-                                        } else {
-                                            expandedCategories.remove(category)
-                                        }
-                                    }
-                                )
-                            ) {
-                                ForEach(resources, id: \.0) { title, url, subtitle in
-                                    if let linkUrl = URL(string: url) {
-                                        Link(destination: linkUrl) {
-                                            HStack {
-                                                VStack(alignment: .leading, spacing: 2) {
-                                                    Text(title)
-                                                        .font(.subheadline)
-                                                    Text(subtitle)
-                                                        .font(.caption)
-                                                        .foregroundColor(.secondary)
-                                                }
-                                                Spacer()
-                                                Image(systemName: "arrow.up.right.square")
-                                                    .font(.caption)
-                                                    .foregroundColor(.goPrimary)
-                                            }
-                                        }
-                                    }
-                                }
-                            } label: {
-                                HStack(spacing: 10) {
-                                    Image(systemName: icon)
+                        expandableSection(category: category, icon: icon, resources: resources)
+                    }
+
+                    // Downloadable Documents header (teal, matches Android)
+                    if vm.isLoading {
+                        HStack {
+                            ProgressView()
+                            Text("Loading documents...")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.top, 8)
+                    } else if !vm.items.isEmpty {
+                        Text("Downloadable Documents")
+                            .font(.headline)
+                            .foregroundColor(.goPrimary)
+                            .padding(.top, 8)
+
+                        ForEach(vm.groupedItems, id: \.0) { category, items in
+                            VStack(alignment: .leading, spacing: 0) {
+                                // Category header with count badge
+                                HStack {
+                                    Image(systemName: "doc.text.fill")
                                         .foregroundColor(.goPrimary)
-                                        .frame(width: 24)
                                     Text(category)
                                         .font(.subheadline.weight(.medium))
+                                    // Count badge (matches Android)
+                                    Text("\(items.count)")
+                                        .font(.caption2.bold())
+                                        .foregroundColor(.white)
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(Color.goPrimary)
+                                        .clipShape(Capsule())
+                                    Spacer()
                                 }
-                            }
-                        }
-                    }
+                                .padding(.vertical, 8)
 
-                    // Firebase Storage downloadable documents
-                    if vm.isLoading {
-                        Section("Downloadable Documents") {
-                            HStack {
-                                ProgressView()
-                                Text("Loading documents...")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    } else if !vm.items.isEmpty {
-                        ForEach(vm.groupedItems, id: \.0) { category, items in
-                            Section(category) {
                                 ForEach(items) { item in
                                     HStack {
-                                        Image(systemName: "doc.text.fill")
-                                            .foregroundColor(.goPrimary)
-                                            .frame(width: 30)
-                                        VStack(alignment: .leading) {
-                                            Text(item.name)
-                                                .font(.subheadline)
-                                            if let size = item.sizeBytes {
-                                                Text(ByteCountFormatter.string(fromByteCount: size, countStyle: .file))
-                                                    .font(.caption)
-                                                    .foregroundColor(.secondary)
-                                            }
-                                        }
+                                        Image(systemName: "doc.text")
+                                            .foregroundColor(.secondary)
+                                            .frame(width: 24)
+                                        Text(item.name)
+                                            .font(.subheadline)
                                         Spacer()
                                         if let urlStr = item.downloadUrl, let url = URL(string: urlStr) {
                                             Link(destination: url) {
@@ -167,12 +139,18 @@ struct ResourcesView: View {
                                             }
                                         }
                                     }
+                                    .padding(.vertical, 6)
+
+                                    if item.id != items.last?.id {
+                                        Divider()
+                                    }
                                 }
                             }
+                            .goCard()
                         }
                     }
                 }
-                .listStyle(.insetGrouped)
+                .padding()
             }
             .goTopBar(showThemeToggle: false)
             .onChange(of: vm.selectedCountry) { _ in
@@ -183,5 +161,65 @@ struct ResourcesView: View {
                 await vm.loadDocuments()
             }
         }
+    }
+
+    private func expandableSection(category: String, icon: String, resources: [(String, String, String)]) -> some View {
+        VStack(spacing: 0) {
+            // Header row — tappable to expand
+            Button {
+                withAnimation {
+                    if expandedCategories.contains(category) {
+                        expandedCategories.remove(category)
+                    } else {
+                        expandedCategories.insert(category)
+                    }
+                }
+            } label: {
+                HStack(spacing: 10) {
+                    Image(systemName: icon)
+                        .foregroundColor(.goPrimary)
+                        .frame(width: 24)
+                    Text(category)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Image(systemName: expandedCategories.contains(category) ? "chevron.up" : "chevron.down")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+            }
+
+            // Expanded content
+            if expandedCategories.contains(category) {
+                VStack(spacing: 0) {
+                    ForEach(resources, id: \.0) { title, url, subtitle in
+                        if let linkUrl = URL(string: url) {
+                            Link(destination: linkUrl) {
+                                HStack {
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text(title)
+                                            .font(.subheadline)
+                                            .foregroundColor(.primary)
+                                        Text(subtitle)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    Spacer()
+                                    Text("View")
+                                        .font(.caption.bold())
+                                        .foregroundColor(.goPrimary)
+                                }
+                            }
+                            .padding(.horizontal)
+                            .padding(.vertical, 8)
+                            Divider().padding(.leading)
+                        }
+                    }
+                }
+            }
+        }
+        .background(Color(.secondarySystemGroupedBackground))
+        .cornerRadius(12)
     }
 }

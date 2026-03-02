@@ -21,7 +21,7 @@ struct MainTabView: View {
 
             DocumentsView()
                 .tabItem {
-                    Label("Docs", systemImage: "doc.fill")
+                    Label("Documents", systemImage: "doc.fill")
                 }
                 .tag(2)
 
@@ -33,9 +33,10 @@ struct MainTabView: View {
 
             NavigationStack {
                 DecisionTreeView()
+                    .goTopBar(showThemeToggle: false)
             }
             .tabItem {
-                Label("Decide", systemImage: "signpost.right.fill")
+                Label("Decision Tree", systemImage: "signpost.right.fill")
             }
             .tag(4)
         }

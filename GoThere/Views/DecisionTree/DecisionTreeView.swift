@@ -3,16 +3,16 @@ import SwiftUI
 struct DecisionTreeView: View {
     @StateObject private var vm = DecisionViewModel()
     @State private var showCostCalculator = false
+    @State private var showResults = false
 
     var body: some View {
         Group {
             if vm.showResults {
                 resultsView
             } else {
-                questionnaireView
+                singlePageView
             }
         }
-        .navigationTitle("Find Your City")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showCostCalculator) {
             NavigationStack {
@@ -26,79 +26,64 @@ struct DecisionTreeView: View {
         }
     }
 
-    // MARK: - Questionnaire
+    // MARK: - Single-Page Filter Layout (matches Android)
 
-    private var questionnaireView: some View {
-        VStack(spacing: 0) {
-            // Progress
-            ProgressView(value: Double(vm.currentStep + 1), total: Double(vm.totalSteps))
-                .tint(.goPrimary)
-                .padding()
-
-            Text("Step \(vm.currentStep + 1) of \(vm.totalSteps)")
-                .font(.caption)
-                .foregroundColor(.secondary)
-
-            ScrollView {
-                VStack(spacing: 24) {
-                    stepContent
+    private var singlePageView: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                // Title — teal, matches Android
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Decision Tree: Best Places")
+                            .font(.title2.bold())
+                            .foregroundColor(.goPrimary)
+                        Text("in \(countryName)")
+                            .font(.title2.bold())
+                            .foregroundColor(.goPrimary)
+                    }
+                    Spacer()
+                    Button {
+                        vm.calculateResults()
+                    } label: {
+                        Image(systemName: "list.clipboard.fill")
+                            .font(.title2)
+                            .foregroundColor(.goPrimary)
+                    }
                 }
-                .padding()
-            }
 
-            // Navigation
-            HStack {
-                if vm.currentStep > 0 {
-                    Button("Back") { vm.previousStep() }
-                        .buttonStyle(.bordered)
-                        .tint(.goPrimary)
+                // Country selector
+                sectionHeader("Country")
+                FlowLayout(spacing: 8) {
+                    ForEach(DestinationConfig.allDestinations) { dest in
+                        FilterChip(
+                            title: "\(dest.flagEmoji) \(dest.name)",
+                            isSelected: vm.profile.countryId == dest.id
+                        ) { vm.profile.countryId = dest.id }
+                    }
                 }
-                Spacer()
-                Button(vm.currentStep == vm.totalSteps - 1 ? "See Results" : "Next") {
-                    vm.nextStep()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(.goPrimary)
-            }
-            .padding()
-        }
-    }
 
-    @ViewBuilder
-    private var stepContent: some View {
-        switch vm.currentStep {
-        case 0:
-            questionCard(title: "Which country?") {
-                ForEach(DestinationConfig.allDestinations) { dest in
-                    SelectionButton(
-                        title: "\(dest.flagEmoji) \(dest.name)",
-                        isSelected: vm.profile.countryId == dest.id
-                    ) { vm.profile.countryId = dest.id }
-                }
-            }
-        case 1:
-            questionCard(title: "Who's moving?") {
-                // Filter chips style
+                // Household
+                sectionHeader("Household")
                 FlowLayout(spacing: 8) {
                     ForEach(Household.allCases) { h in
-                        FilterChip(title: h.rawValue, isSelected: vm.profile.household == h.rawValue) {
+                        FilterChip(title: shortLabel(h.rawValue), isSelected: vm.profile.household == h.rawValue) {
                             vm.profile.household = h.rawValue
                         }
                     }
                 }
-            }
-        case 2:
-            questionCard(title: "What's your budget?") {
+
+                // Budget
+                sectionHeader("Budget")
                 FlowLayout(spacing: 8) {
                     ForEach(Budget.allCases) { b in
-                        FilterChip(title: b.rawValue, isSelected: vm.profile.budget == b.rawValue) {
+                        FilterChip(title: shortBudget(b.rawValue), isSelected: vm.profile.budget == b.rawValue) {
                             vm.profile.budget = b.rawValue
                         }
                     }
                 }
-            }
-        case 3:
-            questionCard(title: "Preferred climate?") {
+
+                // Preferred Climate
+                sectionHeader("Preferred Climate")
                 FlowLayout(spacing: 8) {
                     ForEach(ClimatePref.allCases) { c in
                         FilterChip(title: c.rawValue, isSelected: vm.profile.climate == c.rawValue) {
@@ -106,28 +91,29 @@ struct DecisionTreeView: View {
                         }
                     }
                 }
-            }
-        case 4:
-            questionCard(title: "Location preferences") {
+
+                // Toggles
                 VStack(spacing: 12) {
-                    Toggle("Prefer coastal areas", isOn: $vm.profile.preferCoastal)
+                    Toggle("Prefer Coastal Living", isOn: $vm.profile.preferCoastal)
                         .tint(.goPrimary)
-                    Toggle("Prefer big cities", isOn: $vm.profile.preferBigCity)
+                    Toggle("Prefer Big Cities", isOn: $vm.profile.preferBigCity)
                         .tint(.goPrimary)
-                    Toggle("Safety is critical", isOn: $vm.profile.safetyCritical)
+                    Toggle("Safety is Critical", isOn: $vm.profile.safetyCritical)
                         .tint(.goPrimary)
                 }
-            }
-        case 5:
-            questionCard(title: "Language comfort?") {
-                ForEach(LanguageComfort.allCases) { l in
-                    SelectionButton(title: l.rawValue, isSelected: vm.profile.language == l.rawValue) {
-                        vm.profile.language = l.rawValue
+
+                // Language
+                sectionHeader("Language Comfort")
+                FlowLayout(spacing: 8) {
+                    ForEach(LanguageComfort.allCases) { l in
+                        FilterChip(title: l.rawValue, isSelected: vm.profile.language == l.rawValue) {
+                            vm.profile.language = l.rawValue
+                        }
                     }
                 }
-            }
-        case 6:
-            questionCard(title: "Business focus?") {
+
+                // Business Focus
+                sectionHeader("Business Focus")
                 FlowLayout(spacing: 8) {
                     ForEach(BusinessFocus.allCases) { b in
                         FilterChip(title: b.rawValue, isSelected: vm.profile.businessFocus == b.rawValue) {
@@ -135,33 +121,22 @@ struct DecisionTreeView: View {
                         }
                     }
                 }
-            }
-        case 7:
-            questionCard(title: "Nightlife importance?") {
-                ForEach(NightlifePref.allCases) { n in
-                    SelectionButton(title: n.rawValue, isSelected: vm.profile.nightlife == n.rawValue) {
-                        vm.profile.nightlife = n.rawValue
-                    }
-                }
-            }
-        case 8:
-            questionCard(title: "Expat community size?") {
-                ForEach(DensityPref.allCases) { d in
-                    SelectionButton(title: d.rawValue, isSelected: vm.profile.density == d.rawValue) {
-                        vm.profile.density = d.rawValue
-                    }
-                }
-            }
-        default:
-            EmptyView()
-        }
-    }
 
-    private func questionCard<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text(title)
-                .font(.title2.bold())
-            content()
+                // See Results button
+                Button {
+                    vm.calculateResults()
+                } label: {
+                    Text("See Results")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                        .background(Color.goPrimary)
+                        .cornerRadius(12)
+                }
+                .padding(.top, 8)
+            }
+            .padding()
         }
     }
 
@@ -178,7 +153,6 @@ struct DecisionTreeView: View {
                     resultCard(ranked: ranked, rank: index + 1)
                 }
 
-                // Cost Calculator button
                 Button {
                     showCostCalculator = true
                 } label: {
@@ -239,7 +213,6 @@ struct DecisionTreeView: View {
                 }
             }
 
-            // Micro advice
             let tips = MicroAdvice.tips(for: ranked.destination.id, countryId: vm.profile.countryId)
             if !tips.isEmpty {
                 VStack(alignment: .leading, spacing: 4) {
@@ -263,6 +236,34 @@ struct DecisionTreeView: View {
             .foregroundColor(.goPrimary)
         }
         .goCard()
+    }
+
+    // MARK: - Helpers
+
+    private var countryName: String {
+        DestinationConfig.getDestination(vm.profile.countryId)?.name ?? "Spain"
+    }
+
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.headline)
+    }
+
+    private func shortLabel(_ raw: String) -> String {
+        switch raw {
+        case "Family with Kids": return "FamilyKids"
+        case "Single": return "Singles"
+        default: return raw
+        }
+    }
+
+    private func shortBudget(_ raw: String) -> String {
+        switch raw {
+        case "Budget-Friendly": return "Low"
+        case "Mid-Range": return "Medium"
+        case "Premium": return "High"
+        default: return raw
+        }
     }
 }
 

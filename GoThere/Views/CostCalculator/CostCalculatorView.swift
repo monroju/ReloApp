@@ -1,148 +1,234 @@
 import SwiftUI
 
 struct CostCalculatorView: View {
-    @State private var selectedCountry = DestinationConfig.spain
-    @State private var selectedCities: Set<String> = []
-    @State private var showFamily = false
-    @State private var housingType: HousingType = .oneBed
+    @Environment(\.colorScheme) var colorScheme
 
-    enum HousingType: String, CaseIterable {
-        case oneBed = "1-Bed Apartment"
-        case threeBed = "3-Bed Apartment"
-    }
+    @State private var selectedCountry = DestinationConfig.spain
+    @State private var selectedCityId: String = "madrid"
+    @State private var showInUSD = false
+    @State private var housingType = 1 // 0=Studio, 1=1BR, 2=2BR
+    @State private var mealsOutPerWeek: Double = 4
+    @State private var publicTransport = true
+    @State private var privateHealthInsurance = true
+    @State private var gymMembership = false
 
     private var availableCities: [CityCostData] {
         CostDatabase.cities(for: selectedCountry)
     }
 
-    private var comparedCities: [CityCostData] {
-        CostDatabase.all.filter { selectedCities.contains($0.cityId) }
+    private var selectedCity: CityCostData? {
+        availableCities.first { $0.cityId == selectedCityId }
+    }
+
+    // EUR/USD approximate rate
+    private var currencySymbol: String { showInUSD ? "$" : "€" }
+    private var rate: Double { showInUSD ? 1.0 : 0.92 }
+
+    private func formatted(_ amount: Int) -> String {
+        let converted = Int(Double(amount) * rate)
+        return "\(converted.formatted()) \(currencySymbol)"
     }
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
-                // Country picker
-                Picker("Country", selection: $selectedCountry) {
-                    ForEach(DestinationConfig.allDestinations) { dest in
-                        Text("\(dest.flagEmoji) \(dest.name)").tag(dest.id)
+            VStack(alignment: .leading, spacing: 20) {
+                // Title
+                HStack {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Cost Calculator")
+                            .font(.title2.bold())
+                            .foregroundColor(.goPrimary)
+                        Text("Estimate your monthly expenses")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
                     }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-                .onChange(of: selectedCountry) { _ in
-                    selectedCities.removeAll()
+                    Spacer()
                 }
 
-                // Housing type picker
-                Picker("Housing", selection: $housingType) {
-                    ForEach(HousingType.allCases, id: \.self) { type in
-                        Text(type.rawValue).tag(type)
-                    }
-                }
-                .pickerStyle(.segmented)
-                .padding(.horizontal)
-
-                // Lifestyle toggles
-                VStack(alignment: .leading, spacing: 8) {
-                    Toggle("Include family costs", isOn: $showFamily)
-                        .tint(.goPrimary)
-                }
-                .padding(.horizontal)
-
-                // City selection chips
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Select cities to compare")
-                        .font(.headline)
-                        .padding(.horizontal)
-
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
-                            ForEach(availableCities) { city in
-                                FilterChip(
-                                    title: city.cityName,
-                                    isSelected: selectedCities.contains(city.cityId)
-                                ) {
-                                    if selectedCities.contains(city.cityId) {
-                                        selectedCities.remove(city.cityId)
-                                    } else {
-                                        selectedCities.insert(city.cityId)
+                // City picker — dropdown style
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("City")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Menu {
+                        ForEach(DestinationConfig.allDestinations) { dest in
+                            Section(dest.name) {
+                                ForEach(CostDatabase.cities(for: dest.id)) { city in
+                                    Button {
+                                        selectedCountry = dest.id
+                                        selectedCityId = city.cityId
+                                    } label: {
+                                        HStack {
+                                            Text(city.cityName)
+                                            if city.cityId == selectedCityId {
+                                                Image(systemName: "checkmark")
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
-                        .padding(.horizontal)
+                    } label: {
+                        HStack {
+                            Image(systemName: "building.2")
+                                .foregroundColor(.goPrimary)
+                            Text(selectedCity?.cityName ?? "Select city")
+                                .foregroundColor(.primary)
+                            Spacer()
+                            Image(systemName: "chevron.down")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
+                        .background(colorScheme == .dark ? Color.goSurfaceDark : Color.goSurfaceLight)
+                        .cornerRadius(10)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
+                        )
                     }
                 }
 
-                // Comparison cards
-                if comparedCities.isEmpty {
-                    VStack(spacing: 8) {
-                        Image(systemName: "chart.bar.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.goPrimary.opacity(0.5))
-                        Text("Select cities above to compare costs")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                // Show in USD toggle
+                HStack {
+                    Text("Show in USD")
+                        .font(.subheadline)
+                    Spacer()
+                    Toggle("", isOn: $showInUSD)
+                        .tint(.goPrimary)
+                        .labelsHidden()
+                }
+
+                Divider()
+
+                // Customize Your Lifestyle
+                Text("Customize Your Lifestyle")
+                    .font(.headline)
+
+                // Housing Type — 3-option picker (matches Android: Studio/1BR/2BR)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Housing Type")
+                        .font(.subheadline)
+                    Picker("Housing", selection: $housingType) {
+                        Text("Studio").tag(0)
+                        Text("1 BR").tag(1)
+                        Text("2 BR").tag(2)
                     }
-                    .padding(.top, 40)
-                } else {
-                    ForEach(comparedCities) { city in
-                        costCard(city)
-                    }
+                    .pickerStyle(.segmented)
+                }
+
+                // Meals out per week
+                HStack {
+                    Image(systemName: "fork.knife")
+                        .foregroundColor(.secondary)
+                    Text("Meals out per week")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                    Spacer()
+                    Text("\(Int(mealsOutPerWeek))")
+                        .font(.subheadline.bold())
+                }
+                Slider(value: $mealsOutPerWeek, in: 0...14, step: 1)
+                    .tint(.goPrimary)
+
+                // Lifestyle toggles
+                VStack(spacing: 12) {
+                    lifestyleToggle(icon: "bus.fill", label: "Public Transport", isOn: $publicTransport)
+                    lifestyleToggle(icon: "heart.text.square.fill", label: "Private Health Insurance", isOn: $privateHealthInsurance)
+                    lifestyleToggle(icon: "figure.strengthtraining.traditional", label: "Gym Membership", isOn: $gymMembership)
+                }
+
+                Divider()
+
+                // Monthly Cost Breakdown
+                if let city = selectedCity {
+                    monthlyCostBreakdown(city)
                 }
             }
-            .padding(.vertical)
+            .padding()
         }
         .navigationTitle("Cost Calculator")
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: selectedCountry) { _ in
+            if let first = availableCities.first {
+                selectedCityId = first.cityId
+            }
+        }
     }
 
-    private func costCard(_ city: CityCostData) -> some View {
-        let useFamily = housingType == .threeBed || showFamily
-        let rent = useFamily ? city.rent3Bed : city.rent1Bed
-        let total = rent + city.groceries + city.dining + city.transport + city.utilities + city.internet + city.healthcare
+    private func lifestyleToggle(icon: String, label: String, isOn: Binding<Bool>) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.goPrimary)
+                .frame(width: 24)
+            Text(label)
+                .font(.subheadline)
+            Spacer()
+            Toggle("", isOn: isOn)
+                .tint(.goPrimary)
+                .labelsHidden()
+        }
+    }
 
-        return VStack(alignment: .leading, spacing: 12) {
+    private func monthlyCostBreakdown(_ city: CityCostData) -> some View {
+        let rent: Int = {
+            switch housingType {
+            case 0: return Int(Double(city.rent1Bed) * 0.75) // Studio ~75% of 1BR
+            case 2: return city.rent3Bed
+            default: return city.rent1Bed
+            }
+        }()
+        let utilities = city.utilities
+        let groceries = city.groceries
+        let diningCost = Int(Double(city.dining) * (mealsOutPerWeek / 4.0))
+        let transportCost = publicTransport ? city.transport : 0
+        let healthCost = privateHealthInsurance ? city.healthcare : 0
+        let gymCost = gymMembership ? 40 : 0
+        let internet = city.internet
+        let total = rent + utilities + groceries + diningCost + transportCost + healthCost + gymCost + internet
+
+        return VStack(alignment: .leading, spacing: 10) {
+            Text("Monthly Cost Breakdown")
+                .font(.headline)
+
+            costRow(icon: "house.fill", label: "Rent", amount: rent)
+            costRow(icon: "bolt.fill", label: "Utilities", amount: utilities)
+            costRow(icon: "cart.fill", label: "Groceries", amount: groceries)
+            costRow(icon: "fork.knife", label: "Dining Out", amount: diningCost)
+            if publicTransport {
+                costRow(icon: "bus.fill", label: "Transport", amount: transportCost)
+            }
+            if privateHealthInsurance {
+                costRow(icon: "heart.text.square.fill", label: "Health Insurance", amount: healthCost)
+            }
+            if gymMembership {
+                costRow(icon: "figure.strengthtraining.traditional", label: "Gym", amount: gymCost)
+            }
+            costRow(icon: "wifi", label: "Internet", amount: internet)
+
+            Divider()
+
             HStack {
-                Text(city.cityName)
+                Text("Total")
                     .font(.headline)
                 Spacer()
-                Text("$\(total)/mo")
+                Text(formatted(total))
                     .font(.title3.bold())
                     .foregroundColor(.goPrimary)
             }
-
-            VStack(spacing: 6) {
-                costRow("Rent", rent, pct: Double(rent) / Double(total))
-                costRow("Groceries", city.groceries, pct: Double(city.groceries) / Double(total))
-                costRow("Dining Out", city.dining, pct: Double(city.dining) / Double(total))
-                costRow("Transport", city.transport, pct: Double(city.transport) / Double(total))
-                costRow("Utilities", city.utilities, pct: Double(city.utilities) / Double(total))
-                costRow("Internet", city.internet, pct: Double(city.internet) / Double(total))
-                costRow("Healthcare", city.healthcare, pct: Double(city.healthcare) / Double(total))
-            }
         }
-        .goCard()
-        .padding(.horizontal)
     }
 
-    private func costRow(_ label: String, _ amount: Int, pct: Double) -> some View {
-        VStack(spacing: 2) {
-            HStack {
-                Text(label)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                Spacer()
-                Text("$\(amount)")
-                    .font(.caption.bold())
-            }
-            GeometryReader { geo in
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(Color.goPrimary.opacity(0.3))
-                    .frame(width: geo.size.width * min(pct, 1.0))
-            }
-            .frame(height: 4)
+    private func costRow(icon: String, label: String, amount: Int) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.secondary)
+                .frame(width: 24)
+            Text(label)
+                .font(.subheadline)
+            Spacer()
+            Text(formatted(amount))
+                .font(.subheadline)
         }
     }
 }

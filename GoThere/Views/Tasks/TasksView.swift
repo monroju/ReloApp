@@ -37,20 +37,17 @@ struct TasksView: View {
                     .padding(.vertical, 8)
                 }
 
-                // Import Seed button
+                // Import Seed button — teal outlined pill (matches Android)
                 Button {
                     showImportSeed = true
                 } label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.down")
-                        Text("Import Seed Tasks")
-                            .font(.subheadline)
-                    }
-                    .foregroundColor(.goPrimary)
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 16)
-                    .background(Color.goPrimary.opacity(0.1))
-                    .cornerRadius(8)
+                    Text("Import Seed")
+                        .font(.subheadline.weight(.medium))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 20)
+                        .background(Color.goPrimary)
+                        .cornerRadius(20)
                 }
                 .padding(.bottom, 8)
 

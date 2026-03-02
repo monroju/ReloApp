@@ -9,6 +9,7 @@ final class AuthService: ObservableObject {
 
     @Published var currentUser: User?
     @Published var isAuthenticated = false
+    @Published var isGuest = false
 
     private var authListener: AuthStateDidChangeListenerHandle?
 
@@ -21,12 +22,15 @@ final class AuthService: ObservableObject {
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             DispatchQueue.main.async {
                 self?.currentUser = user
-                self?.isAuthenticated = user != nil
+                self?.isAuthenticated = user != nil || (self?.isGuest ?? false)
             }
         }
     }
 
-    var uid: String? { currentUser?.uid }
+    var uid: String? {
+        if isGuest { return "guest" }
+        return currentUser?.uid
+    }
 
     func signIn(email: String, password: String) async throws {
         try await Auth.auth().signIn(withEmail: email, password: password)
@@ -34,7 +38,6 @@ final class AuthService: ObservableObject {
 
     func createUser(email: String, password: String) async throws {
         let result = try await Auth.auth().createUser(withEmail: email, password: password)
-        // Create user document in Firestore
         let db = Firestore.firestore()
         try await db.collection("users").document(result.user.uid).setData([
             "email": email,
@@ -42,7 +45,13 @@ final class AuthService: ObservableObject {
         ])
     }
 
+    func signInAsGuest() {
+        isGuest = true
+        isAuthenticated = true
+    }
+
     func signOut() {
+        isGuest = false
         try? Auth.auth().signOut()
     }
 }
