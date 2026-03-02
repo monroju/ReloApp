@@ -1,9 +1,9 @@
 import SwiftUI
 
-/// Shared top bar matching Android layout:
-/// Left: country flag + dropdown name
-/// Center: teal pin icon
-/// Right: settings gear
+/// Top bar matching Android CenterAlignedTopAppBar:
+/// Left: country flag + dropdown
+/// Center: ic_logo.png (32dp circular)
+/// Right: theme toggle + settings gear
 struct GoThereTopBar: ViewModifier {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
@@ -37,29 +37,31 @@ struct GoThereTopBar: ViewModifier {
                             Text(flagForCountry(selectedCountry))
                             Text(nameForCountry(selectedCountry))
                                 .font(.subheadline.weight(.medium))
-                            Image(systemName: "chevron.down")
-                                .font(.caption2)
+                            Image(systemName: "arrowtriangle.down.fill")
+                                .font(.system(size: 8))
                         }
                         .foregroundColor(.primary)
                     }
                 }
 
-                // Center — teal pin logo
+                // Center — actual GoThere logo (ic_logo.png, circular 32dp)
                 ToolbarItem(placement: .principal) {
-                    Image(systemName: "mappin.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.goPrimary)
+                    Image("GoThereLogo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 36, height: 36)
+                        .clipShape(Circle())
                 }
 
-                // Right — gear + optional theme toggle
+                // Right — theme toggle + settings gear
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 12) {
+                    HStack(spacing: 8) {
                         if showThemeToggle {
                             Button {
                                 themeVM.toggleTheme()
                             } label: {
                                 Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
-                                    .foregroundColor(.goPrimary)
+                                    .foregroundColor(themeVM.isDarkMode ? .white : .black)
                             }
                         }
                         Menu {
@@ -86,7 +88,7 @@ struct GoThereTopBar: ViewModifier {
     }
 
     private func flagForCountry(_ id: String) -> String {
-        DestinationConfig.getDestination(id)?.flagEmoji ?? "🇪🇸"
+        DestinationConfig.getDestination(id)?.flagEmoji ?? "\u{1F1EA}\u{1F1F8}"
     }
 
     private func nameForCountry(_ id: String) -> String {

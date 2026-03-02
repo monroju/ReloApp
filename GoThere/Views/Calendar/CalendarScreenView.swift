@@ -109,6 +109,8 @@ struct CalendarScreenView: View {
                     }
                 }
             }
+            .navigationTitle("Calendar")
+            .navigationBarTitleDisplayMode(.inline)
             .goTopBar(showThemeToggle: false)
             .sheet(isPresented: $vm.showAddEvent) {
                 addEventSheet

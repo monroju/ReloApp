@@ -5,168 +5,166 @@ struct LoginView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
 
     var body: some View {
-        NavigationStack {
-            ZStack {
-                (themeVM.isDarkMode ? Color.goBackgroundDark : Color.goBackgroundLight)
-                    .ignoresSafeArea()
+        ZStack {
+            (themeVM.isDarkMode ? Color.goBackgroundDark : Color.goBackgroundLight)
+                .ignoresSafeArea()
 
-                ScrollView {
-                    VStack(spacing: 24) {
-                        Spacer().frame(height: 48)
+            // Main form — centered vertically like Android
+            VStack(spacing: 0) {
+                Spacer()
 
-                        // Logo — teal "9" pin inside dark circle (matches Android)
-                        ZStack {
-                            Circle()
-                                .fill(Color.goBackgroundDark)
-                                .frame(width: 140, height: 140)
+                // Logo — ic_logo_full.png circular, 240dp on Android
+                Image("GoThereLogoFull")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
 
-                            HStack(spacing: 6) {
-                                // Stylized location pin "9"
-                                Image(systemName: "mappin.circle.fill")
-                                    .font(.system(size: 44))
-                                    .foregroundColor(.goPrimary)
+                Spacer().frame(height: 32)
 
-                                Text("GoThere")
-                                    .font(.system(size: 28, weight: .bold))
-                                    .foregroundColor(.white)
-                            }
+                // Email field — OutlinedTextField style with rounded border
+                VStack(spacing: 16) {
+                    HStack {
+                        TextField("Email", text: $vm.email)
+                            .textInputAutocapitalization(.never)
+                            .keyboardType(.emailAddress)
+                            .autocorrectionDisabled()
+                    }
+                    .padding(14)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.goPrimary.opacity(0.6), lineWidth: 1)
+                    )
+
+                    // Password field
+                    HStack {
+                        if vm.isPasswordVisible {
+                            TextField("Password", text: $vm.password)
+                        } else {
+                            SecureField("Password", text: $vm.password)
                         }
-
-                        Spacer().frame(height: 24)
-
-                        // Form with underline-style fields (Android style)
-                        VStack(spacing: 20) {
-                            // Email field — underline style
-                            VStack(spacing: 4) {
-                                TextField("Email", text: $vm.email)
-                                    .textInputAutocapitalization(.never)
-                                    .keyboardType(.emailAddress)
-                                    .autocorrectionDisabled()
-                                    .padding(.vertical, 8)
-                                Rectangle()
-                                    .fill(Color.goPrimary.opacity(0.5))
-                                    .frame(height: 1)
-                            }
-
-                            // Password field — underline style
-                            VStack(spacing: 4) {
-                                HStack {
-                                    if vm.isPasswordVisible {
-                                        TextField("Password", text: $vm.password)
-                                    } else {
-                                        SecureField("Password", text: $vm.password)
-                                    }
-                                    Button {
-                                        vm.togglePasswordVisibility()
-                                    } label: {
-                                        Image(systemName: vm.isPasswordVisible ? "eye.slash" : "eye")
-                                            .foregroundColor(.secondary)
-                                    }
-                                }
-                                .padding(.vertical, 8)
-                                Rectangle()
-                                    .fill(Color.goPrimary.opacity(0.5))
-                                    .frame(height: 1)
-                            }
-
-                            // Confirm password (sign up only)
-                            if vm.isSignUpMode {
-                                VStack(spacing: 4) {
-                                    SecureField("Confirm Password", text: $vm.confirmPassword)
-                                        .padding(.vertical, 8)
-                                    Rectangle()
-                                        .fill(Color.goPrimary.opacity(0.5))
-                                        .frame(height: 1)
-                                }
-                            }
-
-                            // Error
-                            if let error = vm.errorMessage {
-                                Text(error)
-                                    .font(.caption)
-                                    .foregroundColor(.goError)
-                                    .multilineTextAlignment(.center)
-                            }
-
-                            Spacer().frame(height: 4)
-
-                            // Primary button — teal rounded (matches Android)
-                            Button {
-                                Task {
-                                    if vm.isSignUpMode {
-                                        await vm.signUp()
-                                    } else {
-                                        await vm.signIn()
-                                    }
-                                }
-                            } label: {
-                                if vm.isLoading {
-                                    ProgressView()
-                                        .tint(.white)
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 14)
-                                } else {
-                                    Text(vm.isSignUpMode ? "Sign Up" : "Log In")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity)
-                                        .padding(.vertical, 14)
-                                }
-                            }
-                            .background(Color.goPrimary)
-                            .cornerRadius(28)
-                            .disabled(vm.isLoading)
-
-                            // Toggle sign up / sign in
-                            Button {
-                                withAnimation { vm.isSignUpMode.toggle() }
-                            } label: {
-                                Text(vm.isSignUpMode
-                                     ? "Already have an account? **Log In**"
-                                     : "Don't have an account? **Sign Up**")
-                                    .font(.subheadline)
-                                    .foregroundColor(.goPrimary)
-                            }
-
-                            // Guest mode for Appetize.io testing
-                            Button {
-                                AuthService.shared.signInAsGuest()
-                            } label: {
-                                Text("Continue as Guest")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                    .underline()
-                            }
-                            .padding(.top, 4)
+                        Button {
+                            vm.togglePasswordVisibility()
+                        } label: {
+                            Image(systemName: vm.isPasswordVisible ? "eye.slash" : "eye")
+                                .foregroundColor(.secondary)
                         }
-                        .padding(.horizontal, 32)
+                    }
+                    .padding(14)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.goPrimary, lineWidth: 1)
+                    )
 
-                        Spacer()
+                    // Confirm password (sign up only)
+                    if vm.isSignUpMode {
+                        HStack {
+                            SecureField("Confirm Password", text: $vm.confirmPassword)
+                        }
+                        .padding(14)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.goPrimary.opacity(0.6), lineWidth: 1)
+                        )
                     }
                 }
+                .padding(.horizontal, 32)
 
-                // Theme toggle — bottom right (matches Android)
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button {
-                            themeVM.toggleTheme()
-                        } label: {
-                            Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
-                                .font(.title3)
-                                .foregroundColor(.goPrimary)
-                                .padding(12)
-                                .background(themeVM.isDarkMode ? Color.goSurfaceDark : Color.goSurfaceLight)
-                                .clipShape(Circle())
-                                .shadow(color: .black.opacity(0.15), radius: 4, y: 2)
+                Spacer().frame(height: 32)
+
+                // Error message
+                if let error = vm.errorMessage {
+                    Text(error)
+                        .font(.caption)
+                        .foregroundColor(.goError)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 8)
+                }
+
+                // Primary button — teal, 48dp height, 8dp radius (Android)
+                Button {
+                    Task {
+                        if vm.isSignUpMode {
+                            await vm.signUp()
+                        } else {
+                            await vm.signIn()
                         }
-                        .padding(.trailing, 24)
-                        .padding(.bottom, 24)
                     }
+                } label: {
+                    if vm.isLoading {
+                        ProgressView()
+                            .tint(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 48)
+                    } else {
+                        Text(vm.isSignUpMode ? "Sign Up" : "Log In")
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 48)
+                    }
+                }
+                .background(Color.goPrimary)
+                .cornerRadius(8)
+                .disabled(vm.isLoading)
+                .padding(.horizontal, 32)
+
+                Spacer().frame(height: 24)
+
+                // Toggle sign up / sign in
+                Button {
+                    withAnimation { vm.isSignUpMode.toggle() }
+                } label: {
+                    Text(vm.isSignUpMode
+                         ? "Already have an account? Log In"
+                         : "Don't have an account? Sign Up")
+                        .font(.system(size: 14))
+                        .foregroundColor(.goPrimary)
+                }
+
+                Spacer().frame(height: 16)
+
+                // Privacy policy link
+                Text("By continuing, you agree to our ")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                +
+                Text("Privacy Policy")
+                    .font(.caption)
+                    .foregroundColor(.goPrimary)
+                    .underline()
+
+                Spacer().frame(height: 16)
+
+                // Guest mode for Appetize.io testing
+                Button {
+                    AuthService.shared.signInAsGuest()
+                } label: {
+                    Text("Continue as Guest")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .underline()
+                }
+
+                Spacer()
+            }
+
+            // Theme toggle — bottom right (matches Android)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button {
+                        themeVM.toggleTheme()
+                    } label: {
+                        Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
+                            .font(.title3)
+                            .foregroundColor(themeVM.isDarkMode ? .white : .black)
+                    }
+                    .padding(32)
                 }
             }
-            .navigationBarHidden(true)
         }
     }
 }

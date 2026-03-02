@@ -115,19 +115,46 @@ struct TasksView: View {
     }
 
     private func importSeedTasks(for countryId: String) {
-        let countryLabel: String
+        // Load from actual JSON seed files (matches Android seed import)
+        let fileName: String
         switch countryId {
-        case "portugal": countryLabel = "Portugal"
-        case "mexico": countryLabel = "Mexico"
-        default: countryLabel = "Spain"
+        case "portugal": fileName = "portugal_tasks"
+        case "mexico": fileName = "mexico_tasks"
+        default: fileName = "spain_tasks"
         }
-        let seedTasks = Phases.allPhases.flatMap { phase -> [TaskItem] in
-            [
-                TaskItem(title: "Research visa requirements for \(countryLabel)", category: phase.displayName, countryId: countryId),
-            ]
+
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+              let data = try? Data(contentsOf: url) else {
+            return
         }
+
+        struct SeedTask: Codable {
+            let title: String
+            let description: String?
+            let phaseId: String
+            let visaTrackId: String?
+            let order: Int?
+            let links: [SeedLink]?
+        }
+        struct SeedLink: Codable {
+            let label: String?
+            let url: String?
+        }
+
+        guard let seedTasks = try? JSONDecoder().decode([SeedTask].self, from: data) else { return }
+
+        let taskItems = seedTasks.map { seed in
+            TaskItem(
+                title: seed.title,
+                description: seed.description,
+                category: Phases.getDisplayName(seed.phaseId),
+                countryId: countryId,
+                links: seed.links?.map { AppLink(label: $0.label, url: $0.url) }
+            )
+        }
+
         Task {
-            try? await TaskRepository.shared.insertTasks(seedTasks)
+            try? await TaskRepository.shared.insertTasks(taskItems)
         }
     }
 

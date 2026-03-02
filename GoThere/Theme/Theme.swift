@@ -8,11 +8,14 @@ extension Color {
     static let goOnPrimary = Color.white
     static let goPrimaryDark = Color(hex: 0x0F8F82)        // Teal Dark
     static let goPrimaryLight = Color(hex: 0x7BE3D6)       // Teal Light
-    static let goPrimaryContainer = Color(hex: 0x7BE3D6).opacity(0.2)
+    static let goPrimaryContainer = Color(hex: 0xC5F4EE)     // Android primaryContainer
 
     // Secondary
-    static let goSecondary = Color(hex: 0x15B8A6).opacity(0.7)
+    static let goSecondary = Color(hex: 0x0F8F82)           // TealDark as secondary
     static let goOnSecondary = Color.white
+
+    // Tertiary (soft blue, matches Android)
+    static let goTertiary = Color(hex: 0x2E8BC0)
 
     // Background (Light)
     static let goBackgroundLight = Color(hex: 0xF7F8FA)
