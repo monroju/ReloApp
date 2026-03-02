@@ -35,10 +35,7 @@ final class AuthViewModel: ObservableObject {
         do {
             try await auth.signIn(email: email, password: password)
         } catch let error as NSError {
-            // Show Firebase error code for easier debugging
-            let code = error.code
-            let msg = error.localizedDescription
-            errorMessage = "(\(code)) \(msg)"
+            errorMessage = friendlyError(error)
         }
         isLoading = false
     }
@@ -56,10 +53,19 @@ final class AuthViewModel: ObservableObject {
         errorMessage = nil
         do {
             try await auth.createUser(email: email, password: password)
-        } catch {
-            errorMessage = error.localizedDescription
+        } catch let error as NSError {
+            errorMessage = friendlyError(error)
         }
         isLoading = false
+    }
+
+    private func friendlyError(_ error: NSError) -> String {
+        // Keychain errors on Appetize.io/simulator
+        if error.code == 17995 || error.domain.contains("keychain") ||
+           error.localizedDescription.lowercased().contains("keychain") {
+            return "Keychain not available in this simulator. Please use \"Continue as Guest\" below."
+        }
+        return error.localizedDescription
     }
 
     func togglePasswordVisibility() {

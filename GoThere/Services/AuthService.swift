@@ -14,9 +14,17 @@ final class AuthService: ObservableObject {
     private var authListener: AuthStateDidChangeListenerHandle?
 
     private init() {
-        // Use in-memory auth persistence on simulators (fixes keychain errors on Appetize.io)
+        // On simulators (especially Appetize.io), the keychain is restricted.
+        // We must call useUserAccessGroup(nil) BEFORE any auth operation
+        // to force Firebase to use in-memory storage instead of keychain.
         #if targetEnvironment(simulator)
-        try? Auth.auth().useUserAccessGroup(nil)
+        do {
+            try Auth.auth().useUserAccessGroup(nil)
+        } catch {
+            // If this fails, keychain operations will also fail —
+            // users should use Guest mode on Appetize.io
+            print("⚠️ useUserAccessGroup failed: \(error)")
+        }
         #endif
 
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
@@ -33,10 +41,17 @@ final class AuthService: ObservableObject {
     }
 
     func signIn(email: String, password: String) async throws {
+        #if targetEnvironment(simulator)
+        // Re-apply before each auth call to ensure in-memory persistence
+        try? Auth.auth().useUserAccessGroup(nil)
+        #endif
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
 
     func createUser(email: String, password: String) async throws {
+        #if targetEnvironment(simulator)
+        try? Auth.auth().useUserAccessGroup(nil)
+        #endif
         let result = try await Auth.auth().createUser(withEmail: email, password: password)
         let db = Firestore.firestore()
         try await db.collection("users").document(result.user.uid).setData([
