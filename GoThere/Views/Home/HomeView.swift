@@ -8,6 +8,8 @@ struct HomeView: View {
     @StateObject private var calendarVM = CalendarViewModel()
     @State private var showPaywall = false
     @State private var showMenu = false
+    @State private var showDeleteAccount = false
+    @State private var deleteError: String?
 
     var body: some View {
         NavigationStack {
@@ -59,6 +61,11 @@ struct HomeView: View {
                                 DestinationsView()
                             }
                             Divider()
+                            if !AuthService.shared.isGuest {
+                                Button("Delete Account", role: .destructive) {
+                                    showDeleteAccount = true
+                                }
+                            }
                             Button("Sign Out", role: .destructive) {
                                 AuthService.shared.signOut()
                             }
@@ -75,6 +82,25 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
+            }
+            .alert("Delete Account", isPresented: $showDeleteAccount) {
+                Button("Cancel", role: .cancel) { }
+                Button("Delete", role: .destructive) {
+                    Task {
+                        do {
+                            try await AuthService.shared.deleteAccount()
+                        } catch {
+                            deleteError = error.localizedDescription
+                        }
+                    }
+                }
+            } message: {
+                Text("This will permanently delete your account and all associated data. This cannot be undone.")
+            }
+            .alert("Error", isPresented: .constant(deleteError != nil)) {
+                Button("OK") { deleteError = nil }
+            } message: {
+                Text(deleteError ?? "")
             }
         }
     }

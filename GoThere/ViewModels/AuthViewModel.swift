@@ -68,6 +68,38 @@ final class AuthViewModel: ObservableObject {
         return error.localizedDescription
     }
 
+    @Published var resetEmailSent = false
+
+    func sendPasswordReset() async {
+        guard isEmailValid else {
+            errorMessage = "Please enter your email address first."
+            return
+        }
+        isLoading = true
+        errorMessage = nil
+        do {
+            try await auth.sendPasswordReset(email: email)
+            resetEmailSent = true
+        } catch let error as NSError {
+            errorMessage = friendlyError(error)
+        }
+        isLoading = false
+    }
+
+    @Published var showDeleteConfirmation = false
+    @Published var isDeleting = false
+
+    func deleteAccount() async {
+        isDeleting = true
+        errorMessage = nil
+        do {
+            try await auth.deleteAccount()
+        } catch let error as NSError {
+            errorMessage = friendlyError(error)
+        }
+        isDeleting = false
+    }
+
     func togglePasswordVisibility() {
         isPasswordVisible.toggle()
     }

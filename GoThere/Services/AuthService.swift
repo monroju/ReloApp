@@ -65,6 +65,20 @@ final class AuthService: ObservableObject {
         isAuthenticated = true
     }
 
+    func sendPasswordReset(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+
+    func deleteAccount() async throws {
+        guard let user = Auth.auth().currentUser else { return }
+        let uid = user.uid
+        // Delete user data from Firestore first
+        let db = Firestore.firestore()
+        try? await db.collection("users").document(uid).delete()
+        // Then delete the Firebase Auth account
+        try await user.delete()
+    }
+
     func signOut() {
         isGuest = false
         try? Auth.auth().signOut()

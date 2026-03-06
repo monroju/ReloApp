@@ -70,7 +70,34 @@ struct LoginView: View {
                 }
                 .padding(.horizontal, 32)
 
-                Spacer().frame(height: 32)
+                // Forgot password (login mode only)
+                if !vm.isSignUpMode {
+                    HStack {
+                        Spacer()
+                        Button {
+                            Task { await vm.sendPasswordReset() }
+                        } label: {
+                            Text("Forgot Password?")
+                                .font(.caption)
+                                .foregroundColor(.goPrimary)
+                        }
+                        .disabled(vm.isLoading)
+                    }
+                    .padding(.horizontal, 32)
+                    .padding(.top, 8)
+                }
+
+                Spacer().frame(height: 24)
+
+                // Reset email confirmation
+                if vm.resetEmailSent {
+                    Text("Password reset email sent! Check your inbox.")
+                        .font(.caption)
+                        .foregroundColor(.goSuccess)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, 32)
+                        .padding(.bottom, 8)
+                }
 
                 // Error message
                 if let error = vm.errorMessage {
