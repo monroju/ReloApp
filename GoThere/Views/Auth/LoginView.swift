@@ -153,14 +153,15 @@ struct LoginView: View {
                 Spacer().frame(height: 16)
 
                 // Privacy policy link
-                Text("By continuing, you agree to our ")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                +
-                Text("Privacy Policy")
-                    .font(.caption)
-                    .foregroundColor(.goPrimary)
-                    .underline()
+                HStack(spacing: 0) {
+                    Text("By continuing, you agree to our ")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Link("Privacy Policy", destination: URL(string: "https://gothere-e5ea7.web.app/privacy.html")!)
+                        .font(.caption)
+                        .foregroundColor(.goPrimary)
+                        .underline()
+                }
 
                 Spacer().frame(height: 16)
 
