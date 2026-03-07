@@ -22,9 +22,6 @@ Pods/
 *.swp
 *~
 
-# Firebase config (contains API keys)
-GoogleService-Info.plist
-
 # Build artifacts
 appetize-build/
 

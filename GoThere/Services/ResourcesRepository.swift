@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseStorage
 
 /// Fetches public documents from Firebase Storage organized by country.

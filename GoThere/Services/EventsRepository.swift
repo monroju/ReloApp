@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseFirestore
 
 /// Manages calendar events in Firestore, with local fallback for guest mode.
@@ -18,7 +19,7 @@ final class EventsRepository: ObservableObject {
     private init() {}
 
     private var eventsCollection: CollectionReference? {
-        guard !isGuest, let uid = AuthService.shared.uid else { return nil }
+        guard FirebaseApp.app() != nil, !isGuest, let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid).collection("events")
     }
 

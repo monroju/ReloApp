@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseFirestore
 import Combine
 
@@ -16,7 +17,7 @@ final class DestinationRepository: ObservableObject {
     private init() {}
 
     private var userDoc: DocumentReference? {
-        guard let uid = AuthService.shared.uid else { return nil }
+        guard FirebaseApp.app() != nil, let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid)
     }
 
@@ -61,7 +62,7 @@ final class DestinationRepository: ObservableObject {
 
     func startListeningTasks() {
         stopListeningTasks()
-        guard let uid = AuthService.shared.uid else { return }
+        guard FirebaseApp.app() != nil, let uid = AuthService.shared.uid else { return }
 
         let col = db.collection("users").document(uid)
             .collection("destinations").document(activeDestinationId)
@@ -89,7 +90,7 @@ final class DestinationRepository: ObservableObject {
 
     /// Seeds destination tasks from bundled JSON if the destination has no tasks yet.
     func seedDestinationIfNeeded(_ destinationId: String) async {
-        guard let uid = AuthService.shared.uid else { return }
+        guard FirebaseApp.app() != nil, let uid = AuthService.shared.uid else { return }
 
         let tasksCol = db.collection("users").document(uid)
             .collection("destinations").document(destinationId)

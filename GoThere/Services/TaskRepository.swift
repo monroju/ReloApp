@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseFirestore
 import Combine
 
@@ -20,7 +21,7 @@ final class TaskRepository: ObservableObject {
     private init() {}
 
     private var tasksCollection: CollectionReference? {
-        guard !isGuest, let uid = AuthService.shared.uid else { return nil }
+        guard FirebaseApp.app() != nil, !isGuest, let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid).collection("tasks")
     }
 

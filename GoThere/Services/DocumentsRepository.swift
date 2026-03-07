@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseCore
 import FirebaseStorage
 import FirebaseFirestore
 
@@ -15,7 +16,9 @@ final class DocumentsRepository: ObservableObject {
     private init() {}
 
     private var docsCollection: CollectionReference? {
-        guard let uid = AuthService.shared.uid else { return nil }
+        guard FirebaseApp.app() != nil,
+              !AuthService.shared.isGuest,
+              let uid = AuthService.shared.uid else { return nil }
         return db.collection("users").document(uid).collection("documents")
     }
 
