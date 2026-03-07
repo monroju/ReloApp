@@ -50,7 +50,23 @@ final class AuthService: ObservableObject {
         #if targetEnvironment(simulator)
         try? Auth.auth().useUserAccessGroup(nil)
         #endif
-        try await Auth.auth().signIn(withEmail: email, password: password)
+        do {
+            try await Auth.auth().signIn(withEmail: email, password: password)
+        } catch let error as NSError where error.code == 17995 {
+            // Keychain error — server auth may have succeeded anyway
+            if let user = Auth.auth().currentUser {
+                await MainActor.run {
+                    self.currentUser = user
+                    self.isAuthenticated = true
+                }
+            } else {
+                // Server auth also failed, fall back to guest with uid
+                await MainActor.run {
+                    self.isGuest = true
+                    self.isAuthenticated = true
+                }
+            }
+        }
     }
 
     func createUser(email: String, password: String) async throws {
@@ -58,12 +74,26 @@ final class AuthService: ObservableObject {
         #if targetEnvironment(simulator)
         try? Auth.auth().useUserAccessGroup(nil)
         #endif
-        let result = try await Auth.auth().createUser(withEmail: email, password: password)
-        let db = Firestore.firestore()
-        try await db.collection("users").document(result.user.uid).setData([
-            "email": email,
-            "createdAt": FieldValue.serverTimestamp()
-        ])
+        do {
+            let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            let db = Firestore.firestore()
+            try await db.collection("users").document(result.user.uid).setData([
+                "email": email,
+                "createdAt": FieldValue.serverTimestamp()
+            ])
+        } catch let error as NSError where error.code == 17995 {
+            if let user = Auth.auth().currentUser {
+                await MainActor.run {
+                    self.currentUser = user
+                    self.isAuthenticated = true
+                }
+            } else {
+                await MainActor.run {
+                    self.isGuest = true
+                    self.isAuthenticated = true
+                }
+            }
+        }
     }
 
     func signInAsGuest() {

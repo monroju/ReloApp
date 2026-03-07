@@ -60,12 +60,13 @@ final class AuthViewModel: ObservableObject {
     }
 
     private func friendlyError(_ error: NSError) -> String {
-        // Keychain errors on Appetize.io/simulator
-        if error.code == 17995 || error.domain.contains("keychain") ||
-           error.localizedDescription.lowercased().contains("keychain") {
-            return "Keychain not available in this simulator. Please use \"Continue as Guest\" below."
+        switch error.code {
+        case 17008: return "Please enter a valid email address."
+        case 17009: return "Incorrect password. Please try again."
+        case 17011: return "No account found with this email."
+        case 17026: return "Password must be at least 6 characters."
+        default: return error.localizedDescription
         }
-        return error.localizedDescription
     }
 
     @Published var resetEmailSent = false
