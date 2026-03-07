@@ -9,7 +9,7 @@ final class ResourcesRepository: ObservableObject {
     @Published var items: [ResourceItem] = []
     @Published var isLoading = false
 
-    private let storage = Storage.storage()
+    private lazy var storage = Storage.storage()
     private let folders = ["Arrival", "Resources", "Templates", "VisaForms"]
 
     private init() {}

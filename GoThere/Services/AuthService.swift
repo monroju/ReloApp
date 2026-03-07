@@ -1,6 +1,7 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseCore
 import Combine
 
 /// Manages Firebase authentication.
@@ -13,7 +14,13 @@ final class AuthService: ObservableObject {
 
     private var authListener: AuthStateDidChangeListenerHandle?
 
+    private var firebaseAvailable: Bool {
+        FirebaseApp.app() != nil
+    }
+
     private init() {
+        guard firebaseAvailable else { return }
+
         // On simulators (especially Appetize.io), the keychain is restricted.
         // We must call useUserAccessGroup(nil) BEFORE any auth operation
         // to force Firebase to use in-memory storage instead of keychain.
@@ -21,8 +28,6 @@ final class AuthService: ObservableObject {
         do {
             try Auth.auth().useUserAccessGroup(nil)
         } catch {
-            // If this fails, keychain operations will also fail —
-            // users should use Guest mode on Appetize.io
             print("⚠️ useUserAccessGroup failed: \(error)")
         }
         #endif
@@ -41,14 +46,15 @@ final class AuthService: ObservableObject {
     }
 
     func signIn(email: String, password: String) async throws {
+        guard firebaseAvailable else { throw AuthError.firebaseNotConfigured }
         #if targetEnvironment(simulator)
-        // Re-apply before each auth call to ensure in-memory persistence
         try? Auth.auth().useUserAccessGroup(nil)
         #endif
         try await Auth.auth().signIn(withEmail: email, password: password)
     }
 
     func createUser(email: String, password: String) async throws {
+        guard firebaseAvailable else { throw AuthError.firebaseNotConfigured }
         #if targetEnvironment(simulator)
         try? Auth.auth().useUserAccessGroup(nil)
         #endif
@@ -66,21 +72,28 @@ final class AuthService: ObservableObject {
     }
 
     func sendPasswordReset(email: String) async throws {
+        guard firebaseAvailable else { throw AuthError.firebaseNotConfigured }
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 
     func deleteAccount() async throws {
+        guard firebaseAvailable else { return }
         guard let user = Auth.auth().currentUser else { return }
         let uid = user.uid
-        // Delete user data from Firestore first
         let db = Firestore.firestore()
         try? await db.collection("users").document(uid).delete()
-        // Then delete the Firebase Auth account
         try await user.delete()
     }
 
     func signOut() {
         isGuest = false
-        try? Auth.auth().signOut()
+        if firebaseAvailable { try? Auth.auth().signOut() }
+    }
+
+    enum AuthError: LocalizedError {
+        case firebaseNotConfigured
+        var errorDescription: String? {
+            "Firebase is not configured. Use Guest mode."
+        }
     }
 }

@@ -10,7 +10,7 @@ final class DestinationRepository: ObservableObject {
     @Published var activeVisaTrackId: String = DestinationConfig.spainNonLucrative
     @Published var destinationTasks: [DestinationTask] = []
 
-    private let db = Firestore.firestore()
+    private lazy var db = Firestore.firestore()
     private var taskListener: ListenerRegistration?
 
     private init() {}

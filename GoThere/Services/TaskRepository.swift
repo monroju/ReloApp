@@ -8,7 +8,7 @@ final class TaskRepository: ObservableObject {
 
     @Published var tasks: [TaskItem] = []
 
-    private let db = Firestore.firestore()
+    private lazy var db = Firestore.firestore()
     private var listener: ListenerRegistration?
 
     /// In-memory store used when the user is a guest (no Firestore access).

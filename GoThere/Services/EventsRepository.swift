@@ -7,7 +7,7 @@ final class EventsRepository: ObservableObject {
 
     @Published var events: [EventItem] = []
 
-    private let db = Firestore.firestore()
+    private lazy var db = Firestore.firestore()
     private var listener: ListenerRegistration?
 
     private var localEvents: [EventItem] = []
