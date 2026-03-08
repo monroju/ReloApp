@@ -107,9 +107,11 @@ workflows:
 
     publishing:
       app_store_connect:
-        apple_id: LucksExTenebris@gmail.com
-        # Set these in Codemagic UI under Environment Variables:
-        # APP_STORE_CONNECT_ISSUER_ID
-        # APP_STORE_CONNECT_KEY_IDENTIFIER
-        # APP_STORE_CONNECT_PRIVATE_KEY
+        # API key auth — set these 3 in Codemagic Environment Variables tab:
+        #   APP_STORE_CONNECT_ISSUER_ID
+        #   APP_STORE_CONNECT_KEY_IDENTIFIER
+        #   APP_STORE_CONNECT_PRIVATE_KEY
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
         submit_to_testflight: true
