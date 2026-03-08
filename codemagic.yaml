@@ -52,6 +52,9 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       xcode: 16.2
+      groups:
+        - ios_signing
+        - app_store_connect
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.gothere.ios
@@ -59,7 +62,6 @@ workflows:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
         BUNDLE_ID: "com.gothere.ios"
-        APP_STORE_APPLE_ID: "LucksExTenebris@gmail.com"
     scripts:
       - name: Install XcodeGen
         script: brew install xcodegen
@@ -107,10 +109,6 @@ workflows:
 
     publishing:
       app_store_connect:
-        # API key auth — set these 3 in Codemagic Environment Variables tab:
-        #   APP_STORE_CONNECT_ISSUER_ID
-        #   APP_STORE_CONNECT_KEY_IDENTIFIER
-        #   APP_STORE_CONNECT_PRIVATE_KEY
         api_key: $APP_STORE_CONNECT_PRIVATE_KEY
         key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
         issuer_id: $APP_STORE_CONNECT_ISSUER_ID
