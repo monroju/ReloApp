@@ -55,9 +55,6 @@ workflows:
       groups:
         - ios_signing
         - app_store
-      ios_signing:
-        distribution_type: app_store
-        bundle_identifier: com.gothere.ios
       vars:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
@@ -69,8 +66,46 @@ workflows:
       - name: Generate Xcode project
         script: xcodegen generate
 
-      - name: Set up code signing
-        script: xcode-project use-profiles
+      - name: Set up code signing manually
+        script: |
+          #!/bin/bash
+          set -e
+
+          # Create keychain
+          KEYCHAIN_PATH="$HOME/Library/Keychains/build.keychain-db"
+          KEYCHAIN_PASSWORD="temppassword123"
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN_PATH"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+          security list-keychains -d user -s "$KEYCHAIN_PATH" $(security list-keychains -d user | tr -d '"')
+
+          # Decode and import certificate
+          echo "$CM_CERTIFICATE" | base64 --decode > /tmp/certificate.p12
+          security import /tmp/certificate.p12 \
+            -k "$KEYCHAIN_PATH" \
+            -P "$CM_CERTIFICATE_PASSWORD" \
+            -T /usr/bin/codesign \
+            -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN_PATH"
+
+          # Decode and install provisioning profile
+          PROFILE_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
+          mkdir -p "$PROFILE_DIR"
+          echo "$CM_PROVISIONING_PROFILE" | base64 --decode > "$PROFILE_DIR/gothere_appstore.mobileprovision"
+
+          # Get profile UUID
+          PROFILE_UUID=$(/usr/libexec/PlistBuddy -c "Print UUID" /dev/stdin <<< $(security cms -D -i "$PROFILE_DIR/gothere_appstore.mobileprovision"))
+          echo "Profile UUID: $PROFILE_UUID"
+          cp "$PROFILE_DIR/gothere_appstore.mobileprovision" "$PROFILE_DIR/$PROFILE_UUID.mobileprovision"
+
+          # Export for later steps
+          echo "PROFILE_UUID=$PROFILE_UUID" >> $CM_ENV
+
+          # Verify
+          echo "Installed profiles:"
+          ls -la "$PROFILE_DIR/"
+          echo "Keychain identities:"
+          security find-identity -v -p codesigning "$KEYCHAIN_PATH"
 
       - name: Resolve SPM packages
         script: |
@@ -96,12 +131,37 @@ workflows:
             -archivePath build/GoThere.xcarchive \
             CODE_SIGN_STYLE=Manual \
             DEVELOPMENT_TEAM=PN45FJSNW2 \
-            PRODUCT_BUNDLE_IDENTIFIER=$BUNDLE_ID
+            PRODUCT_BUNDLE_IDENTIFIER=$BUNDLE_ID \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_UUID"
 
-      - name: Export IPA
+      - name: Create ExportOptions.plist and export IPA
         script: |
-          xcode-project build-ipa \
-            --archive build/GoThere.xcarchive
+          cat > /tmp/ExportOptions.plist <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>method</key>
+            <string>app-store</string>
+            <key>teamID</key>
+            <string>PN45FJSNW2</string>
+            <key>uploadBitcode</key>
+            <false/>
+            <key>uploadSymbols</key>
+            <true/>
+            <key>provisioningProfiles</key>
+            <dict>
+              <key>com.gothere.ios</key>
+              <string>$PROFILE_UUID</string>
+            </dict>
+          </dict>
+          </plist>
+          PLIST
+
+          xcodebuild -exportArchive \
+            -archivePath build/GoThere.xcarchive \
+            -exportOptionsPlist /tmp/ExportOptions.plist \
+            -exportPath build/ios/ipa
 
     artifacts:
       - build/ios/ipa/*.ipa
