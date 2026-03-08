@@ -161,21 +161,34 @@ workflows:
 
       - name: Upload to App Store Connect
         script: |
-          # Save API key to file
+          # Debug: check env vars exist
+          echo "KEY_ID length: ${#APP_STORE_CONNECT_KEY_IDENTIFIER}"
+          echo "ISSUER_ID length: ${#APP_STORE_CONNECT_ISSUER_ID}"
+          echo "PRIVATE_KEY length: ${#APP_STORE_CONNECT_PRIVATE_KEY}"
+
+          # Save API key to file (required by altool)
           mkdir -p ~/.private_keys
           echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.private_keys/AuthKey_${APP_STORE_CONNECT_KEY_IDENTIFIER}.p8
+          ls -la ~/.private_keys/
 
           # Find the IPA
           IPA_PATH=$(find build/ios/ipa -name "*.ipa" | head -1)
           echo "Uploading: $IPA_PATH"
 
-          # Upload using xcrun notarytool/altool
+          # Upload using xcrun altool with API key
           xcrun altool --upload-app \
-            --file "$IPA_PATH" \
-            --type ios \
-            --apiKey "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
-            --apiIssuer "$APP_STORE_CONNECT_ISSUER_ID" \
-            --verbose
+            -f "$IPA_PATH" \
+            -t ios \
+            --apiKey "${APP_STORE_CONNECT_KEY_IDENTIFIER}" \
+            --apiIssuer "${APP_STORE_CONNECT_ISSUER_ID}" \
+            --verbose 2>&1 || {
+              echo "altool failed, trying app-store-connect CLI..."
+              app-store-connect publish \
+                --path "$IPA_PATH" \
+                --key-id "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
+                --issuer-id "$APP_STORE_CONNECT_ISSUER_ID" \
+                --private-key "$APP_STORE_CONNECT_PRIVATE_KEY"
+            }
 
     artifacts:
       - build/ios/ipa/*.ipa
