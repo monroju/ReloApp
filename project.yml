@@ -29,6 +29,10 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.gothere.ios
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "Apple Distribution"
+        DEVELOPMENT_TEAM: PN45FJSNW2
+        PROVISIONING_PROFILE_SPECIFIER: "GoThere App Store Distro"
         INFOPLIST_FILE: GoThere/App/Info.plist
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: "YES"
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"
