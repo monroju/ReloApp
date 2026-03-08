@@ -54,7 +54,7 @@ workflows:
       xcode: 16.2
       groups:
         - ios_signing
-        - app_store_connect
+        - app_store
       ios_signing:
         distribution_type: app_store
         bundle_identifier: com.gothere.ios
