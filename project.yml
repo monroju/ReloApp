@@ -28,7 +28,7 @@ targets:
         type: folder
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.gothere.app
+        PRODUCT_BUNDLE_IDENTIFIER: com.gothere.ios
         INFOPLIST_FILE: GoThere/App/Info.plist
         INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: "YES"
         INFOPLIST_KEY_UILaunchScreen_Generation: "YES"

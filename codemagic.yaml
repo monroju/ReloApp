@@ -45,3 +45,71 @@ workflows:
 
     artifacts:
       - "*.zip"
+
+  ios-appstore-build:
+    name: Build & Publish to App Store Connect
+    max_build_duration: 90
+    instance_type: mac_mini_m2
+    environment:
+      xcode: 16.2
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.gothere.ios
+      vars:
+        XCODE_PROJECT: "GoThere.xcodeproj"
+        XCODE_SCHEME: "GoThere"
+        BUNDLE_ID: "com.gothere.ios"
+        APP_STORE_APPLE_ID: "LucksExTenebris@gmail.com"
+    scripts:
+      - name: Install XcodeGen
+        script: brew install xcodegen
+
+      - name: Generate Xcode project
+        script: xcodegen generate
+
+      - name: Set up code signing
+        script: xcode-project use-profiles
+
+      - name: Resolve SPM packages
+        script: |
+          xcodebuild -resolvePackageDependencies \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME"
+
+      - name: Increment build number
+        script: |
+          LATEST_BUILD=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" || echo 0)
+          NEW_BUILD=$((LATEST_BUILD + 1))
+          echo "Build number: $NEW_BUILD"
+          cd "$CM_BUILD_DIR"
+          agvtool new-version -all $NEW_BUILD
+
+      - name: Build for App Store
+        script: |
+          xcodebuild archive \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -sdk iphoneos \
+            -configuration Release \
+            -archivePath build/GoThere.xcarchive \
+            CODE_SIGN_STYLE=Manual \
+            DEVELOPMENT_TEAM=PN45FJSNW2 \
+            PRODUCT_BUNDLE_IDENTIFIER=$BUNDLE_ID
+
+      - name: Export IPA
+        script: |
+          xcode-project build-ipa \
+            --archive build/GoThere.xcarchive
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/GoThere.xcarchive
+
+    publishing:
+      app_store_connect:
+        apple_id: LucksExTenebris@gmail.com
+        # Set these in Codemagic UI under Environment Variables:
+        # APP_STORE_CONNECT_ISSUER_ID
+        # APP_STORE_CONNECT_KEY_IDENTIFIER
+        # APP_STORE_CONNECT_PRIVATE_KEY
+        submit_to_testflight: true
