@@ -137,19 +137,19 @@ workflows:
           <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
           <plist version="1.0">
           <dict>
-            <key>method</key>
-            <string>app-store</string>
-            <key>teamID</key>
-            <string>PN45FJSNW2</string>
-            <key>uploadBitcode</key>
-            <false/>
-            <key>uploadSymbols</key>
-            <true/>
-            <key>provisioningProfiles</key>
-            <dict>
-              <key>com.gothere.ios</key>
-              <string>$PROFILE_UUID</string>
-            </dict>
+          <key>method</key>
+          <string>app-store</string>
+          <key>teamID</key>
+          <string>PN45FJSNW2</string>
+          <key>uploadBitcode</key>
+          <false/>
+          <key>uploadSymbols</key>
+          <true/>
+          <key>provisioningProfiles</key>
+          <dict>
+          <key>com.gothere.ios</key>
+          <string>$PROFILE_UUID</string>
+          </dict>
           </dict>
           </plist>
           PLIST
@@ -161,34 +161,16 @@ workflows:
 
       - name: Upload to App Store Connect
         script: |
-          # Debug: check env vars exist
-          echo "KEY_ID length: ${#APP_STORE_CONNECT_KEY_IDENTIFIER}"
-          echo "ISSUER_ID length: ${#APP_STORE_CONNECT_ISSUER_ID}"
-          echo "PRIVATE_KEY length: ${#APP_STORE_CONNECT_PRIVATE_KEY}"
-
-          # Save API key to file (required by altool)
-          mkdir -p ~/.private_keys
-          echo "$APP_STORE_CONNECT_PRIVATE_KEY" > ~/.private_keys/AuthKey_${APP_STORE_CONNECT_KEY_IDENTIFIER}.p8
-          ls -la ~/.private_keys/
-
           # Find the IPA
           IPA_PATH=$(find build/ios/ipa -name "*.ipa" | head -1)
           echo "Uploading: $IPA_PATH"
 
-          # Upload using xcrun altool with API key
-          xcrun altool --upload-app \
-            -f "$IPA_PATH" \
-            -t ios \
-            --apiKey "${APP_STORE_CONNECT_KEY_IDENTIFIER}" \
-            --apiIssuer "${APP_STORE_CONNECT_ISSUER_ID}" \
-            --verbose 2>&1 || {
-              echo "altool failed, trying app-store-connect CLI..."
-              app-store-connect publish \
-                --path "$IPA_PATH" \
-                --key-id "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
-                --issuer-id "$APP_STORE_CONNECT_ISSUER_ID" \
-                --private-key "$APP_STORE_CONNECT_PRIVATE_KEY"
-            }
+          # Upload using Codemagic's app-store-connect CLI
+          app-store-connect publish \
+            --path "$IPA_PATH" \
+            --key-id "$APP_STORE_CONNECT_KEY_IDENTIFIER" \
+            --issuer-id "$APP_STORE_CONNECT_ISSUER_ID" \
+            --private-key "$APP_STORE_CONNECT_PRIVATE_KEY"
 
     artifacts:
       - build/ios/ipa/*.ipa
