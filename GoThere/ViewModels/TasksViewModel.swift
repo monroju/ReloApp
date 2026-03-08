@@ -55,6 +55,14 @@ final class TasksViewModel: ObservableObject {
         repo.startListening()
     }
 
+    func autoSeedUnlockedCountries(_ purchaseManager: PurchaseManager) {
+        Task {
+            for dest in DestinationConfig.allDestinations where purchaseManager.isCountryUnlocked(dest.id) {
+                await repo.autoSeedIfNeeded(for: dest.id)
+            }
+        }
+    }
+
     func toggleCompleted(_ task: TaskItem) {
         Task { try? await repo.toggleCompleted(task) }
     }

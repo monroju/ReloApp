@@ -29,3 +29,12 @@ appetize-build/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# Signing & credentials (DO NOT COMMIT)
+*.cer
+*.pem
+*.p12
+*.key
+*.mobileprovision
+*.certSigningRequest
+IOS_SIGNING_SETUP.txt

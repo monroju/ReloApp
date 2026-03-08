@@ -120,6 +120,53 @@ final class TaskRepository: ObservableObject {
         try await col.document(id).delete()
     }
 
+    /// Auto-seeds tasks for a country if not previously seeded.
+    /// Uses UserDefaults to track which countries have been seeded.
+    func autoSeedIfNeeded(for countryId: String) async {
+        let key = "tasksSeedDone_\(countryId)"
+        guard !UserDefaults.standard.bool(forKey: key) else { return }
+
+        // For Firestore users, check if tasks already exist for this country
+        if !isGuest, let col = tasksCollection {
+            let existing = try? await col
+                .whereField("countryId", isEqualTo: countryId)
+                .limit(to: 1)
+                .getDocuments()
+            if let docs = existing?.documents, !docs.isEmpty {
+                UserDefaults.standard.set(true, forKey: key)
+                return
+            }
+        }
+
+        // For guest users, check in-memory
+        if isGuest, localTasks.contains(where: { $0.countryId == countryId }) {
+            return
+        }
+
+        // Load seed JSON
+        let fileName = "\(countryId)_tasks"
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "Seeds")
+                ?? Bundle.main.url(forResource: fileName, withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let seedTasks = try? JSONDecoder().decode([AutoSeedTask].self, from: data),
+              !seedTasks.isEmpty else {
+            return
+        }
+
+        let taskItems = seedTasks.map { seed in
+            TaskItem(
+                title: seed.title,
+                description: seed.description,
+                category: Phases.getDisplayName(seed.phaseId),
+                countryId: countryId,
+                links: seed.links?.map { AppLink(label: $0.label, url: $0.url) }
+            )
+        }
+
+        try? await insertTasks(taskItems)
+        UserDefaults.standard.set(true, forKey: key)
+    }
+
     func insertTasks(_ tasks: [TaskItem]) async throws {
         if isGuest {
             for task in tasks {
@@ -148,6 +195,22 @@ final class TaskRepository: ObservableObject {
             batch.setData(data, forDocument: ref)
         }
         try await batch.commit()
+    }
+
+    // MARK: - Auto Seed JSON Model
+
+    private struct AutoSeedTask: Codable {
+        let title: String
+        let description: String?
+        let phaseId: String
+        let visaTrackId: String?
+        let order: Int?
+        let links: [AutoSeedLink]?
+    }
+
+    private struct AutoSeedLink: Codable {
+        let label: String?
+        let url: String?
     }
 
     func starterTasks(for cityId: String, cityName: String, countryId: String) -> [TaskItem] {

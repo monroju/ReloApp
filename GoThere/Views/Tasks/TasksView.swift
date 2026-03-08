@@ -37,26 +37,12 @@ struct TasksView: View {
                     .padding(.vertical, 8)
                 }
 
-                // Import Seed button — teal outlined pill (matches Android)
-                Button {
-                    showImportSeed = true
-                } label: {
-                    Text("Import Seed")
-                        .font(.subheadline.weight(.medium))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 20)
-                        .background(Color.goPrimary)
-                        .cornerRadius(20)
-                }
-                .padding(.bottom, 8)
-
                 // Task list by phase
                 if vm.tasksByPhase.isEmpty {
                     ContentUnavailableView(
                         "No Tasks",
                         systemImage: "checklist",
-                        description: Text("Import seed tasks or add your own to track relocation progress.")
+                        description: Text("Add your own tasks to track relocation progress.")
                     )
                 } else {
                     List {
@@ -87,10 +73,22 @@ struct TasksView: View {
             .goTopBar()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showAddTask = true
-                    } label: {
-                        Image(systemName: "plus")
+                    HStack(spacing: 12) {
+                        Menu {
+                            Button {
+                                showImportSeed = true
+                            } label: {
+                                Label("Re-import Seed Tasks", systemImage: "arrow.down.circle")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis.circle")
+                        }
+
+                        Button {
+                            showAddTask = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
                     }
                 }
             }
@@ -110,6 +108,7 @@ struct TasksView: View {
             }
             .task {
                 vm.startListening()
+                vm.autoSeedUnlockedCountries(purchaseManager)
             }
         }
     }
