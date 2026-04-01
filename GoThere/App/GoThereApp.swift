@@ -9,7 +9,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             FirebaseApp.configure()
         }
-        NotificationManager.shared.requestPermission()
         return true
     }
 }

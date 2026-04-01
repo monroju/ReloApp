@@ -37,6 +37,7 @@ final class CalendarViewModel: ObservableObject {
         showAddEvent = false
         Task {
             try? await repo.addEvent(title: title, date: date)
+            NotificationManager.shared.requestPermission()
             NotificationManager.shared.scheduleNotification(for: EventItem(
                 title: title,
                 dateMillis: date.timeIntervalSince1970 * 1000
