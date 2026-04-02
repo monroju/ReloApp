@@ -98,6 +98,38 @@ struct ResourcesView: View {
                         .background(Color(.secondarySystemGroupedBackground))
                         .cornerRadius(12)
                     }
+                    // Cross-promotion: Localista
+                    Divider().padding(.vertical, 8)
+
+                    Button {
+                        if let url = URL(string: "https://apps.apple.com/app/localista-spain-expat-news/id6760856341") {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "newspaper")
+                                .font(.title2)
+                                .foregroundColor(.goPrimary)
+                                .frame(width: 36, height: 36)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Try Localista")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundColor(.primary)
+                                Text("Spain news in English — 30+ cities, emergency alerts, expat guides")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 12)
