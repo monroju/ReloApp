@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m2
     environment:
-      xcode: 16.2
+      xcode: 26.0
       vars:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
@@ -51,7 +51,7 @@ workflows:
     max_build_duration: 90
     instance_type: mac_mini_m2
     environment:
-      xcode: 16.2
+      xcode: 26.0
       groups:
         - ios_signing
         - app_store

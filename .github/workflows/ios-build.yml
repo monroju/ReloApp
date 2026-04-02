@@ -7,16 +7,16 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode 16
+      - name: Select Xcode 26
         run: |
           # List available Xcode versions for debugging
           ls /Applications/ | grep Xcode
-          # Use Xcode 16.1 (available on macos-14, has Swift 6 + iOS 18.1 simulator)
-          sudo xcode-select -s /Applications/Xcode_16.1.app/Contents/Developer
+          # Use Xcode 26 (iOS 26 SDK required by App Store starting April 28, 2026)
+          sudo xcode-select -s /Applications/Xcode_26.app/Contents/Developer
           xcodebuild -version
           swift --version
           xcrun simctl list runtimes
