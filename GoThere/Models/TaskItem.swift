@@ -13,10 +13,11 @@ struct TaskItem: Codable, Identifiable, Hashable {
     var cityName: String?
     var countryId: String?
     var links: [AppLink]?
+    var notes: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title, description, category, completed
-        case dueAt, createdAt, cityId, cityName, countryId, links
+        case dueAt, createdAt, cityId, cityName, countryId, links, notes
     }
 }
 

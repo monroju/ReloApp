@@ -1,0 +1,230 @@
+{
+  "cityId": "lagos",
+  "countryId": "portugal",
+  "centerLat": 37.1028,
+  "centerLng": -8.6732,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "hospital_000",
+      "name": "Hospital Terras do Infante",
+      "category": "hospital",
+      "lat": 37.097886,
+      "lng": -8.682071,
+      "address": "Avenida Dom Sebastião 129",
+      "phone": "+351 282 770 100",
+      "website": "https://www.chualgarve.min-saude.pt/contactos/",
+      "notes": ""
+    },
+    {
+      "id": "clinic_001",
+      "name": "Lagos Foot Clinic",
+      "category": "clinic",
+      "lat": 37.101254,
+      "lng": -8.691403,
+      "address": "",
+      "phone": "+351 911 967 586",
+      "website": "www.algarvefeet.com",
+      "notes": ""
+    },
+    {
+      "id": "clinic_002",
+      "name": "Clínica São Gonçalo de Lagos",
+      "category": "clinic",
+      "lat": 37.106942,
+      "lng": -8.676766,
+      "address": "",
+      "phone": "+351 282 420 400",
+      "website": "https://www.grupohpa.com/pt/unidades/clinicas/clinica-sao-goncalo-lagos/",
+      "notes": ""
+    },
+    {
+      "id": "clinic_003",
+      "name": "Cruz Vermelha Portuguesa Nucleo De Lagos",
+      "category": "clinic",
+      "lat": 37.09831,
+      "lng": -8.670793,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_004",
+      "name": "Centro de Saúde de Lagos",
+      "category": "clinic",
+      "lat": 37.101853,
+      "lng": -8.688433,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_005",
+      "name": "Amanhecer - Super Lagos",
+      "category": "supermarket",
+      "lat": 37.098899,
+      "lng": -8.672459,
+      "address": "Travessa do Forno 10, Lagos",
+      "phone": "",
+      "website": "https://amanhecer.pt/lojas/super-lagos/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_006",
+      "name": "Spar",
+      "category": "supermarket",
+      "lat": 37.096361,
+      "lng": -8.672973,
+      "address": "Estrada da Ponta da Piedade 1;2, Lagos",
+      "phone": "+351 282 792 641",
+      "website": "https://www.spar.pt/loja/detalhe/252/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_007",
+      "name": "Danini",
+      "category": "supermarket",
+      "lat": 37.101379,
+      "lng": -8.671585,
+      "address": "Travessa da Senhora da Graça 6",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Bom dia",
+      "category": "supermarket",
+      "lat": 37.093786,
+      "lng": -8.674472,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "Supermercado SuperEureka",
+      "category": "supermarket",
+      "lat": 37.092615,
+      "lng": -8.67901,
+      "address": "Rua da Casa da Misericórdia de Lagos L17A, Lagos",
+      "phone": "+351 282 761 396",
+      "website": "",
+      "notes": "Supermercado SuperEureka"
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Successexpert",
+      "category": "supermarket",
+      "lat": 37.095883,
+      "lng": -8.672825,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "GO minimarket",
+      "category": "supermarket",
+      "lat": 37.109415,
+      "lng": -8.670352,
+      "address": "Rua Gomes Vinagre 13",
+      "phone": "+351 282 096 216",
+      "website": "https://gominimarket.eu/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Paradise supermarket",
+      "category": "supermarket",
+      "lat": 37.100971,
+      "lng": -8.673042,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Mercearia Bio Café",
+      "category": "supermarket",
+      "lat": 37.107149,
+      "lng": -8.675557,
+      "address": "",
+      "phone": "",
+      "website": "https://www.merceariabio.pt",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Continente Modelo",
+      "category": "supermarket",
+      "lat": 37.109703,
+      "lng": -8.68885,
+      "address": "Lagos",
+      "phone": "+351 282 770 270",
+      "website": "https://feed.continente.pt/lojas/continente-modelo-lagos",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_015",
+      "name": "Lidl",
+      "category": "supermarket",
+      "lat": 37.107296,
+      "lng": -8.682169,
+      "address": "Avenida da República 303, Lagos",
+      "phone": "+351 210 207 000",
+      "website": "https://www.lidl.pt/s/pt-PT/pesquisa-de-loja/lagos/avenida-da-republica-303/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_016",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 37.106885,
+      "lng": -8.679375,
+      "address": "",
+      "phone": "+351 938 875 566",
+      "website": "https://www.pingodoce.pt/lojas/lagos-av-da-republica/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_017",
+      "name": "Aldi",
+      "category": "supermarket",
+      "lat": 37.106761,
+      "lng": -8.68678,
+      "address": "Rua do Cerro das Mós, Lagos",
+      "phone": "",
+      "website": "https://www.aldi.pt/tools/lojas-e-horarios-de-funcionamento.html/l/lagos/rua-do-cerro-das-mos/3591906",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_018",
+      "name": "Intermarché",
+      "category": "supermarket",
+      "lat": 37.10003,
+      "lng": -8.683304,
+      "address": "",
+      "phone": "",
+      "website": "https://www.intermarche.pt",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_019",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 37.113726,
+      "lng": -8.67646,
+      "address": "",
+      "phone": "+351 938 875 853",
+      "website": "https://www.pingodoce.pt/lojas/lagos-marina/",
+      "notes": ""
+    }
+  ]
+}

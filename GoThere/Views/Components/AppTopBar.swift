@@ -68,8 +68,8 @@ struct GoThereTopBar: ViewModifier {
                             NavigationLink("Cost Calculator") {
                                 CostCalculatorView()
                             }
-                            NavigationLink("Visa Packs") {
-                                VisaPackView()
+                            NavigationLink("Visa Wizard") {
+                                VisaWizardView(countryId: selectedCountry)
                             }
                             NavigationLink("Destinations") {
                                 DestinationsView()

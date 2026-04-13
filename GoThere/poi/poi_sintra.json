@@ -1,0 +1,186 @@
+{
+  "cityId": "sintra",
+  "countryId": "portugal",
+  "centerLat": 38.8029,
+  "centerLng": -9.3817,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "hospital_000",
+      "name": "Serviço de Urgência Básica (SUB)",
+      "category": "hospital",
+      "lat": 38.790215,
+      "lng": -9.351808,
+      "address": "Mem Martins",
+      "phone": "21434 5535",
+      "website": "http://www.hff.min-saude.pt/index.php/conteudo/servico-de-urgencia-basica-algueirao-mem-martins_99",
+      "notes": ""
+    },
+    {
+      "id": "hospital_001",
+      "name": "Hospital de Sintra",
+      "category": "hospital",
+      "lat": 38.809508,
+      "lng": -9.354071,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_002",
+      "name": "USF Cynthia",
+      "category": "clinic",
+      "lat": 38.802364,
+      "lng": -9.381406,
+      "address": "Avenida Desidério Cambournac 4, Sintra",
+      "phone": "+351 219247770",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_003",
+      "name": "USF D. Fernando II",
+      "category": "clinic",
+      "lat": 38.791061,
+      "lng": -9.351768,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_004",
+      "name": "USF Natividade",
+      "category": "clinic",
+      "lat": 38.791196,
+      "lng": -9.351503,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_005",
+      "name": "UCSP Algueirão",
+      "category": "clinic",
+      "lat": 38.79086,
+      "lng": -9.352166,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_006",
+      "name": "Clínica Ouressa",
+      "category": "clinic",
+      "lat": 38.798554,
+      "lng": -9.354623,
+      "address": "",
+      "phone": "219207871",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_007",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 38.801149,
+      "lng": -9.379105,
+      "address": "",
+      "phone": "+351 938 875 841",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Auchan Supermercado",
+      "category": "supermarket",
+      "lat": 38.800286,
+      "lng": -9.379339,
+      "address": "Avenida Movimento das Forças Armadas 40, Sintra",
+      "phone": "+351 210 403 270",
+      "website": "https://www.auchan.pt/pt/loja?StoreID=B84",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "Auchan Supermercado",
+      "category": "supermarket",
+      "lat": 38.803487,
+      "lng": -9.354957,
+      "address": "Avenida Professor Doutor Henrique de Barros, Algueirão",
+      "phone": "+351 210 403 270",
+      "website": "https://www.auchan.pt/pt/loja?StoreID=B81",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Continente Modelo",
+      "category": "supermarket",
+      "lat": 38.813995,
+      "lng": -9.36211,
+      "address": "Estrada da Cavaleira 1, Lourel",
+      "phone": "+351 219 106 940",
+      "website": "https://feed.continente.pt/lojas/continente-modelo-sintra-lourel",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "Lidl",
+      "category": "supermarket",
+      "lat": 38.804353,
+      "lng": -9.355072,
+      "address": "Algueirão-Mem Martins",
+      "phone": "+351 210 207 000",
+      "website": "https://www.lidl.pt/s/pt-PT/pesquisa-de-loja/sintra/casal-vale-milho-1/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 38.807308,
+      "lng": -9.351537,
+      "address": "Rua Cidade de Beja",
+      "phone": "+351 938 040 664",
+      "website": "https://www.pingodoce.pt/lojas/cavaleira-algueirao/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Aldi",
+      "category": "supermarket",
+      "lat": 38.813601,
+      "lng": -9.3662,
+      "address": "Estrada de Mafra 79, Sintra",
+      "phone": "",
+      "website": "https://www.aldi.pt/tools/lojas-e-horarios-de-funcionamento.html/l/sintra/estrada-mafra-79/3591910",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Lidl",
+      "category": "supermarket",
+      "lat": 38.817687,
+      "lng": -9.361827,
+      "address": "Estrada de Mafra 11, Sintra",
+      "phone": "+351 210 207 000",
+      "website": "https://www.lidl.pt/s/pt-PT/pesquisa-de-loja/sintra/estrada-de-mafra-109/",
+      "notes": ""
+    },
+    {
+      "id": "international_school_015",
+      "name": "Prime School International",
+      "category": "international_school",
+      "lat": 38.800604,
+      "lng": -9.375297,
+      "address": "Rua Mestre Neves 20, Sintra",
+      "phone": "+351 219235496",
+      "website": "http://www.colegioinfanta.pt",
+      "notes": ""
+    }
+  ]
+}

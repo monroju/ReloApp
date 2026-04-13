@@ -1,0 +1,186 @@
+{
+  "cityId": "los_cabos",
+  "countryId": "mexico",
+  "centerLat": 22.8905,
+  "centerLng": -109.9167,
+  "defaultZoom": 13,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "bank_000",
+      "name": "Bancos",
+      "category": "bank",
+      "lat": 22.890756,
+      "lng": -109.908678,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_001",
+      "name": "Banamex",
+      "category": "bank",
+      "lat": 22.890857,
+      "lng": -109.908747,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_002",
+      "name": "BBVA México",
+      "category": "bank",
+      "lat": 22.891012,
+      "lng": -109.908643,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_003",
+      "name": "Banorte",
+      "category": "bank",
+      "lat": 22.900142,
+      "lng": -109.92782,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_004",
+      "name": "Bancoppel Patio",
+      "category": "bank",
+      "lat": 22.904211,
+      "lng": -109.932574,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_005",
+      "name": "Banorte",
+      "category": "bank",
+      "lat": 22.893512,
+      "lng": -109.907649,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_006",
+      "name": "BBVA",
+      "category": "bank",
+      "lat": 22.90186,
+      "lng": -109.89924,
+      "address": "Carretera Transpeninsular, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_007",
+      "name": "CI Banco",
+      "category": "bank",
+      "lat": 22.901774,
+      "lng": -109.899212,
+      "address": "Carretera Transpeninsular, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_008",
+      "name": "Inbursa",
+      "category": "bank",
+      "lat": 22.901614,
+      "lng": -109.89919,
+      "address": "Carretera Transpeninsular Km 1.5, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_009",
+      "name": "Monex",
+      "category": "bank",
+      "lat": 22.901529,
+      "lng": -109.899155,
+      "address": "Carretera Transpeninsular Km 1.5, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_010",
+      "name": "BBVA",
+      "category": "bank",
+      "lat": 22.901417,
+      "lng": -109.89912,
+      "address": "Carretera Transpeninsular Km 1.5, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_011",
+      "name": "HSBC",
+      "category": "bank",
+      "lat": 22.901267,
+      "lng": -109.899045,
+      "address": "Carretera Transpeninsular Km 1.5, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_012",
+      "name": "Banco Azteca",
+      "category": "bank",
+      "lat": 22.881482,
+      "lng": -109.912578,
+      "address": "Boulevard Paseo de Marina, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_013",
+      "name": "Banregio",
+      "category": "bank",
+      "lat": 22.89245,
+      "lng": -109.907706,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_014",
+      "name": "IMSS Bienestar Hospital General Los Cabos",
+      "category": "clinic",
+      "lat": 22.903258,
+      "lng": -109.924874,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "international_school_015",
+      "name": "Delmar International School",
+      "category": "international_school",
+      "lat": 22.9129,
+      "lng": -109.893459,
+      "address": "Calle Paseo del Sol, Cabo San Lucas",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    }
+  ]
+}

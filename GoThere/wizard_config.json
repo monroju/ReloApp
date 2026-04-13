@@ -1,0 +1,765 @@
+{
+  "wizardVersion": 1,
+  "tracks": {
+    "es_non_lucrative": {
+      "displayName": "Spain - Non-Lucrative Visa",
+      "countryId": "spain",
+      "shortName": "NLV",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your checklist.",
+          "questions": [
+            {
+              "id": "employment_status",
+              "type": "single_choice",
+              "label": "Current employment status",
+              "options": [
+                { "id": "retired", "label": "Retired" },
+                { "id": "self_employed", "label": "Self-Employed" },
+                { "id": "investor", "label": "Living off investments/savings" },
+                { "id": "unemployed", "label": "Not currently working" }
+              ],
+              "required": true
+            },
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                { "id": "single", "label": "Just me" },
+                { "id": "couple", "label": "With partner/spouse" },
+                { "id": "family", "label": "Family with children" }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": { "family_situation": "family" },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                { "id": "us", "label": "United States" },
+                { "id": "uk", "label": "United Kingdom" },
+                { "id": "canada", "label": "Canada" },
+                { "id": "other_eu", "label": "Other EU country" },
+                { "id": "other", "label": "Other" }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Financial Readiness",
+          "subtitle": "The NLV requires proof you can support yourself without working in Spain.",
+          "questions": [
+            {
+              "id": "monthly_income_range",
+              "type": "single_choice",
+              "label": "Monthly passive income (USD)",
+              "options": [
+                { "id": "under_2000", "label": "Under $2,000" },
+                { "id": "2000_3500", "label": "$2,000 - $3,500" },
+                { "id": "3500_5000", "label": "$3,500 - $5,000" },
+                { "id": "over_5000", "label": "Over $5,000" }
+              ],
+              "required": true,
+              "hint": "Spain typically requires ~$2,800/month (IPREM x4) for the primary applicant."
+            },
+            {
+              "id": "has_health_insurance",
+              "type": "boolean",
+              "label": "Do you already have international health insurance valid in Spain?",
+              "required": true
+            },
+            {
+              "id": "has_background_check",
+              "type": "boolean",
+              "label": "Do you already have a recent FBI/police background check?",
+              "required": true
+            },
+            {
+              "id": "has_apostille",
+              "type": "boolean",
+              "label": "Is your background check already apostilled?",
+              "showIf": { "has_background_check": true },
+              "required": false
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "We'll use this to calculate suggested due dates for each step.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you plan to move?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "3_months", "label": "In ~3 months" },
+                { "id": "6_months", "label": "In ~6 months" },
+                { "id": "1_year", "label": "In ~1 year" }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Do you already have accommodation arranged in Spain?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you booked a consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Research your assigned Spanish consulate",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Find the Spanish consulate that covers your jurisdiction. Each US state is assigned to a specific consulate.",
+          "links": [{ "label": "Consulate Finder", "url": "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx" }],
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 1
+        },
+        {
+          "taskTitle": "Request FBI Identity History Summary",
+          "phase": "Phase 2: Documentation",
+          "description": "Order from FBI website. Takes 12-18 weeks by mail, or 3-5 days with an approved channeler.",
+          "links": [{ "label": "FBI Identity History", "url": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/identity-history-summary-checks" }],
+          "conditions": { "has_background_check": false, "country_of_residence": ["us"] },
+          "estimatedWeeks": 20,
+          "order": 2
+        },
+        {
+          "taskTitle": "Get police background check from your country",
+          "phase": "Phase 2: Documentation",
+          "description": "Request an official criminal record check from your country's police or justice department.",
+          "conditions": { "has_background_check": false, "country_of_residence": ["uk", "canada", "other_eu", "other"] },
+          "estimatedWeeks": 18,
+          "order": 2
+        },
+        {
+          "taskTitle": "Apostille your background check",
+          "phase": "Phase 2: Documentation",
+          "description": "US: send to US State Department. UK: use the FCO. Canada: use Global Affairs Canada. Takes 4-8 weeks.",
+          "links": [{ "label": "US Apostille Info", "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html" }],
+          "conditions": { "has_apostille": false },
+          "estimatedWeeks": 16,
+          "order": 3
+        },
+        {
+          "taskTitle": "Obtain international health insurance",
+          "phase": "Phase 2: Documentation",
+          "description": "Must be a full-coverage policy valid in Spain with no co-pays. Spanish consulates are strict about this.",
+          "links": [
+            { "label": "Sanitas (Spain)", "url": "https://www.sanitas.es" },
+            { "label": "Cigna Global", "url": "https://www.cigna.com/global" }
+          ],
+          "conditions": { "has_health_insurance": false },
+          "estimatedWeeks": 14,
+          "order": 4
+        },
+        {
+          "taskTitle": "Gather proof of passive income",
+          "phase": "Phase 2: Documentation",
+          "description": "Collect 12 months of bank statements, pension statements, or investment income proof. Must show income exceeds Spain's IPREM threshold.",
+          "conditions": {},
+          "estimatedWeeks": 14,
+          "order": 5
+        },
+        {
+          "taskTitle": "Gather additional income proof for spouse",
+          "phase": "Phase 2: Documentation",
+          "description": "Spain requires ~$700/month additional per dependent. Gather marriage certificate and combined financial docs.",
+          "conditions": { "family_situation": ["couple", "family"] },
+          "estimatedWeeks": 14,
+          "order": 6
+        },
+        {
+          "taskTitle": "Gather additional income proof for {num_dependents} child(ren)",
+          "phase": "Phase 2: Documentation",
+          "description": "Spain requires ~$350/month additional per child dependent. Gather birth certificates.",
+          "conditions": { "family_situation": "family" },
+          "estimatedWeeks": 14,
+          "order": 7
+        },
+        {
+          "taskTitle": "Get birth certificates apostilled",
+          "phase": "Phase 2: Documentation",
+          "description": "Birth certificates for all family members must be apostilled for the consulate application.",
+          "conditions": { "family_situation": ["couple", "family"] },
+          "estimatedWeeks": 14,
+          "order": 8
+        },
+        {
+          "taskTitle": "Get marriage certificate apostilled",
+          "phase": "Phase 2: Documentation",
+          "description": "Required if applying with a spouse.",
+          "conditions": { "family_situation": ["couple", "family"] },
+          "estimatedWeeks": 14,
+          "order": 9
+        },
+        {
+          "taskTitle": "Book consulate appointment",
+          "phase": "Phase 3: Application",
+          "description": "Book as early as possible — some consulates have 2-3 month wait times.",
+          "conditions": { "has_consulate_appt": false },
+          "estimatedWeeks": 12,
+          "order": 10
+        },
+        {
+          "taskTitle": "Complete visa application form (EX-01)",
+          "phase": "Phase 3: Application",
+          "description": "Download and fill out the national visa application form.",
+          "links": [{ "label": "Visa Forms", "url": "https://www.exteriores.gob.es/Consulados/" }],
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 11
+        },
+        {
+          "taskTitle": "Prepare passport photos (recent, white background)",
+          "phase": "Phase 3: Application",
+          "description": "2 recent passport-sized photos with white background. Some consulates have specific size requirements.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 12
+        },
+        {
+          "taskTitle": "Attend consulate appointment",
+          "phase": "Phase 3: Application",
+          "description": "Bring all originals and copies. Expect to leave your passport. Processing takes 2-3 months.",
+          "conditions": {},
+          "estimatedWeeks": 6,
+          "order": 13
+        },
+        {
+          "taskTitle": "Secure accommodation in Spain",
+          "phase": "Phase 3: Application",
+          "description": "You'll need a rental contract or proof of accommodation for the visa application.",
+          "links": [{ "label": "Idealista", "url": "https://www.idealista.com" }],
+          "conditions": { "has_accommodation": false },
+          "estimatedWeeks": 10,
+          "order": 14
+        },
+        {
+          "taskTitle": "Research schools for children in target city",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Look into international schools, bilingual schools, or the Spanish public school system (colegios públicos).",
+          "conditions": { "family_situation": "family" },
+          "estimatedWeeks": 20,
+          "order": 15
+        },
+        {
+          "taskTitle": "Apply for NIE/TIE within 30 days of arrival",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Once in Spain, apply for your Foreigner Identity Card (TIE) at the nearest Oficina de Extranjería.",
+          "links": [{ "label": "Extranjería Info", "url": "https://www.inclusion.gob.es/web/migraciones/w/extranjeria" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        },
+        {
+          "taskTitle": "Register at local town hall (Empadronamiento)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Register your address at the Ayuntamiento. This is required for most administrative procedures.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 17
+        },
+        {
+          "taskTitle": "Open a Spanish bank account",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "You'll need a NIE and proof of address. N26 or BBVA are popular with expats.",
+          "links": [
+            { "label": "BBVA", "url": "https://www.bbva.es" },
+            { "label": "N26 Spain", "url": "https://n26.com/en-es" }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 18
+        },
+        {
+          "taskTitle": "Register with Social Security (Seguridad Social)",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "If eligible for public healthcare, register at your local Social Security office.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 19
+        },
+        {
+          "taskTitle": "File annual tax declaration (Modelo 100)",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "As a tax resident, file Spanish income tax between April-June each year.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 20
+        }
+      ]
+    },
+
+    "es_digital_nomad": {
+      "displayName": "Spain - Digital Nomad Visa",
+      "countryId": "spain",
+      "shortName": "DNV",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "The DNV is for remote workers employed by non-Spanish companies.",
+          "questions": [
+            {
+              "id": "employment_type",
+              "type": "single_choice",
+              "label": "Remote work arrangement",
+              "options": [
+                { "id": "employed", "label": "Employed by a foreign company" },
+                { "id": "freelancer", "label": "Freelancer/Independent contractor" },
+                { "id": "business_owner", "label": "Own a business registered outside Spain" }
+              ],
+              "required": true
+            },
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                { "id": "single", "label": "Just me" },
+                { "id": "couple", "label": "With partner/spouse" },
+                { "id": "family", "label": "Family with children" }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": { "family_situation": "family" },
+              "min": 1, "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                { "id": "us", "label": "United States" },
+                { "id": "uk", "label": "United Kingdom" },
+                { "id": "canada", "label": "Canada" },
+                { "id": "other_eu", "label": "Other EU country" },
+                { "id": "other", "label": "Other" }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Work & Income",
+          "subtitle": "The DNV requires proof of remote employment and minimum income.",
+          "questions": [
+            {
+              "id": "monthly_income_range",
+              "type": "single_choice",
+              "label": "Monthly gross income (USD)",
+              "options": [
+                { "id": "under_3000", "label": "Under $3,000" },
+                { "id": "3000_5000", "label": "$3,000 - $5,000" },
+                { "id": "5000_8000", "label": "$5,000 - $8,000" },
+                { "id": "over_8000", "label": "Over $8,000" }
+              ],
+              "required": true,
+              "hint": "Spain requires 200% of the minimum wage (~$3,200/month) for the DNV."
+            },
+            {
+              "id": "has_health_insurance",
+              "type": "boolean",
+              "label": "Do you have international health insurance valid in Spain?",
+              "required": true
+            },
+            {
+              "id": "has_background_check",
+              "type": "boolean",
+              "label": "Do you have a recent police background check?",
+              "required": true
+            },
+            {
+              "id": "company_years",
+              "type": "single_choice",
+              "label": "How long have you worked for your current employer/clients?",
+              "options": [
+                { "id": "under_1", "label": "Less than 1 year" },
+                { "id": "1_3", "label": "1-3 years" },
+                { "id": "over_3", "label": "Over 3 years" }
+              ],
+              "required": true,
+              "hint": "Spain requires at least 1 year of employment history with the company."
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "The DNV application process typically takes 2-4 months.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you plan to move?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "3_months", "label": "In ~3 months" },
+                { "id": "6_months", "label": "In ~6 months" },
+                { "id": "1_year", "label": "In ~1 year" }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Do you have accommodation arranged?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you booked a consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        { "taskTitle": "Confirm employer will provide remote work letter", "phase": "Phase 1: Research & Planning", "description": "Your employer must issue a letter confirming your remote work arrangement, role, salary, and that they have no presence in Spain.", "conditions": { "employment_type": "employed" }, "estimatedWeeks": 20, "order": 1 },
+        { "taskTitle": "Prepare freelance contract portfolio", "phase": "Phase 1: Research & Planning", "description": "Gather contracts from your top clients showing ongoing remote work relationships (minimum 1 year history).", "conditions": { "employment_type": ["freelancer", "business_owner"] }, "estimatedWeeks": 20, "order": 1 },
+        { "taskTitle": "Research your assigned Spanish consulate", "phase": "Phase 1: Research & Planning", "description": "Find the Spanish consulate that covers your jurisdiction.", "links": [{ "label": "Consulate Finder", "url": "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx" }], "conditions": {}, "estimatedWeeks": 22, "order": 2 },
+        { "taskTitle": "Request FBI Identity History Summary", "phase": "Phase 2: Documentation", "description": "Order from FBI website. Takes 12-18 weeks by mail.", "links": [{ "label": "FBI Identity History", "url": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/identity-history-summary-checks" }], "conditions": { "has_background_check": false, "country_of_residence": ["us"] }, "estimatedWeeks": 20, "order": 3 },
+        { "taskTitle": "Get police background check", "phase": "Phase 2: Documentation", "conditions": { "has_background_check": false, "country_of_residence": ["uk", "canada", "other_eu", "other"] }, "estimatedWeeks": 18, "order": 3 },
+        { "taskTitle": "Apostille background check", "phase": "Phase 2: Documentation", "description": "Send to your country's apostille authority (US: State Department, UK: FCO).", "conditions": {}, "estimatedWeeks": 16, "order": 4 },
+        { "taskTitle": "Obtain international health insurance for Spain", "phase": "Phase 2: Documentation", "description": "Full coverage, no co-pays, valid in Spain.", "conditions": { "has_health_insurance": false }, "estimatedWeeks": 14, "order": 5 },
+        { "taskTitle": "Gather 12 months of payslips/invoices", "phase": "Phase 2: Documentation", "description": "Proof of consistent remote income above the minimum threshold.", "conditions": {}, "estimatedWeeks": 14, "order": 6 },
+        { "taskTitle": "Gather documents for spouse", "phase": "Phase 2: Documentation", "description": "Marriage certificate (apostilled), spouse's passport copy, additional income proof.", "conditions": { "family_situation": ["couple", "family"] }, "estimatedWeeks": 14, "order": 7 },
+        { "taskTitle": "Gather documents for {num_dependents} child(ren)", "phase": "Phase 2: Documentation", "description": "Birth certificates (apostilled), passport copies.", "conditions": { "family_situation": "family" }, "estimatedWeeks": 14, "order": 8 },
+        { "taskTitle": "Request university degree certificate (if applicable)", "phase": "Phase 2: Documentation", "description": "Spain may require proof of qualifications for the DNV. Get your degree apostilled.", "conditions": {}, "estimatedWeeks": 14, "order": 9 },
+        { "taskTitle": "Book consulate appointment", "phase": "Phase 3: Application", "conditions": { "has_consulate_appt": false }, "estimatedWeeks": 12, "order": 10 },
+        { "taskTitle": "Complete visa application form", "phase": "Phase 3: Application", "conditions": {}, "estimatedWeeks": 8, "order": 11 },
+        { "taskTitle": "Secure accommodation in Spain", "phase": "Phase 3: Application", "description": "Rental contract or proof of housing.", "conditions": { "has_accommodation": false }, "estimatedWeeks": 10, "order": 12 },
+        { "taskTitle": "Attend consulate appointment with all documents", "phase": "Phase 3: Application", "conditions": {}, "estimatedWeeks": 6, "order": 13 },
+        { "taskTitle": "Research schools for children", "phase": "Phase 1: Research & Planning", "conditions": { "family_situation": "family" }, "estimatedWeeks": 20, "order": 14 },
+        { "taskTitle": "Apply for NIE/TIE within 30 days of arrival", "phase": "Phase 4: Arrival & Setup", "description": "Apply for your Foreigner Identity Card at the Oficina de Extranjeria.", "conditions": {}, "estimatedWeeks": 0, "order": 15 },
+        { "taskTitle": "Register at local town hall (Empadronamiento)", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 16 },
+        { "taskTitle": "Open a Spanish bank account", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 17 },
+        { "taskTitle": "Register as Autonomo (if freelancer)", "phase": "Phase 4: Arrival & Setup", "description": "Freelancers must register with Social Security and Hacienda as self-employed (Autonomo).", "conditions": { "employment_type": ["freelancer", "business_owner"] }, "estimatedWeeks": 0, "order": 18 },
+        { "taskTitle": "Apply for Beckham Law tax regime", "phase": "Phase 5: Residency Follow-up", "description": "DNV holders may qualify for the special tax regime (flat 24% on Spanish-sourced income for 6 years).", "conditions": {}, "estimatedWeeks": 0, "order": 19 }
+      ]
+    },
+
+    "pt_d7_passive_income": {
+      "displayName": "Portugal - D7 Passive Income Visa",
+      "countryId": "portugal",
+      "shortName": "D7",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "The D7 is Portugal's visa for retirees and those with passive income.",
+          "questions": [
+            { "id": "employment_status", "type": "single_choice", "label": "Primary income source", "options": [
+              { "id": "pension", "label": "Pension" },
+              { "id": "investments", "label": "Investments/dividends" },
+              { "id": "rental", "label": "Rental income" },
+              { "id": "savings", "label": "Savings" }
+            ], "required": true },
+            { "id": "family_situation", "type": "single_choice", "label": "Who is relocating?", "options": [
+              { "id": "single", "label": "Just me" },
+              { "id": "couple", "label": "With partner/spouse" },
+              { "id": "family", "label": "Family with children" }
+            ], "required": true },
+            { "id": "num_dependents", "type": "number", "label": "Number of children", "showIf": { "family_situation": "family" }, "min": 1, "max": 10 },
+            { "id": "country_of_residence", "type": "single_choice", "label": "Current country of residence", "options": [
+              { "id": "us", "label": "United States" },
+              { "id": "uk", "label": "United Kingdom" },
+              { "id": "canada", "label": "Canada" },
+              { "id": "other", "label": "Other" }
+            ], "required": true }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Financial Readiness",
+          "subtitle": "Portugal requires proof of sufficient passive income.",
+          "questions": [
+            { "id": "monthly_income_range", "type": "single_choice", "label": "Monthly passive income (USD)", "options": [
+              { "id": "under_1500", "label": "Under $1,500" },
+              { "id": "1500_2500", "label": "$1,500 - $2,500" },
+              { "id": "2500_4000", "label": "$2,500 - $4,000" },
+              { "id": "over_4000", "label": "Over $4,000" }
+            ], "required": true, "hint": "Portugal requires 100% of minimum wage (~$900/month) for applicant + 50% per dependent." },
+            { "id": "has_health_insurance", "type": "boolean", "label": "Do you have international health insurance valid in Portugal?", "required": true },
+            { "id": "has_background_check", "type": "boolean", "label": "Do you have a recent police background check?", "required": true },
+            { "id": "has_nif", "type": "boolean", "label": "Do you already have a Portuguese NIF (tax number)?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "questions": [
+            { "id": "target_move", "type": "single_choice", "label": "When do you plan to move?", "options": [
+              { "id": "asap", "label": "As soon as possible" },
+              { "id": "3_months", "label": "In ~3 months" },
+              { "id": "6_months", "label": "In ~6 months" },
+              { "id": "1_year", "label": "In ~1 year" }
+            ], "required": true },
+            { "id": "has_accommodation", "type": "boolean", "label": "Do you have accommodation arranged in Portugal?", "required": true }
+          ]
+        }
+      ],
+      "taskRules": [
+        { "taskTitle": "Obtain Portuguese NIF (tax number)", "phase": "Phase 1: Research & Planning", "description": "Apply via Bordr.io (remote) or at a Financas office in Portugal. Required for almost everything.", "links": [{ "label": "Bordr NIF Service", "url": "https://bordr.io" }, { "label": "Portal das Financas", "url": "https://www.portaldasfinancas.gov.pt" }], "conditions": { "has_nif": false }, "estimatedWeeks": 22, "order": 1 },
+        { "taskTitle": "Request FBI background check", "phase": "Phase 2: Documentation", "conditions": { "has_background_check": false, "country_of_residence": ["us"] }, "estimatedWeeks": 20, "order": 2 },
+        { "taskTitle": "Get police background check", "phase": "Phase 2: Documentation", "conditions": { "has_background_check": false, "country_of_residence": ["uk", "canada", "other"] }, "estimatedWeeks": 18, "order": 2 },
+        { "taskTitle": "Apostille background check", "phase": "Phase 2: Documentation", "conditions": {}, "estimatedWeeks": 16, "order": 3 },
+        { "taskTitle": "Obtain international health insurance for Portugal", "phase": "Phase 2: Documentation", "conditions": { "has_health_insurance": false }, "estimatedWeeks": 14, "order": 4 },
+        { "taskTitle": "Gather 12 months of passive income statements", "phase": "Phase 2: Documentation", "description": "Bank statements, pension letters, dividend records, or rental agreements.", "conditions": {}, "estimatedWeeks": 14, "order": 5 },
+        { "taskTitle": "Gather family documents (marriage + birth certificates)", "phase": "Phase 2: Documentation", "conditions": { "family_situation": ["couple", "family"] }, "estimatedWeeks": 14, "order": 6 },
+        { "taskTitle": "Open a Portuguese bank account", "phase": "Phase 2: Documentation", "description": "Required for the D7 application. ActivoBank or Millennium BCP are popular choices.", "links": [{ "label": "ActivoBank", "url": "https://www.activobank.pt" }], "conditions": {}, "estimatedWeeks": 14, "order": 7 },
+        { "taskTitle": "Secure accommodation in Portugal", "phase": "Phase 3: Application", "description": "Rental contract required for the visa application.", "links": [{ "label": "Idealista Portugal", "url": "https://www.idealista.pt" }], "conditions": { "has_accommodation": false }, "estimatedWeeks": 12, "order": 8 },
+        { "taskTitle": "Submit D7 visa application at VFS/consulate", "phase": "Phase 3: Application", "description": "Apply at VFS Global center or Portuguese consulate in your country.", "links": [{ "label": "VFS Global Portugal", "url": "https://www.vfsglobal.com/portugal" }], "conditions": {}, "estimatedWeeks": 8, "order": 9 },
+        { "taskTitle": "Schedule SEF/AIMA appointment for residence permit", "phase": "Phase 4: Arrival & Setup", "description": "Within 4 months of arrival, apply for your residence permit at AIMA.", "links": [{ "label": "AIMA", "url": "https://www.aima.gov.pt" }], "conditions": {}, "estimatedWeeks": 0, "order": 10 },
+        { "taskTitle": "Register at local Junta de Freguesia", "phase": "Phase 4: Arrival & Setup", "description": "Register your address at the local parish council.", "conditions": {}, "estimatedWeeks": 0, "order": 11 },
+        { "taskTitle": "Register with Portuguese health system (SNS)", "phase": "Phase 4: Arrival & Setup", "description": "After obtaining residence, register at your local health center (Centro de Saude).", "conditions": {}, "estimatedWeeks": 0, "order": 12 },
+        { "taskTitle": "Research NHR tax regime eligibility", "phase": "Phase 5: Residency Follow-up", "description": "Portugal's Non-Habitual Resident tax regime offers favorable rates for 10 years.", "conditions": {}, "estimatedWeeks": 0, "order": 13 }
+      ]
+    },
+
+    "pt_d8_digital_nomad": {
+      "displayName": "Portugal - D8 Digital Nomad Visa",
+      "countryId": "portugal",
+      "shortName": "D8",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "The D8 is Portugal's visa for remote workers with foreign employers.",
+          "questions": [
+            { "id": "employment_type", "type": "single_choice", "label": "Remote work arrangement", "options": [
+              { "id": "employed", "label": "Employed by a foreign company" },
+              { "id": "freelancer", "label": "Freelancer" },
+              { "id": "business_owner", "label": "Business owner (non-Portuguese company)" }
+            ], "required": true },
+            { "id": "family_situation", "type": "single_choice", "label": "Who is relocating?", "options": [
+              { "id": "single", "label": "Just me" },
+              { "id": "couple", "label": "With partner/spouse" },
+              { "id": "family", "label": "Family with children" }
+            ], "required": true },
+            { "id": "num_dependents", "type": "number", "label": "Number of children", "showIf": { "family_situation": "family" }, "min": 1, "max": 10 },
+            { "id": "country_of_residence", "type": "single_choice", "label": "Current country of residence", "options": [
+              { "id": "us", "label": "United States" },
+              { "id": "uk", "label": "United Kingdom" },
+              { "id": "canada", "label": "Canada" },
+              { "id": "other", "label": "Other" }
+            ], "required": true }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Work & Income",
+          "subtitle": "The D8 requires 4x Portugal's minimum wage (~$3,600/month).",
+          "questions": [
+            { "id": "monthly_income_range", "type": "single_choice", "label": "Monthly gross income (USD)", "options": [
+              { "id": "under_3500", "label": "Under $3,500" },
+              { "id": "3500_5000", "label": "$3,500 - $5,000" },
+              { "id": "5000_8000", "label": "$5,000 - $8,000" },
+              { "id": "over_8000", "label": "Over $8,000" }
+            ], "required": true },
+            { "id": "has_health_insurance", "type": "boolean", "label": "Do you have international health insurance?", "required": true },
+            { "id": "has_background_check", "type": "boolean", "label": "Do you have a recent police background check?", "required": true },
+            { "id": "has_nif", "type": "boolean", "label": "Do you already have a Portuguese NIF?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "questions": [
+            { "id": "target_move", "type": "single_choice", "label": "When do you plan to move?", "options": [
+              { "id": "asap", "label": "As soon as possible" },
+              { "id": "3_months", "label": "In ~3 months" },
+              { "id": "6_months", "label": "In ~6 months" },
+              { "id": "1_year", "label": "In ~1 year" }
+            ], "required": true },
+            { "id": "has_accommodation", "type": "boolean", "label": "Do you have accommodation arranged?", "required": true }
+          ]
+        }
+      ],
+      "taskRules": [
+        { "taskTitle": "Obtain Portuguese NIF (tax number)", "phase": "Phase 1: Research & Planning", "description": "Required before almost all other steps.", "links": [{ "label": "Bordr NIF Service", "url": "https://bordr.io" }], "conditions": { "has_nif": false }, "estimatedWeeks": 22, "order": 1 },
+        { "taskTitle": "Get employer letter confirming remote work arrangement", "phase": "Phase 1: Research & Planning", "conditions": { "employment_type": "employed" }, "estimatedWeeks": 20, "order": 2 },
+        { "taskTitle": "Prepare freelance/business documentation", "phase": "Phase 1: Research & Planning", "description": "Client contracts, business registration, 12 months of invoices.", "conditions": { "employment_type": ["freelancer", "business_owner"] }, "estimatedWeeks": 20, "order": 2 },
+        { "taskTitle": "Request FBI/police background check", "phase": "Phase 2: Documentation", "conditions": { "has_background_check": false }, "estimatedWeeks": 18, "order": 3 },
+        { "taskTitle": "Apostille background check", "phase": "Phase 2: Documentation", "conditions": {}, "estimatedWeeks": 16, "order": 4 },
+        { "taskTitle": "Obtain health insurance valid in Portugal", "phase": "Phase 2: Documentation", "conditions": { "has_health_insurance": false }, "estimatedWeeks": 14, "order": 5 },
+        { "taskTitle": "Gather 12 months of payslips/invoices", "phase": "Phase 2: Documentation", "conditions": {}, "estimatedWeeks": 14, "order": 6 },
+        { "taskTitle": "Gather family documents", "phase": "Phase 2: Documentation", "conditions": { "family_situation": ["couple", "family"] }, "estimatedWeeks": 14, "order": 7 },
+        { "taskTitle": "Open Portuguese bank account", "phase": "Phase 2: Documentation", "conditions": {}, "estimatedWeeks": 14, "order": 8 },
+        { "taskTitle": "Secure accommodation", "phase": "Phase 3: Application", "conditions": { "has_accommodation": false }, "estimatedWeeks": 12, "order": 9 },
+        { "taskTitle": "Submit D8 visa application", "phase": "Phase 3: Application", "conditions": {}, "estimatedWeeks": 8, "order": 10 },
+        { "taskTitle": "Schedule AIMA appointment for residence permit", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 11 },
+        { "taskTitle": "Register at local Junta de Freguesia", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 12 },
+        { "taskTitle": "Register with SNS health system", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 13 },
+        { "taskTitle": "Research NHR tax regime", "phase": "Phase 5: Residency Follow-up", "conditions": {}, "estimatedWeeks": 0, "order": 14 }
+      ]
+    },
+
+    "mx_temp_resident_economic_solvency": {
+      "displayName": "Mexico - Temporary Resident (Economic Solvency)",
+      "countryId": "mexico",
+      "shortName": "Temp Res",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Mexico's Temporary Resident visa via economic solvency is the most common pathway.",
+          "questions": [
+            { "id": "employment_status", "type": "single_choice", "label": "Primary income source", "options": [
+              { "id": "retired", "label": "Retired" },
+              { "id": "employed_remote", "label": "Employed (Remote)" },
+              { "id": "self_employed", "label": "Self-Employed" },
+              { "id": "investor", "label": "Investments/savings" }
+            ], "required": true },
+            { "id": "family_situation", "type": "single_choice", "label": "Who is relocating?", "options": [
+              { "id": "single", "label": "Just me" },
+              { "id": "couple", "label": "With partner/spouse" },
+              { "id": "family", "label": "Family with children" }
+            ], "required": true },
+            { "id": "num_dependents", "type": "number", "label": "Number of children", "showIf": { "family_situation": "family" }, "min": 1, "max": 10 }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Financial Readiness",
+          "subtitle": "Mexico requires proof of economic solvency via bank statements.",
+          "questions": [
+            { "id": "proof_method", "type": "single_choice", "label": "How will you prove solvency?", "options": [
+              { "id": "monthly_income", "label": "Monthly income (6 months of statements)" },
+              { "id": "savings_balance", "label": "Savings balance (12 months of statements)" }
+            ], "required": true, "hint": "Monthly income: ~$2,800/month average. Savings: ~$47,000 balance over 12 months." },
+            { "id": "meets_threshold", "type": "boolean", "label": "Do your bank statements meet or exceed these thresholds?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "Mexico's consulate process is relatively fast: 1-3 weeks.",
+          "questions": [
+            { "id": "target_move", "type": "single_choice", "label": "When do you plan to move?", "options": [
+              { "id": "asap", "label": "As soon as possible" },
+              { "id": "3_months", "label": "In ~3 months" },
+              { "id": "6_months", "label": "In ~6 months" },
+              { "id": "1_year", "label": "In ~1 year" }
+            ], "required": true },
+            { "id": "has_accommodation", "type": "boolean", "label": "Do you have accommodation arranged in Mexico?", "required": true }
+          ]
+        }
+      ],
+      "taskRules": [
+        { "taskTitle": "Find your assigned Mexican consulate", "phase": "Phase 1: Research & Planning", "description": "Each US state is assigned to a specific Mexican consulate.", "links": [{ "label": "Consulate Finder", "url": "https://consulmex.sre.gob.mx/" }], "conditions": {}, "estimatedWeeks": 16, "order": 1 },
+        { "taskTitle": "Gather 6 months of bank statements", "phase": "Phase 2: Documentation", "description": "Must show average monthly income of ~$2,800 USD (or equivalent).", "conditions": { "proof_method": "monthly_income" }, "estimatedWeeks": 12, "order": 2 },
+        { "taskTitle": "Gather 12 months of bank statements", "phase": "Phase 2: Documentation", "description": "Must show average balance of ~$47,000 USD (or equivalent).", "conditions": { "proof_method": "savings_balance" }, "estimatedWeeks": 12, "order": 2 },
+        { "taskTitle": "Get passport photos (Mexico format)", "phase": "Phase 2: Documentation", "description": "White background, recent, specific Mexico immigration dimensions.", "conditions": {}, "estimatedWeeks": 10, "order": 3 },
+        { "taskTitle": "Complete Formato Basico visa application", "phase": "Phase 3: Application", "description": "Download from the consulate website.", "conditions": {}, "estimatedWeeks": 8, "order": 4 },
+        { "taskTitle": "Book consulate appointment", "phase": "Phase 3: Application", "description": "Mexican consulates often allow walk-ins, but booking is recommended.", "conditions": {}, "estimatedWeeks": 6, "order": 5 },
+        { "taskTitle": "Attend consulate appointment", "phase": "Phase 3: Application", "description": "Bring originals and copies of everything. You'll receive a visa sticker in your passport.", "conditions": {}, "estimatedWeeks": 4, "order": 6 },
+        { "taskTitle": "Gather marriage certificate for spouse visa", "phase": "Phase 2: Documentation", "conditions": { "family_situation": ["couple", "family"] }, "estimatedWeeks": 12, "order": 7 },
+        { "taskTitle": "Gather birth certificates for dependents", "phase": "Phase 2: Documentation", "conditions": { "family_situation": "family" }, "estimatedWeeks": 12, "order": 8 },
+        { "taskTitle": "Exchange visa for Temporary Resident Card at INM", "phase": "Phase 4: Arrival & Setup", "description": "Within 30 days of entry, visit INM to exchange your visa sticker for a physical resident card.", "links": [{ "label": "INM Appointments", "url": "https://citas.inm.gob.mx/" }], "conditions": {}, "estimatedWeeks": 0, "order": 9 },
+        { "taskTitle": "Get CURP (population registry number)", "phase": "Phase 4: Arrival & Setup", "description": "Free, issued automatically with your INM card or at curp.gob.mx.", "links": [{ "label": "CURP", "url": "https://www.gob.mx/curp/" }], "conditions": {}, "estimatedWeeks": 0, "order": 10 },
+        { "taskTitle": "Get RFC (tax ID) from SAT", "phase": "Phase 4: Arrival & Setup", "description": "Required for banking, employment, and tax filing in Mexico.", "links": [{ "label": "SAT", "url": "https://www.sat.gob.mx" }], "conditions": {}, "estimatedWeeks": 0, "order": 11 },
+        { "taskTitle": "Open a Mexican bank account", "phase": "Phase 4: Arrival & Setup", "description": "BBVA or Santander are popular with expats. Bring your resident card, CURP, and proof of address.", "conditions": {}, "estimatedWeeks": 0, "order": 12 },
+        { "taskTitle": "Research IMSS Voluntario (public health insurance)", "phase": "Phase 5: Residency Follow-up", "description": "Mexico's public health system offers affordable voluntary enrollment for residents (~$500/year).", "links": [{ "label": "IMSS Voluntario", "url": "http://www.imss.gob.mx/tramites/imss02025a" }], "conditions": {}, "estimatedWeeks": 0, "order": 13 }
+      ]
+    },
+
+    "mx_temp_resident_remote_work": {
+      "displayName": "Mexico - Temporary Resident (Remote Work)",
+      "countryId": "mexico",
+      "shortName": "Remote",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Mexico doesn't have a dedicated digital nomad visa, but the Temporary Resident visa works well for remote workers.",
+          "questions": [
+            { "id": "employment_type", "type": "single_choice", "label": "Remote work arrangement", "options": [
+              { "id": "employed", "label": "Employed by a foreign company" },
+              { "id": "freelancer", "label": "Freelancer" },
+              { "id": "business_owner", "label": "Business owner" }
+            ], "required": true },
+            { "id": "family_situation", "type": "single_choice", "label": "Who is relocating?", "options": [
+              { "id": "single", "label": "Just me" },
+              { "id": "couple", "label": "With partner/spouse" },
+              { "id": "family", "label": "Family with children" }
+            ], "required": true },
+            { "id": "num_dependents", "type": "number", "label": "Number of children", "showIf": { "family_situation": "family" }, "min": 1, "max": 10 }
+          ]
+        },
+        {
+          "id": "financial",
+          "title": "Income Verification",
+          "subtitle": "Same economic solvency requirements as the standard track.",
+          "questions": [
+            { "id": "proof_method", "type": "single_choice", "label": "How will you prove solvency?", "options": [
+              { "id": "monthly_income", "label": "Monthly income (6 months of statements)" },
+              { "id": "savings_balance", "label": "Savings balance (12 months of statements)" }
+            ], "required": true },
+            { "id": "meets_threshold", "type": "boolean", "label": "Do your statements meet the threshold?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "questions": [
+            { "id": "target_move", "type": "single_choice", "label": "When do you plan to move?", "options": [
+              { "id": "asap", "label": "As soon as possible" },
+              { "id": "3_months", "label": "In ~3 months" },
+              { "id": "6_months", "label": "In ~6 months" },
+              { "id": "1_year", "label": "In ~1 year" }
+            ], "required": true },
+            { "id": "has_accommodation", "type": "boolean", "label": "Do you have accommodation arranged?", "required": true }
+          ]
+        }
+      ],
+      "taskRules": [
+        { "taskTitle": "Find your assigned Mexican consulate", "phase": "Phase 1: Research & Planning", "links": [{ "label": "Consulate Finder", "url": "https://consulmex.sre.gob.mx/" }], "conditions": {}, "estimatedWeeks": 16, "order": 1 },
+        { "taskTitle": "Get employer letter confirming remote work", "phase": "Phase 1: Research & Planning", "description": "Letter confirming you work remotely for a non-Mexican company.", "conditions": { "employment_type": "employed" }, "estimatedWeeks": 14, "order": 2 },
+        { "taskTitle": "Prepare freelance/business documentation", "phase": "Phase 1: Research & Planning", "description": "Client contracts, business registration, tax filings.", "conditions": { "employment_type": ["freelancer", "business_owner"] }, "estimatedWeeks": 14, "order": 2 },
+        { "taskTitle": "Gather 6 months of bank statements (income proof)", "phase": "Phase 2: Documentation", "conditions": { "proof_method": "monthly_income" }, "estimatedWeeks": 12, "order": 3 },
+        { "taskTitle": "Gather 12 months of bank statements (savings proof)", "phase": "Phase 2: Documentation", "conditions": { "proof_method": "savings_balance" }, "estimatedWeeks": 12, "order": 3 },
+        { "taskTitle": "Get passport photos (Mexico format)", "phase": "Phase 2: Documentation", "conditions": {}, "estimatedWeeks": 10, "order": 4 },
+        { "taskTitle": "Gather family documents", "phase": "Phase 2: Documentation", "conditions": { "family_situation": ["couple", "family"] }, "estimatedWeeks": 12, "order": 5 },
+        { "taskTitle": "Complete Formato Basico application", "phase": "Phase 3: Application", "conditions": {}, "estimatedWeeks": 8, "order": 6 },
+        { "taskTitle": "Book and attend consulate appointment", "phase": "Phase 3: Application", "conditions": {}, "estimatedWeeks": 4, "order": 7 },
+        { "taskTitle": "Exchange visa for Resident Card at INM", "phase": "Phase 4: Arrival & Setup", "links": [{ "label": "INM Appointments", "url": "https://citas.inm.gob.mx/" }], "conditions": {}, "estimatedWeeks": 0, "order": 8 },
+        { "taskTitle": "Get CURP", "phase": "Phase 4: Arrival & Setup", "links": [{ "label": "CURP", "url": "https://www.gob.mx/curp/" }], "conditions": {}, "estimatedWeeks": 0, "order": 9 },
+        { "taskTitle": "Get RFC from SAT", "phase": "Phase 4: Arrival & Setup", "links": [{ "label": "SAT", "url": "https://www.sat.gob.mx" }], "conditions": {}, "estimatedWeeks": 0, "order": 10 },
+        { "taskTitle": "Open Mexican bank account", "phase": "Phase 4: Arrival & Setup", "conditions": {}, "estimatedWeeks": 0, "order": 11 },
+        { "taskTitle": "Research IMSS Voluntario or private health insurance", "phase": "Phase 5: Residency Follow-up", "links": [{ "label": "IMSS", "url": "http://www.imss.gob.mx/tramites/imss02025a" }], "conditions": {}, "estimatedWeeks": 0, "order": 12 },
+        { "taskTitle": "Set up coworking space or home office", "phase": "Phase 4: Arrival & Setup", "description": "Mexico has excellent coworking options in major cities. WeWork, Selina, and local spaces.", "conditions": {}, "estimatedWeeks": 0, "order": 13 }
+      ]
+    }
+  }
+}

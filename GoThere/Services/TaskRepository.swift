@@ -110,6 +110,22 @@ final class TaskRepository: ObservableObject {
         }
     }
 
+    func setNotes(_ task: TaskItem, notes: String?) async throws {
+        if isGuest {
+            if let idx = localTasks.firstIndex(where: { $0.id == task.id }) {
+                localTasks[idx].notes = notes
+                await MainActor.run { tasks = localTasks }
+            }
+            return
+        }
+        guard let col = tasksCollection, let id = task.id else { return }
+        if let notes = notes, !notes.isEmpty {
+            try await col.document(id).updateData(["notes": notes])
+        } else {
+            try await col.document(id).updateData(["notes": FieldValue.delete()])
+        }
+    }
+
     func deleteTask(_ task: TaskItem) async throws {
         if isGuest {
             localTasks.removeAll { $0.id == task.id }

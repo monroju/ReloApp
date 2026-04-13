@@ -54,8 +54,8 @@ struct HomeView: View {
                             NavigationLink("Cost Calculator") {
                                 CostCalculatorView()
                             }
-                            NavigationLink("Visa Packs") {
-                                VisaPackView()
+                            NavigationLink("Visa Wizard") {
+                                VisaWizardView(countryId: DestinationConfig.spain)
                             }
                             NavigationLink("Destinations") {
                                 DestinationsView()
@@ -271,9 +271,9 @@ struct HomeView: View {
                 }
 
                 NavigationLink {
-                    VisaPackView()
+                    VisaWizardView(countryId: DestinationConfig.spain)
                 } label: {
-                    quickLinkTile(icon: "doc.text.fill", title: "Visa Packs", color: .orange)
+                    quickLinkTile(icon: "wand.and.stars", title: "Visa Wizard", color: .orange)
                 }
 
                 NavigationLink {

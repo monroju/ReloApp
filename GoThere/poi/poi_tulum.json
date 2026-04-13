@@ -1,0 +1,219 @@
+{
+  "cityId": "tulum",
+  "countryId": "mexico",
+  "centerLat": 20.2115,
+  "centerLng": -87.4654,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "bank_000",
+      "name": "HSBC",
+      "category": "bank",
+      "lat": 20.210741,
+      "lng": -87.463287,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_001",
+      "name": "Santander",
+      "category": "bank",
+      "lat": 20.213882,
+      "lng": -87.454949,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_002",
+      "name": "Banco Azteca",
+      "category": "bank",
+      "lat": 20.208215,
+      "lng": -87.471433,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_003",
+      "name": "Scotiabank",
+      "category": "bank",
+      "lat": 20.212401,
+      "lng": -87.458097,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_004",
+      "name": "BBVA",
+      "category": "bank",
+      "lat": 20.214707,
+      "lng": -87.45286,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_005",
+      "name": "CI Banco",
+      "category": "bank",
+      "lat": 20.211129,
+      "lng": -87.463443,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_006",
+      "name": "Circle K",
+      "category": "supermarket",
+      "lat": 20.207881,
+      "lng": -87.474405,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_007",
+      "name": "Frutas y Verduras Alex",
+      "category": "supermarket",
+      "lat": 20.215376,
+      "lng": -87.467051,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Abarrotes Rossana",
+      "category": "supermarket",
+      "lat": 20.210821,
+      "lng": -87.455644,
+      "address": "Calle Huracan Rossana, Tulum",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "Doña Julia",
+      "category": "supermarket",
+      "lat": 20.217863,
+      "lng": -87.458741,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "fruits and veggies",
+      "category": "supermarket",
+      "lat": 20.209477,
+      "lng": -87.463546,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": "fruits and veggies"
+    },
+    {
+      "id": "supermarket_011",
+      "name": "GOmart",
+      "category": "supermarket",
+      "lat": 20.201691,
+      "lng": -87.467857,
+      "address": "Avenida Kukulkán, Tulum",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "La Comer",
+      "category": "supermarket",
+      "lat": 20.213635,
+      "lng": -87.452292,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Chedraui",
+      "category": "supermarket",
+      "lat": 20.211595,
+      "lng": -87.449638,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Super Aki",
+      "category": "supermarket",
+      "lat": 20.215114,
+      "lng": -87.453178,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_015",
+      "name": "Bodega Aurrera",
+      "category": "supermarket",
+      "lat": 20.218962,
+      "lng": -87.456278,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_016",
+      "name": "Minisuper YAVI",
+      "category": "supermarket",
+      "lat": 20.215909,
+      "lng": -87.472801,
+      "address": "",
+      "phone": "+529841680792",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_017",
+      "name": "modelorama",
+      "category": "supermarket",
+      "lat": 20.217012,
+      "lng": -87.469413,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_018",
+      "name": "Waldo's",
+      "category": "supermarket",
+      "lat": 20.211061,
+      "lng": -87.462116,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "cityId": "aveiro",
+  "countryId": "portugal",
+  "centerLat": 40.6405,
+  "centerLng": -8.6538,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "hospital_000",
+      "name": "Hospital da Luz Aveiro",
+      "category": "hospital",
+      "lat": 40.637565,
+      "lng": -8.636248,
+      "address": "Rua do Brasil 21, Aveiro",
+      "phone": "+351 234400700",
+      "website": "https://www.hospitaldaluz.pt/aveiro",
+      "notes": ""
+    },
+    {
+      "id": "hospital_001",
+      "name": "Hospital Infante Dom Pedro",
+      "category": "hospital",
+      "lat": 40.634575,
+      "lng": -8.654698,
+      "address": "Avenida de Artur Ravara 1, Aveiro",
+      "phone": "+351 234378300",
+      "website": "https://www.chbv.min-saude.pt/",
+      "notes": ""
+    },
+    {
+      "id": "government_immigration_002",
+      "name": "Serviço de Estrangeiros e Fronteiras",
+      "category": "government_immigration",
+      "lat": 40.638938,
+      "lng": -8.639392,
+      "address": "Rua Sebastião de Magalhães Lima, Aveiro",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_003",
+      "name": "Centro Comercial Carramona",
+      "category": "supermarket",
+      "lat": 40.648927,
+      "lng": -8.630683,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_004",
+      "name": "Minipreço",
+      "category": "supermarket",
+      "lat": 40.643381,
+      "lng": -8.643576,
+      "address": "Avenida Doutor Lourenço Peixinho 132, Aveiro",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_005",
+      "name": "BioBom",
+      "category": "supermarket",
+      "lat": 40.629985,
+      "lng": -8.650384,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_006",
+      "name": "Spar",
+      "category": "supermarket",
+      "lat": 40.637389,
+      "lng": -8.650201,
+      "address": "Largo Luís de Camões 6, Aveiro",
+      "phone": "+351 925 975 688",
+      "website": "https://www.spar.pt/loja/detalhe/195/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_007",
+      "name": "Minipreço",
+      "category": "supermarket",
+      "lat": 40.635162,
+      "lng": -8.649043,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Micropopular",
+      "category": "supermarket",
+      "lat": 40.644511,
+      "lng": -8.647029,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "MercoBairro",
+      "category": "supermarket",
+      "lat": 40.639022,
+      "lng": -8.657036,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Bio Bom",
+      "category": "supermarket",
+      "lat": 40.641588,
+      "lng": -8.648173,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "Mercearia Biologica",
+      "category": "supermarket",
+      "lat": 40.649924,
+      "lng": -8.633131,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 40.647238,
+      "lng": -8.646459,
+      "address": "",
+      "phone": "+351 938 875 386",
+      "website": "https://www.pingodoce.pt/lojas/aveiro-ria/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 40.65011,
+      "lng": -8.620514,
+      "address": "",
+      "phone": "+351 234 303 700",
+      "website": "https://www.pingodoce.pt/lojas/aveiro-hiper/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Lidl",
+      "category": "supermarket",
+      "lat": 40.613542,
+      "lng": -8.655478,
+      "address": "Avenida da Europa 1, Aveiro",
+      "phone": "+351 210 207 000",
+      "website": "https://www.lidl.pt/s/pt-PT/pesquisa-de-loja/aveiro/avenida-da-europa-805/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_015",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 40.630266,
+      "lng": -8.643826,
+      "address": "",
+      "phone": "+351 938 875 603",
+      "website": "https://www.pingodoce.pt/lojas/aveiro-sao-bernardo/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_016",
+      "name": "Continente Bom Dia",
+      "category": "supermarket",
+      "lat": 40.641901,
+      "lng": -8.639435,
+      "address": "Alameda Silva Rocha, Aveiro",
+      "phone": "+351 234 109 930",
+      "website": "https://feed.continente.pt/lojas/continente-bom-dia-aveiro",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_017",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 40.641258,
+      "lng": -8.642236,
+      "address": "Avenida Congressos da Oposição Democrática, Aveiro",
+      "phone": "+351 938 040 479",
+      "website": "https://www.pingodoce.pt/lojas/aveiro-vera-cruz/",
+      "notes": ""
+    }
+  ]
+}

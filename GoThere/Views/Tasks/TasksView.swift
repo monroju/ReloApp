@@ -8,12 +8,25 @@ struct TasksView: View {
     @State private var newTaskTitle = ""
     @State private var newTaskCategory = "Phase 1: Research & Planning"
     @State private var showImportSeed = false
-    @State private var importCountry = DestinationConfig.spain
+
+    // Date picker
+    @State private var datePickerTask: TaskItem?
+    @State private var selectedDate = Date()
+
+    // Notes editor
+    @State private var notesTask: TaskItem?
+    @State private var notesText = ""
+
+    // Celebration
+    @State private var celebratePhase: String?
+
+    // Tip dismissed
+    @State private var tipDismissed = false
 
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Country selector with flags
+                // Country filter chips
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(DestinationConfig.allDestinations) { dest in
@@ -22,12 +35,9 @@ struct TasksView: View {
                                 title: "\(dest.flagEmoji) \(dest.name)\(isUnlocked ? "" : " \u{1F512}")",
                                 isSelected: vm.selectedCountry == dest.id
                             ) {
-                                if isUnlocked {
-                                    vm.selectedCountry = vm.selectedCountry == dest.id ? nil : dest.id
-                                }
+                                if isUnlocked { vm.selectedCountry = vm.selectedCountry == dest.id ? nil : dest.id }
                             }
                         }
-
                         FilterChip(title: vm.showCompleted ? "Hide Done" : "Show Done",
                                    isSelected: vm.showCompleted) {
                             vm.showCompleted.toggle()
@@ -37,21 +47,36 @@ struct TasksView: View {
                     .padding(.vertical, 8)
                 }
 
-                // Task list by phase
                 if vm.tasksByPhase.isEmpty {
-                    ContentUnavailableView(
-                        "No Tasks",
-                        systemImage: "checklist",
-                        description: Text("Add your own tasks to track relocation progress.")
-                    )
+                    ContentUnavailableView("No Tasks", systemImage: "checklist",
+                        description: Text("Add your own tasks to track relocation progress."))
                 } else {
                     List {
+                        // Progress Dashboard
+                        progressSection
+
+                        // Countdown
+                        countdownSection
+
+                        // Tip of the Day
+                        tipSection
+
+                        // Task phases
                         ForEach(vm.tasksByPhase, id: \.0) { phaseName, tasks in
                             Section(phaseName) {
                                 ForEach(tasks) { task in
-                                    TaskRow(task: task) {
-                                        vm.toggleCompleted(task)
-                                    }
+                                    TaskRow(
+                                        task: task,
+                                        onToggle: { vm.toggleCompleted(task) },
+                                        onSetDate: {
+                                            selectedDate = task.dueAt ?? Date()
+                                            datePickerTask = task
+                                        },
+                                        onEditNotes: {
+                                            notesText = task.notes ?? ""
+                                            notesTask = task
+                                        }
+                                    )
                                     .swipeActions(edge: .trailing) {
                                         if task.dueAt != nil {
                                             Button {
@@ -74,34 +99,52 @@ struct TasksView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 12) {
+                        // Share
+                        ShareLink(item: shareText) {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+
                         Menu {
-                            Button {
-                                showImportSeed = true
-                            } label: {
+                            Button { showImportSeed = true } label: {
                                 Label("Re-import Seed Tasks", systemImage: "arrow.down.circle")
                             }
                         } label: {
                             Image(systemName: "ellipsis.circle")
                         }
 
-                        Button {
-                            showAddTask = true
-                        } label: {
+                        Button { showAddTask = true } label: {
                             Image(systemName: "plus")
                         }
                     }
                 }
             }
-            .sheet(isPresented: $showAddTask) {
-                addTaskSheet
+            .sheet(isPresented: $showAddTask) { addTaskSheet }
+            .sheet(item: $datePickerTask) { task in datePickerSheet(task) }
+            .alert("Notes", isPresented: Binding(
+                get: { notesTask != nil },
+                set: { if !$0 { notesTask = nil } }
+            )) {
+                TextField("Add personal notes...", text: $notesText)
+                Button("Save") {
+                    if let task = notesTask {
+                        Task { try? await TaskRepository.shared.setNotes(task, notes: notesText.isEmpty ? nil : notesText) }
+                    }
+                    notesTask = nil
+                }
+                Button("Cancel", role: .cancel) { notesTask = nil }
+            }
+            .alert("Phase Complete! \u{1F389}", isPresented: Binding(
+                get: { celebratePhase != nil },
+                set: { if !$0 { celebratePhase = nil } }
+            )) {
+                Button("Awesome!") { celebratePhase = nil }
+            } message: {
+                Text("You've completed all tasks in \(celebratePhase ?? ""). Keep going!")
             }
             .confirmationDialog("Import Seed Tasks", isPresented: $showImportSeed) {
                 ForEach(DestinationConfig.allDestinations) { dest in
                     if purchaseManager.isCountryUnlocked(dest.id) {
-                        Button("\(dest.flagEmoji) \(dest.name)") {
-                            importCountry = dest.id
-                            importSeedTasks(for: dest.id)
-                        }
+                        Button("\(dest.flagEmoji) \(dest.name)") { importSeedTasks(for: dest.id) }
                     }
                 }
                 Button("Cancel", role: .cancel) {}
@@ -110,58 +153,175 @@ struct TasksView: View {
                 vm.startListening()
                 vm.autoSeedUnlockedCountries(purchaseManager)
             }
+            .onChange(of: vm.tasksByPhase.map { $0.1.map(\.completed) }) { _ in
+                checkPhaseCompletion()
+            }
         }
     }
 
-    private func importSeedTasks(for countryId: String) {
-        // Load from actual JSON seed files (matches Android seed import)
-        let fileName: String
-        switch countryId {
-        case "portugal": fileName = "portugal_tasks"
-        case "mexico": fileName = "mexico_tasks"
-        default: fileName = "spain_tasks"
-        }
+    // MARK: - Progress Dashboard
 
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
-              let data = try? Data(contentsOf: url) else {
-            return
-        }
-
-        struct SeedTask: Codable {
-            let title: String
-            let description: String?
-            let phaseId: String
-            let visaTrackId: String?
-            let order: Int?
-            let links: [SeedLink]?
-        }
-        struct SeedLink: Codable {
-            let label: String?
-            let url: String?
-        }
-
-        guard let seedTasks = try? JSONDecoder().decode([SeedTask].self, from: data) else { return }
-
-        let taskItems = seedTasks.map { seed in
-            TaskItem(
-                title: seed.title,
-                description: seed.description,
-                category: Phases.getDisplayName(seed.phaseId),
-                countryId: countryId,
-                links: seed.links?.map { AppLink(label: $0.label, url: $0.url) }
-            )
-        }
-
-        Task {
-            try? await TaskRepository.shared.insertTasks(taskItems)
+    @ViewBuilder
+    private var progressSection: some View {
+        let allTasks = vm.tasksByPhase.flatMap(\.1)
+        let total = allTasks.count
+        let completed = allTasks.filter(\.completed).count
+        if total > 0 {
+            let progress = Double(completed) / Double(total)
+            Section {
+                HStack(spacing: 16) {
+                    ZStack {
+                        Circle()
+                            .stroke(Color.goPrimary.opacity(0.2), lineWidth: 6)
+                            .frame(width: 56, height: 56)
+                        Circle()
+                            .trim(from: 0, to: progress)
+                            .stroke(Color.goPrimary, style: StrokeStyle(lineWidth: 6, lineCap: .round))
+                            .frame(width: 56, height: 56)
+                            .rotationEffect(.degrees(-90))
+                        Text("\(Int(progress * 100))%")
+                            .font(.caption.bold())
+                            .foregroundColor(.goPrimary)
+                    }
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(completed) of \(total) tasks completed")
+                            .font(.subheadline.weight(.semibold))
+                        let remaining = total - completed
+                        if remaining > 0 {
+                            Text("\(remaining) tasks remaining")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        } else {
+                            Text("All tasks complete!")
+                                .font(.caption.bold())
+                                .foregroundColor(.goPrimary)
+                        }
+                    }
+                }
+                ProgressView(value: progress)
+                    .tint(.goPrimary)
+            }
         }
     }
+
+    // MARK: - Countdown
+
+    @ViewBuilder
+    private var countdownSection: some View {
+        let targetMillis = UserDefaults.standard.double(forKey: "target_move_millis")
+        if targetMillis > Date().timeIntervalSince1970 * 1000 {
+            let days = Int((targetMillis / 1000 - Date().timeIntervalSince1970) / 86400)
+            Section {
+                HStack(spacing: 12) {
+                    Text("\u{2708}\u{FE0F}")
+                        .font(.title)
+                    VStack(alignment: .leading) {
+                        Text("\(days) days until your move")
+                            .font(.subheadline.bold())
+                        Text("Stay on track with your checklist!")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Tip of the Day
+
+    @ViewBuilder
+    private var tipSection: some View {
+        if !tipDismissed, let tip = TipsRepository.shared.todaysTip(for: vm.selectedCountry ?? "spain") {
+            Section {
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "lightbulb")
+                        .foregroundColor(.goPrimary)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Tip of the Day")
+                            .font(.caption.bold())
+                            .foregroundColor(.goPrimary)
+                        Text(tip.tip)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    Spacer()
+                    Button { tipDismissed = true } label: {
+                        Image(systemName: "xmark")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+        }
+    }
+
+    // MARK: - Share text
+
+    private var shareText: String {
+        let allTasks = vm.tasksByPhase
+        var text = "GoThere - Relocation Checklist\n\n"
+        for (phase, tasks) in allTasks {
+            text += "\(phase)\n"
+            for t in tasks {
+                text += "  \(t.completed ? "\u{2705}" : "\u{2B1C}") \(t.title)\n"
+            }
+            text += "\n"
+        }
+        let total = allTasks.flatMap(\.1).count
+        let done = allTasks.flatMap(\.1).filter(\.completed).count
+        text += "Progress: \(done)/\(total) completed"
+        return text
+    }
+
+    // MARK: - Phase completion check
+
+    private func checkPhaseCompletion() {
+        for (phase, tasks) in vm.tasksByPhase {
+            if !tasks.isEmpty && tasks.allSatisfy(\.completed) {
+                let key = "celebrated_\(phase)"
+                if !UserDefaults.standard.bool(forKey: key) {
+                    celebratePhase = phase
+                    UserDefaults.standard.set(true, forKey: key)
+                    break
+                }
+            }
+        }
+    }
+
+    // MARK: - Date Picker Sheet
+
+    private func datePickerSheet(_ task: TaskItem) -> some View {
+        NavigationStack {
+            DatePicker("Due Date", selection: $selectedDate, displayedComponents: .date)
+                .datePickerStyle(.graphical)
+                .padding()
+                .navigationTitle("Set Due Date")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Clear") {
+                            Task { try? await TaskRepository.shared.setDue(task, date: nil) }
+                            datePickerTask = nil
+                        }
+                    }
+                    ToolbarItem(placement: .confirmationAction) {
+                        Button("Set") {
+                            Task { try? await TaskRepository.shared.setDue(task, date: selectedDate) }
+                            datePickerTask = nil
+                        }
+                    }
+                }
+        }
+        .presentationDetents([.medium])
+    }
+
+    // MARK: - Add Task Sheet
 
     private var addTaskSheet: some View {
         NavigationStack {
             Form {
                 TextField("Task title", text: $newTaskTitle)
-
                 Picker("Phase", selection: $newTaskCategory) {
                     ForEach(Phases.allPhases) { phase in
                         Text(phase.displayName).tag(phase.displayName)
@@ -187,6 +347,31 @@ struct TasksView: View {
         }
         .presentationDetents([.medium])
     }
+
+    // MARK: - Seed Import
+
+    private func importSeedTasks(for countryId: String) {
+        let fileName: String
+        switch countryId {
+        case "portugal": fileName = "portugal_tasks"
+        case "mexico": fileName = "mexico_tasks"
+        default: fileName = "spain_tasks"
+        }
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+              let data = try? Data(contentsOf: url) else { return }
+        struct SeedTask: Codable {
+            let title: String; let description: String?; let phaseId: String
+            let visaTrackId: String?; let order: Int?; let links: [SeedLink]?
+        }
+        struct SeedLink: Codable { let label: String?; let url: String? }
+        guard let seedTasks = try? JSONDecoder().decode([SeedTask].self, from: data) else { return }
+        let taskItems = seedTasks.map { seed in
+            TaskItem(title: seed.title, description: seed.description,
+                     category: Phases.getDisplayName(seed.phaseId), countryId: countryId,
+                     links: seed.links?.map { AppLink(label: $0.label, url: $0.url) })
+        }
+        Task { try? await TaskRepository.shared.insertTasks(taskItems) }
+    }
 }
 
 // MARK: - Task Row
@@ -194,6 +379,8 @@ struct TasksView: View {
 struct TaskRow: View {
     let task: TaskItem
     let onToggle: () -> Void
+    let onSetDate: () -> Void
+    let onEditNotes: () -> Void
     @State private var isExpanded = false
 
     var body: some View {
@@ -211,7 +398,6 @@ struct TaskRow: View {
                         .font(.subheadline)
                         .strikethrough(task.completed)
                         .foregroundColor(task.completed ? .secondary : .primary)
-
                     if let dueAt = task.dueAt {
                         Text(dueAt, style: .date)
                             .font(.caption)
@@ -221,7 +407,23 @@ struct TaskRow: View {
 
                 Spacer()
 
-                if task.description != nil || task.links != nil {
+                // Date picker button
+                Button(action: onSetDate) {
+                    Image(systemName: "calendar")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .buttonStyle(.plain)
+
+                // Notes button
+                Button(action: onEditNotes) {
+                    Image(systemName: "square.and.pencil")
+                        .font(.caption)
+                        .foregroundColor(task.notes?.isEmpty == false ? .goPrimary : .secondary)
+                }
+                .buttonStyle(.plain)
+
+                if task.description != nil || task.links != nil || task.notes != nil {
                     Button {
                         withAnimation { isExpanded.toggle() }
                     } label: {
@@ -233,7 +435,6 @@ struct TaskRow: View {
                 }
             }
 
-            // Expandable details
             if isExpanded {
                 if let desc = task.description, !desc.isEmpty {
                     Text(desc)
@@ -241,16 +442,19 @@ struct TaskRow: View {
                         .foregroundColor(.secondary)
                         .padding(.leading, 44)
                 }
-
+                if let notes = task.notes, !notes.isEmpty {
+                    Text("\u{1F4DD} \(notes)")
+                        .font(.caption)
+                        .foregroundColor(.goPrimary)
+                        .padding(.leading, 44)
+                }
                 if let links = task.links {
                     ForEach(links) { link in
                         if let urlStr = link.url, let url = URL(string: urlStr) {
                             Link(destination: url) {
                                 HStack(spacing: 4) {
-                                    Image(systemName: "link")
-                                        .font(.caption2)
-                                    Text(link.label ?? urlStr)
-                                        .font(.caption)
+                                    Image(systemName: "link").font(.caption2)
+                                    Text(link.label ?? urlStr).font(.caption)
                                 }
                                 .foregroundColor(.goPrimary)
                             }

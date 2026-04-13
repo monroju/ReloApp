@@ -229,11 +229,20 @@ struct DecisionTreeView: View {
                 }
             }
 
-            Button("Add starter tasks") {
-                Task { await vm.addStarterTasks(for: ranked) }
+            HStack(spacing: 12) {
+                NavigationLink {
+                    CityMapView(cityId: ranked.destination.id, countryId: vm.profile.countryId)
+                } label: {
+                    Label("View Map", systemImage: "map")
+                        .font(.caption)
+                }
+
+                Button("Add starter tasks") {
+                    Task { await vm.addStarterTasks(for: ranked) }
+                }
+                .font(.caption)
+                .foregroundColor(.goPrimary)
             }
-            .font(.caption)
-            .foregroundColor(.goPrimary)
         }
         .goCard()
     }

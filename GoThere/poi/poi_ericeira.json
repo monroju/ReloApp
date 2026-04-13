@@ -1,0 +1,186 @@
+{
+  "cityId": "ericeira",
+  "countryId": "portugal",
+  "centerLat": 38.9631,
+  "centerLng": -9.4156,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "bank_000",
+      "name": "Millennium bcp",
+      "category": "bank",
+      "lat": 38.964241,
+      "lng": -9.416451,
+      "address": "Largo Condes da Ericeira",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_001",
+      "name": "Caixa Geral de Depósitos",
+      "category": "bank",
+      "lat": 38.963561,
+      "lng": -9.417101,
+      "address": "Ericeira",
+      "phone": "+351 217 900 790",
+      "website": "https://www.cgd.pt/Corporativo/Rede-CGD/Pages/ERICEIRA.aspx",
+      "notes": ""
+    },
+    {
+      "id": "bank_002",
+      "name": "Banco Montepio",
+      "category": "bank",
+      "lat": 38.969371,
+      "lng": -9.418591,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "bank_003",
+      "name": "Novo Banco",
+      "category": "bank",
+      "lat": 38.96412,
+      "lng": -9.417314,
+      "address": "Rua 5 de Outubro 9, Ericeira",
+      "phone": "+351 261860110",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_004",
+      "name": "Cintramédica",
+      "category": "clinic",
+      "lat": 38.967999,
+      "lng": -9.417126,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_005",
+      "name": "Clínica Vila Azul",
+      "category": "clinic",
+      "lat": 38.960295,
+      "lng": -9.414958,
+      "address": "Rua Doutor Eduardo Burnay 16",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_006",
+      "name": "Senses Vital",
+      "category": "clinic",
+      "lat": 38.968599,
+      "lng": -9.41795,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_007",
+      "name": "Unidade de Saúde Familiar Ouriceira",
+      "category": "clinic",
+      "lat": 38.968986,
+      "lng": -9.41481,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Meu Super",
+      "category": "supermarket",
+      "lat": 38.969769,
+      "lng": -9.418568,
+      "address": "Avenida de São Sebastião 12, Ericeira",
+      "phone": "",
+      "website": "https://www.meusuper.pt/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "Ponto Fresco",
+      "category": "supermarket",
+      "lat": 38.965025,
+      "lng": -9.4167,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Loja Catita Gourmet",
+      "category": "supermarket",
+      "lat": 38.97286,
+      "lng": -9.397357,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "Amanhecer - Supermercado Paraíso",
+      "category": "supermarket",
+      "lat": 38.9688,
+      "lng": -9.418106,
+      "address": "Avenida de São Sebastião 4A, Ericeira",
+      "phone": "+351 261 862 005",
+      "website": "https://amanhecer.pt/lojas/supermercado-paraiso/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Aldi",
+      "category": "supermarket",
+      "lat": 38.966023,
+      "lng": -9.410252,
+      "address": "Ericeira",
+      "phone": "",
+      "website": "https://www.aldi.pt/tools/lojas-e-horarios-de-funcionamento.html/l/ericeira/estrada-nacional-78/3591849",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Continente Bom Dia",
+      "category": "supermarket",
+      "lat": 38.963923,
+      "lng": -9.412622,
+      "address": "Ericeira",
+      "phone": "+351 261 026 670",
+      "website": "https://feed.continente.pt/lojas/continente-bom-dia-ericeira",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Auchan Supermercado",
+      "category": "supermarket",
+      "lat": 38.966771,
+      "lng": -9.4069,
+      "address": "Ericeira",
+      "phone": "+351 210 403 270",
+      "website": "https://www.auchan.pt/pt/loja?StoreID=B75",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_015",
+      "name": "Lidl",
+      "category": "supermarket",
+      "lat": 38.96487,
+      "lng": -9.408352,
+      "address": "EN 116 70, Ericeira",
+      "phone": "+351 210 207 000",
+      "website": "https://www.lidl.pt/s/pt-PT/pesquisa-de-loja/mafra/estrada-nacional-116-70/",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "cityId": "cascais",
+  "countryId": "portugal",
+  "centerLat": 38.697,
+  "centerLng": -9.4215,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "supermarket_000",
+      "name": "Auchan",
+      "category": "supermarket",
+      "lat": 38.702466,
+      "lng": -9.417147,
+      "address": "Avenida Marginal, Cascais",
+      "phone": "+351 210 403 270",
+      "website": "https://www.auchan.pt/pt/loja?StoreID=022",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_001",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 38.714996,
+      "lng": -9.424195,
+      "address": "",
+      "phone": "+351 938 875 447",
+      "website": "https://www.pingodoce.pt/lojas/alvide/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_002",
+      "name": "Tradicional",
+      "category": "supermarket",
+      "lat": 38.70374,
+      "lng": -9.391462,
+      "address": "Largo Amália Rodrigues 8, Estoril",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_003",
+      "name": "Spar",
+      "category": "supermarket",
+      "lat": 38.710501,
+      "lng": -9.407913,
+      "address": "Avenida do Lago 361, Estoril",
+      "phone": "+351 925 975 628",
+      "website": "https://www.spar.pt/loja/detalhe/172/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_004",
+      "name": "Vale do Sol",
+      "category": "supermarket",
+      "lat": 38.711554,
+      "lng": -9.40485,
+      "address": "Rua do Viveiro 498",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_005",
+      "name": "Continente Bom Dia",
+      "category": "supermarket",
+      "lat": 38.704787,
+      "lng": -9.395122,
+      "address": "Rua Biarritz 12, Estoril",
+      "phone": "+351 210 155 470",
+      "website": "https://feed.continente.pt/lojas/continente-bom-dia-estoril",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_006",
+      "name": "VIP Supermercado Cascais",
+      "category": "supermarket",
+      "lat": 38.697293,
+      "lng": -9.439025,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_007",
+      "name": "Meu Super",
+      "category": "supermarket",
+      "lat": 38.696359,
+      "lng": -9.430205,
+      "address": "Avenida Infante Dom Henrique 106, Cascais",
+      "phone": "+351 916 870 655",
+      "website": "https://www.meusuper.pt/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_008",
+      "name": "Pingo Doce",
+      "category": "supermarket",
+      "lat": 38.712647,
+      "lng": -9.413631,
+      "address": "Rua Outeiro 10, Alcabideche",
+      "phone": "+351 938 875 826",
+      "website": "https://www.pingodoce.pt/lojas/cascais-castelhana/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_009",
+      "name": "GB Store",
+      "category": "supermarket",
+      "lat": 38.706709,
+      "lng": -9.429751,
+      "address": "Bairro J Pimenta 415",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Meu Super",
+      "category": "supermarket",
+      "lat": 38.714731,
+      "lng": -9.407876,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "Supermercado Tradicional",
+      "category": "supermarket",
+      "lat": 38.703583,
+      "lng": -9.391497,
+      "address": "",
+      "phone": "",
+      "website": "http://supermercadotradicional.com/",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Gift & Everyday Supermarket",
+      "category": "supermarket",
+      "lat": 38.704115,
+      "lng": -9.399347,
+      "address": "Avenida Aida 23",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "Supermercado Valor Certo",
+      "category": "supermarket",
+      "lat": 38.714202,
+      "lng": -9.423373,
+      "address": "Rua de Alvide 883 A, Alcabideche",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Meu Super",
+      "category": "supermarket",
+      "lat": 38.71217,
+      "lng": -9.404727,
+      "address": "Rua do Viveiro 562",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "international_school_015",
+      "name": "Santo António International School",
+      "category": "international_school",
+      "lat": 38.70596,
+      "lng": -9.406307,
+      "address": "Avenida de Sabóia 662, Monte Estoril",
+      "phone": "+351 210731054;+351 939 500 207",
+      "website": "http://www.sais-estoril.com",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "cityId": "san_miguel",
+  "countryId": "mexico",
+  "centerLat": 20.9144,
+  "centerLng": -100.7452,
+  "defaultZoom": 14,
+  "lastUpdated": "2026-04-13",
+  "pois": [
+    {
+      "id": "hospital_000",
+      "name": "IMSS",
+      "category": "hospital",
+      "lat": 20.92444,
+      "lng": -100.74133,
+      "address": "Calzada de la Aurora 25, San Miguel de Allende",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "hospital_001",
+      "name": "Hospital General Felipe G. Dobarganes",
+      "category": "hospital",
+      "lat": 20.908531,
+      "lng": -100.718481,
+      "address": "Primero de Mayo",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "hospital_002",
+      "name": "Cruz Roja",
+      "category": "hospital",
+      "lat": 20.905873,
+      "lng": -100.723129,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "hospital_003",
+      "name": "ISSSTE San Miguel de Allende",
+      "category": "hospital",
+      "lat": 20.903236,
+      "lng": -100.720598,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "hospital_004",
+      "name": "Cruz Roja",
+      "category": "hospital",
+      "lat": 20.90656,
+      "lng": -100.756461,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "hospital_005",
+      "name": "Hospital Joya",
+      "category": "hospital",
+      "lat": 20.910952,
+      "lng": -100.759858,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_006",
+      "name": "D&T Clinic",
+      "category": "clinic",
+      "lat": 20.903303,
+      "lng": -100.727722,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_007",
+      "name": "DermaDerm",
+      "category": "clinic",
+      "lat": 20.903365,
+      "lng": -100.727643,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "clinic_008",
+      "name": "Consultorio CEDECOM SMA",
+      "category": "clinic",
+      "lat": 20.903348,
+      "lng": -100.720442,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "government_immigration_009",
+      "name": "Instituto Nacional De Migración",
+      "category": "government_immigration",
+      "lat": 20.915854,
+      "lng": -100.766568,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_010",
+      "name": "Mercado artesanías el mirador",
+      "category": "supermarket",
+      "lat": 20.909916,
+      "lng": -100.738477,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_011",
+      "name": "Tienda Gil",
+      "category": "supermarket",
+      "lat": 20.919618,
+      "lng": -100.744706,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_012",
+      "name": "Bodega Aurrera",
+      "category": "supermarket",
+      "lat": 20.915246,
+      "lng": -100.764158,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_013",
+      "name": "City Market",
+      "category": "supermarket",
+      "lat": 20.899397,
+      "lng": -100.752016,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_014",
+      "name": "Soriana Súper",
+      "category": "supermarket",
+      "lat": 20.903963,
+      "lng": -100.727314,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_015",
+      "name": "Ropa",
+      "category": "supermarket",
+      "lat": 20.916263,
+      "lng": -100.749914,
+      "address": "",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    },
+    {
+      "id": "supermarket_016",
+      "name": "La Comer",
+      "category": "supermarket",
+      "lat": 20.897057,
+      "lng": -100.752826,
+      "address": "Libramiento Jose Manuel Zavala, San Miguel de Allende",
+      "phone": "",
+      "website": "",
+      "notes": ""
+    }
+  ]
+}
