@@ -1,0 +1,136 @@
+[
+  {
+    "title": "Confirm you have an Irish-born grandparent (or eligible parent)",
+    "description": "Ireland's Foreign Births Register (FBR) is for people born outside Ireland whose parent was Irish at the time of their birth. The most common path is via a grandparent who was born on the island of Ireland (any of the 32 counties).",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 1,
+    "links": [
+      { "label": "Citizens Information: Foreign Births Register", "url": "https://www.citizensinformation.ie/en/moving-country/irish-citizenship/foreign-births-register/" }
+    ]
+  },
+  {
+    "title": "Verify the citizenship chain has not been broken",
+    "description": "If your great-grandparent was Irish and your grandparent never registered on the FBR before your parent's birth, your parent did not inherit Irish citizenship — and neither did you. The grandparent path requires that grandparent to have been born on the island of Ireland.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 2
+  },
+  {
+    "title": "Plan your documentary chain",
+    "description": "You need: your birth certificate, your Irish-citizen parent's birth certificate, the Irish-born grandparent's birth certificate, marriage certificates linking the chain, and current government photo ID.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 3
+  },
+  {
+    "title": "Order your Irish-born grandparent's birth certificate from the GRO",
+    "description": "The General Register Office of Ireland issues certified Irish birth/marriage/death certificates. The DFA-Ireland FBR application requires GRO-issued certified copies, not free Irish Genealogy scans.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 1,
+    "links": [
+      { "label": "GRO Ireland — civil registration service", "url": "https://www.gov.ie/en/service/civil-registration-service/" },
+      { "label": "Irish Genealogy (free historical scans)", "url": "https://www.irishgenealogy.ie/" }
+    ]
+  },
+  {
+    "title": "Order your parent's birth certificate",
+    "description": "Long-form, showing parents' names. Order from the issuing jurisdiction.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 2
+  },
+  {
+    "title": "Order your own long-form birth certificate",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 3
+  },
+  {
+    "title": "Order marriage certificates for each generation where surnames change",
+    "description": "Especially the grandparent's marriage certificate (links the Irish-born grandparent to your parent) and your parents' marriage certificate.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 4
+  },
+  {
+    "title": "Search the National Archives of Ireland for ancestor context (optional but recommended)",
+    "description": "Free access to 1901 and 1911 census, marriage licence bond indexes, and other historical records. Useful when the GRO record has gaps.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 5,
+    "links": [
+      { "label": "National Archives of Ireland — genealogy", "url": "https://genealogy.nationalarchives.ie/" }
+    ]
+  },
+  {
+    "title": "Gather current government photo ID and address verification",
+    "description": "Driver's license or passport, plus a recent utility bill or bank statement showing your current address.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 6
+  },
+  {
+    "title": "Complete the FBR application online",
+    "description": "Online application via the Department of Foreign Affairs FBR portal. After submitting electronically, print the form, sign by hand, and post the signed copy with all supporting documents to the address shown on the application.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 1,
+    "links": [
+      { "label": "FBR online application", "url": "https://fbr.dfa.ie/" }
+    ]
+  },
+  {
+    "title": "Pay the FBR fee online",
+    "description": "€270 + €8 postage and handling for adults (€145 + €8 for under 18). Paid online during the application form.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 2
+  },
+  {
+    "title": "Post your signed application and supporting documents",
+    "description": "Use a tracked or registered service. The Department typically returns original certificates after processing — but allow 12+ months without them.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 3
+  },
+  {
+    "title": "Wait for FBR processing",
+    "description": "Currently approximately 12 months. Incomplete applications are delayed further until clarifying documents are received.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 4
+  },
+  {
+    "title": "Receive your FBR certificate",
+    "description": "Once registered, you are an Irish citizen with the same rights as anyone born in Ireland. The FBR certificate is your official proof.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 1
+  },
+  {
+    "title": "Apply for an Irish passport",
+    "description": "Once on the FBR you may apply for an Irish passport, which is a full EU passport granting freedom of movement, residence, and work across the European Union.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 2,
+    "links": [
+      { "label": "Irish passport applications", "url": "https://www.dfa.ie/passports/" }
+    ]
+  },
+  {
+    "title": "Understand your dual-citizen status",
+    "description": "Ireland and the US both permit dual citizenship. You retain all your US rights; Ireland's are added. EU rights flow from Irish citizenship — you can live and work in any EU member state.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 1
+  },
+  {
+    "title": "If you have children, register their births on the FBR before any future grandchildren are born",
+    "description": "Key inheritance rule: a grandparent path closes if the parent was not on the FBR at the time of the grandchild's birth. To pass Irish citizenship to your descendants, ensure your own FBR registration is complete before any of your children are born.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "ie_foreign_births_register",
+    "order": 2
+  }
+]

@@ -1,0 +1,149 @@
+[
+  {
+    "title": "Confirm you have a Canadian-born or naturalized ancestor",
+    "description": "Bill C-3 (effective 2025-12-15) removed the first-generation limit. If any direct ancestor was born in Canada or naturalized as a Canadian citizen, you may already be Canadian — no application required to BE a citizen, only to PROVE it.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 1,
+    "links": [
+      { "label": "IRCC: Bill C-3 changes (2025)", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/act-changes/rules-2025.html" }
+    ]
+  },
+  {
+    "title": "Identify the Canadian-born or naturalized ancestor in your tree",
+    "description": "Most often a parent, grandparent, or great-grandparent who was born in any modern Canadian province or territory, or who naturalized as a Canadian citizen. Pre-1947 'British subject' status in Canada also counts under the historical framework.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 2
+  },
+  {
+    "title": "Map the documentary chain from you to the Canadian ancestor",
+    "description": "Each generation needs: birth certificate, and where surnames change, marriage certificate. Note any gaps — those are your acquisition targets.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 3
+  },
+  {
+    "title": "Check if Substantial Connection test applies",
+    "description": "If you were born ON OR AFTER 2025-12-15 to a Canadian parent who is themselves a citizen by descent (born outside Canada), that parent must have spent ≥1,095 cumulative days physically in Canada before your birth. If you were born BEFORE 2025-12-15, the test does not apply — you are Canadian retroactively.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 4
+  },
+  {
+    "title": "Request your own birth certificate (long-form)",
+    "description": "Long-form (showing parents' names) is required, not the short-form / wallet-size version.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 1
+  },
+  {
+    "title": "Request birth certificates for each ancestor in the chain",
+    "description": "Order from each issuing jurisdiction — US state vital records office for US ancestors, provincial vital statistics for Canadian ancestors. Allow 4–12 weeks per certificate.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 2
+  },
+  {
+    "title": "Search Library and Archives Canada for ancestor records",
+    "description": "Census, military, and pre-1947 immigration/naturalization records. Free public access.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 3,
+    "links": [
+      { "label": "Library and Archives Canada", "url": "https://library-archives.canada.ca/" },
+      { "label": "LAC genealogy and family history", "url": "https://library-archives.canada.ca/eng/collection/research-help/genealogy-family-history/Pages/genealogy-family-history.aspx" }
+    ]
+  },
+  {
+    "title": "If your ancestor was Quebec-born, search BAnQ",
+    "description": "Bibliothèque et Archives nationales du Québec — civil registry, parish records, Drouin Collection partner. Free digital access for most pre-1900 records.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 4,
+    "links": [
+      { "label": "BAnQ digital genealogy", "url": "https://numerique.banq.qc.ca/patrimoine/recherche/genealogie" }
+    ]
+  },
+  {
+    "title": "Order marriage certificates for each generation where surnames change",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 5
+  },
+  {
+    "title": "If you need the Substantial Connection test, gather travel/residency proof",
+    "description": "Passport stamps, immigration records, school records, employment records, tax records — anything that shows physical presence in Canada totaling ≥1,095 days for the relevant Canadian parent.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 6
+  },
+  {
+    "title": "Complete IRCC Application for Proof of Canadian Citizenship",
+    "description": "Form CIT 0001 (verify current form name on IRCC site at time of application). Submit online or by mail with all supporting documents.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 1,
+    "links": [
+      { "label": "IRCC: Apply for proof of citizenship", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html" }
+    ]
+  },
+  {
+    "title": "Pay the IRCC application fee",
+    "description": "Confirm the current fee on the IRCC site at time of application — fees change. Currently CAD $75 for adults at last verification.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 2
+  },
+  {
+    "title": "Wait for IRCC processing",
+    "description": "Currently 6–12 months historically. Bill C-3 has created a substantial backlog so 2026 timelines may extend longer. Check the IRCC processing-times page periodically.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 3,
+    "links": [
+      { "label": "IRCC processing times", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" }
+    ]
+  },
+  {
+    "title": "Receive your Canadian Citizenship Certificate",
+    "description": "This is your official proof of Canadian citizenship. Keep it in a safe place — it's the foundation for your passport application.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 1
+  },
+  {
+    "title": "Apply for a Canadian passport using your citizenship certificate",
+    "description": "Submit Form PPTC 040 (adult simplified passport application). Your citizenship certificate serves as the primary proof.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 2,
+    "links": [
+      { "label": "Canadian passport applications", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports.html" }
+    ]
+  },
+  {
+    "title": "Apply for a Social Insurance Number (SIN) if planning to work in Canada",
+    "description": "Required to work or receive government benefits in Canada.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 3,
+    "links": [
+      { "label": "Service Canada — SIN", "url": "https://www.canada.ca/en/employment-social-development/services/sin.html" }
+    ]
+  },
+  {
+    "title": "Understand your tax obligations as a dual US/Canadian citizen",
+    "description": "The US taxes citizens on worldwide income regardless of residence. Canada taxes residents. The US-Canada tax treaty handles most overlap. Consider a CPA familiar with cross-border tax.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 1
+  },
+  {
+    "title": "If you have children born abroad, document your physical presence in Canada",
+    "description": "If they are born after 2025-12-15 and you want them to inherit Canadian citizenship by descent, you'll need ≥1,095 days physical presence in Canada before their birth — start the paper trail now.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "ca_citizenship_descent_billc3",
+    "order": 2
+  }
+]

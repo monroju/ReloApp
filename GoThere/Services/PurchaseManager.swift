@@ -11,9 +11,13 @@ final class PurchaseManager: ObservableObject {
 
     static let productPortugal = "com.gothere.portugal_pack"
     static let productMexico = "com.gothere.mexico_pack"
+    static let productIreland = "com.gothere.ireland_pack"
     static let productAllCountries = "com.gothere.all_countries"
 
-    @Published var unlockedCountries: Set<String> = ["spain"]  // Spain always unlocked
+    /// Spain and Canada are always free.
+    /// Spain is GoThere's original launch destination.
+    /// Canada is free for the v1 launch of the Fast-Track Eligibility module to ride the Bill C-3 news cycle.
+    @Published var unlockedCountries: Set<String> = ["spain", "canada"]
     @Published var products: [Product] = []
 
     private var transactionListener: Task<Void, Never>?
@@ -25,7 +29,12 @@ final class PurchaseManager: ObservableObject {
 
     func loadProducts() async {
         do {
-            let productIds = [Self.productPortugal, Self.productMexico, Self.productAllCountries]
+            let productIds = [
+                Self.productPortugal,
+                Self.productMexico,
+                Self.productIreland,
+                Self.productAllCountries
+            ]
             products = try await Product.products(for: productIds)
         } catch {
             print("Failed to load products: \(error)")
@@ -92,9 +101,12 @@ final class PurchaseManager: ObservableObject {
             unlockedCountries.insert("portugal")
         case Self.productMexico:
             unlockedCountries.insert("mexico")
+        case Self.productIreland:
+            unlockedCountries.insert("ireland")
         case Self.productAllCountries:
             unlockedCountries.insert("portugal")
             unlockedCountries.insert("mexico")
+            unlockedCountries.insert("ireland")
         default:
             break
         }
@@ -115,7 +127,7 @@ final class PurchaseManager: ObservableObject {
         do {
             let doc = try await db.collection("users").document(uid).getDocument()
             if let countries = doc.data()?["unlockedCountries"] as? [String] {
-                unlockedCountries = Set(countries).union(["spain"])
+                unlockedCountries = Set(countries).union(["spain", "canada"])
             }
         } catch {
             print("Error loading purchases: \(error)")
