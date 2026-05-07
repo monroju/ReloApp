@@ -1,5 +1,6 @@
 import SwiftUI
 import FirebaseCore
+import PostHog
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(
@@ -9,6 +10,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             FirebaseApp.configure()
         }
+        let phConfig = PostHogConfig(
+            apiKey: "phc_zdWSqHah9LiyNqn38H2i3E48XPv5acrWsXedfUWVGSLb",
+            host: "https://eu.i.posthog.com"
+        )
+        PostHogSDK.shared.setup(phConfig)
         return true
     }
 }
