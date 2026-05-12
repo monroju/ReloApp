@@ -1,0 +1,159 @@
+[
+  {
+    "title": "Confirm you have an Italian-born parent or grandparent",
+    "description": "After Decree-Law 36/2025 (in force 2025-03-28), Italian citizenship by descent (jure sanguinis) requires at least one parent or grandparent who was born in Italy. Great-grandparent paths are largely closed for applications filed after that date.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 1,
+    "links": [
+      { "label": "Italian MFA: citizenship", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/" }
+    ]
+  },
+  {
+    "title": "Verify the citizenship chain has not been broken",
+    "description": "If your Italian-born ancestor naturalized as a US citizen BEFORE the next generation in the line was born, the chain breaks and citizenship was not transmitted. Find your ancestor's naturalization record (or proof they never naturalized) before investing in document collection.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 2,
+    "links": [
+      { "label": "US Naturalization records (USCIS Genealogy)", "url": "https://www.uscis.gov/genealogy" }
+    ]
+  },
+  {
+    "title": "Check if you need the '1948 case' court route",
+    "description": "If your line of descent passes through a female ancestor and includes a birth before January 1, 1948, Italian consulates will reject your administrative application. Instead you must file a '1948 case' civil suit in Italian court (typically Rome). This costs more (legal fees) but has a high success rate.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 3
+  },
+  {
+    "title": "Identify the Italian consulate with jurisdiction over your US residence",
+    "description": "Consulates only accept applications from residents within their jurisdiction. You CANNOT shop for shorter wait times. Find your consulate based on your state of residence.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 4,
+    "links": [
+      { "label": "Italian consulates in the US", "url": "https://www.esteri.it/en/ministero/laministero/lerappresentanze/" }
+    ]
+  },
+  {
+    "title": "Order your Italian ancestor's birth certificate (atto di nascita)",
+    "description": "Contact the Comune (town hall) of birth in Italy directly, or via an agent. Request an extract for use abroad (estratto per uso estero or estratto plurilingue under the Vienna Convention) which does not need translation. Allow 2–6 months.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 1,
+    "links": [
+      { "label": "Find Italian Comuni online", "url": "https://www.comuni-italiani.it/" }
+    ]
+  },
+  {
+    "title": "Order your Italian ancestor's marriage certificate (atto di matrimonio)",
+    "description": "From the Comune where the marriage took place. Same multilingual extract format as the birth certificate.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 2
+  },
+  {
+    "title": "Order naturalization records (or 'certificate of non-existence') for your Italian ancestor",
+    "description": "From USCIS Genealogy program. If your ancestor naturalized, you need to prove the date was AFTER the next generation's birth. If they never naturalized, request a 'Certificate of Non-Existence of Record' as proof.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 3,
+    "links": [
+      { "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }
+    ]
+  },
+  {
+    "title": "Order vital records for every generation in the chain (long-form, with apostille)",
+    "description": "Birth, marriage, and death certificates for each generation between you and the Italian-born ancestor. Each US document needs an apostille from the issuing state's Secretary of State office, plus a sworn translation into Italian.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 4
+  },
+  {
+    "title": "Have all US documents apostilled",
+    "description": "Each state's Secretary of State office issues apostilles. Federal documents (naturalization, FBI, etc.) are apostilled by the US Department of State. Costs $5–$25 per document plus mailing time of 2–8 weeks.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 5,
+    "links": [
+      { "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }
+    ]
+  },
+  {
+    "title": "Get sworn translations of all US documents into Italian",
+    "description": "Translations must be done by a translator certified by the Italian consulate or recognized in Italy (traduttore giurato). The consulate-list of accepted translators is published online.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 6
+  },
+  {
+    "title": "Correct any name/date discrepancies in your documents",
+    "description": "Italian authorities are strict: if your great-grandfather's name appears differently on his Italian birth record (Giuseppe) and his US naturalization (Joseph), you will need court-ordered amendments to the US records or an Italian court 'rettifica' before submission. This is the most common cause of rejection.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 7
+  },
+  {
+    "title": "Book your consulate appointment (Prenot@Mi)",
+    "description": "Italian consulates use the Prenot@Mi booking system. Citizenship appointments typically open with 1–3 year wait times — book as soon as documents are ordered, not when they arrive. If your consulate's queue is closed, monitor daily.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 1,
+    "links": [
+      { "label": "Prenot@Mi appointment system", "url": "https://prenotami.esteri.it/" }
+    ]
+  },
+  {
+    "title": "Attend your consulate appointment and submit the dossier",
+    "description": "Bring originals + photocopies of every document. The €300 application fee is paid at the appointment (money order or cashier's check, varies by consulate). The consulate forwards your dossier to the Italian Comune that will register your birth.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 2
+  },
+  {
+    "title": "Wait for the Italian Comune to register your birth",
+    "description": "After consulate approval, your records are sent to the relevant Italian Comune for trascrizione (registration). This step can take 6–18 months. Once registered, you ARE an Italian citizen — the consulate then issues your codice fiscale and Italian passport.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 3
+  },
+  {
+    "title": "If pursuing 1948 case: engage an Italian lawyer",
+    "description": "1948 cases are filed at the Court of Rome. Fees typically €3,500–€7,000 for the whole family. Cases are usually decided in 18–36 months with a very high approval rate when the documentary chain is clean.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 4
+  },
+  {
+    "title": "Receive your codice fiscale (Italian tax ID) and Italian passport",
+    "description": "Once registered in the Comune, the consulate issues your codice fiscale and you can apply for an Italian passport — a full EU passport granting freedom of movement, residence, and work across the European Union.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 1
+  },
+  {
+    "title": "Register with AIRE if living abroad as an Italian citizen",
+    "description": "Anagrafe degli Italiani Residenti all'Estero — required registry for Italian citizens living abroad. Done through your consulate. Required to vote and access consular services.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 2,
+    "links": [
+      { "label": "AIRE registration", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/aire/" }
+    ]
+  },
+  {
+    "title": "Understand your dual-citizen tax obligations",
+    "description": "The US taxes citizens on worldwide income regardless of residence. Italy taxes residents (the 183-day rule). The US-Italy tax treaty handles most overlap. Italy also has a 7% flat tax regime for new-resident retirees in Southern Italy worth investigating.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 1
+  },
+  {
+    "title": "Register your children's births in Italy to extend the chain",
+    "description": "Any child born to you after you become Italian is automatically Italian, but their birth must be registered (trascrizione) with the consulate to be effective in Italy and the EU.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "it_jure_sanguinis",
+    "order": 2
+  }
+]

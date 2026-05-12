@@ -1,0 +1,135 @@
+[
+  {
+    "title": "Determine which restoration pathway fits your family history",
+    "description": "Article 116(2) Basic Law: for descendants of Germans persecuted between 1933 and 1945 (most commonly German Jews). StAG §15: for descendants of those barred from citizenship by historic discriminatory laws (pre-1953 maternal-line cases, pre-1993 out-of-wedlock paternal-line cases, etc.). Both routes are free, no language test, no residency required, and allow dual citizenship.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "de_article_116",
+    "order": 1,
+    "links": [
+      { "label": "BVA: restoration of citizenship (EN)", "url": "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html" }
+    ]
+  },
+  {
+    "title": "Identify the persecuted or excluded German ancestor",
+    "description": "For Article 116: an ancestor who held German citizenship and lost it between 1933-01-30 and 1945-05-08 for racial, religious, or political reasons. Most commonly: German Jews stripped of citizenship by the 1941 11th Reich Citizenship Ordinance, including those who emigrated and 'lost' citizenship under various Nazi decrees.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "de_article_116",
+    "order": 2
+  },
+  {
+    "title": "Map the documentary chain from you to the German ancestor",
+    "description": "Each generation needs: birth certificate; marriage certificate where surnames change; death certificate. Note any gaps — those are your acquisition targets. Document any name changes (Schmidt → Smith) that will need affidavit explanation.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "de_article_116",
+    "order": 3
+  },
+  {
+    "title": "Order your German ancestor's birth certificate (Geburtsurkunde) from the Standesamt",
+    "description": "Each German town has a Standesamt (civil registry). For Jewish ancestors with pre-1875 records, look to synagogue records via Leo Baeck Institute, Yad Vashem, or LDS FamilySearch. Pre-1945 East German records are often held by the federal archives (Bundesarchiv).",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 1,
+    "links": [
+      { "label": "Leo Baeck Institute — German Jewish history", "url": "https://www.lbi.org/" },
+      { "label": "Bundesarchiv (German Federal Archives)", "url": "https://www.bundesarchiv.de/EN/" }
+    ]
+  },
+  {
+    "title": "Document evidence of German citizenship before persecution",
+    "description": "Pre-1941 German passport, Heimatschein, residence registration (Meldekarte), military service book, or birth registration in Germany. The German consulate provides a list of acceptable evidence.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 2
+  },
+  {
+    "title": "Document evidence of persecution between 1933 and 1945",
+    "description": "Listing in the 1941 Reichsanzeiger (expatriation gazette) is the gold standard. Other evidence: emigration after 1933 to a country of refuge, Yad Vashem testimony, naturalization records in country of refuge that note prior German nationality, restitution claims under post-war German laws (BEG, BRüG).",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 3,
+    "links": [
+      { "label": "Reichsanzeiger 1941 expatriation lists (searchable)", "url": "https://www.statistik-des-holocaust.de/Reichsanzeiger.html" },
+      { "label": "Yad Vashem — central database of Shoah victims' names", "url": "https://yvng.yadvashem.org/" }
+    ]
+  },
+  {
+    "title": "Order vital records for every generation in the chain (long-form)",
+    "description": "Birth, marriage, death certificates between you and the German ancestor. Long-form (with parents' names). Each US document needs an apostille from the issuing state's Secretary of State.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 4
+  },
+  {
+    "title": "Have US documents apostilled",
+    "description": "Germany is a Hague Apostille party; each US Secretary of State office issues apostilles for state-issued documents. Federal documents (FBI checks, naturalization records) go through the US Department of State authentication office.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 5,
+    "links": [
+      { "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }
+    ]
+  },
+  {
+    "title": "Get certified German translations for any documents not in German",
+    "description": "Translations must be done by a translator listed as ermächtigt/öffentlich bestellt by a German state (Bundesland). Translations done abroad must be apostilled to be accepted in Germany.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "de_article_116",
+    "order": 6
+  },
+  {
+    "title": "Complete the Bundesverwaltungsamt restoration application",
+    "description": "Article 116 uses BVA-Antrag StAG-A; StAG §15 uses BVA-Antrag StAG-B. Download the current form from the BVA website. The form covers you and any minor children — adults must file separately.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "de_article_116",
+    "order": 1,
+    "links": [
+      { "label": "BVA application forms", "url": "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html" }
+    ]
+  },
+  {
+    "title": "Submit the application directly to the BVA in Cologne",
+    "description": "The application can be submitted directly by mail to the Bundesverwaltungsamt, Postfach 68 06 65, 50728 Köln, Germany. You do NOT need to use a consulate (and skipping the consulate is often faster). No fee.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "de_article_116",
+    "order": 2
+  },
+  {
+    "title": "Wait for BVA processing",
+    "description": "Current processing times for Article 116 and StAG §15 are 18–36 months, with significant backlog from increased applications. The BVA will request additional documents by mail if needed; respond promptly.",
+    "phaseId": "phase_3_application",
+    "visaTrackId": "de_article_116",
+    "order": 3
+  },
+  {
+    "title": "Receive your Einbürgerungsurkunde (Certificate of Naturalization / Restoration)",
+    "description": "This is your official proof of German citizenship. It is the foundation document for your German passport application. Keep multiple certified copies.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "de_article_116",
+    "order": 1
+  },
+  {
+    "title": "Apply for a German passport (Reisepass) at a German consulate",
+    "description": "After receiving your citizenship certificate, schedule an appointment at the German consulate with jurisdiction over your residence. Fee approximately €82. The German passport is a full EU passport.",
+    "phaseId": "phase_4_arrival_setup",
+    "visaTrackId": "de_article_116",
+    "order": 2,
+    "links": [
+      { "label": "German missions in the US", "url": "https://www.germany.info/us-en/service/passport" }
+    ]
+  },
+  {
+    "title": "Understand your dual-citizen status and tax obligations",
+    "description": "Germany has allowed dual citizenship since 2024 (and restoration cases have always allowed it). The US taxes citizens on worldwide income; Germany taxes residents. The US-Germany tax treaty handles most overlap, but consult a cross-border CPA before relocating.",
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "de_article_116",
+    "order": 1
+  },
+  {
+    "title": "If you have children, file restoration applications for them too",
+    "description": "Minor children can be included on a parent's application. Adult children must file their own Article 116 or StAG §15 application referencing the same ancestor — this is much faster than a fresh case since the BVA already has the ancestor file."
+,
+    "phaseId": "phase_5_residency_followup",
+    "visaTrackId": "de_article_116",
+    "order": 2
+  }
+]

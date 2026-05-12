@@ -12,6 +12,9 @@ final class PurchaseManager: ObservableObject {
     static let productPortugal = "com.gothere.portugal_pack"
     static let productMexico = "com.gothere.mexico_pack"
     static let productIreland = "com.gothere.ireland_pack"
+    static let productItaly = "com.gothere.italy_pack"
+    static let productGermany = "com.gothere.germany_pack"
+    static let productPoland = "com.gothere.poland_pack"
     static let productAllCountries = "com.gothere.all_countries"
 
     /// Spain and Canada are always free.
@@ -33,6 +36,9 @@ final class PurchaseManager: ObservableObject {
                 Self.productPortugal,
                 Self.productMexico,
                 Self.productIreland,
+                Self.productItaly,
+                Self.productGermany,
+                Self.productPoland,
                 Self.productAllCountries
             ]
             products = try await Product.products(for: productIds)
@@ -103,10 +109,19 @@ final class PurchaseManager: ObservableObject {
             unlockedCountries.insert("mexico")
         case Self.productIreland:
             unlockedCountries.insert("ireland")
+        case Self.productItaly:
+            unlockedCountries.insert("italy")
+        case Self.productGermany:
+            unlockedCountries.insert("germany")
+        case Self.productPoland:
+            unlockedCountries.insert("poland")
         case Self.productAllCountries:
             unlockedCountries.insert("portugal")
             unlockedCountries.insert("mexico")
             unlockedCountries.insert("ireland")
+            unlockedCountries.insert("italy")
+            unlockedCountries.insert("germany")
+            unlockedCountries.insert("poland")
         default:
             break
         }

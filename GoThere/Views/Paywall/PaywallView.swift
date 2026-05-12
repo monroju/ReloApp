@@ -18,7 +18,7 @@ struct PaywallView: View {
                         Text("Unlock More Destinations")
                             .font(.title2.bold())
 
-                        Text("Spain is free! Unlock Portugal, Mexico, or all countries for full access to visa guides, tasks, and resources.")
+                        Text("Spain and Canada are free. Unlock Portugal, Mexico, Ireland, Italy, Germany, or Poland — or grab the bundle for full access to every visa guide, task list, and resource.")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -41,6 +41,38 @@ struct PaywallView: View {
                             description: "Temporary resident visa guides, tasks, and resources",
                             productId: PurchaseManager.productMexico,
                             countryId: "mexico"
+                        )
+
+                        purchaseCard(
+                            emoji: "\u{1F1EE}\u{1F1EA}",
+                            title: "Ireland Pack",
+                            description: "Foreign Births Register — Irish/EU citizenship by descent",
+                            productId: PurchaseManager.productIreland,
+                            countryId: "ireland"
+                        )
+
+                        purchaseCard(
+                            emoji: "\u{1F1EE}\u{1F1F9}",
+                            title: "Italy Pack",
+                            description: "Jure sanguinis — Italian/EU citizenship by descent",
+                            productId: PurchaseManager.productItaly,
+                            countryId: "italy"
+                        )
+
+                        purchaseCard(
+                            emoji: "\u{1F1E9}\u{1F1EA}",
+                            title: "Germany Pack",
+                            description: "Article 116 + StAG §15 citizenship restoration",
+                            productId: PurchaseManager.productGermany,
+                            countryId: "germany"
+                        )
+
+                        purchaseCard(
+                            emoji: "\u{1F1F5}\u{1F1F1}",
+                            title: "Poland Pack",
+                            description: "Confirmation of Polish citizenship by descent",
+                            productId: PurchaseManager.productPoland,
+                            countryId: "poland"
                         )
 
                         purchaseCard(
@@ -83,7 +115,7 @@ struct PaywallView: View {
     }
 
     private func purchaseCard(emoji: String, title: String, description: String, productId: String, countryId: String?) -> some View {
-        let isUnlocked = countryId.map { purchaseManager.isCountryUnlocked($0) } ?? (purchaseManager.unlockedCountries.count >= 3)
+        let isUnlocked = countryId.map { purchaseManager.isCountryUnlocked($0) } ?? (purchaseManager.unlockedCountries.count >= 8)
 
         return VStack(alignment: .leading, spacing: 8) {
             HStack {
