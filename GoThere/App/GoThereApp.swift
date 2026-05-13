@@ -25,6 +25,7 @@ struct GoThereApp: App {
     @StateObject private var authService = AuthService.shared
     @StateObject private var themeVM = ThemeViewModel()
     @StateObject private var purchaseManager = PurchaseManager.shared
+    @StateObject private var countrySelection = CountrySelection.shared
 
     var body: some Scene {
         WindowGroup {
@@ -33,10 +34,12 @@ struct GoThereApp: App {
                     MainTabView()
                         .environmentObject(themeVM)
                         .environmentObject(purchaseManager)
+                        .environmentObject(countrySelection)
                 } else {
                     LoginView()
                         .environmentObject(themeVM)
                         .environmentObject(purchaseManager)
+                        .environmentObject(countrySelection)
                 }
             }
             .preferredColorScheme(themeVM.isDarkMode ? .dark : .light)

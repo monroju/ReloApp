@@ -5,7 +5,6 @@ import Combine
 final class ResourcesViewModel: ObservableObject {
     @Published var items: [ResourceItem] = []
     @Published var isLoading = false
-    @Published var selectedCountry = DestinationConfig.spain
 
     private let repo = ResourcesRepository.shared
 
@@ -14,15 +13,10 @@ final class ResourcesViewModel: ObservableObject {
         return grouped.sorted { $0.key < $1.key }
     }
 
-    func loadDocuments() async {
+    func loadDocuments(for countryId: String) async {
         isLoading = true
-        await repo.loadDocuments(for: selectedCountry)
+        await repo.loadDocuments(for: countryId)
         items = repo.items
         isLoading = false
-    }
-
-    func changeCountry(_ countryId: String) {
-        selectedCountry = countryId
-        Task { await loadDocuments() }
     }
 }

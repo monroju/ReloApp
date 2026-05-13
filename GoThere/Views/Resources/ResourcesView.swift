@@ -22,6 +22,7 @@ struct WebResourceCategory: Identifiable {
 struct ResourcesView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
+    @EnvironmentObject var countrySelection: CountrySelection
     @StateObject private var vm = ResourcesViewModel()
     @State private var expandedCategories: Set<String> = []
 
@@ -36,20 +37,12 @@ struct ResourcesView: View {
                             .foregroundColor(.goPrimary)
                         Spacer()
                         Button {
-                            Task { await vm.loadDocuments() }
+                            Task { await vm.loadDocuments(for: countrySelection.current) }
                         } label: {
                             Image(systemName: "arrow.clockwise")
                                 .foregroundColor(.goPrimary)
                         }
                     }
-
-                    // Country picker
-                    Picker("Country", selection: $vm.selectedCountry) {
-                        ForEach(DestinationConfig.allDestinations) { dest in
-                            Text("\(dest.flagEmoji) \(dest.name)").tag(dest.id)
-                        }
-                    }
-                    .pickerStyle(.segmented)
 
                     // Quick Links header
                     Text("Quick Links")
@@ -135,12 +128,12 @@ struct ResourcesView: View {
                 .padding(.vertical, 12)
             }
             .goTopBar(showThemeToggle: false)
-            .onChange(of: vm.selectedCountry) { _ in
+            .onChange(of: countrySelection.current) { _ in
                 expandedCategories.removeAll()
-                Task { await vm.loadDocuments() }
+                Task { await vm.loadDocuments(for: countrySelection.current) }
             }
             .task {
-                await vm.loadDocuments()
+                await vm.loadDocuments(for: countrySelection.current)
             }
         }
     }
@@ -272,11 +265,11 @@ struct ResourcesView: View {
     // MARK: - Helpers
 
     private var countryName: String {
-        DestinationConfig.getDestination(vm.selectedCountry)?.name ?? "Spain"
+        DestinationConfig.getDestination(countrySelection.current)?.name ?? "Spain"
     }
 
     private var countryFlag: String {
-        DestinationConfig.getDestination(vm.selectedCountry)?.flagEmoji ?? "\u{1F1EA}\u{1F1F8}"
+        DestinationConfig.getDestination(countrySelection.current)?.flagEmoji ?? "\u{1F1EA}\u{1F1F8}"
     }
 
     private func cleanDocName(_ name: String) -> String {
@@ -310,11 +303,279 @@ struct ResourcesView: View {
     // MARK: - Country Resources (matches Android getResourcesForCountry)
 
     private var resourceCategories: [WebResourceCategory] {
-        switch vm.selectedCountry {
+        switch countrySelection.current {
         case "portugal": return portugalResources
         case "mexico": return mexicoResources
+        case "canada": return canadaResources
+        case "ireland": return irelandResources
+        case "italy": return italyResources
+        case "germany": return germanyResources
+        case "poland": return polandResources
+        case "argentina": return argentinaResources
+        case "hungary": return hungaryResources
+        case "uk_ancestry": return ukAncestryResources
         default: return spainResources
         }
+    }
+
+    private var canadaResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "ircc", title: "IRCC (Immigration Canada)", description: "Immigration, Refugees and Citizenship Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html", type: "official"),
+                WebResource(id: "bill-c3", title: "Bill C-3 Citizenship by Descent", description: "Citizenship for lost Canadians", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html", type: "official"),
+                WebResource(id: "consulates-ca", title: "Canadian Consulates in USA", description: "Find your assigned consulate", url: "https://travel.gc.ca/assistance/embassies-consulates", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "ID & Tax Registration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "sin", title: "SIN (Social Insurance Number)", description: "Required to work and pay taxes", url: "https://www.canada.ca/en/employment-social-development/services/sin.html", type: "official"),
+                WebResource(id: "cra", title: "Canada Revenue Agency", description: "Federal taxes for residents", url: "https://www.canada.ca/en/revenue-agency.html", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "realtor-ca", title: "Realtor.ca", description: "MLS national property search", url: "https://www.realtor.ca", type: "marketplace"),
+                WebResource(id: "rentals-ca", title: "Rentals.ca", description: "Apartment and home rentals", url: "https://rentals.ca", type: "marketplace"),
+                WebResource(id: "kijiji", title: "Kijiji", description: "Classifieds with rentals", url: "https://www.kijiji.ca", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "rbc", title: "RBC Royal Bank", description: "Largest Canadian bank", url: "https://www.rbc.com", type: "service"),
+                WebResource(id: "td", title: "TD Canada Trust", description: "Cross-border friendly", url: "https://www.td.com", type: "service"),
+                WebResource(id: "wise", title: "Wise", description: "Multi-currency transfers", url: "https://wise.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "health-canada", title: "Health Canada", description: "Provincial healthcare overview", url: "https://www.canada.ca/en/health-canada/services/health-care-system/canada-health-care-system-medicare.html", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "reddit-can", title: "r/PersonalFinanceCanada", description: "Reddit community", url: "https://www.reddit.com/r/PersonalFinanceCanada/", type: "community"),
+                WebResource(id: "internations-ca", title: "InterNations Canada", description: "Expat network", url: "https://www.internations.org/canada-expats", type: "community"),
+            ]),
+        ]
+    }
+
+    private var irelandResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "dfa", title: "Department of Foreign Affairs", description: "FBR citizenship by descent", url: "https://www.ireland.ie/en/dfa/citizenship/", type: "official"),
+                WebResource(id: "fbr", title: "Foreign Births Register", description: "Apply for Irish citizenship by descent", url: "https://www.ireland.ie/en/dfa/citizenship/born-abroad/", type: "official"),
+                WebResource(id: "consulates-ie", title: "Irish Consulates in USA", description: "Find your assigned consulate", url: "https://www.ireland.ie/en/usa/", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "ID & Tax Registration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "pps", title: "PPS Number Service", description: "Personal Public Service Number", url: "https://www.gov.ie/en/service/12e6de-get-a-personal-public-service-pps-number/", type: "official"),
+                WebResource(id: "revenue-ie", title: "Revenue (Irish Tax)", description: "Tax registration for residents", url: "https://www.revenue.ie", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "daft", title: "Daft.ie", description: "Ireland's largest property portal", url: "https://www.daft.ie", type: "marketplace"),
+                WebResource(id: "myhome-ie", title: "MyHome.ie", description: "Property and rentals", url: "https://www.myhome.ie", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "boi", title: "Bank of Ireland", description: "Largest retail bank", url: "https://www.bankofireland.com", type: "service"),
+                WebResource(id: "aib", title: "AIB", description: "Allied Irish Banks", url: "https://www.aib.ie", type: "service"),
+                WebResource(id: "revolut-ie", title: "Revolut", description: "Digital banking, popular in Ireland", url: "https://www.revolut.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "hse", title: "HSE (Health Service Executive)", description: "Public healthcare", url: "https://www.hse.ie", type: "official"),
+                WebResource(id: "vhi", title: "Vhi Healthcare", description: "Largest private insurer", url: "https://www.vhi.ie", type: "service"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "boards-ie", title: "Boards.ie", description: "Ireland's largest forum", url: "https://www.boards.ie", type: "community"),
+                WebResource(id: "internations-ie", title: "InterNations Ireland", description: "Expat network", url: "https://www.internations.org/ireland-expats", type: "community"),
+            ]),
+        ]
+    }
+
+    private var italyResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis official portal", url: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
+                WebResource(id: "prenotami", title: "Prenot@mi", description: "Book consulate appointments", url: "https://prenotami.esteri.it/", type: "official"),
+                WebResource(id: "consulates-it", title: "Italian Consulates in USA", description: "Find your assigned consulate", url: "https://www.esteri.it/en/ministero/laministero/lerappresentanze/", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "Codice Fiscale & Anagrafe", icon: "person.text.rectangle", resources: [
+                WebResource(id: "codice-fiscale", title: "Agenzia delle Entrate (Codice Fiscale)", description: "Italian tax code", url: "https://www.agenziaentrate.gov.it/portale/codice-fiscale-tessera-sanitaria", type: "official"),
+                WebResource(id: "anagrafe", title: "Anagrafe Nazionale", description: "National residents registry", url: "https://www.anagrafenazionale.interno.it/", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "immobiliare-it", title: "Immobiliare.it", description: "Italy's largest property portal", url: "https://www.immobiliare.it", type: "marketplace"),
+                WebResource(id: "idealista-it", title: "Idealista Italia", description: "Property and rentals", url: "https://www.idealista.it", type: "marketplace"),
+                WebResource(id: "subito-it", title: "Subito.it", description: "Classifieds with rentals", url: "https://www.subito.it", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "intesa", title: "Intesa Sanpaolo", description: "Largest Italian bank", url: "https://www.intesasanpaolo.com", type: "service"),
+                WebResource(id: "unicredit", title: "UniCredit", description: "Major bank, English support", url: "https://www.unicredit.it", type: "service"),
+                WebResource(id: "wise-it", title: "Wise", description: "Multi-currency transfers", url: "https://wise.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "ssn", title: "SSN (Servizio Sanitario Nazionale)", description: "National Health Service", url: "https://www.salute.gov.it", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "internations-it", title: "InterNations Italy", description: "Expat network", url: "https://www.internations.org/italy-expats", type: "community"),
+                WebResource(id: "reddit-it", title: "r/ItalyExpat", description: "Reddit community", url: "https://www.reddit.com/r/ItalyExpat/", type: "community"),
+            ]),
+        ]
+    }
+
+    private var germanyResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "bva", title: "Bundesverwaltungsamt", description: "Article 116 + StAG §15 restoration", url: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", type: "official"),
+                WebResource(id: "consulates-de", title: "German Consulates in USA", description: "Find your assigned consulate", url: "https://www.germany.info/us-en", type: "official"),
+                WebResource(id: "yadvashem", title: "Yad Vashem", description: "Persecution evidence research", url: "https://www.yadvashem.org/", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "Anmeldung & Tax", icon: "person.text.rectangle", resources: [
+                WebResource(id: "anmeldung", title: "Anmeldung Registration", description: "Required address registration", url: "https://service.berlin.de/dienstleistung/120335/", type: "official"),
+                WebResource(id: "elster", title: "ELSTER (Finanzamt)", description: "German tax portal", url: "https://www.elster.de", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "immoscout", title: "ImmoScout24", description: "Germany's largest property portal", url: "https://www.immobilienscout24.de", type: "marketplace"),
+                WebResource(id: "immowelt", title: "Immowelt", description: "Property and rentals", url: "https://www.immowelt.de", type: "marketplace"),
+                WebResource(id: "wg-gesucht", title: "WG-Gesucht", description: "Shared apartments and rentals", url: "https://www.wg-gesucht.de", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "n26-de", title: "N26", description: "Berlin-based digital bank", url: "https://n26.com/en-de", type: "service"),
+                WebResource(id: "dkb", title: "DKB", description: "Online bank, free account", url: "https://www.dkb.de", type: "service"),
+                WebResource(id: "deutsche-bank", title: "Deutsche Bank", description: "Major retail bank", url: "https://www.deutsche-bank.de", type: "service"),
+                WebResource(id: "wise-de", title: "Wise", description: "Multi-currency transfers", url: "https://wise.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "tk", title: "TK (Techniker Krankenkasse)", description: "Largest public health insurer", url: "https://www.tk.de/en", type: "official"),
+                WebResource(id: "aok", title: "AOK", description: "Public health insurance", url: "https://www.aok.de", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "toytown", title: "Toytown Germany", description: "English-speaking expat forum", url: "https://www.toytowngermany.com", type: "community"),
+                WebResource(id: "internations-de", title: "InterNations Germany", description: "Expat network", url: "https://www.internations.org/germany-expats", type: "community"),
+            ]),
+        ]
+    }
+
+    private var polandResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "gov-pl", title: "Polish Government Citizenship", description: "Confirmation of Polish citizenship", url: "https://www.gov.pl/web/usa-en/citizenship", type: "official"),
+                WebResource(id: "voivode", title: "Mazowiecki Voivode", description: "Diaspora applicant office", url: "https://www.gov.pl/web/uw-mazowiecki", type: "official"),
+                WebResource(id: "consulates-pl", title: "Polish Consulates in USA", description: "Find your assigned consulate", url: "https://www.gov.pl/web/usa-en", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "PESEL & Tax", icon: "person.text.rectangle", resources: [
+                WebResource(id: "pesel", title: "PESEL Number Application", description: "Polish personal ID number", url: "https://www.gov.pl/web/gov/uzyskaj-numer-pesel-dla-cudzoziemcow", type: "official"),
+                WebResource(id: "us-pl", title: "Urząd Skarbowy (Tax Office)", description: "Tax registration in Poland", url: "https://www.podatki.gov.pl", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "otodom", title: "Otodom", description: "Poland's largest property portal", url: "https://www.otodom.pl", type: "marketplace"),
+                WebResource(id: "olx-pl", title: "OLX Nieruchomości", description: "Classifieds with rentals", url: "https://www.olx.pl/nieruchomosci/", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "mbank", title: "mBank", description: "Online bank, English app", url: "https://www.mbank.pl", type: "service"),
+                WebResource(id: "pko", title: "PKO Bank Polski", description: "Largest Polish bank", url: "https://www.pkobp.pl", type: "service"),
+                WebResource(id: "revolut-pl", title: "Revolut", description: "Digital banking", url: "https://www.revolut.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "nfz", title: "NFZ (National Health Fund)", description: "Public healthcare", url: "https://www.nfz.gov.pl", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "internations-pl", title: "InterNations Poland", description: "Expat network", url: "https://www.internations.org/poland-expats", type: "community"),
+                WebResource(id: "reddit-pl", title: "r/poland", description: "Reddit community", url: "https://www.reddit.com/r/poland/", type: "community"),
+            ]),
+        ]
+    }
+
+    private var argentinaResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "cancilleria", title: "Argentine MFA Citizenship", description: "Citizenship by option (Ley 346)", url: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", type: "official"),
+                WebResource(id: "consulates-ar", title: "Argentine Consulates in USA", description: "Find your assigned consulate", url: "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates", type: "official"),
+                WebResource(id: "renaper", title: "RENAPER", description: "National Persons Registry (DNI)", url: "https://www.argentina.gob.ar/interior/renaper", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "DNI & Tax", icon: "person.text.rectangle", resources: [
+                WebResource(id: "dni", title: "DNI Application", description: "Argentine national ID card", url: "https://www.argentina.gob.ar/interior/renaper/dni", type: "official"),
+                WebResource(id: "afip", title: "AFIP", description: "Tax authority (CUIT/CUIL)", url: "https://www.afip.gob.ar/", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "zonaprop", title: "ZonaProp", description: "Argentina's largest property portal", url: "https://www.zonaprop.com.ar", type: "marketplace"),
+                WebResource(id: "argenprop", title: "ArgenProp", description: "Property and rentals", url: "https://www.argenprop.com", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "santander-ar", title: "Santander Argentina", description: "International bank", url: "https://www.santander.com.ar", type: "service"),
+                WebResource(id: "galicia", title: "Banco Galicia", description: "Major private bank", url: "https://www.bancogalicia.com", type: "service"),
+                WebResource(id: "wise-ar", title: "Wise", description: "Multi-currency transfers", url: "https://wise.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "obras-sociales", title: "Public Healthcare Argentina", description: "Universal coverage overview", url: "https://www.argentina.gob.ar/salud", type: "official"),
+                WebResource(id: "osde", title: "OSDE", description: "Largest private health plan", url: "https://www.osde.com.ar", type: "service"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "internations-ar", title: "InterNations Argentina", description: "Expat network", url: "https://www.internations.org/argentina-expats", type: "community"),
+                WebResource(id: "reddit-ba", title: "r/buenosaires", description: "Reddit community", url: "https://www.reddit.com/r/buenosaires/", type: "community"),
+            ]),
+        ]
+    }
+
+    private var hungaryResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "allampolgarsag", title: "Hungarian Citizenship Portal", description: "Simplified naturalization application", url: "https://allampolgarsag.gov.hu/", type: "official"),
+                WebResource(id: "kormanyablak", title: "Kormányablak (Govt Office)", description: "One-stop government office", url: "https://kormanyablak.hu/en", type: "official"),
+                WebResource(id: "embassy-hu", title: "Hungarian Embassy USA", description: "Washington DC consulate", url: "https://washington.mfa.gov.hu/eng", type: "official"),
+            ]),
+            WebResourceCategory(id: "documents", title: "Documents & Translation", icon: "doc.text", resources: [
+                WebResource(id: "offi", title: "OFFI (Translation Office)", description: "Official Hungarian translations", url: "https://www.offi.hu/", type: "service"),
+                WebResource(id: "balassi", title: "Hungarian Cultural Institute", description: "Language courses & resources", url: "https://newyork.balassiintezet.hu/en/", type: "official"),
+                WebResource(id: "familysearch-hu", title: "FamilySearch — Hungary", description: "Ancestor records research", url: "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "ID Cards & Tax", icon: "person.text.rectangle", resources: [
+                WebResource(id: "nyilvantarto", title: "Nyilvántartó", description: "ID card and address registry", url: "https://nyilvantarto.hu/", type: "official"),
+                WebResource(id: "nav-hu", title: "NAV (Tax Authority)", description: "Hungarian taxation", url: "https://www.nav.gov.hu/", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "ingatlan", title: "Ingatlan.com", description: "Hungary's largest property portal", url: "https://ingatlan.com", type: "marketplace"),
+                WebResource(id: "otthonterkep", title: "Otthontérkép", description: "Property listings", url: "https://www.otthonterkep.hu", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "otp", title: "OTP Bank", description: "Largest Hungarian bank", url: "https://www.otpbank.hu", type: "service"),
+                WebResource(id: "revolut-hu", title: "Revolut", description: "Digital banking, popular in Hungary", url: "https://www.revolut.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "neak", title: "NEAK (Health Insurance Fund)", description: "Public healthcare (TAJ card)", url: "https://neak.gov.hu/", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "internations-hu", title: "InterNations Hungary", description: "Expat network", url: "https://www.internations.org/hungary-expats", type: "community"),
+                WebResource(id: "xpatloop", title: "XpatLoop", description: "English-language Hungary news/community", url: "https://xpatloop.com", type: "community"),
+            ]),
+        ]
+    }
+
+    private var ukAncestryResources: [WebResourceCategory] {
+        [
+            WebResourceCategory(id: "visa", title: "Ancestry Visa & Immigration", icon: "person.text.rectangle", resources: [
+                WebResource(id: "gov-uk-ancestry", title: "Gov.uk Ancestry Visa", description: "Official UK Ancestry visa portal", url: "https://www.gov.uk/ancestry-visa", type: "official"),
+                WebResource(id: "ilr", title: "ILR after Ancestry Visa", description: "Settlement after 5 years", url: "https://www.gov.uk/ancestry-visa/settle-in-the-uk", type: "official"),
+                WebResource(id: "ukvi", title: "UK Visas and Immigration", description: "Official UKVI portal", url: "https://www.gov.uk/government/organisations/uk-visas-and-immigration", type: "official"),
+            ]),
+            WebResourceCategory(id: "documents", title: "Birth Certificates & Records", icon: "doc.text", resources: [
+                WebResource(id: "gro", title: "GRO (England & Wales)", description: "Order birth/marriage certificates", url: "https://www.gro.gov.uk/gro/content/certificates/", type: "official"),
+                WebResource(id: "scotlandspeople", title: "ScotlandsPeople", description: "Scottish family records", url: "https://www.scotlandspeople.gov.uk/", type: "official"),
+                WebResource(id: "groni", title: "GRONI (Northern Ireland)", description: "Order NI certificates", url: "https://www.nidirect.gov.uk/articles/general-register-office", type: "official"),
+                WebResource(id: "tb-test", title: "TB Test Country List", description: "Required pre-visa health check", url: "https://www.gov.uk/tb-test-visa", type: "official"),
+            ]),
+            WebResourceCategory(id: "id", title: "NIN & Tax", icon: "person.text.rectangle", resources: [
+                WebResource(id: "nin", title: "National Insurance Number", description: "Apply post-arrival", url: "https://www.gov.uk/apply-national-insurance-number", type: "official"),
+                WebResource(id: "hmrc", title: "HMRC", description: "UK tax authority", url: "https://www.gov.uk/government/organisations/hm-revenue-customs", type: "official"),
+            ]),
+            WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
+                WebResource(id: "rightmove", title: "Rightmove", description: "UK's largest property portal", url: "https://www.rightmove.co.uk", type: "marketplace"),
+                WebResource(id: "zoopla", title: "Zoopla", description: "Property and rentals", url: "https://www.zoopla.co.uk", type: "marketplace"),
+                WebResource(id: "spareroom", title: "SpareRoom", description: "Flatshare and rooms", url: "https://www.spareroom.co.uk", type: "marketplace"),
+            ]),
+            WebResourceCategory(id: "banking", title: "Banking & Finance", icon: "building.columns", resources: [
+                WebResource(id: "monzo", title: "Monzo", description: "Popular UK digital bank", url: "https://monzo.com", type: "service"),
+                WebResource(id: "starling", title: "Starling Bank", description: "Digital bank, easy setup", url: "https://www.starlingbank.com", type: "service"),
+                WebResource(id: "hsbc-uk", title: "HSBC UK", description: "Major retail bank", url: "https://www.hsbc.co.uk", type: "service"),
+                WebResource(id: "wise-uk", title: "Wise", description: "Multi-currency transfers", url: "https://wise.com", type: "service"),
+            ]),
+            WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
+                WebResource(id: "nhs", title: "NHS", description: "National Health Service", url: "https://www.nhs.uk", type: "official"),
+                WebResource(id: "ihs", title: "Immigration Health Surcharge", description: "Paid as part of visa fee", url: "https://www.gov.uk/healthcare-immigration-application", type: "official"),
+            ]),
+            WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [
+                WebResource(id: "internations-uk", title: "InterNations UK", description: "Expat network", url: "https://www.internations.org/united-kingdom-expats", type: "community"),
+                WebResource(id: "reddit-uk", title: "r/AskUK", description: "Reddit community", url: "https://www.reddit.com/r/AskUK/", type: "community"),
+            ]),
+        ]
     }
 
     private var spainResources: [WebResourceCategory] {

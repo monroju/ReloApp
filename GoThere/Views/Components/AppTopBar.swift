@@ -7,9 +7,8 @@ import SwiftUI
 struct GoThereTopBar: ViewModifier {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
+    @EnvironmentObject var countrySelection: CountrySelection
     let showThemeToggle: Bool
-
-    @State private var selectedCountry = DestinationConfig.spain
 
     func body(content: Content) -> some View {
         content
@@ -21,7 +20,7 @@ struct GoThereTopBar: ViewModifier {
                             let isUnlocked = purchaseManager.isCountryUnlocked(dest.id)
                             Button {
                                 if isUnlocked {
-                                    selectedCountry = dest.id
+                                    countrySelection.current = dest.id
                                 }
                             } label: {
                                 HStack {
@@ -34,8 +33,8 @@ struct GoThereTopBar: ViewModifier {
                         }
                     } label: {
                         HStack(spacing: 4) {
-                            Text(flagForCountry(selectedCountry))
-                            Text(nameForCountry(selectedCountry))
+                            Text(flagForCountry(countrySelection.current))
+                            Text(nameForCountry(countrySelection.current))
                                 .font(.subheadline.weight(.medium))
                             Image(systemName: "arrowtriangle.down.fill")
                                 .font(.system(size: 8))
@@ -69,7 +68,7 @@ struct GoThereTopBar: ViewModifier {
                                 CostCalculatorView()
                             }
                             NavigationLink("Visa Wizard") {
-                                VisaWizardView(countryId: selectedCountry)
+                                VisaWizardView(countryId: countrySelection.current)
                             }
                             NavigationLink("Destinations") {
                                 DestinationsView()
