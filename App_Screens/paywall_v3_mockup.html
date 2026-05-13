@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>GoThere Paywall — v3</title>
+<style>
+  :root {
+    --teal: #15B8A6;
+    --teal-dark: #0F8F82;
+    --teal-container: #C5F4EE;
+    --bg: #FFFFFF;
+    --card-bg: #F4F8F8;
+    --text: #0E1B1F;
+    --muted: #5A6B70;
+    --border: #E1E7E8;
+  }
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  html, body {
+    margin: 0; padding: 0;
+    width: 1200px; height: 1800px;
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+  }
+  .nav-bar {
+    height: 96px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar .close { font-size: 30px; color: var(--teal); font-weight: 500; }
+  .nav-bar .title { font-size: 36px; font-weight: 700; }
+  .nav-bar .spacer { width: 80px; }
+
+  .container { padding: 40px 56px 56px 56px; }
+
+  .hero {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    margin-bottom: 40px;
+  }
+  .hero .globe {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: var(--teal-container);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .hero .globe img { width: 80px; height: 80px; }
+  .hero h1 {
+    font-size: 56px; font-weight: 800; margin: 0 0 14px 0; letter-spacing: -1px;
+  }
+  .hero p {
+    font-size: 26px; color: var(--muted); margin: 0;
+    max-width: 980px; line-height: 1.35;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 28px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 26px 24px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    min-height: 220px;
+    position: relative;
+  }
+  .card .flag { width: 64px; height: 64px; margin-bottom: 12px; }
+  .card .title {
+    font-size: 28px; font-weight: 700; margin-bottom: 4px;
+  }
+  .card .desc {
+    font-size: 19px; color: var(--muted); line-height: 1.3;
+    flex: 1;
+  }
+  .card .price {
+    margin-top: 14px;
+    font-size: 26px; font-weight: 700; color: var(--teal);
+    background: var(--teal-container);
+    padding: 10px 22px; border-radius: 14px;
+    align-self: stretch;
+    text-align: center;
+  }
+
+  .bundle {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    border: none;
+    color: white;
+    padding: 36px 40px;
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px;
+    box-shadow: 0 12px 32px rgba(15, 143, 130, 0.28);
+  }
+  .bundle .left { display: flex; gap: 24px; align-items: center; }
+  .bundle .globe-img { width: 90px; height: 90px; }
+  .bundle .text { display: flex; flex-direction: column; gap: 6px; }
+  .bundle .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.22);
+    font-size: 20px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 6px 14px; border-radius: 10px;
+    align-self: flex-start;
+    text-transform: uppercase;
+  }
+  .bundle .title {
+    font-size: 38px; font-weight: 800; color: white;
+  }
+  .bundle .desc {
+    font-size: 22px; color: rgba(255,255,255,0.92); max-width: 600px; line-height: 1.3;
+  }
+  .bundle .price {
+    background: white; color: var(--teal-dark);
+    font-size: 36px; font-weight: 800;
+    padding: 22px 36px; border-radius: 18px;
+    white-space: nowrap;
+  }
+
+  .footer {
+    margin-top: 32px; text-align: center;
+    font-size: 24px; color: var(--teal); font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="nav-bar">
+    <div class="close">Close</div>
+    <div class="title">Unlock Destinations</div>
+    <div class="spacer"></div>
+  </div>
+  <div class="container">
+    <div class="hero">
+      <div class="globe"><img id="globeIcon" alt="globe" /></div>
+      <h1>Unlock More Destinations</h1>
+      <p>Spain and Canada are free. Unlock Portugal, Mexico, Ireland, Italy, Germany, Poland, Argentina, Hungary, or UK Ancestry &mdash; or grab the bundle for full access to every visa guide, task list, and resource.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img class="flag" data-emoji="&#127477;&#127481;" alt="PT flag" />
+        <div class="title">Portugal Pack</div>
+        <div class="desc">D7 &amp; D8 visa guides, tasks, and resources</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127474;&#127485;" alt="MX flag" />
+        <div class="title">Mexico Pack</div>
+        <div class="desc">Temporary resident visa guides</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127470;&#127466;" alt="IE flag" />
+        <div class="title">Ireland Pack</div>
+        <div class="desc">Foreign Births Register &mdash; Irish/EU citizenship by descent</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127470;&#127481;" alt="IT flag" />
+        <div class="title">Italy Pack</div>
+        <div class="desc">Jure sanguinis &mdash; Italian/EU citizenship by descent</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127465;&#127466;" alt="DE flag" />
+        <div class="title">Germany Pack</div>
+        <div class="desc">Article 116 + StAG &sect;15 citizenship restoration</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127477;&#127473;" alt="PL flag" />
+        <div class="title">Poland Pack</div>
+        <div class="desc">Confirmation of Polish citizenship by descent</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127462;&#127479;" alt="AR flag" />
+        <div class="title">Argentina Pack</div>
+        <div class="desc">Citizenship by option &mdash; for children of native Argentines</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127469;&#127482;" alt="HU flag" />
+        <div class="title">Hungary Pack</div>
+        <div class="desc">Simplified naturalization &mdash; Hungarian descent + language</div>
+        <div class="price">$3.99</div>
+      </div>
+      <div class="card">
+        <img class="flag" data-emoji="&#127468;&#127463;" alt="GB flag" />
+        <div class="title">UK Ancestry Pack</div>
+        <div class="desc">5-year work visa for Commonwealth citizens with a UK-born grandparent</div>
+        <div class="price">$3.99</div>
+      </div>
+    </div>
+
+    <div class="bundle">
+      <div class="left">
+        <img class="globe-img" id="bundleGlobe" alt="globe" />
+        <div class="text">
+          <div class="badge">Best Value &middot; Save over 80%</div>
+          <div class="title">All Countries</div>
+          <div class="desc">Unlock everything &mdash; every visa guide, task list, and resource for all 11 destinations.</div>
+        </div>
+      </div>
+      <div class="price">$5.99</div>
+    </div>
+
+    <div class="footer">Restore Purchases</div>
+  </div>
+
+<script>
+  // Twemoji CDN — converts all emoji to SVG images so they render identically on every OS.
+  // Self-contained: scan DOM after load.
+  function emojiToCodepoint(emoji) {
+    return Array.from(emoji)
+      .map(c => c.codePointAt(0).toString(16))
+      .filter(c => c !== 'fe0f')
+      .join('-');
+  }
+  function setFlag(img) {
+    const cp = emojiToCodepoint(img.getAttribute('data-emoji'));
+    img.src = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/' + cp + '.svg';
+  }
+  document.querySelectorAll('img.flag').forEach(setFlag);
+  document.getElementById('globeIcon').src = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f30e.svg';
+  document.getElementById('bundleGlobe').src = 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f30d.svg';
+</script>
+</body>
+</html>
