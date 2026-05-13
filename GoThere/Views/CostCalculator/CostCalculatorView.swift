@@ -2,8 +2,9 @@ import SwiftUI
 
 struct CostCalculatorView: View {
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var countrySelection: CountrySelection
 
-    @State private var selectedCountry = DestinationConfig.spain
+    @State private var selectedCountry: String = DestinationConfig.spain
     @State private var selectedCityId: String = "madrid"
     @State private var showInUSD = false
     @State private var housingType = 1 // 0=Studio, 1=1BR, 2=2BR
@@ -149,6 +150,14 @@ struct CostCalculatorView: View {
         }
         .navigationTitle("Cost Calculator")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            // Default to the global country selection on first open so the picker
+            // matches the top-bar flag.
+            selectedCountry = countrySelection.current
+            if let first = availableCities.first {
+                selectedCityId = first.cityId
+            }
+        }
         .onChange(of: selectedCountry) { _ in
             if let first = availableCities.first {
                 selectedCityId = first.cityId

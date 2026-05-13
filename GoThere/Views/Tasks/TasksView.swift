@@ -3,6 +3,7 @@ import SwiftUI
 struct TasksView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
+    @EnvironmentObject var countrySelection: CountrySelection
     @StateObject private var vm = TasksViewModel()
     @State private var showAddTask = false
     @State private var newTaskTitle = ""
@@ -152,6 +153,16 @@ struct TasksView: View {
             .task {
                 vm.startListening()
                 vm.autoSeedUnlockedCountries(purchaseManager)
+                // Mirror global country selection on first appearance so the chip
+                // filter agrees with the top-bar flag.
+                if vm.selectedCountry == nil {
+                    vm.selectedCountry = countrySelection.current
+                }
+            }
+            .onChange(of: countrySelection.current) { newCountry in
+                // Keep Tasks scoped to whatever the top-bar selector picks.
+                // User can still tap a chip again to deselect ("show all").
+                vm.selectedCountry = newCountry
             }
             .onChange(of: vm.tasksByPhase.map { $0.1.map(\.completed) }) { _ in
                 checkPhaseCompletion()

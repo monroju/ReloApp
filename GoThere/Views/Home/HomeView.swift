@@ -3,6 +3,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
+    @EnvironmentObject var countrySelection: CountrySelection
     @StateObject private var destVM = DestinationsViewModel()
     @StateObject private var tasksVM = TasksViewModel()
     @StateObject private var calendarVM = CalendarViewModel()
@@ -55,7 +56,7 @@ struct HomeView: View {
                                 CostCalculatorView()
                             }
                             NavigationLink("Visa Wizard") {
-                                VisaWizardView(countryId: DestinationConfig.spain)
+                                VisaWizardView(countryId: countrySelection.current)
                             }
                             NavigationLink("Destinations") {
                                 DestinationsView()
@@ -271,7 +272,7 @@ struct HomeView: View {
                 }
 
                 NavigationLink {
-                    VisaWizardView(countryId: DestinationConfig.spain)
+                    VisaWizardView(countryId: countrySelection.current)
                 } label: {
                     quickLinkTile(icon: "wand.and.stars", title: "Visa Wizard", color: .orange)
                 }
