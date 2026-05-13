@@ -59,6 +59,14 @@ workflows:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
         BUNDLE_ID: "com.gothere.ios"
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+      cancel_previous_builds: true
     scripts:
       - name: Install XcodeGen
         script: brew install xcodegen
