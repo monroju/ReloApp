@@ -15,6 +15,9 @@ final class PurchaseManager: ObservableObject {
     static let productItaly = "com.gothere.italy_pack"
     static let productGermany = "com.gothere.germany_pack"
     static let productPoland = "com.gothere.poland_pack"
+    static let productArgentina = "com.gothere.argentina_pack"
+    static let productHungary = "com.gothere.hungary_pack"
+    static let productUkAncestry = "com.gothere.uk_ancestry_pack"
     static let productAllCountries = "com.gothere.all_countries"
 
     /// Spain and Canada are always free.
@@ -39,6 +42,9 @@ final class PurchaseManager: ObservableObject {
                 Self.productItaly,
                 Self.productGermany,
                 Self.productPoland,
+                Self.productArgentina,
+                Self.productHungary,
+                Self.productUkAncestry,
                 Self.productAllCountries
             ]
             products = try await Product.products(for: productIds)
@@ -115,6 +121,12 @@ final class PurchaseManager: ObservableObject {
             unlockedCountries.insert("germany")
         case Self.productPoland:
             unlockedCountries.insert("poland")
+        case Self.productArgentina:
+            unlockedCountries.insert("argentina")
+        case Self.productHungary:
+            unlockedCountries.insert("hungary")
+        case Self.productUkAncestry:
+            unlockedCountries.insert("uk_ancestry")
         case Self.productAllCountries:
             unlockedCountries.insert("portugal")
             unlockedCountries.insert("mexico")
@@ -122,6 +134,9 @@ final class PurchaseManager: ObservableObject {
             unlockedCountries.insert("italy")
             unlockedCountries.insert("germany")
             unlockedCountries.insert("poland")
+            unlockedCountries.insert("argentina")
+            unlockedCountries.insert("hungary")
+            unlockedCountries.insert("uk_ancestry")
         default:
             break
         }

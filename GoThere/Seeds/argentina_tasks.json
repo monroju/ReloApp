@@ -1,0 +1,94 @@
+[
+  {
+    "title": "Decide your route: by-option (child of native Argentine) vs. 2-year naturalization",
+    "description": "Argentina offers two fast paths. (1) 'Argentino por opción' — if you were born abroad to at least one native-born Argentine parent, you can register at any Argentine consulate and be recognized as an Argentine citizen by birth. No residency needed. (2) Standard naturalization — Argentina has one of the world's shortest residency requirements: 2 years of legal residence is enough to apply for citizenship.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 1,
+    "links": [
+      { "label": "Argentine MFA: citizenship & naturalization", "url": "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship" }
+    ]
+  },
+  {
+    "title": "Confirm at least one parent was born in Argentina",
+    "description": "The by-option route is open to anyone born outside Argentina to a native-born Argentine mother or father. The parent must have been born on Argentine soil — naturalized Argentine parents do not qualify their children for option. Pull your parent's Argentine birth certificate (partida de nacimiento) before doing anything else.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 2
+  },
+  {
+    "title": "Identify the Argentine consulate with jurisdiction over your US residence",
+    "description": "Each Argentine consulate handles applicants from a defined US region. You cannot freely choose. Find your consulate before booking any appointments.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 3,
+    "links": [
+      { "label": "Argentine consulates in the US", "url": "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates" }
+    ]
+  },
+  {
+    "title": "Order your parent's Argentine birth certificate (partida de nacimiento)",
+    "description": "Request a recent certified copy (within 6 months for most consulates) from the civil registry (Registro Civil) of the province where your parent was born. Many provinces accept online requests; for older records (pre-1950) the process is slower.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 1,
+    "links": [
+      { "label": "Registro Civil — Buenos Aires", "url": "https://www.buenosaires.gob.ar/registrocivil" }
+    ]
+  },
+  {
+    "title": "Order your own US birth certificate with apostille",
+    "description": "Long-form certified birth certificate from your state's vital records office, apostilled by your state's Secretary of State. Argentina is a Hague Apostille party — no consulate legalization needed.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 2
+  },
+  {
+    "title": "Get your US birth certificate translated by a sworn translator",
+    "description": "Argentina requires translation into Spanish by a 'traductor público' registered in Argentina (CTPCBA-registered for Buenos Aires). US-based translators are accepted by many consulates, but check yours. The translation typically must be 'legalized' by the relevant Colegio de Traductores when filed in Argentina.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 3,
+    "links": [
+      { "label": "CTPCBA — Buenos Aires sworn translators", "url": "https://www.traductores.org.ar/" }
+    ]
+  },
+  {
+    "title": "Book your consulate appointment",
+    "description": "Bring the original Argentine birth certificate of your parent, your apostilled and translated US birth certificate, your US passport, and proof of your parent's identity (Argentine DNI or passport). Consulates typically charge a modest fee (~$60 USD).",
+    "phaseId": "phase_3_apply",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 1
+  },
+  {
+    "title": "Sign the option declaration in front of the consul",
+    "description": "You appear in person, present documents, and sign a declaration opting for Argentine citizenship by descent. The consul certifies the application and forwards it to the Argentine civil registry (RENAPER) for entry.",
+    "phaseId": "phase_3_apply",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 2
+  },
+  {
+    "title": "Wait for your Argentine birth certificate to be issued",
+    "description": "RENAPER registers your birth in Argentina (often in the Capital Federal registry) and issues a new Argentine birth certificate showing you as an Argentine citizen. This typically takes 6–18 months. You can then apply for an Argentine DNI and passport.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 1
+  },
+  {
+    "title": "Apply for your Argentine DNI (national ID)",
+    "description": "Once your Argentine birth certificate is registered, you can apply for the DNI at any Argentine consulate or at RENAPER in Argentina. The DNI unlocks banking, healthcare, voting, and Mercosur freedom of movement.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 2,
+    "links": [
+      { "label": "RENAPER", "url": "https://www.argentina.gob.ar/interior/renaper" }
+    ]
+  },
+  {
+    "title": "Apply for your Argentine passport",
+    "description": "Same office as the DNI. The Argentine passport gives visa-free access to most of South America, the EU Schengen area (90/180), the UK, Japan, and many other countries.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "ar_citizenship_by_option",
+    "order": 3
+  }
+]

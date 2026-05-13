@@ -12,6 +12,9 @@ enum DestinationConfig {
     static let italy = "italy"
     static let germany = "germany"
     static let poland = "poland"
+    static let argentina = "argentina"
+    static let hungary = "hungary"
+    static let ukAncestry = "uk_ancestry"
 
     // MARK: - Visa Track IDs
     static let spainNonLucrative = "es_non_lucrative"
@@ -26,8 +29,11 @@ enum DestinationConfig {
     static let germanyArticle116 = "de_article_116"
     static let germanyStag15 = "de_stag_15"
     static let polandCitizenshipConfirmation = "pl_citizenship_confirmation"
+    static let argentinaCitizenshipByOption = "ar_citizenship_by_option"
+    static let hungarySimplifiedNaturalization = "hu_simplified_naturalization"
+    static let ukAncestryVisa = "uk_ancestry_visa"
 
-    static let currentSeedVersion = 2
+    static let currentSeedVersion = 3
 
     // MARK: - Spain
 
@@ -338,6 +344,102 @@ enum DestinationConfig {
         officialImmigrationUrl: "https://www.gov.pl/web/usa-en/citizenship"
     )
 
+    // MARK: - Argentina (Citizenship by Option)
+
+    static let argentinaDestination = DestinationCountry(
+        id: argentina,
+        name: "Argentina",
+        flagEmoji: "\u{1F1E6}\u{1F1F7}",
+        region: "South America",
+        description: "Argentina recognises children of Argentine-born parents as Argentine citizens by birth — even if you were born abroad. Register at any consulate (no residency required) and gain Argentine and Mercosur citizenship for life.",
+        visaTracks: [
+            VisaTrack(
+                id: argentinaCitizenshipByOption,
+                destinationId: argentina,
+                name: "Argentine Citizenship by Option (Argentino por Opción)",
+                shortName: "By Option",
+                description: "Under Ley 346 (art. 1, inc. 2), anyone born outside Argentina to at least one native-born Argentine parent can opt for Argentine citizenship by registering at an Argentine consulate. There is no generational cap on the principle of jus sanguinis at the parental level, no residency requirement, no language test, and no fee beyond modest consular charges. Argentina also offers separately the shortest naturalization in the Americas — 2 years of legal residence — for those without Argentine ancestry.",
+                requirements: [
+                    "At least one native-born Argentine parent (born on Argentine soil)",
+                    "Your parent's Argentine birth certificate (partida de nacimiento)",
+                    "Your own US (or other foreign) birth certificate with apostille and sworn Spanish translation",
+                    "Valid passport and in-person appearance at the Argentine consulate with jurisdiction over your US residence",
+                    "Dual citizenship permitted — Argentina accepts dual nationality with the US, Canada, Spain, Italy, and most countries"
+                ],
+                estimatedProcessingTime: "6–18 months from consulate filing to Argentine birth certificate issuance",
+                officialUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship"
+            )
+        ],
+        defaultVisaTrackId: argentinaCitizenshipByOption,
+        seedVersion: currentSeedVersion,
+        officialImmigrationUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad"
+    )
+
+    // MARK: - Hungary (Simplified Naturalization)
+
+    static let hungaryDestination = DestinationCountry(
+        id: hungary,
+        name: "Hungary",
+        flagEmoji: "\u{1F1ED}\u{1F1FA}",
+        region: "Europe",
+        description: "Hungary's simplified naturalization (since 2011) grants citizenship to descendants of Hungarian citizens — with no generational cap. The catch: you must speak basic conversational Hungarian. If you can clear the language bar, you gain Hungarian (and EU) citizenship for life.",
+        visaTracks: [
+            VisaTrack(
+                id: hungarySimplifiedNaturalization,
+                destinationId: hungary,
+                name: "Simplified Naturalization (Hungarian Descent)",
+                shortName: "Simplified Naturalization",
+                description: "Under §4(3) of the Hungarian Citizenship Act (Act LV of 1993, as amended by Act XLIV of 2010), anyone with at least one Hungarian-citizen ancestor in their direct line — at any generational depth — can apply for citizenship without residency requirements or fees. Applicants must demonstrate basic Hungarian language proficiency in a conversation with the consul or registry officer. No formal exam; the in-person interview is the test.",
+                requirements: [
+                    "Documented Hungarian-citizen ancestor in your direct line (parent, grandparent, or further back — no cap)",
+                    "Basic conversational Hungarian (assessed in person at consulate interview)",
+                    "Hungarian civil registry or church records (anyakönyv) for the founding ancestor",
+                    "Unbroken vital records chain (birth, marriage) from the Hungarian ancestor to you, with apostille and Hungarian translation by OFFI",
+                    "In-person appearance at a Hungarian consulate or government office (kormányablak)",
+                    "Dual citizenship permitted"
+                ],
+                estimatedProcessingTime: "12–24 months from filing to oath",
+                officialUrl: "https://allampolgarsag.gov.hu/"
+            )
+        ],
+        defaultVisaTrackId: hungarySimplifiedNaturalization,
+        seedVersion: currentSeedVersion,
+        officialImmigrationUrl: "https://allampolgarsag.gov.hu/"
+    )
+
+    // MARK: - UK Ancestry Visa
+
+    static let ukAncestryDestination = DestinationCountry(
+        id: ukAncestry,
+        name: "UK (Ancestry)",
+        flagEmoji: "\u{1F1EC}\u{1F1E7}",
+        region: "Europe",
+        description: "The UK Ancestry visa lets Commonwealth citizens with a UK-born grandparent live and work in Britain for 5 years — with a clear path to settlement (ILR) and British citizenship. Available to Canadian, Australian, New Zealand, South African, Jamaican, and other Commonwealth nationals (not US-only citizens).",
+        visaTracks: [
+            VisaTrack(
+                id: ukAncestryVisa,
+                destinationId: ukAncestry,
+                name: "UK Ancestry Visa",
+                shortName: "UK Ancestry",
+                description: "A 5-year work visa for Commonwealth citizens (and British Overseas / National (Overseas) / Subject status holders) aged 17+ with a UK-born grandparent. No skilled job offer required — any work counts. After 5 years of UK residence, applicants can apply for Indefinite Leave to Remain (settlement); after a further 12 months as settled, they can naturalise as British citizens. Total time to British passport: ~6 years.",
+                requirements: [
+                    "Commonwealth citizen, British Overseas Citizen, British Overseas Territories citizen, British National (Overseas), British Subject, or Zimbabwean citizen (US-only nationals do NOT qualify)",
+                    "Grandparent born in the UK, Channel Islands, Isle of Man, or pre-1922 Ireland (now Republic of Ireland)",
+                    "At least 17 years old, planning to work in the UK",
+                    "Able to support yourself and dependants without public funds",
+                    "Full long-form birth certificates linking you → parent → UK-born grandparent",
+                    "Tuberculosis test if you've lived 6+ months in a listed country",
+                    "Application fee (~£637) + Immigration Health Surcharge (~£5,175 for 5 years)"
+                ],
+                estimatedProcessingTime: "3 weeks standard / 5 working days priority for visa; 5 years to ILR; 6 years to British citizenship",
+                officialUrl: "https://www.gov.uk/ancestry-visa"
+            )
+        ],
+        defaultVisaTrackId: ukAncestryVisa,
+        seedVersion: currentSeedVersion,
+        officialImmigrationUrl: "https://www.gov.uk/ancestry-visa"
+    )
+
     // MARK: - All Destinations
 
     static let allDestinations: [DestinationCountry] = [
@@ -348,7 +450,10 @@ enum DestinationConfig {
         irelandDestination,
         italyDestination,
         germanyDestination,
-        polandDestination
+        polandDestination,
+        argentinaDestination,
+        hungaryDestination,
+        ukAncestryDestination
     ]
 
     static func getDestination(_ id: String) -> DestinationCountry? {

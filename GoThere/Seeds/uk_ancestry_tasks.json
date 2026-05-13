@@ -1,0 +1,130 @@
+[
+  {
+    "title": "Confirm you are a Commonwealth citizen (or eligible national)",
+    "description": "The UK Ancestry route is open only to Commonwealth citizens, British Overseas Citizens, British Overseas Territories citizens, British Nationals (Overseas), British Subjects, and Zimbabwean citizens. US citizens DO NOT qualify on US nationality alone — you must hold one of these passports. Canadian, Australian, New Zealand, South African, Jamaican, etc. nationals qualify.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 1,
+    "links": [
+      { "label": "Gov.uk — UK Ancestry visa overview", "url": "https://www.gov.uk/ancestry-visa" }
+    ]
+  },
+  {
+    "title": "Confirm you have a UK-born grandparent",
+    "description": "You need at least one grandparent born in the United Kingdom, the Channel Islands, the Isle of Man, or (before 31 March 1922) what is now the Republic of Ireland. Adoptive and step-grandparents count if the legal adoption is recognised. Birth on a UK-registered ship or aircraft also counts.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 2
+  },
+  {
+    "title": "Confirm you are 17 or older and able to work",
+    "description": "You must be at least 17 years old at application, planning to work in the UK (any job — no sponsor or skill threshold), and able to support yourself and any dependants without recourse to public funds.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 3
+  },
+  {
+    "title": "Plan for the 5-year settlement timeline",
+    "description": "UK Ancestry is granted for 5 years. After 5 years of continuous UK residence you can apply for Indefinite Leave to Remain (ILR / settlement). After 12 more months as a settled person you can apply for British citizenship by naturalisation. Total time to passport: ~6 years.",
+    "phaseId": "phase_1_plan",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 4
+  },
+  {
+    "title": "Order your own birth certificate (long form)",
+    "description": "Long-form / full birth certificate showing both parents' names. You'll use this to link yourself to your UK-born grandparent through the parent on your grandparent's side.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 1
+  },
+  {
+    "title": "Order your linking parent's birth certificate",
+    "description": "Birth certificate of the parent who is the child of your UK-born grandparent. This proves the parent–grandparent link. Long-form certificate, not just a summary.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 2
+  },
+  {
+    "title": "Order your UK-born grandparent's birth certificate from GRO",
+    "description": "For England and Wales, order from the General Register Office (GRO). For Scotland, ScotlandsPeople. For Northern Ireland, GRONI. Pre-1922 Irish records (now Republic of Ireland) come from the Irish General Register Office.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 3,
+    "links": [
+      { "label": "GRO — England & Wales certificates", "url": "https://www.gro.gov.uk/gro/content/certificates/" },
+      { "label": "ScotlandsPeople", "url": "https://www.scotlandspeople.gov.uk/" }
+    ]
+  },
+  {
+    "title": "Gather adoption / legitimation paperwork (if applicable)",
+    "description": "If you, your parent, or grandparent was adopted, you must include the adoption order or equivalent. UKVI requires evidence the adoption is legally recognised under UK law. Same applies to legitimation orders for children born outside marriage.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 4
+  },
+  {
+    "title": "Show you can support yourself without public funds",
+    "description": "Bank statements showing sufficient savings, a job offer or contract in the UK, evidence of self-employment income, or a combination. No fixed threshold like the Skilled Worker route, but caseworkers expect realistic evidence you'll cover housing and living costs in your first months.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 5
+  },
+  {
+    "title": "Take a Tuberculosis test (if required by your country)",
+    "description": "Required if you've spent 6+ months in any of the listed TB-screening countries before applying. Test must be at a UKVI-approved clinic — results are valid for 6 months.",
+    "phaseId": "phase_2_documents",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 6,
+    "links": [
+      { "label": "Gov.uk — TB test for UK visa", "url": "https://www.gov.uk/tb-test-visa" }
+    ]
+  },
+  {
+    "title": "Apply online via the UKVI portal",
+    "description": "Application is made online from outside the UK. Current fee is £637 (subject to change) for a 5-year visa. You'll also pay the Immigration Health Surcharge (£1,035/year × 5 = £5,175) as part of the application.",
+    "phaseId": "phase_3_apply",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 1,
+    "links": [
+      { "label": "Apply for Ancestry visa", "url": "https://www.gov.uk/ancestry-visa/apply" }
+    ]
+  },
+  {
+    "title": "Attend your biometrics appointment at a visa application centre (VAC)",
+    "description": "Book a biometrics appointment at the VFS Global or TLScontact centre handling UK visas in your country. Provide fingerprints, photo, and submit original documents (or scans, depending on the VAC).",
+    "phaseId": "phase_3_apply",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 2
+  },
+  {
+    "title": "Receive your decision and travel to the UK within 30 days of visa issue",
+    "description": "Standard processing is 3 weeks; priority service (~£500 extra) is 5 working days. Once issued, you receive a 30-day entry vignette in your passport — you must travel to the UK within those 30 days and collect your Biometric Residence Permit (BRP) within 10 days of arrival.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 1
+  },
+  {
+    "title": "Maintain continuous residence — absences under 180 days/year",
+    "description": "To qualify for ILR after 5 years, you must not be outside the UK for more than 180 days in any rolling 12-month period during the 5 years. Track every trip in a spreadsheet. Long absences can reset your settlement clock.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 2
+  },
+  {
+    "title": "Apply for Indefinite Leave to Remain (ILR) after 5 years",
+    "description": "After 5 years of continuous UK residence on the Ancestry visa, apply for settlement. You'll need to pass the Life in the UK test and meet the B1 English requirement (most Commonwealth applicants are exempt because of nationality). Current ILR fee is £3,029.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 3,
+    "links": [
+      { "label": "ILR after 5 years on Ancestry", "url": "https://www.gov.uk/ancestry-visa/settle-in-the-uk" }
+    ]
+  },
+  {
+    "title": "Apply for British citizenship by naturalisation (12 months after ILR)",
+    "description": "After holding ILR for 12 months, you can apply for naturalisation. Total time from arrival: ~6 years. Fee is currently £1,500 plus £80 ceremony fee. Dual citizenship with most countries is permitted by the UK.",
+    "phaseId": "phase_4_post",
+    "visaTrackId": "uk_ancestry_visa",
+    "order": 4
+  }
+]
