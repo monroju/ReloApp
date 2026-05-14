@@ -4,6 +4,7 @@ struct VisaWizardView: View {
     let countryId: String
     @StateObject private var vm = VisaWizardViewModel()
     @Environment(\.dismiss) private var dismiss
+    @State private var showCompare = false
 
     var body: some View {
         VStack(spacing: 0) {
@@ -34,6 +35,14 @@ struct VisaWizardView: View {
         }
         .navigationTitle("Visa Wizard")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showCompare) {
+            NavigationStack {
+                VisaCompareView(initialCountryId: countryId) { trackId in
+                    vm.selectTrack(trackId)
+                    showCompare = false
+                }
+            }
+        }
         .navigationBarBackButtonHidden(vm.currentStep > 0 && !vm.saveComplete)
         .toolbar {
             if vm.currentStep > 0 && !vm.saveComplete {
@@ -62,6 +71,37 @@ struct VisaWizardView: View {
                 Text("Select the visa type you're pursuing in \(countryName). We'll create a personalized step-by-step checklist.")
                     .font(.body)
                     .foregroundColor(.secondary)
+
+                // Compare visa types CTA
+                Button {
+                    showCompare = true
+                } label: {
+                    HStack(spacing: 10) {
+                        Image(systemName: "rectangle.split.3x1.fill")
+                            .font(.title3)
+                            .foregroundColor(.goPrimary)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Compare Visa Types")
+                                .font(.subheadline.bold())
+                                .foregroundColor(.primary)
+                            Text("Side-by-side eligibility, cost & citizenship paths")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(16)
+                    .background(Color.goPrimary.opacity(0.08))
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(Color.goPrimary.opacity(0.3), lineWidth: 1)
+                    )
+                }
+                .buttonStyle(.plain)
 
                 ForEach(vm.availableTracks, id: \.0) { trackId, track in
                     Button {

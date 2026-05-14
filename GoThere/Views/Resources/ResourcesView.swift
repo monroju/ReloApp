@@ -320,13 +320,8 @@ struct ResourcesView: View {
 
     private var canadaResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "ircc", title: "IRCC (Immigration Canada)", description: "Immigration, Refugees and Citizenship Canada", url: "https://www.canada.ca/en/immigration-refugees-citizenship.html", type: "official"),
-                WebResource(id: "bill-c3", title: "Citizenship by Descent (Bill C-3)", description: "Canadian parent / lost Canadians — proof of citizenship", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html", type: "official"),
-                WebResource(id: "express-entry", title: "Express Entry (Skilled Worker)", description: "Points-based PR — degree + work experience + English/French", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html", type: "official"),
-                WebResource(id: "pnp", title: "Provincial Nominee Program (PNP)", description: "Province-sponsored PR — lower CRS threshold than Express Entry", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html", type: "official"),
-                WebResource(id: "work-permit", title: "Work Permit (LMIA / IMP)", description: "Employer-sponsored or treaty-based (USMCA for US citizens)", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada.html", type: "official"),
-                WebResource(id: "family-sponsor", title: "Family Sponsorship", description: "Spouse, parent, or child of Canadian citizen / PR", url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/family-sponsorship.html", type: "official"),
                 WebResource(id: "consulates-ca", title: "Canadian Consulates in USA", description: "Find your assigned consulate", url: "https://travel.gc.ca/assistance/embassies-consulates", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "ID & Tax Registration", icon: "person.text.rectangle", resources: [
@@ -355,12 +350,9 @@ struct ResourcesView: View {
 
     private var irelandResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "dfa", title: "Department of Foreign Affairs", description: "FBR citizenship by descent", url: "https://www.ireland.ie/en/dfa/citizenship/", type: "official"),
-                WebResource(id: "fbr", title: "Citizenship by Descent (FBR)", description: "Irish-born grandparent — Foreign Births Register, no income test", url: "https://www.ireland.ie/en/dfa/citizenship/born-abroad/", type: "official"),
-                WebResource(id: "stamp-0", title: "Stamp 0 — Retiree Visa", description: "Non-EEA retirees — €50k/yr passive income required", url: "https://www.irishimmigration.ie/coming-to-join-family-in-ireland/stamp-0/", type: "official"),
-                WebResource(id: "critical-skills", title: "Critical Skills Employment Permit", description: "Tech, healthcare, engineering — €38k+ salary, 2yr to PR", url: "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/", type: "official"),
-                WebResource(id: "general-permit", title: "General Employment Permit", description: "Standard work permit — €34k+ salary, employer-sponsored", url: "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/general-employment-permit/", type: "official"),
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "dfa", title: "Department of Foreign Affairs", description: "Citizenship + foreign births portal", url: "https://www.ireland.ie/en/dfa/citizenship/", type: "official"),
+                WebResource(id: "isd", title: "Irish Immigration Service", description: "Visas, Stamps, residence permissions", url: "https://www.irishimmigration.ie/", type: "official"),
                 WebResource(id: "consulates-ie", title: "Irish Consulates in USA", description: "Find your assigned consulate", url: "https://www.ireland.ie/en/usa/", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "ID & Tax Registration", icon: "person.text.rectangle", resources: [
@@ -389,12 +381,9 @@ struct ResourcesView: View {
 
     private var italyResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis official portal", url: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
-                WebResource(id: "jure-sanguinis", title: "Citizenship by Descent (Jure Sanguinis)", description: "Italian ancestry — no generational limit pre-1948, narrowed in 2024", url: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
-                WebResource(id: "elective-residency", title: "Elective Residency Visa", description: "Retirees with passive income — ~€31k/yr, no work allowed", url: "https://vistoperitalia.esteri.it/home/dettagliovisto/76/47", type: "official"),
-                WebResource(id: "it-nomad", title: "Digital Nomad Visa", description: "Highly skilled remote workers — €28k+/yr, launched Apr 2024", url: "https://www.esteri.it/en/servizi-consolari-e-visti/visti-per-litalia/", type: "official"),
-                WebResource(id: "it-investor", title: "Investor Visa", description: "€500k Italian company / €2M govt bonds / €1M philanthropy", url: "https://investorvisa.mise.gov.it/index.php/en/", type: "official"),
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis + visa types portal", url: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
+                WebResource(id: "vistoperitalia", title: "Visto per l'Italia", description: "Italian visa portal — all national visas", url: "https://vistoperitalia.esteri.it/", type: "official"),
                 WebResource(id: "prenotami", title: "Prenot@mi", description: "Book consulate appointments", url: "https://prenotami.esteri.it/", type: "official"),
                 WebResource(id: "consulates-it", title: "Italian Consulates in USA", description: "Find your assigned consulate", url: "https://www.esteri.it/en/ministero/laministero/lerappresentanze/", type: "official"),
             ]),
@@ -424,15 +413,11 @@ struct ResourcesView: View {
 
     private var germanyResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "bva", title: "Bundesverwaltungsamt", description: "Article 116 + StAG §15 restoration", url: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", type: "official"),
-                WebResource(id: "stag-15", title: "Citizenship Restoration (StAG §15)", description: "Descendants of Nazi-era persecution victims — no language/income test", url: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", type: "official"),
-                WebResource(id: "blue-card", title: "EU Blue Card", description: "University degree + €45,300+/yr salary (€41k shortage occupations)", url: "https://www.make-it-in-germany.com/en/visa-residence/types/eu-blue-card", type: "official"),
-                WebResource(id: "freelancer-visa", title: "Freelancer Visa (§21)", description: "Self-employed creators/IT — Berlin Künstler visa popular among Americans", url: "https://www.berlin.de/en/visa/visa-categories/freelance-self-employment/", type: "official"),
-                WebResource(id: "job-seeker", title: "Job Seeker Visa", description: "6-month in-country search — degree + €1,091/mo funds", url: "https://www.make-it-in-germany.com/en/visa-residence/types/job-seeker-visa", type: "official"),
-                WebResource(id: "chancenkarte", title: "Opportunity Card (Chancenkarte)", description: "Points-based — work up to 20h/wk while searching (2024)", url: "https://www.make-it-in-germany.com/en/visa-residence/types/opportunity-card", type: "official"),
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "bva", title: "Bundesverwaltungsamt (BVA)", description: "Citizenship restoration (Art. 116, StAG §15)", url: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", type: "official"),
+                WebResource(id: "make-it-de", title: "Make it in Germany", description: "Official visa portal — Blue Card, Freelancer, Chancenkarte, etc.", url: "https://www.make-it-in-germany.com/en/visa-residence/", type: "official"),
                 WebResource(id: "consulates-de", title: "German Consulates in USA", description: "Find your assigned consulate", url: "https://www.germany.info/us-en", type: "official"),
-                WebResource(id: "yadvashem", title: "Yad Vashem", description: "Persecution evidence research", url: "https://www.yadvashem.org/", type: "official"),
+                WebResource(id: "yadvashem", title: "Yad Vashem", description: "Persecution evidence research (StAG §15)", url: "https://www.yadvashem.org/", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "Anmeldung & Tax", icon: "person.text.rectangle", resources: [
                 WebResource(id: "anmeldung", title: "Anmeldung Registration", description: "Required address registration", url: "https://service.berlin.de/dienstleistung/120335/", type: "official"),
@@ -462,12 +447,9 @@ struct ResourcesView: View {
 
     private var polandResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "gov-pl", title: "Polish Government Citizenship", description: "Confirmation of Polish citizenship", url: "https://www.gov.pl/web/usa-en/citizenship", type: "official"),
-                WebResource(id: "confirmation", title: "Confirmation of Polish Citizenship", description: "Polish ancestor on paternal line (or post-1951 maternal) — no language test", url: "https://www.gov.pl/web/usa-en/citizenship", type: "official"),
-                WebResource(id: "karta-polaka", title: "Karta Polaka (Pole's Card)", description: "Polish heritage + basic language — work rights, no fees on Visa D", url: "https://www.gov.pl/web/dyplomacja/karta-polaka", type: "official"),
-                WebResource(id: "visa-d", title: "Visa D (National Long-Stay)", description: "Work / study / family / residence permit > 90 days", url: "https://www.gov.pl/web/dyplomacja/visa-d", type: "official"),
-                WebResource(id: "temp-residence-pl", title: "Temporary Residence Card", description: "In-country residence permit — work + study tracks", url: "https://www.gov.pl/web/udsc", type: "official"),
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "gov-pl", title: "Polish Government Citizenship Portal", description: "Confirmation of Polish citizenship", url: "https://www.gov.pl/web/usa-en/citizenship", type: "official"),
+                WebResource(id: "udsc", title: "Office for Foreigners (UDSC)", description: "Residence permits + work permits portal", url: "https://www.gov.pl/web/udsc", type: "official"),
                 WebResource(id: "voivode", title: "Mazowiecki Voivode", description: "Diaspora applicant office", url: "https://www.gov.pl/web/uw-mazowiecki", type: "official"),
                 WebResource(id: "consulates-pl", title: "Polish Consulates in USA", description: "Find your assigned consulate", url: "https://www.gov.pl/web/usa-en", type: "official"),
             ]),
@@ -496,12 +478,9 @@ struct ResourcesView: View {
 
     private var argentinaResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "cancilleria", title: "Argentine MFA Citizenship", description: "Citizenship by option (Ley 346)", url: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", type: "official"),
-                WebResource(id: "ar-by-option", title: "Citizenship by Option (Ley 346)", description: "Children of native-born Argentines — fast track, no residency required", url: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", type: "official"),
-                WebResource(id: "visa-rentista", title: "Visa Rentista (Passive Income)", description: "~$2,000/mo USD passive income — 1yr renewable, leads to PR", url: "https://www.argentina.gob.ar/migraciones", type: "official"),
-                WebResource(id: "visa-pensionado", title: "Visa Pensionado (Retiree)", description: "Pension income only — popular with US retirees", url: "https://www.argentina.gob.ar/migraciones", type: "official"),
-                WebResource(id: "ar-investor", title: "Investor Visa", description: "ARS-denominated investment in Argentine economy", url: "https://www.argentina.gob.ar/migraciones", type: "official"),
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "cancilleria", title: "Argentine MFA Citizenship", description: "Citizenship by option (Ley 346) portal", url: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", type: "official"),
+                WebResource(id: "ar-migraciones", title: "Argentine Migrations Portal", description: "Residence permits — Rentista, Pensionado, Investor", url: "https://www.argentina.gob.ar/migraciones", type: "official"),
                 WebResource(id: "consulates-ar", title: "Argentine Consulates in USA", description: "Find your assigned consulate", url: "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates", type: "official"),
                 WebResource(id: "renaper", title: "RENAPER", description: "National Persons Registry (DNI)", url: "https://www.argentina.gob.ar/interior/renaper", type: "official"),
             ]),
@@ -531,12 +510,10 @@ struct ResourcesView: View {
 
     private var hungaryResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "citizenship", title: "Citizenship & Immigration", icon: "person.text.rectangle", resources: [
+            WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "allampolgarsag", title: "Hungarian Citizenship Portal", description: "Simplified naturalization application", url: "https://allampolgarsag.gov.hu/", type: "official"),
-                WebResource(id: "hu-simplified", title: "Simplified Naturalization", description: "Hungarian ancestor + basic conversational Hungarian — no residency required", url: "https://allampolgarsag.gov.hu/", type: "official"),
-                WebResource(id: "hu-white-card", title: "White Card (Digital Nomad)", description: "Non-EU remote workers — €3,000/mo from foreign employer, 1yr renewable", url: "https://nemzetikartya.gov.hu/", type: "official"),
-                WebResource(id: "hu-d-visa", title: "D-Visa (Long-Stay Residence)", description: "Work / study / family / investment > 90 days", url: "https://oif.gov.hu/", type: "official"),
-                WebResource(id: "hu-investor", title: "Guest Investor Programme", description: "€250k real estate fund / €1M property — relaunched 2024", url: "https://nemzetikartya.gov.hu/", type: "official"),
+                WebResource(id: "oif-hu", title: "Office for Immigration (OIF)", description: "D-Visa, White Card, residence permits", url: "https://oif.gov.hu/", type: "official"),
+                WebResource(id: "nemzetikartya", title: "Nemzeti Kártya", description: "Guest Investor + White Card portal", url: "https://nemzetikartya.gov.hu/", type: "official"),
                 WebResource(id: "kormanyablak", title: "Kormányablak (Govt Office)", description: "One-stop government office", url: "https://kormanyablak.hu/en", type: "official"),
                 WebResource(id: "embassy-hu", title: "Hungarian Embassy USA", description: "Washington DC consulate", url: "https://washington.mfa.gov.hu/eng", type: "official"),
             ]),
@@ -569,14 +546,10 @@ struct ResourcesView: View {
 
     private var ukAncestryResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "visa", title: "Ancestry Visa & Immigration", icon: "person.text.rectangle", resources: [
-                WebResource(id: "gov-uk-ancestry", title: "UK Ancestry Visa", description: "Commonwealth citizens 17+ with UK-born grandparent — 5yr work visa, ILR after", url: "https://www.gov.uk/ancestry-visa", type: "official"),
-                WebResource(id: "skilled-worker-uk", title: "Skilled Worker Visa", description: "Sponsored employment — £38,700+ salary (lower for shortage occupations)", url: "https://www.gov.uk/skilled-worker-visa", type: "official"),
-                WebResource(id: "global-talent", title: "Global Talent Visa", description: "Tech, science, arts — endorsement by recognized UK body, no employer needed", url: "https://www.gov.uk/global-talent", type: "official"),
-                WebResource(id: "family-visa-uk", title: "Family Visa", description: "Spouse, partner, child, parent of British / settled person", url: "https://www.gov.uk/uk-family-visa", type: "official"),
-                WebResource(id: "student-visa-uk", title: "Student Visa", description: "UK higher education enrollment — 20h/wk work allowed", url: "https://www.gov.uk/student-visa", type: "official"),
-                WebResource(id: "ilr", title: "ILR (Settlement)", description: "Indefinite Leave to Remain — after 5yr Ancestry / Skilled Worker", url: "https://www.gov.uk/ancestry-visa/settle-in-the-uk", type: "official"),
-                WebResource(id: "ukvi", title: "UK Visas and Immigration", description: "Official UKVI portal", url: "https://www.gov.uk/government/organisations/uk-visas-and-immigration", type: "official"),
+            WebResourceCategory(id: "visa", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
+                WebResource(id: "ukvi", title: "UK Visas and Immigration (UKVI)", description: "Official UKVI portal — all visa categories", url: "https://www.gov.uk/government/organisations/uk-visas-and-immigration", type: "official"),
+                WebResource(id: "ilr", title: "ILR (Settlement) Guidance", description: "Indefinite Leave to Remain after 5yr", url: "https://www.gov.uk/ancestry-visa/settle-in-the-uk", type: "official"),
+                WebResource(id: "ihs-info", title: "Immigration Health Surcharge", description: "Paid as part of visa application", url: "https://www.gov.uk/healthcare-immigration-application", type: "official"),
             ]),
             WebResourceCategory(id: "documents", title: "Birth Certificates & Records", icon: "doc.text", resources: [
                 WebResource(id: "gro", title: "GRO (England & Wales)", description: "Order birth/marriage certificates", url: "https://www.gro.gov.uk/gro/content/certificates/", type: "official"),
@@ -612,13 +585,10 @@ struct ResourcesView: View {
 
     private var spainResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "visas", title: "Visas & Immigration", icon: "person.text.rectangle", resources: [
+            WebResourceCategory(id: "visas", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "spain-consulate", title: "Spanish Consulates in USA", description: "Find your assigned consulate", url: "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx", type: "official"),
                 WebResource(id: "spain-nie", title: "NIE/TIE Application Guide", description: "Foreigner identification numbers", url: "https://www.inclusion.gob.es/web/migraciones/w/extranjeria", type: "official"),
-                WebResource(id: "spain-nlv", title: "Non-Lucrative Visa (NLV)", description: "Retirees & passive income — ~€2,400/mo required, no work in Spain", url: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/InformacionParaExtranjeros/Paginas/Visados.aspx", type: "official"),
-                WebResource(id: "spain-nomad", title: "Digital Nomad Visa (DNV)", description: "Remote workers — non-EU employer, ~€2,650/mo, 1-3yr renewable", url: "https://www.exteriores.gob.es", type: "official"),
-                WebResource(id: "spain-work", title: "Work Visa (Cuenta Ajena)", description: "Employer-sponsored work permit — labor market test required", url: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo", type: "official"),
-                WebResource(id: "spain-student", title: "Student Visa (D Type)", description: "Long-stay study visa — 50% work hours allowed", url: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/InformacionParaExtranjeros/Paginas/Estudios.aspx", type: "official"),
+                WebResource(id: "spain-migr", title: "Spanish Immigration Portal", description: "Official Inclusión y Migraciones", url: "https://www.inclusion.gob.es/web/migraciones", type: "official"),
             ]),
             WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
                 WebResource(id: "idealista", title: "Idealista", description: "Spain's largest property portal", url: "https://www.idealista.com", type: "marketplace"),
@@ -643,13 +613,9 @@ struct ResourcesView: View {
 
     private var portugalResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "visas", title: "Visas & Immigration", icon: "person.text.rectangle", resources: [
+            WebResourceCategory(id: "visas", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "aima", title: "AIMA (Immigration Agency)", description: "Portuguese immigration portal", url: "https://www.aima.gov.pt", type: "official"),
-                WebResource(id: "d7", title: "D7 Passive Income Visa", description: "Retirees / passive income — ~€870/mo, residency in 5yr", url: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa", type: "official"),
-                WebResource(id: "d8", title: "D8 Digital Nomad Visa", description: "Remote workers — ~€3,480/mo, foreign employer required", url: "https://www.aima.gov.pt", type: "official"),
-                WebResource(id: "d2-entrepreneur", title: "D2 Entrepreneur / Self-Employed", description: "Startup founders or freelancers with viable business plan", url: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa", type: "official"),
-                WebResource(id: "golden", title: "Golden Visa (Investment)", description: "€500k fund / cultural investment — real estate excluded since 2023", url: "https://www.sef.pt/en/pages/conteudo-detalhe.aspx?nID=21", type: "official"),
-                WebResource(id: "pt-student", title: "Student Visa", description: "Higher education enrollment — €700/mo proof", url: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa", type: "official"),
+                WebResource(id: "pt-mne", title: "Portuguese MFA Visas Portal", description: "All national visas (D7, D8, D2, etc.)", url: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa", type: "official"),
             ]),
             WebResourceCategory(id: "nif", title: "NIF & Tax Registration", icon: "person.text.rectangle", resources: [
                 WebResource(id: "nif", title: "Portal das Finanças", description: "Get your NIF tax number", url: "https://www.portaldasfinancas.gov.pt", type: "official"),
@@ -685,11 +651,8 @@ struct ResourcesView: View {
 
     private var mexicoResources: [WebResourceCategory] {
         [
-            WebResourceCategory(id: "visas", title: "Visas & Immigration", icon: "person.text.rectangle", resources: [
+            WebResourceCategory(id: "visas", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "inm", title: "INM (Immigration Agency)", description: "Instituto Nacional de Migración", url: "https://www.gob.mx/inm", type: "official"),
-                WebResource(id: "temp-resident-econ", title: "Temporary Resident (Economic Solvency)", description: "Passive income ~$4,300/mo or $72k savings — 1-4yr", url: "https://www.gob.mx/tramites/ficha/visa-de-residente-temporal/SRE273", type: "official"),
-                WebResource(id: "temp-resident-remote", title: "Temporary Resident (Remote Work)", description: "Same income threshold, work for foreign employer — 1-4yr", url: "https://www.gob.mx/tramites/ficha/visa-de-residente-temporal/SRE273", type: "official"),
-                WebResource(id: "perm-resident", title: "Permanent Resident Visa", description: "Higher financial threshold (~$5,300/mo) or 4yr Temp held first", url: "https://www.gob.mx/tramites/ficha/visa-de-residente-permanente/SRE269", type: "official"),
                 WebResource(id: "inm-citas", title: "INM Appointments", description: "Schedule card exchange", url: "https://citas.inm.gob.mx/", type: "official"),
             ]),
             WebResourceCategory(id: "curp", title: "CURP & RFC Registration", icon: "person.text.rectangle", resources: [
