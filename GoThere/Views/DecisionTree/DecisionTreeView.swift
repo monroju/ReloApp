@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct DecisionTreeView: View {
+    @EnvironmentObject var countrySelection: CountrySelection
     @StateObject private var vm = DecisionViewModel()
     @State private var showCostCalculator = false
     @State private var showResults = false
@@ -14,6 +15,10 @@ struct DecisionTreeView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { vm.profile.countryId = countrySelection.current }
+        .onChange(of: countrySelection.current) { _, newId in
+            vm.profile.countryId = newId
+        }
         .sheet(isPresented: $showCostCalculator) {
             NavigationStack {
                 CostCalculatorView()
@@ -48,17 +53,6 @@ struct DecisionTreeView: View {
                         Image(systemName: "list.clipboard.fill")
                             .font(.title2)
                             .foregroundColor(.goPrimary)
-                    }
-                }
-
-                // Country selector
-                sectionHeader("Country")
-                FlowLayout(spacing: 8) {
-                    ForEach(DestinationConfig.allDestinations) { dest in
-                        FilterChip(
-                            title: "\(dest.flagEmoji) \(dest.name)",
-                            isSelected: vm.profile.countryId == dest.id
-                        ) { vm.profile.countryId = dest.id }
                     }
                 }
 

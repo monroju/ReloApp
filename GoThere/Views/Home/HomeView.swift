@@ -109,39 +109,49 @@ struct HomeView: View {
     // MARK: - Country Selector
 
     private var countrySelector: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 12) {
+        let active = DestinationConfig.getDestination(destVM.activeDestinationId)
+        return HStack {
+            Menu {
                 ForEach(DestinationConfig.allDestinations) { dest in
                     let isUnlocked = purchaseManager.isCountryUnlocked(dest.id)
-                    let isActive = destVM.activeDestinationId == dest.id
-
                     Button {
                         if isUnlocked {
-                            Task { await destVM.selectDestination(dest.id) }
+                            Task {
+                                await destVM.selectDestination(dest.id)
+                                countrySelection.current = dest.id
+                            }
                         } else {
                             showPaywall = true
                         }
                     } label: {
-                        HStack(spacing: 6) {
-                            Text(dest.flagEmoji)
-                            Text(dest.name)
-                                .font(.subheadline.weight(isActive ? .bold : .regular))
+                        HStack {
+                            Text("\(dest.flagEmoji) \(dest.name)")
                             if !isUnlocked {
                                 Image(systemName: "lock.fill")
-                                    .font(.caption2)
                             }
                         }
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .background(isActive ? Color.goPrimary.opacity(0.15) : Color.clear)
-                        .foregroundColor(isActive ? .goPrimary : .primary)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(isActive ? Color.goPrimary : Color.secondary.opacity(0.3), lineWidth: 1)
-                        )
                     }
                 }
+            } label: {
+                HStack(spacing: 8) {
+                    Text(active?.flagEmoji ?? "\u{1F1EA}\u{1F1F8}")
+                        .font(.title2)
+                    Text(active?.name ?? "Spain")
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                    Image(systemName: "chevron.down")
+                        .font(.caption.weight(.semibold))
+                        .foregroundColor(.secondary)
+                    Spacer()
+                }
+                .padding(.horizontal, 14)
+                .padding(.vertical, 12)
+                .background(Color.goPrimary.opacity(0.08))
+                .cornerRadius(12)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.goPrimary.opacity(0.25), lineWidth: 1)
+                )
             }
         }
     }

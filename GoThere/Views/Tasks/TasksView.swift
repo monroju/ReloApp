@@ -27,27 +27,6 @@ struct TasksView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Country filter chips
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(DestinationConfig.allDestinations) { dest in
-                            let isUnlocked = purchaseManager.isCountryUnlocked(dest.id)
-                            FilterChip(
-                                title: "\(dest.flagEmoji) \(dest.name)\(isUnlocked ? "" : " \u{1F512}")",
-                                isSelected: vm.selectedCountry == dest.id
-                            ) {
-                                if isUnlocked { vm.selectedCountry = vm.selectedCountry == dest.id ? nil : dest.id }
-                            }
-                        }
-                        FilterChip(title: vm.showCompleted ? "Hide Done" : "Show Done",
-                                   isSelected: vm.showCompleted) {
-                            vm.showCompleted.toggle()
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                }
-
                 if vm.tasksByPhase.isEmpty {
                     ContentUnavailableView("No Tasks", systemImage: "checklist",
                         description: Text("Add your own tasks to track relocation progress."))
@@ -97,6 +76,10 @@ struct TasksView: View {
             }
             .searchable(text: $vm.searchQuery, prompt: "Search tasks")
             .goTopBar()
+            .onAppear { vm.selectedCountry = countrySelection.current }
+            .onChange(of: countrySelection.current) { _, newId in
+                vm.selectedCountry = newId
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 12) {
@@ -106,6 +89,13 @@ struct TasksView: View {
                         }
 
                         Menu {
+                            Button {
+                                vm.showCompleted.toggle()
+                            } label: {
+                                Label(vm.showCompleted ? "Hide Completed" : "Show Completed",
+                                      systemImage: vm.showCompleted ? "eye.slash" : "eye")
+                            }
+                            Divider()
                             Button { showImportSeed = true } label: {
                                 Label("Re-import Seed Tasks", systemImage: "arrow.down.circle")
                             }
