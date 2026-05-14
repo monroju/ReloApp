@@ -6,7 +6,16 @@ enum Household: String, CaseIterable, Identifiable {
     case familyKids = "Family with Kids"
     case couple = "Couple"
     case singles = "Single"
+    case singleParent = "Single Parent"
     case retiree = "Retiree"
+    var id: String { rawValue }
+}
+
+enum PersonalConsideration: String, CaseIterable, Identifiable {
+    case lgbtq = "LGBTQ+"
+    case disabled = "Disabled / Accessibility"
+    case veteran = "Veteran"
+    case pregnant = "Pregnant / Expecting"
     var id: String { rawValue }
 }
 
@@ -71,6 +80,7 @@ struct UserProfile: Codable {
     var nightlife: String = NightlifePref.notImportant.rawValue
     var density: String = DensityPref.noPreference.rawValue
     var safetyCritical: Bool = false
+    var considerations: Set<String> = []
     var countryId: String = "spain"
 }
 

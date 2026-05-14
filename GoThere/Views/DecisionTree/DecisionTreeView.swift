@@ -72,6 +72,26 @@ struct DecisionTreeView: View {
                     }
                 }
 
+                // Personal Considerations (multi-select)
+                sectionHeader("Personal Considerations")
+                Text("Select any that apply — affects safety, healthcare & rights scoring.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                FlowLayout(spacing: 8) {
+                    ForEach(PersonalConsideration.allCases) { c in
+                        FilterChip(
+                            title: c.rawValue,
+                            isSelected: vm.profile.considerations.contains(c.rawValue)
+                        ) {
+                            if vm.profile.considerations.contains(c.rawValue) {
+                                vm.profile.considerations.remove(c.rawValue)
+                            } else {
+                                vm.profile.considerations.insert(c.rawValue)
+                            }
+                        }
+                    }
+                }
+
                 // Budget
                 sectionHeader("Budget")
                 FlowLayout(spacing: 8) {
@@ -262,6 +282,7 @@ struct DecisionTreeView: View {
         switch raw {
         case "Family with Kids": return "FamilyKids"
         case "Single": return "Singles"
+        case "Single Parent": return "SingleParent"
         default: return raw
         }
     }

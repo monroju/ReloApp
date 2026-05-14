@@ -31,6 +31,11 @@ enum DecisionEngine {
             case Household.singles.rawValue:
                 if dest.tags.contains("singles") { score += 15; reasons.append("Great for singles") }
                 if dest.tags.contains("nightlife") { score += 5 }
+            case Household.singleParent.rawValue:
+                if dest.tags.contains("families") { score += 12; reasons.append("Family-friendly") }
+                if dest.tags.contains("safe") { score += 8; reasons.append("Safe for kids") }
+                if dest.tags.contains("intl_schools") { score += 8; reasons.append("International schools") }
+                if dest.tags.contains("public_transit") { score += 5; reasons.append("Strong public transit") }
             case Household.retiree.rawValue:
                 if dest.tags.contains("retiree_friendly") { score += 15; reasons.append("Retiree-friendly") }
                 if dest.tags.contains("safe") { score += 10 }
@@ -40,6 +45,14 @@ enum DecisionEngine {
             default:
                 break
             }
+
+            // Personal Considerations (country-level signal + tag bonus)
+            score += personalConsiderationsScore(
+                considerations: profile.considerations,
+                countryId: profile.countryId,
+                dest: dest,
+                reasons: &reasons
+            )
 
             // Climate
             switch profile.climate {
@@ -111,5 +124,76 @@ enum DecisionEngine {
         case "mexico": return MexicoDestinations.all
         default: return SpainDestinations.all
         }
+    }
+
+    // MARK: - Personal Considerations Scoring
+
+    /// Country-level signal (legal + healthcare + cultural) blended with optional destination tags.
+    /// Source rationale (2026): ILGA-Europe Rainbow Index, EU Disability Card adoption,
+    /// totalization agreements (Veterans), and OECD maternity/healthcare quality.
+    private static func personalConsiderationsScore(
+        considerations: Set<String>,
+        countryId: String,
+        dest: Destination,
+        reasons: inout [String]
+    ) -> Double {
+        guard !considerations.isEmpty else { return 0 }
+        var score: Double = 0
+
+        for raw in considerations {
+            guard let c = PersonalConsideration(rawValue: raw) else { continue }
+            switch c {
+            case .lgbtq:
+                // Strong: Spain, Portugal, Canada, Ireland, Germany, UK. Mixed: Italy, Argentina, Mexico. Weaker: Poland, Hungary.
+                switch countryId {
+                case "spain", "portugal", "canada", "ireland", "germany", "uk_ancestry":
+                    score += 12; reasons.append("Strong LGBTQ+ protections")
+                case "italy", "argentina", "mexico":
+                    score += 6; reasons.append("LGBTQ+ legal but uneven")
+                case "poland", "hungary":
+                    score -= 4; reasons.append("LGBTQ+ rights limited")
+                default: break
+                }
+                if dest.tags.contains("lgbtq_friendly") { score += 5 }
+            case .disabled:
+                // EU Disability Card members get scored higher; large cities with public transit score higher.
+                switch countryId {
+                case "germany", "spain", "portugal", "ireland", "italy", "poland", "hungary":
+                    score += 8; reasons.append("EU Disability Card recognised")
+                case "canada", "uk_ancestry":
+                    score += 7; reasons.append("Strong accessibility law")
+                case "mexico", "argentina":
+                    score += 2
+                default: break
+                }
+                if dest.type == "Big City" { score += 4; reasons.append("Better accessibility in city") }
+                if dest.tags.contains("public_transit") { score += 4 }
+            case .veteran:
+                // US-veteran lens: SSA totalization + VA Foreign Medical Program coverage where applicable.
+                switch countryId {
+                case "spain", "portugal", "italy", "germany", "ireland", "poland", "hungary", "uk_ancestry", "canada":
+                    score += 6; reasons.append("US totalization agreement")
+                case "mexico":
+                    score += 4; reasons.append("VA FMP coverage available")
+                case "argentina":
+                    score += 3
+                default: break
+                }
+            case .pregnant:
+                // OECD maternity care + paid leave proxy.
+                switch countryId {
+                case "germany", "ireland", "canada", "italy", "spain", "portugal", "uk_ancestry":
+                    score += 10; reasons.append("Strong maternity care")
+                case "poland", "hungary", "argentina":
+                    score += 5
+                case "mexico":
+                    score += 4
+                default: break
+                }
+                if dest.type == "Big City" { score += 3; reasons.append("Top-tier hospitals") }
+            }
+        }
+
+        return score
     }
 }
