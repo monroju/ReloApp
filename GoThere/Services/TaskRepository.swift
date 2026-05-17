@@ -18,6 +18,9 @@ final class TaskRepository: ObservableObject {
 
     private var isGuest: Bool { AuthService.shared.isGuest }
 
+    /// Guards autoSeedFreeCountries against re-running on every snapshot.
+    private var freeSeedAttempted = false
+
     private init() {}
 
     private var tasksCollection: CollectionReference? {
@@ -31,6 +34,7 @@ final class TaskRepository: ObservableObject {
         // Guest mode — use local in-memory tasks
         if isGuest {
             tasks = localTasks
+            Task { await autoSeedFreeCountries() }
             return
         }
 
@@ -41,15 +45,28 @@ final class TaskRepository: ObservableObject {
 
         listener = col.order(by: "createdAt", descending: false)
             .addSnapshotListener { [weak self] snapshot, error in
-                guard let docs = snapshot?.documents else { return }
+                guard let self = self, let docs = snapshot?.documents else { return }
                 DispatchQueue.main.async {
-                    self?.tasks = docs.compactMap { doc in
+                    self.tasks = docs.compactMap { doc in
                         var task = try? doc.data(as: TaskItem.self)
                         task?.id = doc.documentID
                         return task
                     }
                 }
+                // First snapshot tells us auth is ready — kick off seed for
+                // free countries (Spain, Canada) if they have no tasks yet.
+                Task { await self.autoSeedFreeCountries() }
             }
+    }
+
+    /// Seeds Spain + Canada tasks (the free countries) once per app session,
+    /// after auth + Firestore are confirmed available. Idempotent: a second
+    /// call is a no-op once `freeSeedAttempted` is true.
+    private func autoSeedFreeCountries() async {
+        if freeSeedAttempted { return }
+        freeSeedAttempted = true
+        await autoSeedIfNeeded(for: "spain")
+        await autoSeedIfNeeded(for: "canada")
     }
 
     func stopListening() {
@@ -136,27 +153,26 @@ final class TaskRepository: ObservableObject {
         try await col.document(id).delete()
     }
 
-    /// Auto-seeds tasks for a country if not previously seeded.
-    /// Uses UserDefaults to track which countries have been seeded.
+    /// Auto-seeds tasks for a country if none exist yet for that country.
+    ///
+    /// Source of truth: actual task data (Firestore docs for signed-in users,
+    /// localTasks for guests). No UserDefaults flag — a previously-failed seed
+    /// attempt (e.g. auth not ready) won't poison future runs.
+    /// Safe to call repeatedly: if tasks already exist for the country, this no-ops.
     func autoSeedIfNeeded(for countryId: String) async {
-        let key = "tasksSeedDone_\(countryId)"
-        guard !UserDefaults.standard.bool(forKey: key) else { return }
-
-        // For Firestore users, check if tasks already exist for this country
-        if !isGuest, let col = tasksCollection {
+        if isGuest {
+            // Guest: check in-memory store
+            if localTasks.contains(where: { $0.countryId == countryId }) { return }
+        } else {
+            // Authenticated: need a valid Firestore collection. If auth isn't
+            // ready yet (uid still nil), bail silently — the caller will retry
+            // once the listener fires.
+            guard let col = tasksCollection else { return }
             let existing = try? await col
                 .whereField("countryId", isEqualTo: countryId)
                 .limit(to: 1)
                 .getDocuments()
-            if let docs = existing?.documents, !docs.isEmpty {
-                UserDefaults.standard.set(true, forKey: key)
-                return
-            }
-        }
-
-        // For guest users, check in-memory
-        if isGuest, localTasks.contains(where: { $0.countryId == countryId }) {
-            return
+            if let docs = existing?.documents, !docs.isEmpty { return }
         }
 
         // Load seed JSON
@@ -180,7 +196,6 @@ final class TaskRepository: ObservableObject {
         }
 
         try? await insertTasks(taskItems)
-        UserDefaults.standard.set(true, forKey: key)
     }
 
     func insertTasks(_ tasks: [TaskItem]) async throws {

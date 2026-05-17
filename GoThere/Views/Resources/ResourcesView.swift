@@ -25,6 +25,11 @@ struct ResourcesView: View {
     @EnvironmentObject var countrySelection: CountrySelection
     @StateObject private var vm = ResourcesViewModel()
     @State private var expandedCategories: Set<String> = []
+    @State private var showPaywall = false
+
+    private var isUnlocked: Bool {
+        purchaseManager.isCountryUnlocked(countrySelection.current)
+    }
 
     var body: some View {
         NavigationStack {
@@ -44,54 +49,59 @@ struct ResourcesView: View {
                         }
                     }
 
-                    // Quick Links header
-                    Text("Quick Links")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundColor(.secondary)
-                        .padding(.top, 8)
-
-                    // Expandable resource categories (matches Android ResourceCategoryCard)
-                    ForEach(resourceCategories) { category in
-                        resourceCategoryCard(category)
-                    }
-
-                    // Downloadable Documents section
-                    if vm.isLoading {
-                        HStack {
-                            Spacer()
-                            ProgressView()
-                            Spacer()
-                        }
-                        .padding(.vertical, 16)
-                    } else if !vm.items.isEmpty {
-                        Divider().padding(.vertical, 8)
-
-                        Text("Downloadable Documents")
+                    if !isUnlocked {
+                        lockedCountryCard
+                    } else {
+                        // Quick Links header
+                        Text("Quick Links")
                             .font(.subheadline.weight(.semibold))
                             .foregroundColor(.secondary)
+                            .padding(.top, 8)
 
-                        ForEach(vm.groupedItems, id: \.0) { category, items in
-                            storageDocumentsCard(title: category, items: items)
+                        // Expandable resource categories (matches Android ResourceCategoryCard)
+                        ForEach(resourceCategories) { category in
+                            resourceCategoryCard(category)
                         }
-                    } else {
-                        // Empty state
-                        VStack(spacing: 8) {
-                            Image(systemName: "folder")
-                                .font(.largeTitle)
-                                .foregroundColor(.secondary.opacity(0.5))
-                            Text("No downloadable documents yet")
-                                .font(.subheadline)
+
+                        // Downloadable Documents section
+                        if vm.isLoading {
+                            HStack {
+                                Spacer()
+                                ProgressView()
+                                Spacer()
+                            }
+                            .padding(.vertical, 16)
+                        } else if !vm.items.isEmpty {
+                            Divider().padding(.vertical, 8)
+
+                            Text("Downloadable Documents")
+                                .font(.subheadline.weight(.semibold))
                                 .foregroundColor(.secondary)
-                            Text("Check back later for PDF guides and forms")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+
+                            ForEach(vm.groupedItems, id: \.0) { category, items in
+                                storageDocumentsCard(title: category, items: items)
+                            }
+                        } else {
+                            // Empty state
+                            VStack(spacing: 8) {
+                                Image(systemName: "folder")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.secondary.opacity(0.5))
+                                Text("No downloadable documents yet")
+                                    .font(.subheadline)
+                                    .foregroundColor(.secondary)
+                                Text("Check back later for PDF guides and forms")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .frame(maxWidth: .infinity)
+                            .padding(24)
+                            .background(Color(.secondarySystemGroupedBackground))
+                            .cornerRadius(12)
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(24)
-                        .background(Color(.secondarySystemGroupedBackground))
-                        .cornerRadius(12)
                     }
-                    // Cross-promotion: Localista
+
+                    // Cross-promotion: Localista (always visible)
                     Divider().padding(.vertical, 8)
 
                     Button {
@@ -135,7 +145,44 @@ struct ResourcesView: View {
             .task {
                 await vm.loadDocuments(for: countrySelection.current)
             }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+            }
         }
+    }
+
+    // MARK: - Locked Country Card
+
+    private var lockedCountryCard: some View {
+        VStack(spacing: 12) {
+            Image(systemName: "lock.fill")
+                .font(.system(size: 36))
+                .foregroundColor(.goPrimary)
+            Text("\(countryName) is locked")
+                .font(.headline)
+            Text("Unlock the \(countryName) Pack to access immigration portals, housing sites, banking, healthcare, and expat communities — plus downloadable PDF guides.")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+            Button {
+                showPaywall = true
+            } label: {
+                Text("Unlock \(countryName)")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 12)
+                    .background(Color.goPrimary)
+                    .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+            .padding(.top, 4)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(Color(.secondarySystemGroupedBackground))
+        .cornerRadius(12)
+        .padding(.top, 8)
     }
 
     // MARK: - Resource Category Card (matches Android ElevatedCard)
