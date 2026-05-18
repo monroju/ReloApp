@@ -4,6 +4,15 @@ struct DestinationsView: View {
     @EnvironmentObject var purchaseManager: PurchaseManager
     @StateObject private var vm = DestinationsViewModel()
     @State private var showPaywall = false
+    @State private var lockedCountryPreview: LockedCountryDescriptor?
+
+    /// Pairs the destination data needed to drive LockedCountryPreviewView. Identifiable
+    /// so it can be the value side of a .sheet(item:) for stable presentation.
+    private struct LockedCountryDescriptor: Identifiable {
+        let id: String
+        let name: String
+        let flag: String
+    }
 
     var body: some View {
         ScrollView {
@@ -85,7 +94,14 @@ struct DestinationsView: View {
                             .disabled(vm.activeDestinationId == dest.id)
                         } else {
                             Button {
-                                showPaywall = true
+                                // Per Phase 2 directive: open the country-specific preview,
+                                // not the generic shop. Generic shop still reachable from the
+                                // preview's bundle CTA.
+                                lockedCountryPreview = LockedCountryDescriptor(
+                                    id: dest.id,
+                                    name: dest.name,
+                                    flag: dest.flagEmoji
+                                )
                             } label: {
                                 Label("Unlock \(dest.name)", systemImage: "lock.open.fill")
                                     .font(.subheadline.bold())
@@ -106,6 +122,13 @@ struct DestinationsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showPaywall) {
             PaywallView()
+        }
+        .sheet(item: $lockedCountryPreview) { descriptor in
+            LockedCountryPreviewView(
+                countryId: descriptor.id,
+                countryName: descriptor.name,
+                countryFlag: descriptor.flag
+            )
         }
         .task {
             await vm.loadDestination()
