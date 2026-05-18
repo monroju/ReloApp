@@ -25,11 +25,14 @@ struct PaywallView: View {
                     }
                     .padding(.top)
 
-                    // Products
+                    // Products. Titles renamed Pack → Plan per teardown finding: WhereNext / Going
+                    // sell named *deliverables*, not feature labels. Descriptions are now
+                    // metric-led where a countryId is set — see metricDescription(for:) below.
+                    // Old strings kept inline as `// was: …` comments per operator safety rule.
                     VStack(spacing: 12) {
                         purchaseCard(
                             emoji: "\u{1F1F5}\u{1F1F9}",
-                            title: "Portugal Pack",
+                            title: "Your Portugal Move Plan",  // was: "Portugal Pack"
                             description: "D7 & D8 visa guides, tasks, and resources",
                             productId: PurchaseManager.productPortugal,
                             countryId: "portugal"
@@ -37,7 +40,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1F2}\u{1F1FD}",
-                            title: "Mexico Pack",
+                            title: "Your Mexico Move Plan",  // was: "Mexico Pack"
                             description: "Temporary resident visa guides, tasks, and resources",
                             productId: PurchaseManager.productMexico,
                             countryId: "mexico"
@@ -45,7 +48,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1EE}\u{1F1EA}",
-                            title: "Ireland Pack",
+                            title: "Your Ireland Citizenship Plan",  // was: "Ireland Pack"
                             description: "Foreign Births Register — Irish/EU citizenship by descent",
                             productId: PurchaseManager.productIreland,
                             countryId: "ireland"
@@ -53,7 +56,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1EE}\u{1F1F9}",
-                            title: "Italy Pack",
+                            title: "Your Italy Citizenship Plan",  // was: "Italy Pack"
                             description: "Jure sanguinis — Italian/EU citizenship by descent",
                             productId: PurchaseManager.productItaly,
                             countryId: "italy"
@@ -61,7 +64,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1E9}\u{1F1EA}",
-                            title: "Germany Pack",
+                            title: "Your Germany Restoration Plan",  // was: "Germany Pack"
                             description: "Article 116 + StAG §15 citizenship restoration",
                             productId: PurchaseManager.productGermany,
                             countryId: "germany"
@@ -69,7 +72,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1F5}\u{1F1F1}",
-                            title: "Poland Pack",
+                            title: "Your Poland Citizenship Plan",  // was: "Poland Pack"
                             description: "Confirmation of Polish citizenship by descent",
                             productId: PurchaseManager.productPoland,
                             countryId: "poland"
@@ -77,7 +80,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1E6}\u{1F1F7}",
-                            title: "Argentina Pack",
+                            title: "Your Argentina Move Plan",  // was: "Argentina Pack"
                             description: "Citizenship by option — for children of native Argentines",
                             productId: PurchaseManager.productArgentina,
                             countryId: "argentina"
@@ -85,7 +88,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1ED}\u{1F1FA}",
-                            title: "Hungary Pack",
+                            title: "Your Hungary Citizenship Plan",  // was: "Hungary Pack"
                             description: "Simplified naturalization — Hungarian descent + language",
                             productId: PurchaseManager.productHungary,
                             countryId: "hungary"
@@ -93,7 +96,7 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F1EC}\u{1F1E7}",
-                            title: "UK Ancestry Pack",
+                            title: "Your UK Ancestry Plan",  // was: "UK Ancestry Pack"
                             description: "5-year work visa for Commonwealth citizens with a UK-born grandparent",
                             productId: PurchaseManager.productUkAncestry,
                             countryId: "uk_ancestry"
@@ -101,8 +104,8 @@ struct PaywallView: View {
 
                         purchaseCard(
                             emoji: "\u{1F30D}",
-                            title: "All Countries",
-                            description: "Unlock everything - best value!",
+                            title: "Unlock Every Country — All-Access",  // was: "All Countries"
+                            description: "Spain + Canada free, plus 9 more countries",  // was: "Unlock everything - best value!"
                             productId: PurchaseManager.productAllCountries,
                             countryId: nil,
                             showBundleSavings: true
@@ -141,6 +144,9 @@ struct PaywallView: View {
 
     private func purchaseCard(emoji: String, title: String, description: String, productId: String, countryId: String?, showBundleSavings: Bool = false) -> some View {
         let isUnlocked = countryId.map { purchaseManager.isCountryUnlocked($0) } ?? (purchaseManager.unlockedCountries.count >= 11)
+        // Prefer the live-computed metric teaser when a countryId is present and CountryMetrics
+        // produces one. Falls back to the static description for the bundle card and as a safety net.
+        let displayDescription = countryId.flatMap { metricDescription(for: $0) } ?? description
 
         return VStack(alignment: .leading, spacing: 8) {
             HStack {
@@ -149,7 +155,7 @@ struct PaywallView: View {
                 VStack(alignment: .leading) {
                     Text(title)
                         .font(.headline)
-                    Text(description)
+                    Text(displayDescription)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -192,6 +198,26 @@ struct PaywallView: View {
             }
         }
         .goCard()
+    }
+
+    /// Builds a short "N visa paths · M documents · K cities" teaser for a country card.
+    /// Returns nil when none of the metric pieces are non-zero — caller falls back to the
+    /// static description argument.
+    private func metricDescription(for countryId: String) -> String? {
+        let m = CountryMetricsService.compute(for: countryId)
+        var parts: [String] = []
+        if m.wizardTracksCount > 0 {
+            parts.append("\(m.wizardTracksCount) step-by-step wizard\(m.wizardTracksCount == 1 ? "" : "s")")
+        } else if m.visaPathsCount > 0 {
+            parts.append("\(m.visaPathsCount) visa path\(m.visaPathsCount == 1 ? "" : "s")")
+        }
+        if m.documentsCount > 0 {
+            parts.append("\(m.documentsCount) documents")
+        }
+        if m.citiesCovered > 0 {
+            parts.append("\(m.citiesCovered) \(m.citiesCovered == 1 ? "city" : "cities")")
+        }
+        return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }
 
     private struct BundleAnchor {
