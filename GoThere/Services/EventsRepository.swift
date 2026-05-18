@@ -54,15 +54,16 @@ final class EventsRepository: ObservableObject {
         listener = nil
     }
 
-    func addEvent(title: String, date: Date, notes: String? = nil) async throws {
+    func addEvent(title: String, date: Date, notes: String? = nil, source: String? = nil) async throws {
         if isGuest {
             localIdCounter += 1
-            let event = EventItem(
+            var event = EventItem(
                 id: "local_\(localIdCounter)",
                 title: title,
                 dateMillis: date.timeIntervalSince1970 * 1000,
                 notes: notes
             )
+            event.source = source
             localEvents.append(event)
             await MainActor.run { events = localEvents }
             return
@@ -74,12 +75,13 @@ final class EventsRepository: ObservableObject {
             "createdAt": FieldValue.serverTimestamp()
         ]
         if let notes = notes { data["notes"] = notes }
+        if let source = source { data["source"] = source }
         try await col.addDocument(data: data)
     }
 
-    func addEventFromTask(_ task: TaskItem) async throws {
+    func addEventFromTask(_ task: TaskItem, source: String = "wizard") async throws {
         guard let dueAt = task.dueAt else { return }
-        try await addEvent(title: task.title, date: dueAt)
+        try await addEvent(title: task.title, date: dueAt, source: source)
     }
 
     func updateTitle(eventId: String, title: String) async throws {

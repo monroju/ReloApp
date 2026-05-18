@@ -107,6 +107,14 @@ final class VisaWizardViewModel: ObservableObject {
             let weeks = WizardRepository.targetWeeks(from: targetChoice)
             let targetMillis = Date().timeIntervalSince1970 * 1000 + Double(weeks) * 7 * 24 * 60 * 60 * 1000
             UserDefaults.standard.set(targetMillis, forKey: "target_move_millis")
+
+            // Auto-create Calendar events for tasks with a due date. Tagged source="wizard"
+            // so a future bulk-clear path can distinguish them from manually-added events.
+            // Per-task try? so one failure doesn't block the rest of the wizard save.
+            for task in generatedTasks where task.dueAt != nil {
+                try? await EventsRepository.shared.addEventFromTask(task)
+            }
+
             saveComplete = true
         } catch {
             print("VisaWizard: Failed to save tasks: \(error)")
