@@ -27,6 +27,10 @@ final class DecisionViewModel: ObservableObject {
         let destinations = DecisionEngine.destinationsForCountry(profile.countryId)
         results = DecisionEngine.rank(profile: profile, destinations: destinations)
         showResults = true
+        Analytics.log(.decisionTreeCompleted, country: profile.countryId, extra: [
+            "results_count": results.count,
+            "household": String(describing: profile.household)
+        ])
     }
 
     func reset() {

@@ -128,6 +128,9 @@ struct DocumentsView: View {
             .task {
                 vm.startListening()
             }
+            .onAppear {
+                Analytics.log(.documentsTabOpened)
+            }
         }
     }
 

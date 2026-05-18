@@ -28,6 +28,10 @@ final class VisaWizardViewModel: ObservableObject {
         answers = [:]
         generatedTasks = []
         saveComplete = false
+        Analytics.log(.wizardStarted, properties: [
+            "track_id": trackId,
+            "country_id": selectedTrack?.countryId ?? "unknown"
+        ])
     }
 
     func setAnswer(_ questionId: String, value: Any) {
@@ -114,6 +118,13 @@ final class VisaWizardViewModel: ObservableObject {
             for task in generatedTasks where task.dueAt != nil {
                 try? await EventsRepository.shared.addEventFromTask(task)
             }
+
+            Analytics.log(.wizardCompleted, properties: [
+                "track_id": selectedTrackId ?? "unknown",
+                "country_id": selectedTrack?.countryId ?? "unknown",
+                "tasks_generated": generatedTasks.count,
+                "target_weeks": weeks
+            ])
 
             saveComplete = true
         } catch {

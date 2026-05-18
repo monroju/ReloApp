@@ -54,18 +54,28 @@ final class PurchaseManager: ObservableObject {
     }
 
     func purchase(_ product: Product) async throws {
-        let result = try await product.purchase()
-        switch result {
-        case .success(let verification):
-            let transaction = try checkVerified(verification)
-            await updatePurchased(transaction)
-            await transaction.finish()
-        case .userCancelled:
-            break
-        case .pending:
-            break
-        @unknown default:
-            break
+        Analytics.log(.purchaseInitiated, properties: [
+            "product_id": product.id,
+            "price": (product.price as NSDecimalNumber).doubleValue,
+            "currency": product.priceFormatStyle.currencyCode
+        ])
+        do {
+            let result = try await product.purchase()
+            switch result {
+            case .success(let verification):
+                let transaction = try checkVerified(verification)
+                await updatePurchased(transaction)
+                await transaction.finish()
+            case .userCancelled:
+                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "user_cancelled"])
+            case .pending:
+                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "pending"])
+            @unknown default:
+                break
+            }
+        } catch {
+            Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "exception"])
+            throw error
         }
     }
 
@@ -108,38 +118,44 @@ final class PurchaseManager: ObservableObject {
     }
 
     private func updatePurchased(_ transaction: StoreTransaction) async {
+        let unlockedFromThis: [String]
         switch transaction.productID {
         case Self.productPortugal:
-            unlockedCountries.insert("portugal")
+            unlockedFromThis = ["portugal"]
         case Self.productMexico:
-            unlockedCountries.insert("mexico")
+            unlockedFromThis = ["mexico"]
         case Self.productIreland:
-            unlockedCountries.insert("ireland")
+            unlockedFromThis = ["ireland"]
         case Self.productItaly:
-            unlockedCountries.insert("italy")
+            unlockedFromThis = ["italy"]
         case Self.productGermany:
-            unlockedCountries.insert("germany")
+            unlockedFromThis = ["germany"]
         case Self.productPoland:
-            unlockedCountries.insert("poland")
+            unlockedFromThis = ["poland"]
         case Self.productArgentina:
-            unlockedCountries.insert("argentina")
+            unlockedFromThis = ["argentina"]
         case Self.productHungary:
-            unlockedCountries.insert("hungary")
+            unlockedFromThis = ["hungary"]
         case Self.productUkAncestry:
-            unlockedCountries.insert("uk_ancestry")
+            unlockedFromThis = ["uk_ancestry"]
         case Self.productAllCountries:
-            unlockedCountries.insert("portugal")
-            unlockedCountries.insert("mexico")
-            unlockedCountries.insert("ireland")
-            unlockedCountries.insert("italy")
-            unlockedCountries.insert("germany")
-            unlockedCountries.insert("poland")
-            unlockedCountries.insert("argentina")
-            unlockedCountries.insert("hungary")
-            unlockedCountries.insert("uk_ancestry")
+            unlockedFromThis = ["portugal", "mexico", "ireland", "italy",
+                                "germany", "poland", "argentina", "hungary", "uk_ancestry"]
         default:
-            break
+            unlockedFromThis = []
         }
+        unlockedFromThis.forEach { unlockedCountries.insert($0) }
+
+        Analytics.log(.purchaseCompleted, properties: [
+            "product_id": transaction.productID,
+            "transaction_id": String(transaction.id),
+            "countries_unlocked": unlockedFromThis,
+            "is_bundle": transaction.productID == Self.productAllCountries
+        ])
+        unlockedFromThis.forEach { country in
+            Analytics.log(.countryUnlocked, country: country, extra: ["product_id": transaction.productID])
+        }
+
         await syncToFirestore()
     }
 

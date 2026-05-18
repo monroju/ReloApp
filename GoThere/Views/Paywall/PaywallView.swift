@@ -139,6 +139,11 @@ struct PaywallView: View {
                     Button("Close") { dismiss() }
                 }
             }
+            .onAppear {
+                Analytics.log(.paywallViewed, properties: [
+                    "unlocked_count": purchaseManager.unlockedCountries.count
+                ])
+            }
         }
     }
 

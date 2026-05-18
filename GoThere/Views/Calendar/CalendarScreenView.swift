@@ -118,6 +118,9 @@ struct CalendarScreenView: View {
             .task {
                 vm.startListening()
             }
+            .onAppear {
+                Analytics.log(.calendarOpened)
+            }
         }
     }
 
