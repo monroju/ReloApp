@@ -144,6 +144,8 @@ struct CostCalculatorView: View {
                 // Monthly Cost Breakdown
                 if let city = selectedCity {
                     monthlyCostBreakdown(city)
+                    Divider()
+                    affordableVisasSection(for: city)
                 }
             }
             .padding()
@@ -238,6 +240,114 @@ struct CostCalculatorView: View {
             Spacer()
             Text(formatted(amount))
                 .font(.subheadline)
+        }
+    }
+
+    // MARK: - Affordable visas section (Item 7)
+
+    /// USD-denominated monthly total. CostData ships in USD; we normalize to EUR at compare time
+    /// since VisaInfo.monthlyIncomeEUR is the canonical comparison unit.
+    private func totalMonthlyUSD(for city: CityCostData) -> Int {
+        let rent: Int = {
+            switch housingType {
+            case 0: return Int(Double(city.rent1Bed) * 0.75)
+            case 2: return city.rent3Bed
+            default: return city.rent1Bed
+            }
+        }()
+        let diningCost = Int(Double(city.dining) * (mealsOutPerWeek / 4.0))
+        let transportCost = publicTransport ? city.transport : 0
+        let healthCost = privateHealthInsurance ? city.healthcare : 0
+        let gymCost = gymMembership ? 40 : 0
+        return rent + city.utilities + city.groceries + diningCost + transportCost + healthCost + gymCost + city.internet
+    }
+
+    /// Match the same USD→EUR rate used elsewhere in the catalog (2026 approximate).
+    private static let usdToEUR: Double = 0.92
+
+    private func affordableVisasSection(for city: CityCostData) -> some View {
+        let totalEUR = Int(Double(totalMonthlyUSD(for: city)) * Self.usdToEUR)
+        let visas = VisaCatalog.byCountry(city.countryId).filter { $0.monthlyIncomeEUR != nil }
+        let comfortable = visas.filter { totalEUR <= Int(Double($0.monthlyIncomeEUR!) * 0.75) }
+        let tight = visas.filter { let bar = $0.monthlyIncomeEUR!; totalEUR > Int(Double(bar) * 0.75) && totalEUR <= bar }
+        let below = visas.filter { totalEUR > $0.monthlyIncomeEUR! }
+        let pointsBased = VisaCatalog.byCountry(city.countryId).count - visas.count
+
+        return VStack(alignment: .leading, spacing: 12) {
+            Text("Visas you could afford on €\(totalEUR.formatted())/mo")
+                .font(.headline)
+
+            if !comfortable.isEmpty {
+                affordabilityGroup(
+                    icon: "checkmark.circle.fill",
+                    iconColor: .goSuccess,
+                    label: "Comfortable fit",
+                    visas: comfortable,
+                    totalEUR: totalEUR
+                )
+            }
+            if !tight.isEmpty {
+                affordabilityGroup(
+                    icon: "exclamationmark.triangle.fill",
+                    iconColor: .orange,
+                    label: "Tight — within 25% of threshold",
+                    visas: tight,
+                    totalEUR: totalEUR
+                )
+            }
+            if !below.isEmpty {
+                affordabilityGroup(
+                    icon: "xmark.circle.fill",
+                    iconColor: .red,
+                    label: "Below threshold",
+                    visas: below,
+                    totalEUR: totalEUR
+                )
+            }
+            if visas.isEmpty {
+                Text("No income-based visas for this country in the catalog — the available visas here use points / employer / ancestry criteria.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            } else if pointsBased > 0 {
+                Text("+ \(pointsBased) other visa\(pointsBased == 1 ? "" : "s") in this country uses non-income criteria (points / employer / ancestry).")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+    }
+
+    private func affordabilityGroup(icon: String, iconColor: Color, label: String, visas: [VisaInfo], totalEUR: Int) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack(spacing: 6) {
+                Image(systemName: icon)
+                    .foregroundColor(iconColor)
+                Text(label)
+                    .font(.subheadline.bold())
+                    .foregroundColor(.secondary)
+            }
+            ForEach(visas, id: \.id) { visa in
+                HStack(alignment: .top, spacing: 8) {
+                    Text(visa.countryFlag)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("\(visa.name) (\(visa.shortName))")
+                            .font(.subheadline)
+                        if let bar = visa.monthlyIncomeEUR {
+                            let gap = bar - totalEUR
+                            if gap > 0 {
+                                Text("requires €\(bar.formatted())/mo · short €\(gap.formatted())/mo")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            } else {
+                                Text("requires €\(bar.formatted())/mo")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                    Spacer()
+                }
+                .padding(.leading, 8)
+            }
         }
     }
 }

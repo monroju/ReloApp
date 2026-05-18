@@ -31,7 +31,12 @@ struct VisaInfo: Identifiable, Hashable {
     let name: String            // "Non-Lucrative Visa"
     let shortName: String       // "NLV"
     let category: VisaCategory
-    let income: String          // "~€2,400/mo passive"
+    let income: String          // "~€2,400/mo passive" (display string with all nuance)
+    /// Structured monthly income threshold in EUR, for Cost Calc comparison + paywall teasers.
+    /// Nil when the visa uses non-income criteria (points-based, employer-sponsored, no test).
+    /// Populated for passive-income / DNV / retiree tracks. Refresh annually alongside
+    /// VisaCatalog's "thresholds reflect 2025-2026 rules" note.
+    var monthlyIncomeEUR: Int? = nil
     let processingTime: String  // "2-3 months"
     let duration: String        // "1y → 2/2/5 renewable"
     let workAllowed: String     // "No" / "Foreign employer only" / "Yes"
