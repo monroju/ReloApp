@@ -104,7 +104,8 @@ struct PaywallView: View {
                             title: "All Countries",
                             description: "Unlock everything - best value!",
                             productId: PurchaseManager.productAllCountries,
-                            countryId: nil
+                            countryId: nil,
+                            showBundleSavings: true
                         )
                     }
 
@@ -138,7 +139,7 @@ struct PaywallView: View {
         }
     }
 
-    private func purchaseCard(emoji: String, title: String, description: String, productId: String, countryId: String?) -> some View {
+    private func purchaseCard(emoji: String, title: String, description: String, productId: String, countryId: String?, showBundleSavings: Bool = false) -> some View {
         let isUnlocked = countryId.map { purchaseManager.isCountryUnlocked($0) } ?? (purchaseManager.unlockedCountries.count >= 11)
 
         return VStack(alignment: .leading, spacing: 8) {
@@ -158,9 +159,20 @@ struct PaywallView: View {
                         .foregroundColor(.goSuccess)
                         .font(.title2)
                 } else {
-                    Text(purchaseManager.formattedPrice(for: productId))
-                        .font(.headline)
-                        .foregroundColor(.goPrimary)
+                    VStack(alignment: .trailing, spacing: 2) {
+                        Text(purchaseManager.formattedPrice(for: productId))
+                            .font(.headline)
+                            .foregroundColor(.goPrimary)
+                        if showBundleSavings, let anchor = bundleSavingsAnchor() {
+                            Text(anchor.individualSum)
+                                .font(.caption)
+                                .strikethrough()
+                                .foregroundColor(.secondary)
+                            Text("save \(anchor.savings)")
+                                .font(.caption2.bold())
+                                .foregroundColor(.goSuccess)
+                        }
+                    }
                 }
             }
 
@@ -180,5 +192,29 @@ struct PaywallView: View {
             }
         }
         .goCard()
+    }
+
+    private struct BundleAnchor {
+        let individualSum: String
+        let savings: String
+    }
+
+    /// Computes the strikethrough sum-of-individual-packs and the savings vs. the bundle.
+    /// Returns nil when StoreKit hasn't loaded products yet, or when the bundle isn't actually
+    /// cheaper than the individual sum — never show a misleading anchor.
+    private func bundleSavingsAnchor() -> BundleAnchor? {
+        let individualProducts = purchaseManager.products.filter { $0.id != PurchaseManager.productAllCountries }
+        guard !individualProducts.isEmpty,
+              let bundle = purchaseManager.products.first(where: { $0.id == PurchaseManager.productAllCountries })
+        else { return nil }
+
+        let individualSum = individualProducts.map(\.price).reduce(Decimal(0), +)
+        guard individualSum > bundle.price else { return nil }
+
+        let savings = individualSum - bundle.price
+        return BundleAnchor(
+            individualSum: bundle.priceFormatStyle.format(individualSum),
+            savings: bundle.priceFormatStyle.format(savings)
+        )
     }
 }
