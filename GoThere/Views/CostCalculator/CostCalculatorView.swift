@@ -269,7 +269,10 @@ struct CostCalculatorView: View {
         let totalEUR = Int(Double(totalMonthlyUSD(for: city)) * Self.usdToEUR)
         let visas = VisaCatalog.byCountry(city.countryId).filter { $0.monthlyIncomeEUR != nil }
         let comfortable = visas.filter { totalEUR <= Int(Double($0.monthlyIncomeEUR!) * 0.75) }
-        let tight = visas.filter { let bar = $0.monthlyIncomeEUR!; totalEUR > Int(Double(bar) * 0.75) && totalEUR <= bar }
+        let tight = visas.filter {
+            let bar = $0.monthlyIncomeEUR!
+            return totalEUR > Int(Double(bar) * 0.75) && totalEUR <= bar
+        }
         let below = visas.filter { totalEUR > $0.monthlyIncomeEUR! }
         let pointsBased = VisaCatalog.byCountry(city.countryId).count - visas.count
 
