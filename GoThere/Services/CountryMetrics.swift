@@ -197,6 +197,134 @@ enum CountryMetricsService {
         let years = max(1, weeks / 52)
         return "\(years) year\(years == 1 ? "" : "s")"
     }
+
+    // MARK: - Preview teaser data (LockedCountryPreviewView v1.1)
+
+    /// A curated city + region pair used as a silhouette row in the blurred
+    /// Decision Tree preview on LockedCountryPreviewView.
+    struct PreviewCity {
+        let name: String
+        let region: String
+    }
+
+    /// Up to 4 cities for the blurred Decision Tree teaser on the locked country preview.
+    ///
+    /// For Spain/Portugal/Mexico the DecisionEngine already has first-class destination data —
+    /// we surface the first 4 of those so the preview matches what the user sees post-unlock.
+    /// For the other locked countries DecisionEngine currently falls back to SpainDestinations
+    /// (known gap); the curated entries below reflect the cities that would seed the
+    /// Decision Tree once that data lands. Until then, these are teaser-only.
+    static func previewCities(for countryId: String) -> [PreviewCity] {
+        switch countryId {
+        case "spain":
+            return [
+                PreviewCity(name: "Madrid", region: "Capital · Big City"),
+                PreviewCity(name: "Barcelona", region: "Catalonia · Coastal"),
+                PreviewCity(name: "Valencia", region: "Valencia · Coastal"),
+                PreviewCity(name: "Malaga", region: "Andalusia · Coastal")
+            ]
+        case "portugal":
+            return [
+                PreviewCity(name: "Lisbon", region: "Capital · Coastal"),
+                PreviewCity(name: "Porto", region: "Norte · Coastal"),
+                PreviewCity(name: "Cascais", region: "Lisboa · Coastal"),
+                PreviewCity(name: "Funchal", region: "Madeira · Island")
+            ]
+        case "mexico":
+            return [
+                PreviewCity(name: "Mexico City", region: "Capital · Big City"),
+                PreviewCity(name: "Guadalajara", region: "Jalisco · Big City"),
+                PreviewCity(name: "Merida", region: "Yucatán · Mid City"),
+                PreviewCity(name: "Playa del Carmen", region: "Quintana Roo · Coastal")
+            ]
+        case "canada":
+            return [
+                PreviewCity(name: "Toronto", region: "Ontario · Big City"),
+                PreviewCity(name: "Montreal", region: "Quebec · Big City"),
+                PreviewCity(name: "Vancouver", region: "BC · Coastal"),
+                PreviewCity(name: "Halifax", region: "Nova Scotia · Coastal")
+            ]
+        case "ireland":
+            return [
+                PreviewCity(name: "Dublin", region: "Leinster · Capital"),
+                PreviewCity(name: "Cork", region: "Munster · Coastal"),
+                PreviewCity(name: "Galway", region: "Connacht · Coastal"),
+                PreviewCity(name: "Limerick", region: "Munster · Mid City")
+            ]
+        case "italy":
+            return [
+                PreviewCity(name: "Milan", region: "Lombardy · Big City"),
+                PreviewCity(name: "Rome", region: "Lazio · Capital"),
+                PreviewCity(name: "Florence", region: "Tuscany · Mid City"),
+                PreviewCity(name: "Bologna", region: "Emilia-Romagna · Mid City")
+            ]
+        case "germany":
+            return [
+                PreviewCity(name: "Berlin", region: "Capital · Big City"),
+                PreviewCity(name: "Munich", region: "Bavaria · Big City"),
+                PreviewCity(name: "Hamburg", region: "Hamburg · Coastal"),
+                PreviewCity(name: "Leipzig", region: "Saxony · Mid City")
+            ]
+        case "poland":
+            return [
+                PreviewCity(name: "Warsaw", region: "Mazovia · Capital"),
+                PreviewCity(name: "Krakow", region: "Lesser Poland · Mid City"),
+                PreviewCity(name: "Wroclaw", region: "Lower Silesia · Mid City"),
+                PreviewCity(name: "Gdansk", region: "Pomerania · Coastal")
+            ]
+        case "argentina":
+            return [
+                PreviewCity(name: "Buenos Aires", region: "Capital · Big City"),
+                PreviewCity(name: "Cordoba", region: "Cordoba · Mid City"),
+                PreviewCity(name: "Mendoza", region: "Cuyo · Mid City"),
+                PreviewCity(name: "Bariloche", region: "Patagonia · Mountain")
+            ]
+        case "hungary":
+            return [
+                PreviewCity(name: "Budapest", region: "Pest · Capital"),
+                PreviewCity(name: "Debrecen", region: "Hajdú-Bihar · Mid City"),
+                PreviewCity(name: "Szeged", region: "Csongrád · Mid City"),
+                PreviewCity(name: "Pécs", region: "Baranya · Mid City")
+            ]
+        case "uk_ancestry":
+            return [
+                PreviewCity(name: "London", region: "Greater London · Capital"),
+                PreviewCity(name: "Manchester", region: "North West · Big City"),
+                PreviewCity(name: "Edinburgh", region: "Scotland · Capital"),
+                PreviewCity(name: "Bristol", region: "South West · Mid City")
+            ]
+        default:
+            return []
+        }
+    }
+
+    /// One-line cost teaser for the locked country preview.
+    /// Returns the primary city + an approximate studio rent in EUR/mo.
+    ///
+    /// Sources: for Portugal/Mexico, derived from CostDatabase (rent1Bed × 0.85 to approximate studio,
+    /// USD→EUR at 0.92). For other countries where CostDatabase has no rows, curated 2026 ballparks
+    /// from Numbeo/Idealista equivalents — flagged as "approx" by the caller's copy.
+    static func costTeaser(for countryId: String) -> (city: String, studioEUR: Int)? {
+        if let city = CostDatabase.cities(for: countryId).first {
+            let studioUSD = Double(city.rent1Bed) * 0.85
+            let studioEUR = Int((studioUSD * usdToEUR).rounded())
+            return (city.cityName, studioEUR)
+        }
+
+        // Curated approximations for countries without CostDatabase rows.
+        // Numbers are deliberately conservative — they're shown alongside "approx" copy.
+        switch countryId {
+        case "canada": return ("Montreal", 900)
+        case "ireland": return ("Cork", 1_100)
+        case "italy": return ("Bologna", 750)
+        case "germany": return ("Leipzig", 700)
+        case "poland": return ("Krakow", 550)
+        case "argentina": return ("Buenos Aires", 350)
+        case "hungary": return ("Budapest", 500)
+        case "uk_ancestry": return ("Manchester", 950)
+        default: return nil
+        }
+    }
 }
 
 #if DEBUG

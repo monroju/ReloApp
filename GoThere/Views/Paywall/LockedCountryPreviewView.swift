@@ -6,8 +6,8 @@ import SwiftUI
 /// processing time, income range — pulled live from CountryMetricsService. The visa
 /// names are blurred so the user can see *there is content* without giving it away.
 ///
-/// v1 scope (this file): header + metric tile grid + blurred visa list + CTAs.
-/// v1.1 follow-up: blurred Decision Tree result preview + Cost Calc one-row teaser.
+/// v1.1 scope: header + metric tile grid + blurred visa list + blurred Decision Tree
+/// city silhouettes + Cost Calc one-row teaser + CTAs.
 struct LockedCountryPreviewView: View {
     let countryId: String
     let countryName: String
@@ -23,6 +23,14 @@ struct LockedCountryPreviewView: View {
 
     private var visas: [VisaInfo] {
         VisaCatalog.byCountry(countryId)
+    }
+
+    private var previewCities: [CountryMetricsService.PreviewCity] {
+        CountryMetricsService.previewCities(for: countryId)
+    }
+
+    private var costTeaser: (city: String, studioEUR: Int)? {
+        CountryMetricsService.costTeaser(for: countryId)
     }
 
     private var individualProductId: String? {
@@ -47,6 +55,8 @@ struct LockedCountryPreviewView: View {
                     header
                     metricGrid
                     visaListPreview
+                    decisionTreePreview
+                    costTeaserPreview
                     ctaStack
                     restoreButton
                 }
@@ -157,6 +167,105 @@ struct LockedCountryPreviewView: View {
                     .background(.ultraThinMaterial)
                     .clipShape(Capsule())
             )
+        }
+    }
+
+    @ViewBuilder
+    private var decisionTreePreview: some View {
+        if !previewCities.isEmpty {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Where you'd live")
+                    .font(.subheadline.bold())
+                    .foregroundColor(.secondary)
+                VStack(spacing: 6) {
+                    ForEach(Array(previewCities.enumerated()), id: \.offset) { index, city in
+                        HStack(spacing: 12) {
+                            Text("#\(index + 1)")
+                                .font(.subheadline.bold())
+                                .foregroundColor(.goPrimary)
+                                .frame(width: 28, alignment: .leading)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(city.name)
+                                    .font(.subheadline.bold())
+                                Text(city.region)
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            Spacer()
+                            Text("·· pts")
+                                .font(.subheadline.bold())
+                                .foregroundColor(.goPrimary)
+                        }
+                        .padding(.vertical, 4)
+                    }
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .goCard()
+                .blur(radius: 4)
+                .overlay(
+                    Label("Decision Tree ranks these for your profile", systemImage: "list.clipboard.fill")
+                        .font(.caption.bold())
+                        .padding(.horizontal, 14)
+                        .padding(.vertical, 8)
+                        .background(.ultraThinMaterial)
+                        .clipShape(Capsule())
+                )
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var costTeaserPreview: some View {
+        if let teaser = costTeaser {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Sample monthly cost")
+                    .font(.subheadline.bold())
+                    .foregroundColor(.secondary)
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Image(systemName: "house.fill")
+                            .foregroundColor(.goPrimary)
+                        Text("Studio in \(teaser.city)")
+                            .font(.subheadline)
+                        Spacer()
+                        Text("≈ €\(teaser.studioEUR.formatted())/mo")
+                            .font(.subheadline.bold())
+                            .foregroundColor(.goPrimary)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        teaserPlaceholderRow(icon: "fork.knife", label: "Groceries")
+                        teaserPlaceholderRow(icon: "tram.fill", label: "Transport")
+                        teaserPlaceholderRow(icon: "cross.fill", label: "Healthcare")
+                    }
+                    .blur(radius: 4)
+                    .overlay(
+                        Label("Full breakdown with city dropdown unlocks here", systemImage: "lock.fill")
+                            .font(.caption.bold())
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 6)
+                            .background(.ultraThinMaterial)
+                            .clipShape(Capsule())
+                    )
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .goCard()
+            }
+        }
+    }
+
+    private func teaserPlaceholderRow(icon: String, label: String) -> some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.goPrimary)
+            Text(label)
+                .font(.subheadline)
+            Spacer()
+            Text("€···/mo")
+                .font(.subheadline.bold())
+                .foregroundColor(.secondary)
         }
     }
 
