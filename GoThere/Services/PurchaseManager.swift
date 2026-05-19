@@ -304,6 +304,10 @@ final class PurchaseManager: ObservableObject {
         // Subscription state evaluation.
         if isSubscription {
             await evaluateSubscription(transaction)
+            // Write the iapPurchases/{originalTransactionId} lookup so the
+            // Firebase IAP function (Item 12) can map ASC Server Notifications
+            // back to this Firebase user on renewal / refund / expiration.
+            await writePurchaseLookup(transaction)
         }
 
         if !silent {
@@ -376,6 +380,22 @@ final class PurchaseManager: ObservableObject {
     }
 
     // MARK: - Firestore sync
+
+    /// Writes the `iapPurchases/{originalTransactionId}` lookup row used by the
+    /// Firebase IAP function (Item 12) to map Apple Server Notifications back
+    /// to this Firebase user. Only called for auto-renewable transactions —
+    /// one-time IAPs don't generate notifications.
+    private func writePurchaseLookup(_ transaction: StoreTransaction) async {
+        guard let uid = AuthService.shared.uid else { return }
+        let key = String(transaction.originalID)
+        let db = Firestore.firestore()
+        try? await db.collection("iapPurchases").document(key).setData([
+            "uid": uid,
+            "productId": transaction.productID,
+            "platform": "ios",
+            "createdAt": FieldValue.serverTimestamp()
+        ], merge: true)
+    }
 
     private func syncToFirestore() async {
         guard let uid = AuthService.shared.uid else { return }
