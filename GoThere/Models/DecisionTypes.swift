@@ -41,6 +41,38 @@ enum LanguageComfort: String, CaseIterable, Identifiable {
     var id: String { rawValue }
 }
 
+/// Optional citizenship-by-descent intake on the Decision Tree.
+/// When set, VisaRecommender boosts the matching descent visa above income ranking
+/// (and surfaces a cross-country ancestry hint when the descent visa lives outside
+/// the user's currently selected country).
+enum Ancestry: String, CaseIterable, Identifiable {
+    case none = "None / Not sure"
+    case italian = "Italian"
+    case irish = "Irish"
+    case german = "German"
+    case polish = "Polish"
+    case argentine = "Argentine"
+    case hungarian = "Hungarian"
+    case british = "British"
+
+    var id: String { rawValue }
+
+    /// Maps the ancestry to the VisaCatalog descent-visa id for that lineage.
+    /// Nil for `.none` and for ancestries we don't yet have a descent route for.
+    var descentVisaId: String? {
+        switch self {
+        case .italian: return "it_jure_sanguinis"
+        case .irish: return "ie_fbr"
+        case .german: return "de_stag_15"
+        case .polish: return "pl_confirmation"
+        case .argentine: return "ar_by_option"
+        case .hungarian: return "hu_simplified"
+        case .british: return "uk_ancestry"
+        case .none: return nil
+        }
+    }
+}
+
 enum BusinessFocus: String, CaseIterable, Identifiable {
     case tech = "Tech / Startup"
     case tourism = "Tourism"
@@ -81,6 +113,9 @@ struct UserProfile: Codable {
     var density: String = DensityPref.noPreference.rawValue
     var safetyCritical: Bool = false
     var considerations: Set<String> = []
+    /// Optional citizenship-by-descent signal. Stored as Ancestry.rawValue;
+    /// VisaRecommender uses it to surface descent visas above income ranking.
+    var ancestry: String = Ancestry.none.rawValue
     var countryId: String = "spain"
 }
 

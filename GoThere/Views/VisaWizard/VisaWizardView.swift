@@ -2,6 +2,10 @@ import SwiftUI
 
 struct VisaWizardView: View {
     let countryId: String
+    /// Optional deep-link target — when set, the wizard auto-selects this track
+    /// after loadConfig. Used by Decision Tree's "Visas to look at next" rows so
+    /// the user lands directly inside the recommended visa flow.
+    var initialTrackId: String? = nil
     @StateObject private var vm = VisaWizardViewModel()
     @Environment(\.dismiss) private var dismiss
     @State private var showCompare = false
@@ -55,7 +59,14 @@ struct VisaWizardView: View {
                 }
             }
         }
-        .task { vm.loadConfig(countryId: countryId) }
+        .task {
+            vm.loadConfig(countryId: countryId)
+            if let trackId = initialTrackId,
+               vm.selectedTrackId != trackId,
+               vm.availableTracks.contains(where: { $0.0 == trackId }) {
+                vm.selectTrack(trackId)
+            }
+        }
     }
 
     // MARK: - Track Selection

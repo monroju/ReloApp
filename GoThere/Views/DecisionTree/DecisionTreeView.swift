@@ -86,6 +86,19 @@ struct DecisionTreeView: View {
                     }
                 }
 
+                // Ancestry (optional) — drives the VisaRecommender ancestry boost.
+                sectionHeader("Ancestry (Optional)")
+                Text("Citizenship by descent may apply. We'll suggest the matching visa path.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                FlowLayout(spacing: 8) {
+                    ForEach(Ancestry.allCases) { a in
+                        FilterChip(title: a.rawValue, isSelected: vm.profile.ancestry == a.rawValue) {
+                            vm.profile.ancestry = a.rawValue
+                        }
+                    }
+                }
+
                 // Budget
                 sectionHeader("Budget")
                 FlowLayout(spacing: 8) {
@@ -183,6 +196,8 @@ struct DecisionTreeView: View {
                 }
                 .padding(.horizontal)
 
+                visaRecommendationsSection
+
                 Button("Start Over") {
                     vm.reset()
                 }
@@ -191,6 +206,143 @@ struct DecisionTreeView: View {
                 .padding(.top, 4)
             }
             .padding()
+        }
+    }
+
+    // MARK: - Visa Recommendations (Item 8)
+
+    private var selectedAncestry: Ancestry {
+        Ancestry(rawValue: vm.profile.ancestry) ?? .none
+    }
+
+    @ViewBuilder
+    private var visaRecommendationsSection: some View {
+        let ranked = VisaRecommender.recommend(profile: vm.profile, ancestry: selectedAncestry)
+        let hint = VisaRecommender.ancestryHint(profile: vm.profile, ancestry: selectedAncestry)
+
+        if hint != nil || !ranked.isEmpty {
+            VStack(alignment: .leading, spacing: 12) {
+                Text("Visas to look at next")
+                    .font(.title3.bold())
+                    .padding(.top, 16)
+
+                if let hintVisa = hint {
+                    ancestryHintCard(hintVisa)
+                }
+
+                ForEach(ranked) { item in
+                    rankedVisaRow(item)
+                }
+
+                NavigationLink {
+                    VisaCompareView(initialCountryId: vm.profile.countryId)
+                } label: {
+                    Label("See all visas in \(countryName)", systemImage: "rectangle.split.3x1.fill")
+                        .font(.subheadline.bold())
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 10)
+                }
+                .buttonStyle(.bordered)
+                .tint(.goPrimary)
+                .padding(.top, 4)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func rankedVisaRow(_ item: RankedVisa) -> some View {
+        NavigationLink {
+            visaDestination(for: item.visa)
+        } label: {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(alignment: .top, spacing: 10) {
+                    Image(systemName: item.visa.category.icon)
+                        .font(.title3)
+                        .foregroundColor(.goPrimary)
+                        .frame(width: 28)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(item.visa.name)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text(item.visa.category.rawValue)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    Spacer()
+                    if item.visa.wizardTrackId != nil {
+                        Label("Wizard", systemImage: "wand.and.stars")
+                            .font(.caption.bold())
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 4)
+                            .background(Color.goPrimary.opacity(0.12))
+                            .foregroundColor(.goPrimary)
+                            .cornerRadius(8)
+                    }
+                }
+
+                if !item.reasons.isEmpty {
+                    FlowLayout(spacing: 6) {
+                        ForEach(item.reasons.prefix(3), id: \.self) { reason in
+                            Text(reason)
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 4)
+                                .background(Color.goPrimary.opacity(0.10))
+                                .foregroundColor(.goPrimary)
+                                .cornerRadius(8)
+                        }
+                    }
+                }
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .goCard()
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func ancestryHintCard(_ visa: VisaInfo) -> some View {
+        NavigationLink {
+            visaDestination(for: visa)
+        } label: {
+            HStack(alignment: .top, spacing: 10) {
+                Text(visa.countryFlag)
+                    .font(.system(size: 32))
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Your ancestry unlocks a path here")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.goPrimary)
+                    Text("\(visa.countryName) · \(visa.name)")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    Text("Different country than your current selection — worth a look.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.caption.bold())
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.goPrimary.opacity(0.08))
+            .cornerRadius(12)
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.goPrimary.opacity(0.35), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func visaDestination(for visa: VisaInfo) -> some View {
+        if let trackId = visa.wizardTrackId {
+            VisaWizardView(countryId: visa.countryId, initialTrackId: trackId)
+        } else {
+            VisaCompareView(initialCountryId: visa.countryId)
         }
     }
 
