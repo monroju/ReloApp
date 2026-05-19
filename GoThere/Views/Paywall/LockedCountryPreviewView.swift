@@ -48,6 +48,40 @@ struct LockedCountryPreviewView: View {
         }
     }
 
+    /// Region bundle that covers this country, when one applies — used to surface the
+    /// "Europe Bundle" or "Americas Bundle" CTA in the locked preview alongside the
+    /// individual pack. Nil for countries already in a free tier.
+    private var regionBundleProductId: String? {
+        if PurchaseManager.europeBundleCountries.contains(countryId) {
+            return PurchaseManager.productEuropeBundle
+        }
+        if PurchaseManager.americasBundleCountries.contains(countryId) {
+            return PurchaseManager.productAmericasBundle
+        }
+        return nil
+    }
+
+    private var regionBundleCountryCount: Int {
+        if PurchaseManager.europeBundleCountries.contains(countryId) {
+            return PurchaseManager.europeBundleCountries.count
+        }
+        if PurchaseManager.americasBundleCountries.contains(countryId) {
+            return PurchaseManager.americasBundleCountries.count
+        }
+        return 0
+    }
+
+    private var preferredSubscriptionId: String? {
+        // Annual is the recommended sub when available; fall back to monthly.
+        if purchaseManager.products.contains(where: { $0.id == PurchaseManager.productAllAccessAnnual }) {
+            return PurchaseManager.productAllAccessAnnual
+        }
+        if purchaseManager.products.contains(where: { $0.id == PurchaseManager.productAllAccessMonthly }) {
+            return PurchaseManager.productAllAccessMonthly
+        }
+        return nil
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -271,6 +305,7 @@ struct LockedCountryPreviewView: View {
 
     private var ctaStack: some View {
         VStack(spacing: 10) {
+            // 1. Individual country pack — cheapest entry point.
             if let productId = individualProductId {
                 Button {
                     if let product = purchaseManager.products.first(where: { $0.id == productId }) {
@@ -293,10 +328,33 @@ struct LockedCountryPreviewView: View {
                 .tint(.goPrimary)
             }
 
+            // 2. Region bundle (Europe / Americas) — contextual to the country being viewed.
+            //    Hidden when the bundle's ASC product isn't loaded yet (Item 13 pending).
+            if let bundleId = regionBundleProductId,
+               purchaseManager.products.contains(where: { $0.id == bundleId }) {
+                Button {
+                    if let product = purchaseManager.products.first(where: { $0.id == bundleId }) {
+                        Task { try? await purchaseManager.purchase(product) }
+                    }
+                } label: {
+                    HStack {
+                        Label(regionBundleLabel, systemImage: "square.stack.3d.up.fill")
+                        Spacer()
+                        Text(purchaseManager.formattedPrice(for: bundleId))
+                    }
+                    .font(.subheadline.bold())
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
+                }
+                .buttonStyle(.bordered)
+                .tint(.goPrimary)
+            }
+
+            // 3. All-Access subscription tier — opens full PaywallView for plan choice.
             Button {
                 showFullPaywall = true
             } label: {
-                Label("Or see All-Access (bundle savings)", systemImage: "globe.americas.fill")
+                Label(allAccessLabel, systemImage: "globe.americas.fill")
                     .font(.subheadline.bold())
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 10)
@@ -304,6 +362,25 @@ struct LockedCountryPreviewView: View {
             .buttonStyle(.bordered)
             .tint(.goPrimary)
         }
+    }
+
+    private var regionBundleLabel: String {
+        if PurchaseManager.europeBundleCountries.contains(countryId) {
+            return "Europe Bundle · \(regionBundleCountryCount) countries"
+        }
+        if PurchaseManager.americasBundleCountries.contains(countryId) {
+            return "Americas Bundle · \(regionBundleCountryCount) countries"
+        }
+        return "Region Bundle"
+    }
+
+    private var allAccessLabel: String {
+        // When a subscription product is loaded, surface that as the all-access framing —
+        // otherwise fall back to the lifetime bundle savings copy.
+        if preferredSubscriptionId != nil {
+            return "All-Access Subscription · see plans"
+        }
+        return "Or see All-Access (bundle savings)"
     }
 
     private var restoreButton: some View {
