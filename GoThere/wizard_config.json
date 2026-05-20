@@ -1074,6 +1074,1245 @@
           "order": 21
         }
       ]
+    },
+
+    "ie_fbr": {
+      "displayName": "Ireland - Foreign Births Register (FBR)",
+      "countryId": "ireland",
+      "shortName": "FBR",
+      "steps": [
+        {
+          "id": "heritage",
+          "title": "Your Irish Heritage",
+          "subtitle": "Who in your family was born in Ireland, and is the chain intact?",
+          "questions": [
+            {
+              "id": "irish_ancestor_relationship",
+              "type": "single_choice",
+              "label": "Which ancestor was born on the island of Ireland?",
+              "options": [
+                { "id": "parent", "label": "Parent" },
+                { "id": "grandparent", "label": "Grandparent (32 counties — N. Ireland counts)" },
+                { "id": "great_grandparent", "label": "Great-grandparent" },
+                { "id": "further_back", "label": "Further back than great-grandparent" }
+              ],
+              "required": true,
+              "hint": "Grandparent born on the island of Ireland is the standard path. Great-grandparent paths require an earlier parent to be on the FBR before you were born."
+            },
+            {
+              "id": "parent_on_fbr_at_my_birth",
+              "type": "boolean",
+              "label": "If your path is via a great-grandparent: was the parent in your line ALREADY registered on the FBR when you were born?",
+              "showIf": { "irish_ancestor_relationship": ["great_grandparent", "further_back"] },
+              "required": false,
+              "hint": "Great-grandparent paths only work when the intermediate parent registered on the FBR before your birth. The chain closes otherwise."
+            },
+            {
+              "id": "have_children",
+              "type": "boolean",
+              "label": "Do you have, or plan to have, children?",
+              "required": true,
+              "hint": "Your FBR registration must be COMPLETE before any future child's birth for them to inherit Irish citizenship via you."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents You Already Have",
+          "subtitle": "Each box you tick removes a task. You can update this later as you collect.",
+          "questions": [
+            { "id": "has_grandparent_irish_birth_cert", "type": "boolean", "label": "GRO-issued certified copy of your Irish-born ancestor's birth certificate?", "required": true },
+            { "id": "has_parent_birth_cert", "type": "boolean", "label": "Long-form birth certificate of the parent in your line?", "required": true },
+            { "id": "has_own_birth_cert", "type": "boolean", "label": "Your own long-form birth certificate?", "required": true },
+            { "id": "has_chain_marriage_certs", "type": "boolean", "label": "Marriage certificates for every generation where surnames changed?", "required": true },
+            { "id": "has_photo_id_address", "type": "boolean", "label": "Current government photo ID + recent proof of address (utility bill / bank statement)?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "FBR processing is currently ~12 months — back-date from your target citizenship date.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to hold Irish citizenship?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "1_year", "label": "In ~1 year" },
+                { "id": "18_months", "label": "In ~18 months" },
+                { "id": "flexible", "label": "Flexible / 2+ years" }
+              ],
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Confirm an Irish-born ancestor in your line",
+          "phase": "Phase 1: Research & Planning",
+          "description": "The FBR is for people born outside Ireland whose parent — or eligible grandparent — was Irish at the time of their birth. The grandparent path requires the grandparent to have been born on the island of Ireland (any of the 32 counties, including Northern Ireland).",
+          "links": [{ "label": "Citizens Information: Foreign Births Register", "url": "https://www.citizensinformation.ie/en/moving-country/irish-citizenship/foreign-births-register/" }],
+          "conditions": {},
+          "estimatedWeeks": 60,
+          "order": 1
+        },
+        {
+          "taskTitle": "Verify the citizenship chain hasn't been broken",
+          "phase": "Phase 1: Research & Planning",
+          "description": "For great-grandparent paths: the chain breaks if the intermediate parent in your line did NOT register on the FBR before your birth. If you cannot show that, you must seek a different route. For grandparent paths the chain is automatic.",
+          "conditions": { "irish_ancestor_relationship": ["great_grandparent", "further_back"] },
+          "estimatedWeeks": 58,
+          "order": 2
+        },
+        {
+          "taskTitle": "Plan your documentary chain",
+          "phase": "Phase 1: Research & Planning",
+          "description": "You need: your birth certificate, your Irish-citizen parent's birth certificate, the Irish-born ancestor's birth certificate, marriage certificates linking the chain, and current government photo ID.",
+          "conditions": {},
+          "estimatedWeeks": 56,
+          "order": 3
+        },
+        {
+          "taskTitle": "Order your Irish-born ancestor's birth certificate from the GRO",
+          "phase": "Phase 2: Documentation",
+          "description": "The General Register Office of Ireland issues certified Irish birth/marriage/death certificates. The FBR application requires GRO-issued certified copies, not free Irish Genealogy scans.",
+          "links": [
+            { "label": "GRO Ireland", "url": "https://www.gov.ie/en/service/civil-registration-service/" },
+            { "label": "Irish Genealogy (free historical scans)", "url": "https://www.irishgenealogy.ie/" }
+          ],
+          "conditions": { "has_grandparent_irish_birth_cert": false },
+          "estimatedWeeks": 48,
+          "order": 4
+        },
+        {
+          "taskTitle": "Order the linking parent's birth certificate",
+          "phase": "Phase 2: Documentation",
+          "description": "Long-form, showing parents' names. Order from the issuing jurisdiction.",
+          "conditions": { "has_parent_birth_cert": false },
+          "estimatedWeeks": 44,
+          "order": 5
+        },
+        {
+          "taskTitle": "Order your own long-form birth certificate",
+          "phase": "Phase 2: Documentation",
+          "description": "Long-form (showing parents' names), not the short-form / wallet-size.",
+          "conditions": { "has_own_birth_cert": false },
+          "estimatedWeeks": 44,
+          "order": 6
+        },
+        {
+          "taskTitle": "Order marriage certificates for every generation where surnames change",
+          "phase": "Phase 2: Documentation",
+          "description": "Especially the Irish-born ancestor's marriage certificate (links them into your line) and your parents' marriage certificate.",
+          "conditions": { "has_chain_marriage_certs": false },
+          "estimatedWeeks": 40,
+          "order": 7
+        },
+        {
+          "taskTitle": "Search the National Archives of Ireland for ancestor context (optional)",
+          "phase": "Phase 2: Documentation",
+          "description": "Free access to the 1901 and 1911 census, marriage licence bond indexes, and other historical records. Useful when GRO has gaps.",
+          "links": [{ "label": "National Archives of Ireland — genealogy", "url": "https://genealogy.nationalarchives.ie/" }],
+          "conditions": {},
+          "estimatedWeeks": 36,
+          "order": 8
+        },
+        {
+          "taskTitle": "Gather current photo ID and address verification",
+          "phase": "Phase 2: Documentation",
+          "description": "Driver's license or passport, plus a recent utility bill or bank statement showing your current address.",
+          "conditions": { "has_photo_id_address": false },
+          "estimatedWeeks": 36,
+          "order": 9
+        },
+        {
+          "taskTitle": "Complete the FBR application online",
+          "phase": "Phase 3: Application",
+          "description": "Online application via the DFA FBR portal. After submitting electronically, print the form, sign by hand, and post the signed copy with all supporting documents to the address shown on the application.",
+          "links": [{ "label": "FBR online application", "url": "https://fbr.dfa.ie/" }],
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 10
+        },
+        {
+          "taskTitle": "Pay the FBR fee online",
+          "phase": "Phase 3: Application",
+          "description": "€270 + €8 postage and handling for adults (€145 + €8 for under 18). Paid online during the application form.",
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 11
+        },
+        {
+          "taskTitle": "Post your signed application and supporting documents",
+          "phase": "Phase 3: Application",
+          "description": "Use a tracked or registered service. The Department typically returns originals after processing — but allow 12+ months without them.",
+          "conditions": {},
+          "estimatedWeeks": 23,
+          "order": 12
+        },
+        {
+          "taskTitle": "Wait for FBR processing (~12 months)",
+          "phase": "Phase 3: Application",
+          "description": "Currently approximately 12 months. Incomplete applications are delayed further until clarifying documents are received.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 13
+        },
+        {
+          "taskTitle": "Receive your FBR certificate",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Once registered, you are an Irish citizen with the same rights as anyone born in Ireland. The FBR certificate is your official proof.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 14
+        },
+        {
+          "taskTitle": "Apply for an Irish passport",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Once on the FBR you may apply for an Irish passport — a full EU passport granting freedom of movement, residence, and work across the European Union.",
+          "links": [{ "label": "Irish passport applications", "url": "https://www.dfa.ie/passports/" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 15
+        },
+        {
+          "taskTitle": "Understand your dual-citizen status",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Ireland and the US both permit dual citizenship. You retain all US rights; Irish (and EU) rights are added. You can live and work in any EU member state.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        },
+        {
+          "taskTitle": "Register children's births on the FBR before any future grandchildren",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Key inheritance rule: the grandparent path closes if the parent was not on the FBR at the time of the grandchild's birth. To pass Irish citizenship to your descendants, ensure their FBR registration is complete before any of their children are born.",
+          "conditions": { "have_children": true },
+          "estimatedWeeks": 0,
+          "order": 17
+        }
+      ]
+    },
+
+    "de_stag_15": {
+      "displayName": "Germany - Citizenship Restoration (StAG §15)",
+      "countryId": "germany",
+      "shortName": "StAG §15",
+      "steps": [
+        {
+          "id": "pathway",
+          "title": "Your Restoration Pathway",
+          "subtitle": "Two free, no-language-test routes exist. The questions below decide which form your application uses.",
+          "questions": [
+            {
+              "id": "pathway_type",
+              "type": "single_choice",
+              "label": "Which historical situation describes your German ancestor?",
+              "options": [
+                { "id": "article_116", "label": "Persecuted by the Nazi regime (1933-01-30 to 1945-05-08), lost citizenship" },
+                { "id": "stag_15_maternal", "label": "Excluded by pre-1953 maternal-line discrimination" },
+                { "id": "stag_15_paternal_oow", "label": "Excluded by pre-1993 paternal-line out-of-wedlock rules" },
+                { "id": "stag_15_other", "label": "Other discriminatory exclusion (renunciation under duress, etc.)" },
+                { "id": "unsure", "label": "I'm not sure yet" }
+              ],
+              "required": true,
+              "hint": "Article 116(2) Basic Law covers Nazi-era persecution; StAG §15 covers other discriminatory exclusions. Both are free, allow dual citizenship, no language test, no residency required."
+            },
+            {
+              "id": "persecution_evidence_strength",
+              "type": "single_choice",
+              "label": "Which strongest persecution evidence do you have?",
+              "options": [
+                { "id": "reichsanzeiger", "label": "Ancestor named in the 1941 Reichsanzeiger expatriation lists" },
+                { "id": "yad_vashem", "label": "Yad Vashem testimony / Shoah victims' database entry" },
+                { "id": "restitution", "label": "Post-war restitution claim under BEG / BRüG" },
+                { "id": "emigration_only", "label": "Only ancestor's emigration after 1933 to a country of refuge" },
+                { "id": "none_yet", "label": "Nothing yet — research still to do" }
+              ],
+              "showIf": { "pathway_type": "article_116" },
+              "required": false
+            },
+            {
+              "id": "has_minor_children",
+              "type": "boolean",
+              "label": "Do you have minor children to include on the application?",
+              "required": true,
+              "hint": "Minors are included on a parent's form; adult children must each file their own application referencing the same ancestor."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents You Already Have",
+          "subtitle": "Each box you tick removes a task.",
+          "questions": [
+            { "id": "has_german_ancestor_birth_cert", "type": "boolean", "label": "German ancestor's birth certificate (Geburtsurkunde from a Standesamt)?", "required": true },
+            { "id": "has_pre_1933_citizenship_proof", "type": "boolean", "label": "Pre-1933 proof of German citizenship (passport, Heimatschein, Meldekarte, military book, German birth registration)?", "required": true },
+            { "id": "has_persecution_documentation", "type": "boolean", "label": "Documented evidence of persecution between 1933 and 1945?", "showIf": { "pathway_type": "article_116" }, "required": false },
+            { "id": "has_all_us_vital_records", "type": "boolean", "label": "Long-form birth/marriage/death certificates for every generation in the chain?", "required": true },
+            { "id": "has_apostilles", "type": "boolean", "label": "Apostilles on every US document?", "required": true },
+            { "id": "has_german_translations", "type": "boolean", "label": "Certified German translations (ermächtigt / öffentlich bestellt translator) of all non-German documents?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Plan & Timeline",
+          "subtitle": "BVA processing currently runs 18–36 months. We back-date from your target.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to hold German citizenship?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "1_year", "label": "In ~1 year" },
+                { "id": "2_years", "label": "In ~2 years" },
+                { "id": "3_years", "label": "In ~3 years or flexible" }
+              ],
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Confirm your restoration pathway (Article 116 vs StAG §15)",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Article 116(2) Basic Law: for descendants of Germans persecuted 1933-1945 (most commonly German Jews). StAG §15: for descendants of those barred from citizenship by other discriminatory laws (pre-1953 maternal-line, pre-1993 paternal-line out-of-wedlock, etc.). Both are free, no language test, no residency requirement.",
+          "links": [{ "label": "BVA: restoration of citizenship", "url": "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html" }],
+          "conditions": {},
+          "estimatedWeeks": 120,
+          "order": 1
+        },
+        {
+          "taskTitle": "Identify the persecuted German ancestor and gather initial evidence",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Most commonly: a German Jew stripped of citizenship by the 1941 11th Reich Citizenship Ordinance, or who emigrated and lost citizenship under various Nazi decrees. Searching the Reichsanzeiger 1941 expatriation lists is the gold-standard proof; Yad Vashem and post-war restitution files are also strong.",
+          "links": [
+            { "label": "Reichsanzeiger 1941 expatriation lists", "url": "https://www.statistik-des-holocaust.de/Reichsanzeiger.html" },
+            { "label": "Yad Vashem — Shoah victims' names", "url": "https://yvng.yadvashem.org/" }
+          ],
+          "conditions": { "pathway_type": "article_116" },
+          "estimatedWeeks": 116,
+          "order": 2
+        },
+        {
+          "taskTitle": "Identify the discriminatory exclusion in your line",
+          "phase": "Phase 1: Research & Planning",
+          "description": "StAG §15 is the catch-all path. Common cases: a child born before 1953-04-01 to a German mother and a non-German father (denied citizenship under prior law); a child born out of wedlock before 1993-07-01 to a German father; renunciation made under duress.",
+          "conditions": { "pathway_type": ["stag_15_maternal", "stag_15_paternal_oow", "stag_15_other"] },
+          "estimatedWeeks": 116,
+          "order": 3
+        },
+        {
+          "taskTitle": "Map the documentary chain from you to the German ancestor",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Each generation needs: birth certificate; marriage certificate where surnames change; death certificate where relevant. Note any gaps as acquisition targets. Document any name changes (Schmidt → Smith) that will need affidavit explanation.",
+          "conditions": {},
+          "estimatedWeeks": 112,
+          "order": 4
+        },
+        {
+          "taskTitle": "Order the German ancestor's birth certificate (Geburtsurkunde) from the Standesamt",
+          "phase": "Phase 2: Documentation",
+          "description": "Each German town has a Standesamt (civil registry). For Jewish ancestors with pre-1875 records, look to synagogue records via Leo Baeck Institute, Yad Vashem, or LDS FamilySearch. Pre-1945 East German records often live at the Bundesarchiv.",
+          "links": [
+            { "label": "Leo Baeck Institute", "url": "https://www.lbi.org/" },
+            { "label": "Bundesarchiv (Federal Archives)", "url": "https://www.bundesarchiv.de/EN/" }
+          ],
+          "conditions": { "has_german_ancestor_birth_cert": false },
+          "estimatedWeeks": 96,
+          "order": 5
+        },
+        {
+          "taskTitle": "Document pre-1933 German citizenship",
+          "phase": "Phase 2: Documentation",
+          "description": "Pre-1941 German passport, Heimatschein, residence registration (Meldekarte), military service book, or birth registration in Germany. The consulate publishes a list of acceptable evidence.",
+          "conditions": { "has_pre_1933_citizenship_proof": false },
+          "estimatedWeeks": 88,
+          "order": 6
+        },
+        {
+          "taskTitle": "Document persecution evidence between 1933 and 1945",
+          "phase": "Phase 2: Documentation",
+          "description": "Reichsanzeiger expatriation listing is gold-standard. Other strong evidence: post-1933 emigration to a country of refuge, Yad Vashem testimony, naturalization records noting prior German nationality, restitution claims under BEG / BRüG.",
+          "conditions": { "pathway_type": "article_116", "has_persecution_documentation": false },
+          "estimatedWeeks": 84,
+          "order": 7
+        },
+        {
+          "taskTitle": "Order vital records for every generation in the chain",
+          "phase": "Phase 2: Documentation",
+          "description": "Long-form birth, marriage, and death certificates between you and the German ancestor.",
+          "conditions": { "has_all_us_vital_records": false },
+          "estimatedWeeks": 72,
+          "order": 8
+        },
+        {
+          "taskTitle": "Apostille every US document",
+          "phase": "Phase 2: Documentation",
+          "description": "Germany is a Hague Apostille party. State documents go through the issuing Secretary of State; federal documents (FBI checks, naturalization records) through the US Department of State.",
+          "links": [{ "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }],
+          "conditions": { "has_apostilles": false },
+          "estimatedWeeks": 64,
+          "order": 9
+        },
+        {
+          "taskTitle": "Get certified German translations of any non-German documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Translations must be by a translator who is ermächtigt / öffentlich bestellt by a German Bundesland. Translations done abroad must themselves be apostilled to be accepted in Germany.",
+          "conditions": { "has_german_translations": false },
+          "estimatedWeeks": 56,
+          "order": 10
+        },
+        {
+          "taskTitle": "Complete the BVA restoration application (StAG-A or StAG-B)",
+          "phase": "Phase 3: Application",
+          "description": "Article 116 uses BVA-Antrag StAG-A; StAG §15 uses BVA-Antrag StAG-B. Download the current form from the BVA. Minors are included on a parent's form; adults file separately.",
+          "links": [{ "label": "BVA application forms", "url": "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html" }],
+          "conditions": {},
+          "estimatedWeeks": 44,
+          "order": 11
+        },
+        {
+          "taskTitle": "Submit the application directly to the BVA in Cologne",
+          "phase": "Phase 3: Application",
+          "description": "Submit by mail to Bundesverwaltungsamt, Postfach 68 06 65, 50728 Köln, Germany. You do NOT need to use a consulate (and skipping it is often faster). No fee.",
+          "conditions": {},
+          "estimatedWeeks": 40,
+          "order": 12
+        },
+        {
+          "taskTitle": "Wait for BVA processing (18–36 months)",
+          "phase": "Phase 3: Application",
+          "description": "Current backlog from increased applications. The BVA will request additional documents by mail if needed; respond promptly to avoid restart of the queue position.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 13
+        },
+        {
+          "taskTitle": "Receive your Einbürgerungsurkunde (Certificate of Restoration)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Your official proof of German citizenship. Keep multiple certified copies — it's the foundation document for the passport application.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 14
+        },
+        {
+          "taskTitle": "Apply for a German passport (Reisepass) at a German consulate",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "After receiving your citizenship certificate, schedule a consulate appointment. Fee approximately €82. The German passport is a full EU passport.",
+          "links": [{ "label": "German missions in the US", "url": "https://www.germany.info/us-en/service/passport" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 15
+        },
+        {
+          "taskTitle": "Understand your dual-citizen status and tax obligations",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Germany has allowed dual citizenship since 2024 (and restoration cases always allowed it). The US taxes citizens on worldwide income; Germany taxes residents. The US-Germany tax treaty handles most overlap — consult a cross-border CPA before relocating.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        },
+        {
+          "taskTitle": "File restoration applications for adult children",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Minor children are included on a parent's application. Adult children must each file their own Article 116 / StAG §15 application referencing the same ancestor — this is much faster than a fresh case since the BVA already holds the ancestor file.",
+          "conditions": { "has_minor_children": false },
+          "estimatedWeeks": 0,
+          "order": 17
+        }
+      ]
+    },
+
+    "pl_confirmation": {
+      "displayName": "Poland - Confirmation of Polish Citizenship",
+      "countryId": "poland",
+      "shortName": "Confirmation",
+      "steps": [
+        {
+          "id": "heritage",
+          "title": "Your Polish Heritage",
+          "subtitle": "Polish citizenship is inherited automatically — these answers reveal whether the chain to you is intact.",
+          "questions": [
+            {
+              "id": "ancestor_emigration_year",
+              "type": "single_choice",
+              "label": "When did your Polish ancestor emigrate?",
+              "options": [
+                { "id": "pre_1920", "label": "Before 1920 (path much harder — pre-citizenship-law)" },
+                { "id": "1920_1950", "label": "Between 1920 and 1950" },
+                { "id": "post_1951", "label": "1951 or later" },
+                { "id": "unknown_era", "label": "I'm not sure" }
+              ],
+              "required": true,
+              "hint": "Polish citizenship law took effect 1920-01-31. Earlier emigrants are usually outside the system."
+            },
+            {
+              "id": "ancestor_naturalization_timing",
+              "type": "single_choice",
+              "label": "When did your Polish ancestor naturalize as a US (or other foreign) citizen?",
+              "options": [
+                { "id": "before_1951", "label": "Before 1951-01-19 (chain breaks)" },
+                { "id": "1951_or_later", "label": "On or after 1951-01-19 (chain intact)" },
+                { "id": "never", "label": "Never naturalized (chain intact)" },
+                { "id": "unknown_natz", "label": "I don't know" }
+              ],
+              "required": true,
+              "hint": "Pre-1951 foreign naturalization broke Polish citizenship under the 1920 Citizenship Act."
+            },
+            {
+              "id": "male_ancestor_foreign_military",
+              "type": "boolean",
+              "label": "Did a male Polish-born ancestor serve in a foreign army between 1920 and 1951 without Polish government permission?",
+              "required": true,
+              "hint": "Foreign military service in that window could trigger automatic loss of citizenship. WWII service is treated more leniently in recent case law."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents You Already Have",
+          "subtitle": "Each tick removes a collection task.",
+          "questions": [
+            { "id": "has_ancestor_polish_docs", "type": "boolean", "label": "Polish-issued ancestor documents (passport, military book, civil-registry birth certificate)?", "required": true },
+            { "id": "has_naturalization_record", "type": "boolean", "label": "Ancestor's US naturalization record (or 'No Record Found' certificate)?", "required": true },
+            { "id": "has_all_us_vital_records", "type": "boolean", "label": "Long-form US birth/marriage/death certificates for every generation in the chain?", "required": true },
+            { "id": "has_apostilles", "type": "boolean", "label": "Apostilles on every US document?", "required": true },
+            { "id": "has_sworn_polish_translations", "type": "boolean", "label": "Sworn Polish translations (tłumacz przysięgły) of every non-Polish document?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Plan & Filing Route",
+          "subtitle": "The Mazowiecki Voivode (Warsaw) handles most diaspora cases and tends to be fastest.",
+          "questions": [
+            {
+              "id": "filing_route",
+              "type": "single_choice",
+              "label": "Which filing route?",
+              "options": [
+                { "id": "voivode_direct", "label": "Mazowiecki Voivode in Warsaw, by mail (fastest)" },
+                { "id": "consulate_us", "label": "Polish consulate in the US (slower, no travel required)" },
+                { "id": "lawyer_poa", "label": "Polish citizenship attorney via power of attorney" },
+                { "id": "undecided", "label": "Not decided yet" }
+              ],
+              "required": true
+            },
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to hold Polish citizenship?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "1_year", "label": "In ~1 year" },
+                { "id": "18_months", "label": "In ~18 months" },
+                { "id": "2_years", "label": "In ~2 years or flexible" }
+              ],
+              "required": true
+            },
+            {
+              "id": "have_children",
+              "type": "boolean",
+              "label": "Do you have children whose births you'll want transcribed?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Confirm a Polish-citizen ancestor with a viable post-1920 connection",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Polish citizenship law took effect 1920-01-31. If your ancestor was a Polish citizen after that date and the chain to you survived, you may already be Polish — the confirmation procedure proves it.",
+          "links": [{ "label": "Polish citizenship overview", "url": "https://www.gov.pl/web/usa-en/citizenship" }],
+          "conditions": {},
+          "estimatedWeeks": 80,
+          "order": 1
+        },
+        {
+          "taskTitle": "Investigate the pre-1920 emigration path",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Polish citizenship law took effect 1920-01-31. Ancestors who emigrated from Russian/Austrian/German-partitioned Poland in the 1890s-1910s are usually outside the citizenship-law framework. A specialist lawyer can advise whether any other route applies.",
+          "conditions": { "ancestor_emigration_year": "pre_1920" },
+          "estimatedWeeks": 78,
+          "order": 2
+        },
+        {
+          "taskTitle": "Resolve the broken-chain naturalization issue",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Foreign naturalization before 1951-01-19 broke Polish citizenship under the 1920 Citizenship Act. Before investing in documents, get a specialist opinion on whether any exception applies to your case.",
+          "conditions": { "ancestor_naturalization_timing": "before_1951" },
+          "estimatedWeeks": 76,
+          "order": 3
+        },
+        {
+          "taskTitle": "Resolve the military-service issue",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Foreign military service 1920-1951 without Polish government permission could trigger automatic loss. WWII service has lenient case law but is still a flag — get a specialist opinion before filing.",
+          "conditions": { "male_ancestor_foreign_military": true },
+          "estimatedWeeks": 74,
+          "order": 4
+        },
+        {
+          "taskTitle": "Map the documentary chain from you to the Polish ancestor",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Each generation needs: birth certificate; marriage certificate where surnames change. Document name anglicizations (Kowalski → Smith, Stanisław → Stanley) that you will need to explain by affidavit.",
+          "conditions": {},
+          "estimatedWeeks": 70,
+          "order": 5
+        },
+        {
+          "taskTitle": "Find your Polish ancestor's Polish documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Polish passport (especially pre-1951), military service book (książeczka wojskowa), Polish parish or civil-registry birth certificate, ship manifest with port of departure, US immigration arrival record, residence registration (zameldowanie).",
+          "links": [
+            { "label": "Polish State Archives", "url": "https://www.archiwa.gov.pl/en" },
+            { "label": "Geneteka — Polish genealogy index", "url": "https://geneteka.genealodzy.pl/" }
+          ],
+          "conditions": { "has_ancestor_polish_docs": false },
+          "estimatedWeeks": 60,
+          "order": 6
+        },
+        {
+          "taskTitle": "Request the ancestor's US naturalization record (or 'No Record' certificate)",
+          "phase": "Phase 2: Documentation",
+          "description": "Via USCIS Genealogy. A naturalization after 1951-01-19 or a 'No Record Found' certificate both preserve the chain.",
+          "links": [{ "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }],
+          "conditions": { "has_naturalization_record": false },
+          "estimatedWeeks": 56,
+          "order": 7
+        },
+        {
+          "taskTitle": "Order birth, marriage, and death certificates for each generation in the chain",
+          "phase": "Phase 2: Documentation",
+          "description": "From state/county vital records for US records; from the Urząd Stanu Cywilnego (civil registry) of the relevant Polish gmina for Polish records. Allow 2–6 months per Polish record, longer if parish archives.",
+          "conditions": { "has_all_us_vital_records": false },
+          "estimatedWeeks": 48,
+          "order": 8
+        },
+        {
+          "taskTitle": "Apostille all US documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Poland is a Hague Apostille party. State documents go through the issuing Secretary of State; federal through the US Department of State.",
+          "links": [{ "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }],
+          "conditions": { "has_apostilles": false },
+          "estimatedWeeks": 40,
+          "order": 9
+        },
+        {
+          "taskTitle": "Get sworn Polish translations (tłumacz przysięgły) of every non-Polish document",
+          "phase": "Phase 2: Documentation",
+          "description": "Must be by a translator on the Polish Ministry of Justice's official list. Translations done by other translators will be rejected.",
+          "links": [{ "label": "Polish sworn translators list", "url": "https://www.gov.pl/web/sprawiedliwosc/lista-tlumaczy-przysieglych" }],
+          "conditions": { "has_sworn_polish_translations": false },
+          "estimatedWeeks": 32,
+          "order": 10
+        },
+        {
+          "taskTitle": "Engage a Polish citizenship attorney and grant a Polish power of attorney",
+          "phase": "Phase 3: Application",
+          "description": "Necessary for the lawyer route. Attorney prepares the application, drafts the family-tree diagram (drzewo genealogiczne), and files directly with the voivode by mail.",
+          "conditions": { "filing_route": "lawyer_poa" },
+          "estimatedWeeks": 32,
+          "order": 11
+        },
+        {
+          "taskTitle": "Submit the application (wniosek o potwierdzenie posiadania obywatelstwa polskiego)",
+          "phase": "Phase 3: Application",
+          "description": "Includes: completed form in Polish, all originals with apostilles and sworn translations, family-tree diagram, power of attorney if applicable, and the filing fee (currently 58 PLN at the voivode, higher at consulates).",
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 12
+        },
+        {
+          "taskTitle": "Wait for the voivode's decision (6–18 months)",
+          "phase": "Phase 3: Application",
+          "description": "Mazowiecki voivode usually 6–18 months, longer if Polish archive searches are needed. The voivode may request additional evidence by mail — respond within 7 days to avoid delay.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 13
+        },
+        {
+          "taskTitle": "Receive the voivode's positive decision (decyzja)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "A positive decision confirms you ARE a Polish citizen (and have been since birth, by operation of law). If negative, you can appeal to the Minister of Internal Affairs within 14 days.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 14
+        },
+        {
+          "taskTitle": "Apply for a PESEL number (Polish national ID)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Apply at any urząd gminy in Poland or through your Polish consulate. PESEL is required for passport issuance and most administrative actions in Poland.",
+          "links": [{ "label": "PESEL application", "url": "https://www.gov.pl/web/gov/uzyskaj-numer-pesel-dla-cudzoziemcow" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 15
+        },
+        {
+          "taskTitle": "Apply for a Polish passport (paszport)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Apply at the Polish consulate with jurisdiction over your US residence (or any passport office in Poland). Fee approximately 110 PLN abroad. The Polish passport is a full EU passport.",
+          "links": [{ "label": "Polish consulates in the US", "url": "https://www.gov.pl/web/usa-en/contact" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        },
+        {
+          "taskTitle": "Understand your dual-citizen tax obligations",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Poland taxes residents (183-day rule + center-of-vital-interests). The US taxes citizens on worldwide income. The US-Poland tax treaty handles most overlap. Polish PIT is 12% / 32% or 19% flat for business — consult a cross-border CPA before relocating.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 17
+        },
+        {
+          "taskTitle": "Transcribe your children's births into the Polish civil registry",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Children born after the voivode's decision are automatically Polish, but their births must be transcribed (transkrypcja) into the Polish civil registry to be recognized for passport applications.",
+          "conditions": { "have_children": true },
+          "estimatedWeeks": 0,
+          "order": 18
+        }
+      ]
+    },
+
+    "ca_express_entry": {
+      "displayName": "Canada - Express Entry (Federal Skilled Worker)",
+      "countryId": "canada",
+      "shortName": "Express",
+      "steps": [
+        {
+          "id": "crs_inputs",
+          "title": "Your CRS Profile",
+          "subtitle": "Express Entry is points-based. These inputs let you estimate your CRS score on IRCC's calculator and see if you clear recent draw cutoffs.",
+          "questions": [
+            {
+              "id": "age_band",
+              "type": "single_choice",
+              "label": "Your age at application",
+              "options": [
+                { "id": "20_29", "label": "20-29 (maximum age points)" },
+                { "id": "30_34", "label": "30-34" },
+                { "id": "35_39", "label": "35-39" },
+                { "id": "40_44", "label": "40-44" },
+                { "id": "45_plus", "label": "45+ (zero age points)" }
+              ],
+              "required": true
+            },
+            {
+              "id": "education_level",
+              "type": "single_choice",
+              "label": "Highest education completed",
+              "options": [
+                { "id": "high_school", "label": "Secondary / high school" },
+                { "id": "one_year_post", "label": "1-year post-secondary credential" },
+                { "id": "two_year_post", "label": "2-year post-secondary credential" },
+                { "id": "bachelors", "label": "Bachelor's degree (or 3-year credential)" },
+                { "id": "two_credentials", "label": "Two or more credentials (one ≥ 3 years)" },
+                { "id": "masters", "label": "Master's / professional degree" },
+                { "id": "doctorate", "label": "Doctorate (PhD)" }
+              ],
+              "required": true
+            },
+            {
+              "id": "primary_language_clb",
+              "type": "single_choice",
+              "label": "Your primary-language test level (English IELTS/CELPIP or French TEF/TCF)",
+              "options": [
+                { "id": "below_clb7", "label": "Below CLB 7" },
+                { "id": "clb7", "label": "CLB 7" },
+                { "id": "clb8", "label": "CLB 8" },
+                { "id": "clb9", "label": "CLB 9" },
+                { "id": "clb10_plus", "label": "CLB 10 or higher" },
+                { "id": "no_test_yet", "label": "Haven't taken a test yet" }
+              ],
+              "required": true,
+              "hint": "Express Entry requires CLB 7+ for FSW (and gives more points up to CLB 10+)."
+            },
+            {
+              "id": "second_language",
+              "type": "single_choice",
+              "label": "Second-language ability",
+              "options": [
+                { "id": "none", "label": "No second-language test" },
+                { "id": "clb5_below", "label": "Below CLB 5" },
+                { "id": "clb5_6", "label": "CLB 5-6" },
+                { "id": "clb7_plus", "label": "CLB 7 or higher (significant bonus)" }
+              ],
+              "required": true
+            },
+            {
+              "id": "canadian_work_years",
+              "type": "single_choice",
+              "label": "Years of skilled Canadian work experience",
+              "options": [
+                { "id": "0", "label": "0 years" },
+                { "id": "1", "label": "1 year" },
+                { "id": "2_3", "label": "2-3 years" },
+                { "id": "4_5", "label": "4-5 years" }
+              ],
+              "required": true
+            },
+            {
+              "id": "foreign_work_years",
+              "type": "single_choice",
+              "label": "Years of skilled foreign work experience",
+              "options": [
+                { "id": "0", "label": "0 years" },
+                { "id": "1_2", "label": "1-2 years" },
+                { "id": "3_plus", "label": "3 or more years" }
+              ],
+              "required": true
+            },
+            {
+              "id": "spouse_situation",
+              "type": "single_choice",
+              "label": "Spouse / partner situation",
+              "options": [
+                { "id": "single", "label": "Applying alone" },
+                { "id": "spouse_canadian", "label": "Spouse is a Canadian citizen / PR (no spouse-CRS factors)" },
+                { "id": "spouse_accompanying", "label": "Spouse accompanying — claim spouse factors" }
+              ],
+              "required": true
+            },
+            {
+              "id": "provincial_nomination",
+              "type": "boolean",
+              "label": "Do you already hold a Provincial Nominee Program (PNP) nomination?",
+              "required": true,
+              "hint": "A PNP nomination adds 600 CRS points — effectively a guaranteed Invitation to Apply."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents & Tests Already Done",
+          "subtitle": "Tick each item you already have on hand.",
+          "questions": [
+            { "id": "has_eca", "type": "boolean", "label": "Educational Credential Assessment (ECA) from WES, ICAS, ICES, or other IRCC-designated body?", "required": true },
+            { "id": "has_language_test", "type": "boolean", "label": "Valid language test result (≤ 2 years old)?", "required": true },
+            { "id": "has_passport", "type": "boolean", "label": "Valid passport with ≥ 12 months validity?", "required": true },
+            { "id": "has_proof_of_funds", "type": "boolean", "label": "Settlement funds proof (~CAD $14,690 single / +CAD $3,955 per family member)?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Express Entry Plan",
+          "subtitle": "From profile creation to PR confirmation typically runs 6-18 months end-to-end.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to land as a Canadian PR?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "6_months", "label": "In ~6 months" },
+                { "id": "1_year", "label": "In ~1 year" },
+                { "id": "18_months", "label": "In ~18 months" }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_ee_profile",
+              "type": "boolean",
+              "label": "Have you already submitted an Express Entry profile to IRCC?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Run your CRS score on IRCC's official calculator",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Use the official Comprehensive Ranking System tool. Compare your score to the cutoffs in the last 6 published draws (general, category-based, French-language, CEC) to gauge your odds of receiving an Invitation to Apply.",
+          "links": [
+            { "label": "IRCC CRS calculator", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/eligibility/criminality/crs-tool.html" },
+            { "label": "Recent Express Entry draw rounds", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/corporate/mandate/policies-operational-instructions-agreements/ministerial-instructions/express-entry-rounds.html" }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 50,
+          "order": 1
+        },
+        {
+          "taskTitle": "Take a language test (IELTS / CELPIP / TEF / TCF)",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Required for the Express Entry profile. CLB 7 is the minimum for the Federal Skilled Worker program. Each band above gives more points up to CLB 10+. Book the IRCC-recognized version of your chosen test.",
+          "links": [{ "label": "Approved language tests", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-requirements.html" }],
+          "conditions": { "has_language_test": false },
+          "estimatedWeeks": 46,
+          "order": 2
+        },
+        {
+          "taskTitle": "Order an Educational Credential Assessment (ECA)",
+          "phase": "Phase 1: Research & Planning",
+          "description": "ECA from an IRCC-designated organization (WES, ICAS, ICES, etc.) confirms your foreign education equals a Canadian credential. Allow 6-20 weeks. Not required if your highest degree is from a Canadian institution.",
+          "links": [{ "label": "Approved ECA organizations", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/education-assessed.html" }],
+          "conditions": { "has_eca": false },
+          "estimatedWeeks": 42,
+          "order": 3
+        },
+        {
+          "taskTitle": "Investigate Provincial Nominee Programs (PNPs) in your target province",
+          "phase": "Phase 1: Research & Planning",
+          "description": "A PNP nomination adds 600 CRS points — effectively a guaranteed Invitation to Apply. Each province operates separate streams (tech, health, French-speaking, business) and quotas refresh frequently. Worth pursuing if your unboosted CRS sits below recent cutoffs.",
+          "links": [{ "label": "PNP overview", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/provincial-nominees.html" }],
+          "conditions": { "provincial_nomination": false },
+          "estimatedWeeks": 40,
+          "order": 4
+        },
+        {
+          "taskTitle": "Gather proof of funds (settlement money)",
+          "phase": "Phase 2: Documentation",
+          "description": "Currently ~CAD $14,690 for a single applicant, plus ~CAD $3,955 per accompanying family member. Bank statements covering 6 months are typical evidence. Not required if you already work in Canada with a valid arranged-employment offer.",
+          "conditions": { "has_proof_of_funds": false },
+          "estimatedWeeks": 32,
+          "order": 5
+        },
+        {
+          "taskTitle": "Renew your passport if it expires within 12 months",
+          "phase": "Phase 2: Documentation",
+          "description": "Passport must be valid for at least the full intended PR landing window. IRCC will only issue the Confirmation of Permanent Residence (COPR) on a passport with sufficient remaining validity.",
+          "conditions": { "has_passport": false },
+          "estimatedWeeks": 30,
+          "order": 6
+        },
+        {
+          "taskTitle": "Gather skilled-work-experience reference letters",
+          "phase": "Phase 2: Documentation",
+          "description": "Each NOC-eligible job needs a letter on company letterhead listing job title, start/end dates, hours per week, salary, and detailed duties matching the NOC TEER you're claiming. The duties section is the most common rejection cause.",
+          "conditions": {},
+          "estimatedWeeks": 28,
+          "order": 7
+        },
+        {
+          "taskTitle": "Get a police certificate from every country you've lived in for 6+ months as an adult",
+          "phase": "Phase 2: Documentation",
+          "description": "Required by IRCC at the post-ITA application stage but allow 2-4 months for each country. FBI Identity History Summary for the US; equivalent national checks elsewhere. Some certificates are valid for only 6 months — sequence so they're still valid at submission.",
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 8
+        },
+        {
+          "taskTitle": "Create your Express Entry profile in the IRCC portal",
+          "phase": "Phase 3: Application",
+          "description": "Submit the profile after your ECA and language test are complete. The profile is valid for 12 months. CRS scores are recalculated automatically as your inputs change (additional language tests, work experience, PNP nomination).",
+          "links": [{ "label": "Create Express Entry profile", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/submit-profile.html" }],
+          "conditions": { "has_ee_profile": false },
+          "estimatedWeeks": 20,
+          "order": 9
+        },
+        {
+          "taskTitle": "Apply to a Provincial Nominee Program if pursuing the PNP boost",
+          "phase": "Phase 3: Application",
+          "description": "PNP application happens in parallel with the Express Entry profile (each province's portal is separate). If selected, the nomination certificate adds 600 CRS points to your EE profile.",
+          "conditions": { "provincial_nomination": false },
+          "estimatedWeeks": 18,
+          "order": 10
+        },
+        {
+          "taskTitle": "Wait for Invitation to Apply (ITA) — monitor draw rounds",
+          "phase": "Phase 3: Application",
+          "description": "Draws happen approximately every 2 weeks. General, French-language, category-based (tech / health / trades / agriculture / transport), and CEC draws each have separate cutoffs. Once invited, you have exactly 60 days to submit the full eAPR.",
+          "conditions": {},
+          "estimatedWeeks": 14,
+          "order": 11
+        },
+        {
+          "taskTitle": "Submit the eAPR (electronic Application for Permanent Residence) within 60 days",
+          "phase": "Phase 3: Application",
+          "description": "Upload all supporting documents — ECA, language test, work-experience letters, police certificates, medical exam results, proof of funds, family-information form, photos. Application fee currently ~CAD $1,500 (principal + RPRF).",
+          "conditions": {},
+          "estimatedWeeks": 10,
+          "order": 12
+        },
+        {
+          "taskTitle": "Complete the IRCC-panel medical exam",
+          "phase": "Phase 3: Application",
+          "description": "Only IRCC-designated panel physicians can administer the immigration medical. Results are valid for 12 months. Costs vary by country (~CAD $200-400).",
+          "links": [{ "label": "IRCC panel physicians", "url": "https://secure.cic.gc.ca/pp-md/pp-list.aspx" }],
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 13
+        },
+        {
+          "taskTitle": "Receive Confirmation of Permanent Residence (COPR) and land in Canada",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "COPR is your landing document. Travel to Canada within its validity window (typically 1 year). On entry, present passport + COPR; the border officer activates your PR status.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 14
+        },
+        {
+          "taskTitle": "Apply for a Social Insurance Number (SIN) on arrival",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Service Canada offices issue SINs on the spot. You can't be paid legally in Canada without one.",
+          "links": [{ "label": "Service Canada — SIN", "url": "https://www.canada.ca/en/employment-social-development/services/sin.html" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 15
+        },
+        {
+          "taskTitle": "Apply for your PR card",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "IRCC mails the physical PR card to a Canadian address within ~2 months of landing. You'll need it for international travel as a PR.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        },
+        {
+          "taskTitle": "Enroll in provincial health insurance (3-month wait in most provinces)",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "OHIP (ON), MSP (BC), RAMQ (QC), AHCIP (AB), etc. Most provinces have a 3-month waiting period from arrival. Buy private bridge coverage (Manulife / Cigna / similar, ~CAD $80/month) to fill the gap.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 17
+        },
+        {
+          "taskTitle": "Understand your dual US/Canadian tax obligations",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "The US taxes citizens on worldwide income; Canada taxes residents. The US-Canada tax treaty handles most overlap. File a Canadian return even if you owe nothing — or you lose access to GST/HST credit and Canada Child Benefit.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 18
+        }
+      ]
+    },
+
+    "uk_ancestry": {
+      "displayName": "UK - Ancestry Visa (Commonwealth)",
+      "countryId": "uk_ancestry",
+      "shortName": "Ancestry",
+      "steps": [
+        {
+          "id": "eligibility",
+          "title": "Your Eligibility",
+          "subtitle": "The UK Ancestry route is open ONLY to Commonwealth citizens with a UK-born grandparent.",
+          "questions": [
+            {
+              "id": "commonwealth_status",
+              "type": "single_choice",
+              "label": "Which nationality applies to you?",
+              "options": [
+                { "id": "commonwealth", "label": "Commonwealth citizen (Canada, Australia, NZ, South Africa, Jamaica, India, etc.)" },
+                { "id": "british_overseas", "label": "British Overseas Citizen / Territories citizen / National (Overseas) / Subject" },
+                { "id": "zimbabwean", "label": "Zimbabwean citizen" },
+                { "id": "us_only", "label": "US citizen only (not eligible — US nationality alone doesn't qualify)" }
+              ],
+              "required": true,
+              "hint": "The Ancestry visa requires one of these nationalities — US citizenship alone is NOT sufficient."
+            },
+            {
+              "id": "uk_grandparent_jurisdiction",
+              "type": "single_choice",
+              "label": "Where was your UK-born grandparent born?",
+              "options": [
+                { "id": "england_wales", "label": "England or Wales" },
+                { "id": "scotland", "label": "Scotland" },
+                { "id": "northern_ireland", "label": "Northern Ireland" },
+                { "id": "pre_1922_ireland", "label": "Republic of Ireland — born before 31 March 1922" },
+                { "id": "channel_islands_iom", "label": "Channel Islands or Isle of Man" },
+                { "id": "ship_aircraft", "label": "On a UK-registered ship or aircraft" }
+              ],
+              "required": true
+            },
+            {
+              "id": "age_17_plus",
+              "type": "boolean",
+              "label": "Are you 17 or older AND able to work in the UK?",
+              "required": true,
+              "hint": "Both required. The visa includes a working-intent declaration but no sponsor or skill threshold."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents You Already Have",
+          "subtitle": "Each tick removes a task.",
+          "questions": [
+            { "id": "has_own_birth_cert", "type": "boolean", "label": "Your own long-form birth certificate?", "required": true },
+            { "id": "has_parent_birth_cert", "type": "boolean", "label": "Your linking parent's long-form birth certificate?", "required": true },
+            { "id": "has_grandparent_birth_cert", "type": "boolean", "label": "UK-born grandparent's birth certificate (GRO / ScotlandsPeople / GRONI / Irish GRO)?", "required": true },
+            { "id": "needs_adoption_paperwork", "type": "boolean", "label": "Does anyone in your chain have an adoption / legitimation in their record?", "required": true },
+            { "id": "needs_tb_test", "type": "boolean", "label": "Have you spent 6+ months in a country on the UK's TB-screening list?", "required": true }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Plan",
+          "subtitle": "Visa decision is ~3 weeks; you must travel within 30 days of issue.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to move to the UK?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "3_months", "label": "In ~3 months" },
+                { "id": "6_months", "label": "In ~6 months" },
+                { "id": "1_year", "label": "In ~1 year" }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_uk_job_offer",
+              "type": "boolean",
+              "label": "Do you already have a UK job offer or freelance contract lined up?",
+              "required": true,
+              "hint": "Not required, but strong evidence you'll work in the UK as required by the visa."
+            },
+            {
+              "id": "has_funds_proof",
+              "type": "boolean",
+              "label": "Do you have bank statements or savings showing you can support yourself without public funds?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Confirm your Commonwealth (or eligible) citizenship",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Eligibility is tied to your passport, not your residence. US citizenship alone does NOT qualify. If your only passport is a US passport, the Ancestry route is closed unless you can claim or restore another eligible nationality first.",
+          "links": [{ "label": "Gov.uk — UK Ancestry visa", "url": "https://www.gov.uk/ancestry-visa" }],
+          "conditions": {},
+          "estimatedWeeks": 24,
+          "order": 1
+        },
+        {
+          "taskTitle": "Restore or claim an eligible nationality first",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Your only path forward is to claim another eligible nationality (Commonwealth, British Overseas, Zimbabwean) before applying for the Ancestry visa. If this isn't viable, consider the Skilled Worker or family routes instead.",
+          "conditions": { "commonwealth_status": "us_only" },
+          "estimatedWeeks": 22,
+          "order": 2
+        },
+        {
+          "taskTitle": "Confirm your UK-born grandparent qualifies",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Birth must be in the UK, the Channel Islands, the Isle of Man, or (before 31 March 1922) what is now the Republic of Ireland. Birth on a UK-registered ship or aircraft also counts. Adoptive and step-grandparents count only if the legal adoption is recognised under UK law.",
+          "conditions": {},
+          "estimatedWeeks": 22,
+          "order": 3
+        },
+        {
+          "taskTitle": "Plan for the 5-year settlement timeline",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Ancestry is granted for 5 years. After 5 years of continuous UK residence (with no more than 180 days outside the UK in any rolling 12 months) you can apply for ILR. After 12 more months as a settled person you can apply for British citizenship by naturalisation. Total: ~6 years.",
+          "conditions": {},
+          "estimatedWeeks": 20,
+          "order": 4
+        },
+        {
+          "taskTitle": "Order your own long-form birth certificate",
+          "phase": "Phase 2: Documentation",
+          "description": "Long-form (showing both parents' names). The short / wallet-size certificate won't establish the parent-grandparent link.",
+          "conditions": { "has_own_birth_cert": false },
+          "estimatedWeeks": 16,
+          "order": 5
+        },
+        {
+          "taskTitle": "Order your linking parent's birth certificate",
+          "phase": "Phase 2: Documentation",
+          "description": "The parent who is the child of your UK-born grandparent. Long-form certificate, not just a summary.",
+          "conditions": { "has_parent_birth_cert": false },
+          "estimatedWeeks": 14,
+          "order": 6
+        },
+        {
+          "taskTitle": "Order your UK-born grandparent's birth certificate",
+          "phase": "Phase 2: Documentation",
+          "description": "England & Wales: General Register Office (GRO). Scotland: ScotlandsPeople. Northern Ireland: GRONI. Pre-1922 (now Republic of) Ireland: Irish General Register Office.",
+          "links": [
+            { "label": "GRO — England & Wales", "url": "https://www.gro.gov.uk/gro/content/certificates/" },
+            { "label": "ScotlandsPeople", "url": "https://www.scotlandspeople.gov.uk/" }
+          ],
+          "conditions": { "has_grandparent_birth_cert": false },
+          "estimatedWeeks": 14,
+          "order": 7
+        },
+        {
+          "taskTitle": "Gather adoption / legitimation paperwork",
+          "phase": "Phase 2: Documentation",
+          "description": "If you, your parent, or grandparent was adopted or legitimated, include the adoption order or equivalent. UKVI requires evidence the adoption is legally recognised under UK law.",
+          "conditions": { "needs_adoption_paperwork": true },
+          "estimatedWeeks": 12,
+          "order": 8
+        },
+        {
+          "taskTitle": "Show you can support yourself without public funds",
+          "phase": "Phase 2: Documentation",
+          "description": "Bank statements showing sufficient savings, a UK job offer or contract, evidence of freelance income, or a combination. No fixed minimum, but caseworkers expect realistic evidence covering housing + living costs for your first months.",
+          "conditions": { "has_funds_proof": false },
+          "estimatedWeeks": 10,
+          "order": 9
+        },
+        {
+          "taskTitle": "Take a UKVI-approved Tuberculosis test",
+          "phase": "Phase 2: Documentation",
+          "description": "Required if you've spent 6+ months in any UK-listed TB-screening country before applying. Must be at a UKVI-approved clinic. Results are valid for 6 months — sequence so it's still valid at submission.",
+          "links": [{ "label": "Gov.uk — TB test for UK visa", "url": "https://www.gov.uk/tb-test-visa" }],
+          "conditions": { "needs_tb_test": true },
+          "estimatedWeeks": 8,
+          "order": 10
+        },
+        {
+          "taskTitle": "Apply online via the UKVI portal",
+          "phase": "Phase 3: Application",
+          "description": "Application is made online from outside the UK. Current fee is £637 (subject to change) for the 5-year visa. You also pay the Immigration Health Surcharge (£1,035/year × 5 = £5,175) as part of the application.",
+          "links": [{ "label": "Apply for Ancestry visa", "url": "https://www.gov.uk/ancestry-visa/apply" }],
+          "conditions": {},
+          "estimatedWeeks": 6,
+          "order": 11
+        },
+        {
+          "taskTitle": "Attend your biometrics appointment at a VAC",
+          "phase": "Phase 3: Application",
+          "description": "Book a biometrics appointment at the VFS Global or TLScontact centre handling UK visas in your country. Provide fingerprints, photo, and submit original documents (or scans, depending on the VAC).",
+          "conditions": {},
+          "estimatedWeeks": 4,
+          "order": 12
+        },
+        {
+          "taskTitle": "Receive your decision and travel within 30 days of visa issue",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Standard processing is ~3 weeks; priority service (~£500 extra) is 5 working days. The 30-day entry vignette in your passport sets the window — you must travel within it and collect your Biometric Residence Permit (BRP) within 10 days of arrival.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 13
+        },
+        {
+          "taskTitle": "Track every absence — 180-day rolling rule",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "To qualify for ILR after 5 years you must not be outside the UK for more than 180 days in any rolling 12-month period. Long absences can reset your settlement clock. Maintain a precise travel spreadsheet from day 1.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 14
+        },
+        {
+          "taskTitle": "Apply for Indefinite Leave to Remain (ILR) after 5 years",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "After 5 years of continuous UK residence, apply for settlement. Pass the Life in the UK test and meet the B1 English requirement (many Commonwealth applicants are exempt by nationality). Current ILR fee is £3,029.",
+          "links": [{ "label": "ILR after 5 years on Ancestry", "url": "https://www.gov.uk/ancestry-visa/settle-in-the-uk" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 15
+        },
+        {
+          "taskTitle": "Apply for British citizenship by naturalisation (12 months after ILR)",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "After holding ILR for 12 months you can apply for naturalisation. Total time from arrival: ~6 years. Fee is currently £1,500 plus £80 ceremony fee. Dual citizenship with most countries is permitted by the UK.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 16
+        }
+      ]
     }
   }
 }

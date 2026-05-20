@@ -281,7 +281,7 @@ enum VisaCatalog {
             pros: ["Fastest PR pathway", "No employer required (FSW)", "Family included"],
             cons: ["CRS cutoffs rose sharply 2024", "English/French test required", "Backlog on category-based draws"],
             officialUrl: "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
-            wizardTrackId: nil
+            wizardTrackId: "ca_express_entry"
         ),
         VisaInfo(
             id: "ca_pnp",
@@ -354,7 +354,7 @@ enum VisaCatalog {
             pros: ["Full EU passport", "No residency requirement", "Cheap path to EU"],
             cons: ["Must register before having children for them to qualify", "Documentation rigorous", "Long DFA backlog"],
             officialUrl: "https://www.ireland.ie/en/dfa/citizenship/born-abroad/",
-            wizardTrackId: nil
+            wizardTrackId: "ie_fbr"
         ),
         VisaInfo(
             id: "ie_stamp_0",
@@ -503,7 +503,7 @@ enum VisaCatalog {
             pros: ["No language test required", "No residency requirement", "Children also eligible"],
             cons: ["Must prove ancestor's Nazi-era persecution", "BVA backlog 1-2yr", "Documentation rigorous"],
             officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html",
-            wizardTrackId: nil
+            wizardTrackId: "de_stag_15"
         ),
         VisaInfo(
             id: "de_blue_card",
@@ -593,7 +593,7 @@ enum VisaCatalog {
             pros: ["EU passport without residency", "No language test required", "Cheap relative to other ancestry routes"],
             cons: ["Paternal line easier (pre-1951)", "Archive research can be slow", "Mazowiecki Voivode bottleneck"],
             officialUrl: "https://www.gov.pl/web/usa-en/citizenship",
-            wizardTrackId: nil
+            wizardTrackId: "pl_confirmation"
         ),
         VisaInfo(
             id: "pl_karta_polaka",
@@ -814,7 +814,7 @@ enum VisaCatalog {
             pros: ["Commonwealth 17+ with UK-born grandparent", "Full work rights immediately", "Family included"],
             cons: ["Must intend to work in UK", "IHS health surcharge expensive", "Not for US-only citizens (need Commonwealth)"],
             officialUrl: "https://www.gov.uk/ancestry-visa",
-            wizardTrackId: nil
+            wizardTrackId: "uk_ancestry"
         ),
         VisaInfo(
             id: "uk_skilled_worker",
