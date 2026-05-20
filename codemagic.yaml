@@ -123,9 +123,18 @@ workflows:
 
       - name: Increment build number
         script: |
-          LATEST_BUILD=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" || echo 0)
+          # Use max(ASC latest TF build, git commit count) + 1 so we always go higher.
+          # Plain `get-latest-testflight-build-number` returned empty for build #39
+          # (2026-05-20), making NEW_BUILD collide with a stale bundleVersion=1 on ASC.
+          # Commit count is monotonic on the branch, so it's the safe floor.
+          LATEST_BUILD=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
+          LATEST_BUILD=${LATEST_BUILD:-0}
+          COMMIT_COUNT=$(git rev-list --count HEAD)
+          if [ "$LATEST_BUILD" -lt "$COMMIT_COUNT" ]; then
+            LATEST_BUILD=$COMMIT_COUNT
+          fi
           NEW_BUILD=$((LATEST_BUILD + 1))
-          echo "Build number: $NEW_BUILD"
+          echo "ASC latest: ${LATEST_BUILD} | commit count: ${COMMIT_COUNT} | using: ${NEW_BUILD}"
           cd "$CM_BUILD_DIR"
           agvtool new-version -all $NEW_BUILD
 
