@@ -26,6 +26,7 @@ struct ResourcesView: View {
     @StateObject private var vm = ResourcesViewModel()
     @State private var expandedCategories: Set<String> = []
     @State private var showPaywall = false
+    @State private var presentedJourney: RealJourney?
 
     private var isUnlocked: Bool {
         purchaseManager.isCountryUnlocked(countrySelection.current)
@@ -52,6 +53,13 @@ struct ResourcesView: View {
                     if !isUnlocked {
                         lockedCountryCard
                     } else {
+                        // Real Journey CTA — paywalled premium content authored from
+                        // anonymized real client correspondence. Only shows when a
+                        // journey exists for this country.
+                        if let journey = RealJourneys.forCountry(countrySelection.current).first {
+                            realJourneyCTA(journey)
+                        }
+
                         // Quick Links header
                         Text("Quick Links")
                             .font(.subheadline.weight(.semibold))
@@ -148,7 +156,59 @@ struct ResourcesView: View {
             .sheet(isPresented: $showPaywall) {
                 PaywallView()
             }
+            .sheet(item: $presentedJourney) { journey in
+                RealJourneyView(journey: journey)
+            }
         }
+    }
+
+    // MARK: - Real Journey CTA
+
+    private func realJourneyCTA(_ journey: RealJourney) -> some View {
+        let isUnlocked = purchaseManager.hasAllAccess
+        return Button {
+            presentedJourney = journey
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: isUnlocked ? "book.closed.fill" : "lock.fill")
+                    .font(.title2)
+                    .foregroundColor(.white)
+                    .frame(width: 40, height: 40)
+                    .background(Color.goPrimary)
+                    .cornerRadius(10)
+                VStack(alignment: .leading, spacing: 3) {
+                    HStack(spacing: 6) {
+                        Text("Real Journey")
+                            .font(.subheadline.bold())
+                        if !isUnlocked {
+                            Text("PRO")
+                                .font(.caption2.bold())
+                                .foregroundColor(.goPrimary)
+                                .padding(.horizontal, 6)
+                                .padding(.vertical, 2)
+                                .background(Color.goPrimaryContainer)
+                                .cornerRadius(4)
+                        }
+                    }
+                    Text(journey.title)
+                        .font(.caption)
+                        .foregroundColor(.primary)
+                    Text(journey.subtitle)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .lineLimit(1)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(14)
+            .background(Color(.secondarySystemGroupedBackground))
+            .cornerRadius(12)
+            .shadow(color: .black.opacity(0.05), radius: 2, y: 1)
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Locked Country Card
