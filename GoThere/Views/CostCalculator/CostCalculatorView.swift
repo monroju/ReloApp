@@ -329,28 +329,64 @@ struct CostCalculatorView: View {
                     .foregroundColor(.secondary)
             }
             ForEach(visas, id: \.id) { visa in
-                HStack(alignment: .top, spacing: 8) {
-                    Text(visa.countryFlag)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text("\(visa.name) (\(visa.shortName))")
-                            .font(.subheadline)
-                        if let bar = visa.monthlyIncomeEUR {
-                            let gap = bar - totalEUR
-                            if gap > 0 {
-                                Text("requires €\(bar.formatted())/mo · short €\(gap.formatted())/mo")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            } else {
-                                Text("requires €\(bar.formatted())/mo")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    }
-                    Spacer()
+                NavigationLink {
+                    visaDestination(for: visa)
+                } label: {
+                    visaRow(visa, totalEUR: totalEUR)
                 }
-                .padding(.leading, 8)
+                .buttonStyle(.plain)
             }
+        }
+    }
+
+    private func visaRow(_ visa: VisaInfo, totalEUR: Int) -> some View {
+        HStack(alignment: .top, spacing: 8) {
+            Text(visa.countryFlag)
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 6) {
+                    Text("\(visa.name) (\(visa.shortName))")
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    if visa.wizardTrackId != nil {
+                        Text("Wizard")
+                            .font(.caption2.bold())
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(Color.goPrimary.opacity(0.15))
+                            .foregroundColor(.goPrimary)
+                            .cornerRadius(4)
+                    }
+                }
+                if let bar = visa.monthlyIncomeEUR {
+                    let gap = bar - totalEUR
+                    if gap > 0 {
+                        Text("requires €\(bar.formatted())/mo · short €\(gap.formatted())/mo")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    } else {
+                        Text("requires €\(bar.formatted())/mo")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right")
+                .font(.caption.bold())
+                .foregroundColor(.secondary)
+        }
+        .padding(.leading, 8)
+        .contentShape(Rectangle())
+    }
+
+    /// Mirrors DecisionTreeView.visaDestination — wizard if a track is wired,
+    /// otherwise the full Compare table for that country.
+    @ViewBuilder
+    private func visaDestination(for visa: VisaInfo) -> some View {
+        if let trackId = visa.wizardTrackId {
+            VisaWizardView(countryId: visa.countryId, initialTrackId: trackId)
+        } else {
+            VisaCompareView(initialCountryId: visa.countryId)
         }
     }
 }
