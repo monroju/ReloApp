@@ -760,6 +760,320 @@
         { "taskTitle": "Research IMSS Voluntario or private health insurance", "phase": "Phase 5: Residency Follow-up", "links": [{ "label": "IMSS", "url": "http://www.imss.gob.mx/tramites/imss02025a" }], "conditions": {}, "estimatedWeeks": 0, "order": 12 },
         { "taskTitle": "Set up coworking space or home office", "phase": "Phase 4: Arrival & Setup", "description": "Mexico has excellent coworking options in major cities. WeWork, Selina, and local spaces.", "conditions": {}, "estimatedWeeks": 0, "order": 13 }
       ]
+    },
+
+    "it_jure_sanguinis": {
+      "displayName": "Italy - Citizenship by Descent (Jure Sanguinis)",
+      "countryId": "italy",
+      "shortName": "Jure Sanguinis",
+      "steps": [
+        {
+          "id": "heritage",
+          "title": "Your Italian Heritage",
+          "subtitle": "These four answers determine your eligibility, the route you'll take, and which documents you need.",
+          "questions": [
+            {
+              "id": "ancestor_relationship",
+              "type": "single_choice",
+              "label": "Which Italian-born ancestor connects you?",
+              "options": [
+                { "id": "parent", "label": "Parent" },
+                { "id": "grandparent", "label": "Grandparent" },
+                { "id": "great_grandparent", "label": "Great-grandparent" },
+                { "id": "further_back", "label": "Great-great-grandparent or earlier" }
+              ],
+              "required": true,
+              "hint": "Decree-Law 36/2025 (in force 2025-03-28) limits new applications to descendants of an Italian-born parent or grandparent."
+            },
+            {
+              "id": "ancestor_emigration_era",
+              "type": "single_choice",
+              "label": "When did your Italian ancestor emigrate from Italy?",
+              "options": [
+                { "id": "pre_1912", "label": "Before 1912" },
+                { "id": "1912_1948", "label": "Between 1912 and 1948" },
+                { "id": "post_1948", "label": "After 1948" },
+                { "id": "unknown_era", "label": "I'm not sure" }
+              ],
+              "required": true,
+              "hint": "Pre-1912 emigration affects whether naturalization broke the chain; post-1948 simplifies the maternal-line analysis."
+            },
+            {
+              "id": "ancestor_naturalization",
+              "type": "single_choice",
+              "label": "Did your Italian ancestor naturalize as a US citizen?",
+              "options": [
+                { "id": "never", "label": "Never naturalized" },
+                { "id": "after_next_gen", "label": "Yes — but AFTER the next generation in the line was born" },
+                { "id": "before_next_gen", "label": "Yes — BEFORE the next generation was born" },
+                { "id": "unknown_natz", "label": "I don't know yet" }
+              ],
+              "required": true,
+              "hint": "If naturalization happened before the next generation in the line was born, the citizenship chain is broken."
+            },
+            {
+              "id": "maternal_line_pre_1948",
+              "type": "boolean",
+              "label": "Does your line pass through a female ancestor whose child was born BEFORE January 1, 1948?",
+              "required": true,
+              "hint": "If yes, you must file in the Court of Rome (a '1948 case') rather than at a consulate."
+            }
+          ]
+        },
+        {
+          "id": "documents",
+          "title": "Documents You Already Have",
+          "subtitle": "Anything you already hold drops a task. You can revisit and update this list later.",
+          "questions": [
+            {
+              "id": "has_ancestor_birth_cert",
+              "type": "boolean",
+              "label": "Italian ancestor's birth certificate (atto di nascita) from their Comune?",
+              "required": true
+            },
+            {
+              "id": "has_ancestor_marriage_cert",
+              "type": "boolean",
+              "label": "Italian ancestor's marriage certificate (atto di matrimonio) from their Comune?",
+              "required": true
+            },
+            {
+              "id": "has_naturalization_record",
+              "type": "boolean",
+              "label": "Ancestor's US naturalization record (or USCIS 'Certificate of Non-Existence')?",
+              "required": true
+            },
+            {
+              "id": "has_all_us_vital_records",
+              "type": "boolean",
+              "label": "Long-form birth/marriage/death certificates for EVERY generation in the chain?",
+              "required": true
+            },
+            {
+              "id": "has_apostilles",
+              "type": "boolean",
+              "label": "Apostilles on every US document in the chain?",
+              "required": true
+            },
+            {
+              "id": "has_sworn_translations",
+              "type": "boolean",
+              "label": "Sworn Italian translations (traduttore giurato) of every US document?",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Plan & Timeline",
+          "subtitle": "Jure Sanguinis is a multi-year process. We'll back-date due dates from your target.",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "When do you want to hold Italian citizenship?",
+              "options": [
+                { "id": "asap", "label": "As soon as possible" },
+                { "id": "1_year", "label": "In ~1 year" },
+                { "id": "2_years", "label": "In ~2 years" },
+                { "id": "3_years", "label": "In ~3 years or flexible" }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you already booked a Prenot@Mi consulate appointment?",
+              "required": true
+            },
+            {
+              "id": "engaging_lawyer",
+              "type": "boolean",
+              "label": "Have you already engaged an Italian lawyer for your case?",
+              "showIf": { "maternal_line_pre_1948": true },
+              "required": false
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Confirm eligibility under Decree-Law 36/2025",
+          "phase": "Phase 1: Research & Planning",
+          "description": "DL 36/2025 (in force 2025-03-28) limits new applications to descendants of an Italian-born parent or grandparent. Great-grandparent paths filed after that date are largely closed except through court action.",
+          "links": [{ "label": "Italian MFA: citizenship", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/" }],
+          "conditions": {},
+          "estimatedWeeks": 100,
+          "order": 1
+        },
+        {
+          "taskTitle": "Consult a lawyer about great-grandparent eligibility post-DL 36/2025",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Your line runs through a great-grandparent (or further). Under the 2025 reform, consulate applications are no longer accepted. A specialist lawyer can advise whether court action or a different path remains open in your case.",
+          "conditions": { "ancestor_relationship": ["great_grandparent", "further_back"] },
+          "estimatedWeeks": 100,
+          "order": 2
+        },
+        {
+          "taskTitle": "Verify the citizenship chain was not broken by naturalization",
+          "phase": "Phase 1: Research & Planning",
+          "description": "If your Italian-born ancestor naturalized as a US citizen BEFORE the next generation in the line was born, the chain is broken. Before investing in documents, confirm naturalization timing via USCIS Genealogy.",
+          "links": [{ "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }],
+          "conditions": { "ancestor_naturalization": ["unknown_natz", "before_next_gen"] },
+          "estimatedWeeks": 96,
+          "order": 3
+        },
+        {
+          "taskTitle": "Plan your '1948 case' in the Court of Rome",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Because your line passes through a female ancestor with a child born before 1948-01-01, consulates will reject the administrative application. The court route is filed in Rome, decided in 18–36 months, and has a very high approval rate when the documentary chain is clean.",
+          "conditions": { "maternal_line_pre_1948": true },
+          "estimatedWeeks": 92,
+          "order": 4
+        },
+        {
+          "taskTitle": "Identify the Italian consulate with jurisdiction over your US residence",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Consulates only accept applications from residents within their jurisdiction. You cannot shop for shorter wait times. Find your consulate based on your state of residence.",
+          "links": [{ "label": "Italian consulates in the US", "url": "https://www.esteri.it/en/ministero/laministero/lerappresentanze/" }],
+          "conditions": { "maternal_line_pre_1948": false },
+          "estimatedWeeks": 92,
+          "order": 5
+        },
+        {
+          "taskTitle": "Order your Italian ancestor's birth certificate (atto di nascita)",
+          "phase": "Phase 2: Documentation",
+          "description": "Contact the Comune (town hall) of birth in Italy directly, or via an agent. Request a multilingual extract (estratto plurilingue, Vienna Convention) which does not need translation. Allow 2–6 months.",
+          "links": [{ "label": "Find Italian Comuni online", "url": "https://www.comuni-italiani.it/" }],
+          "conditions": { "has_ancestor_birth_cert": false },
+          "estimatedWeeks": 80,
+          "order": 6
+        },
+        {
+          "taskTitle": "Order your Italian ancestor's marriage certificate (atto di matrimonio)",
+          "phase": "Phase 2: Documentation",
+          "description": "From the Comune where the marriage took place. Same multilingual extract format as the birth certificate.",
+          "conditions": { "has_ancestor_marriage_cert": false },
+          "estimatedWeeks": 76,
+          "order": 7
+        },
+        {
+          "taskTitle": "Order naturalization records (or 'Certificate of Non-Existence')",
+          "phase": "Phase 2: Documentation",
+          "description": "From USCIS Genealogy. If your ancestor naturalized, you need to prove the date was AFTER the next generation's birth. If they never naturalized, request a Certificate of Non-Existence of Record as proof.",
+          "links": [{ "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }],
+          "conditions": { "has_naturalization_record": false },
+          "estimatedWeeks": 72,
+          "order": 8
+        },
+        {
+          "taskTitle": "Order vital records for every generation in the chain (long-form)",
+          "phase": "Phase 2: Documentation",
+          "description": "Birth, marriage, and death certificates for each generation between you and the Italian-born ancestor. Long-form (not short-form) — the consulate rejects abstracts.",
+          "conditions": { "has_all_us_vital_records": false },
+          "estimatedWeeks": 64,
+          "order": 9
+        },
+        {
+          "taskTitle": "Apostille every US document in the chain",
+          "phase": "Phase 2: Documentation",
+          "description": "Each state's Secretary of State office issues apostilles for state-issued records. Federal records (naturalization, FBI) are apostilled by the US Department of State. $5–$25 per document plus 2–8 weeks per submission.",
+          "links": [{ "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }],
+          "conditions": { "has_apostilles": false },
+          "estimatedWeeks": 56,
+          "order": 10
+        },
+        {
+          "taskTitle": "Get sworn Italian translations (traduttore giurato) of every US document",
+          "phase": "Phase 2: Documentation",
+          "description": "Translations must be by a translator the Italian consulate recognizes, or sworn in Italy. Each consulate publishes its accepted-translator list online.",
+          "conditions": { "has_sworn_translations": false },
+          "estimatedWeeks": 48,
+          "order": 11
+        },
+        {
+          "taskTitle": "Correct any name or date discrepancies in your documents",
+          "phase": "Phase 2: Documentation",
+          "description": "If your great-grandfather appears as Giuseppe on his Italian birth record and Joseph on his US naturalization, you will need a court 'rettifica' or amended US records before submission. This is the most common cause of rejection — review every document line by line.",
+          "conditions": {},
+          "estimatedWeeks": 44,
+          "order": 12
+        },
+        {
+          "taskTitle": "Book your Prenot@Mi consulate appointment",
+          "phase": "Phase 3: Application",
+          "description": "Italian consulates use the Prenot@Mi system. Citizenship appointments typically have 1–3 year waitlists — book as soon as documents are ordered, not when they arrive. If your consulate's queue is closed, monitor daily.",
+          "links": [{ "label": "Prenot@Mi appointment system", "url": "https://prenotami.esteri.it/" }],
+          "conditions": { "maternal_line_pre_1948": false, "has_consulate_appt": false },
+          "estimatedWeeks": 80,
+          "order": 13
+        },
+        {
+          "taskTitle": "Engage an Italian lawyer for your 1948 case",
+          "phase": "Phase 3: Application",
+          "description": "Filed at the Court of Rome. Fees typically €3,500–€7,000 for the whole family. Pick a lawyer with a track record of 1948 cases and ask for referrals from prior US clients.",
+          "conditions": { "maternal_line_pre_1948": true, "engaging_lawyer": false },
+          "estimatedWeeks": 60,
+          "order": 14
+        },
+        {
+          "taskTitle": "Attend your consulate appointment and submit the dossier",
+          "phase": "Phase 3: Application",
+          "description": "Bring originals and photocopies of every document. The ~€300 fee is paid at the appointment (form of payment varies by consulate). The consulate forwards your dossier to the relevant Italian Comune for registration.",
+          "conditions": { "maternal_line_pre_1948": false },
+          "estimatedWeeks": 24,
+          "order": 15
+        },
+        {
+          "taskTitle": "File your 1948 case in the Court of Rome",
+          "phase": "Phase 3: Application",
+          "description": "Your lawyer files the petition with all apostilled + translated documents. You usually do not need to travel to Italy for the hearing.",
+          "conditions": { "maternal_line_pre_1948": true },
+          "estimatedWeeks": 32,
+          "order": 16
+        },
+        {
+          "taskTitle": "Wait for the Italian Comune to register your birth (trascrizione)",
+          "phase": "Phase 3: Application",
+          "description": "After consulate approval (or court ruling), your records go to the relevant Comune for trascrizione. This typically takes 6–18 months. Once registered, you are an Italian citizen.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 17
+        },
+        {
+          "taskTitle": "Receive your codice fiscale and Italian passport",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Once registered with your Comune, the consulate issues your codice fiscale (Italian tax ID) and you can apply for an Italian passport — a full EU passport granting freedom of movement, residence, and work across the EU.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 18
+        },
+        {
+          "taskTitle": "Register with AIRE (Italians abroad)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Anagrafe degli Italiani Residenti all'Estero — the required registry for Italian citizens living abroad. Registration is done through your consulate and is needed to vote and access consular services.",
+          "links": [{ "label": "AIRE registration", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/aire/" }],
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 19
+        },
+        {
+          "taskTitle": "Understand your dual-citizen tax obligations",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "The US taxes citizens on worldwide income regardless of residence. Italy taxes residents (183-day rule). The US-Italy tax treaty covers most overlap. If you intend to retire in southern Italy, also research the 7% flat-tax regime.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 20
+        },
+        {
+          "taskTitle": "Register any children's births with the consulate",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Children born to you after you become Italian are automatically Italian, but the birth must be registered (trascrizione) with the consulate to take effect in Italy and the EU.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 21
+        }
+      ]
     }
   }
 }
