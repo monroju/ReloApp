@@ -47,11 +47,20 @@ struct TaskRule: Codable {
     let conditions: [String: AnyCodableValue]
     let estimatedWeeks: Int?
     let order: Int?
+    /// When present, this taskRule also produces a DocumentSlot the user can
+    /// fill from the Documents tab. Slots are idempotent via (key, trackId).
+    let documentSlot: DocumentSlotRule?
 }
 
 struct TaskRuleLink: Codable {
     let label: String
     let url: String
+}
+
+struct DocumentSlotRule: Codable {
+    let key: String
+    let label: String
+    let description: String?
 }
 
 // MARK: - AnyCodableValue (handles mixed JSON types: string, bool, [string])

@@ -67,6 +67,26 @@ final class WizardRepository {
             }
     }
 
+    /// Generate DocumentSlots for taskRules that carry a documentSlot annotation.
+    /// Runs the same condition filter as `generateTasks` so the slot list always
+    /// matches the task list the user just saw.
+    func generateSlots(track: WizardTrack, trackId: String, answers: [String: Any]) -> [DocumentSlot] {
+        return track.taskRules
+            .filter { evaluateConditions($0.conditions, answers: answers) }
+            .compactMap { rule -> DocumentSlot? in
+                guard let docSlot = rule.documentSlot else { return nil }
+                return DocumentSlot(
+                    key: docSlot.key,
+                    label: docSlot.label,
+                    slotDescription: docSlot.description,
+                    countryId: track.countryId,
+                    visaTrackId: trackId,
+                    status: .pending,
+                    uploadedDocumentId: nil
+                )
+            }
+    }
+
     static func targetWeeks(from choice: String) -> Int {
         switch choice {
         case "asap": return 12

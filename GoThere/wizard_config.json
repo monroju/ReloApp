@@ -145,7 +145,8 @@
           "links": [{ "label": "FBI Identity History", "url": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/identity-history-summary-checks" }],
           "conditions": { "has_background_check": false, "country_of_residence": ["us"] },
           "estimatedWeeks": 20,
-          "order": 2
+          "order": 2,
+          "documentSlot": { "key": "es_fbi_check", "label": "FBI Identity History Summary", "description": "From the FBI or an approved channeler" }
         },
         {
           "taskTitle": "Get police background check from your country",
@@ -162,7 +163,8 @@
           "links": [{ "label": "US Apostille Info", "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html" }],
           "conditions": { "has_apostille": false },
           "estimatedWeeks": 16,
-          "order": 3
+          "order": 3,
+          "documentSlot": { "key": "es_apostilled_background_check", "label": "Apostilled background check", "description": "FBI/police certificate with apostille from the issuing authority" }
         },
         {
           "taskTitle": "Obtain international health insurance",
@@ -174,7 +176,8 @@
           ],
           "conditions": { "has_health_insurance": false },
           "estimatedWeeks": 14,
-          "order": 4
+          "order": 4,
+          "documentSlot": { "key": "es_health_insurance", "label": "Health insurance policy (Spain)", "description": "Full-coverage, no-copay policy valid in Spain" }
         },
         {
           "taskTitle": "Gather proof of passive income",
@@ -182,7 +185,8 @@
           "description": "Collect 12 months of bank statements, pension statements, or investment income proof. Must show income exceeds Spain's IPREM threshold.",
           "conditions": {},
           "estimatedWeeks": 14,
-          "order": 5
+          "order": 5,
+          "documentSlot": { "key": "es_income_proof", "label": "Proof of passive income", "description": "12 months of bank/pension/investment statements above the IPREM threshold" }
         },
         {
           "taskTitle": "Gather additional income proof for spouse",
@@ -947,7 +951,8 @@
           "links": [{ "label": "Find Italian Comuni online", "url": "https://www.comuni-italiani.it/" }],
           "conditions": { "has_ancestor_birth_cert": false },
           "estimatedWeeks": 80,
-          "order": 6
+          "order": 6,
+          "documentSlot": { "key": "it_ancestor_birth_cert", "label": "Italian ancestor's birth certificate", "description": "Estratto plurilingue from the Comune of birth" }
         },
         {
           "taskTitle": "Order your Italian ancestor's marriage certificate (atto di matrimonio)",
@@ -955,7 +960,8 @@
           "description": "From the Comune where the marriage took place. Same multilingual extract format as the birth certificate.",
           "conditions": { "has_ancestor_marriage_cert": false },
           "estimatedWeeks": 76,
-          "order": 7
+          "order": 7,
+          "documentSlot": { "key": "it_ancestor_marriage_cert", "label": "Italian ancestor's marriage certificate", "description": "From the Comune of marriage; multilingual extract" }
         },
         {
           "taskTitle": "Order naturalization records (or 'Certificate of Non-Existence')",
@@ -964,7 +970,8 @@
           "links": [{ "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }],
           "conditions": { "has_naturalization_record": false },
           "estimatedWeeks": 72,
-          "order": 8
+          "order": 8,
+          "documentSlot": { "key": "it_naturalization_record", "label": "Ancestor's US naturalization record", "description": "USCIS Genealogy record or 'Certificate of Non-Existence'" }
         },
         {
           "taskTitle": "Order vital records for every generation in the chain (long-form)",
@@ -972,7 +979,8 @@
           "description": "Birth, marriage, and death certificates for each generation between you and the Italian-born ancestor. Long-form (not short-form) — the consulate rejects abstracts.",
           "conditions": { "has_all_us_vital_records": false },
           "estimatedWeeks": 64,
-          "order": 9
+          "order": 9,
+          "documentSlot": { "key": "it_us_vital_records", "label": "US vital records for the chain", "description": "Long-form birth/marriage/death certs for every generation" }
         },
         {
           "taskTitle": "Apostille every US document in the chain",
@@ -981,7 +989,8 @@
           "links": [{ "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }],
           "conditions": { "has_apostilles": false },
           "estimatedWeeks": 56,
-          "order": 10
+          "order": 10,
+          "documentSlot": { "key": "it_apostilles", "label": "Apostilled US documents", "description": "Apostille from each issuing state + US DoS for federal records" }
         },
         {
           "taskTitle": "Get sworn Italian translations (traduttore giurato) of every US document",
@@ -989,7 +998,8 @@
           "description": "Translations must be by a translator the Italian consulate recognizes, or sworn in Italy. Each consulate publishes its accepted-translator list online.",
           "conditions": { "has_sworn_translations": false },
           "estimatedWeeks": 48,
-          "order": 11
+          "order": 11,
+          "documentSlot": { "key": "it_sworn_translations", "label": "Sworn Italian translations", "description": "Traduttore giurato translations of every US document" }
         },
         {
           "taskTitle": "Correct any name or date discrepancies in your documents",
@@ -1184,7 +1194,8 @@
           ],
           "conditions": { "has_grandparent_irish_birth_cert": false },
           "estimatedWeeks": 48,
-          "order": 4
+          "order": 4,
+          "documentSlot": { "key": "ie_gro_ancestor_cert", "label": "Irish ancestor's GRO birth certificate", "description": "Certified copy from the General Register Office" }
         },
         {
           "taskTitle": "Order the linking parent's birth certificate",
@@ -1192,7 +1203,8 @@
           "description": "Long-form, showing parents' names. Order from the issuing jurisdiction.",
           "conditions": { "has_parent_birth_cert": false },
           "estimatedWeeks": 44,
-          "order": 5
+          "order": 5,
+          "documentSlot": { "key": "ie_parent_birth_cert", "label": "Linking parent's birth certificate", "description": "Long-form, showing parents' names" }
         },
         {
           "taskTitle": "Order your own long-form birth certificate",
@@ -1200,7 +1212,8 @@
           "description": "Long-form (showing parents' names), not the short-form / wallet-size.",
           "conditions": { "has_own_birth_cert": false },
           "estimatedWeeks": 44,
-          "order": 6
+          "order": 6,
+          "documentSlot": { "key": "ie_own_birth_cert", "label": "Your own birth certificate", "description": "Long-form showing both parents' names" }
         },
         {
           "taskTitle": "Order marriage certificates for every generation where surnames change",
@@ -1208,7 +1221,8 @@
           "description": "Especially the Irish-born ancestor's marriage certificate (links them into your line) and your parents' marriage certificate.",
           "conditions": { "has_chain_marriage_certs": false },
           "estimatedWeeks": 40,
-          "order": 7
+          "order": 7,
+          "documentSlot": { "key": "ie_chain_marriage_certs", "label": "Marriage certificates (chain)", "description": "Every generation where surnames changed" }
         },
         {
           "taskTitle": "Search the National Archives of Ireland for ancestor context (optional)",

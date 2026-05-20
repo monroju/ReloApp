@@ -119,6 +119,18 @@ final class VisaWizardViewModel: ObservableObject {
                 try? await EventsRepository.shared.addEventFromTask(task)
             }
 
+            // Item 21 — upsert any documentSlot-annotated rules as DocumentSlots
+            // so they appear in the Documents tab. Idempotent by (trackId, key);
+            // existing status + uploadedDocumentId survive a wizard re-run.
+            if let track = selectedTrack, let trackId = selectedTrackId {
+                let slots = WizardRepository.shared.generateSlots(
+                    track: track, trackId: trackId, answers: answers
+                )
+                if !slots.isEmpty {
+                    try? await DocumentsRepository.shared.upsertSlots(slots)
+                }
+            }
+
             Analytics.log(.wizardCompleted, properties: [
                 "track_id": selectedTrackId ?? "unknown",
                 "country_id": selectedTrack?.countryId ?? "unknown",
