@@ -26,6 +26,35 @@ struct WizardTrack: Codable {
     let shortName: String
     let steps: [WizardStep]
     let taskRules: [TaskRule]
+    /// Wave 2 — Ancestry deepening. Structured eligibility metadata used by the
+    /// Wizard intro card and the Decision Tree explanation layer. Optional for
+    /// backward compat with v1/v2 tracks that don't carry a rule yet.
+    let eligibilityRule: EligibilityRule?
+}
+
+/// Structured eligibility metadata for ancestry / citizenship-by-descent tracks.
+/// Surfaced in the Wizard intro card and the Decision Tree handoff. Carries the
+/// in-flux flag that drives the "rules changing — verify before you start"
+/// banner.
+struct EligibilityRule: Codable, Hashable {
+    /// Headline rule, e.g. "Limited to descendants of an Italian-born parent or
+    /// grandparent (Law 74/2025)".
+    let summary: String
+    /// Generations of descent the track currently allows, e.g. 2 for
+    /// post-DL-36/2025 Italy, 4 for older Italian rules, nil for tracks where
+    /// the concept doesn't apply.
+    let generationCutoff: Int?
+    /// True for tracks with a special-court / pre-1948 maternal-line carve-out
+    /// (Italy Jure Sanguinis). Drives an extra "1948 case" callout.
+    let maternalLineCutoff: Bool
+    /// Bullet criteria the user should self-check before starting the track.
+    let criteria: [String]
+    /// True when the underlying law is in active change and the user must
+    /// re-verify before relying on this track. Drives the warning banner on
+    /// the Wizard intro screen.
+    let inFlux: Bool
+    /// Free-text note explaining what is changing — surfaced only when inFlux.
+    let inFluxNote: String?
 }
 
 struct WizardStep: Codable, Identifiable {

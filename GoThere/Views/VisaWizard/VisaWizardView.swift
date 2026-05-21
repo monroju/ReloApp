@@ -118,13 +118,23 @@ struct VisaWizardView: View {
                     Button {
                         vm.selectTrack(trackId)
                     } label: {
-                        VStack(alignment: .leading, spacing: 4) {
+                        VStack(alignment: .leading, spacing: 6) {
                             Text(track.displayName)
                                 .font(.headline)
                                 .foregroundColor(.primary)
                             Text("\(track.shortName) \u{2022} \(track.steps.count) steps \u{2022} \(track.taskRules.count) tasks")
                                 .font(.caption)
                                 .foregroundColor(.secondary)
+                            if track.eligibilityRule?.inFlux == true {
+                                HStack(spacing: 6) {
+                                    Image(systemName: "exclamationmark.triangle.fill")
+                                        .font(.caption2)
+                                    Text("Rules changing — verify before you start")
+                                        .font(.caption2.weight(.semibold))
+                                }
+                                .foregroundColor(.goWarning)
+                                .padding(.top, 2)
+                            }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(20)
@@ -144,6 +154,8 @@ struct VisaWizardView: View {
     private func stepView(_ step: WizardStep) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
+                inFluxBanner
+
                 Text(step.title)
                     .font(.title3.bold())
                     .foregroundColor(.goPrimary)
@@ -301,6 +313,8 @@ struct VisaWizardView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.top, 40)
                 } else {
+                    inFluxBanner
+
                     Text("Your Personalized Checklist")
                         .font(.title3.bold())
                         .foregroundColor(.goPrimary)
@@ -439,6 +453,39 @@ extension VisaWizardView {
     private var selectedVisaInfo: VisaInfo? {
         guard let trackId = vm.selectedTrackId else { return nil }
         return VisaCatalog.all.first { $0.wizardTrackId == trackId }
+    }
+
+    /// Wave 2 (Ancestry deepening) — warning banner shown across step + summary
+    /// views when the underlying citizenship law is in active change. Driven by
+    /// `WizardTrack.eligibilityRule.inFlux`. Currently active on Italy Jure
+    /// Sanguinis (DL 36/2025) and Canada by-descent (Bill C-3).
+    @ViewBuilder
+    var inFluxBanner: some View {
+        if let rule = vm.selectedTrack?.eligibilityRule, rule.inFlux {
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundColor(.goWarning)
+                    Text("Rules changing — verify before you start")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.primary)
+                }
+                if let note = rule.inFluxNote {
+                    Text(note)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            .padding(12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.goWarning.opacity(0.12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.goWarning.opacity(0.5), lineWidth: 1)
+            )
+            .cornerRadius(10)
+        }
     }
 
     /// Read the wizard answers for any dependent-related question we know

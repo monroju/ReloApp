@@ -337,7 +337,7 @@ enum VisaCatalog {
             pros: ["No residency requirement", "Full Canadian passport", "Children also eligible"],
             cons: ["Must prove unbroken lineage", "Documentation can be hard", "Slow IRCC review"],
             officialUrl: "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html",
-            wizardTrackId: nil
+            wizardTrackId: "ca_descent"
         ),
         VisaInfo(
             id: "ca_express_entry",

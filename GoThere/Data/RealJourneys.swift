@@ -4,7 +4,7 @@ import Foundation
 /// (matches `VisaCatalog`) and by country ID (for fallback when a country has a
 /// canonical journey but the user hasn't selected a specific visa yet).
 enum RealJourneys {
-    static let all: [RealJourney] = [spainDNV, spainAutonomo]
+    static let all: [RealJourney] = [spainDNV, spainAutonomo, italyJureSanguinis, irelandFBR]
 
     static func forVisa(_ visaId: String) -> RealJourney? {
         all.first { $0.visaId == visaId }
@@ -404,6 +404,358 @@ enum RealJourneys {
         gotchas: [
             "Modelo 347 sneaks up — third-party threshold triggers easily for SaaS suppliers and landlord rents",
             "Renta deadline is non-negotiable — missing 30 June triggers automatic recargos plus interest"
+        ]
+    )
+
+    // MARK: - Italy Jure Sanguinis
+    //
+    // Wave 2 — Ancestry deepening. Post-Decree-Law 36/2025 (converted by Law
+    // 74/2025) the consulate path collapsed for great-grandparent lines. This
+    // journey walks the post-reform document chain and the Court of Rome
+    // fallback for 1948 maternal-line cases. Anonymised composite from two
+    // observed 2024-2025 engagements with Italian citizenship lawyers.
+
+    static let italyJureSanguinis = RealJourney(
+        id: "italy_jure_sanguinis",
+        visaId: "it_jure_sanguinis",
+        countryId: "italy",
+        title: "Italy Citizenship by Descent (Jure Sanguinis)",
+        subtitle: "Grandparent line · 2025 case · 14-month journey",
+        totalDuration: "~14 months from comune request to Italian passport in hand",
+        feeSummary: "Italian citizenship lawyer retainer ≈ €3,500-€6,000 for a clean consulate case; €8,000-€15,000+ for a 1948 Court of Rome filing. Document costs (apostilles, sworn translations, GRO-equivalent civil records) add another €800-€2,000.",
+        eligibilitySummary: [
+            "Italian-born parent or grandparent in your line (post-DL 36/2025 cap)",
+            "Citizenship chain not broken by ancestor's naturalisation before the next generation in line was born",
+            "1948 case (maternal line where child was born before 1 January 1948) requires Court of Rome action — no consulate route",
+            "Application filed before 23:59 Rome time on 27 March 2025 falls under the pre-reform rules"
+        ],
+        phases: [italyEligibilityPhase, italyDocumentChainPhase, italyApostillePhase, italyTranslationPhase, italyFilingPhase, italyRegistrationPhase],
+        crossPhaseGotchas: [
+            JourneyGotcha(
+                id: "g_it_dl36",
+                title: "DL 36/2025 closed the great-grandparent consulate path",
+                detail: "If your line runs through a great-grandparent or further back, the consulate will not process you under the post-March-2025 rules. A specialist lawyer can advise whether a Court of Rome filing or a different track remains open."
+            ),
+            JourneyGotcha(
+                id: "g_it_chain_break",
+                title: "Naturalisation timing is the single most common chain-break",
+                detail: "Your Italian-born ancestor must NOT have naturalised as a US citizen before the next generation in the line was born. Verify the exact naturalisation date via the USCIS Genealogy Program before paying for document apostilles."
+            ),
+            JourneyGotcha(
+                id: "g_it_1948",
+                title: "1948 maternal-line cases route to the Court of Rome",
+                detail: "A line passing through a female ancestor whose child was born before 1 January 1948 cannot be processed at a consulate. A 1948 case is filed in the Court of Rome through an Italian lawyer."
+            ),
+            JourneyGotcha(
+                id: "g_it_comune_speed",
+                title: "Italian comune turnaround varies widely",
+                detail: "Some comune offices respond to mailed certified-mail requests within 6 weeks; others take 6+ months. A lawyer with on-the-ground contacts (or a relative in Italy) can shave months off the chain."
+            ),
+            JourneyGotcha(
+                id: "g_it_disclaimer",
+                title: "Verify with a lawyer before relying on this",
+                detail: "Italian citizenship-by-descent rules are still in active change after DL 36/2025 and the Constitutional Court's 12 March 2026 ruling. Do not rely on this journey as authoritative — confirm your specific eligibility with a licensed Italian citizenship lawyer."
+            )
+        ],
+        disclaimer: "Illustrative content based on anonymised 2024-2025 grandparent-line cases. Not legal advice. Italian citizenship law is in active change — verify the current statutory framework with a licensed Italian lawyer before paying any fees."
+    )
+
+    private static let italyEligibilityPhase = JourneyPhase(
+        id: "p_it_eligibility",
+        order: 1,
+        title: "1. Eligibility Verification",
+        timeframe: "Weeks 1-4",
+        summary: "Pull the Italian-born ancestor's USCIS naturalisation history (or a Certificate of Non-Existence). Confirm the post-DL 36/2025 generation cap applies to your line and identify whether the line is paternal, maternal post-1948, or a 1948 case.",
+        documents: [
+            "USCIS Genealogy Program request for naturalisation records (Index Search + Record Request)",
+            "Family tree mapping every birth, marriage, and death in the line",
+            "Approximate dates of: Italian ancestor's birth, emigration from Italy, US naturalisation (if any), and birth of next generation in line"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_intake", situation: "Initial scoping call", phrasing: "Lawyer re-tests your eligibility against the two-generation cap before quoting."),
+            LawyerPattern(id: "lp_it_chain", situation: "Chain risk assessment", phrasing: "Lawyer drafts the naturalisation-timing test and flags which records to pull first.")
+        ],
+        gotchas: [
+            "USCIS Index Search confirms whether a naturalisation record exists; Record Request retrieves it — order both",
+            "Lawyer typically asks for a flat fee plus per-record costs; clarify which is which before signing"
+        ]
+    )
+
+    private static let italyDocumentChainPhase = JourneyPhase(
+        id: "p_it_chain",
+        order: 2,
+        title: "2. Civil Records Chain",
+        timeframe: "Months 2-6",
+        summary: "Order long-form birth, marriage, and death certificates for every person in the line — both Italian (from the comune) and US-side. Italian comune requests typically go by certified mail with a self-addressed return envelope and a small reimbursement for postage.",
+        documents: [
+            "Italian ancestor's atto di nascita (birth) from the comune of birth",
+            "Italian ancestor's atto di matrimonio (marriage) if applicable",
+            "Italian ancestor's atto di morte (death) if deceased",
+            "Long-form US birth, marriage, and death certificates for every generation in the line",
+            "Translation of any non-English source documents into English (for the US side)"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_comune", situation: "Comune outreach", phrasing: "Lawyer drafts certified-mail requests in Italian for each comune."),
+            LawyerPattern(id: "lp_it_us_records", situation: "US vital records", phrasing: "Lawyer routes you to the issuing US jurisdiction's preferred ordering channel.")
+        ],
+        gotchas: [
+            "Long-form (full) certificates required — short-form is rejected",
+            "Some comune offices charge €0 but insist on a self-addressed return envelope; others charge €30+",
+            "US vital records can be slow during peak summer order season — start early"
+        ]
+    )
+
+    private static let italyApostillePhase = JourneyPhase(
+        id: "p_it_apostille",
+        order: 3,
+        title: "3. Apostille Every US Document",
+        timeframe: "Month 6-8",
+        summary: "Every US-issued document in the chain needs an Apostille of the Hague from the issuing US state's Secretary of State (federal documents get the US Department of State). Italian documents do not need apostilles — they are accepted natively.",
+        documents: [
+            "Apostille on each US birth certificate",
+            "Apostille on each US marriage certificate",
+            "Apostille on each US death certificate",
+            "Apostille on USCIS naturalisation record or Certificate of Non-Existence"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_apostille", situation: "Apostille routing", phrasing: "Lawyer routes each document to the correct issuing-state apostille office."),
+            LawyerPattern(id: "lp_it_apostille_speed", situation: "Speed options", phrasing: "Lawyer flags which states accept expedited service and which don't.")
+        ],
+        gotchas: [
+            "Apostille must be issued by the state that issued the underlying record — out-of-state apostilles are rejected",
+            "Some states require an intermediate county clerk certification before the Secretary of State apostille",
+            "USCIS records get federal apostilles from the US Department of State — different process and timeline"
+        ]
+    )
+
+    private static let italyTranslationPhase = JourneyPhase(
+        id: "p_it_translation",
+        order: 4,
+        title: "4. Sworn Translation into Italian",
+        timeframe: "Month 8-10",
+        summary: "Every US document — original, apostille, and any annotations — needs a sworn Italian translation by a traduttore giurato or a translator registered with the relevant Italian court. Translations are then bound to the original and apostille as a single notarised package.",
+        documents: [
+            "Sworn Italian translation of every US document in the chain",
+            "Translator's giuramento (sworn affidavit) attached to each translation",
+            "Bound packets: each original + apostille + translation as a single bundle"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_translator", situation: "Translator selection", phrasing: "Lawyer routes documents to a court-registered traduttore giurato."),
+            LawyerPattern(id: "lp_it_bundle", situation: "Bundle preparation", phrasing: "Lawyer confirms each packet is bound and ribboned per consular standard.")
+        ],
+        gotchas: [
+            "DIY or non-sworn translations are rejected — even if perfectly accurate",
+            "Translation fees scale with page count, not document count — long marriage certificates can cost more than birth certificates",
+            "Bind originals BEFORE the consular submission — loose translations can be lost in handling"
+        ]
+    )
+
+    private static let italyFilingPhase = JourneyPhase(
+        id: "p_it_filing",
+        order: 5,
+        title: "5. File at the Consulate or in Court",
+        timeframe: "Month 10-12",
+        summary: "Book a Prenot@Mi appointment at the Italian consulate covering your jurisdiction. For 1948 maternal-line cases (child born before 1948), skip the consulate and file in the Court of Rome through your Italian lawyer.",
+        documents: [
+            "Complete bound packets for every person in the line",
+            "Application form (modulo) per consulate; lawyer prepares",
+            "Consulate appointment confirmation from Prenot@Mi",
+            "Court filing dossier (1948 cases only)"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_prenotami", situation: "Prenot@Mi booking", phrasing: "Lawyer monitors the consulate calendar and books the first available slot."),
+            LawyerPattern(id: "lp_it_court", situation: "Court of Rome filing", phrasing: "Italian lawyer files the 1948 dossier in Rome and updates you on hearing dates.")
+        ],
+        gotchas: [
+            "Prenot@Mi appointments at high-demand consulates (NY, LA) can be booked 12+ months out",
+            "1948 court cases run 12-36 months; budget accordingly",
+            "Consulate may request re-issued certificates if your originals are more than 6 months old at filing"
+        ]
+    )
+
+    private static let italyRegistrationPhase = JourneyPhase(
+        id: "p_it_registration",
+        order: 6,
+        title: "6. Trascrizione, Passport, and AIRE",
+        timeframe: "Month 12-14",
+        summary: "Once the consulate or court confirms recognition, your records are transcribed (trascrizione) into the Italian civil registry of your ancestor's comune. You can then apply for an Italian passport. AIRE registration (Anagrafe Italiani Residenti all'Estero) follows.",
+        documents: [
+            "Consulate or court recognition decree",
+            "Italian passport application (online via Prenot@Mi for some consulates)",
+            "AIRE registration form"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_it_trascrizione", situation: "Comune transcription", phrasing: "Lawyer pings the comune to confirm transcription is recorded."),
+            LawyerPattern(id: "lp_it_passport", situation: "Passport booking", phrasing: "Consulate schedules passport biometrics 4-8 weeks after transcription is confirmed.")
+        ],
+        gotchas: [
+            "Transcription is asynchronous — book your passport appointment as soon as recognition is confirmed",
+            "AIRE registration triggers Italian tax-residency conversations — model your tax position before registering",
+            "Children born after recognition inherit citizenship automatically but still need their own transcriptions to obtain a passport"
+        ]
+    )
+
+    // MARK: - Ireland FBR
+    //
+    // Wave 2 — Ancestry deepening. Walks the standard grandparent-on-the-island
+    // path through the DFA's FBR portal. The 12-month standard backlog and the
+    // "register before having children" trap are the two highest-signal facts
+    // for this audience.
+
+    static let irelandFBR = RealJourney(
+        id: "ireland_fbr",
+        visaId: "ie_fbr",
+        countryId: "ireland",
+        title: "Ireland Foreign Births Register (FBR)",
+        subtitle: "Grandparent path · 2024 case · 13-month journey",
+        totalDuration: "~13 months from first GRO request to FBR certificate in hand",
+        feeSummary: "FBR fee: €278 (adults), €153 (under 18), payable at submission. GRO-issued certificates ≈ €20 each; US-side vital records ≈ $25-$45 each. Optional genealogist for archive work ≈ €60-€120/hour.",
+        eligibilitySummary: [
+            "Ancestor born on the island of Ireland (any of the 32 counties — Northern Ireland counts)",
+            "Grandparent path is automatic; great-grandparent paths require the intermediate parent to have been on the FBR before your birth",
+            "Your FBR registration must be COMPLETE before any future child's birth for them to inherit Irish citizenship",
+            "No language test, no income test, no residence requirement"
+        ],
+        phases: [irelandPlanningPhase, irelandGROOrderPhase, irelandUSRecordsPhase, irelandApplicationPhase, irelandWaitPhase, irelandPassportPhase],
+        crossPhaseGotchas: [
+            JourneyGotcha(
+                id: "g_ie_gro",
+                title: "GRO-issued certified copies are required",
+                detail: "Free historical scans from IrishGenealogy.ie are useful for research but the DFA will only accept GRO-issued certified copies for the FBR application. Order from the GRO directly or through a third-party service."
+            ),
+            JourneyGotcha(
+                id: "g_ie_long_form",
+                title: "Long-form birth certificates only",
+                detail: "Short-form / wallet-size US birth certificates are rejected. Order long-form certified copies showing both parents' names from the issuing US vital records office."
+            ),
+            JourneyGotcha(
+                id: "g_ie_children",
+                title: "Children must wait until your FBR is complete",
+                detail: "A child born to a non-resident Irish citizen does NOT inherit Irish citizenship unless the parent was already on the FBR at the child's birth. Time your applications carefully."
+            ),
+            JourneyGotcha(
+                id: "g_ie_backlog",
+                title: "DFA standard processing is ~12 months",
+                detail: "The DFA does not offer paid expedited processing for routine FBR applications. Plan for 12 months as a floor. The clock starts when the DFA receives your complete application by post, not when you submit electronically."
+            ),
+            JourneyGotcha(
+                id: "g_ie_disclaimer",
+                title: "Verify with the DFA before relying on this",
+                detail: "Irish citizenship rules are stable but processing times and document requirements occasionally change. Verify with the current DFA FBR guidance before paying any fees."
+            )
+        ],
+        disclaimer: "Illustrative content based on an anonymised 2024 grandparent-line case (US → Irish citizenship). Not legal advice. Irish citizenship law is stable but processing times change — verify with the current DFA FBR guidance before relying on this."
+    )
+
+    private static let irelandPlanningPhase = JourneyPhase(
+        id: "p_ie_planning",
+        order: 1,
+        title: "1. Plan Your Documentary Chain",
+        timeframe: "Weeks 1-2",
+        summary: "Map the line from you up to your Irish-born ancestor and list every document you need. Confirm the grandparent (or earlier eligible ancestor) was born on the island of Ireland and identify which county. If you have a parent on the FBR already, your path is simpler.",
+        documents: [
+            "Family tree mapping every person in the line, with approximate dates",
+            "Confirmation of the Irish ancestor's county of birth",
+            "FBR application portal account (DFA)"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "Northern Ireland counts — Belfast and Derry births are fine for FBR via the grandparent rule",
+            "If your path is via a great-grandparent, the intermediate parent must already be on the FBR before your birth — check that first"
+        ]
+    )
+
+    private static let irelandGROOrderPhase = JourneyPhase(
+        id: "p_ie_gro",
+        order: 2,
+        title: "2. Order GRO Certificates from Ireland",
+        timeframe: "Month 1-3",
+        summary: "Order GRO-issued certified copies of your Irish-born ancestor's birth, marriage (if applicable), and death (if deceased) certificates. Order any other Irish-side certificates needed to link the chain (parent's birth cert if they were also born in Ireland, etc.).",
+        documents: [
+            "GRO-issued ancestor's birth certificate",
+            "GRO-issued ancestor's marriage certificate (if applicable)",
+            "GRO-issued ancestor's death certificate (if deceased)"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "GRO turnaround is typically 4-8 weeks by post",
+            "Online GRO orders ship to the address on file — confirm your shipping address before submitting",
+            "Free historical scans from IrishGenealogy.ie can confirm an ancestor exists in the records, but won't substitute for a GRO-issued certificate"
+        ]
+    )
+
+    private static let irelandUSRecordsPhase = JourneyPhase(
+        id: "p_ie_us_records",
+        order: 3,
+        title: "3. Order US Vital Records",
+        timeframe: "Month 2-4",
+        summary: "Order long-form birth, marriage, and death certificates for every generation in the chain on the US side. Marriage certificates link generations where surnames change.",
+        documents: [
+            "Your own long-form birth certificate",
+            "Linking parent's long-form birth certificate",
+            "Marriage certificates for every generation where a surname changed",
+            "Current government photo ID + recent proof of address (utility bill or bank statement)"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "Short-form / wallet-size birth certificates are rejected — order long-form",
+            "Vital Records turnaround varies wildly by US state and county; budget extra time for Texas, New York, and California",
+            "Marriage certificates can be county-issued or state-issued — confirm which your state requires"
+        ]
+    )
+
+    private static let irelandApplicationPhase = JourneyPhase(
+        id: "p_ie_application",
+        order: 4,
+        title: "4. Complete and Post the FBR Application",
+        timeframe: "Month 4-5",
+        summary: "Submit the online FBR application via fbr.dfa.ie. Pay the fee online. Print the form, sign by hand, and post the signed copy with all supporting documents (originals or GRO-issued certified copies) to the address shown on the application.",
+        documents: [
+            "Signed printed FBR application form",
+            "All supporting documents listed in the application (originals or GRO-issued)",
+            "FBR fee payment receipt (€278 adult / €153 under 18)"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "Use a tracked or registered postal service — the DFA does not confirm receipt of incomplete applications",
+            "The DFA returns originals after processing but expects you to be without them for 12+ months",
+            "Include a cover letter listing every enclosed document — saves processing time"
+        ]
+    )
+
+    private static let irelandWaitPhase = JourneyPhase(
+        id: "p_ie_wait",
+        order: 5,
+        title: "5. Wait (~12 Months)",
+        timeframe: "Month 5-17",
+        summary: "DFA standard processing is approximately 12 months. Incomplete applications wait longer — the DFA will write to you to request clarifying documents, with a deadline to respond. Set a calendar reminder so you don't miss it.",
+        documents: [
+            "Any DFA requests for further information (respond within the stated deadline)",
+            "Optional: nothing else — the DFA processes asynchronously"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "The DFA does not provide live status updates — emails go to a general queue",
+            "RFIs (request for further information) typically have a 4-week response window — missing it pushes you back to the end of the queue"
+        ]
+    )
+
+    private static let irelandPassportPhase = JourneyPhase(
+        id: "p_ie_passport",
+        order: 6,
+        title: "6. Receive FBR Certificate and Apply for Passport",
+        timeframe: "Month 17 onwards",
+        summary: "Once you receive your FBR certificate, you are an Irish citizen with the same rights as anyone born in Ireland. Apply for an Irish passport via the Department of Foreign Affairs passport service.",
+        documents: [
+            "FBR certificate (your proof of Irish citizenship)",
+            "Irish passport application (online via DFA passport service)",
+            "Recent passport photo + identity documents"
+        ],
+        lawyerPatterns: [],
+        gotchas: [
+            "Online passport applications via DFA typically take 4-6 weeks once submitted",
+            "Register children's births on the FBR before any future grandchildren — the chain closes if the parent was not on the FBR at the child's birth",
+            "Dual citizenship is allowed — you retain all US rights"
         ]
     )
 }
