@@ -1,5 +1,11 @@
 {
-  "wizardVersion": 1,
+  "wizardVersion": 2,
+  "anchorDateQuestion": {
+    "id": "anchor_date",
+    "label": "Target application date",
+    "hint": "Pick the date you'd like to submit your visa application. We'll anchor reminders to it. You can change this later.",
+    "defaultOffsetDays": 90
+  },
   "tracks": {
     "es_non_lucrative": {
       "displayName": "Spain - Non-Lucrative Visa",
@@ -228,8 +234,22 @@
           "documentSlot": {
             "key": "es_fbi_check",
             "label": "FBI Identity History Summary",
-            "description": "From the FBI or an approved channeler"
-          }
+            "description": "From the FBI or an approved channeler",
+            "whereToObtain": "FBI website, or use an FBI-approved channeler for 3-5 day turnaround instead of 12-18 weeks by mail.",
+            "validityPeriod": "Valid for 90 days from issuance for consulate submission. Apostille within that window.",
+            "apostilleRequired": true,
+            "swornTranslationRequired": true
+          },
+          "milestones": [
+            {
+              "key": "fbi_check_expiry",
+              "title": "FBI background check expires",
+              "description": "Spanish consulates accept the FBI report for 90 days from issue. Re-order if your appointment is after this date.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": -90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Get police background check from your country",
@@ -363,7 +383,25 @@
             "has_consulate_appt": false
           },
           "estimatedWeeks": 12,
-          "order": 10
+          "order": 10,
+          "milestones": [
+            {
+              "key": "consulate_booking_window_opens",
+              "title": "Consulate booking window opens",
+              "description": "Most Spanish consulates accept appointments 90 days before your target submission date. Set a reminder 7 days before to book early.",
+              "category": "appointment",
+              "daysOffsetFromAnchor": -97,
+              "notificationEnabled": true
+            },
+            {
+              "key": "consulate_appointment",
+              "title": "Consulate appointment target",
+              "description": "Your visa submission date. Bring every document + apostille + sworn translation.",
+              "category": "appointment",
+              "daysOffsetFromAnchor": 0,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Complete visa application form (EX-01)",
@@ -433,7 +471,17 @@
           ],
           "conditions": {},
           "estimatedWeeks": 0,
-          "order": 16
+          "order": 16,
+          "milestones": [
+            {
+              "key": "tie_deadline",
+              "title": "TIE 30-day deadline (post-arrival)",
+              "description": "You have 30 days from entry to Spain to apply for your TIE. Book your Oficina de Extranjería appointment immediately on arrival.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 30,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Register at local town hall (Empadronamiento)",
@@ -441,7 +489,17 @@
           "description": "Register your address at the Ayuntamiento. This is required for most administrative procedures.",
           "conditions": {},
           "estimatedWeeks": 0,
-          "order": 17
+          "order": 17,
+          "milestones": [
+            {
+              "key": "empadronamiento_deadline",
+              "title": "Empadronamiento target (within 90 days)",
+              "description": "Register at your local Ayuntamiento. Required for most subsequent administrative steps including healthcare card and school enrollment.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Open a Spanish bank account",
@@ -4697,8 +4755,22 @@
           "documentSlot": {
             "key": "es_fbi_check",
             "label": "FBI Identity History Summary",
-            "description": "From the FBI or an approved channeler"
-          }
+            "description": "From the FBI or an approved channeler",
+            "whereToObtain": "FBI website, or use an FBI-approved channeler for 3-5 day turnaround instead of 12-18 weeks by mail.",
+            "validityPeriod": "Valid for 90 days from issuance for consulate submission. Apostille within that window.",
+            "apostilleRequired": true,
+            "swornTranslationRequired": true
+          },
+          "milestones": [
+            {
+              "key": "fbi_check_expiry",
+              "title": "FBI background check expires",
+              "description": "Spanish consulates accept the FBI report for 90 days from issue. Re-order if your appointment is after this date.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": -90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Get police background check from your country",
@@ -5029,8 +5101,22 @@
           "documentSlot": {
             "key": "es_fbi_check",
             "label": "FBI Identity History Summary",
-            "description": "From the FBI or an approved channeler"
-          }
+            "description": "From the FBI or an approved channeler",
+            "whereToObtain": "FBI website, or use an FBI-approved channeler for 3-5 day turnaround instead of 12-18 weeks by mail.",
+            "validityPeriod": "Valid for 90 days from issuance for consulate submission. Apostille within that window.",
+            "apostilleRequired": true,
+            "swornTranslationRequired": true
+          },
+          "milestones": [
+            {
+              "key": "fbi_check_expiry",
+              "title": "FBI background check expires",
+              "description": "Spanish consulates accept the FBI report for 90 days from issue. Re-order if your appointment is after this date.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": -90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Get police background check from your country",
@@ -5378,8 +5464,22 @@
           "documentSlot": {
             "key": "es_fbi_check",
             "label": "FBI Identity History Summary",
-            "description": "From the FBI or an approved channeler"
-          }
+            "description": "From the FBI or an approved channeler",
+            "whereToObtain": "FBI website, or use an FBI-approved channeler for 3-5 day turnaround instead of 12-18 weeks by mail.",
+            "validityPeriod": "Valid for 90 days from issuance for consulate submission. Apostille within that window.",
+            "apostilleRequired": true,
+            "swornTranslationRequired": true
+          },
+          "milestones": [
+            {
+              "key": "fbi_check_expiry",
+              "title": "FBI background check expires",
+              "description": "Spanish consulates accept the FBI report for 90 days from issue. Re-order if your appointment is after this date.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": -90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Get police background check from your country",
@@ -5701,8 +5801,22 @@
           "documentSlot": {
             "key": "es_fbi_check",
             "label": "FBI Identity History Summary",
-            "description": "From the FBI or an approved channeler"
-          }
+            "description": "From the FBI or an approved channeler",
+            "whereToObtain": "FBI website, or use an FBI-approved channeler for 3-5 day turnaround instead of 12-18 weeks by mail.",
+            "validityPeriod": "Valid for 90 days from issuance for consulate submission. Apostille within that window.",
+            "apostilleRequired": true,
+            "swornTranslationRequired": true
+          },
+          "milestones": [
+            {
+              "key": "fbi_check_expiry",
+              "title": "FBI background check expires",
+              "description": "Spanish consulates accept the FBI report for 90 days from issue. Re-order if your appointment is after this date.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": -90,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Get police background check from your country",

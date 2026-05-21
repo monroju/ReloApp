@@ -34,6 +34,23 @@ workflows:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY=""
 
+      - name: Run unit tests (non-blocking)
+        # Foundation Wave 1 introduces XCTest. First 1-2 builds keep this
+        # non-blocking while we shake out the simulator destination + signing
+        # config; promote to blocking once green.
+        ignore_failure: true
+        script: |
+          xcodebuild test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            -only-testing:GoThereTests
+
       - name: Package for Appetize.io
         script: |
           APP_PATH=$(find build/derivedData/Build/Products/Debug-iphonesimulator -name "*.app" -type d | head -1)

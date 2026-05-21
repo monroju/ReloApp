@@ -132,6 +132,13 @@ final class DocumentsRepository: ObservableObject {
                 "generatedAt": Timestamp(date: slot.generatedAt)
             ]
             if let d = slot.slotDescription { payload["slotDescription"] = d }
+            // Foundation Wave 1 — persist enriched slot metadata. All optional,
+            // so existing slots in Firestore don't break when we merge these in.
+            if let w = slot.whereToObtain { payload["whereToObtain"] = w }
+            if let v = slot.validityPeriod { payload["validityPeriod"] = v }
+            if let a = slot.apostilleRequired { payload["apostilleRequired"] = a }
+            if let s = slot.swornTranslationRequired { payload["swornTranslationRequired"] = s }
+            if let t = slot.sourceTaskRuleKey { payload["sourceTaskRuleKey"] = t }
             // Status defaults to .pending on FIRST write; on merge we keep existing.
             payload["status"] = SlotStatus.pending.rawValue
             batch.setData(payload, forDocument: docRef, merge: true)
@@ -147,6 +154,9 @@ final class DocumentsRepository: ObservableObject {
             "status": SlotStatus.uploaded.rawValue,
             "uploadedDocumentId": documentId
         ])
+        IntegrationEvents.shared.publish(
+            .documentSlotStatusChanged(slotId: slotId, status: .uploaded)
+        )
     }
 
     /// Detach a previously attached document — flips status back to .pending.
@@ -158,5 +168,8 @@ final class DocumentsRepository: ObservableObject {
             "status": SlotStatus.pending.rawValue,
             "uploadedDocumentId": FieldValue.delete()
         ])
+        IntegrationEvents.shared.publish(
+            .documentSlotStatusChanged(slotId: slotId, status: .pending)
+        )
     }
 }

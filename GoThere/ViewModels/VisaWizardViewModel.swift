@@ -11,6 +11,10 @@ final class VisaWizardViewModel: ObservableObject {
     @Published var generatedTasks: [TaskItem] = []
     @Published var isSaving = false
     @Published var saveComplete = false
+    /// User-selected anchor date for milestone scheduling. Defaults to
+    /// +`anchorDateQuestion.defaultOffsetDays` from today on first wizard open.
+    /// Foundation Wave 1.
+    @Published var anchorDate: Date = Date().addingTimeInterval(60 * 60 * 24 * 90)
 
     private let repo = WizardRepository.shared
 
@@ -18,6 +22,10 @@ final class VisaWizardViewModel: ObservableObject {
         availableTracks = repo.tracksForCountry(countryId)
         if availableTracks.count == 1 {
             selectTrack(availableTracks[0].0)
+        }
+        // Reset anchor to the config-driven default each time we load.
+        if let offset = repo.loadConfig()?.anchorDateQuestion?.defaultOffsetDays {
+            anchorDate = Calendar.current.date(byAdding: .day, value: offset, to: Date()) ?? anchorDate
         }
     }
 
@@ -129,7 +137,30 @@ final class VisaWizardViewModel: ObservableObject {
                 if !slots.isEmpty {
                     try? await DocumentsRepository.shared.upsertSlots(slots)
                 }
+
+                // Foundation Wave 1 — milestones anchored to the user-chosen
+                // anchor date. Each milestone becomes a Calendar EventItem with
+                // category/notification metadata. Push reminders fire at 9am
+                // local time on the event day for milestones flagged
+                // notificationEnabled=true.
+                let milestones = WizardRepository.shared.generateMilestones(
+                    track: track, trackId: trackId, answers: answers, anchorDate: anchorDate
+                )
+                for (_, event) in milestones {
+                    try? await EventsRepository.shared.addEventFromMilestone(event)
+                }
+
+                // Cross-feature bus — let any current/future subscriber know
+                // the wizard completed without modifying this fan-out.
+                IntegrationEvents.shared.publish(
+                    .visaCompletion(trackId: trackId, countryId: track.countryId, anchorDate: anchorDate)
+                )
             }
+
+            // First-time wizard completion: ask for notification permission so
+            // milestone reminders actually fire. Idempotent — iOS will only
+            // prompt once; subsequent calls are no-ops.
+            NotificationManager.shared.requestPermission()
 
             Analytics.log(.wizardCompleted, properties: [
                 "track_id": selectedTrackId ?? "unknown",

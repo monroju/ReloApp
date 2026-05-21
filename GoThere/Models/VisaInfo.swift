@@ -39,6 +39,11 @@ struct VisaInfo: Identifiable, Hashable {
     /// Populated for passive-income / DNV / retiree tracks. Refresh annually alongside
     /// VisaCatalog's "thresholds reflect 2025-2026 rules" note.
     var monthlyIncomeEUR: Int? = nil
+    /// Per-dependent income add-on as a fraction of the base threshold (e.g. 0.25
+    /// = +25% per dependent for Spain NLV per IPREM). Nil for visas with no
+    /// formal per-dependent income rule.
+    /// Foundation Wave 1 — unblocks per-dependent affordability math.
+    var dependentMultiplier: Double? = nil
     let processingTime: String  // "2-3 months"
     let duration: String        // "1y → 2/2/5 renewable"
     let workAllowed: String     // "No" / "Foreign employer only" / "Yes"
@@ -49,4 +54,17 @@ struct VisaInfo: Identifiable, Hashable {
     let cons: [String]
     let officialUrl: String
     let wizardTrackId: String?  // matches wizard_config.json — nil if no wizard yet
+}
+
+extension VisaInfo {
+    /// Effective monthly EUR income threshold for the given dependent count.
+    /// Returns nil when the visa has no structured income threshold. Falls
+    /// back to single-applicant figure when `dependentMultiplier` is nil.
+    func requiredMonthlyEUR(dependents: Int) -> Int? {
+        guard let base = monthlyIncomeEUR else { return nil }
+        guard dependents > 0 else { return base }
+        guard let multiplier = dependentMultiplier else { return base }
+        let addition = Double(base) * multiplier * Double(dependents)
+        return base + Int(addition.rounded())
+    }
 }

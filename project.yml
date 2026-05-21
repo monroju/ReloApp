@@ -55,3 +55,29 @@ targets:
         product: FirebaseStorage
       - package: posthog-ios
         product: PostHog
+
+  GoThereTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - GoThereTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.gothere.ios.tests
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_ALLOWED: "NO"
+        CODE_SIGNING_REQUIRED: "NO"
+        DEVELOPMENT_TEAM: PN45FJSNW2
+        GENERATE_INFOPLIST_FILE: "YES"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    dependencies:
+      - target: GoThere
+schemes:
+  GoThere:
+    build:
+      targets:
+        GoThere: all
+        GoThereTests: [test]
+    test:
+      targets:
+        - GoThereTests

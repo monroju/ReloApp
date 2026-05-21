@@ -82,8 +82,48 @@ final class WizardRepository {
                     countryId: track.countryId,
                     visaTrackId: trackId,
                     status: .pending,
-                    uploadedDocumentId: nil
+                    uploadedDocumentId: nil,
+                    whereToObtain: docSlot.whereToObtain,
+                    validityPeriod: docSlot.validityPeriod,
+                    apostilleRequired: docSlot.apostilleRequired,
+                    swornTranslationRequired: docSlot.swornTranslationRequired,
+                    sourceTaskRuleKey: docSlot.key
                 )
+            }
+    }
+
+    /// Materialized milestones for a track, anchored to the user-chosen date.
+    /// Returns one tuple per milestone: the event to write plus the rule so
+    /// callers can decide whether to schedule a push notification.
+    func generateMilestones(
+        track: WizardTrack,
+        trackId: String,
+        answers: [String: Any],
+        anchorDate: Date
+    ) -> [(rule: MilestoneRule, event: EventItem)] {
+        let calendar = Calendar.current
+        return track.taskRules
+            .filter { evaluateConditions($0.conditions, answers: answers) }
+            .flatMap { rule -> [(MilestoneRule, EventItem)] in
+                guard let milestones = rule.milestones else { return [] }
+                return milestones.compactMap { m in
+                    guard let date = calendar.date(byAdding: .day, value: m.daysOffsetFromAnchor, to: anchorDate) else {
+                        return nil
+                    }
+                    var event = EventItem(
+                        id: "milestone_\(trackId)_\(m.key)",
+                        title: replaceVars(m.title, answers: answers),
+                        dateMillis: date.timeIntervalSince1970 * 1000,
+                        notes: m.description,
+                        createdAt: Date()
+                    )
+                    event.source = "wizard"
+                    event.category = m.category
+                    event.daysOffsetFromAnchor = m.daysOffsetFromAnchor
+                    event.notificationEnabled = m.notificationEnabled ?? false
+                    event.visaTrackId = trackId
+                    return (m, event)
+                }
             }
     }
 

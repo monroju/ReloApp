@@ -5,6 +5,19 @@ import Foundation
 struct WizardConfig: Codable {
     let wizardVersion: Int
     let tracks: [String: WizardTrack]
+    /// Optional top-level question asked once before track selection. Used to
+    /// anchor milestones to a real user-chosen date (e.g. consulate appointment
+    /// target). Nil for backward compatibility with v1 configs.
+    let anchorDateQuestion: AnchorDateQuestion?
+}
+
+struct AnchorDateQuestion: Codable {
+    let id: String          // e.g. "anchor_date"
+    let label: String
+    let hint: String?
+    /// Default offset in days from today when the user skips the question.
+    /// Wave 1 default: 90.
+    let defaultOffsetDays: Int
 }
 
 struct WizardTrack: Codable {
@@ -50,6 +63,9 @@ struct TaskRule: Codable {
     /// When present, this taskRule also produces a DocumentSlot the user can
     /// fill from the Documents tab. Slots are idempotent via (key, trackId).
     let documentSlot: DocumentSlotRule?
+    /// Milestones are time-sensitive calendar events anchored to the wizard's
+    /// anchor date. Foundation Wave 1 — see BUILD_PLAN.md for usage.
+    let milestones: [MilestoneRule]?
 }
 
 struct TaskRuleLink: Codable {
@@ -61,6 +77,29 @@ struct DocumentSlotRule: Codable {
     let key: String
     let label: String
     let description: String?
+    /// Free-text guidance on where to obtain the document. Optional; falls back
+    /// to the legacy `description` when absent.
+    let whereToObtain: String?
+    /// Free-text validity window (e.g. "90 days from issue"). Optional.
+    let validityPeriod: String?
+    /// True if the document requires Apostille of the Hague to be valid abroad.
+    let apostilleRequired: Bool?
+    /// True if the document requires a sworn / certified translation.
+    let swornTranslationRequired: Bool?
+}
+
+/// A time-sensitive event derived from a task rule, anchored to the wizard's
+/// anchor date. Materialized into `EventItem` records on the Calendar.
+struct MilestoneRule: Codable {
+    let key: String
+    let title: String
+    let description: String?
+    let category: String     // matches MilestoneCategory raw values
+    /// Days relative to the anchor date. Negative = before anchor, positive = after.
+    let daysOffsetFromAnchor: Int
+    /// When true, the milestone is scheduled as a local push reminder at 9:00am
+    /// on the event day. Default false on decode for backward compat.
+    let notificationEnabled: Bool?
 }
 
 // MARK: - AnyCodableValue (handles mixed JSON types: string, bool, [string])

@@ -14,6 +14,22 @@ struct DocumentSlot: Codable, Identifiable, Hashable {
     var status: SlotStatus
     var uploadedDocumentId: String?    // points at users/{uid}/documents/{docId}
     var generatedAt: Date = Date()
+
+    // MARK: Foundation Wave 1 fields (all optional for backward compat with
+    // existing Firestore docs written before the schema bump).
+
+    /// Free-text guidance on where to obtain the document.
+    var whereToObtain: String? = nil
+    /// Free-text validity window (e.g. "90 days from issue").
+    var validityPeriod: String? = nil
+    /// Apostille of the Hague required to be valid abroad.
+    var apostilleRequired: Bool? = nil
+    /// Sworn / certified translation required.
+    var swornTranslationRequired: Bool? = nil
+    /// Back-pointer to the originating task rule, so completing the slot can
+    /// mark the linked task complete. Currently advisory; mirror happens at
+    /// the upload-finished call site, not via cascading writes.
+    var sourceTaskRuleKey: String? = nil
 }
 
 enum SlotStatus: String, Codable {
