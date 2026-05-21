@@ -126,12 +126,13 @@ struct DocumentsView: View {
 
     private func slotRow(_ slot: DocumentSlot) -> some View {
         let attachedDoc = vm.document(forSlot: slot)
-        return HStack(spacing: 12) {
+        return HStack(alignment: .top, spacing: 12) {
             Image(systemName: slot.status == .uploaded ? "checkmark.circle.fill" : "circle")
                 .foregroundColor(slot.status == .uploaded ? .goSuccess : .secondary)
                 .frame(width: 24)
+                .padding(.top, 2)
 
-            VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: 4) {
                 Text(slot.label)
                     .font(.subheadline)
                 if let desc = slot.slotDescription, !desc.isEmpty {
@@ -139,12 +140,31 @@ struct DocumentsView: View {
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
+                // Foundation Wave 1 — surface enriched slot metadata so the
+                // user can act without leaving the Documents tab.
+                if let where_ = slot.whereToObtain, !where_.isEmpty {
+                    Text(where_)
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .padding(.top, 1)
+                }
+                if let validity = slot.validityPeriod, !validity.isEmpty {
+                    HStack(spacing: 4) {
+                        Image(systemName: "clock.badge.exclamationmark")
+                            .font(.caption2)
+                        Text(validity)
+                            .font(.caption2)
+                    }
+                    .foregroundColor(.goWarning)
+                }
+                slotBadges(slot)
                 if let doc = attachedDoc {
                     Text(doc.name)
                         .font(.caption.weight(.medium))
                         .foregroundColor(.goPrimary)
                         .lineLimit(1)
                         .truncationMode(.middle)
+                        .padding(.top, 2)
                 }
             }
 
@@ -184,6 +204,33 @@ struct DocumentsView: View {
             if let doc = attachedDoc, let url = URL(string: doc.downloadUrl) {
                 UIApplication.shared.open(url)
             }
+        }
+    }
+
+    @ViewBuilder
+    private func slotBadges(_ slot: DocumentSlot) -> some View {
+        if slot.apostilleRequired == true || slot.swornTranslationRequired == true {
+            HStack(spacing: 6) {
+                if slot.apostilleRequired == true {
+                    Text("Apostille")
+                        .font(.caption2.weight(.semibold))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.goPrimary.opacity(0.15))
+                        .foregroundColor(.goPrimary)
+                        .cornerRadius(4)
+                }
+                if slot.swornTranslationRequired == true {
+                    Text("Sworn translation")
+                        .font(.caption2.weight(.semibold))
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 2)
+                        .background(Color.goPrimary.opacity(0.15))
+                        .foregroundColor(.goPrimary)
+                        .cornerRadius(4)
+                }
+            }
+            .padding(.top, 2)
         }
     }
 

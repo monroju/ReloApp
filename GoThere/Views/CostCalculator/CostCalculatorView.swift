@@ -12,6 +12,9 @@ struct CostCalculatorView: View {
     @State private var publicTransport = true
     @State private var privateHealthInsurance = true
     @State private var gymMembership = false
+    /// Wave 1 (T1c-finish) — dependents count feeds the affordability math
+    /// via `VisaInfo.requiredMonthlyEUR(dependents:)`.
+    @State private var dependents: Int = 0
 
     private var availableCities: [CityCostData] {
         CostDatabase.cities(for: selectedCountry)
@@ -137,6 +140,24 @@ struct CostCalculatorView: View {
                     lifestyleToggle(icon: "bus.fill", label: "Public Transport", isOn: $publicTransport)
                     lifestyleToggle(icon: "heart.text.square.fill", label: "Private Health Insurance", isOn: $privateHealthInsurance)
                     lifestyleToggle(icon: "figure.strengthtraining.traditional", label: "Gym Membership", isOn: $gymMembership)
+                }
+
+                // Wave 1 (T1c-finish) — dependents affects the income threshold
+                // shown in the affordable-visas section, not the cost breakdown
+                // (lifestyle costs already scale via housing/groceries sliders).
+                HStack {
+                    Image(systemName: "person.2.fill")
+                        .foregroundColor(.goPrimary)
+                        .frame(width: 24)
+                    Text("Dependents (for visa threshold)")
+                        .font(.subheadline)
+                    Spacer()
+                    Stepper(value: $dependents, in: 0...8) {
+                        Text("\(dependents)")
+                            .font(.subheadline.weight(.semibold))
+                            .frame(minWidth: 18)
+                    }
+                    .labelsHidden()
                 }
 
                 Divider()
@@ -268,12 +289,20 @@ struct CostCalculatorView: View {
     private func affordableVisasSection(for city: CityCostData) -> some View {
         let totalEUR = Int(Double(totalMonthlyUSD(for: city)) * Self.usdToEUR)
         let visas = VisaCatalog.byCountry(city.countryId).filter { $0.monthlyIncomeEUR != nil }
-        let comfortable = visas.filter { totalEUR <= Int(Double($0.monthlyIncomeEUR!) * 0.75) }
-        let tight = visas.filter {
-            let bar = $0.monthlyIncomeEUR!
+        // Wave 1 (T1c-finish) — bucket against the dependent-adjusted threshold
+        // so a family of three sees the actual bar, not the single-applicant one.
+        let comfortable = visas.filter { visa in
+            let bar = visa.requiredMonthlyEUR(dependents: dependents) ?? visa.monthlyIncomeEUR!
+            return totalEUR <= Int(Double(bar) * 0.75)
+        }
+        let tight = visas.filter { visa in
+            let bar = visa.requiredMonthlyEUR(dependents: dependents) ?? visa.monthlyIncomeEUR!
             return totalEUR > Int(Double(bar) * 0.75) && totalEUR <= bar
         }
-        let below = visas.filter { totalEUR > $0.monthlyIncomeEUR! }
+        let below = visas.filter { visa in
+            let bar = visa.requiredMonthlyEUR(dependents: dependents) ?? visa.monthlyIncomeEUR!
+            return totalEUR > bar
+        }
         let pointsBased = VisaCatalog.byCountry(city.countryId).count - visas.count
 
         return VStack(alignment: .leading, spacing: 12) {
@@ -357,14 +386,16 @@ struct CostCalculatorView: View {
                             .cornerRadius(4)
                     }
                 }
-                if let bar = visa.monthlyIncomeEUR {
+                if visa.monthlyIncomeEUR != nil {
+                    let bar = visa.requiredMonthlyEUR(dependents: dependents) ?? visa.monthlyIncomeEUR!
                     let gap = bar - totalEUR
+                    let dependentSuffix = dependents > 0 ? " (you + \(dependents))" : ""
                     if gap > 0 {
-                        Text("requires €\(bar.formatted())/mo · short €\(gap.formatted())/mo")
+                        Text("requires €\(bar.formatted())/mo\(dependentSuffix) · short €\(gap.formatted())/mo")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     } else {
-                        Text("requires €\(bar.formatted())/mo")
+                        Text("requires €\(bar.formatted())/mo\(dependentSuffix)")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }

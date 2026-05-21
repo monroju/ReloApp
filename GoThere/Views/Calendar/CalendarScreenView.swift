@@ -61,23 +61,7 @@ struct CalendarScreenView: View {
                             ScrollView {
                                 VStack(spacing: 8) {
                                     ForEach(vm.eventsForSelectedDate) { event in
-                                        HStack {
-                                            Circle()
-                                                .fill(Color.goPrimary)
-                                                .frame(width: 8, height: 8)
-                                            Text(event.title)
-                                                .font(.subheadline)
-                                            Spacer()
-                                            Button {
-                                                vm.deleteEvent(event)
-                                            } label: {
-                                                Image(systemName: "trash")
-                                                    .font(.caption)
-                                                    .foregroundColor(.goError)
-                                            }
-                                        }
-                                        .padding(.horizontal)
-                                        .padding(.vertical, 6)
+                                        eventRow(event)
                                     }
                                 }
                             }
@@ -122,6 +106,51 @@ struct CalendarScreenView: View {
                 Analytics.log(.calendarOpened)
             }
         }
+    }
+
+    @ViewBuilder
+    private func eventRow(_ event: EventItem) -> some View {
+        let category = event.resolvedCategory
+        HStack(spacing: 10) {
+            Image(systemName: category.iconName)
+                .font(.subheadline)
+                .foregroundColor(category.displayColor)
+                .frame(width: 22)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(event.title)
+                    .font(.subheadline)
+                HStack(spacing: 6) {
+                    if event.source == "wizard" {
+                        Text(category.displayLabel)
+                            .font(.caption2.weight(.semibold))
+                            .padding(.horizontal, 6)
+                            .padding(.vertical, 2)
+                            .background(category.displayColor.opacity(0.15))
+                            .foregroundColor(category.displayColor)
+                            .cornerRadius(4)
+                    }
+                    if event.notificationEnabled == true {
+                        Image(systemName: "bell.fill")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            Spacer()
+            // Wizard-emitted events are managed by re-running the wizard;
+            // hide the delete button so users don't strand them.
+            if event.source != "wizard" {
+                Button {
+                    vm.deleteEvent(event)
+                } label: {
+                    Image(systemName: "trash")
+                        .font(.caption)
+                        .foregroundColor(.goError)
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 6)
     }
 
     private var weekView: some View {

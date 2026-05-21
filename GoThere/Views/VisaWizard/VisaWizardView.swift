@@ -308,6 +308,15 @@ struct VisaWizardView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
 
+                    // Wave 1 (T1b-finish) — anchor date picker. Drives all
+                    // milestone scheduling on the Calendar tab.
+                    anchorDatePicker
+
+                    // Wave 1 (T1c-finish) — income-fit card mirroring the
+                    // Calculator's affordability grouping. Surfaces here so
+                    // the user sees the fit before tapping "Add to checklist".
+                    incomeFitCard
+
                     let grouped = Dictionary(grouping: vm.generatedTasks) { $0.category ?? "Other" }
                     let sortedPhases = grouped.keys.sorted()
 
@@ -362,3 +371,82 @@ struct VisaWizardView: View {
 }
 
 // FlowLayout is defined in DecisionTreeView.swift
+
+// MARK: - Wave 1 helpers
+
+extension VisaWizardView {
+    /// Anchor date picker shown on the wizard summary. Defaults to the config's
+    /// `defaultOffsetDays` and feeds straight into `vm.anchorDate` so milestones
+    /// regenerate against the user's chosen date when they tap Add.
+    var anchorDatePicker: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Target application date")
+                .font(.subheadline.weight(.semibold))
+            Text("We'll anchor reminders to this date. Pick the date you'd like to submit your visa application. You can adjust later.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            DatePicker(
+                "Anchor date",
+                selection: $vm.anchorDate,
+                in: Date()...,
+                displayedComponents: [.date]
+            )
+            .labelsHidden()
+            .datePickerStyle(.compact)
+            .tint(.goPrimary)
+        }
+        .padding(12)
+        .background(Color.goPrimary.opacity(0.06))
+        .cornerRadius(10)
+    }
+
+    /// Income-fit card — mirrors the Calculator's grouping but on the wizard
+    /// side. Read-only here; tapping the card jumps to the Calculator via the
+    /// deep-link router for a fuller adjust-your-lifestyle flow.
+    @ViewBuilder
+    var incomeFitCard: some View {
+        if let visa = selectedVisaInfo {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Income fit")
+                    .font(.subheadline.weight(.semibold))
+                if let threshold = visa.monthlyIncomeEUR {
+                    let dependents = answeredDependentCount
+                    let effective = visa.requiredMonthlyEUR(dependents: dependents) ?? threshold
+                    Text("Requires ~€\(effective.formatted())/mo proof of funds\(dependents > 0 ? " for you + \(dependents) dependent\(dependents == 1 ? "" : "s")" : "").")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    if dependents == 0, visa.dependentMultiplier != nil {
+                        Text("Family threshold scales with dependents — answer the family question on the earlier wizard step to refine.")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                    Text("Open the Cost Calculator anytime to compare this against your estimated monthly lifestyle.")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                        .padding(.top, 2)
+                } else {
+                    Text("This visa uses non-income criteria (points / employer / ancestry). Check the official requirements in Resources.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .padding(12)
+            .background(Color.goSuccess.opacity(0.08))
+            .cornerRadius(10)
+        }
+    }
+
+    private var selectedVisaInfo: VisaInfo? {
+        guard let trackId = vm.selectedTrackId else { return nil }
+        return VisaCatalog.all.first { $0.wizardTrackId == trackId }
+    }
+
+    /// Read the wizard answers for any dependent-related question we know
+    /// about. Currently keys on `num_dependents` (used by Spain NLV); other
+    /// tracks adopt the same key as they're audited.
+    private var answeredDependentCount: Int {
+        if let n = vm.answers["num_dependents"] as? Int { return n }
+        if let s = vm.answers["num_dependents"] as? String, let n = Int(s) { return n }
+        return 0
+    }
+}
