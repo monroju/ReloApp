@@ -422,7 +422,10 @@ struct TaskRow: View {
     let onSetDate: () -> Void
     let onEditNotes: () -> Void
     let onLinkClick: (String) -> Void
-    @State private var isExpanded = false
+    // Default expanded so resource links/description aren't hidden behind a chevron
+    // tap. The chevron and inner content sections gate themselves on actual content,
+    // so a task with no details still renders correctly.
+    @State private var isExpanded = true
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {

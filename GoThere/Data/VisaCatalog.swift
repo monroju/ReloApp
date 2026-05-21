@@ -74,7 +74,7 @@ enum VisaCatalog {
             pros: ["Direct work rights", "Employer typically covers paperwork", "Counts toward PR/citizenship"],
             cons: ["Labor market test required", "Tied to specific employer", "Limited transferability"],
             officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo",
-            wizardTrackId: nil
+            wizardTrackId: "es_work"
         ),
         VisaInfo(
             id: "es_student",
@@ -91,7 +91,41 @@ enum VisaCatalog {
             pros: ["Easy initial entry", "Schengen-wide travel", "Can switch to work after 3yr study"],
             cons: ["Time only counts half toward residency", "Must remain enrolled", "Limited work hours"],
             officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/InformacionParaExtranjeros/Paginas/Estudios.aspx",
-            wizardTrackId: nil
+            wizardTrackId: "es_student"
+        ),
+        VisaInfo(
+            id: "es_family_reunification",
+            countryId: "spain", countryFlag: "🇪🇸", countryName: "Spain",
+            name: "Family Reunification", shortName: "Family",
+            category: .family,
+            income: "Sponsor must show 150% IPREM + 50% per extra member",
+            processingTime: "3-6 months (sponsor-initiated)",
+            duration: "Matches sponsor's residency",
+            workAllowed: "Yes once sponsor has 1yr+ residency",
+            pathToPR: "5 years",
+            pathToCitizenship: "10y (2y Latin Am/Sephardic)",
+            costEstimate: "€60-€100 + apostille/translation costs",
+            pros: ["No income requirement on applicant", "Path to PR + citizenship", "Includes minor children"],
+            cons: ["Sponsor must initiate from Spain", "Housing adequacy report required", "Approval timeline tied to sponsor's province"],
+            officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/reagrupacion-familiar",
+            wizardTrackId: "es_family_reunification"
+        ),
+        VisaInfo(
+            id: "es_autonomo",
+            countryId: "spain", countryFlag: "🇪🇸", countryName: "Spain",
+            name: "Self-Employed (Autónomo)", shortName: "Autónomo",
+            category: .selfEmployed,
+            income: "Business plan + ~€30k+ starting capital recommended",
+            processingTime: "2-4 months",
+            duration: "1yr → 4yr → permanent",
+            workAllowed: "Yes, in your declared activity",
+            pathToPR: "5 years",
+            pathToCitizenship: "10y (2y Latin Am/Sephardic)",
+            costEstimate: "€100 + lawyer/gestor ~€1,000",
+            pros: ["Full work rights for your business", "No employer dependency", "Counts toward PR/citizenship"],
+            cons: ["Viable business plan required (memoria de actividad)", "Quarterly tax filings from day one", "Social Security autónomo fee even when revenue is low"],
+            officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo",
+            wizardTrackId: "es_autonomo"
         ),
     ]
 
