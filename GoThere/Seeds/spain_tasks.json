@@ -6,8 +6,22 @@
     "visaTrackId": "es_non_lucrative",
     "order": 1,
     "links": [
-      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" },
-      { "label": "Long-stay visa overview", "url": "https://www.schengenvisainfo.com/long-stay-visas/" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Compare Spain visas in app",
+        "url": "gothere://compare"
+      },
+      {
+        "label": "Spain Consulates (US)",
+        "url": "https://www.exteriores.gob.es/Consulados/"
+      },
+      {
+        "label": "Long-stay visa overview",
+        "url": "https://www.schengenvisainfo.com/long-stay-visas/"
+      }
     ]
   },
   {
@@ -17,14 +31,27 @@
     "visaTrackId": "es_non_lucrative",
     "order": 2,
     "links": [
-      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" }
+      {
+        "label": "Spain Consulates (US)",
+        "url": "https://www.exteriores.gob.es/Consulados/"
+      }
     ]
   },
   {
     "title": "Choose the appropriate visa type for your situation",
     "phaseId": "phase_1_plan",
     "visaTrackId": "es_non_lucrative",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Compare Spain visas in app",
+        "url": "gothere://compare"
+      }
+    ]
   },
   {
     "title": "Research cost of living in different Spanish cities/regions",
@@ -32,7 +59,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 4,
     "links": [
-      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/" }
+      {
+        "label": "Numbeo Cost of Living",
+        "url": "https://www.numbeo.com/cost-of-living/"
+      }
     ]
   },
   {
@@ -40,7 +70,13 @@
     "description": "Consider jobs/schools, healthcare access, climate, transit, and housing costs.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "es_non_lucrative",
-    "order": 5
+    "order": 5,
+    "links": [
+      {
+        "label": "Open Decision Tree in app",
+        "url": "gothere://decision"
+      }
+    ]
   },
   {
     "title": "Start learning Spanish (apps, courses, tutors)",
@@ -48,8 +84,14 @@
     "visaTrackId": "es_non_lucrative",
     "order": 6,
     "links": [
-      { "label": "Duolingo", "url": "https://www.duolingo.com" },
-      { "label": "Instituto Cervantes", "url": "https://www.cervantes.es/" }
+      {
+        "label": "Duolingo",
+        "url": "https://www.duolingo.com"
+      },
+      {
+        "label": "Instituto Cervantes",
+        "url": "https://www.cervantes.es/"
+      }
     ]
   },
   {
@@ -57,7 +99,13 @@
     "description": "Calculate required savings/income for your chosen visa and your family size. Build a conservative buffer.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "es_non_lucrative",
-    "order": 7
+    "order": 7,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Ensure passport is valid for at least 6 months beyond intended stay",
@@ -86,7 +134,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 4,
     "links": [
-      { "label": "Spain Consulates (US)", "url": "https://www.exteriores.gob.es/Consulados/" }
+      {
+        "label": "Spain Consulates (US)",
+        "url": "https://www.exteriores.gob.es/Consulados/"
+      }
     ]
   },
   {
@@ -99,7 +150,13 @@
     "title": "Gather proof of financial means (bank statements, investments)",
     "phaseId": "phase_2_documents",
     "visaTrackId": "es_non_lucrative",
-    "order": 6
+    "order": 6,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Secure Spanish-compliant health insurance",
@@ -108,7 +165,14 @@
     "visaTrackId": "es_non_lucrative",
     "order": 7,
     "links": [
-      { "label": "Visa insurance overview", "url": "https://www.schengenvisainfo.com/visa-insurance/" }
+      {
+        "label": "Insurer resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "Visa insurance overview",
+        "url": "https://www.schengenvisainfo.com/visa-insurance/"
+      }
     ]
   },
   {
@@ -123,7 +187,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 9,
     "links": [
-      { "label": "FBI Background Check", "url": "https://www.edo.cjis.gov/" }
+      {
+        "label": "FBI Background Check",
+        "url": "https://www.edo.cjis.gov/"
+      }
     ]
   },
   {
@@ -182,8 +249,14 @@
     "visaTrackId": "es_non_lucrative",
     "order": 7,
     "links": [
-      { "label": "Booking.com", "url": "https://www.booking.com" },
-      { "label": "Airbnb", "url": "https://www.airbnb.com" }
+      {
+        "label": "Booking.com",
+        "url": "https://www.booking.com"
+      },
+      {
+        "label": "Airbnb",
+        "url": "https://www.airbnb.com"
+      }
     ]
   },
   {
@@ -192,8 +265,18 @@
     "visaTrackId": "es_non_lucrative",
     "order": 8,
     "links": [
-      { "label": "Idealista", "url": "https://www.idealista.com/en/" },
-      { "label": "Fotocasa", "url": "https://www.fotocasa.es/en/" }
+      {
+        "label": "Housing resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "Idealista",
+        "url": "https://www.idealista.com/en/"
+      },
+      {
+        "label": "Fotocasa",
+        "url": "https://www.fotocasa.es/en/"
+      }
     ]
   },
   {
@@ -213,7 +296,13 @@
     "description": "Keep encrypted backups (passport, visa, apostilles, insurance, bank statements, birth certificates).",
     "phaseId": "phase_3_application",
     "visaTrackId": "es_non_lucrative",
-    "order": 11
+    "order": 11,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Arrive in Spain",
@@ -226,7 +315,13 @@
     "description": "You'll often need the padrón certificate for TIE, school enrollment, and some utilities.",
     "phaseId": "phase_4_arrival_setup",
     "visaTrackId": "es_non_lucrative",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Real Journey: Padrón phase",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Obtain NIE (Número de Identificación de Extranjero) if not issued with visa",
@@ -235,7 +330,14 @@
     "visaTrackId": "es_non_lucrative",
     "order": 3,
     "links": [
-      { "label": "NIE info / EX-15", "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex15" }
+      {
+        "label": "Real Journey: TIE phase",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "NIE info / EX-15",
+        "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex15"
+      }
     ]
   },
   {
@@ -244,7 +346,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 4,
     "links": [
-      { "label": "Cita Previa Portal", "url": "https://sede.administracionespublicas.gob.es/icpplustie/" }
+      {
+        "label": "Cita Previa Portal",
+        "url": "https://sede.administracionespublicas.gob.es/icpplustie/"
+      }
     ]
   },
   {
@@ -253,7 +358,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 5,
     "links": [
-      { "label": "Form EX-17 (TIE Application)", "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex17" }
+      {
+        "label": "Form EX-17 (TIE Application)",
+        "url": "https://sede.policia.gob.es/portalCiudadano/extranjeria/ex17"
+      }
     ]
   },
   {
@@ -262,7 +370,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 6,
     "links": [
-      { "label": "Modelo 790 fees", "url": "https://sede.policia.gob.es/portalCiudadano/modelos790" }
+      {
+        "label": "Modelo 790 fees",
+        "url": "https://sede.policia.gob.es/portalCiudadano/modelos790"
+      }
     ]
   },
   {
@@ -276,7 +387,13 @@
     "title": "Open/finalize Spanish bank account",
     "phaseId": "phase_4_arrival_setup",
     "visaTrackId": "es_non_lucrative",
-    "order": 8
+    "order": 8,
+    "links": [
+      {
+        "label": "Banking resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Set up utilities (electricity, water, internet, gas)",
@@ -294,7 +411,13 @@
     "title": "Register for public healthcare (if eligible) or confirm private coverage",
     "phaseId": "phase_4_arrival_setup",
     "visaTrackId": "es_non_lucrative",
-    "order": 11
+    "order": 11,
+    "links": [
+      {
+        "label": "Healthcare resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Register with a local doctor (Centro de Salud)",
@@ -314,14 +437,26 @@
     "description": "Track renewal deadlines for TIE, insurance policies, passport expiration, and required supporting documents.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "es_non_lucrative",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Confirm your tax residency status and obligations (Spain + US)",
     "description": "If you live in Spain long enough, you may become a Spanish tax resident. Understand timelines, reporting, and US filing overlap.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "es_non_lucrative",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Real Journey: Beckham Law",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Choose a Spanish tax advisor (gestor) if your situation is complex",
@@ -351,7 +486,10 @@
     "visaTrackId": "es_non_lucrative",
     "order": 7,
     "links": [
-      { "label": "DGT License Exchange", "url": "https://sede.dgt.gob.es/es/permisos-de-conducir/canje-de-permisos/" }
+      {
+        "label": "DGT License Exchange",
+        "url": "https://sede.dgt.gob.es/es/permisos-de-conducir/canje-de-permisos/"
+      }
     ]
   },
   {

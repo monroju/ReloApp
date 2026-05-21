@@ -10,6 +10,9 @@ struct TasksView: View {
     @State private var newTaskCategory = "Phase 1: Research & Planning"
     @State private var showImportSeed = false
 
+    // Deep-link state for in-app Visa Wizard sheet (gothere://wizard)
+    @State private var presentWizard = false
+
     // Date picker
     @State private var datePickerTask: TaskItem?
     @State private var selectedDate = Date()
@@ -55,6 +58,9 @@ struct TasksView: View {
                                         onEditNotes: {
                                             notesText = task.notes ?? ""
                                             notesTask = task
+                                        },
+                                        onLinkClick: { urlStr in
+                                            handleTaskLink(urlStr)
                                         }
                                     )
                                     .swipeActions(edge: .trailing) {
@@ -111,6 +117,9 @@ struct TasksView: View {
             }
             .sheet(isPresented: $showAddTask) { addTaskSheet }
             .sheet(item: $datePickerTask) { task in datePickerSheet(task) }
+            .sheet(isPresented: $presentWizard) {
+                VisaWizardView(countryId: countrySelection.current)
+            }
             .alert("Notes", isPresented: Binding(
                 get: { notesTask != nil },
                 set: { if !$0 { notesTask = nil } }
@@ -373,6 +382,36 @@ struct TasksView: View {
         }
         Task { try? await TaskRepository.shared.insertTasks(taskItems) }
     }
+
+    // MARK: - Deep-link handler
+
+    /// Routes task link URLs. `gothere://<path>` triggers in-app navigation
+    /// (Wizard sheet, or tab switch via NotificationCenter); anything else opens
+    /// externally. Keeps parity with Android's `handleTaskLink`.
+    private func handleTaskLink(_ urlStr: String) {
+        if urlStr.hasPrefix("gothere://") {
+            let path = String(urlStr.dropFirst("gothere://".count))
+                .components(separatedBy: "?").first?
+                .trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+                .lowercased() ?? ""
+            switch path {
+            case "wizard", "compare":
+                presentWizard = true
+            case "tasks", "calendar", "documents", "resources", "decision", "decisiontree":
+                NotificationCenter.default.post(
+                    name: .gothereDeepLink,
+                    object: nil,
+                    userInfo: ["route": path]
+                )
+            default:
+                break
+            }
+            return
+        }
+        if let url = URL(string: urlStr) {
+            UIApplication.shared.open(url)
+        }
+    }
 }
 
 // MARK: - Task Row
@@ -382,6 +421,7 @@ struct TaskRow: View {
     let onToggle: () -> Void
     let onSetDate: () -> Void
     let onEditNotes: () -> Void
+    let onLinkClick: (String) -> Void
     @State private var isExpanded = false
 
     var body: some View {
@@ -451,14 +491,19 @@ struct TaskRow: View {
                 }
                 if let links = task.links {
                     ForEach(links) { link in
-                        if let urlStr = link.url, let url = URL(string: urlStr) {
-                            Link(destination: url) {
+                        if let urlStr = link.url, !urlStr.isEmpty {
+                            let isInternal = urlStr.hasPrefix("gothere://")
+                            Button {
+                                onLinkClick(urlStr)
+                            } label: {
                                 HStack(spacing: 4) {
-                                    Image(systemName: "link").font(.caption2)
+                                    Image(systemName: isInternal ? "arrow.forward.circle" : "link")
+                                        .font(.caption2)
                                     Text(link.label ?? urlStr).font(.caption)
                                 }
                                 .foregroundColor(.goPrimary)
                             }
+                            .buttonStyle(.plain)
                             .padding(.leading, 44)
                         }
                     }

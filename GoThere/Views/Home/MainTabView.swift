@@ -1,5 +1,12 @@
 import SwiftUI
 
+extension Notification.Name {
+    /// Cross-screen deep link request. userInfo["route"] is one of:
+    /// "tasks" | "calendar" | "documents" | "resources" | "decision" | "wizard".
+    /// Wizard is handled inside TasksView's own sheet; the rest map to tabs.
+    static let gothereDeepLink = Notification.Name("gothere.deeplink")
+}
+
 struct MainTabView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
@@ -41,5 +48,15 @@ struct MainTabView: View {
             .tag(4)
         }
         .tint(.goPrimary)
+        .onReceive(NotificationCenter.default.publisher(for: .gothereDeepLink)) { note in
+            switch (note.userInfo?["route"] as? String) ?? "" {
+            case "tasks":     selectedTab = 0
+            case "calendar":  selectedTab = 1
+            case "documents": selectedTab = 2
+            case "resources": selectedTab = 3
+            case "decision", "decisiontree": selectedTab = 4
+            default: break  // wizard handled inside TasksView's own sheet
+            }
+        }
     }
 }
