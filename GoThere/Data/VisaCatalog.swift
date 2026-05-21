@@ -59,7 +59,8 @@ enum VisaCatalog {
             pros: ["Beckham Law tax regime 24% flat", "Apply in-country as tourist", "Family included (+75% spouse, +25% per child)"],
             cons: ["Must prove 3yr employment history", "Cannot have >20% Spanish clients", "Hacienda audit risk"],
             officialUrl: "https://www.exteriores.gob.es",
-            wizardTrackId: "es_digital_nomad"
+            wizardTrackId: "es_digital_nomad",
+            taxRegimes: [TaxRegime.beckhamLaw]
         ),
         VisaInfo(
             id: "es_work",
@@ -127,7 +128,8 @@ enum VisaCatalog {
             pros: ["Full work rights for your business", "No employer dependency", "Counts toward PR/citizenship"],
             cons: ["Viable business plan required (memoria de actividad)", "Quarterly tax filings from day one", "Social Security autónomo fee even when revenue is low"],
             officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo",
-            wizardTrackId: "es_autonomo"
+            wizardTrackId: "es_autonomo",
+            taxRegimes: [TaxRegime.beckhamLawAutonomo, TaxRegime.tarifaPlanaAutonomo]
         ),
     ]
 
@@ -185,7 +187,8 @@ enum VisaCatalog {
             pros: ["For startup founders / freelancers", "Path to EU citizenship", "No minimum investment"],
             cons: ["Business plan must convince AIMA", "Need Portuguese tax rep", "Slow consular processing"],
             officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
-            wizardTrackId: "pt_d2"
+            wizardTrackId: "pt_d2",
+            taxRegimes: [TaxRegime.ifici]
         ),
         VisaInfo(
             id: "pt_golden",

@@ -5912,7 +5912,33 @@
           "description": "Alta with Hacienda (Modelo 037/036) and Tesoreria General de la Seguridad Social. A gestor can handle both for ~€80-120.",
           "conditions": {},
           "estimatedWeeks": 0,
-          "order": 11
+          "order": 11,
+          "milestones": [
+            {
+              "key": "autonomo_alta_deadline",
+              "title": "File Hacienda Modelo 037 (alta)",
+              "description": "Register as empresario individual with the Agencia Tributaria within 30 days of starting activity. Modelo 037 is the simplified path; Modelo 036 if you'll handle intra-EU IVA or exempt activities.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 30,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_reta_alta",
+              "title": "Register with Seguridad Social (RETA)",
+              "description": "Modelo TA.0521 with the Tesoreria General de la Seguridad Social. File the same day as Modelo 037 — and opt into Tarifa Plana now if eligible.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 30,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_tarifa_plana_expiry",
+              "title": "Tarifa Plana window ends",
+              "description": "The flat 80 EUR/month autonomo cuota covers the first 12 months from your alta date. After this date the standard contribution base applies. Renew at the minimum base unless pension contributions matter to you.",
+              "category": "expiration",
+              "daysOffsetFromAnchor": 395,
+              "notificationEnabled": true
+            }
+          ]
         },
         {
           "taskTitle": "Plan first-year tax cadence (IRPF + IVA quarterly)",
@@ -5920,7 +5946,49 @@
           "description": "Autonomos file IRPF withholding (modelo 130) and VAT (modelo 303) every quarter, plus annual filings. Build a buffer for the first year before profitability.",
           "conditions": {},
           "estimatedWeeks": 0,
-          "order": 12
+          "order": 12,
+          "milestones": [
+            {
+              "key": "autonomo_q1_filings",
+              "title": "Q1 IRPF + IVA filings (Modelos 130/303)",
+              "description": "First-quarter Modelo 130 (IRPF withholding) and Modelo 303 (IVA) are due by 20 April. Submit even if the quarter is zero — omissions trigger an automatic SII alert.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 130,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_q2_filings",
+              "title": "Q2 IRPF + IVA filings (Modelos 130/303)",
+              "description": "Second-quarter Modelo 130 and Modelo 303 are due by 20 July. The AEAT direct-debit window closes on 15 July.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 220,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_q3_filings",
+              "title": "Q3 IRPF + IVA filings (Modelos 130/303)",
+              "description": "Third-quarter Modelo 130 and Modelo 303 are due by 20 October.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 310,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_q4_filings",
+              "title": "Q4 IRPF + IVA filings (Modelos 130/303)",
+              "description": "Fourth-quarter Modelo 130 and Modelo 303 are due by 30 January of the following year. Modelo 390 (annual IVA summary) is also due on that date.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 395,
+              "notificationEnabled": true
+            },
+            {
+              "key": "autonomo_renta_deadline",
+              "title": "Declaracion de la renta (Modelo 100)",
+              "description": "Personal income tax for the prior calendar year is due by 30 June. Beckham Law election routes to Modelo 151 instead of Modelo 100.",
+              "category": "deadline",
+              "daysOffsetFromAnchor": 545,
+              "notificationEnabled": true
+            }
+          ]
         }
       ]
     },

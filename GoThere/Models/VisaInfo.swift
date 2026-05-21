@@ -54,6 +54,26 @@ struct VisaInfo: Identifiable, Hashable {
     let cons: [String]
     let officialUrl: String
     let wizardTrackId: String?  // matches wizard_config.json — nil if no wizard yet
+    /// Optional preferential tax regimes the user may opt into when holding this visa
+    /// (e.g. Beckham Law on Spain DNV, IFICI/NHR-successor on Portugal D-visas).
+    /// Wave 2 — surfaces in VisaCompare + Wizard summary as an "ask your tax advisor" hint.
+    var taxRegimes: [TaxRegime] = []
+}
+
+/// Preferential tax regime available to holders of a given visa. Informational
+/// only — actual eligibility depends on filing posture and is decided by Hacienda
+/// / AT / equivalent authority, not by this app.
+struct TaxRegime: Codable, Hashable {
+    /// Display name, e.g. "Beckham Law", "NHR successor (IFICI)", "RFA".
+    let name: String
+    /// Optional flat-rate income tax percent expressed as a decimal (e.g. 0.24 for 24%).
+    /// Nil when the regime is more nuanced than a single rate.
+    let flatRatePercent: Double?
+    /// Bullet criteria the user must meet to qualify. Short, verifiable, plain English.
+    let eligibilityCriteria: [String]
+    /// When the user must elect into the regime, e.g. "Within 6 months of becoming
+    /// Spanish tax resident". Nil if not time-bound.
+    let applicationWindow: String?
 }
 
 extension VisaInfo {

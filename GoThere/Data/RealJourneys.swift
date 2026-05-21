@@ -4,7 +4,7 @@ import Foundation
 /// (matches `VisaCatalog`) and by country ID (for fallback when a country has a
 /// canonical journey but the user hasn't selected a specific visa yet).
 enum RealJourneys {
-    static let all: [RealJourney] = [spainDNV]
+    static let all: [RealJourney] = [spainDNV, spainAutonomo]
 
     static func forVisa(_ visaId: String) -> RealJourney? {
         all.first { $0.visaId == visaId }
@@ -242,6 +242,168 @@ enum RealJourneys {
         gotchas: [
             "Beckham must be applied for within 6 months of starting Spanish residency — miss it and you wait years",
             "Beckham is rarely the right choice if most income is from Spanish sources — model both scenarios first"
+        ]
+    )
+
+    // MARK: - Spain Autónomo (Self-Employed)
+    //
+    // Wave 2 — Autónomo deepening. Walks an arrival-week registration with Hacienda
+    // and the Tesorería General de la Seguridad Social, the first-year tarifa plana
+    // window, and the trimestral filing cadence. Anonymised composite from two
+    // gestoría engagements observed in 2024–2025.
+
+    static let spainAutonomo = RealJourney(
+        id: "spain_autonomo",
+        visaId: "es_autonomo",
+        countryId: "spain",
+        title: "Spain Self-Employed (Autónomo)",
+        subtitle: "Solo founder · 2024 case · alta to first IVA filing",
+        totalDuration: "~5 months from arrival to first clean trimestral",
+        feeSummary: "Gestoría retainer ≈ €80–€120/month for ongoing IRPF + IVA filings. Initial alta package (Modelo 037 + RETA registration) is typically a one-off €150–€250. Optional Beckham application via an in-firm tax department is billed separately.",
+        eligibilitySummary: [
+            "Already hold a Spanish residence permit allowing self-employed work (Autónomo, DNV, family-reunified with work rights)",
+            "Plan to invoice from Spain — autónomo registration is mandatory before issuing the first Spanish-resident invoice",
+            "NIE/TIE issued before alta — Hacienda and the TGSS will not register an alta without it",
+            "Spanish bank account ready to receive direct-debit IRPF and IVA payments"
+        ],
+        phases: [autonomoPreparePhase, autonomoHaciendaPhase, autonomoSocialSecurityPhase, autonomoFirstQuarterPhase, autonomoYearEndPhase],
+        crossPhaseGotchas: [
+            JourneyGotcha(
+                id: "g_aut_calendar",
+                title: "The trimestral calendar runs on a Spanish, not a foreign, fiscal year",
+                detail: "IRPF Modelo 130 and IVA Modelo 303 are due by the 20th of January, April, July, and October. There is no quarterly extension and the AEAT direct-debit window closes on the 15th — set your gestoría a working buffer."
+            ),
+            JourneyGotcha(
+                id: "g_aut_tarifa_plana",
+                title: "Tarifa Plana stacks with the autónomo cuota — choose the right alta date",
+                detail: "The flat €80/mo first-12-month cuota applies from your alta date forward, not from the calendar year. Time your alta so it lands on a month boundary; mid-month altas truncate the first month."
+            ),
+            JourneyGotcha(
+                id: "g_aut_epigrafe",
+                title: "The IAE epígrafe is sticky once filed",
+                detail: "The activity code (epígrafe) on Modelo 037 drives which IRPF section applies and whether IVA is exempt. Changing it later is a Modelo 037 update — not a manual edit on the next return."
+            ),
+            JourneyGotcha(
+                id: "g_aut_invoices_before_alta",
+                title: "Invoices dated before alta are not deductible",
+                detail: "Pre-alta expenses (laptop, lawyer fees, gestoría intake) only deduct against IRPF when invoiced after the alta date. Hold expense receipts until alta is confirmed."
+            ),
+            JourneyGotcha(
+                id: "g_aut_disclaimer",
+                title: "Tax position depends on your full picture",
+                detail: "Beckham Law, autónomo Tarifa Plana, and a separate sociedad limitada (SL) can all be the right answer — or the wrong one — depending on revenue and client mix. Have a tax advisor model both an autónomo and SL scenario before you elect."
+            )
+        ],
+        disclaimer: "Illustrative content based on anonymised 2024 cases (US founders setting up in Spain). Not legal or tax advice. Spanish tax law and social-security thresholds change every fiscal year — verify with a licensed gestor or tax advisor before acting."
+    )
+
+    private static let autonomoPreparePhase = JourneyPhase(
+        id: "p_aut_prepare",
+        order: 1,
+        title: "1. Pre-alta Preparation",
+        timeframe: "Week 0 (before arrival or in week of arrival)",
+        summary: "Engage a gestoría, decide your activity epígrafe(s), and confirm NIE/TIE. The gestoría drafts Modelo 037 and the TGSS alta forms so they can be filed the same day you walk in.",
+        documents: [
+            "Valid NIE or TIE",
+            "Spanish bank account IBAN (or non-resident account during transition)",
+            "Description of intended business activity (used to pick the IAE epígrafe)",
+            "Identity document of the gestor you are appointing"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_aut_intake", situation: "Initial scoping", phrasing: "Gestor confirms the right autónomo route after a 20-minute video call."),
+            LawyerPattern(id: "lp_aut_epigrafe", situation: "Epígrafe selection", phrasing: "Gestor proposes one primary plus one optional secondary IAE code."),
+            LawyerPattern(id: "lp_aut_power", situation: "Power of attorney", phrasing: "You sign an apoderamiento so the gestor can file Modelos 037 and TA.0521 on your behalf.")
+        ],
+        gotchas: [
+            "Without a NIE you cannot proceed — finish that step before booking a gestoría engagement",
+            "Pick the gestor before signing any apartment lease — they will need the address on Modelo 037"
+        ]
+    )
+
+    private static let autonomoHaciendaPhase = JourneyPhase(
+        id: "p_aut_hacienda",
+        order: 2,
+        title: "2. Hacienda — Modelo 037 (or 036)",
+        timeframe: "Week 1",
+        summary: "Register as an empresario individual with the Agencia Tributaria via Modelo 037 (simplified) or 036 (full). Filing assigns your IAE activity code, declares IRPF and IVA obligations, and opens the door to the trimestral filing calendar.",
+        documents: [
+            "Modelo 037 or 036 (gestoría prepares from the apoderamiento)",
+            "DNI/NIE and proof of address",
+            "IAE epígrafe documentation (gestoría supplies)"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_aut_037", situation: "Form submission", phrasing: "Gestoría submits Modelo 037 electronically and emails a stamped PDF receipt."),
+            LawyerPattern(id: "lp_aut_iae", situation: "Activity confirmation", phrasing: "Gestoría confirms the assigned epígrafe in writing for your records.")
+        ],
+        gotchas: [
+            "Use Modelo 036 (not 037) if you will collect intra-EU VAT or charge IVA-exempt services",
+            "The alta date you pick on Modelo 037 is the date your trimestral calendar starts — pick the 1st of a month"
+        ]
+    )
+
+    private static let autonomoSocialSecurityPhase = JourneyPhase(
+        id: "p_aut_ss",
+        order: 3,
+        title: "3. Seguridad Social — RETA Alta",
+        timeframe: "Week 1 (same week as Hacienda)",
+        summary: "Register with the Régimen Especial de Trabajadores Autónomos via Modelo TA.0521 at the Tesorería General de la Seguridad Social. Elect a contribution base and — if eligible — opt into Tarifa Plana to lock in the €80/mo first-year cuota.",
+        documents: [
+            "Modelo TA.0521 (gestoría prepares)",
+            "Modelo 037 receipt from Hacienda (TGSS will not accept the alta without it)",
+            "Spanish bank IBAN for the direct-debit cuota",
+            "Tarifa Plana election form (if applicable)"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_aut_reta", situation: "TGSS submission", phrasing: "Gestoría submits TA.0521 with effective date matching the Hacienda alta."),
+            LawyerPattern(id: "lp_aut_base", situation: "Contribution base selection", phrasing: "Gestor recommends the minimum base for year one unless pension contributions matter to you."),
+            LawyerPattern(id: "lp_aut_tarifa", situation: "Tarifa Plana opt-in", phrasing: "Gestor flags whether your prior autónomo history disqualifies the flat rate.")
+        ],
+        gotchas: [
+            "Once you miss Tarifa Plana at alta you cannot retro-apply — confirm eligibility before the form is submitted",
+            "Choosing too high a contribution base costs real money for years — the minimum base is the right default unless you have a specific reason"
+        ]
+    )
+
+    private static let autonomoFirstQuarterPhase = JourneyPhase(
+        id: "p_aut_q1",
+        order: 4,
+        title: "4. First Trimestral Cycle",
+        timeframe: "Months 1–4 after alta",
+        summary: "File your first IRPF (Modelo 130) and IVA (Modelo 303) returns by the 20th of the first month after the quarter ends. The gestoría typically takes invoices monthly and files quarterly; you confirm the totals before they submit.",
+        documents: [
+            "Invoices issued during the quarter (gestoría intake)",
+            "Deductible expense receipts (gestoría intake)",
+            "Modelo 130 + Modelo 303 (gestoría prepares from the intake)"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_aut_intake_monthly", situation: "Monthly intake", phrasing: "Gestoría requests the prior month's invoices and receipts by the 5th."),
+            LawyerPattern(id: "lp_aut_review", situation: "Pre-submission review", phrasing: "Gestoría emails draft returns 3 working days before the AEAT deadline.")
+        ],
+        gotchas: [
+            "AEAT direct debit closes on the 15th — late confirmations push you to a manual transfer with a 5% surcharge",
+            "First-quarter IVA is sometimes a zero filing — file it anyway, omissions trigger an automatic SII alert"
+        ]
+    )
+
+    private static let autonomoYearEndPhase = JourneyPhase(
+        id: "p_aut_year_end",
+        order: 5,
+        title: "5. Year-End: Modelos 390 & Renta",
+        timeframe: "January–June after first calendar year",
+        summary: "Modelo 390 (annual IVA summary) is due 30 January and Modelo 100 (declaración de la renta — personal income tax) opens in April and closes 30 June. The gestoría typically prepares both; Beckham elects out via Modelo 151 instead of 100.",
+        documents: [
+            "Modelo 390 (annual IVA summary)",
+            "Modelo 100 — declaración de la renta (or Modelo 151 if on Beckham)",
+            "Annual summary of issued invoices and deductible expenses",
+            "Modelo 347 (third-party transactions) if any single counterparty exceeds €3,005.06"
+        ],
+        lawyerPatterns: [
+            LawyerPattern(id: "lp_aut_390", situation: "Modelo 390", phrasing: "Gestoría reconciles Modelos 303 with 390 and flags discrepancies before filing."),
+            LawyerPattern(id: "lp_aut_renta", situation: "Renta", phrasing: "Gestoría drafts Modelo 100 with full deductions and asks for sign-off before AEAT submission.")
+        ],
+        gotchas: [
+            "Modelo 347 sneaks up — third-party threshold triggers easily for SaaS suppliers and landlord rents",
+            "Renta deadline is non-negotiable — missing 30 June triggers automatic recargos plus interest"
         ]
     )
 }
