@@ -140,18 +140,31 @@ workflows:
 
       - name: Increment build number
         script: |
-          # Use max(ASC latest TF build, git commit count) + 1 so we always go higher.
-          # Plain `get-latest-testflight-build-number` returned empty for build #39
-          # (2026-05-20), making NEW_BUILD collide with a stale bundleVersion=1 on ASC.
-          # Commit count is monotonic on the branch, so it's the safe floor.
-          LATEST_BUILD=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
-          LATEST_BUILD=${LATEST_BUILD:-0}
-          COMMIT_COUNT=$(git rev-list --count HEAD)
-          if [ "$LATEST_BUILD" -lt "$COMMIT_COUNT" ]; then
-            LATEST_BUILD=$COMMIT_COUNT
-          fi
-          NEW_BUILD=$((LATEST_BUILD + 1))
-          echo "ASC latest: ${LATEST_BUILD} | commit count: ${COMMIT_COUNT} | using: ${NEW_BUILD}"
+          # Build-number resolution. ASC enforces uniqueness across ALL submitted
+          # builds — including ones in "processing", "rejected", and "waiting for
+          # review" states. Querying TestFlight alone misses those; build #51
+          # collided on 2026-05-21 because TF reported 50 while the App Store
+          # surface had 51 stuck in review. Fix: query both surfaces, take max.
+          #
+          # MIN_BUILD_NUMBER is a manual floor — bump it in this file when ASC
+          # returns garbage or you want to skip a range. Treat it as the
+          # "definitely higher than anything I've ever uploaded" line.
+          MIN_BUILD_NUMBER=52
+
+          LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
+          LATEST_TF=${LATEST_TF:-0}
+          LATEST_AS=$(app-store-connect get-latest-app-store-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
+          LATEST_AS=${LATEST_AS:-0}
+          COMMIT_COUNT=$(git rev-list --count HEAD 2>/dev/null || echo 0)
+
+          # Take the max of all known surfaces.
+          LATEST=$LATEST_TF
+          [ "$LATEST_AS" -gt "$LATEST" ] && LATEST=$LATEST_AS
+          [ "$COMMIT_COUNT" -gt "$LATEST" ] && LATEST=$COMMIT_COUNT
+          [ "$MIN_BUILD_NUMBER" -gt "$LATEST" ] && LATEST=$MIN_BUILD_NUMBER
+
+          NEW_BUILD=$((LATEST + 1))
+          echo "ASC TF: ${LATEST_TF} | ASC App Store: ${LATEST_AS} | commits: ${COMMIT_COUNT} | min: ${MIN_BUILD_NUMBER} | using: ${NEW_BUILD}"
           cd "$CM_BUILD_DIR"
           agvtool new-version -all $NEW_BUILD
 
