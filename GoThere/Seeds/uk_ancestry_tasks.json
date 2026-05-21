@@ -6,7 +6,10 @@
     "visaTrackId": "uk_ancestry_visa",
     "order": 1,
     "links": [
-      { "label": "Gov.uk — UK Ancestry visa overview", "url": "https://www.gov.uk/ancestry-visa" }
+      {
+        "label": "Gov.uk — UK Ancestry visa overview",
+        "url": "https://www.gov.uk/ancestry-visa"
+      }
     ]
   },
   {
@@ -35,14 +38,26 @@
     "description": "Long-form / full birth certificate showing both parents' names. You'll use this to link yourself to your UK-born grandparent through the parent on your grandparent's side.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "uk_ancestry_visa",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Order your linking parent's birth certificate",
     "description": "Birth certificate of the parent who is the child of your UK-born grandparent. This proves the parent–grandparent link. Long-form certificate, not just a summary.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "uk_ancestry_visa",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Order your UK-born grandparent's birth certificate from GRO",
@@ -51,8 +66,18 @@
     "visaTrackId": "uk_ancestry_visa",
     "order": 3,
     "links": [
-      { "label": "GRO — England & Wales certificates", "url": "https://www.gro.gov.uk/gro/content/certificates/" },
-      { "label": "ScotlandsPeople", "url": "https://www.scotlandspeople.gov.uk/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "GRO — England & Wales certificates",
+        "url": "https://www.gro.gov.uk/gro/content/certificates/"
+      },
+      {
+        "label": "ScotlandsPeople",
+        "url": "https://www.scotlandspeople.gov.uk/"
+      }
     ]
   },
   {
@@ -76,7 +101,10 @@
     "visaTrackId": "uk_ancestry_visa",
     "order": 6,
     "links": [
-      { "label": "Gov.uk — TB test for UK visa", "url": "https://www.gov.uk/tb-test-visa" }
+      {
+        "label": "Gov.uk — TB test for UK visa",
+        "url": "https://www.gov.uk/tb-test-visa"
+      }
     ]
   },
   {
@@ -86,7 +114,10 @@
     "visaTrackId": "uk_ancestry_visa",
     "order": 1,
     "links": [
-      { "label": "Apply for Ancestry visa", "url": "https://www.gov.uk/ancestry-visa/apply" }
+      {
+        "label": "Apply for Ancestry visa",
+        "url": "https://www.gov.uk/ancestry-visa/apply"
+      }
     ]
   },
   {
@@ -117,7 +148,10 @@
     "visaTrackId": "uk_ancestry_visa",
     "order": 3,
     "links": [
-      { "label": "ILR after 5 years on Ancestry", "url": "https://www.gov.uk/ancestry-visa/settle-in-the-uk" }
+      {
+        "label": "ILR after 5 years on Ancestry",
+        "url": "https://www.gov.uk/ancestry-visa/settle-in-the-uk"
+      }
     ]
   },
   {

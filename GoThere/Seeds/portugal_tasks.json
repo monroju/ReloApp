@@ -6,8 +6,22 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 1,
     "links": [
-      { "label": "Portugal Visa Portal", "url": "https://www.vistos.mne.gov.pt/" },
-      { "label": "VFS Global Portugal", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Compare visas in app",
+        "url": "gothere://compare"
+      },
+      {
+        "label": "Portugal Visa Portal",
+        "url": "https://www.vistos.mne.gov.pt/"
+      },
+      {
+        "label": "VFS Global Portugal",
+        "url": "https://visa.vfsglobal.com/usa/en/prt"
+      }
     ]
   },
   {
@@ -17,7 +31,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 2,
     "links": [
-      { "label": "VFS Global Portugal", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+      {
+        "label": "VFS Global Portugal",
+        "url": "https://visa.vfsglobal.com/usa/en/prt"
+      }
     ]
   },
   {
@@ -34,7 +51,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 4,
     "links": [
-      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Portugal" }
+      {
+        "label": "Numbeo Cost of Living",
+        "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Portugal"
+      }
     ]
   },
   {
@@ -51,8 +71,14 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 6,
     "links": [
-      { "label": "Duolingo", "url": "https://www.duolingo.com" },
-      { "label": "Practice Portuguese", "url": "https://www.practiceportuguese.com/" }
+      {
+        "label": "Duolingo",
+        "url": "https://www.duolingo.com"
+      },
+      {
+        "label": "Practice Portuguese",
+        "url": "https://www.practiceportuguese.com/"
+      }
     ]
   },
   {
@@ -76,7 +102,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 2,
     "links": [
-      { "label": "FBI Background Check", "url": "https://www.edo.cjis.gov/" }
+      {
+        "label": "FBI Background Check",
+        "url": "https://www.edo.cjis.gov/"
+      }
     ]
   },
   {
@@ -86,7 +115,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 3,
     "links": [
-      { "label": "State Dept Apostille", "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html" }
+      {
+        "label": "State Dept Apostille",
+        "url": "https://travel.state.gov/content/travel/en/records-and-authentications/authenticate-your-document/apostille-requirements.html"
+      }
     ]
   },
   {
@@ -110,8 +142,18 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 6,
     "links": [
-      { "label": "SafetyWing", "url": "https://safetywing.com/" },
-      { "label": "Cigna Global", "url": "https://www.cigna.com/individuals-families/international/" }
+      {
+        "label": "Healthcare resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "SafetyWing",
+        "url": "https://safetywing.com/"
+      },
+      {
+        "label": "Cigna Global",
+        "url": "https://www.cigna.com/individuals-families/international/"
+      }
     ]
   },
   {
@@ -128,7 +170,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 8,
     "links": [
-      { "label": "NIF Guide", "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-fiscal-number-nif/" }
+      {
+        "label": "NIF Guide",
+        "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-fiscal-number-nif/"
+      }
     ]
   },
   {
@@ -143,7 +188,13 @@
     "description": "Fill out the national visa application form for Portugal. Available from VFS Global or consulate website.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "pt_d7_passive_income",
-    "order": 10
+    "order": 10,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Build complete application packet (checklist review)",
@@ -159,7 +210,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 2,
     "links": [
-      { "label": "VFS Global Appointment", "url": "https://visa.vfsglobal.com/usa/en/prt" }
+      {
+        "label": "VFS Global Appointment",
+        "url": "https://visa.vfsglobal.com/usa/en/prt"
+      }
     ]
   },
   {
@@ -204,7 +258,14 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 2,
     "links": [
-      { "label": "ActivoBank", "url": "https://www.activobank.pt/" }
+      {
+        "label": "Banking resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "ActivoBank",
+        "url": "https://www.activobank.pt/"
+      }
     ]
   },
   {
@@ -221,7 +282,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 4,
     "links": [
-      { "label": "AIMA Portal", "url": "https://www.aima.gov.pt/" }
+      {
+        "label": "AIMA Portal",
+        "url": "https://www.aima.gov.pt/"
+      }
     ]
   },
   {
@@ -273,7 +337,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 4,
     "links": [
-      { "label": "NHR Tax Regime", "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-non-habitual-resident-tax-regime/" }
+      {
+        "label": "NHR Tax Regime",
+        "url": "https://www.livinginportugal.com/en/moving-to-portugal/the-non-habitual-resident-tax-regime/"
+      }
     ]
   },
   {
@@ -297,7 +364,10 @@
     "visaTrackId": "pt_d7_passive_income",
     "order": 7,
     "links": [
-      { "label": "IMT License Info", "url": "https://www.imt-ip.pt/" }
+      {
+        "label": "IMT License Info",
+        "url": "https://www.imt-ip.pt/"
+      }
     ]
   },
   {

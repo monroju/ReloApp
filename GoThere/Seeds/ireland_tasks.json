@@ -6,7 +6,14 @@
     "visaTrackId": "ie_foreign_births_register",
     "order": 1,
     "links": [
-      { "label": "Citizens Information: Foreign Births Register", "url": "https://www.citizensinformation.ie/en/moving-country/irish-citizenship/foreign-births-register/" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Citizens Information: Foreign Births Register",
+        "url": "https://www.citizensinformation.ie/en/moving-country/irish-citizenship/foreign-births-register/"
+      }
     ]
   },
   {
@@ -14,14 +21,26 @@
     "description": "If your great-grandparent was Irish and your grandparent never registered on the FBR before your parent's birth, your parent did not inherit Irish citizenship — and neither did you. The grandparent path requires that grandparent to have been born on the island of Ireland.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Plan your documentary chain",
     "description": "You need: your birth certificate, your Irish-citizen parent's birth certificate, the Irish-born grandparent's birth certificate, marriage certificates linking the chain, and current government photo ID.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Order your Irish-born grandparent's birth certificate from the GRO",
@@ -30,8 +49,18 @@
     "visaTrackId": "ie_foreign_births_register",
     "order": 1,
     "links": [
-      { "label": "GRO Ireland — civil registration service", "url": "https://www.gov.ie/en/service/civil-registration-service/" },
-      { "label": "Irish Genealogy (free historical scans)", "url": "https://www.irishgenealogy.ie/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "GRO Ireland — civil registration service",
+        "url": "https://www.gov.ie/en/service/civil-registration-service/"
+      },
+      {
+        "label": "Irish Genealogy (free historical scans)",
+        "url": "https://www.irishgenealogy.ie/"
+      }
     ]
   },
   {
@@ -39,20 +68,38 @@
     "description": "Long-form, showing parents' names. Order from the issuing jurisdiction.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Order your own long-form birth certificate",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Order marriage certificates for each generation where surnames change",
     "description": "Especially the grandparent's marriage certificate (links the Irish-born grandparent to your parent) and your parents' marriage certificate.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 4
+    "order": 4,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Search the National Archives of Ireland for ancestor context (optional but recommended)",
@@ -61,7 +108,14 @@
     "visaTrackId": "ie_foreign_births_register",
     "order": 5,
     "links": [
-      { "label": "National Archives of Ireland — genealogy", "url": "https://genealogy.nationalarchives.ie/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "National Archives of Ireland — genealogy",
+        "url": "https://genealogy.nationalarchives.ie/"
+      }
     ]
   },
   {
@@ -78,7 +132,14 @@
     "visaTrackId": "ie_foreign_births_register",
     "order": 1,
     "links": [
-      { "label": "FBR online application", "url": "https://fbr.dfa.ie/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "FBR online application",
+        "url": "https://fbr.dfa.ie/"
+      }
     ]
   },
   {
@@ -116,7 +177,14 @@
     "visaTrackId": "ie_foreign_births_register",
     "order": 2,
     "links": [
-      { "label": "Irish passport applications", "url": "https://www.dfa.ie/passports/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Irish passport applications",
+        "url": "https://www.dfa.ie/passports/"
+      }
     ]
   },
   {
@@ -124,7 +192,13 @@
     "description": "Ireland and the US both permit dual citizenship. You retain all your US rights; Ireland's are added. EU rights flow from Irish citizenship — you can live and work in any EU member state.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "ie_foreign_births_register",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Citizenship resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "If you have children, register their births on the FBR before any future grandchildren are born",

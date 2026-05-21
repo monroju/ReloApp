@@ -6,7 +6,14 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 1,
     "links": [
-      { "label": "Hungarian Government — Simplified Naturalization", "url": "https://allampolgarsag.gov.hu/" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Hungarian Government — Simplified Naturalization",
+        "url": "https://allampolgarsag.gov.hu/"
+      }
     ]
   },
   {
@@ -16,7 +23,10 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 2,
     "links": [
-      { "label": "Hungarian Cultural Institute — language courses", "url": "https://newyork.balassiintezet.hu/en/" }
+      {
+        "label": "Hungarian Cultural Institute — language courses",
+        "url": "https://newyork.balassiintezet.hu/en/"
+      }
     ]
   },
   {
@@ -26,7 +36,14 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 3,
     "links": [
-      { "label": "Embassy of Hungary, Washington DC", "url": "https://washington.mfa.gov.hu/eng" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Embassy of Hungary, Washington DC",
+        "url": "https://washington.mfa.gov.hu/eng"
+      }
     ]
   },
   {
@@ -36,7 +53,10 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 1,
     "links": [
-      { "label": "FamilySearch — Hungary records", "url": "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary" }
+      {
+        "label": "FamilySearch — Hungary records",
+        "url": "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary"
+      }
     ]
   },
   {
@@ -53,7 +73,10 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 3,
     "links": [
-      { "label": "OFFI — official Hungarian translation office", "url": "https://www.offi.hu/" }
+      {
+        "label": "OFFI — official Hungarian translation office",
+        "url": "https://www.offi.hu/"
+      }
     ]
   },
   {
@@ -70,7 +93,10 @@
     "visaTrackId": "hu_simplified_naturalization",
     "order": 1,
     "links": [
-      { "label": "Application forms", "url": "https://allampolgarsag.gov.hu/letoltheto-dokumentumok" }
+      {
+        "label": "Application forms",
+        "url": "https://allampolgarsag.gov.hu/letoltheto-dokumentumok"
+      }
     ]
   },
   {

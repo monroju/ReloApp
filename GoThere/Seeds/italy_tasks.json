@@ -6,7 +6,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 1,
     "links": [
-      { "label": "Italian MFA: citizenship", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Italian MFA: citizenship",
+        "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/"
+      }
     ]
   },
   {
@@ -16,7 +23,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 2,
     "links": [
-      { "label": "US Naturalization records (USCIS Genealogy)", "url": "https://www.uscis.gov/genealogy" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "US Naturalization records (USCIS Genealogy)",
+        "url": "https://www.uscis.gov/genealogy"
+      }
     ]
   },
   {
@@ -24,7 +38,13 @@
     "description": "If your line of descent passes through a female ancestor and includes a birth before January 1, 1948, Italian consulates will reject your administrative application. Instead you must file a '1948 case' civil suit in Italian court (typically Rome). This costs more (legal fees) but has a high success rate.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Identify the Italian consulate with jurisdiction over your US residence",
@@ -33,7 +53,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 4,
     "links": [
-      { "label": "Italian consulates in the US", "url": "https://www.esteri.it/en/ministero/laministero/lerappresentanze/" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Italian consulates in the US",
+        "url": "https://www.esteri.it/en/ministero/laministero/lerappresentanze/"
+      }
     ]
   },
   {
@@ -43,7 +70,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 1,
     "links": [
-      { "label": "Find Italian Comuni online", "url": "https://www.comuni-italiani.it/" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Find Italian Comuni online",
+        "url": "https://www.comuni-italiani.it/"
+      }
     ]
   },
   {
@@ -51,7 +85,13 @@
     "description": "From the Comune where the marriage took place. Same multilingual extract format as the birth certificate.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Order naturalization records (or 'certificate of non-existence') for your Italian ancestor",
@@ -60,7 +100,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 3,
     "links": [
-      { "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "USCIS Genealogy Program",
+        "url": "https://www.uscis.gov/genealogy"
+      }
     ]
   },
   {
@@ -68,7 +115,13 @@
     "description": "Birth, marriage, and death certificates for each generation between you and the Italian-born ancestor. Each US document needs an apostille from the issuing state's Secretary of State office, plus a sworn translation into Italian.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 4
+    "order": 4,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Have all US documents apostilled",
@@ -77,7 +130,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 5,
     "links": [
-      { "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "US Department of State authentications",
+        "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html"
+      }
     ]
   },
   {
@@ -85,14 +145,26 @@
     "description": "Translations must be done by a translator certified by the Italian consulate or recognized in Italy (traduttore giurato). The consulate-list of accepted translators is published online.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 6
+    "order": 6,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Correct any name/date discrepancies in your documents",
     "description": "Italian authorities are strict: if your great-grandfather's name appears differently on his Italian birth record (Giuseppe) and his US naturalization (Joseph), you will need court-ordered amendments to the US records or an Italian court 'rettifica' before submission. This is the most common cause of rejection.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 7
+    "order": 7,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Book your consulate appointment (Prenot@Mi)",
@@ -101,7 +173,10 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 1,
     "links": [
-      { "label": "Prenot@Mi appointment system", "url": "https://prenotami.esteri.it/" }
+      {
+        "label": "Prenot@Mi appointment system",
+        "url": "https://prenotami.esteri.it/"
+      }
     ]
   },
   {
@@ -139,7 +214,14 @@
     "visaTrackId": "it_jure_sanguinis",
     "order": 2,
     "links": [
-      { "label": "AIRE registration", "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/aire/" }
+      {
+        "label": "Citizenship resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "AIRE registration",
+        "url": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/aire/"
+      }
     ]
   },
   {
@@ -147,7 +229,13 @@
     "description": "The US taxes citizens on worldwide income regardless of residence. Italy taxes residents (the 183-day rule). The US-Italy tax treaty handles most overlap. Italy also has a 7% flat tax regime for new-resident retirees in Southern Italy worth investigating.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "it_jure_sanguinis",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Citizenship resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Register your children's births in Italy to extend the chain",

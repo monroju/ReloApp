@@ -6,7 +6,10 @@
     "visaTrackId": "ar_citizenship_by_option",
     "order": 1,
     "links": [
-      { "label": "Argentine MFA: citizenship & naturalization", "url": "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship" }
+      {
+        "label": "Argentine MFA: citizenship & naturalization",
+        "url": "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship"
+      }
     ]
   },
   {
@@ -23,7 +26,14 @@
     "visaTrackId": "ar_citizenship_by_option",
     "order": 3,
     "links": [
-      { "label": "Argentine consulates in the US", "url": "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Argentine consulates in the US",
+        "url": "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates"
+      }
     ]
   },
   {
@@ -33,7 +43,14 @@
     "visaTrackId": "ar_citizenship_by_option",
     "order": 1,
     "links": [
-      { "label": "Registro Civil — Buenos Aires", "url": "https://www.buenosaires.gob.ar/registrocivil" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Registro Civil — Buenos Aires",
+        "url": "https://www.buenosaires.gob.ar/registrocivil"
+      }
     ]
   },
   {
@@ -41,7 +58,13 @@
     "description": "Long-form certified birth certificate from your state's vital records office, apostilled by your state's Secretary of State. Argentina is a Hague Apostille party — no consulate legalization needed.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ar_citizenship_by_option",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Get your US birth certificate translated by a sworn translator",
@@ -50,7 +73,10 @@
     "visaTrackId": "ar_citizenship_by_option",
     "order": 3,
     "links": [
-      { "label": "CTPCBA — Buenos Aires sworn translators", "url": "https://www.traductores.org.ar/" }
+      {
+        "label": "CTPCBA — Buenos Aires sworn translators",
+        "url": "https://www.traductores.org.ar/"
+      }
     ]
   },
   {
@@ -81,7 +107,10 @@
     "visaTrackId": "ar_citizenship_by_option",
     "order": 2,
     "links": [
-      { "label": "RENAPER", "url": "https://www.argentina.gob.ar/interior/renaper" }
+      {
+        "label": "RENAPER",
+        "url": "https://www.argentina.gob.ar/interior/renaper"
+      }
     ]
   },
   {
@@ -89,6 +118,12 @@
     "description": "Same office as the DNI. The Argentine passport gives visa-free access to most of South America, the EU Schengen area (90/180), the UK, Japan, and many other countries.",
     "phaseId": "phase_4_post",
     "visaTrackId": "ar_citizenship_by_option",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   }
 ]

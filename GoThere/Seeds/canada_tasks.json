@@ -6,7 +6,14 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 1,
     "links": [
-      { "label": "IRCC: Bill C-3 changes (2025)", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/act-changes/rules-2025.html" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "IRCC: Bill C-3 changes (2025)",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/act-changes/rules-2025.html"
+      }
     ]
   },
   {
@@ -14,35 +21,65 @@
     "description": "Most often a parent, grandparent, or great-grandparent who was born in any modern Canadian province or territory, or who naturalized as a Canadian citizen. Pre-1947 'British subject' status in Canada also counts under the historical framework.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Map the documentary chain from you to the Canadian ancestor",
     "description": "Each generation needs: birth certificate, and where surnames change, marriage certificate. Note any gaps — those are your acquisition targets.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 3
+    "order": 3,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Check if Substantial Connection test applies",
     "description": "If you were born ON OR AFTER 2025-12-15 to a Canadian parent who is themselves a citizen by descent (born outside Canada), that parent must have spent ≥1,095 cumulative days physically in Canada before your birth. If you were born BEFORE 2025-12-15, the test does not apply — you are Canadian retroactively.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 4
+    "order": 4,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Request your own birth certificate (long-form)",
     "description": "Long-form (showing parents' names) is required, not the short-form / wallet-size version.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Request birth certificates for each ancestor in the chain",
     "description": "Order from each issuing jurisdiction — US state vital records office for US ancestors, provincial vital statistics for Canadian ancestors. Allow 4–12 weeks per certificate.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 2
+    "order": 2,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Search Library and Archives Canada for ancestor records",
@@ -51,8 +88,18 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 3,
     "links": [
-      { "label": "Library and Archives Canada", "url": "https://library-archives.canada.ca/" },
-      { "label": "LAC genealogy and family history", "url": "https://library-archives.canada.ca/eng/collection/research-help/genealogy-family-history/Pages/genealogy-family-history.aspx" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Library and Archives Canada",
+        "url": "https://library-archives.canada.ca/"
+      },
+      {
+        "label": "LAC genealogy and family history",
+        "url": "https://library-archives.canada.ca/eng/collection/research-help/genealogy-family-history/Pages/genealogy-family-history.aspx"
+      }
     ]
   },
   {
@@ -62,14 +109,23 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 4,
     "links": [
-      { "label": "BAnQ digital genealogy", "url": "https://numerique.banq.qc.ca/patrimoine/recherche/genealogie" }
+      {
+        "label": "BAnQ digital genealogy",
+        "url": "https://numerique.banq.qc.ca/patrimoine/recherche/genealogie"
+      }
     ]
   },
   {
     "title": "Order marriage certificates for each generation where surnames change",
     "phaseId": "phase_2_documents",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 5
+    "order": 5,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "If you need the Substantial Connection test, gather travel/residency proof",
@@ -85,7 +141,14 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 1,
     "links": [
-      { "label": "IRCC: Apply for proof of citizenship", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "IRCC: Apply for proof of citizenship",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html"
+      }
     ]
   },
   {
@@ -102,7 +165,10 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 3,
     "links": [
-      { "label": "IRCC processing times", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html" }
+      {
+        "label": "IRCC processing times",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/application/check-processing-times.html"
+      }
     ]
   },
   {
@@ -119,7 +185,14 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 2,
     "links": [
-      { "label": "Canadian passport applications", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports.html" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Canadian passport applications",
+        "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports.html"
+      }
     ]
   },
   {
@@ -129,7 +202,10 @@
     "visaTrackId": "ca_citizenship_descent_billc3",
     "order": 3,
     "links": [
-      { "label": "Service Canada — SIN", "url": "https://www.canada.ca/en/employment-social-development/services/sin.html" }
+      {
+        "label": "Service Canada — SIN",
+        "url": "https://www.canada.ca/en/employment-social-development/services/sin.html"
+      }
     ]
   },
   {
@@ -137,7 +213,13 @@
     "description": "The US taxes citizens on worldwide income regardless of residence. Canada taxes residents. The US-Canada tax treaty handles most overlap. Consider a CPA familiar with cross-border tax.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "ca_citizenship_descent_billc3",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Citizenship resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "If you have children born abroad, document your physical presence in Canada",

@@ -6,7 +6,14 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 1,
     "links": [
-      { "label": "Polish citizenship overview", "url": "https://www.gov.pl/web/usa-en/citizenship" }
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      },
+      {
+        "label": "Polish citizenship overview",
+        "url": "https://www.gov.pl/web/usa-en/citizenship"
+      }
     ]
   },
   {
@@ -16,7 +23,10 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 2,
     "links": [
-      { "label": "USCIS Genealogy Program (naturalization records)", "url": "https://www.uscis.gov/genealogy" }
+      {
+        "label": "USCIS Genealogy Program (naturalization records)",
+        "url": "https://www.uscis.gov/genealogy"
+      }
     ]
   },
   {
@@ -31,7 +41,13 @@
     "description": "Each generation needs: birth certificate; marriage certificate where surnames change. Document any name anglicizations (Kowalski → Smith, Stanisław → Stanley) that you will need to explain by affidavit.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "pl_citizenship_confirmation",
-    "order": 4
+    "order": 4,
+    "links": [
+      {
+        "label": "Open Visa Wizard in app",
+        "url": "gothere://wizard"
+      }
+    ]
   },
   {
     "title": "Find your Polish ancestor's Polish documents",
@@ -40,8 +56,14 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 1,
     "links": [
-      { "label": "Polish State Archives", "url": "https://www.archiwa.gov.pl/en" },
-      { "label": "Geneteka — Polish genealogy index", "url": "https://geneteka.genealodzy.pl/" }
+      {
+        "label": "Polish State Archives",
+        "url": "https://www.archiwa.gov.pl/en"
+      },
+      {
+        "label": "Geneteka — Polish genealogy index",
+        "url": "https://geneteka.genealodzy.pl/"
+      }
     ]
   },
   {
@@ -51,7 +73,10 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 2,
     "links": [
-      { "label": "USCIS Genealogy Program", "url": "https://www.uscis.gov/genealogy" }
+      {
+        "label": "USCIS Genealogy Program",
+        "url": "https://www.uscis.gov/genealogy"
+      }
     ]
   },
   {
@@ -68,7 +93,14 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 4,
     "links": [
-      { "label": "US Department of State authentications", "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "US Department of State authentications",
+        "url": "https://travel.state.gov/content/travel/en/records-and-authentications.html"
+      }
     ]
   },
   {
@@ -78,7 +110,14 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 5,
     "links": [
-      { "label": "Polish sworn translators list (MoJ)", "url": "https://www.gov.pl/web/sprawiedliwosc/lista-tlumaczy-przysieglych" }
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      },
+      {
+        "label": "Polish sworn translators list (MoJ)",
+        "url": "https://www.gov.pl/web/sprawiedliwosc/lista-tlumaczy-przysieglych"
+      }
     ]
   },
   {
@@ -116,7 +155,10 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 2,
     "links": [
-      { "label": "PESEL number application", "url": "https://www.gov.pl/web/gov/uzyskaj-numer-pesel-dla-cudzoziemcow" }
+      {
+        "label": "PESEL number application",
+        "url": "https://www.gov.pl/web/gov/uzyskaj-numer-pesel-dla-cudzoziemcow"
+      }
     ]
   },
   {
@@ -126,7 +168,10 @@
     "visaTrackId": "pl_citizenship_confirmation",
     "order": 3,
     "links": [
-      { "label": "Polish consulates in the US", "url": "https://www.gov.pl/web/usa-en/contact" }
+      {
+        "label": "Polish consulates in the US",
+        "url": "https://www.gov.pl/web/usa-en/contact"
+      }
     ]
   },
   {
@@ -134,7 +179,13 @@
     "description": "Poland taxes residents (the 183-day rule + center-of-vital-interests test). The US taxes citizens worldwide. The US-Poland tax treaty handles most overlap. Polish income tax is 12%/32% PIT or 19% flat for business; consult a cross-border CPA before relocating.",
     "phaseId": "phase_5_residency_followup",
     "visaTrackId": "pl_citizenship_confirmation",
-    "order": 1
+    "order": 1,
+    "links": [
+      {
+        "label": "Citizenship resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Register your children's births in Poland (if applicable)",

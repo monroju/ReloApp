@@ -6,8 +6,14 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 1,
     "links": [
-      { "label": "INM Mexico", "url": "https://www.inm.gob.mx/" },
-      { "label": "Mexican Consulate Locator", "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados" }
+      {
+        "label": "INM Mexico",
+        "url": "https://www.inm.gob.mx/"
+      },
+      {
+        "label": "Mexican Consulate Locator",
+        "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados"
+      }
     ]
   },
   {
@@ -17,7 +23,10 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 2,
     "links": [
-      { "label": "Consulate Locator", "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados" }
+      {
+        "label": "Consulate Locator",
+        "url": "https://consulmex.sre.gob.mx/index.php/ubicacion-de-consulados"
+      }
     ]
   },
   {
@@ -34,7 +43,10 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 4,
     "links": [
-      { "label": "Numbeo Cost of Living", "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Mexico" }
+      {
+        "label": "Numbeo Cost of Living",
+        "url": "https://www.numbeo.com/cost-of-living/country_result.jsp?country=Mexico"
+      }
     ]
   },
   {
@@ -51,8 +63,14 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 6,
     "links": [
-      { "label": "Inmuebles24", "url": "https://www.inmuebles24.com/" },
-      { "label": "Segundamano", "url": "https://www.segundamano.mx/" }
+      {
+        "label": "Inmuebles24",
+        "url": "https://www.inmuebles24.com/"
+      },
+      {
+        "label": "Segundamano",
+        "url": "https://www.segundamano.mx/"
+      }
     ]
   },
   {
@@ -62,8 +80,14 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 7,
     "links": [
-      { "label": "Duolingo", "url": "https://www.duolingo.com" },
-      { "label": "SpanishPod101", "url": "https://www.spanishpod101.com/" }
+      {
+        "label": "Duolingo",
+        "url": "https://www.duolingo.com"
+      },
+      {
+        "label": "SpanishPod101",
+        "url": "https://www.spanishpod101.com/"
+      }
     ]
   },
   {
@@ -120,7 +144,13 @@
     "description": "Download and complete the visa application form from your consulate's website. Some consulates have online systems.",
     "phaseId": "phase_2_documents",
     "visaTrackId": "mx_temp_resident_economic_solvency",
-    "order": 8
+    "order": 8,
+    "links": [
+      {
+        "label": "Open Documents in app",
+        "url": "gothere://documents"
+      }
+    ]
   },
   {
     "title": "Prepare marriage/birth certificates (if applicable)",
@@ -192,7 +222,10 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 3,
     "links": [
-      { "label": "INM Appointments", "url": "https://www.inm.gob.mx/tramites/publico/estancia.html" }
+      {
+        "label": "INM Appointments",
+        "url": "https://www.inm.gob.mx/tramites/publico/estancia.html"
+      }
     ]
   },
   {
@@ -223,7 +256,10 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 7,
     "links": [
-      { "label": "CURP Portal", "url": "https://www.gob.mx/curp/" }
+      {
+        "label": "CURP Portal",
+        "url": "https://www.gob.mx/curp/"
+      }
     ]
   },
   {
@@ -233,7 +269,10 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 8,
     "links": [
-      { "label": "SAT Portal", "url": "https://www.sat.gob.mx/" }
+      {
+        "label": "SAT Portal",
+        "url": "https://www.sat.gob.mx/"
+      }
     ]
   },
   {
@@ -241,7 +280,13 @@
     "description": "With resident card and proof of address, open a bank account. Popular: BBVA, Santander, Banorte, or digital banks.",
     "phaseId": "phase_4_arrival_setup",
     "visaTrackId": "mx_temp_resident_economic_solvency",
-    "order": 9
+    "order": 9,
+    "links": [
+      {
+        "label": "Banking resources in app",
+        "url": "gothere://resources"
+      }
+    ]
   },
   {
     "title": "Get Mexican phone number",
@@ -292,7 +337,14 @@
     "visaTrackId": "mx_temp_resident_economic_solvency",
     "order": 6,
     "links": [
-      { "label": "IMSS", "url": "http://www.imss.gob.mx/" }
+      {
+        "label": "Healthcare resources in app",
+        "url": "gothere://resources"
+      },
+      {
+        "label": "IMSS",
+        "url": "http://www.imss.gob.mx/"
+      }
     ]
   },
   {
