@@ -86,6 +86,55 @@ Constraints
   Firebase + PostHog
 ```
 
+### Wave 2 AI proxy — deployment contract
+
+The iOS client (committed in Wave 2) expects a thin proxy at:
+
+    POST https://api.gothere.app/ai/messages
+
+Body (JSON):
+
+    {
+      "system_prompt_version": "v1",
+      "messages": [ { "id", "role", "content": [...] }, ... ],
+      "tools":    [ { "name", "description", "input_schema": {...} }, ... ]
+    }
+
+The proxy:
+1. Reads `system_prompt_version` (currently "v1"). Resolves to a stored
+   system prompt that includes the "Informational only — verify with the
+   official source. Never give specific legal advice." framing.
+2. Adds `X-API-Key: $ANTHROPIC_API_KEY` server-side (never in the binary).
+3. Selects the current best Sonnet — `claude-sonnet-4-6` at the time of
+   this commit.
+4. Forwards `messages` + `tools` to `POST api.anthropic.com/v1/messages`
+   with `max_tokens: 2048`.
+5. Returns the Anthropic response as JSON in this shape:
+
+       {
+         "message": { "id", "role": "assistant", "content": [...] },
+         "stop_reason": "end_turn" | "tool_use" | "max_tokens",
+         "usage": { "input_tokens": N, "output_tokens": M }
+       }
+
+A streaming variant is supported by the iOS `AIStreamHandler` — the
+proxy may pass through Anthropic's SSE events unchanged when the client
+requests `Accept: text/event-stream`. Non-streaming JSON is the default
+the iOS client uses today.
+
+Tools surfaced to Claude (executed on-device):
+- `recommend_visas`              — VisaRecommender.recommend
+- `list_cities_for_country`      — CostDatabase.cities(for:)
+- `list_wizard_tracks_for_country` — WizardRepository.tracksForCountry
+
+The proxy must NOT execute tools — the iOS app handles tool_use blocks
+locally against the bundled data and loops back with tool_result blocks
+in the next user-role turn.
+
+Free quota: enforced on-device in `AIService.maxFreeMessages = 5` per
+device, gated by `PurchaseManager.hasAllAccess` after the cap. The
+proxy can optionally enforce a global rate-limit but is not required to.
+
 ---
 
 ## Wave 3 prompt — Apostille tracker + Decision Tree handoff + Resources verification

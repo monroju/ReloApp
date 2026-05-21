@@ -268,6 +268,16 @@ struct HomeView: View {
             Text("Quick Actions")
                 .font(.headline)
 
+            // Wave 2 — AI entry point. Surfaced above the 2x2 grid so it gets
+            // the eye-catch position; the conversational starter is the
+            // recommended path for users who haven't picked a country yet.
+            NavigationLink {
+                AIWhereToStartView()
+            } label: {
+                aiStarterTile
+            }
+            .buttonStyle(.plain)
+
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                 NavigationLink {
                     DecisionTreeView()
@@ -295,6 +305,41 @@ struct HomeView: View {
             }
         }
         .goCard()
+    }
+
+    private var aiStarterTile: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "sparkles")
+                .font(.title2)
+                .foregroundColor(.goPrimary)
+                .padding(.top, 2)
+            VStack(alignment: .leading, spacing: 4) {
+                Text("I don't know where to start")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.primary)
+                Text("Tell us about your situation — we'll suggest visa paths and costs from GoThere's data.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
+            }
+            Spacer()
+            Image(systemName: "chevron.right")
+                .font(.caption.weight(.semibold))
+                .foregroundColor(.secondary)
+        }
+        .padding(14)
+        .background(
+            LinearGradient(
+                colors: [Color.goPrimary.opacity(0.10), Color.goTertiary.opacity(0.10)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.goPrimary.opacity(0.25), lineWidth: 1)
+        )
+        .cornerRadius(12)
     }
 
     private func quickLinkTile(icon: String, title: String, color: Color) -> some View {

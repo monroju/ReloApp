@@ -23,6 +23,13 @@ enum AnalyticsEvent: String {
     case decisionTreeCompleted = "decision_tree_completed"
     case documentsTabOpened = "documents_tab_opened"
     case calendarOpened = "calendar_opened"
+
+    // Wave 2 — AI conversational entry point
+    case aiConversationOpened = "ai_conversation_opened"
+    case aiMessageSent = "ai_message_sent"
+    case aiToolCalled = "ai_tool_called"
+    case aiFreeLimitReached = "ai_free_limit_reached"
+    case aiErrorReturned = "ai_error_returned"
 }
 
 enum Analytics {
