@@ -148,7 +148,7 @@ enum VisaCatalog {
             pros: ["Lowest income bar in Europe", "Citizenship after only 5 years", "Work allowed in Portugal"],
             cons: ["Slow AIMA processing", "183-day/yr presence required", "NHR tax regime ended Mar 2024"],
             officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
-            wizardTrackId: "pt_d7"
+            wizardTrackId: "pt_d7_passive_income"
         ),
         VisaInfo(
             id: "pt_d8",
@@ -166,7 +166,7 @@ enum VisaCatalog {
             pros: ["Citizenship in 5yr", "Family included", "EU residency rights"],
             cons: ["4× higher income bar than D7", "AIMA backlog 9-18mo", "No NHR tax benefit anymore"],
             officialUrl: "https://www.aima.gov.pt",
-            wizardTrackId: "pt_d8"
+            wizardTrackId: "pt_d8_digital_nomad"
         ),
         VisaInfo(
             id: "pt_d2",
@@ -183,7 +183,7 @@ enum VisaCatalog {
             pros: ["For startup founders / freelancers", "Path to EU citizenship", "No minimum investment"],
             cons: ["Business plan must convince AIMA", "Need Portuguese tax rep", "Slow consular processing"],
             officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
-            wizardTrackId: nil
+            wizardTrackId: "pt_d2"
         ),
         VisaInfo(
             id: "pt_golden",
@@ -217,7 +217,24 @@ enum VisaCatalog {
             pros: ["Low income bar", "Cheap EU university tuition", "Schengen travel"],
             cons: ["No direct path to PR", "Must switch tracks post-study", "Limited work hours"],
             officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
-            wizardTrackId: nil
+            wizardTrackId: "pt_student"
+        ),
+        VisaInfo(
+            id: "pt_d6",
+            countryId: "portugal", countryFlag: "🇵🇹", countryName: "Portugal",
+            name: "D6 Family Reunification", shortName: "D6",
+            category: .family,
+            income: "Sponsor must show ≥1× IAS (~€820/mo, +50% per additional)",
+            processingTime: "3-6 months (sponsor-initiated)",
+            duration: "Matches sponsor's residency",
+            workAllowed: "Yes once sponsor has 1yr+ residency",
+            pathToPR: "5 years",
+            pathToCitizenship: "5 years",
+            costEstimate: "€90 visa + apostille/translation costs",
+            pros: ["No income requirement on applicant", "Path to PR + EU citizenship", "Includes minor children + dependent parents"],
+            cons: ["Sponsor must initiate from Portugal", "AIMA processing can stretch 4-6 months", "Housing proof required"],
+            officialUrl: "https://www.aima.gov.pt",
+            wizardTrackId: "pt_d6"
         ),
     ]
 
@@ -240,7 +257,7 @@ enum VisaCatalog {
             pros: ["Quick processing", "Easy bank deposit proof", "No language test"],
             cons: ["Cannot work for Mexican employer", "Income threshold rises yearly", "Must enter within 6mo"],
             officialUrl: "https://www.gob.mx/tramites/ficha/visa-de-residente-temporal/SRE273",
-            wizardTrackId: "mx_temp_resident"
+            wizardTrackId: "mx_temp_resident_economic_solvency"
         ),
         VisaInfo(
             id: "mx_temp_remote",
@@ -258,7 +275,7 @@ enum VisaCatalog {
             pros: ["No Mexican client restriction", "Low tax burden if non-resident <183d", "Family included"],
             cons: ["Same income bar as Econ Solvency", "Cannot work for Mexican company", "Strict 4yr cap on Temp"],
             officialUrl: "https://www.gob.mx/tramites/ficha/visa-de-residente-temporal/SRE273",
-            wizardTrackId: "mx_remote_work"
+            wizardTrackId: "mx_temp_resident_remote_work"
         ),
         VisaInfo(
             id: "mx_perm",
@@ -276,7 +293,24 @@ enum VisaCatalog {
             pros: ["No renewal forever", "Full work rights immediately", "Bring vehicles in tax-free"],
             cons: ["Higher income bar than Temp", "Loses status with 5y absence", "Not all consulates issue direct"],
             officialUrl: "https://www.gob.mx/tramites/ficha/visa-de-residente-permanente/SRE269",
-            wizardTrackId: nil
+            wizardTrackId: "mx_perm"
+        ),
+        VisaInfo(
+            id: "mx_family_unity",
+            countryId: "mexico", countryFlag: "🇲🇽", countryName: "Mexico",
+            name: "Family Unity (Vínculo Familiar)", shortName: "Family",
+            category: .family,
+            income: "Sponsor must show ≥2 UMAs/month (~$400 USD)",
+            processingTime: "4-8 weeks",
+            duration: "Matches sponsor's status",
+            workAllowed: "Yes — same rights as sponsor's residency",
+            pathToPR: "Direct if sponsor is Mexican citizen",
+            pathToCitizenship: "2y (spouse of Mexican-born) / 5y (general)",
+            costEstimate: "~$400 INM + apostille costs",
+            pros: ["2yr fast-track to citizenship for spouses of Mexican-born", "Full work rights matching sponsor", "Includes minor children"],
+            cons: ["Concubinato route needs 2+ years of cohabitation proof", "Sponsor must prove income (UMAs)", "Limited to direct family"],
+            officialUrl: "https://www.gob.mx/tramites/ficha/visa-de-residente-temporal-vinculo-familiar/SRE275",
+            wizardTrackId: "mx_family_unity"
         ),
     ]
 

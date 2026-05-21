@@ -5809,6 +5809,1640 @@
           "order": 12
         }
       ]
+    },
+    "pt_d2": {
+      "displayName": "Portugal - D2 Entrepreneur Visa",
+      "countryId": "portugal",
+      "shortName": "D2",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your Portugal checklist.",
+          "questions": [
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                {
+                  "id": "single",
+                  "label": "Just me"
+                },
+                {
+                  "id": "couple",
+                  "label": "With partner/spouse"
+                },
+                {
+                  "id": "family",
+                  "label": "Family with children"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": {
+                "family_situation": "family"
+              },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                {
+                  "id": "us",
+                  "label": "United States"
+                },
+                {
+                  "id": "uk",
+                  "label": "United Kingdom"
+                },
+                {
+                  "id": "canada",
+                  "label": "Canada"
+                },
+                {
+                  "id": "other_eu",
+                  "label": "Other EU country"
+                },
+                {
+                  "id": "other",
+                  "label": "Other"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "business",
+          "title": "Your Business",
+          "subtitle": "D2 requires a viable business plan and intent to invest in Portugal.",
+          "questions": [
+            {
+              "id": "business_stage",
+              "type": "single_choice",
+              "label": "Where is your business today?",
+              "options": [
+                {
+                  "id": "idea",
+                  "label": "Just an idea - drafting plan"
+                },
+                {
+                  "id": "early",
+                  "label": "Early stage / pre-revenue"
+                },
+                {
+                  "id": "operating",
+                  "label": "Already operating elsewhere"
+                },
+                {
+                  "id": "portuguese_entity",
+                  "label": "Already have a Portuguese entity"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "investment_capacity",
+              "type": "single_choice",
+              "label": "How much capital are you committing to Portugal?",
+              "options": [
+                {
+                  "id": "under_5k",
+                  "label": "Under €5,000"
+                },
+                {
+                  "id": "5_30k",
+                  "label": "€5,000 - €30,000"
+                },
+                {
+                  "id": "30_100k",
+                  "label": "€30,000 - €100,000"
+                },
+                {
+                  "id": "over_100k",
+                  "label": "Over €100,000"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_plan",
+              "type": "boolean",
+              "label": "Have you drafted a business plan tailored for AIMA?",
+              "required": true
+            },
+            {
+              "id": "needs_tax_rep",
+              "type": "boolean",
+              "label": "Have you appointed a Portuguese tax representative?",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "When do you want to be in Portugal?",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "Target move date",
+              "options": [
+                {
+                  "id": "asap",
+                  "label": "ASAP (next 1-2 months)"
+                },
+                {
+                  "id": "3_months",
+                  "label": "Within 3 months"
+                },
+                {
+                  "id": "6_months",
+                  "label": "Within 6 months"
+                },
+                {
+                  "id": "1_year",
+                  "label": "Within a year"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Have you arranged temporary accommodation in Portugal?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you scheduled your consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Locate the Portuguese consulate with jurisdiction over you",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Portuguese consulates cover specific US states; double-check yours before scheduling.",
+          "links": [
+            {
+              "label": "Portuguese MFA Visa Portal",
+              "url": "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 22,
+          "order": 1
+        },
+        {
+          "taskTitle": "Request FBI Identity History Summary",
+          "phase": "Phase 2: Documentation",
+          "description": "Order from the FBI or an approved channeler. Apostille required.",
+          "conditions": {
+            "country_of_residence": [
+              "us"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2,
+          "documentSlot": {
+            "key": "pt_fbi_check",
+            "label": "FBI Identity History Summary",
+            "description": "Apostilled + sworn translation"
+          }
+        },
+        {
+          "taskTitle": "Get police background check from your country",
+          "phase": "Phase 2: Documentation",
+          "description": "Country-of-residence criminal record, apostilled.",
+          "conditions": {
+            "country_of_residence": [
+              "uk",
+              "canada",
+              "other_eu",
+              "other"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2
+        },
+        {
+          "taskTitle": "Apostille + sworn translation of your background check",
+          "phase": "Phase 2: Documentation",
+          "description": "Apostille first, then translate into Portuguese via a recognised tradutor certificado.",
+          "conditions": {},
+          "estimatedWeeks": 14,
+          "order": 3
+        },
+        {
+          "taskTitle": "Get your NIF (Portuguese tax number)",
+          "phase": "Phase 2: Documentation",
+          "description": "Required for nearly every administrative step. Get remotely via Bordr, e-Residency-style services, or in person at a Loja de Cidadao.",
+          "links": [
+            {
+              "label": "Portal das Financas",
+              "url": "https://www.portaldasfinancas.gov.pt"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 16,
+          "order": 4,
+          "documentSlot": {
+            "key": "pt_nif",
+            "label": "NIF card",
+            "description": "Portuguese tax number"
+          }
+        },
+        {
+          "taskTitle": "Secure private health insurance valid in Portugal",
+          "phase": "Phase 2: Documentation",
+          "description": "Full coverage, no co-pays. Medis, Multicare, AdvanceCare are common.",
+          "conditions": {},
+          "estimatedWeeks": 10,
+          "order": 5
+        },
+        {
+          "taskTitle": "Draft a D2-targeted business plan",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Activity description, market analysis, financial projections, and economic-social impact for Portugal. AIMA scrutinises feasibility.",
+          "conditions": {
+            "has_plan": false
+          },
+          "estimatedWeeks": 24,
+          "order": 7,
+          "documentSlot": {
+            "key": "pt_d2_plan",
+            "label": "Business plan",
+            "description": "D2-targeted feasibility study"
+          }
+        },
+        {
+          "taskTitle": "Open a Portuguese bank account and deposit declared capital",
+          "phase": "Phase 1: Research & Planning",
+          "description": "AIMA wants to see the capital actually parked in a Portuguese account, not just promised.",
+          "conditions": {},
+          "estimatedWeeks": 22,
+          "order": 8
+        },
+        {
+          "taskTitle": "Appoint a Portuguese tax representative",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Mandatory for non-EU founders until you have residency. Can be a lawyer, accountant, or specialist service.",
+          "conditions": {
+            "needs_tax_rep": false
+          },
+          "estimatedWeeks": 20,
+          "order": 9
+        },
+        {
+          "taskTitle": "Register your Portuguese company or sole proprietorship",
+          "phase": "Phase 3: Application",
+          "description": "Empresa na Hora can register a lda in under 2 hours; sole-trader registration is a separate step at the tax office.",
+          "conditions": {
+            "business_stage": [
+              "idea",
+              "early",
+              "operating"
+            ]
+          },
+          "estimatedWeeks": 6,
+          "order": 10
+        },
+        {
+          "taskTitle": "File initial AIMA appointment after arrival",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "D2-visa holders must attend an AIMA appointment within 4 months of arrival to issue the residence card.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 11
+        },
+        {
+          "taskTitle": "Start social security and tax filings",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Quarterly IVA + annual IRS for sole traders; monthly social security contributions.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 12
+        }
+      ]
+    },
+    "pt_student": {
+      "displayName": "Portugal - Student Visa",
+      "countryId": "portugal",
+      "shortName": "Student",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your Portugal checklist.",
+          "questions": [
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                {
+                  "id": "single",
+                  "label": "Just me"
+                },
+                {
+                  "id": "couple",
+                  "label": "With partner/spouse"
+                },
+                {
+                  "id": "family",
+                  "label": "Family with children"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": {
+                "family_situation": "family"
+              },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                {
+                  "id": "us",
+                  "label": "United States"
+                },
+                {
+                  "id": "uk",
+                  "label": "United Kingdom"
+                },
+                {
+                  "id": "canada",
+                  "label": "Canada"
+                },
+                {
+                  "id": "other_eu",
+                  "label": "Other EU country"
+                },
+                {
+                  "id": "other",
+                  "label": "Other"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "academic",
+          "title": "Your Studies",
+          "subtitle": "Portuguese student visas need confirmed enrolment.",
+          "questions": [
+            {
+              "id": "program_type",
+              "type": "single_choice",
+              "label": "What type of program?",
+              "options": [
+                {
+                  "id": "university",
+                  "label": "University degree (UG/PG)"
+                },
+                {
+                  "id": "language",
+                  "label": "Portuguese language course"
+                },
+                {
+                  "id": "vocational",
+                  "label": "Vocational / professional"
+                },
+                {
+                  "id": "research",
+                  "label": "Research / PhD"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "duration",
+              "type": "single_choice",
+              "label": "Program length",
+              "options": [
+                {
+                  "id": "under_3mo",
+                  "label": "Less than 3 months (Schengen)"
+                },
+                {
+                  "id": "3_12mo",
+                  "label": "3-12 months (D-visa)"
+                },
+                {
+                  "id": "over_1yr",
+                  "label": "Over 1 year (D-visa + AIMA card)"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_acceptance",
+              "type": "boolean",
+              "label": "Do you have an official acceptance letter?",
+              "required": true
+            },
+            {
+              "id": "funds_per_month",
+              "type": "single_choice",
+              "label": "Monthly funds available",
+              "options": [
+                {
+                  "id": "under_700",
+                  "label": "Under €700/mo"
+                },
+                {
+                  "id": "700_1200",
+                  "label": "€700 - €1,200/mo"
+                },
+                {
+                  "id": "over_1200",
+                  "label": "Over €1,200/mo"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "When do you want to be in Portugal?",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "Target move date",
+              "options": [
+                {
+                  "id": "asap",
+                  "label": "ASAP (next 1-2 months)"
+                },
+                {
+                  "id": "3_months",
+                  "label": "Within 3 months"
+                },
+                {
+                  "id": "6_months",
+                  "label": "Within 6 months"
+                },
+                {
+                  "id": "1_year",
+                  "label": "Within a year"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Have you arranged temporary accommodation in Portugal?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you scheduled your consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Locate the Portuguese consulate with jurisdiction over you",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Portuguese consulates cover specific US states; double-check yours before scheduling.",
+          "links": [
+            {
+              "label": "Portuguese MFA Visa Portal",
+              "url": "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 22,
+          "order": 1
+        },
+        {
+          "taskTitle": "Request FBI Identity History Summary",
+          "phase": "Phase 2: Documentation",
+          "description": "Order from the FBI or an approved channeler. Apostille required.",
+          "conditions": {
+            "country_of_residence": [
+              "us"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2,
+          "documentSlot": {
+            "key": "pt_fbi_check",
+            "label": "FBI Identity History Summary",
+            "description": "Apostilled + sworn translation"
+          }
+        },
+        {
+          "taskTitle": "Get police background check from your country",
+          "phase": "Phase 2: Documentation",
+          "description": "Country-of-residence criminal record, apostilled.",
+          "conditions": {
+            "country_of_residence": [
+              "uk",
+              "canada",
+              "other_eu",
+              "other"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2
+        },
+        {
+          "taskTitle": "Apostille + sworn translation of your background check",
+          "phase": "Phase 2: Documentation",
+          "description": "Apostille first, then translate into Portuguese via a recognised tradutor certificado.",
+          "conditions": {},
+          "estimatedWeeks": 14,
+          "order": 3
+        },
+        {
+          "taskTitle": "Get your NIF (Portuguese tax number)",
+          "phase": "Phase 2: Documentation",
+          "description": "Required for nearly every administrative step. Get remotely via Bordr, e-Residency-style services, or in person at a Loja de Cidadao.",
+          "links": [
+            {
+              "label": "Portal das Financas",
+              "url": "https://www.portaldasfinancas.gov.pt"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 16,
+          "order": 4,
+          "documentSlot": {
+            "key": "pt_nif",
+            "label": "NIF card",
+            "description": "Portuguese tax number"
+          }
+        },
+        {
+          "taskTitle": "Secure private health insurance valid in Portugal",
+          "phase": "Phase 2: Documentation",
+          "description": "Full coverage, no co-pays. Medis, Multicare, AdvanceCare are common.",
+          "conditions": {},
+          "estimatedWeeks": 10,
+          "order": 5
+        },
+        {
+          "taskTitle": "Confirm acceptance letter from a Portuguese institution",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Institution must be officially recognised by the DGES or, for language schools, accredited by IPDT.",
+          "conditions": {
+            "has_acceptance": false
+          },
+          "estimatedWeeks": 24,
+          "order": 7,
+          "documentSlot": {
+            "key": "pt_student_acceptance",
+            "label": "Acceptance letter",
+            "description": "From a recognised Portuguese institution"
+          }
+        },
+        {
+          "taskTitle": "Gather proof of funds (~€700/month minimum)",
+          "phase": "Phase 2: Documentation",
+          "description": "Bank statements, scholarship award letter, or notarised parental support letter with supporter's financial proof.",
+          "conditions": {
+            "funds_per_month": [
+              "under_700",
+              "700_1200"
+            ]
+          },
+          "estimatedWeeks": 14,
+          "order": 8,
+          "documentSlot": {
+            "key": "pt_student_funds",
+            "label": "Proof of funds",
+            "description": "Bank statements, scholarship, or parental support"
+          }
+        },
+        {
+          "taskTitle": "Plan AIMA appointment within 4 months of arrival",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Programs over 1 year require an AIMA-issued student residence card; book early - slots are scarce.",
+          "conditions": {
+            "duration": [
+              "over_1yr"
+            ]
+          },
+          "estimatedWeeks": 0,
+          "order": 9
+        },
+        {
+          "taskTitle": "Plan tracks to switch to D7/D8 after graduation",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Student visa time counts half toward PR. To stay long-term, plan the switch to D7, D8, or work visa in the final semester.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 10
+        }
+      ]
+    },
+    "pt_d6": {
+      "displayName": "Portugal - D6 Family Reunification",
+      "countryId": "portugal",
+      "shortName": "D6",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your Portugal checklist.",
+          "questions": [
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                {
+                  "id": "single",
+                  "label": "Just me"
+                },
+                {
+                  "id": "couple",
+                  "label": "With partner/spouse"
+                },
+                {
+                  "id": "family",
+                  "label": "Family with children"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": {
+                "family_situation": "family"
+              },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                {
+                  "id": "us",
+                  "label": "United States"
+                },
+                {
+                  "id": "uk",
+                  "label": "United Kingdom"
+                },
+                {
+                  "id": "canada",
+                  "label": "Canada"
+                },
+                {
+                  "id": "other_eu",
+                  "label": "Other EU country"
+                },
+                {
+                  "id": "other",
+                  "label": "Other"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "relationship",
+          "title": "Your Sponsor in Portugal",
+          "subtitle": "D6 needs a sponsor already with Portuguese residency.",
+          "questions": [
+            {
+              "id": "sponsor_status",
+              "type": "single_choice",
+              "label": "Your sponsor's residency status in Portugal",
+              "options": [
+                {
+                  "id": "portuguese_citizen",
+                  "label": "Portuguese citizen"
+                },
+                {
+                  "id": "eu_citizen",
+                  "label": "EU citizen residing in Portugal"
+                },
+                {
+                  "id": "permanent_resident",
+                  "label": "Permanent resident"
+                },
+                {
+                  "id": "temp_resident",
+                  "label": "Temporary resident (D-series)"
+                },
+                {
+                  "id": "none",
+                  "label": "Not yet a resident"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "relationship_type",
+              "type": "single_choice",
+              "label": "Your relationship to sponsor",
+              "options": [
+                {
+                  "id": "spouse",
+                  "label": "Spouse / civil partner"
+                },
+                {
+                  "id": "child",
+                  "label": "Child under 18"
+                },
+                {
+                  "id": "adult_child",
+                  "label": "Adult dependent child"
+                },
+                {
+                  "id": "parent",
+                  "label": "Parent (dependent)"
+                },
+                {
+                  "id": "other",
+                  "label": "Other dependent relative"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "sponsor_income",
+              "type": "single_choice",
+              "label": "Sponsor's monthly income",
+              "options": [
+                {
+                  "id": "below_iac",
+                  "label": "Below ~€820 (1× IAS)"
+                },
+                {
+                  "id": "iac",
+                  "label": "€820 - €1,200 (~1× IAS)"
+                },
+                {
+                  "id": "above_iac",
+                  "label": "Over €1,200"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_housing",
+              "type": "boolean",
+              "label": "Does the sponsor have adequate housing documented (rental contract or deed)?",
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "When do you want to be in Portugal?",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "Target move date",
+              "options": [
+                {
+                  "id": "asap",
+                  "label": "ASAP (next 1-2 months)"
+                },
+                {
+                  "id": "3_months",
+                  "label": "Within 3 months"
+                },
+                {
+                  "id": "6_months",
+                  "label": "Within 6 months"
+                },
+                {
+                  "id": "1_year",
+                  "label": "Within a year"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Have you arranged temporary accommodation in Portugal?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you scheduled your consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Locate the Portuguese consulate with jurisdiction over you",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Portuguese consulates cover specific US states; double-check yours before scheduling.",
+          "links": [
+            {
+              "label": "Portuguese MFA Visa Portal",
+              "url": "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 22,
+          "order": 1
+        },
+        {
+          "taskTitle": "Request FBI Identity History Summary",
+          "phase": "Phase 2: Documentation",
+          "description": "Order from the FBI or an approved channeler. Apostille required.",
+          "conditions": {
+            "country_of_residence": [
+              "us"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2,
+          "documentSlot": {
+            "key": "pt_fbi_check",
+            "label": "FBI Identity History Summary",
+            "description": "Apostilled + sworn translation"
+          }
+        },
+        {
+          "taskTitle": "Get police background check from your country",
+          "phase": "Phase 2: Documentation",
+          "description": "Country-of-residence criminal record, apostilled.",
+          "conditions": {
+            "country_of_residence": [
+              "uk",
+              "canada",
+              "other_eu",
+              "other"
+            ]
+          },
+          "estimatedWeeks": 18,
+          "order": 2
+        },
+        {
+          "taskTitle": "Apostille + sworn translation of your background check",
+          "phase": "Phase 2: Documentation",
+          "description": "Apostille first, then translate into Portuguese via a recognised tradutor certificado.",
+          "conditions": {},
+          "estimatedWeeks": 14,
+          "order": 3
+        },
+        {
+          "taskTitle": "Get your NIF (Portuguese tax number)",
+          "phase": "Phase 2: Documentation",
+          "description": "Required for nearly every administrative step. Get remotely via Bordr, e-Residency-style services, or in person at a Loja de Cidadao.",
+          "links": [
+            {
+              "label": "Portal das Financas",
+              "url": "https://www.portaldasfinancas.gov.pt"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 16,
+          "order": 4,
+          "documentSlot": {
+            "key": "pt_nif",
+            "label": "NIF card",
+            "description": "Portuguese tax number"
+          }
+        },
+        {
+          "taskTitle": "Secure private health insurance valid in Portugal",
+          "phase": "Phase 2: Documentation",
+          "description": "Full coverage, no co-pays. Medis, Multicare, AdvanceCare are common.",
+          "conditions": {},
+          "estimatedWeeks": 10,
+          "order": 5
+        },
+        {
+          "taskTitle": "Sponsor: open the D6 application via AIMA portal",
+          "phase": "Phase 1: Research & Planning",
+          "description": "The Portugal-based sponsor initiates the reunification on the AIMA portal. Reunification is sponsor-initiated.",
+          "conditions": {},
+          "estimatedWeeks": 28,
+          "order": 7
+        },
+        {
+          "taskTitle": "Sponsor: document adequate housing",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Rental contract or property deed showing space for the family joining.",
+          "conditions": {
+            "has_housing": false
+          },
+          "estimatedWeeks": 26,
+          "order": 8
+        },
+        {
+          "taskTitle": "Sponsor: prove income at >= 1x IAS (~€820/mo for first family member, +50% per additional)",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Income statement (modelo 3) plus 3 months of pay slips or business income proof.",
+          "conditions": {
+            "sponsor_income": [
+              "below_iac"
+            ]
+          },
+          "estimatedWeeks": 26,
+          "order": 9
+        },
+        {
+          "taskTitle": "Gather and apostille civil-status documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Marriage / birth / dependency certificates, apostilled and translated into Portuguese.",
+          "conditions": {},
+          "estimatedWeeks": 18,
+          "order": 10,
+          "documentSlot": {
+            "key": "pt_d6_civil_docs",
+            "label": "Civil-status documents",
+            "description": "Marriage / birth / dependency, apostilled + translated"
+          }
+        },
+        {
+          "taskTitle": "Book consulate appointment after AIMA approval letter arrives",
+          "phase": "Phase 3: Application",
+          "description": "Sponsor receives the AIMA approval (~3-4 months); applicant then books consular appointment to issue the D6 visa sticker.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 11
+        },
+        {
+          "taskTitle": "Attend AIMA appointment within 4 months of arrival to issue the residence card",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Family-reunification residence card normally mirrors sponsor's expiry; renewals sync with sponsor's cycle.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 12
+        }
+      ]
+    },
+    "mx_perm": {
+      "displayName": "Mexico - Permanent Resident Visa",
+      "countryId": "mexico",
+      "shortName": "Permanent",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your Mexico checklist.",
+          "questions": [
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                {
+                  "id": "single",
+                  "label": "Just me"
+                },
+                {
+                  "id": "couple",
+                  "label": "With partner/spouse"
+                },
+                {
+                  "id": "family",
+                  "label": "Family with children"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": {
+                "family_situation": "family"
+              },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                {
+                  "id": "us",
+                  "label": "United States"
+                },
+                {
+                  "id": "uk",
+                  "label": "United Kingdom"
+                },
+                {
+                  "id": "canada",
+                  "label": "Canada"
+                },
+                {
+                  "id": "other_eu",
+                  "label": "Other EU country"
+                },
+                {
+                  "id": "other",
+                  "label": "Other"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "eligibility",
+          "title": "Your Eligibility Route",
+          "subtitle": "Permanent Residency has two main routes - higher income, or 4 years of Temporary held.",
+          "questions": [
+            {
+              "id": "route",
+              "type": "single_choice",
+              "label": "Which route applies to you?",
+              "options": [
+                {
+                  "id": "income",
+                  "label": "Direct via higher income"
+                },
+                {
+                  "id": "from_temp",
+                  "label": "Upgrading from 4 years of Temporary Residency"
+                },
+                {
+                  "id": "family",
+                  "label": "Family unity (spouse/parent of Mexican citizen)"
+                },
+                {
+                  "id": "retiree",
+                  "label": "Retiree with pension proof"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "monthly_income",
+              "type": "single_choice",
+              "label": "Monthly net income (last 6 months)",
+              "options": [
+                {
+                  "id": "under_3k",
+                  "label": "Under $3,000 USD"
+                },
+                {
+                  "id": "3_5k",
+                  "label": "$3,000 - $5,000 USD"
+                },
+                {
+                  "id": "5_7k",
+                  "label": "$5,000 - $7,000 USD"
+                },
+                {
+                  "id": "over_7k",
+                  "label": "Over $7,000 USD"
+                }
+              ],
+              "required": true,
+              "showIf": {
+                "route": "income"
+              }
+            },
+            {
+              "id": "savings",
+              "type": "single_choice",
+              "label": "Investment / savings balance (12-month average)",
+              "options": [
+                {
+                  "id": "under_100k",
+                  "label": "Under $100,000 USD"
+                },
+                {
+                  "id": "100_220k",
+                  "label": "$100,000 - $220,000 USD"
+                },
+                {
+                  "id": "over_220k",
+                  "label": "Over $220,000 USD"
+                }
+              ],
+              "required": true,
+              "showIf": {
+                "route": "income"
+              }
+            },
+            {
+              "id": "has_4yr_temp",
+              "type": "boolean",
+              "label": "Do you currently hold 4+ years of Temporary Residency?",
+              "showIf": {
+                "route": "from_temp"
+              },
+              "required": false
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "When do you want to be in Mexico?",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "Target move date",
+              "options": [
+                {
+                  "id": "asap",
+                  "label": "ASAP (next 1-2 months)"
+                },
+                {
+                  "id": "3_months",
+                  "label": "Within 3 months"
+                },
+                {
+                  "id": "6_months",
+                  "label": "Within 6 months"
+                },
+                {
+                  "id": "1_year",
+                  "label": "Within a year"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Have you arranged temporary accommodation in Mexico?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you scheduled your consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Identify the Mexican consulate with jurisdiction over you",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Mexico requires the visa application be filed at the consulate covering your home address.",
+          "links": [
+            {
+              "label": "Mexican Consulates (US)",
+              "url": "https://consulmex.sre.gob.mx/"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 16,
+          "order": 1
+        },
+        {
+          "taskTitle": "Gather 6 months of bank statements / income proof",
+          "phase": "Phase 2: Documentation",
+          "description": "Bank statements, investment account balances, or recent pay stubs. Notarised + apostille not required for the consular file, but originals must be presented.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 2,
+          "documentSlot": {
+            "key": "mx_income_proof",
+            "label": "Financial proof",
+            "description": "6 months of statements"
+          }
+        },
+        {
+          "taskTitle": "Apostille any required civil-status documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Marriage / birth certificates when applying as a family unit. Apostille at the US State Department.",
+          "conditions": {
+            "family_situation": [
+              "couple",
+              "family"
+            ]
+          },
+          "estimatedWeeks": 10,
+          "order": 3
+        },
+        {
+          "taskTitle": "Obtain Mexican-recognised private health insurance",
+          "phase": "Phase 2: Documentation",
+          "description": "International policy (GNP, Bupa Global, Allianz) or local IMSS Voluntario enrolment after arrival.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 4
+        },
+        {
+          "taskTitle": "Gather 6 months of statements showing required income/savings",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Permanent requires roughly $5,300/mo income OR $220,000 average savings. Each consulate calibrates slightly differently.",
+          "conditions": {
+            "route": "income"
+          },
+          "estimatedWeeks": 18,
+          "order": 5,
+          "documentSlot": {
+            "key": "mx_perm_funds",
+            "label": "Income / savings proof",
+            "description": "6 months income or 12 months savings"
+          }
+        },
+        {
+          "taskTitle": "Gather your existing Temporary Residency card + renewals",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Original card + every renewal stamp. INM verifies the continuous 4-year period.",
+          "conditions": {
+            "route": "from_temp"
+          },
+          "estimatedWeeks": 16,
+          "order": 6
+        },
+        {
+          "taskTitle": "Apostille marriage / birth certificate (family unity route)",
+          "phase": "Phase 2: Documentation",
+          "description": "Required for the family unity route. Apostille + sworn Spanish translation.",
+          "conditions": {
+            "route": "family"
+          },
+          "estimatedWeeks": 12,
+          "order": 7
+        },
+        {
+          "taskTitle": "Book consulate appointment (no income proof needed if upgrading from Temp)",
+          "phase": "Phase 3: Application",
+          "description": "Income-route applicants attend a consulate visa interview. Temp-to-Perm upgrades are filed at INM in Mexico - no consulate step.",
+          "conditions": {
+            "route": [
+              "income",
+              "family",
+              "retiree"
+            ]
+          },
+          "estimatedWeeks": 6,
+          "order": 8
+        },
+        {
+          "taskTitle": "Visit INM within 30 days of arrival to exchange canje for the card",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Visa sticker is exchanged for the physical Permanent Resident card. Fingerprints, photo, and INM fee at this step.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 9
+        },
+        {
+          "taskTitle": "Register for CURP and RFC (tax ID)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "CURP is automatic with the residency card; RFC needs a separate SAT visit if you'll work or hold property here.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 10
+        },
+        {
+          "taskTitle": "Plan for 5-year residency before applying for naturalisation",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Permanent status counts toward citizenship - 5 years total for general track, 2 years for spouses of Mexicans / Latino-American nationals.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 11
+        }
+      ]
+    },
+    "mx_family_unity": {
+      "displayName": "Mexico - Family Unity (Vinculo Familiar)",
+      "countryId": "mexico",
+      "shortName": "Family",
+      "steps": [
+        {
+          "id": "personal",
+          "title": "About You",
+          "subtitle": "Tell us about your situation so we can personalize your Mexico checklist.",
+          "questions": [
+            {
+              "id": "family_situation",
+              "type": "single_choice",
+              "label": "Who is relocating?",
+              "options": [
+                {
+                  "id": "single",
+                  "label": "Just me"
+                },
+                {
+                  "id": "couple",
+                  "label": "With partner/spouse"
+                },
+                {
+                  "id": "family",
+                  "label": "Family with children"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "num_dependents",
+              "type": "number",
+              "label": "Number of children",
+              "showIf": {
+                "family_situation": "family"
+              },
+              "min": 1,
+              "max": 10
+            },
+            {
+              "id": "country_of_residence",
+              "type": "single_choice",
+              "label": "Current country of residence",
+              "options": [
+                {
+                  "id": "us",
+                  "label": "United States"
+                },
+                {
+                  "id": "uk",
+                  "label": "United Kingdom"
+                },
+                {
+                  "id": "canada",
+                  "label": "Canada"
+                },
+                {
+                  "id": "other_eu",
+                  "label": "Other EU country"
+                },
+                {
+                  "id": "other",
+                  "label": "Other"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "relationship",
+          "title": "Your Mexican Tie",
+          "subtitle": "Family Unity grants residency through a Mexican-citizen or resident family member.",
+          "questions": [
+            {
+              "id": "sponsor_status",
+              "type": "single_choice",
+              "label": "Your sponsor's status in Mexico",
+              "options": [
+                {
+                  "id": "mexican_citizen",
+                  "label": "Mexican citizen by birth or naturalisation"
+                },
+                {
+                  "id": "permanent_resident",
+                  "label": "Permanent resident"
+                },
+                {
+                  "id": "temp_resident",
+                  "label": "Temporary resident"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "relationship_type",
+              "type": "single_choice",
+              "label": "Your relationship to sponsor",
+              "options": [
+                {
+                  "id": "spouse",
+                  "label": "Spouse / concubine of 2+ years"
+                },
+                {
+                  "id": "child",
+                  "label": "Child under 18"
+                },
+                {
+                  "id": "parent",
+                  "label": "Parent of Mexican citizen"
+                },
+                {
+                  "id": "sibling",
+                  "label": "Sibling minor (under 18)"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_civil_docs",
+              "type": "boolean",
+              "label": "Do you have apostilled civil-status documents proving the relationship?",
+              "required": true
+            },
+            {
+              "id": "sponsor_income",
+              "type": "single_choice",
+              "label": "Sponsor's monthly income",
+              "options": [
+                {
+                  "id": "under_2_uma",
+                  "label": "Under ~$400 USD (2 UMAs)"
+                },
+                {
+                  "id": "2_5_uma",
+                  "label": "$400 - $1,000 USD"
+                },
+                {
+                  "id": "over_5_uma",
+                  "label": "Over $1,000 USD"
+                }
+              ],
+              "required": true
+            }
+          ]
+        },
+        {
+          "id": "timeline",
+          "title": "Your Timeline",
+          "subtitle": "When do you want to be in Mexico?",
+          "questions": [
+            {
+              "id": "target_move",
+              "type": "single_choice",
+              "label": "Target move date",
+              "options": [
+                {
+                  "id": "asap",
+                  "label": "ASAP (next 1-2 months)"
+                },
+                {
+                  "id": "3_months",
+                  "label": "Within 3 months"
+                },
+                {
+                  "id": "6_months",
+                  "label": "Within 6 months"
+                },
+                {
+                  "id": "1_year",
+                  "label": "Within a year"
+                }
+              ],
+              "required": true
+            },
+            {
+              "id": "has_accommodation",
+              "type": "boolean",
+              "label": "Have you arranged temporary accommodation in Mexico?",
+              "required": true
+            },
+            {
+              "id": "has_consulate_appt",
+              "type": "boolean",
+              "label": "Have you scheduled your consulate appointment?",
+              "required": true
+            }
+          ]
+        }
+      ],
+      "taskRules": [
+        {
+          "taskTitle": "Identify the Mexican consulate with jurisdiction over you",
+          "phase": "Phase 1: Research & Planning",
+          "description": "Mexico requires the visa application be filed at the consulate covering your home address.",
+          "links": [
+            {
+              "label": "Mexican Consulates (US)",
+              "url": "https://consulmex.sre.gob.mx/"
+            }
+          ],
+          "conditions": {},
+          "estimatedWeeks": 16,
+          "order": 1
+        },
+        {
+          "taskTitle": "Gather 6 months of bank statements / income proof",
+          "phase": "Phase 2: Documentation",
+          "description": "Bank statements, investment account balances, or recent pay stubs. Notarised + apostille not required for the consular file, but originals must be presented.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 2,
+          "documentSlot": {
+            "key": "mx_income_proof",
+            "label": "Financial proof",
+            "description": "6 months of statements"
+          }
+        },
+        {
+          "taskTitle": "Apostille any required civil-status documents",
+          "phase": "Phase 2: Documentation",
+          "description": "Marriage / birth certificates when applying as a family unit. Apostille at the US State Department.",
+          "conditions": {
+            "family_situation": [
+              "couple",
+              "family"
+            ]
+          },
+          "estimatedWeeks": 10,
+          "order": 3
+        },
+        {
+          "taskTitle": "Obtain Mexican-recognised private health insurance",
+          "phase": "Phase 2: Documentation",
+          "description": "International policy (GNP, Bupa Global, Allianz) or local IMSS Voluntario enrolment after arrival.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 4
+        },
+        {
+          "taskTitle": "Apostille marriage / birth / concubinage proof",
+          "phase": "Phase 2: Documentation",
+          "description": "Spouse: marriage certificate. Child: birth certificate. Concubine: notarised cohabitation declaration + 2+ years of proof (joint accounts, leases).",
+          "conditions": {
+            "has_civil_docs": false
+          },
+          "estimatedWeeks": 16,
+          "order": 5,
+          "documentSlot": {
+            "key": "mx_family_civil_docs",
+            "label": "Civil-status documents",
+            "description": "Apostilled + translated for INM"
+          }
+        },
+        {
+          "taskTitle": "Sponsor: gather Mexican ID + residence proof + income proof",
+          "phase": "Phase 2: Documentation",
+          "description": "INE / residency card, CFE bill or rental contract for address, 6 months of income or savings.",
+          "conditions": {},
+          "estimatedWeeks": 12,
+          "order": 6
+        },
+        {
+          "taskTitle": "Sponsor: prove sufficient income (typically 2+ UMAs/month)",
+          "phase": "Phase 2: Documentation",
+          "description": "UMA (Unidad de Medida y Actualizacion) is updated annually; the threshold scales with family size.",
+          "conditions": {
+            "sponsor_income": [
+              "under_2_uma"
+            ]
+          },
+          "estimatedWeeks": 12,
+          "order": 7
+        },
+        {
+          "taskTitle": "Book consulate appointment for visa interview",
+          "phase": "Phase 3: Application",
+          "description": "Bring all sponsor docs, civil-status docs, your passport, and a completed application form.",
+          "conditions": {},
+          "estimatedWeeks": 8,
+          "order": 8
+        },
+        {
+          "taskTitle": "Exchange visa at INM within 30 days of arrival (canje)",
+          "phase": "Phase 4: Arrival & Setup",
+          "description": "Same canje process as other residency tracks. INM issues the physical card with the Vinculo Familiar status.",
+          "conditions": {},
+          "estimatedWeeks": 0,
+          "order": 9
+        },
+        {
+          "taskTitle": "Track 2-year naturalisation timeline if sponsor is Mexican-by-birth",
+          "phase": "Phase 5: Residency Follow-up",
+          "description": "Spouses of Mexican-born citizens can apply for naturalisation after 2 years of residency, not the usual 5.",
+          "conditions": {
+            "sponsor_status": "mexican_citizen",
+            "relationship_type": "spouse"
+          },
+          "estimatedWeeks": 0,
+          "order": 10
+        }
+      ]
     }
   }
 }
