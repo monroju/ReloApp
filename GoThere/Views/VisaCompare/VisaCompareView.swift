@@ -9,7 +9,13 @@ struct VisaCompareView: View {
     @State private var selectedCountryFilter: String? = nil  // nil = all countries
     @State private var selectedCategoryFilter: VisaCategory? = nil
     @State private var selectedVisaIds: Set<String> = []
+    @State private var maxMonthlyIncomeUSD: Double = 10000  // 10k = "any income"
     private let maxSelection = 3
+
+    private static let eurToUsd = 1.08
+    private static let incomeSliderMin: Double = 500
+    private static let incomeSliderMax: Double = 10000
+    private var incomeFilterActive: Bool { maxMonthlyIncomeUSD < Self.incomeSliderMax }
 
     init(initialCountryId: String? = nil, onStartWizard: @escaping (String) -> Void = { _ in }) {
         self.initialCountryId = initialCountryId
@@ -21,7 +27,19 @@ struct VisaCompareView: View {
         VisaCatalog.all.filter { v in
             (selectedCountryFilter == nil || v.countryId == selectedCountryFilter)
             && (selectedCategoryFilter == nil || v.category == selectedCategoryFilter)
+            && passesIncomeFilter(v)
         }
+    }
+
+    /// Income filter rule:
+    ///   - Slider at max → no filter.
+    ///   - Otherwise: keep visas with `monthlyIncomeEUR == nil` (ancestry/work/points-based — no income test)
+    ///     OR converted USD threshold ≤ slider value.
+    private func passesIncomeFilter(_ v: VisaInfo) -> Bool {
+        guard incomeFilterActive else { return true }
+        guard let eur = v.monthlyIncomeEUR else { return true }
+        let usd = Double(eur) * Self.eurToUsd
+        return usd <= maxMonthlyIncomeUSD
     }
 
     private var selectedVisas: [VisaInfo] {
@@ -114,7 +132,38 @@ struct VisaCompareView: View {
                     }
                 }
             }
+
+            incomeFilter
+                .padding(.top, 8)
         }
+    }
+
+    private var incomeFilter: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Text("Max monthly income required")
+                    .font(.caption.bold())
+                    .foregroundColor(.secondary)
+                Spacer()
+                Text(incomeFilterActive
+                     ? "≤ $\(Int(maxMonthlyIncomeUSD))/mo"
+                     : "Any")
+                    .font(.caption.bold())
+                    .foregroundColor(.goPrimary)
+            }
+            Slider(
+                value: $maxMonthlyIncomeUSD,
+                in: Self.incomeSliderMin...Self.incomeSliderMax,
+                step: 100
+            )
+            .tint(.goPrimary)
+            Text("Visas with no income test (ancestry, work, points-based) always show.")
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .padding(10)
+        .background(Color.goPrimary.opacity(0.06))
+        .cornerRadius(10)
     }
 
     private func chipButton(title: String, icon: String? = nil, isSelected: Bool, action: @escaping () -> Void) -> some View {
