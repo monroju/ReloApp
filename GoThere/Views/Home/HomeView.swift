@@ -19,6 +19,9 @@ struct HomeView: View {
                     // Country selector
                     countrySelector
 
+                    // Ancestry citizenship hook — free path, surfaces for everyone
+                    ancestryCallout
+
                     // Visa track info
                     if let track = destVM.activeVisaTrack {
                         visaTrackCard(track)
@@ -49,6 +52,9 @@ struct HomeView: View {
                             Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
                         }
                         Menu {
+                            NavigationLink("Ancestry Citizenship") {
+                                AncestryCheckerView()
+                            }
                             NavigationLink("Decision Tree") {
                                 DecisionTreeView()
                             }
@@ -104,6 +110,35 @@ struct HomeView: View {
                 Text(deleteError ?? "")
             }
         }
+    }
+
+    // MARK: - Ancestry Callout (free path, broad appeal)
+
+    private var ancestryCallout: some View {
+        NavigationLink(destination: AncestryCheckerView()) {
+            HStack(spacing: 12) {
+                Image(systemName: "person.3.sequence.fill")
+                    .font(.title2)
+                    .foregroundColor(.goPrimary)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("You might already be a citizen.")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.primary)
+                    Text("Italian, Irish, German, Polish, or Hungarian grandparent? Check eligibility — free, no income test.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding()
+            .background(Color.goPrimary.opacity(0.08))
+            .cornerRadius(12)
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: - Country Selector

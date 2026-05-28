@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "lastUpdated": "2026-05-28",
+  "disclaimer": "Eligibility rules summarised from publicly available consular guidance. Final eligibility is determined by the destination country's consulate or government. This is research, not legal advice — confirm with a qualified immigration lawyer before filing.",
+  "paths": [
+    {
+      "id": "italy_jure_sanguinis",
+      "countryId": "italy",
+      "countryName": "Italy",
+      "shortName": "Jure Sanguinis",
+      "fullName": "Italian Citizenship by Descent",
+      "summary": "Italy passes citizenship through bloodline with no generational limit on the paternal side and from 1 Jan 1948 onward on the maternal side. If any direct ancestor was Italian at the time their child was born, you likely qualify.",
+      "incomeRequired": false,
+      "estCostUSD": { "low": 700, "high": 4500, "note": "Document procurement + apostilles + consular fees. Most cost is paperwork hunt, not government fees." },
+      "estTimelineMonths": { "low": 18, "high": 48 },
+      "outcome": "Full Italian + EU citizenship + passport. Right to live and work anywhere in the EU/EEA.",
+      "eligibilityRules": [
+        {
+          "id": "ancestor_italian_at_emigration",
+          "label": "Your Italian ancestor was still an Italian citizen when their child (your next-up ancestor) was born",
+          "explanation": "If your great-grandfather naturalised as a US citizen BEFORE your grandfather was born, the line is broken.",
+          "required": true
+        },
+        {
+          "id": "maternal_line_post_1948",
+          "label": "If the line passes through a female ancestor, that woman's child must have been born on or after 1 January 1948",
+          "explanation": "Pre-1948 maternal transmission was blocked by Italian law. There is a workaround called the '1948 case' (Rome court petition, ~€5–8K), but it adds 2–3 years.",
+          "required": false,
+          "openWorkaround": "1948 case (Rome court petition)"
+        },
+        {
+          "id": "no_voluntary_renunciation",
+          "label": "No ancestor in the chain renounced Italian citizenship",
+          "required": true
+        }
+      ],
+      "documents": [
+        "Italian ancestor's birth certificate (estratto dell'atto di nascita) from comune of birth",
+        "Italian ancestor's marriage certificate",
+        "Italian ancestor's US naturalisation record (or proof they never naturalised — NARA Form N-565)",
+        "Every birth + marriage + death certificate in the chain from Italian ancestor down to you",
+        "Apostille on every US-issued document",
+        "Certified Italian translation of every US document",
+        "Your own valid US passport"
+      ],
+      "lowIncomeNotes": "No income or asset test at any stage. Costs are paperwork only. Many applicants use a 1948-case attorney on contingency. After approval, you can move to Italy and access SSN-equivalent (codice fiscale) + public healthcare immediately.",
+      "officialUrl": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/"
+    },
+    {
+      "id": "ireland_foreign_births_register",
+      "countryId": "ireland",
+      "countryName": "Ireland",
+      "shortName": "FBR",
+      "fullName": "Irish Citizenship via Foreign Births Register",
+      "summary": "If you have an Irish-born grandparent, you can register on the Foreign Births Register and receive Irish + EU citizenship. The rule stops at grandparent unless your parent registered before you were born.",
+      "incomeRequired": false,
+      "estCostUSD": { "low": 450, "high": 900, "note": "€278 FBR fee + document procurement + posting." },
+      "estTimelineMonths": { "low": 12, "high": 30 },
+      "outcome": "Full Irish + EU citizenship + passport. Right to live and work anywhere in the EU/EEA + UK.",
+      "eligibilityRules": [
+        {
+          "id": "grandparent_born_in_ireland",
+          "label": "At least one of your four grandparents was born in Ireland (any of the 32 counties)",
+          "required": true
+        },
+        {
+          "id": "alternative_parent_registered_before_birth",
+          "label": "OR: your parent was on the Foreign Births Register before you were born",
+          "required": false
+        }
+      ],
+      "documents": [
+        "Irish grandparent's Irish birth certificate (long form)",
+        "Marriage certificate of grandparent (if applicable)",
+        "Parent's birth certificate",
+        "Parent's marriage certificate (if applicable)",
+        "Your own birth certificate",
+        "Your current valid passport (any nationality)",
+        "Two witnesses to certify the application form"
+      ],
+      "lowIncomeNotes": "No income test. €278 fee is the only government cost. Application is by post — no travel required. Once registered, you can apply for an Irish passport for €80 and move to Ireland (or any EU country) without further immigration paperwork.",
+      "officialUrl": "https://www.dfa.ie/citizenship/born-abroad/registering-a-foreign-birth/"
+    },
+    {
+      "id": "germany_stag",
+      "countryId": "germany",
+      "countryName": "Germany",
+      "shortName": "StAG §5",
+      "fullName": "German Citizenship Restoration (StAG §5)",
+      "summary": "2021 law restoring German citizenship to descendants of those who lost it due to Nazi-era persecution, gender-discriminatory pre-1975 rules, or post-marriage naturalisation. Broader than people realise — covers descendants of women who lost citizenship by marrying foreigners pre-1953.",
+      "incomeRequired": false,
+      "estCostUSD": { "low": 200, "high": 1200, "note": "Mostly translation + apostille. Filing is free." },
+      "estTimelineMonths": { "low": 12, "high": 36 },
+      "outcome": "Full German + EU citizenship + passport. Right to live and work anywhere in the EU/EEA. Does NOT require renouncing US citizenship.",
+      "eligibilityRules": [
+        {
+          "id": "ancestor_persecuted_or_disadvantaged",
+          "label": "You descend from someone who was: (a) persecuted on political, racial, or religious grounds between 1933–1945; OR (b) a German woman who lost citizenship by marrying a foreigner before 1953; OR (c) a child of a German mother + foreign father born before 1975",
+          "required": true
+        }
+      ],
+      "documents": [
+        "German ancestor's birth certificate (Geburtsurkunde)",
+        "Proof of persecution / marriage record / loss-of-citizenship event",
+        "Marriage + birth certificates connecting ancestor to you",
+        "Your own birth certificate + passport",
+        "Certified German translations of all US documents"
+      ],
+      "lowIncomeNotes": "Filing fee is €0 (zero) for StAG §5 cases. Only out-of-pocket is translation + apostille. German consulates in the US handle the entire process by mail. After approval, full access to German public healthcare + Kindergeld (€250/child/month) from day 1.",
+      "officialUrl": "https://www.bva.bund.de/EN/Services/Citizens/Citizenship/Restoration/restoration_node.html"
+    },
+    {
+      "id": "poland_confirmation_of_citizenship",
+      "countryId": "poland",
+      "countryName": "Poland",
+      "shortName": "Confirmation",
+      "fullName": "Polish Citizenship Confirmation",
+      "summary": "If you have a Polish ancestor who was a Polish citizen after 1920 and the line was never broken by voluntary loss, you can apply to have your existing Polish citizenship confirmed. No generational cap.",
+      "incomeRequired": false,
+      "estCostUSD": { "low": 400, "high": 2500, "note": "Government fee + archival research (Polish archives often require paid lookups)." },
+      "estTimelineMonths": { "low": 8, "high": 24 },
+      "outcome": "Full Polish + EU citizenship + passport.",
+      "eligibilityRules": [
+        {
+          "id": "ancestor_polish_citizen_post_1920",
+          "label": "Your direct ancestor was a Polish citizen on or after 31 January 1920 (when the modern Polish citizenship law took effect)",
+          "required": true
+        },
+        {
+          "id": "no_break_in_chain",
+          "label": "No ancestor in the chain voluntarily renounced Polish citizenship or served in a foreign military / government before 1951 in a way that triggered automatic loss",
+          "explanation": "WWII US military service caused automatic loss under pre-1951 Polish law. Service after 1951 is fine. There are exceptions.",
+          "required": true
+        }
+      ],
+      "documents": [
+        "Polish ancestor's birth, marriage, and (if applicable) death certificates from Polish civil registry",
+        "Proof of Polish citizenship: pre-WWII Polish passport, military record, or census entry",
+        "Naturalisation records (or absence thereof) for each generation in the US",
+        "Your birth certificate + parents' + grandparents'",
+        "Sworn Polish translations of all foreign documents"
+      ],
+      "lowIncomeNotes": "Filing fee is ~€60. Archival research is the main cost — Polish State Archives charge per document. Self-research via PRADZIAD database is free if you read Polish or use a translator app. No interview, no travel to Poland required.",
+      "officialUrl": "https://www.gov.pl/web/usa/citizenship-confirmation"
+    },
+    {
+      "id": "hungary_simplified_naturalization",
+      "countryId": "hungary",
+      "countryName": "Hungary",
+      "shortName": "Simplified Naturalisation",
+      "fullName": "Hungarian Simplified Naturalisation (2011 law)",
+      "summary": "If you have a Hungarian ancestor and you speak basic Hungarian, you can apply for citizenship under the simplified procedure. No residency requirement. Language is the practical gate.",
+      "incomeRequired": false,
+      "estCostUSD": { "low": 300, "high": 1500, "note": "Government filing free; cost is translation, document procurement, and Hungarian-language tutoring." },
+      "estTimelineMonths": { "low": 12, "high": 36 },
+      "outcome": "Full Hungarian + EU citizenship + passport.",
+      "eligibilityRules": [
+        {
+          "id": "hungarian_ancestor",
+          "label": "At least one direct ancestor was a Hungarian citizen (under the pre-Trianon 1920 borders this includes parts of modern Romania, Slovakia, Serbia, Ukraine, Croatia)",
+          "required": true
+        },
+        {
+          "id": "basic_hungarian_language",
+          "label": "You can demonstrate basic conversational Hungarian (A2-equivalent) at the consular interview",
+          "explanation": "This is the real gate. Most US applicants need 6–18 months of study to pass. Free apps (Drops, Memrise) + Pimsleur cover the threshold.",
+          "required": true
+        }
+      ],
+      "documents": [
+        "Hungarian ancestor's birth + marriage + death certificates",
+        "Connecting documents from ancestor to you",
+        "Your CV/résumé in Hungarian",
+        "Photo IDs of you and parents",
+        "Sworn Hungarian translations"
+      ],
+      "lowIncomeNotes": "No filing fee. Main cost is the language requirement — budget 6–18 months of self-study. Once Hungarian, full EU citizenship including right to relocate to any of 27 EU member states under Schengen rules.",
+      "officialUrl": "https://allampolgarsag.gov.hu/"
+    }
+  ]
+}

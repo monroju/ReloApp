@@ -50,6 +50,9 @@ struct VisaCompareView: View {
                 Button("Close") { dismiss() }
             }
         }
+        .onAppear {
+            ReviewPromptService.recordAndMaybeRequest(.visaCompareViewed)
+        }
     }
 
     // MARK: - Header

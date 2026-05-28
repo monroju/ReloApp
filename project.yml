@@ -9,8 +9,8 @@ settings:
   base:
     SWIFT_VERSION: "5.9"
     TARGETED_DEVICE_FAMILY: "1,2"
-    MARKETING_VERSION: "1.7.0"
-    CURRENT_PROJECT_VERSION: "16"
+    MARKETING_VERSION: "1.8.0"
+    CURRENT_PROJECT_VERSION: "17"
 
 packages:
   firebase-ios-sdk:
@@ -31,6 +31,7 @@ targets:
         type: folder
       - path: GoThere/wizard_config.json
       - path: GoThere/daily_tips.json
+      - path: GoThere/ancestry_paths.json
       - path: GoThere/poi
         type: folder
     settings:
@@ -53,6 +54,8 @@ targets:
         product: FirebaseFirestore
       - package: firebase-ios-sdk
         product: FirebaseStorage
+      - package: firebase-ios-sdk
+        product: FirebaseMessaging
       - package: posthog-ios
         product: PostHog
 

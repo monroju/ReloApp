@@ -100,15 +100,22 @@ final class TaskRepository: ObservableObject {
     }
 
     func toggleCompleted(_ task: TaskItem) async throws {
+        let willComplete = !task.completed
         if isGuest {
             if let idx = localTasks.firstIndex(where: { $0.id == task.id }) {
                 localTasks[idx].completed.toggle()
                 await MainActor.run { tasks = localTasks }
             }
+            if willComplete {
+                await MainActor.run { ReviewPromptService.recordAndMaybeRequest(.firstTaskCompleted) }
+            }
             return
         }
         guard let col = tasksCollection, let id = task.id else { return }
-        try await col.document(id).updateData(["completed": !task.completed])
+        try await col.document(id).updateData(["completed": willComplete])
+        if willComplete {
+            await MainActor.run { ReviewPromptService.recordAndMaybeRequest(.firstTaskCompleted) }
+        }
     }
 
     func setDue(_ task: TaskItem, date: Date?) async throws {

@@ -1,5 +1,6 @@
 import SwiftUI
 import FirebaseCore
+import FirebaseMessaging
 import PostHog
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -15,7 +16,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             host: "https://eu.i.posthog.com"
         )
         PostHogSDK.shared.setup(phConfig)
+        PushNotificationService.shared.configureOnLaunch()
+        FirstWeekTrialService.bootstrap()
         return true
+    }
+
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
     }
 }
 

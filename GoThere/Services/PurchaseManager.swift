@@ -229,6 +229,7 @@ final class PurchaseManager: ObservableObject {
 
     func isCountryUnlocked(_ countryId: String) -> Bool {
         if hasAllAccess { return true }
+        if FirstWeekTrialService.unlocksCountry(countryId) { return true }
         return unlockedCountries.contains(countryId)
     }
 
