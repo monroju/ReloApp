@@ -16,6 +16,8 @@ enum PersonalConsideration: String, CaseIterable, Identifiable {
     case disabled = "Disabled / Accessibility"
     case veteran = "Veteran"
     case pregnant = "Pregnant / Expecting"
+    case neurodivergent = "Neurodivergent"
+    case senior = "Senior (60+)"
     var id: String { rawValue }
 }
 

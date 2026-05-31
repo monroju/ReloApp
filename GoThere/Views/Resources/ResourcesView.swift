@@ -50,6 +50,326 @@ struct ResourcesView: View {
                         }
                     }
 
+                    // "Where do I start?" triage funnel — the front door routing users
+                    // into the tool that matches their situation/tier.
+                    NavigationLink {
+                        StartHereView(initialCountryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "signpost.right.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Where do I start?")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Answer one question — we'll point you to the right tool")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color.goPrimary.opacity(0.10))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Cost-to-Move calculator — free top-of-funnel hook (NOT paywalled).
+                    // Targets the lower/middle-class "I can't afford it" wall.
+                    NavigationLink {
+                        MoveCostCalculatorView(initialCountryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "dollarsign.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Can I afford to move?")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Estimate your real cost to land in \(countryName)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Moving-with-kids guide — free middle-class family hook.
+                    NavigationLink {
+                        FamilyMoveView(initialCountryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "figure.2.and.child.holdinghands")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Moving with kids")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Schooling, healthcare & visas for your children in \(countryName)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Bring-your-job kit — free middle-class remote-worker hook.
+                    NavigationLink {
+                        RemoteWorkView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "laptopcomputer.and.arrow.down")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Bring your job abroad")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Employer-letter templates + the tax-residency traps to avoid")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Healthcare cost comparison — free middle-class hook.
+                    NavigationLink {
+                        HealthcareCompareView(initialCountryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "cross.case.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Healthcare costs vs the US")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("See \(countryName) premiums and public coverage next to US prices")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Move-timeline generator — free middle-class planner hook.
+                    NavigationLink {
+                        RelocationTimelineView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "calendar.badge.clock")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Build my move timeline")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("\"Gone in N months\" → a personalized month-by-month plan")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Investment-migration routes — upper-tier "second passport / Plan B".
+                    NavigationLink {
+                        InvestmentMigrationView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "chart.line.uptrend.xyaxis")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Golden visas & second passports")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Residency & citizenship by investment — incl. Caribbean CBI")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Concierge tier — upper-tier upsell (waitlist scaffold, no live SKU yet).
+                    NavigationLink {
+                        ConciergeView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "star.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                HStack(spacing: 6) {
+                                    Text("GoThere Concierge")
+                                        .font(.subheadline.bold())
+                                        .foregroundColor(.primary)
+                                    Text("SOON")
+                                        .font(.caption2.bold())
+                                        .foregroundColor(.goPrimary)
+                                        .padding(.horizontal, 5).padding(.vertical, 1)
+                                        .background(Color.goPrimaryContainer)
+                                        .cornerRadius(4)
+                                }
+                                Text("White-glove relocation: vetted lawyers, done-with-you prep")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Policy Watch — in-app home for the us_policy_alerts channel.
+                    NavigationLink {
+                        PolicyWatchView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "bell.badge.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Policy Watch")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("US policy changes that affect your move — with alerts")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
+                    // Rights & Safety — promotes inclusivity/safety data to a headline tool.
+                    NavigationLink {
+                        RightsSafetyView()
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "heart.text.square.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Rights & Safety")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Compare destinations on LGBTQ+, disability, reproductive & senior protections")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
                     if !isUnlocked {
                         lockedCountryCard
                     } else {
@@ -58,6 +378,54 @@ struct ResourcesView: View {
                         // journey exists for this country.
                         if let journey = RealJourneys.forCountry(countrySelection.current).first {
                             realJourneyCTA(journey)
+                        }
+
+                        // "For You" — inclusivity-aware resources driven by the wizard's
+                        // PersonalConsiderations + Household. Only renders when the wizard
+                        // collected at least one persona OR Single Parent household.
+                        let userState = UserConsiderationsStore.load()
+                        let inclusivityCats = InclusivityResources.categories(
+                            considerations: userState.considerations,
+                            isSingleParent: userState.isSingleParent,
+                            countryId: countrySelection.current
+                        )
+                        if !inclusivityCats.isEmpty {
+                            HStack(spacing: 6) {
+                                Image(systemName: "sparkles")
+                                    .foregroundColor(.goPrimary)
+                                Text("For You")
+                                    .font(.subheadline.weight(.semibold))
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.top, 8)
+
+                            // Country safety profile notes — 1-2 sentence summary per active persona.
+                            let notes = CountrySafetyProfiles.notes(
+                                for: userState.considerations,
+                                countryId: countrySelection.current
+                            )
+                            if !notes.isEmpty {
+                                VStack(alignment: .leading, spacing: 8) {
+                                    ForEach(notes, id: \.0) { (persona, note) in
+                                        VStack(alignment: .leading, spacing: 4) {
+                                            Text(persona.rawValue)
+                                                .font(.caption.weight(.semibold))
+                                                .foregroundColor(.goPrimary)
+                                            Text(note)
+                                                .font(.footnote)
+                                                .foregroundColor(.primary)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                        }
+                                    }
+                                }
+                                .padding(12)
+                                .background(Color.goPrimary.opacity(0.08))
+                                .cornerRadius(10)
+                            }
+
+                            ForEach(inclusivityCats) { category in
+                                resourceCategoryCard(category)
+                            }
                         }
 
                         // Quick Links header

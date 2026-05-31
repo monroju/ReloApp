@@ -2,7 +2,7 @@ import Foundation
 
 /// Wire format for the GoThere AI conversation. Mirrors a subset of the Anthropic
 /// Messages API content blocks. The iOS app handles tool execution locally and
-/// loops back through the proxy at api.gothere.app/ai/messages — the proxy adds
+/// loops back through the proxy at api.getgothere.app/ai/messages — the proxy adds
 /// the API key + system prompt and never sees user state beyond what we send.
 
 enum AIRole: String, Codable {
@@ -219,7 +219,7 @@ struct AIToolPropertySchema: Codable, Equatable {
 
 // MARK: - Proxy request / response
 
-/// Body sent to `POST api.gothere.app/ai/messages`. The proxy adds the API key,
+/// Body sent to `POST api.getgothere.app/ai/messages`. The proxy adds the API key,
 /// the system prompt (keyed by version), and the model name on its side — we
 /// pin the version here so the app can render a "Tap to update" hint if the
 /// proxy advertises a newer one.

@@ -3,7 +3,7 @@ import SwiftUI
 /// Wave 2 — AI conversational entry point.
 ///
 /// Surfaced from HomeView via the "I don't know where to start" tile. Talks to
-/// `AIService` which proxies the conversation through api.gothere.app/ai with
+/// `AIService` which proxies the conversation through api.getgothere.app/ai with
 /// tool-use against on-device VisaCatalog, CostDatabase, and WizardRepository.
 struct AIWhereToStartView: View {
     @StateObject private var ai = AIService.shared

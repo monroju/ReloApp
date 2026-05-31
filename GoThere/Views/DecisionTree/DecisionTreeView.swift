@@ -176,6 +176,10 @@ struct DecisionTreeView: View {
                     .font(.title2.bold())
                     .padding(.top)
 
+                // Inclusion notes for the user's active personas, before the ranked list —
+                // grounds the score deltas in real legal/healthcare/family context.
+                inclusionNotesCard
+
                 ForEach(Array(vm.results.prefix(10).enumerated()), id: \.element.id) { index, ranked in
                     resultCard(ranked: ranked, rank: index + 1)
                 }
@@ -206,6 +210,58 @@ struct DecisionTreeView: View {
                 .padding(.top, 4)
             }
             .padding()
+        }
+    }
+
+    // MARK: - Inclusion Notes
+
+    @ViewBuilder
+    private var inclusionNotesCard: some View {
+        let personas: Set<PersonalConsideration> = Set(vm.profile.considerations.compactMap {
+            PersonalConsideration(rawValue: $0)
+        })
+        let notes = CountrySafetyProfiles.notes(for: personas, countryId: vm.profile.countryId)
+        let singleParentNote: String? = vm.profile.household == Household.singleParent.rawValue
+            ? CountrySafetyProfiles.singleParentNote(for: vm.profile.countryId)
+            : nil
+
+        if !notes.isEmpty || singleParentNote != nil {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 6) {
+                    Image(systemName: "sparkles")
+                        .foregroundColor(.goPrimary)
+                    Text("What this means for you")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.goPrimary)
+                }
+                ForEach(notes, id: \.0) { (persona, note) in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(persona.rawValue)
+                            .font(.caption.weight(.semibold))
+                            .foregroundColor(.secondary)
+                        Text(note)
+                            .font(.footnote)
+                            .foregroundColor(.primary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                if let sp = singleParentNote {
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Single Parent")
+                            .font(.caption.weight(.semibold))
+                            .foregroundColor(.secondary)
+                        Text(sp)
+                            .font(.footnote)
+                            .foregroundColor(.primary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+            }
+            .padding(14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.goPrimary.opacity(0.08))
+            .cornerRadius(12)
+            .padding(.horizontal)
         }
     }
 

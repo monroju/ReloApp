@@ -10,7 +10,20 @@ struct VisaCompareView: View {
     @State private var selectedCategoryFilter: VisaCategory? = nil
     @State private var selectedVisaIds: Set<String> = []
     @State private var maxMonthlyIncomeUSD: Double = 10000  // 10k = "any income"
+    @State private var sortMode: SortMode = .default
+    @State private var noDegreeOnly: Bool = false
+    @State private var independentIncomeOnly: Bool = false
     private let maxSelection = 3
+
+    /// Ordering for the visa list. `.lowestIncome` is the lower-class "what can I
+    /// actually afford" win — it floats the cheapest income-bar tracks to the top.
+    /// Visas with no structured income test (ancestry/work/points-based) sink to the
+    /// bottom of the affordability sort because they can't be ranked on income.
+    enum SortMode: String, CaseIterable, Identifiable {
+        case `default` = "Default"
+        case lowestIncome = "Lowest income"
+        var id: String { rawValue }
+    }
 
     private static let eurToUsd = 1.08
     private static let incomeSliderMin: Double = 500
@@ -24,10 +37,21 @@ struct VisaCompareView: View {
     }
 
     private var filteredVisas: [VisaInfo] {
-        VisaCatalog.all.filter { v in
+        let filtered = VisaCatalog.all.filter { v in
             (selectedCountryFilter == nil || v.countryId == selectedCountryFilter)
             && (selectedCategoryFilter == nil || v.category == selectedCategoryFilter)
             && passesIncomeFilter(v)
+            && (!noDegreeOnly || v.requiresNoDegree)
+            && (!independentIncomeOnly || v.acceptsIndependentIncome)
+        }
+        switch sortMode {
+        case .default:
+            return filtered
+        case .lowestIncome:
+            // Cheapest income bar first; no-income-test visas (nil) sort last.
+            return filtered.sorted {
+                ($0.monthlyIncomeEUR ?? Int.max, $0.countryName) < ($1.monthlyIncomeEUR ?? Int.max, $1.countryName)
+            }
         }
     }
 
@@ -135,6 +159,37 @@ struct VisaCompareView: View {
 
             incomeFilter
                 .padding(.top, 8)
+
+            accessToggles
+                .padding(.top, 4)
+
+            sortControl
+                .padding(.top, 4)
+        }
+    }
+
+    /// Lower-income unlock filters: surface paths that don't need a degree and that
+    /// accept freelance/self/savings income instead of an employer-sponsored salary.
+    private var accessToggles: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            chipButton(title: "No degree needed", icon: "graduationcap.circle",
+                       isSelected: noDegreeOnly) { noDegreeOnly.toggle() }
+            chipButton(title: "Freelance / self income OK", icon: "person.crop.circle.badge.checkmark",
+                       isSelected: independentIncomeOnly) { independentIncomeOnly.toggle() }
+        }
+    }
+
+    private var sortControl: some View {
+        HStack(spacing: 8) {
+            Text("Sort")
+                .font(.caption.bold())
+                .foregroundColor(.secondary)
+            Picker("Sort", selection: $sortMode) {
+                ForEach(SortMode.allCases) { mode in
+                    Text(mode.rawValue).tag(mode)
+                }
+            }
+            .pickerStyle(.segmented)
         }
     }
 
@@ -371,6 +426,19 @@ struct ComparisonTableView: View {
                     prosConsCard(v)
                 }
 
+                // Tax-optimization overlay — surfaces preferential regimes (Beckham,
+                // IFICI, etc.) for visas that carry them. Upper-tier value; ends in an
+                // advisor handoff because tax posture is decided by the authority, not us.
+                let taxableVisas = visas.filter { !$0.taxRegimes.isEmpty }
+                if !taxableVisas.isEmpty {
+                    ForEach(taxableVisas) { v in
+                        taxRegimeCard(v)
+                    }
+                    Text("Preferential tax regimes are time-sensitive and conditional — election windows are short. Confirm eligibility with a cross-border tax advisor before relying on a rate.")
+                        .font(.caption2)
+                        .foregroundColor(.secondary)
+                }
+
                 // Action buttons
                 VStack(spacing: 10) {
                     ForEach(visas) { v in
@@ -433,6 +501,47 @@ struct ComparisonTableView: View {
         }
         .padding()
         .background(Color(.secondarySystemGroupedBackground))
+        .cornerRadius(12)
+    }
+
+    private func taxRegimeCard(_ v: VisaInfo) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 6) {
+                Image(systemName: "percent")
+                    .foregroundColor(.goPrimary)
+                Text("\(v.countryFlag) \(v.shortName) — tax regimes")
+                    .font(.subheadline.bold())
+                    .foregroundColor(.goPrimary)
+            }
+            ForEach(Array(v.taxRegimes.enumerated()), id: \.offset) { _, regime in
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack {
+                        Text(regime.name).font(.footnote.bold()).foregroundColor(.primary)
+                        Spacer()
+                        if let rate = regime.flatRatePercent {
+                            Text("\(Int(rate * 100))% flat")
+                                .font(.caption.bold())
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 8).padding(.vertical, 2)
+                                .background(Color.goPrimary)
+                                .cornerRadius(6)
+                        }
+                    }
+                    ForEach(regime.eligibilityCriteria, id: \.self) { c in
+                        Text("• \(c)").font(.caption).foregroundColor(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    if let window = regime.applicationWindow {
+                        Text("⏱ \(window)").font(.caption2).foregroundColor(.orange)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                .padding(.vertical, 4)
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(Color.goPrimary.opacity(0.06))
         .cornerRadius(12)
     }
 

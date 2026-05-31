@@ -32,6 +32,21 @@ struct AncestryCheckerView: View {
             Text("Six EU countries pass citizenship down to grandchildren or further. No income test, no residency requirement, no language test (mostly). The hardest part is the paperwork.")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+
+            // Upper-tier "second passport / Plan B" framing — the same route a CBI buyer
+            // pays $200k+ for, available for the cost of document research if you qualify.
+            HStack(alignment: .top, spacing: 8) {
+                Image(systemName: "checkmark.seal.fill")
+                    .foregroundColor(.goPrimary)
+                Text("A second passport for the cost of paperwork. What investors pay $200k+ for via citizenship-by-investment, you may inherit — full EU mobility, a tax-residency option, and a real Plan B.")
+                    .font(.caption)
+                    .foregroundColor(.primary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.goPrimary.opacity(0.08))
+            .cornerRadius(10)
         }
     }
 

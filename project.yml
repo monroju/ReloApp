@@ -32,6 +32,7 @@ targets:
       - path: GoThere/wizard_config.json
       - path: GoThere/daily_tips.json
       - path: GoThere/ancestry_paths.json
+      - path: GoThere/country_safety_profiles.json
       - path: GoThere/poi
         type: folder
     settings:

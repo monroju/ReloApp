@@ -2,7 +2,7 @@ import Foundation
 
 /// Wave 2 — AI conversational entry point.
 ///
-/// Calls a thin proxy at `https://api.gothere.app/ai/messages` that adds the
+/// Calls a thin proxy at `https://api.getgothere.app/ai/messages` that adds the
 /// Anthropic API key + system prompt server-side. The iOS app never sees the
 /// key. Tools are executed on-device against `VisaCatalog`, `CostDatabase`, and
 /// `WizardRepository`; the tool registry is duplicated between proxy (so it can
@@ -31,7 +31,7 @@ final class AIService: ObservableObject {
            let url = URL(string: override) {
             return url
         }
-        return URL(string: "https://api.gothere.app/ai/messages")!
+        return URL(string: "https://api.getgothere.app/ai/messages")!
     }()
 
     static let shared = AIService(purchaseManager: PurchaseManager.shared)

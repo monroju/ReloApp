@@ -27,6 +27,9 @@ final class DecisionViewModel: ObservableObject {
         let destinations = DecisionEngine.destinationsForCountry(profile.countryId)
         results = DecisionEngine.rank(profile: profile, destinations: destinations)
         showResults = true
+        // Persist personas so ResourcesView can surface inclusivity-aware content
+        // without needing the user to redo the wizard.
+        UserConsiderationsStore.save(profile.considerations, household: profile.household)
         Analytics.log(.decisionTreeCompleted, country: profile.countryId, extra: [
             "results_count": results.count,
             "household": String(describing: profile.household)

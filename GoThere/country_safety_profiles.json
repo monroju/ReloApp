@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "version": 1,
+    "updated": "2026-05-28",
+    "description": "Per-country, per-persona inclusion notes for GoThere. Surfaced in DecisionTree results + ResourcesView. Keep each note to 1-2 sentences. Sources noted in trailing brackets.",
+    "personas": ["lgbtq", "disabled", "single_parent", "veteran", "pregnant", "neurodivergent", "senior"]
+  },
+  "countries": {
+    "spain": {
+      "lgbtq": "Marriage equality since 2005 and a 2023 trans self-ID law. Madrid, Barcelona, Valencia, Sitges and Torremolinos rank among Europe's most queer-friendly cities; rural inland areas more reserved. [ILGA-Europe Rainbow 2025]",
+      "disabled": "EU Disability Card recognised. Public hospitals are excellent; Madrid and Barcelona metros are ~75% step-free. Beach towns often have 'playa accesible' beach wheelchairs in summer. [ONCE / EU Disability Card 2024]",
+      "single_parent": "'Familia monoparental' status grants tax credits, school meal subsidies, and reduced-fee daycare in most autonomous communities. Family reunification visa accepts single-parent dependents. [BOE 2023, Ley 18/2022]",
+      "veteran": "US-Spain SSA totalization in force; VA Foreign Medical Program covers service-connected conditions at any Spanish hospital you pay first and claim back. No dedicated veteran visa — use the regular non-lucrative or Digital Nomad visa.",
+      "pregnant": "Public maternity care is free and high-quality even on a tourist registration once your padrón is filed. 16 weeks paid leave for both parents (equalised in 2021). Hospital birth standard; home-birth midwifery is private.",
+      "neurodivergent": "Adult ASD/ADHD diagnosis through the public system is slow (12–24 month waitlist); private assessment runs €600–1200. Catalonia, Madrid and Valencia have the strongest English-speaking ND clinical communities. [Confederación Autismo España]",
+      "senior": "Non-Lucrative Visa is the established retiree path (passive income ~€2,400/month + private health insurance). Spain ranks #1 globally on Bloomberg Healthcare Efficiency; Mediterranean coast offers walkable senior-friendly towns (Dénia, Estepona, Alicante)."
+    },
+    "portugal": {
+      "lgbtq": "Marriage equality since 2010, full adoption rights, constitutional anti-discrimination on sexual orientation. Lisbon and Porto are highly inclusive; Algarve is welcoming due to large expat presence. [ILGA-Europe Rainbow 2025]",
+      "disabled": "EU Disability Card recognised. Lisbon metro is ~90% step-free; old-town Porto and Lisbon hills remain a challenge. SNS (public health) is affordable but stretched for non-urgent specialist care.",
+      "single_parent": "D7 visa accepts single-parent applicants with passive income (~€870/month + 50% per child). RSI (social insertion income) available after one year of residency. School lunches subsidised at the SASE rate 1.",
+      "veteran": "US-Portugal totalization in force. VA FMP covers service-connected conditions. Strong US-veteran community in the Algarve and Cascais.",
+      "pregnant": "SNS maternity care is free once registered. 120–150 days paid parental leave shared between parents. Lisbon, Porto and Coimbra have public maternity hospitals with English-speaking staff.",
+      "neurodivergent": "Adult ND diagnosis is improving but still limited — most expats use private clinics in Lisbon (€500–1000). FPDA and APPDA are the main support associations.",
+      "senior": "D7 retiree visa is the most popular EU retirement route. Lower cost of living than Spain, NHR tax regime closed to new entrants in 2024 but the IFICI replacement covers high-value professions. Cascais, Tavira and Funchal are senior-favorite walkable towns."
+    },
+    "italy": {
+      "lgbtq": "Civil unions since 2016 but no marriage equality and no same-sex adoption. Rome, Milan, Bologna and Florence are inclusive; southern rural areas more conservative. The 2023 Meloni-era directive instructed municipalities to stop registering foreign same-sex parents on birth certificates. [ILGA-Europe Rainbow 2025]",
+      "disabled": "EU Disability Card recognised. Historic centres (cobblestones, no elevators) are challenging; Milan metro is best for accessibility. Law 104/1992 grants caregiver leave + tax benefits.",
+      "single_parent": "Assegno Unico universal child benefit (€57–199/month per child). Family reunification visa accepts single-parent dependents. Schools provide subsidised hot lunches (mensa).",
+      "veteran": "US-Italy totalization in force. Italy hosts several US military bases — Aviano, Vicenza, Naples — with veteran communities and VA reciprocity at those base hospitals.",
+      "pregnant": "SSN maternity care is universal and excellent. 5 months mandatory paid leave at 80%. North Italian hospitals (Milan, Bologna) consistently rank top-10 in EU maternity outcomes.",
+      "neurodivergent": "Adult ND assessment via SSN possible but waitlists exceed 18 months. Private clinics in Milan and Rome cost €400–800. Angsa is the main autism association.",
+      "senior": "Jure sanguinis (citizenship by descent) is the gold-standard senior pathway — unlimited generations on the Italian-male line, opens full EU rights. Elective Residence visa requires ~€31k/year passive income. Tuscan and Apulian hill towns are senior-walkable; major cities have stairs/cobblestones."
+    },
+    "germany": {
+      "lgbtq": "Marriage equality since 2017. Berlin is one of the world's most queer-inclusive cities; Cologne, Hamburg, Munich all hold major Prides. 2024 Self-Determination Act allows legal gender change by self-declaration. [ILGA-Europe Rainbow 2025]",
+      "disabled": "EU Disability Card recognised; Schwerbehindertenausweis grants tax breaks, free transit, and dismissal protection. Public transit is ~80% step-free in major cities. Sign-language interpretation funded by Integrationsamt.",
+      "single_parent": "Unterhaltsvorschuss state child support advance covers cases where the non-custodial parent can't pay. Kindergeld €250/month per child. Alleinerziehende tax class II reduces income tax.",
+      "veteran": "US-Germany totalization in force. Largest US-veteran community in Europe — Ramstein, Wiesbaden, Stuttgart hubs. VA FMP coverage for service-connected conditions.",
+      "pregnant": "GKV (statutory health insurance) covers all maternity care plus a midwife at home. 14 weeks Mutterschutz at full pay + 14 months Elterngeld parental leave shared. Birth outcomes among the best in Europe.",
+      "neurodivergent": "Adult ASD/ADHD diagnosis via SPZ (sozialpädiatrische Zentren) covered by GKV; waitlists 6–12 months. Strong autism research base; Berlin and Munich have English-speaking ND clinical networks.",
+      "senior": "Public Krankenversicherung continues into retirement at low contribution rates. No specific retiree visa — non-EU seniors typically use family reunification or freelance Aufenthaltserlaubnis. Excellent rail makes car-free senior life viable."
+    },
+    "ireland": {
+      "lgbtq": "Marriage equality since 2015 (first country by popular vote). Dublin, Cork and Galway are highly inclusive. Hate-crime legislation strengthened 2024. [ILGA-Europe Rainbow 2025]",
+      "disabled": "Disability Act 2005 + 2024 Assisted Decision-Making Act. HSE Long Term Illness scheme covers chronic conditions. Dublin LUAS and DART are fully accessible; rural transport is sparse.",
+      "single_parent": "One-Parent Family Payment (OFP) until youngest child turns 7 plus Jobseeker's Transitional Payment after. Stamp 4 EUFAM permits single-parent reunification with EU-resident family.",
+      "veteran": "US-Ireland totalization in force. Smaller US-veteran community than Germany/Italy; VA FMP covers service-connected conditions at any Irish hospital.",
+      "pregnant": "HSE maternity care free for residents. 26 weeks Maternity Benefit + 7 weeks Parent's Benefit shared. Domiciliary midwifery available in Dublin and parts of Cork.",
+      "neurodivergent": "HSE adult ASD/ADHD pathway exists but waitlists 18–36 months — most adults use private (€500–1500). AsIAm is the leading autism advocacy org with English-speaking community.",
+      "senior": "Stamp 0 retiree permission requires €50k/year + private health insurance. Foreign Birth Registration (FBR) for Irish-grandparent descent grants full citizenship and bypasses visa entirely."
+    },
+    "poland": {
+      "lgbtq": "Civil partnerships introduced 2025 under Tusk government but no marriage or adoption rights. Several voivodeships repealed 'LGBT-free zone' declarations 2023–2024. Warsaw, Kraków, Poznań are safe and increasingly visible; small-town climate remains conservative. [ILGA-Europe Rainbow 2025: 41/49 — middle-lower EU]",
+      "disabled": "EU Disability Card recognised. NFZ public healthcare; long waits for specialists. Warsaw and Kraków metros are step-free; older buildings often inaccessible.",
+      "single_parent": "Rodzina 800+ child benefit (PLN 800/month per child). Family reunification accepts single-parent dependents. Alimentation Fund advances unpaid child support.",
+      "veteran": "US-Poland totalization in force since 2009. US troop presence in Poznań and Powidz is growing; veteran community building but smaller than Germany.",
+      "pregnant": "NFZ covers prenatal and birth fully. 20 weeks maternity leave at 100%, 32 weeks parental leave at 70%. 2021 near-total abortion ban remains a significant consideration; reform stalled in 2025.",
+      "neurodivergent": "Adult ND services through NFZ are limited; private psychiatrists in Warsaw and Kraków charge PLN 250–500 per session. JIM Foundation supports autistic adults.",
+      "senior": "Karta Polaka (Pole's Card) accelerates residency for Polish-descent applicants. Cost of living low for retirees (~€1500/month comfortable). Healthcare quality solid but slower than Western EU."
+    },
+    "hungary": {
+      "lgbtq": "2020 constitutional amendment defines family as man + woman; no marriage or adoption. 2021 'child protection' law restricts LGBTQ content visibility to minors. Budapest Pride still operates but faces 2025 restrictions. [ILGA-Europe Rainbow 2025: 33/49 — among lowest in EU]",
+      "disabled": "EU Disability Card recognised. NEAK public healthcare adequate but underfunded. Budapest metro M4 is fully accessible; older lines and most regional transit are not.",
+      "single_parent": "CSED maternity allowance + GYED childcare benefit. Family-tax credit doubles for single parents. Single-parent visa reunification accepted.",
+      "veteran": "US-Hungary totalization in force. Smaller US-veteran community; VA FMP coverage for service-connected conditions.",
+      "pregnant": "Public maternity care free for residents. 24 weeks CSED at 70% then GYED. Government heavily subsidises larger families through CSOK housing program.",
+      "neurodivergent": "Adult ND services very limited via NEAK; private psychiatrists in Budapest €40–80/session. Smaller advocacy infrastructure than Western EU.",
+      "senior": "Hungarian Simplified Naturalisation by descent grants full EU citizenship — fast track. Cost of living low; healthcare passable for routine but seniors often supplement with private."
+    },
+    "uk_ancestry": {
+      "lgbtq": "Marriage equality since 2014 (E&W and Scotland) / 2020 (NI). Strong workplace protections via Equality Act 2010. UK Supreme Court 2025 ruling on sex/gender in Equality Act has narrowed trans protections; consult charity Stonewall for current state. [ILGA-Europe Rainbow 2025]",
+      "disabled": "Equality Act 2010 + 2024 disability-confident employer scheme. NHS provides full coverage to residents. London Underground only ~30% step-free; bus network 100% accessible.",
+      "single_parent": "Universal Credit replaces older single-parent benefits. Child Benefit £25.60/week first child. Family reunification via Appendix FM possible.",
+      "veteran": "US-UK totalization in force. RAF/USAF veteran community at Lakenheath and Mildenhall. UK Armed Forces Covenant grants veterans housing and healthcare priority — for UK veterans only.",
+      "pregnant": "NHS maternity care free for ordinarily-resident. 52 weeks Statutory Maternity Leave (39 paid). Shared Parental Leave available. Birth outcomes vary by trust — London and Edinburgh among best.",
+      "neurodivergent": "NHS adult ASD/ADHD diagnosis waitlists exceed 36 months in most areas; Right to Choose lets you select an independent provider on NHS funding (~6 months). Strong ND advocacy culture.",
+      "senior": "UK Ancestry visa requires one UK-born grandparent; leads to ILR in 5 years. State Pension reciprocity with US through totalization. NHS continues into retirement at no cost."
+    },
+    "canada": {
+      "lgbtq": "Marriage equality since 2005. Conversion-therapy ban federal (2022). Toronto, Montreal, Vancouver, Ottawa all highly inclusive. [ILGA Pan-American Equality Index: top-tier]",
+      "disabled": "Canadian Human Rights Act + provincial accessibility acts (AODA in Ontario). Universal healthcare via provincial plans (waits vary). Transit accessibility strong in Toronto, Vancouver, Montreal.",
+      "single_parent": "Canada Child Benefit (~CAD $7,800/year per child under 6, more if low-income). Express Entry and PNPs treat single parents with dependents fairly; child accompanying as dependent.",
+      "veteran": "US-Canada totalization in force. US veterans use VA Foreign Medical Program for service-connected care; routine care via the provincial public plan once a resident.",
+      "pregnant": "Provincial health plans cover all maternity care. 17 weeks maternity + up to 61 weeks parental leave (EI). Strong perinatal outcomes in major cities.",
+      "neurodivergent": "Provincial coverage for adult ASD/ADHD diagnosis varies — Ontario covers via OHIP psychiatrists (6–18 month wait); BC similar. Vancouver and Toronto have established ND adult communities.",
+      "senior": "Super Visa for parents/grandparents allows 10-year multi-entry. Provincial Medicare continues into retirement. Vancouver Island, Victoria and the Okanagan are top senior-walkable choices."
+    },
+    "argentina": {
+      "lgbtq": "Marriage equality since 2010 (first in Latin America). Gender Identity Law 2012 is among world's most progressive. Buenos Aires is one of LatAm's most queer-friendly cities; some federal protections under review by Milei government since 2024. [ILGA Equality Index: high]",
+      "disabled": "CUD (Certificado Único de Discapacidad) grants free transit, medication, and a 10–30% discount on services. Buenos Aires Subte ~50% step-free; sidewalks variable.",
+      "single_parent": "AUH universal child allowance (~ARS 50,000/month per child). Family reunification visa accepts single-parent applicants. Public schools provide free lunches.",
+      "veteran": "US-Argentina has NO totalization agreement — US social security credits do not transfer. VA FMP covers service-connected conditions.",
+      "pregnant": "Public hospital maternity care free. 90 days paid maternity leave (minimum). Buenos Aires hospitals (Italiano, Alemán) are top-tier; provincial care more variable.",
+      "neurodivergent": "Adult ND diagnosis through public system slow but accessible; private psicólogos common and affordable (~ARS 15,000/session). Strong therapy culture; less ND-specific clinical infrastructure than EU.",
+      "senior": "Rentista visa requires modest passive income (~USD $2,000/month). Cost of senior living is very low post-2024 devaluation. PAMI public senior healthcare is universal but quality varies by province."
+    },
+    "mexico": {
+      "lgbtq": "Marriage equality nationwide since 2022 (state-by-state rollout completed). Mexico City, Guadalajara and Puerto Vallarta highly inclusive; rural macho culture more conservative. [ILGA Pan-American: high]",
+      "disabled": "Federal General Law for Inclusion of Persons with Disabilities. Public infrastructure inconsistent — Mexico City metro has some accessible stations; coastal beach towns variable. INAPAM card grants senior+disabled discounts.",
+      "single_parent": "No federal single-parent allowance equivalent. IMSS public daycare and Sembrando Vida supports rural families. Temporary Resident visa accepts single-parent applicants with dependents.",
+      "veteran": "US-Mexico has NO totalization agreement. VA Foreign Medical Program covers service-connected conditions — Mexico has the largest VA FMP enrollment outside US. Large US-veteran community in Ajijic, San Miguel, Mérida, Rosarito.",
+      "pregnant": "IMSS or Seguro Popular successor (IMSS-Bienestar) provides basic maternity care. Private maternity hospitals in CDMX, Guadalajara, Monterrey are affordable and English-friendly (~MXN 80,000 vaginal, MXN 120,000 c-section).",
+      "neurodivergent": "Adult ND diagnosis primarily private (~MXN 5,000–15,000). CDMX and Guadalajara have a growing ND-aware therapist community. Limited public infrastructure.",
+      "senior": "Temporary/Permanent Resident visa with passive income (~USD $2,500/month temporary, $4,300 permanent). INAPAM senior discount card for residents 60+. Lake Chapala, San Miguel de Allende, Mérida, Playa del Carmen are established expat-senior hubs."
+    }
+  }
+}

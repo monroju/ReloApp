@@ -191,6 +191,37 @@ enum DecisionEngine {
                 default: break
                 }
                 if dest.type == "Big City" { score += 3; reasons.append("Top-tier hospitals") }
+            case .neurodivergent:
+                // Proxy: universal healthcare + low-density living + walkable cities + adult ASD/ADHD diagnostic access.
+                // Spain/Portugal/Ireland/Canada/Germany have public-system adult assessment pathways.
+                switch countryId {
+                case "germany", "canada", "ireland", "uk_ancestry":
+                    score += 9; reasons.append("Adult ND assessment via public system")
+                case "spain", "portugal", "italy":
+                    score += 6; reasons.append("Growing ND support networks")
+                case "poland", "hungary", "argentina", "mexico":
+                    score += 3
+                default: break
+                }
+                if dest.tags.contains("walkable") { score += 4; reasons.append("Walkable — lower sensory load") }
+                if dest.expatDensity >= 4 { score += 3; reasons.append("English-speaking ND community") }
+                if dest.type == "Big City" && !dest.tags.contains("walkable") { score -= 2 }
+            case .senior:
+                // Healthcare quality + retiree pathways + walkability + climate are dominant signals.
+                switch countryId {
+                case "portugal", "spain", "italy":
+                    score += 10; reasons.append("Top retiree healthcare & climate")
+                case "ireland", "germany", "canada", "uk_ancestry":
+                    score += 8; reasons.append("Strong public healthcare")
+                case "mexico", "argentina":
+                    score += 6; reasons.append("Lower cost of senior living")
+                case "poland", "hungary":
+                    score += 4
+                default: break
+                }
+                if dest.tags.contains("retiree_friendly") { score += 5 }
+                if dest.tags.contains("walkable") { score += 3 }
+                if dest.tags.contains("warm_coastal") || dest.climate == "warm_coastal" { score += 3 }
             }
         }
 

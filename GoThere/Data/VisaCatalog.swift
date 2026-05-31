@@ -60,7 +60,8 @@ enum VisaCatalog {
             cons: ["Must prove 3yr employment history", "Cannot have >20% Spanish clients", "Hacienda audit risk"],
             officialUrl: "https://www.exteriores.gob.es",
             wizardTrackId: "es_digital_nomad",
-            taxRegimes: [TaxRegime.beckhamLaw]
+            taxRegimes: [TaxRegime.beckhamLaw],
+            inclusivityFlags: [InclusivityFlag.singleParentFriendly]
         ),
         VisaInfo(
             id: "es_work",
@@ -445,7 +446,8 @@ enum VisaCatalog {
             pros: ["Live in EU member state", "Low presence requirement", "No work obligation"],
             cons: ["High income bar", "Never leads to PR/citizenship", "Cannot work — ever"],
             officialUrl: "https://www.irishimmigration.ie/coming-to-join-family-in-ireland/stamp-0/",
-            wizardTrackId: nil
+            wizardTrackId: nil,
+            inclusivityFlags: [InclusivityFlag.caregiverPathway, InclusivityFlag.seniorFriendly]
         ),
         VisaInfo(
             id: "ie_critical_skills",
@@ -462,7 +464,8 @@ enum VisaCatalog {
             pros: ["Family included from day 1", "Spouse gets open work permit", "Fast Stamp 4 path"],
             cons: ["Tied to employer first 12mo", "Salary floor rising", "Ireland's housing crisis"],
             officialUrl: "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
-            wizardTrackId: nil
+            wizardTrackId: nil,
+            inclusivityFlags: [InclusivityFlag.singleParentFriendly]
         ),
         VisaInfo(
             id: "ie_general",
