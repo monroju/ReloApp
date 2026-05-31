@@ -16,7 +16,7 @@ struct ConciergeView: View {
     @State private var joined = false
     @State private var submitting = false
 
-    private let benefits: [(String, String)] = [
+    private let benefits: [(String, String, String)] = [
         ("person.2.badge.gearshape", "Vetted advisor matching", "Hand-picked immigration lawyers, tax advisors, and relocation agents in your target country — pre-screened, not a directory dump."),
         ("doc.badge.gearshape", "Done-with-you visa prep", "We help assemble and sanity-check your application packet against the consulate's exact checklist."),
         ("bolt.shield", "Priority support", "Direct line for time-sensitive questions during your move window."),
