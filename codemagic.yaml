@@ -6,11 +6,11 @@ workflows:
     environment:
       xcode: 26.0
       groups:
-        # Codemagic env group "appetize" must define:
+        # Codemagic env group "APPETIZE" must define:
         #   APPETIZE_TOKEN       (required) — Appetize API token, from appetize.io account settings
         #   APPETIZE_PUBLIC_KEY  (optional) — pin updates to one app/URL; if unset, a new app is
         #                                     created and its publicKey printed in the log to save here.
-        - appetize
+        - APPETIZE
       vars:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
