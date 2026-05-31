@@ -5,6 +5,12 @@ workflows:
     instance_type: mac_mini_m2
     environment:
       xcode: 26.0
+      groups:
+        # Codemagic env group "appetize" must define:
+        #   APPETIZE_TOKEN       (required) — Appetize API token, from appetize.io account settings
+        #   APPETIZE_PUBLIC_KEY  (optional) — pin updates to one app/URL; if unset, a new app is
+        #                                     created and its publicKey printed in the log to save here.
+        - appetize
       vars:
         XCODE_PROJECT: "GoThere.xcodeproj"
         XCODE_SCHEME: "GoThere"
@@ -59,6 +65,29 @@ workflows:
           cd "$(dirname "$APP_PATH")"
           zip -r "$CM_BUILD_DIR/GoThere-Simulator.zip" "$(basename "$APP_PATH")"
           ls -lh "$CM_BUILD_DIR/GoThere-Simulator.zip"
+
+      - name: Deploy to Appetize.io
+        # Auto-publishes the simulator build to Appetize. Skips cleanly if no token is set.
+        # Update-in-place when APPETIZE_PUBLIC_KEY is provided; otherwise create + print the key.
+        script: |
+          ZIP="$CM_BUILD_DIR/GoThere-Simulator.zip"
+          if [ -z "$APPETIZE_TOKEN" ]; then
+            echo "APPETIZE_TOKEN not set — skipping Appetize deploy (add it to the 'appetize' env group)."
+            exit 0
+          fi
+          if [ -n "$APPETIZE_PUBLIC_KEY" ]; then
+            echo "Updating existing Appetize app $APPETIZE_PUBLIC_KEY ..."
+            URL="https://${APPETIZE_TOKEN}@api.appetize.io/v1/apps/${APPETIZE_PUBLIC_KEY}"
+          else
+            echo "No APPETIZE_PUBLIC_KEY — creating a new Appetize app (save the printed publicKey)..."
+            URL="https://${APPETIZE_TOKEN}@api.appetize.io/v1/apps"
+          fi
+          RESP=$(curl -sf "$URL" -F "file=@${ZIP}" -F "platform=ios") || {
+            echo "Appetize upload failed"; echo "$RESP"; exit 1; }
+          echo "$RESP"
+          PK=$(echo "$RESP" | python3 -c "import sys,json;print(json.load(sys.stdin).get('publicKey',''))" 2>/dev/null)
+          echo "Appetize publicKey: ${PK:-$APPETIZE_PUBLIC_KEY}"
+          echo "Play URL: https://appetize.io/app/${PK:-$APPETIZE_PUBLIC_KEY}"
 
     artifacts:
       - "*.zip"
