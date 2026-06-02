@@ -66,8 +66,12 @@ enum MoveCostData {
         MoveCostProfile(countryId: "hungary", flag: "🇭🇺", name: "Hungary",
             flightPerPersonUSD: 650, govtFeesPerPersonUSD: 110, legalUSD: 900,
             monthlyRentUSD: 700, monthlyLivingPerAdultUSD: 650, setupUSD: 1100),
+        // govtFees folds in the Immigration Health Surcharge: ~$800 visa fee +
+        // ~$1,000/person/yr IHS prepaid for the full 5-yr Ancestry term (~$5,000).
+        // The IHS is the real upfront cost (see HealthcareCostData note); pretending
+        // UK entry is an $800 line item understated the move by thousands.
         MoveCostProfile(countryId: "uk_ancestry", flag: "🇬🇧", name: "UK (Ancestry)",
-            flightPerPersonUSD: 550, govtFeesPerPersonUSD: 800, legalUSD: 1200,
+            flightPerPersonUSD: 550, govtFeesPerPersonUSD: 5800, legalUSD: 1200,
             monthlyRentUSD: 2000, monthlyLivingPerAdultUSD: 1100, setupUSD: 1800),
     ]
 
