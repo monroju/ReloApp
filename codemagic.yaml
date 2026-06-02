@@ -178,7 +178,7 @@ workflows:
           # MIN_BUILD_NUMBER is a manual floor — bump it in this file when ASC
           # returns garbage or you want to skip a range. Treat it as the
           # "definitely higher than anything I've ever uploaded" line.
-          MIN_BUILD_NUMBER=52
+          MIN_BUILD_NUMBER=54
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
