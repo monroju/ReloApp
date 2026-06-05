@@ -30,6 +30,12 @@ enum AnalyticsEvent: String {
     case aiToolCalled = "ai_tool_called"
     case aiFreeLimitReached = "ai_free_limit_reached"
     case aiErrorReturned = "ai_error_returned"
+
+    // Differentiation Wave — the chatbot-proof operational features
+    case coPilotOpened = "copilot_opened"
+    case citaMonitorOpened = "cita_monitor_opened"
+    case citaPortalOpened = "cita_portal_opened"
+    case documentExpirySet = "document_expiry_set"
 }
 
 enum Analytics {

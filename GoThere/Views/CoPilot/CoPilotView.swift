@@ -37,7 +37,10 @@ struct CoPilotView: View {
             }
         }
         .task { vm.start() }
-        .onAppear { vm.rebuild() }
+        .onAppear {
+            vm.rebuild()
+            Analytics.log(.coPilotOpened)
+        }
     }
 
     // MARK: - Readiness header

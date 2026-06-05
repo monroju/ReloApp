@@ -41,6 +41,7 @@ struct CitaMonitorView: View {
         }
         .navigationTitle("Cita Monitor")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear { Analytics.log(.citaMonitorOpened) }
         .sheet(isPresented: $showAdd) {
             CitaMonitorEditor { monitor in
                 monitors = CitaMonitorStore.upsert(monitor)
@@ -152,6 +153,7 @@ struct CitaMonitorView: View {
     // MARK: - Actions
 
     private func openPortal(_ monitor: CitaMonitor) {
+        Analytics.log(.citaPortalOpened, properties: ["cita_type": monitor.typeRaw])
         UIApplication.shared.open(monitor.type.bookingURL(area: monitor.area))
         var updated = monitor
         updated.lastChecked = Date()

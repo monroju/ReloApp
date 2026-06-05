@@ -76,6 +76,7 @@ final class DocumentsViewModel: ObservableObject {
             do {
                 try await repo.updateDocumentMeta(doc)
                 NotificationManager.shared.scheduleDocumentExpiry(doc)
+                if doc.expirationDate != nil { Analytics.log(.documentExpirySet) }
             } catch {
                 errorMessage = error.localizedDescription
             }
