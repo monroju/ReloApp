@@ -180,12 +180,43 @@ struct CostCalculatorView: View {
             if let first = availableCities.first {
                 selectedCityId = first.cityId
             }
+            persistEstimate()
         }
         .onChange(of: selectedCountry) { _ in
             if let first = availableCities.first {
                 selectedCityId = first.cityId
             }
         }
+        // Persist the computed monthly total whenever any input that affects it
+        // changes, so the Co-Pilot dashboard can read it. Inputs themselves stay
+        // screen-local; only the EUR output is saved (MoveProfileStore).
+        .onChange(of: estimateSnapshot) { _ in persistEstimate() }
+    }
+
+    /// Equatable bundle of every input that moves the monthly total. Used to
+    /// drive a single `.onChange` that persists the output without scattering a
+    /// handler across each control.
+    private struct EstimateSnapshot: Equatable {
+        let country: String, cityId: String, housing: Int
+        let meals: Double, transit: Bool, health: Bool, gym: Bool, dependents: Int
+    }
+
+    private var estimateSnapshot: EstimateSnapshot {
+        EstimateSnapshot(
+            country: selectedCountry, cityId: selectedCityId, housing: housingType,
+            meals: mealsOutPerWeek, transit: publicTransport, health: privateHealthInsurance,
+            gym: gymMembership, dependents: dependents
+        )
+    }
+
+    /// Recompute the EUR total for the current city and save it. No-op when no
+    /// city is selected yet.
+    private func persistEstimate() {
+        guard let city = selectedCity else { return }
+        let eur = Int(Double(totalMonthlyUSD(for: city)) * Self.usdToEUR)
+        MoveProfileStore.saveEstimatedCost(
+            eur: eur, city: city.cityName, country: selectedCountry, dependents: dependents
+        )
     }
 
     private func lifestyleToggle(icon: String, label: String, isOn: Binding<Bool>) -> some View {
