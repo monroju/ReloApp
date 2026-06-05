@@ -30,6 +30,12 @@ struct TasksView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
+                // Co-Pilot entry — always visible above the checklist.
+                CoPilotCard()
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                    .padding(.bottom, 4)
+
                 if vm.tasksByPhase.isEmpty {
                     ContentUnavailableView("No Tasks", systemImage: "checklist",
                         description: Text("Add your own tasks to track relocation progress."))
