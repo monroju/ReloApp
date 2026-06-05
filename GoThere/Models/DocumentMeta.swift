@@ -159,6 +159,21 @@ enum DocumentValidityRules {
             apostilleRequired: false, swornTranslationRequired: false, category: .medical,
             keywords: ["health insurance", "insurance certificate", "insurance policy", "seguro"],
             note: nil),
+        DocumentValidityRule(
+            canonicalName: "Tax Return / Transcript", validityDays: 0,
+            apostilleRequired: false, swornTranslationRequired: true, category: .financial,
+            keywords: ["tax return", "irs transcript", "tax transcript", "1040"],
+            note: "Most recent filing; check whether a sworn translation is needed."),
+        DocumentValidityRule(
+            canonicalName: "Pension / Social Security Statement", validityDays: 90,
+            apostilleRequired: false, swornTranslationRequired: false, category: .financial,
+            keywords: ["pension", "social security", "ssa statement", "retirement statement"],
+            note: nil),
+        DocumentValidityRule(
+            canonicalName: "Driver's License", validityDays: 0,
+            apostilleRequired: false, swornTranslationRequired: false, category: .identity,
+            keywords: ["driver license", "driver's license", "drivers license", "driving licence", "driving license"],
+            note: "Check the expiry on the card; some countries require an exchange within a window."),
     ]
 
     /// Best-effort match of an uploaded filename to a known document type.

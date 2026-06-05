@@ -25,6 +25,9 @@ struct UserMoveState {
     var docExpiringSoon: Int = 0
     var docExpired: Int = 0
     var docMissing: Int = 0
+    /// Uploaded documents that still need an apostille or sworn translation.
+    var docPrepPending: Int = 0
+    var prepDocuments: [String] = []
     /// Documents with an expiration concern, for per-document gap cards.
     var expiringDocuments: [ExpiringDoc] = []
 
@@ -196,6 +199,7 @@ enum CoPilotEngine {
         var cards: [InsightCard] = []
         cards.append(contentsOf: setupCards(s))
         cards.append(contentsOf: documentCards(s))
+        cards.append(contentsOf: prepCards(s))
         cards.append(contentsOf: incomeCards(s))
         cards.append(contentsOf: timelineCards(s))
         cards.append(contentsOf: citaCards(s))
@@ -262,6 +266,20 @@ enum CoPilotEngine {
                 ctaLabel: "Open vault", route: .documents))
         }
         return out
+    }
+
+    private static func prepCards(_ s: UserMoveState) -> [InsightCard] {
+        guard s.docPrepPending > 0 else { return [] }
+        // Name the specific documents when we have a couple; otherwise summarize.
+        let named = s.prepDocuments.prefix(2).joined(separator: ", ")
+        let detail = named.isEmpty
+            ? "\(s.docPrepPending) uploaded document\(s.docPrepPending == 1 ? "" : "s") still need an apostille or sworn translation."
+            : "\(named)\(s.docPrepPending > 2 ? " and others" : "") still need an apostille or sworn translation before they're accepted."
+        return [InsightCard(
+            id: "doc_prep", severity: .amber, icon: "rosette",
+            title: "Apostille / translation pending",
+            message: detail,
+            ctaLabel: "See documents", route: .documents)]
     }
 
     private static func incomeCards(_ s: UserMoveState) -> [InsightCard] {

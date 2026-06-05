@@ -26,6 +26,15 @@ final class DocumentVaultTests: XCTestCase {
         XCTAssertNil(DocumentValidityRules.match(fileName: "random_lease_agreement.pdf"))
     }
 
+    func test_match_extendedRules() {
+        XCTAssertEqual(DocumentValidityRules.match(fileName: "My Drivers License.jpg")?.canonicalName,
+                       "Driver's License")
+        XCTAssertEqual(DocumentValidityRules.match(fileName: "IRS Transcript 2025.pdf")?.canonicalName,
+                       "Tax Return / Transcript")
+        XCTAssertEqual(DocumentValidityRules.match(fileName: "social security statement.pdf")?.canonicalName,
+                       "Pension / Social Security Statement")
+    }
+
     func test_match_isCaseInsensitive() {
         XCTAssertEqual(DocumentValidityRules.match(fileName: "bank STATEMENTS jan.pdf")?.canonicalName,
                        "Bank Statements")

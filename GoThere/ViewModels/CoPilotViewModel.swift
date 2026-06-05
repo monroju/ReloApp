@@ -90,6 +90,12 @@ final class CoPilotViewModel: ObservableObject {
             if let days = doc.daysUntilExpiration, doc.isExpired || doc.isExpiringSoon {
                 s.expiringDocuments.append(.init(name: doc.name, daysUntil: days))
             }
+            // Apostille/translation outstanding — an operational signal independent
+            // of expiry. Don't double-count expired docs (renew first).
+            if doc.hasOutstandingPrep && !doc.isExpired {
+                s.docPrepPending += 1
+                s.prepDocuments.append(doc.name)
+            }
         }
 
         for slot in slots {

@@ -95,6 +95,20 @@ final class CoPilotEngineTests: XCTestCase {
         XCTAssertTrue(card!.title.contains("3"))
     }
 
+    func test_prepCard_whenApostilleOrTranslationOutstanding() {
+        var s = UserMoveState()
+        s.docPrepPending = 2
+        s.prepDocuments = ["FBI Background Check", "Birth Certificate (Apostilled)"]
+        let card = CoPilotEngine.generateInsightCards(s).first { $0.id == "doc_prep" }
+        XCTAssertNotNil(card)
+        XCTAssertEqual(card?.severity, .amber)
+        XCTAssertTrue(card!.message.contains("FBI"))
+    }
+
+    func test_prepCard_absentWhenNonePending() {
+        XCTAssertNil(CoPilotEngine.generateInsightCards(UserMoveState()).first { $0.id == "doc_prep" })
+    }
+
     // MARK: - Income cards
 
     func test_incomeCard_gap_whenBudgetBelowRequirement() {
