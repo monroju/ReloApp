@@ -81,6 +81,12 @@ final class DocumentsRepository: ObservableObject {
 
     /// Legacy upload — used by the "Other uploads" section. Returns the new
     /// Firestore document id so callers that need to link can do so.
+    ///
+    /// Differentiation Wave: on upload we best-effort match the filename to a
+    /// known document type and pre-fill validity/apostille/translation + a
+    /// computed expiration date (issue date assumed = upload date; user can
+    /// override in the detail screen). When uploading into a wizard slot we also
+    /// inherit that slot's apostille/translation requirements.
     @discardableResult
     func upload(data: Data, fileName: String,
                 forSlotKey slotKey: String? = nil,
@@ -99,8 +105,71 @@ final class DocumentsRepository: ObservableObject {
         if let k = slotKey { payload["slotKey"] = k }
         if let t = slotTrackId { payload["slotTrackId"] = t }
 
+        // Auto-fill expiration metadata from the validity-rules lookup.
+        if let rule = DocumentValidityRules.match(fileName: fileName) {
+            payload["category"] = rule.category.rawValue
+            payload["validityPeriodDays"] = rule.validityDays
+            payload["apostilleRequired"] = rule.apostilleRequired
+            payload["swornTranslationRequired"] = rule.swornTranslationRequired
+            if let exp = DocumentValidityRules.expiration(from: Date(), validityDays: rule.validityDays) {
+                payload["expirationDate"] = Timestamp(date: exp)
+            }
+        }
+        // Inherit the slot's explicit requirements (they win over the lookup).
+        if let key = slotKey,
+           let slot = slots.first(where: { $0.key == key && $0.visaTrackId == slotTrackId }) {
+            if let a = slot.apostilleRequired { payload["apostilleRequired"] = a }
+            if let s = slot.swornTranslationRequired { payload["swornTranslationRequired"] = s }
+        }
+
         let docRef = try await col.addDocument(data: payload)
         return docRef.documentID
+    }
+
+    /// Persist user-edited expiration metadata for a document. Writes only the
+    /// editable fields; a `nil` value clears the stored field via FieldValue.delete().
+    func updateDocumentMeta(_ doc: UserDocument) async throws {
+        guard let col = docsCollection else { return }
+        // Helper: optional → value, or a delete sentinel. Keeps the dict literal
+        // free of `?? FieldValue.delete()` (which won't type-check across types).
+        func orDelete(_ value: Any?) -> Any { value ?? FieldValue.delete() }
+
+        var update: [String: Any] = [
+            "name": doc.name,
+            "apostilleDone": doc.apostilleDone ?? false,
+            "translationDone": doc.translationDone ?? false
+        ]
+        update["expirationDate"] = orDelete(doc.expirationDate.map { Timestamp(date: $0) })
+        update["validityPeriodDays"] = orDelete(doc.validityPeriodDays)
+        update["category"] = orDelete(doc.category?.rawValue)
+        update["apostilleRequired"] = orDelete(doc.apostilleRequired)
+        update["swornTranslationRequired"] = orDelete(doc.swornTranslationRequired)
+        update["issuingCountry"] = orDelete(doc.issuingCountry)
+        update["notes"] = orDelete(doc.notes)
+        if let r = doc.reminderDays { update["reminderDays"] = r }
+        try await col.document(doc.id).updateData(update)
+    }
+
+    /// Replace the file backing an existing document in place — overwrites the
+    /// Storage object, refreshes the download URL, and recomputes the expiration
+    /// from today using the document's known validity window. Preserves the
+    /// document id and all other metadata.
+    func replaceFile(_ doc: UserDocument, data: Data, fileName: String) async throws {
+        guard let uid = AuthService.shared.uid, let col = docsCollection else { return }
+        let path = doc.path.isEmpty ? "users/\(uid)/documents/\(fileName)" : doc.path
+        let ref = storage.reference().child(path)
+        _ = try await ref.putDataAsync(data)
+        let url = try await ref.downloadURL()
+        var update: [String: Any] = [
+            "downloadUrl": url.absoluteString,
+            "path": path,
+            "name": fileName
+        ]
+        if let days = doc.validityPeriodDays,
+           let exp = DocumentValidityRules.expiration(from: Date(), validityDays: days) {
+            update["expirationDate"] = Timestamp(date: exp)
+        }
+        try await col.document(doc.id).updateData(update)
     }
 
     func deleteDocument(_ doc: UserDocument) async throws {

@@ -5,10 +5,13 @@ struct DocumentsView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var vm = DocumentsViewModel()
     @State private var showFilePicker = false
     /// When non-nil the file picker is uploading INTO this slot, not to the loose pool.
     @State private var pendingSlot: DocumentSlot? = nil
+    /// Drives the detail-screen push for a slot-attached document.
+    @State private var detailDoc: UserDocument? = nil
 
     var body: some View {
         NavigationStack {
@@ -44,18 +47,24 @@ struct DocumentsView: View {
                         }
                     }
 
-                    // Info card
-                    HStack(alignment: .top, spacing: 12) {
-                        Image(systemName: "info.circle")
-                            .foregroundColor(.goPrimary)
-                            .font(.title3)
-                        Text("Upload and save important documents, correspondence, and PDFs related to your move for easy access.")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
+                    // Vault status summary (Differentiation Wave) — only once
+                    // there's something to summarize.
+                    if vm.vaultSummary.hasAnything {
+                        vaultSummaryHeader
+                    } else {
+                        // Info card (original empty/neutral state)
+                        HStack(alignment: .top, spacing: 12) {
+                            Image(systemName: "info.circle")
+                                .foregroundColor(.goPrimary)
+                                .font(.title3)
+                            Text("Upload and save important documents, correspondence, and PDFs related to your move for easy access.")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding()
+                        .background(Color.goPrimary.opacity(0.08))
+                        .cornerRadius(12)
                     }
-                    .padding()
-                    .background(Color.goPrimary.opacity(0.08))
-                    .cornerRadius(12)
 
                     // Upload progress
                     if vm.isUploading {
@@ -79,6 +88,9 @@ struct DocumentsView: View {
                 .padding()
             }
             .goTopBar(showThemeToggle: false)
+            .navigationDestination(item: $detailDoc) { doc in
+                DocumentDetailView(document: doc, vm: vm)
+            }
             .fileImporter(
                 isPresented: $showFilePicker,
                 allowedContentTypes: [.pdf, .png, .jpeg, .plainText],
@@ -91,8 +103,52 @@ struct DocumentsView: View {
             }
             .onAppear {
                 Analytics.log(.documentsTabOpened)
+                vm.refreshNotifications()
+            }
+            .onChange(of: scenePhase) { phase in
+                if phase == .active { vm.refreshNotifications() }
+            }
+            // Reschedule once the document list actually loads (cold start
+            // delivers an empty snapshot before the first real one).
+            .onChange(of: vm.documents) { _ in
+                vm.refreshNotifications()
             }
         }
+    }
+
+    // MARK: - Vault summary header
+
+    private var vaultSummaryHeader: some View {
+        let s = vm.vaultSummary
+        return VStack(alignment: .leading, spacing: 10) {
+            Text("Vault status")
+                .font(.caption.weight(.semibold))
+                .foregroundColor(.secondary)
+            // Flow of status pills; each only shows when its count > 0.
+            HStack(spacing: 8) {
+                if s.complete > 0 { summaryPill("\(s.complete) complete", .goSuccess) }
+                if s.expiringSoon > 0 { summaryPill("\(s.expiringSoon) expiring soon", .goWarning) }
+                if s.expired > 0 { summaryPill("\(s.expired) expired", .goError) }
+                if s.missing > 0 { summaryPill("\(s.missing) missing", .goError) }
+                Spacer(minLength: 0)
+            }
+        }
+        .padding()
+        .background(Color.goPrimary.opacity(0.06))
+        .cornerRadius(12)
+    }
+
+    private func summaryPill(_ text: String, _ color: Color) -> some View {
+        HStack(spacing: 5) {
+            Circle().fill(color).frame(width: 7, height: 7)
+            Text(text)
+                .font(.caption2.weight(.semibold))
+                .foregroundColor(.primary)
+        }
+        .padding(.horizontal, 9)
+        .padding(.vertical, 5)
+        .background(color.opacity(0.12))
+        .cornerRadius(8)
     }
 
     // MARK: - Sections
@@ -165,13 +221,17 @@ struct DocumentsView: View {
                         .lineLimit(1)
                         .truncationMode(.middle)
                         .padding(.top, 2)
+                    if doc.expirationDate != nil {
+                        expiryChip(doc).padding(.top, 1)
+                    }
                 }
             }
 
             Spacer()
 
-            if attachedDoc != nil {
+            if let doc = attachedDoc {
                 Menu {
+                    Button("View details") { detailDoc = doc }
                     Button("Replace…") {
                         pendingSlot = slot
                         showFilePicker = true
@@ -276,32 +336,39 @@ struct DocumentsView: View {
     private func docList(_ docs: [UserDocument]) -> some View {
         VStack(spacing: 0) {
             ForEach(docs) { doc in
-                HStack(spacing: 12) {
-                    Image(systemName: iconForFile(doc.name))
-                        .foregroundColor(.goPrimary)
-                        .frame(width: 30)
+                NavigationLink {
+                    DocumentDetailView(document: doc, vm: vm)
+                } label: {
+                    HStack(spacing: 12) {
+                        Image(systemName: iconForFile(doc.name))
+                            .foregroundColor(.goPrimary)
+                            .frame(width: 30)
 
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(doc.name)
-                            .font(.subheadline)
-                        Text("Tap to view")
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(doc.name)
+                                .font(.subheadline)
+                                .foregroundColor(.primary)
+                            if doc.expirationDate != nil {
+                                HStack(spacing: 6) {
+                                    expiryChip(doc)
+                                }
+                            } else {
+                                Text("Tap to add expiry & details")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+
+                        Spacer()
+
+                        Image(systemName: "chevron.right")
                             .font(.caption)
                             .foregroundColor(.secondary)
                     }
-
-                    Spacer()
-
-                    Image(systemName: "chevron.right")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                    .padding(.vertical, 12)
+                    .contentShape(Rectangle())
                 }
-                .padding(.vertical, 12)
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    if let url = URL(string: doc.downloadUrl) {
-                        UIApplication.shared.open(url)
-                    }
-                }
+                .buttonStyle(.plain)
 
                 if doc.id != docs.last?.id {
                     Divider()
@@ -311,6 +378,22 @@ struct DocumentsView: View {
         .padding()
         .background(colorScheme == .dark ? Color.goSurfaceDark : Color.goSurfaceLight)
         .cornerRadius(12)
+    }
+
+    /// Color-coded expiry chip + day countdown for a tracked document.
+    private func expiryChip(_ doc: UserDocument) -> some View {
+        let color = doc.urgency.color
+        return HStack(spacing: 5) {
+            Image(systemName: doc.isExpired ? "exclamationmark.triangle.fill" : "clock")
+                .font(.caption2)
+            Text(doc.expiryLabel)
+                .font(.caption2.weight(.semibold))
+        }
+        .foregroundColor(color)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 3)
+        .background(color.opacity(0.12))
+        .cornerRadius(7)
     }
 
     // MARK: - File import
