@@ -82,6 +82,40 @@ struct ResourcesView: View {
                     }
                     .buttonStyle(.plain)
 
+                    // Cita Monitor — Spain-specific appointment helper. Deep-links
+                    // into the official cita previa portal + check reminders.
+                    if countrySelection.current == DestinationConfig.spain {
+                        NavigationLink {
+                            CitaMonitorView()
+                        } label: {
+                            HStack(spacing: 12) {
+                                Image(systemName: "calendar.badge.clock")
+                                    .font(.title2)
+                                    .foregroundColor(.white)
+                                    .frame(width: 40, height: 40)
+                                    .background(Color.goPrimary)
+                                    .cornerRadius(10)
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Cita Monitor")
+                                        .font(.subheadline.bold())
+                                        .foregroundColor(.primary)
+                                    Text("One-tap access to Spain's cita previa portal + reminders to check")
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                        .lineLimit(2)
+                                }
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(14)
+                            .background(Color(.secondarySystemGroupedBackground))
+                            .cornerRadius(12)
+                        }
+                        .buttonStyle(.plain)
+                    }
+
                     // Cost-to-Move calculator — free top-of-funnel hook (NOT paywalled).
                     // Targets the lower/middle-class "I can't afford it" wall.
                     NavigationLink {

@@ -127,6 +127,44 @@ final class NotificationManager {
         }
     }
 
+    // MARK: - Cita reminders (Differentiation Wave — user-guided monitor)
+
+    private static let citaPrefix = "cita_"
+
+    /// Schedule weekday-morning "go check for a slot" nudges for a cita monitor.
+    /// Government portals release/refresh slots on business days, so we fire
+    /// Mon–Fri at 08:30 local. These are reminders to check manually — GoThere
+    /// does not poll the portal server-side.
+    func scheduleCitaReminders(_ monitor: CitaMonitor) {
+        cancelCitaReminders(monitorId: monitor.id)
+        guard monitor.remindersEnabled else { return }
+        let center = UNUserNotificationCenter.current()
+        let areaSuffix = monitor.area.isEmpty ? "" : " — \(monitor.area)"
+        for weekday in 2...6 { // Gregorian: 1=Sun … 7=Sat → 2..6 = Mon..Fri
+            let content = UNMutableNotificationContent()
+            content.title = "Check for a cita slot"
+            content.body = "\(monitor.type.label)\(areaSuffix): tap to open the booking portal and check now."
+            content.sound = .default
+            var comps = DateComponents()
+            comps.weekday = weekday
+            comps.hour = 8
+            comps.minute = 30
+            let trigger = UNCalendarNotificationTrigger(dateMatching: comps, repeats: true)
+            center.add(UNNotificationRequest(
+                identifier: "\(Self.citaPrefix)\(monitor.id)_\(weekday)",
+                content: content, trigger: trigger))
+        }
+    }
+
+    func cancelCitaReminders(monitorId: String) {
+        let center = UNUserNotificationCenter.current()
+        let prefix = "\(Self.citaPrefix)\(monitorId)_"
+        center.getPendingNotificationRequests { requests in
+            let ids = requests.map(\.identifier).filter { $0.hasPrefix(prefix) }
+            if !ids.isEmpty { center.removePendingNotificationRequests(withIdentifiers: ids) }
+        }
+    }
+
     private static func reminderBody(name: String, daysBefore: Int) -> String {
         switch daysBefore {
         case 30: return "\u{1F4CB} \(name) expires in 30 days. Tap to review."
