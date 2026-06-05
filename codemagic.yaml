@@ -178,7 +178,15 @@ workflows:
           # MIN_BUILD_NUMBER is a manual floor — bump it in this file when ASC
           # returns garbage or you want to skip a range. Treat it as the
           # "definitely higher than anything I've ever uploaded" line.
-          MIN_BUILD_NUMBER=54
+          #
+          # On Codemagic the other two surfaces are unreliable: the checkout is a
+          # SHALLOW clone so COMMIT_COUNT collapses to ~1, and the get-latest-*
+          # queries below have been returning 0 (their errors are swallowed by
+          # `|| echo 0`). That left this floor as the only real lever — at 54 it
+          # produced build 55, which collided with the build 55 already uploaded
+          # 2026-06-02 (409 ENTITY_ERROR.ATTRIBUTE.INVALID.DUPLICATE). Highest
+          # uploaded is 55, so floor=55 → next upload is 56.
+          MIN_BUILD_NUMBER=55
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
