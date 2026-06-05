@@ -114,6 +114,13 @@ final class DocumentsRepository: ObservableObject {
             if let exp = DocumentValidityRules.expiration(from: Date(), validityDays: rule.validityDays) {
                 payload["expirationDate"] = Timestamp(date: exp)
             }
+            // Auto-suggest a readable name for loose uploads so the vault shows
+            // "FBI Background Check" rather than "scan_001.pdf". Slot uploads keep
+            // the filename (the slot label already names the requirement). The
+            // detail screen lets the user rename either way.
+            if slotKey == nil {
+                payload["name"] = rule.canonicalName
+            }
         }
         // Inherit the slot's explicit requirements (they win over the lookup).
         if let key = slotKey,
