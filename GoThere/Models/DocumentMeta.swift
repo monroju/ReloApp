@@ -117,7 +117,7 @@ enum DocumentValidityRules {
         DocumentValidityRule(
             canonicalName: "State Criminal Background Check", validityDays: 90,
             apostilleRequired: true, swornTranslationRequired: true, category: .criminal,
-            keywords: ["state criminal", "state background", "police clearance", "criminal record"],
+            keywords: ["state criminal", "state background check", "state background", "police clearance", "criminal record"],
             note: nil),
         DocumentValidityRule(
             canonicalName: "Medical Certificate", validityDays: 90,
