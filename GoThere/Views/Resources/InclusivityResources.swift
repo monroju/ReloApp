@@ -20,7 +20,7 @@ enum InclusivityResources {
 
         // Display order: most safety-critical first.
         let displayOrder: [PersonalConsideration] = [
-            .lgbtq, .disabled, .veteran, .pregnant, .neurodivergent, .senior
+            .lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior
         ]
         for c in displayOrder where considerations.contains(c) {
             if let cat = category(for: c, countryId: countryId) {
@@ -136,6 +136,92 @@ enum InclusivityResources {
             countrySpecific = []
         }
         return WebResourceCategory(id: "incl_lgbtq", title: title, icon: icon,
+                                    resources: countrySpecific + common)
+    }
+
+    // MARK: - Transgender
+
+    private static func transCategory(_ countryId: String) -> WebResourceCategory {
+        let icon = "person.text.rectangle"
+        let title = "Trans Resources"
+        let common = [
+            WebResource(id: "tgeu-map", title: "TGEU Trans Rights Map",
+                        description: "Legal gender recognition + care access by country",
+                        url: "https://transrightsmap.tgeu.org/", type: "official"),
+        ]
+        let countrySpecific: [WebResource]
+        switch countryId {
+        case "spain":
+            countrySpecific = [
+                WebResource(id: "plataforma-trans", title: "Federación Plataforma Trans",
+                            description: "National trans federation; 2023 trans-law guidance",
+                            url: "https://plataformatrans.org/", type: "community"),
+            ]
+        case "germany":
+            countrySpecific = [
+                WebResource(id: "dgti", title: "dgti e.V.",
+                            description: "Trans association; supplementary ID (Ergänzungsausweis)",
+                            url: "https://dgti.org/", type: "community"),
+            ]
+        case "ireland":
+            countrySpecific = [
+                WebResource(id: "teni", title: "TENI",
+                            description: "Transgender Equality Network Ireland — legal + peer support",
+                            url: "https://teni.ie/", type: "community"),
+            ]
+        case "uk_ancestry":
+            countrySpecific = [
+                WebResource(id: "gendered-intelligence", title: "Gendered Intelligence",
+                            description: "UK trans charity; care-pathway navigation",
+                            url: "https://genderedintelligence.co.uk/", type: "community"),
+            ]
+        case "canada":
+            countrySpecific = [
+                WebResource(id: "egale-trans", title: "Egale Canada — Trans resources",
+                            description: "Documents, provincial care coverage guides",
+                            url: "https://egale.ca/", type: "community"),
+            ]
+        case "argentina":
+            countrySpecific = [
+                WebResource(id: "ley-identidad", title: "Ley de Identidad de Género",
+                            description: "Official guide to document change + guaranteed care",
+                            url: "https://www.argentina.gob.ar/justicia/derechofacil/leysimple/identidad-de-genero",
+                            type: "official"),
+            ]
+        case "mexico":
+            countrySpecific = [
+                WebResource(id: "condesa", title: "Clínica Especializada Condesa",
+                            description: "Mexico City public HRT + trans health clinic",
+                            url: "https://condesadf.mx/", type: "service"),
+            ]
+        case "italy":
+            countrySpecific = [
+                WebResource(id: "mit-italia", title: "MIT — Movimento Identità Trans",
+                            description: "Bologna-based trans org; legal + health desk",
+                            url: "https://mit-italia.it/", type: "community"),
+            ]
+        case "poland":
+            countrySpecific = [
+                WebResource(id: "trans-fuzja", title: "Fundacja Trans-Fuzja",
+                            description: "Polish trans foundation; court-process guidance",
+                            url: "https://transfuzja.org/", type: "community"),
+            ]
+        case "hungary":
+            countrySpecific = [
+                WebResource(id: "transvanilla", title: "Transvanilla",
+                            description: "Hungarian trans association; recognition-ban updates",
+                            url: "https://transvanilla.hu/", type: "community"),
+            ]
+        case "portugal":
+            countrySpecific = [
+                WebResource(id: "ilga-pt-trans", title: "ILGA Portugal",
+                            description: "Self-ID law guidance + trans peer support",
+                            url: "https://ilga-portugal.pt/", type: "service"),
+            ]
+        default:
+            countrySpecific = []
+        }
+        return WebResourceCategory(id: "incl_trans", title: title, icon: icon,
                                     resources: countrySpecific + common)
     }
 
@@ -613,6 +699,7 @@ enum InclusivityResources {
         let cat: WebResourceCategory
         switch consideration {
         case .lgbtq:          cat = lgbtqCategory(countryId)
+        case .trans:          cat = transCategory(countryId)
         case .disabled:       cat = disabledCategory(countryId)
         case .veteran:        cat = veteranCategory(countryId)
         case .pregnant:       cat = pregnantCategory(countryId)

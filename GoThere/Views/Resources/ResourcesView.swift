@@ -404,6 +404,37 @@ struct ResourcesView: View {
                     }
                     .buttonStyle(.plain)
 
+                    // Continuity of Care — per-country meds availability + border rules.
+                    NavigationLink {
+                        CareContinuityView(countryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "pills.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Meds & Care Abroad")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("ADHD meds, HRT, insulin — availability and what you can carry in")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
                     if !isUnlocked {
                         lockedCountryCard
                     } else {
