@@ -13,6 +13,7 @@ enum Household: String, CaseIterable, Identifiable {
 
 enum PersonalConsideration: String, CaseIterable, Identifiable {
     case lgbtq = "LGBTQ+"
+    case trans = "Transgender"
     case disabled = "Disabled / Accessibility"
     case veteran = "Veteran"
     case pregnant = "Pregnant / Expecting"

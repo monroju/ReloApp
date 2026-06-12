@@ -8,6 +8,7 @@ import Foundation
 /// the iOS bundle and Android assets so the data layer stays in sync.
 struct CountrySafetyProfile: Decodable {
     let lgbtq: String?
+    let trans: String?
     let disabled: String?
     let single_parent: String?
     let veteran: String?
@@ -20,6 +21,7 @@ struct CountrySafetyProfile: Decodable {
     func note(for consideration: PersonalConsideration, householdIsSingleParent: Bool) -> String? {
         switch consideration {
         case .lgbtq:          return lgbtq
+        case .trans:          return trans
         case .disabled:       return disabled
         case .veteran:        return veteran
         case .pregnant:       return pregnant
@@ -59,7 +61,7 @@ enum CountrySafetyProfiles {
     /// Returns notes for every active consideration, in stable display order.
     static func notes(for considerations: Set<PersonalConsideration>, countryId: String) -> [(PersonalConsideration, String)] {
         guard let profile = profile(for: countryId) else { return [] }
-        let order: [PersonalConsideration] = [.lgbtq, .disabled, .veteran, .pregnant, .neurodivergent, .senior]
+        let order: [PersonalConsideration] = [.lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior]
         return order.compactMap { c in
             guard considerations.contains(c),
                   let note = profile.note(for: c, householdIsSingleParent: false) else { return nil }

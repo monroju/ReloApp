@@ -29,6 +29,7 @@ struct RightsSafetyView: View {
                         considerationSection(consideration)
                     }
                 }
+                careContinuityCTA
                 disclaimer
             }
             .padding()
@@ -44,7 +45,7 @@ struct RightsSafetyView: View {
     }
 
     private var orderedSelected: [PersonalConsideration] {
-        let order: [PersonalConsideration] = [.lgbtq, .disabled, .veteran, .pregnant, .neurodivergent, .senior]
+        let order: [PersonalConsideration] = [.lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior]
         return order.filter { selected.contains($0) }
     }
 
@@ -115,6 +116,34 @@ struct RightsSafetyView: View {
         let (_, isSingleParent) = UserConsiderationsStore.load()
         let household = isSingleParent ? Household.singleParent.rawValue : ""
         UserConsiderationsStore.save(Set(selected.map { $0.rawValue }), household: household)
+    }
+
+    private var careContinuityCTA: some View {
+        NavigationLink {
+            CareContinuityView()
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "pills.fill")
+                    .font(.title3)
+                    .foregroundColor(.goPrimary)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Your meds & care abroad")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.primary)
+                    Text("ADHD meds, HRT, insulin — what's available and what you can carry in")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(14)
+            .background(Color(.secondarySystemGroupedBackground))
+            .cornerRadius(12)
+        }
+        .buttonStyle(.plain)
     }
 
     private var disclaimer: some View {
