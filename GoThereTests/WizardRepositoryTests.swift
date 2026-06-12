@@ -33,7 +33,8 @@ final class WizardRepositoryTests: XCTestCase {
             countryId: countryId,
             shortName: "TEST",
             steps: [],
-            taskRules: [rule]
+            taskRules: [rule],
+            eligibilityRule: nil
         )
     }
 
