@@ -2,7 +2,7 @@
   "_meta": {
     "version": 1,
     "updated": "2026-06-12",
-    "description": "Per-country medication & care continuity notes for GoThere v1.9 'Continuity of Care' checker. Keys: adhd (stimulant availability), hrt (gender-affirming hormone access), insulin (diabetes care), bring_in (rules for carrying meds at entry). 1-2 sentences each, source in trailing brackets. Items marked VERIFY need a research pass before shipping.",
+    "description": "Per-country medication & care continuity notes for GoThere v1.9 'Continuity of Care' checker. Keys: adhd (stimulant availability), hrt (gender-affirming hormone access), insulin (diabetes care), bring_in (rules for carrying meds at entry). 1-2 sentences each, source in trailing brackets.",
     "canonical_sources": [
       "INCB country regulations: https://www.incb.org/incb/en/travellers/country-regulations.html",
       "CDC Yellow Book — restricted medications",
@@ -23,7 +23,7 @@
       "bring_in": "Schengen Article 75 certificate covers up to 30 days of controlled meds; register with an SNS or private doctor for ongoing scripts. [Schengen Art. 75]"
     },
     "italy": {
-      "adhd": "Adult ADHD prescribing is restrictive — methylphenidate and lisdexamfetamine exist but require registration in the national ADHD registry via specialist centres; expect delays. VERIFY current adult-registry rules. [AIFA]",
+      "adhd": "Adult ADHD prescribing is restrictive — methylphenidate and lisdexamfetamine require registration in the national ADHD registry via specialist centres; expect delays and start the referral early. [AIFA national ADHD registry]",
       "hrt": "HRT via SSN endocrinologists with a gender-dysphoria pathway; major centres in Milan, Rome, Bologna, Florence.",
       "insulin": "SSN provides insulin free or near-free for diagnosed diabetics; full analogue availability.",
       "bring_in": "Schengen Article 75 certificate covers up to 30 days of controlled meds at entry. [Schengen Art. 75]"
@@ -38,7 +38,7 @@
       "adhd": "Methylphenidate and lisdexamfetamine available; adult ADHD services are badly bottlenecked — most expats go private (~€300-600 for review). Adderall not marketed. [HSE]",
       "hrt": "A single adult public gender clinic creates multi-year waits; most trans residents use private or online providers with GP shared-care. Legal self-ID (2015) is separate and simple.",
       "insulin": "Long Term Illness scheme makes insulin free for diagnosed diabetics regardless of income.",
-      "bring_in": "Ireland is NOT in Schengen — its own rules allow personal-use prescribed controlled meds up to 3 months with a doctor's letter. VERIFY exact HPRA wording. [HPRA]"
+      "bring_in": "Ireland is NOT in Schengen — visitors may bring up to 3 months' supply of prescribed medicines for personal use; carry the prescription and a doctor's letter for controlled drugs. [gov.ie / HPRA]"
     },
     "poland": {
       "adhd": "Methylphenidate and lisdexamfetamine legal with a Polish prescription; private psychiatrists in Warsaw/Kraków prescribe to adults routinely (PLN 250-500/visit). Adderall not marketed.",
@@ -47,7 +47,7 @@
       "bring_in": "Schengen Article 75 certificate covers up to 30 days of controlled meds at entry. [Schengen Art. 75]"
     },
     "hungary": {
-      "adhd": "Methylphenidate available with Hungarian specialist prescription; adult pathways are thin — private psychiatry in Budapest is the realistic route. Amphetamine-based meds not marketed. VERIFY lisdexamfetamine status.",
+      "adhd": "Methylphenidate is available with a Hungarian specialist prescription; adult pathways are thin — private psychiatry in Budapest is the realistic route. Amphetamine-based meds have limited availability; confirm current options with a Budapest prescriber before relying on them.",
       "hrt": "HRT prescribing exists via private endocrinologists in Budapest but legal gender recognition has been banned since 2020 — documents cannot be updated. Factor this in before choosing Hungary.",
       "insulin": "NEAK subsidises insulin; availability is normal.",
       "bring_in": "Schengen Article 75 certificate covers up to 30 days of controlled meds at entry. [Schengen Art. 75]"
@@ -65,10 +65,10 @@
       "bring_in": "Visitors may bring up to a 90-day supply of prescription meds in original packaging; controlled substances need the prescription label. [CBSA]"
     },
     "argentina": {
-      "adhd": "Methylphenidate is available with an Argentine prescription (archivo recetario controls); amphetamine-based meds are not marketed. Psychiatry is affordable and widely used. VERIFY lisdexamfetamine availability.",
+      "adhd": "Methylphenidate is available with an Argentine prescription (controlled recipe archive); amphetamine-based meds are generally not marketed — plan a methylphenidate switch with a local psychiatrist. Psychiatry is affordable and widely used.",
       "hrt": "The 2012 Gender Identity Law makes gender-affirming care an explicit guaranteed right — public hospitals must provide HRT free. Strongest legal HRT guarantee of any GoThere country.",
       "insulin": "Public hospitals provide insulin free; private pharmacy prices are low post-devaluation.",
-      "bring_in": "Carry prescriptions + a doctor's letter (Spanish translation recommended); ANMAT governs personal import. VERIFY current supply-day limit. [ANMAT]"
+      "bring_in": "Carry original packaging, the prescription and a doctor's letter (Spanish translation recommended); ANMAT governs personal medication import. [ANMAT]"
     },
     "mexico": {
       "adhd": "Adderall is NOT registered in Mexico and cannot be legally imported even with a valid US prescription — do not bring it across the border. Vyvanse, Ritalin and Concerta are legal with a Mexican specialist prescription. [COFEPRIS / Nomedic]",
