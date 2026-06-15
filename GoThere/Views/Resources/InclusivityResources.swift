@@ -20,7 +20,7 @@ enum InclusivityResources {
 
         // Display order: most safety-critical first.
         let displayOrder: [PersonalConsideration] = [
-            .lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior
+            .lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior, .poc
         ]
         for c in displayOrder where considerations.contains(c) {
             if let cat = category(for: c, countryId: countryId) {
@@ -692,6 +692,48 @@ enum InclusivityResources {
                                     resources: countrySpecific)
     }
 
+    // ⚠️ VERIFY URLs before release — official/established equality bodies; confirm live.
+    private static func pocCategory(_ countryId: String) -> WebResourceCategory {
+        let icon = "person.3.fill"
+        let title = "Anti-Racism & Equality"
+        let common: [WebResource] = []
+        let countrySpecific: [WebResource]
+        switch countryId {
+        case "spain":
+            countrySpecific = [WebResource(id: "sos-racismo-es", title: "SOS Racismo",
+                description: "Federation of anti-racism associations; reporting + support",
+                url: "https://sosracismo.eu/", type: "community")]
+        case "italy":
+            countrySpecific = [WebResource(id: "unar-it", title: "UNAR",
+                description: "National Office Against Racial Discrimination (gov)",
+                url: "https://www.unar.it/", type: "official")]
+        case "germany":
+            countrySpecific = [WebResource(id: "ads-de", title: "Antidiskriminierungsstelle",
+                description: "Federal Anti-Discrimination Agency — advice + complaints",
+                url: "https://www.antidiskriminierungsstelle.de/", type: "official")]
+        case "ireland":
+            countrySpecific = [WebResource(id: "ihrec-ie", title: "IHREC",
+                description: "Irish Human Rights & Equality Commission",
+                url: "https://www.ihrec.ie/", type: "official")]
+        case "uk_ancestry":
+            countrySpecific = [WebResource(id: "ehrc-uk", title: "EHRC",
+                description: "Equality & Human Rights Commission (Equality Act 2010)",
+                url: "https://www.equalityhumanrights.com/", type: "official")]
+        case "canada":
+            countrySpecific = [WebResource(id: "crrf-ca", title: "Canadian Race Relations Foundation",
+                description: "Federal foundation; resources + reporting",
+                url: "https://www.crrf-fcrr.ca/", type: "official")]
+        case "mexico":
+            countrySpecific = [WebResource(id: "conapred-mx", title: "CONAPRED",
+                description: "National Council to Prevent Discrimination (gov)",
+                url: "https://www.conapred.org.mx/", type: "official")]
+        default:
+            countrySpecific = []
+        }
+        return WebResourceCategory(id: "incl_poc", title: title, icon: icon,
+                                    resources: common + countrySpecific)
+    }
+
     // MARK: - Dispatcher
 
     private static func category(for consideration: PersonalConsideration,
@@ -705,6 +747,7 @@ enum InclusivityResources {
         case .pregnant:       cat = pregnantCategory(countryId)
         case .neurodivergent: cat = neurodivergentCategory(countryId)
         case .senior:         cat = seniorCategory(countryId)
+        case .poc:            cat = pocCategory(countryId)
         }
         return cat.resources.isEmpty ? nil : cat
     }

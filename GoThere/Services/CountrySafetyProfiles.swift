@@ -15,6 +15,7 @@ struct CountrySafetyProfile: Decodable {
     let pregnant: String?
     let neurodivergent: String?
     let senior: String?
+    let poc: String?
 
     /// Map a PersonalConsideration rawValue to the matching note. Returns nil
     /// when the persona is not represented for that country.
@@ -27,6 +28,7 @@ struct CountrySafetyProfile: Decodable {
         case .pregnant:       return pregnant
         case .neurodivergent: return neurodivergent
         case .senior:         return senior
+        case .poc:            return poc
         }
     }
 }
@@ -61,7 +63,7 @@ enum CountrySafetyProfiles {
     /// Returns notes for every active consideration, in stable display order.
     static func notes(for considerations: Set<PersonalConsideration>, countryId: String) -> [(PersonalConsideration, String)] {
         guard let profile = profile(for: countryId) else { return [] }
-        let order: [PersonalConsideration] = [.lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior]
+        let order: [PersonalConsideration] = [.lgbtq, .trans, .disabled, .veteran, .pregnant, .neurodivergent, .senior, .poc]
         return order.compactMap { c in
             guard considerations.contains(c),
                   let note = profile.note(for: c, householdIsSingleParent: false) else { return nil }

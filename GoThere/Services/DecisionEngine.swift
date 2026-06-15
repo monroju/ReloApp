@@ -242,6 +242,23 @@ enum DecisionEngine {
                 if dest.tags.contains("retiree_friendly") { score += 5 }
                 if dest.tags.contains("walkable") { score += 3 }
                 if dest.tags.contains("warm_coastal") || dest.climate == "warm_coastal" { score += 3 }
+            case .poc:
+                // Anti-discrimination law strength, ethnic diversity, and reported climate
+                // (national equality bodies + ECRI/ENAR monitoring). Measured and positive-only:
+                // highlights where protections and established communities exist, no group steered away.
+                switch countryId {
+                case "canada", "uk_ancestry":
+                    score += 8; reasons.append("Highly multicultural; strong anti-discrimination law")
+                case "germany", "spain", "portugal", "ireland":
+                    score += 6; reasons.append("Diverse cities + EU anti-discrimination law")
+                case "italy", "mexico", "argentina":
+                    score += 4; reasons.append("Anti-discrimination law; diversity varies by region")
+                case "poland", "hungary":
+                    score += 2; reasons.append("Anti-discrimination law applies; less ethnically diverse")
+                default: break
+                }
+                if dest.expatDensity >= 4 { score += 3; reasons.append("Established international community") }
+                if dest.type == "Big City" { score += 2 }
             }
         }
 
