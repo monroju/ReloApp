@@ -184,9 +184,12 @@ workflows:
           # queries below have been returning 0 (their errors are swallowed by
           # `|| echo 0`). That left this floor as the only real lever — at 54 it
           # produced build 55, which collided with the build 55 already uploaded
-          # 2026-06-02 (409 ENTITY_ERROR.ATTRIBUTE.INVALID.DUPLICATE). Highest
-          # uploaded is 55, so floor=55 → next upload is 56.
-          MIN_BUILD_NUMBER=55
+          # 2026-06-02 (409 ENTITY_ERROR.ATTRIBUTE.INVALID.DUPLICATE).
+          # 2026-06-16: floor 55 → NEW_BUILD 56 collided again — 1.9.0 AND the
+          # first 1.9.1 push both took 56, so the corrected 1.9.1 (POC notes
+          # fact-check) was rejected as a duplicate and never uploaded. Highest
+          # uploaded is 56, so bump floor to 56 → next upload is 57.
+          MIN_BUILD_NUMBER=56
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
