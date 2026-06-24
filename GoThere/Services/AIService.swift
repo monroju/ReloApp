@@ -23,6 +23,13 @@ final class AIService: ObservableObject {
     /// Free-tier cap before the paywall gate kicks in. The brief specifies 5.
     static let maxFreeMessages = 5
 
+    /// Shared app secret sent in `X-GoThere-App-Token`. Mirrors the Android
+    /// client and `AI_PROXY_APP_TOKEN` in functions/.env. Hardening only (a
+    /// client-embedded secret is extractable) — it lets the proxy reject
+    /// anonymous abuse of the open endpoint. The proxy only ENFORCES it once
+    /// `AI_PROXY_REQUIRE_TOKEN` is flipped on, so shipping ahead of that is safe.
+    static let appToken = "gthr_app_RRoTKHz-Wch7Ci4Wvdiy15ogMG0bHQw3"
+
     /// Proxy endpoint. Override-able via UserDefaults for QA against staging.
     /// The proxy is responsible for choosing the model (currently
     /// `claude-sonnet-4-6` per the operator briefing) and adding the API key.
@@ -142,6 +149,7 @@ final class AIService: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue(Self.systemPromptVersion, forHTTPHeaderField: "X-System-Prompt-Version")
+        request.setValue(Self.appToken, forHTTPHeaderField: "X-GoThere-App-Token")
 
         let body = AIProxyRequest(
             systemPromptVersion: Self.systemPromptVersion,
