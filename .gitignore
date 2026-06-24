@@ -38,3 +38,11 @@ appetize-build/
 *.mobileprovision
 *.certSigningRequest
 IOS_SIGNING_SETUP.txt
+# App Store Connect / APNs auth keys + base64-encoded secret dumps
+# (the .b64 / *_base64.txt files are the same secrets, just text-encoded)
+*.p8
+*.b64
+*_base64.txt
+AuthKey_*.p8
+distribution_p12_base64.txt
+provisioning_profile.b64
