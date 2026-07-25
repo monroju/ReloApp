@@ -189,7 +189,13 @@ workflows:
           # first 1.9.1 push both took 56, so the corrected 1.9.1 (POC notes
           # fact-check) was rejected as a duplicate and never uploaded. Highest
           # uploaded is 56, so bump floor to 56 → next upload is 57.
-          MIN_BUILD_NUMBER=56
+          # 2026-07-25: floor 56 → build 57 uploaded fine on the 1.9.2 version-bump
+          # push, then the referral-loop push re-took 57 and 409'd
+          # (ENTITY_ERROR.ATTRIBUTE.INVALID.DUPLICATE, previousBundleVersion=57).
+          # Highest uploaded is 57, so bump floor to 57 → next upload is 58.
+          # (Root cause persists: the get-latest-* queries still return 0, so this
+          # floor stays the only real lever until those are fixed.)
+          MIN_BUILD_NUMBER=57
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
