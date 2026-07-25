@@ -15,12 +15,14 @@ struct PaywallView: View {
     @EnvironmentObject var purchaseManager: PurchaseManager
     @Environment(\.dismiss) private var dismiss
     @State private var isRestoring = false
+    @State private var showReferral = false
 
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     header
+                    referralSection
                     subscriptionSection
                     lifetimeSection
                     regionBundlesSection
@@ -28,6 +30,9 @@ struct PaywallView: View {
                     restoreButton
                 }
                 .padding()
+            }
+            .sheet(isPresented: $showReferral) {
+                ReferralView().environmentObject(purchaseManager)
             }
             .navigationTitle("Unlock Destinations")
             .navigationBarTitleDisplayMode(.inline)
@@ -47,6 +52,35 @@ struct PaywallView: View {
     }
 
     // MARK: - Sections
+
+    /// Cross-sell: someone hesitating at the paywall can unlock a month free by
+    /// inviting a friend instead. Presents the give-a-month/get-a-month sheet.
+    private var referralSection: some View {
+        Button {
+            showReferral = true
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "gift.fill")
+                    .font(.title2)
+                    .foregroundColor(.goPrimary)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Prefer free? Invite a friend")
+                        .font(.subheadline.bold())
+                        .foregroundColor(.primary)
+                    Text("You both get a month of All-Access when they redeem your code.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption.bold())
+                    .foregroundColor(.secondary)
+            }
+            .goCard()
+        }
+        .buttonStyle(.plain)
+    }
 
     private var header: some View {
         VStack(spacing: 12) {

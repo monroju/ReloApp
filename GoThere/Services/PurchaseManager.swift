@@ -107,6 +107,13 @@ final class PurchaseManager: ObservableObject {
     /// reflected via `subscriptionStatus` instead.
     @Published var ownedSKUs: Set<String> = []
 
+    /// Server-granted, time-boxed premium window from the referral loop (a "free
+    /// month"). Mirrored on `users/{uid}.promoAccessUntil` (unix seconds) by the
+    /// redeemReferral Cloud Function. Deliberately SEPARATE from
+    /// `subscriptionStatus` so the launch-time StoreKit reconcile — which has no
+    /// real store receipt to see behind a promo grant — never clobbers it.
+    @Published var promoAccessUntil: Date? = nil
+
     // MARK: - Derived state
 
     /// True when the user has full content access through any of: an active
@@ -114,6 +121,7 @@ final class PurchaseManager: ObservableObject {
     /// Wired into `isCountryUnlocked(_:)` so new SKUs unlock content without changing
     /// existing call sites.
     var hasAllAccess: Bool {
+        if let until = promoAccessUntil, until > Date() { return true }
         if subscriptionStatus.isActive { return true }
         if ownedSKUs.contains(Self.productAllCountries) { return true }
         if ownedSKUs.contains(Self.productEuropeBundle) && ownedSKUs.contains(Self.productAmericasBundle) {
@@ -235,6 +243,14 @@ final class PurchaseManager: ObservableObject {
 
     func formattedPrice(for productId: String) -> String {
         products.first { $0.id == productId }?.displayPrice ?? "$4.99"
+    }
+
+    /// Optimistically applies a server-granted referral month so the UI unlocks
+    /// the moment `redeemReferral` returns, without waiting for the Firestore
+    /// mirror to propagate back. Extends, never shortens.
+    func applyPromoGrant(until: Date) {
+        if let current = promoAccessUntil, current > until { return }
+        promoAccessUntil = until
     }
 
     // MARK: - Private
@@ -425,6 +441,11 @@ final class PurchaseManager: ObservableObject {
             }
             if let subDict = data["subscriptionStatus"] as? [String: Any] {
                 subscriptionStatus = SubscriptionStatus.from(dictionary: subDict)
+            }
+            // Referral / promo grant window. Never written back by syncToFirestore
+            // (that payload omits it), so a StoreKit reconcile can't shorten it.
+            if let ts = data["promoAccessUntil"] as? TimeInterval {
+                promoAccessUntil = Date(timeIntervalSince1970: ts)
             }
         } catch {
             print("Error loading purchases: \(error)")
