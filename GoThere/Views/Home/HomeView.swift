@@ -337,6 +337,12 @@ struct HomeView: View {
                 } label: {
                     quickLinkTile(icon: "map.fill", title: "Destinations", color: .purple)
                 }
+
+                NavigationLink {
+                    DocumentScanView()
+                } label: {
+                    quickLinkTile(icon: "doc.text.viewfinder", title: "Scan a Doc", color: .teal)
+                }
             }
         }
         .goCard()

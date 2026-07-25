@@ -8,6 +8,8 @@ struct DocumentsView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var vm = DocumentsViewModel()
     @State private var showFilePicker = false
+    /// Drives the push to the document scanner (Claude-vision explainer).
+    @State private var showScan = false
     /// When non-nil the file picker is uploading INTO this slot, not to the loose pool.
     @State private var pendingSlot: DocumentSlot? = nil
     /// Drives the detail-screen push for a slot-attached document.
@@ -30,6 +32,20 @@ struct DocumentsView: View {
                         }
 
                         Spacer()
+
+                        Button {
+                            showScan = true
+                        } label: {
+                            Label("Scan", systemImage: "doc.text.viewfinder")
+                                .font(.subheadline.weight(.medium))
+                                .foregroundColor(.goPrimary)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 8)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .stroke(Color.goPrimary, lineWidth: 1.5)
+                                )
+                        }
 
                         Button {
                             pendingSlot = nil
@@ -90,6 +106,9 @@ struct DocumentsView: View {
             .goTopBar(showThemeToggle: false)
             .navigationDestination(item: $detailDoc) { doc in
                 DocumentDetailView(document: doc, vm: vm)
+            }
+            .navigationDestination(isPresented: $showScan) {
+                DocumentScanView().environmentObject(purchaseManager)
             }
             .fileImporter(
                 isPresented: $showFilePicker,
