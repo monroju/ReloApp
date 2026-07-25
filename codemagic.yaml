@@ -195,9 +195,12 @@ workflows:
           # Highest uploaded is 57, so bump floor to 57 → next upload is 58.
           # 2026-07-25 (later): referral build 58 uploaded OK. Highest is now 58,
           # so bump floor to 58 → next upload (doc-analysis) is 59.
+          # 2026-07-25 (later still): money/insurance push supersedes the in-flight
+          # doc-analysis build (cancel_previous_builds), shipping both on one build.
+          # Bump floor to 59 → next upload is 60, safe whether or not 59 uploaded.
           # (Root cause persists: the get-latest-* queries still return 0, so this
           # floor stays the only real lever until those are fixed.)
-          MIN_BUILD_NUMBER=58
+          MIN_BUILD_NUMBER=59
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}

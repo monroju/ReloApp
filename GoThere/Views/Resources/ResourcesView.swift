@@ -241,6 +241,37 @@ struct ResourcesView: View {
                     }
                     .buttonStyle(.plain)
 
+                    // Money & Insurance — visa-compliant health cover + expat banking.
+                    NavigationLink {
+                        MoneyInsuranceView(initialCountryId: countrySelection.current)
+                    } label: {
+                        HStack(spacing: 12) {
+                            Image(systemName: "creditcard.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .frame(width: 40, height: 40)
+                                .background(Color.goPrimary)
+                                .cornerRadius(10)
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text("Money & Insurance")
+                                    .font(.subheadline.bold())
+                                    .foregroundColor(.primary)
+                                Text("Visa-ready health insurance and banking for \(countryName)")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                                    .lineLimit(2)
+                            }
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(14)
+                        .background(Color(.secondarySystemGroupedBackground))
+                        .cornerRadius(12)
+                    }
+                    .buttonStyle(.plain)
+
                     // Move-timeline generator — free middle-class planner hook.
                     NavigationLink {
                         RelocationTimelineView()
