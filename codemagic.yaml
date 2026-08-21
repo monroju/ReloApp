@@ -198,9 +198,14 @@ workflows:
           # 2026-07-25 (later still): money/insurance push supersedes the in-flight
           # doc-analysis build (cancel_previous_builds), shipping both on one build.
           # Bump floor to 59 → next upload is 60, safe whether or not 59 uploaded.
+          # 2026-08-21: floor 59 -> build 60 uploaded OK and was submitted as
+          # 1.9.3 (the paid->free grandfathering release). Note 1.9.2 had ALSO
+          # shipped as build 60; ASC accepted the reuse only because the version
+          # string differed. Highest uploaded is 60, so bump floor to 60 -> next
+          # upload is 61. A second build for 1.9.3 at 60 would have 409'd.
           # (Root cause persists: the get-latest-* queries still return 0, so this
           # floor stays the only real lever until those are fixed.)
-          MIN_BUILD_NUMBER=59
+          MIN_BUILD_NUMBER=60
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
