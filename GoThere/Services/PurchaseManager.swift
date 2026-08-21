@@ -114,6 +114,15 @@ final class PurchaseManager: ObservableObject {
     /// real store receipt to see behind a promo grant — never clobbers it.
     @Published var promoAccessUntil: Date? = nil
 
+    /// True when this user bought GoThere while it was a paid install, before the
+    /// freemium flip. Grandfathers them into permanent all-access so the paywall never
+    /// appears in front of content they already paid for.
+    ///
+    /// Seeded synchronously from the UserDefaults cache so the first render is correct,
+    /// then confirmed against StoreKit's app transaction and mirrored to Firestore.
+    /// Only ever set to `true` — see `refreshLegacyEntitlement()`.
+    @Published var isLegacyPaidInstall: Bool = LegacyEntitlementService.cachedIsLegacyPaidInstall
+
     // MARK: - Derived state
 
     /// True when the user has full content access through any of: an active
@@ -121,6 +130,9 @@ final class PurchaseManager: ObservableObject {
     /// Wired into `isCountryUnlocked(_:)` so new SKUs unlock content without changing
     /// existing call sites.
     var hasAllAccess: Bool {
+        // Paid-install buyers from before the freemium pivot keep everything, forever.
+        // Checked first because it's a local, offline-safe answer.
+        if isLegacyPaidInstall { return true }
         if let until = promoAccessUntil, until > Date() { return true }
         if subscriptionStatus.isActive { return true }
         if ownedSKUs.contains(Self.productAllCountries) { return true }
@@ -141,9 +153,31 @@ final class PurchaseManager: ObservableObject {
     private init() {
         transactionListener = listenForTransactions()
         Task {
+            await refreshLegacyEntitlement()
             await loadProducts()
             await reconcileEntitlements(silent: true)
         }
+    }
+
+    // MARK: - Legacy paid-install grandfathering
+
+    /// Confirms the pre-freemium paid-install entitlement against StoreKit's app
+    /// transaction and mirrors the result to Firestore.
+    ///
+    /// Only ever grants — never revokes. `LegacyEntitlementService.resolve()` returns
+    /// `nil` when StoreKit can't answer (offline, missing local transaction), and a
+    /// "don't know" must never strip access from someone who paid.
+    func refreshLegacyEntitlement() async {
+        guard let isLegacy = await LegacyEntitlementService.resolve(), isLegacy else { return }
+        guard !isLegacyPaidInstall else { return }
+        isLegacyPaidInstall = true
+        Analytics.log(.purchaseCompleted, properties: [
+            "product_id": "legacy_paid_install",
+            "is_subscription": false,
+            "is_bundle": true,
+            "grandfathered": true
+        ])
+        await syncToFirestore()
     }
 
     // MARK: - Product loading
@@ -417,12 +451,18 @@ final class PurchaseManager: ObservableObject {
     private func syncToFirestore() async {
         guard let uid = AuthService.shared.uid else { return }
         let db = Firestore.firestore()
-        let payload: [String: Any] = [
+        var payload: [String: Any] = [
             "unlockedCountries": Array(unlockedCountries),
             "ownedSKUs": Array(ownedSKUs),
             "subscriptionStatus": subscriptionStatus.dictionaryRepresentation,
             "hasAllAccess": hasAllAccess
         ]
+        // Write-once: only ever set the flag, never clear it. A device that can't see
+        // the app transaction must not erase the entitlement for the user's other
+        // devices.
+        if isLegacyPaidInstall {
+            payload["legacyPaidInstall"] = true
+        }
         try? await db.collection("users").document(uid).setData(payload, merge: true)
     }
 
@@ -441,6 +481,12 @@ final class PurchaseManager: ObservableObject {
             }
             if let subDict = data["subscriptionStatus"] as? [String: Any] {
                 subscriptionStatus = SubscriptionStatus.from(dictionary: subDict)
+            }
+            // Pre-freemium paid-install grandfathering, earned on another device.
+            // Grant-only: a `false`/absent field never revokes a local grant.
+            if data["legacyPaidInstall"] as? Bool == true, !isLegacyPaidInstall {
+                isLegacyPaidInstall = true
+                LegacyEntitlementService.rememberLegacyEntitlement()
             }
             // Referral / promo grant window. Never written back by syncToFirestore
             // (that payload omits it), so a StoreKit reconcile can't shorten it.
