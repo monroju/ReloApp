@@ -1,31 +1,1830 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoThere — Relocation Planning App</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0d9488; color: #fff; text-align: center; padding: 24px; }
-        h1 { font-size: 48px; margin-bottom: 12px; }
-        p { font-size: 18px; opacity: 0.9; margin-bottom: 24px; }
-        a { color: #fff; opacity: 0.8; font-size: 14px; }
-        a:hover { opacity: 1; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoThere — Relocation Guide for Americans Moving to Spain, Portugal & Mexico</title>
+  <meta name="description" content="GoThere is the all-in-one iOS app for Americans relocating to Spain, Portugal, or Mexico. Smart city matching, visa checklists, cost calculators, and 5-phase task tracking — built by expats who actually made the move.">
+  <meta name="keywords" content="relocation app, move to Spain, move to Portugal, move to Mexico, expat guide, visa checklist, cost of living calculator, digital nomad, non-lucrative visa, D7 visa">
+  <meta name="author" content="GoThere">
+  <link rel="canonical" href="https://getgothere.app">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GoThere — Your Relocation Guide to Spain, Portugal & Mexico">
+  <meta property="og:description" content="Smart city matching, visa checklists, cost calculators, and step-by-step task tracking. Built by expats who actually made the move.">
+  <meta property="og:url" content="https://getgothere.app">
+  <meta property="og:site_name" content="GoThere">
+  <meta property="og:image" content="https://getgothere.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GoThere — Relocation Guide for Americans">
+  <meta name="twitter:description" content="Smart city matching, visa checklists, cost calculators — everything you need to move abroad.">
+  <meta name="twitter:image" content="https://getgothere.app/og-image.png">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "GoThere - Relocation Guide",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "TravelApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "The all-in-one relocation guide for Americans moving to Spain, Portugal, or Mexico. Smart city matching, visa checklists, cost calculators, and 5-phase task tracking.",
+    "url": "https://apps.apple.com/app/gothere-relocation-guide/id6760248690",
+    "author": {
+      "@type": "Organization",
+      "name": "GoThere"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======================== RESET & BASE ======================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #15B8A6;
+      --teal-dark: #0F8F82;
+      --teal-light: #7BE3D6;
+      --teal-glow: rgba(21, 184, 166, 0.15);
+      --bg-primary: #0B0F14;
+      --bg-secondary: #111827;
+      --bg-card: #1A2332;
+      --bg-card-hover: #1F2B3D;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border: #1E293B;
+      --white: #FFFFFF;
+      --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'DM Sans', 'Inter', sans-serif;
+      --max-width: 1200px;
+      --nav-height: 64px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--teal); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--teal-light); }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ======================== ANIMATIONS ======================== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(21, 184, 166, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(21, 184, 166, 0.4); }
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+
+    /* ======================== NAV ======================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--nav-height);
+      background: rgba(11, 15, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { color: var(--teal); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--teal);
+      color: var(--bg-primary) !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-light);
+      color: var(--bg-primary) !important;
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-secondary);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    /* ======================== HERO ======================== */
+    .hero {
+      padding: calc(var(--nav-height) + 80px) 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 140%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(21, 184, 166, 0.08) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 60%, rgba(21, 184, 166, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-glow);
+      border: 1px solid rgba(21, 184, 166, 0.25);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--teal-light);
+      margin-bottom: 24px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse-glow 2s infinite;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--teal), var(--teal-light), var(--teal));
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 4s ease infinite;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 520px;
+      animation: fadeInUp 0.8s ease-out 0.15s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+
+    .app-store-badge {
+      display: inline-block;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .app-store-badge:hover { transform: scale(1.05); }
+
+    .app-store-badge img {
+      height: 52px;
+      width: auto;
+    }
+
+    .google-play-badge img {
+      height: 76px;
+      width: auto;
+      margin: -12px 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      animation: fadeInUp 0.8s ease-out 0.45s both;
+    }
+
+    .hero-stat {
+      text-align: left;
+    }
+
+    .hero-stat-number {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: fadeIn 1s ease-out 0.3s both;
+    }
+
+    .phone-mockup {
+      width: 280px;
+      height: 560px;
+      background: linear-gradient(145deg, var(--bg-card), var(--bg-secondary));
+      border-radius: 40px;
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(21, 184, 166, 0.1);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 28px;
+      background: var(--bg-primary);
+      border-radius: 0 0 20px 20px;
+      z-index: 2;
+    }
+
+    .phone-screen {
+      position: absolute;
+      inset: 8px;
+      border-radius: 32px;
+      background: linear-gradient(180deg, #0D2B26 0%, #0B1A17 40%, #0F1F2E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 20px;
+    }
+
+    .phone-screen-icon {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .phone-screen-icon img {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(21, 184, 166, 0.3);
+    }
+
+    .phone-screen-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .phone-screen-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .phone-tabs {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .phone-tab {
+      flex: 1;
+      text-align: center;
+      padding: 8px 4px;
+      font-size: 0.55rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .phone-tab.active {
+      color: var(--teal);
+      background: rgba(21, 184, 166, 0.1);
+    }
+
+    .phone-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .phone-list-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .phone-list-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .phone-list-text {
+      font-size: 0.65rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .phone-list-check {
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: var(--teal);
+    }
+
+    /* ======================== SECTION COMMON ======================== */
+    .section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    /* ======================== FEATURES ======================== */
+    .features { background: var(--bg-secondary); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(21, 184, 166, 0.3);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--teal-glow);
+      border: 1px solid rgba(21, 184, 166, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.3rem;
+    }
+
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ======================== HOW IT WORKS ======================== */
+    .how-it-works-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+
+    .how-it-works-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 15%;
+      right: 15%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0.3;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--teal-glow);
+      border: 2px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--teal);
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ======================== COUNTRIES ======================== */
+    .countries { background: var(--bg-secondary); }
+
+    .countries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .country-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .country-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .country-banner {
+      height: 160px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .country-banner-spain {
+      background: linear-gradient(135deg, #AA151B 0%, #AA151B 33%, #F1BF00 33%, #F1BF00 66%, #AA151B 66%);
+    }
+
+    .country-banner-portugal {
+      background: linear-gradient(135deg, #006600 0%, #006600 40%, #FF0000 40%);
+    }
+
+    .country-banner-mexico {
+      background: linear-gradient(135deg, #006341 0%, #006341 33%, #FFFFFF 33%, #FFFFFF 66%, #CE1126 66%);
+    }
+
+    .country-flag {
+      font-size: 4rem;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+    }
+
+    .country-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .country-content {
+      padding: 28px;
+    }
+
+    .country-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .country-price {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .country-visas {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .country-visas li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .country-visas li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--teal);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .country-cities {
+      margin-top: 16px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .country-cities strong {
+      color: var(--text-secondary);
+    }
+
+    /* ======================== LOCALISTA CROSS-PROMO ======================== */
+    .localista-promo {
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(75, 123, 168, 0.10), rgba(22, 60, 103, 0.06));
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .localista-inner {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .localista-promo-icon { flex-shrink: 0; }
+    .localista-promo-icon img {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .localista-promo-text { flex: 1; }
+    .localista-promo-text .label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: #4B7BA8;
+      margin-bottom: 8px;
+    }
+    .localista-promo-text h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .localista-promo-text p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .localista-promo-cta a {
+      display: inline-block;
+      background: #163C67;
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .localista-promo-cta a:hover {
+      background: #1E4D7A;
+      transform: translateY(-1px);
+    }
+
+    /* ======================== TESTIMONIALS ======================== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+
+    .testimonial-stars {
+      color: #FBBF24;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--teal-glow);
+      border: 1px solid var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--teal);
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .testimonial-detail {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ======================== FAQ ======================== */
+    .faq { background: var(--bg-secondary); }
+
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--teal); }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+      color: var(--text-muted);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 24px 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ======================== CTA ======================== */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(21, 184, 166, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .cta-download {
+      display: inline-block;
+      position: relative;
+      transition: transform 0.2s;
+    }
+
+    .cta-download:hover { transform: scale(1.05); }
+
+    .cta-download img { height: 60px; width: auto; }
+
+    .cta-download.google-play-badge img {
+      height: 88px;
+      margin: -14px 0;
+    }
+
+    .cta-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ======================== LOCALISTA CROSS-PROMO ======================== */
+    .localista-section {
+      background: linear-gradient(135deg, #163C67 0%, #0F2236 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .localista-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(21, 184, 166, 0.06);
+      pointer-events: none;
+    }
+    .localista-inner {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .localista-content {
+      flex: 1;
+    }
+    .localista-badge {
+      display: inline-block;
+      background: rgba(21, 184, 166, 0.15);
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      font-family: var(--font-main);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .localista-content h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .localista-content h2 span {
+      color: var(--teal);
+    }
+    .localista-content p {
+      font-family: var(--font-main);
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 500px;
+    }
+    .localista-features {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .localista-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-main);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .localista-feature .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+    .localista-badges {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .localista-badges a {
+      display: inline-block;
+      transition: transform 0.2s;
+    }
+    .localista-badges a:hover {
+      transform: scale(1.05);
+    }
+    .localista-badges a img {
+      height: 48px;
+      width: auto;
+    }
+    .localista-badges a.google-play img {
+      height: 70px;
+      margin: -10px 0;
+    }
+    .localista-phone {
+      flex-shrink: 0;
+      width: 280px;
+      position: relative;
+    }
+    .localista-phone-frame {
+      background: var(--bg-card);
+      border-radius: 32px;
+      padding: 12px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    }
+    .localista-phone-frame img {
+      width: 100%;
+      border-radius: 22px;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .localista-inner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+      }
+      .localista-content p {
+        max-width: none;
+      }
+      .localista-features {
+        justify-content: center;
+      }
+      .localista-badges {
+        justify-content: center;
+      }
+      .localista-phone {
+        width: 220px;
+      }
+      .localista-content h2 {
+        font-size: 28px;
+      }
+    }
+
+    /* ======================== FOOTER ======================== */
+    .footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 32px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-badges {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .footer-badges a {
+      display: inline-block;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .footer-badges a:hover { transform: scale(1.05); }
+
+    .footer-badges .footer-badge-apple img { height: 40px; width: auto; }
+
+    .footer-badges .footer-badge-google img { height: 60px; width: auto; margin: -10px 0; }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .footer-brand span { color: var(--teal); }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-secondary); }
+
+    .footer-copy {
+      width: 100%;
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ======================== RESPONSIVE ======================== */
+    @media (max-width: 1024px) {
+      .features-grid,
+      .countries-grid,
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .how-it-works-steps::before { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        background: rgba(11, 15, 20, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 48px;
+      }
+
+      .hero-subtitle { margin: 0 auto 36px; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+
+      .features-grid,
+      .how-it-works-steps,
+      .countries-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .localista-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .section { padding: 72px 0; }
+      .phone-mockup { width: 240px; height: 480px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: calc(var(--nav-height) + 48px) 0 64px; }
+      .hero-stats { flex-direction: column; gap: 16px; align-items: center; }
+      .container { padding: 0 16px; }
+    }
+  </style>
+
+  <!-- Analytics: Cloudflare Web Analytics. Replaced the self-hosted Umami on
+       getgothere.app/_u, retired 2026-08-06. Same token as the apex site. -->
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics -->
 </head>
 <body>
-    <div>
-        <h1>GoThere</h1>
-        <p>Plan your relocation abroad — Spain, Portugal, Mexico</p>
-        <div style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:24px;">
-            <a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store" style="height:54px;">
-            </a>
-            <a href="https://play.google.com/store/apps/details?id=com.gothere.app">
-                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:80px;">
-            </a>
-        </div>
-        <a href="/privacy.html">Privacy Policy</a>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Go<span>There</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#countries">Countries</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="/blog/how-to-move-abroad-from-the-us.html">Blog</a></li>
+        <li><a href="#download" class="nav-cta">Download</a></li>
+      </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">Built by expats who made the move</div>
+          <h1>Your complete<br>guide to <span class="gradient-text">moving abroad</span></h1>
+          <p class="hero-subtitle">GoThere walks you through every step of relocating to Spain, Portugal, or Mexico &mdash; from choosing the right city to filing your visa paperwork.</p>
+          <div class="hero-actions">
+            <a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690" class="app-store-badge" target="_blank" rel="noopener" aria-label="Download on the App Store">
+              <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.gothere.app" class="app-store-badge google-play-badge" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+              <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-number">47+</div>
+              <div class="hero-stat-label">Cities Covered</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">5</div>
+              <div class="hero-stat-label">Visa Types</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-number">3</div>
+              <div class="hero-stat-label">Countries</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone-mockup">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="phone-screen-icon">
+                <img src="/app-icon.png" alt="GoThere App Icon">
+              </div>
+              <div class="phone-screen-title">GoThere</div>
+              <div class="phone-screen-sub">Relocation Guide</div>
+              <div class="phone-tabs">
+                <div class="phone-tab active">Tasks</div>
+                <div class="phone-tab">Calendar</div>
+                <div class="phone-tab">Docs</div>
+                <div class="phone-tab">Resources</div>
+                <div class="phone-tab">Decide</div>
+              </div>
+              <div class="phone-list">
+                <div class="phone-list-item">
+                  <div class="phone-list-dot" style="background: var(--teal)"></div>
+                  <span class="phone-list-text">Research visa requirements</span>
+                  <span class="phone-list-check">&#10003;</span>
+                </div>
+                <div class="phone-list-item">
+                  <div class="phone-list-dot" style="background: var(--teal)"></div>
+                  <span class="phone-list-text">Gather financial documents</span>
+                  <span class="phone-list-check">&#10003;</span>
+                </div>
+                <div class="phone-list-item">
+                  <div class="phone-list-dot" style="background: #FBBF24"></div>
+                  <span class="phone-list-text">Schedule consulate appt</span>
+                  <span class="phone-list-check" style="color: var(--text-muted)">&#8226;</span>
+                </div>
+                <div class="phone-list-item">
+                  <div class="phone-list-dot" style="background: var(--text-muted)"></div>
+                  <span class="phone-list-text">Submit visa application</span>
+                  <span class="phone-list-check" style="color: var(--text-muted)">&#8226;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES ==================== -->
+  <section class="section features" id="features">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">Everything you need to relocate<br>with confidence</h2>
+        <p class="section-subtitle">No other app combines city matching, visa tracking, cost planning, and document storage in one place.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll stagger-1">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <h3>Smart City Matching</h3>
+          <p>Answer 8 quick questions about climate, budget, and lifestyle. Get personalized recommendations from 47+ cities across three countries.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-2">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Cost Calculator</h3>
+          <p>Real monthly cost-of-living estimates for 16 cities in USD and EUR. Rent, groceries, healthcare, and more &mdash; no guesswork.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-3">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Visa Checklists</h3>
+          <p>Step-by-step checklists for Spain NLV &amp; DNV, Portugal D7 &amp; D8, and Mexico Temporary Resident visas. Never miss a requirement.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-4">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <h3>5-Phase Task Tracker</h3>
+          <p>Follow a proven path: Research, Documentation, Application, Arrival, Residency. Track progress and never lose sight of what comes next.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-5">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </div>
+          <h3>Document Storage</h3>
+          <p>Upload and organize passports, bank statements, visa paperwork, and more. Cloud-based so everything is secure and accessible.</p>
+        </div>
+        <div class="feature-card animate-on-scroll stagger-6">
+          <div class="feature-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#15B8A6"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Calendar &amp; Reminders</h3>
+          <p>Track consulate appointments, visa deadlines, and key milestones. Get reminders so nothing falls through the cracks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HOW IT WORKS ==================== -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">How It Works</div>
+        <h2 class="section-title">From dreaming to doing<br>in three steps</h2>
+        <p class="section-subtitle">GoThere turns an overwhelming process into a clear, manageable plan.</p>
+      </div>
+      <div class="how-it-works-steps">
+        <div class="step animate-on-scroll stagger-1">
+          <div class="step-number">1</div>
+          <h3>Discover Your City</h3>
+          <p>Take the 8-question quiz and let GoThere match you with the cities that fit your budget, lifestyle, and climate preferences.</p>
+        </div>
+        <div class="step animate-on-scroll stagger-2">
+          <div class="step-number">2</div>
+          <h3>Plan Your Move</h3>
+          <p>Follow your personalized task tracker through all five phases. Use the cost calculator, visa checklists, and resource library to prepare.</p>
+        </div>
+        <div class="step animate-on-scroll stagger-3">
+          <div class="step-number">3</div>
+          <h3>Make It Happen</h3>
+          <p>Store documents, track deadlines, and check off tasks as you go. GoThere stays with you from first research to final residency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COUNTRIES ==================== -->
+  <section class="section countries" id="countries">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Destinations</div>
+        <h2 class="section-title">Three countries, one app</h2>
+        <p class="section-subtitle">Comprehensive relocation guides with real data, official sources, and curated local resources.</p>
+      </div>
+      <div class="countries-grid">
+        <div class="country-card animate-on-scroll stagger-1">
+          <div class="country-banner country-banner-spain">
+            <div class="country-flag">&#127466;&#127480;</div>
+          </div>
+          <div class="country-content">
+            <h3>Spain</h3>
+            <div class="country-price">Included free</div>
+            <ul class="country-visas">
+              <li>Non-Lucrative Visa (NLV)</li>
+              <li>Digital Nomad Visa (DNV)</li>
+            </ul>
+            <div class="country-cities"><strong>Cities:</strong> Madrid, Barcelona, Valencia, Malaga, Seville, Alicante &amp; more</div>
+          </div>
+        </div>
+        <div class="country-card animate-on-scroll stagger-2">
+          <div class="country-banner country-banner-portugal">
+            <div class="country-flag">&#127477;&#127481;</div>
+          </div>
+          <div class="country-content">
+            <h3>Portugal</h3>
+            <div class="country-price">In-app country pack</div>
+            <ul class="country-visas">
+              <li>D7 Passive Income Visa</li>
+              <li>D8 Digital Nomad Visa</li>
+            </ul>
+            <div class="country-cities"><strong>Cities:</strong> Lisbon, Porto, Faro, Braga, Cascais &amp; more</div>
+          </div>
+        </div>
+        <div class="country-card animate-on-scroll stagger-3">
+          <div class="country-banner country-banner-mexico">
+            <div class="country-flag">&#127474;&#127485;</div>
+          </div>
+          <div class="country-content">
+            <h3>Mexico</h3>
+            <div class="country-price">In-app country pack</div>
+            <ul class="country-visas">
+              <li>Temporary Resident Visa</li>
+              <li>Permanent Resident Visa</li>
+            </ul>
+            <div class="country-cities"><strong>Cities:</strong> Mexico City, Merida, Guadalajara, San Miguel de Allende, Playa del Carmen &amp; more</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LOCALISTA CROSS-PROMO ==================== -->
+  <section class="localista-promo">
+    <div class="localista-inner animate-on-scroll">
+      <div class="localista-promo-icon">
+        <img src="/localista-icon.png" alt="Localista App">
+      </div>
+      <div class="localista-promo-text">
+        <div class="label">From the makers of GoThere</div>
+        <h3>Already in Spain? We built an app for after you arrive.</h3>
+        <p>Localista delivers daily news, emergency alerts, and city-specific updates from 15 Spanish cities &mdash; built for English-speaking expats. Free on iOS &amp; Android.</p>
+      </div>
+      <div class="localista-promo-cta">
+        <a href="https://mylocalista.com/?utm_source=getgothere&amp;utm_medium=landing&amp;utm_campaign=cross_promo" target="_blank" rel="noopener">Get Localista</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">Expats who made the move</h2>
+        <p class="section-subtitle">Real stories from Americans who used GoThere to plan their relocation.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card animate-on-scroll stagger-1">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"The city matching quiz nailed it. I was torn between Valencia and Malaga, and GoThere helped me realize Valencia was the perfect fit for my budget and lifestyle."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SM</div>
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-detail">Moved to Valencia from Austin, TX</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll stagger-2">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Having all the visa requirements in one checklist saved me weeks of Googling. I knew exactly what documents to prepare before my consulate appointment."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JR</div>
+            <div>
+              <div class="testimonial-name">James R.</div>
+              <div class="testimonial-detail">Moved to Lisbon from Denver, CO</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll stagger-3">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"The 5-phase tracker kept me sane. Moving abroad felt overwhelming until I could see every step laid out in front of me. Absolute game changer."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">LK</div>
+            <div>
+              <div class="testimonial-name">Linda K.</div>
+              <div class="testimonial-detail">Moved to San Miguel de Allende from Portland, OR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Common questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item animate-on-scroll stagger-1">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Is GoThere free to download?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. GoThere is free to download and includes the full Spain relocation guide at no cost. Portugal and Mexico are available as in-app country packs.</div>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll stagger-2">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            How does the city matching quiz work?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">You answer 8 questions about your preferences &mdash; climate, cost of living, healthcare, language, nightlife, and more. GoThere scores 47+ cities and ranks your best matches with detailed explanations.</div>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll stagger-3">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Are the cost estimates accurate?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Cost data is researched from official sources, expat communities, and local listings. Estimates are updated regularly and shown in both USD and EUR. They cover rent, groceries, utilities, healthcare, transportation, and more.</div>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll stagger-4">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Which visas does GoThere cover?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">GoThere covers Spain's Non-Lucrative Visa (NLV) and Digital Nomad Visa (DNV), Portugal's D7 Passive Income and D8 Digital Nomad visas, and Mexico's Temporary Resident visa. Each includes a full document checklist and step-by-step guidance.</div>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll stagger-5">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Is my data secure?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Document storage uses cloud encryption. Your personal data is never shared with third parties, and you can delete your account and all associated data at any time.</div>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll stagger-6">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+            Who built GoThere?
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">GoThere was built by American expats who went through the relocation process themselves. Every feature was designed to solve problems we actually faced when moving abroad.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <section class="cta-section" id="download">
+    <div class="container animate-on-scroll">
+      <h2>Ready to start your<br><span class="gradient-text" style="background: linear-gradient(135deg, var(--teal), var(--teal-light), var(--teal)); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: gradient-shift 4s ease infinite;">new chapter abroad?</span></h2>
+      <p>Download GoThere and take the first step toward your new life in Spain, Portugal, or Mexico.</p>
+      <div class="cta-badges">
+        <a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690" class="cta-download" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.gothere.app" class="cta-download google-play-badge" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EMAIL CAPTURE ==================== -->
+  <section class="email-capture" id="email-signup">
+    <div class="container animate-on-scroll">
+      <div class="email-capture-inner">
+        <h2>Get the relocation playbook</h2>
+        <p>One short email when something useful drops &mdash; new visa update, new country, real cost data. No spam, no fluff.</p>
+        <form id="email-form" novalidate>
+          <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+        <div id="email-form-status" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .email-capture { padding: 80px 0; background: var(--bg-secondary); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .email-capture-inner { max-width: 560px; margin: 0 auto; text-align: center; }
+    .email-capture h2 { font-family: var(--font-display); font-size: 36px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary); }
+    .email-capture p { color: var(--text-secondary); margin-bottom: 28px; font-size: 16px; }
+    .email-capture form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .email-capture input[type="email"] { flex: 1 1 280px; padding: 14px 18px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); font-size: 15px; font-family: inherit; }
+    .email-capture input[type="email"]:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px var(--teal-glow); }
+    .email-capture button { padding: 14px 28px; border: none; border-radius: 10px; background: var(--teal); color: var(--white); font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+    .email-capture button:hover:not(:disabled) { background: var(--teal-dark); }
+    .email-capture button:disabled { opacity: 0.6; cursor: default; }
+    #email-form-status { margin-top: 14px; min-height: 20px; font-size: 14px; color: var(--text-secondary); }
+    #email-form-status.error { color: #f87171; }
+    #email-form-status.success { color: var(--teal-light); }
+  </style>
+
+  <script>
+    (function () {
+      const form = document.getElementById('email-form');
+      const status = document.getElementById('email-form-status');
+      if (!form) return;
+      const params = new URLSearchParams(location.search);
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const email = form.email.value.trim();
+        const button = form.querySelector('button');
+        status.className = '';
+        status.textContent = '';
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          status.className = 'error';
+          status.textContent = 'Please enter a valid email address.';
+          return;
+        }
+        button.disabled = true;
+        try {
+          const res = await fetch('https://api.mylocalista.com/marketing/capture', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              app: 'gothere',
+              email: email,
+              source: 'landing_email_capture',
+              language: 'en',
+              utm_source: params.get('utm_source') || 'direct',
+              utm_medium: params.get('utm_medium') || 'web',
+              utm_campaign: params.get('utm_campaign') || 'organic',
+              utm_content: params.get('utm_content') || ''
+            })
+          });
+          if (!res.ok) throw new Error('bad_status');
+          status.className = 'success';
+          status.textContent = "You're in. Check your inbox.";
+          form.reset();
+        } catch (err) {
+          status.className = 'error';
+          status.textContent = "Couldn't reach the server. Try again in a minute.";
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
+
+  <!-- ==================== LOCALISTA CROSS-PROMO ==================== -->
+  <section class="localista-section">
+    <div class="localista-inner animate-on-scroll">
+      <div class="localista-content">
+        <div class="localista-badge">From the makers of GoThere</div>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px;">
+          <img src="/localista-icon.png" alt="Localista App Icon" style="width:64px;height:64px;border-radius:14px;box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+          <h2 style="margin-bottom:0;">Already in Spain?<br><span>Stop guessing what that letter says.</span></h2>
+        </div>
+        <p>Localista delivers local Spanish news in English — emergency alerts, government updates, community events, and lifestyle stories from 15 cities. Because Google Translate shouldn't be your primary news source.</p>
+        <div class="localista-features">
+          <div class="localista-feature"><span class="dot"></span> 15 Spanish cities</div>
+          <div class="localista-feature"><span class="dot"></span> AI-translated daily</div>
+          <div class="localista-feature"><span class="dot"></span> Emergency alerts</div>
+          <div class="localista-feature"><span class="dot"></span> Free forever</div>
+        </div>
+        <div class="localista-badges">
+          <a href="https://apps.apple.com/app/localista-spain-expat-news/id6760856341" target="_blank" rel="noopener" aria-label="Download Localista on the App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.localista.spain" class="google-play" target="_blank" rel="noopener" aria-label="Get Localista on Google Play">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+      <div class="localista-phone">
+        <div class="localista-phone-frame">
+          <img src="/localista-phone-screen.png" alt="Localista App - Spain Expat News">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Go<span>There</span></div>
+        <ul class="footer-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#countries">Countries</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/blog/how-to-move-abroad-from-the-us.html">Blog</a></li>
+          <li><a href="mailto:gabriel@getgothere.app">Contact</a></li>
+        </ul>
+      </div>
+      <!-- Our Apps -->
+      <div style="display:flex;justify-content:center;gap:40px;margin:32px 0;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690" target="_blank" rel="noopener" style="text-decoration:none;">
+            <img src="/gothere-icon.png" alt="GoThere App" style="width:72px;height:72px;border-radius:16px;margin-bottom:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="color:var(--text-primary);font-family:var(--font-main);font-size:14px;font-weight:600;">GoThere</div>
+            <div style="color:var(--text-muted);font-family:var(--font-main);font-size:12px;">Relocation Planner</div>
+          </a>
+        </div>
+        <div style="text-align:center;">
+          <a href="https://apps.apple.com/app/localista-spain-expat-news/id6760856341" target="_blank" rel="noopener" style="text-decoration:none;">
+            <img src="/localista-icon.png" alt="Localista App" style="width:72px;height:72px;border-radius:16px;margin-bottom:8px;box-shadow:0 4px 12px rgba(0,0,0,0.3);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+            <div style="color:var(--text-primary);font-family:var(--font-main);font-size:14px;font-weight:600;">Localista</div>
+            <div style="color:var(--text-muted);font-family:var(--font-main);font-size:12px;">Spain Expat News</div>
+          </a>
+        </div>
+      </div>
+      <div style="text-align:center;color:var(--text-muted);font-family:var(--font-main);font-size:13px;margin-bottom:24px;">Planning your move? Already there? We've got both covered.</div>
+      <div class="footer-badges">
+        <a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690" class="footer-badge-apple" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.gothere.app" class="footer-badge-google" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <div class="footer-copy">&copy; 2026 GoThere. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <script>
+    // Mobile nav toggle
+    document.getElementById('navHamburger').addEventListener('click', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+      observer.observe(el);
+    });
+  </script>
+
 </body>
 </html>
