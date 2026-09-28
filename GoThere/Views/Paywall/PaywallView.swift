@@ -28,6 +28,7 @@ struct PaywallView: View {
                     regionBundlesSection
                     individualCountriesSection
                     restoreButton
+                    legalFooter
                 }
                 .padding()
             }
@@ -48,6 +49,8 @@ struct PaywallView: View {
                     "subscription_active": purchaseManager.subscriptionStatus.isActive
                 ])
             }
+            .task { await purchaseManager.loadProductsIfNeeded() }
+            .purchaseErrorAlert(purchaseManager)
         }
     }
 
@@ -288,6 +291,23 @@ struct PaywallView: View {
         .padding(.top, 8)
     }
 
+    /// Auto-renew disclosure plus Terms of Use and Privacy links, required next to
+    /// subscription purchase buttons by App Review guideline 3.1.2.
+    private var legalFooter: some View {
+        VStack(spacing: 8) {
+            Text("All-Access subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Payment is charged to your Apple ID at confirmation of purchase and at each renewal. Manage or cancel anytime in your App Store account settings.")
+                .font(.caption2)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+            HStack(spacing: 16) {
+                Link("Terms of Use", destination: URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!)
+                Link("Privacy Policy", destination: URL(string: "https://getgothere.app/privacy.html")!)
+            }
+            .font(.caption)
+        }
+        .padding(.top, 4)
+    }
+
     // MARK: - Card helpers
 
     private func sectionHeader(_ title: String, subtitle: String? = nil) -> some View {
@@ -469,18 +489,22 @@ struct PaywallView: View {
             }
 
             if !isUnlocked {
+                // Lifetime + country cards always render, so disable the button until
+                // StoreKit has the product; a live button that does nothing reads as broken.
+                let isAvailable = hasProduct(productId)
                 Button {
                     if let product = purchaseManager.products.first(where: { $0.id == productId }) {
                         Task { try? await purchaseManager.purchase(product) }
                     }
                 } label: {
-                    Text("Purchase")
+                    Text(isAvailable ? "Purchase" : (purchaseManager.isLoadingProducts ? "Loading price…" : "Unavailable right now"))
                         .font(.subheadline.bold())
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.goPrimary)
+                .disabled(!isAvailable)
             }
         }
         .goCard()
@@ -546,6 +570,24 @@ struct PaywallView: View {
         return BundleAnchor(
             individualSum: bundle.priceFormatStyle.format(individualSum),
             savings: bundle.priceFormatStyle.format(savings)
+        )
+    }
+}
+
+// MARK: - Purchase error alert
+
+extension View {
+    /// Shows `PurchaseManager.purchaseErrorMessage` as an alert and clears it on dismiss.
+    /// Purchase buttons use `try?`, so without this a failed purchase gave no feedback.
+    func purchaseErrorAlert(_ purchaseManager: PurchaseManager) -> some View {
+        alert(
+            "Purchase",
+            isPresented: Binding(
+                get: { purchaseManager.purchaseErrorMessage != nil },
+                set: { if !$0 { purchaseManager.purchaseErrorMessage = nil } }
+            ),
+            actions: { Button("OK", role: .cancel) {} },
+            message: { Text(purchaseManager.purchaseErrorMessage ?? "") }
         )
     }
 }

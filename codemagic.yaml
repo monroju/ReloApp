@@ -44,9 +44,13 @@ workflows:
         # Foundation Wave 1 introduces XCTest. First 1-2 builds keep this
         # non-blocking while we shake out the simulator destination + signing
         # config; promote to blocking once green.
+        # Capped at 10 min: on 2026-09-28 (build 14) the test host hung in the
+        # simulator after a clean compile and ate 38 min until cancelled.
+        # ignore_failure does not help with a hang, only with a failure. macOS
+        # has no `timeout`, so perl's alarm kills xcodebuild instead.
         ignore_failure: true
         script: |
-          xcodebuild test \
+          perl -e 'alarm shift; exec @ARGV' 600 xcodebuild test \
             -project "$XCODE_PROJECT" \
             -scheme "$XCODE_SCHEME" \
             -sdk iphonesimulator \
