@@ -101,6 +101,10 @@ final class PurchaseManager: ObservableObject {
     /// Canada is free for the v1 launch of the Fast-Track Eligibility module to ride the Bill C-3 news cycle.
     @Published var unlockedCountries: Set<String> = ["spain", "canada"]
     @Published var products: [Product] = []
+    /// True while `loadProducts()` is running. Paywalls show a loading row instead of prices.
+    @Published var isLoadingProducts = false
+    /// Set when a purchase fails or goes pending. Paywalls bind an alert to it and clear it on dismiss.
+    @Published var purchaseErrorMessage: String?
     @Published var subscriptionStatus: SubscriptionStatus = .none
     /// Tracks owned non-consumable product IDs (legacy packs + bundles + all_countries).
     /// Used by `hasAllAccess` for the bundle-combo path. Subscription products are
@@ -182,7 +186,28 @@ final class PurchaseManager: ObservableObject {
 
     // MARK: - Product loading
 
+    /// Loads StoreKit products, retrying with backoff. A single failed fetch at launch
+    /// (offline, StoreKit hiccup) used to leave the paywall permanently unpurchasable
+    /// for the session, with buttons that silently did nothing.
     func loadProducts() async {
+        guard !isLoadingProducts else { return }
+        isLoadingProducts = true
+        defer { isLoadingProducts = false }
+        for attempt in 0..<3 {
+            if attempt > 0 {
+                try? await Task.sleep(nanoseconds: UInt64(attempt) * 2_000_000_000)
+            }
+            if await fetchProducts() { return }
+        }
+    }
+
+    /// Paywalls call this on appear so a failed launch fetch gets another chance.
+    func loadProductsIfNeeded() async {
+        if products.isEmpty { await loadProducts() }
+    }
+
+    /// One fetch attempt. Returns true when StoreKit returned at least one product.
+    private func fetchProducts() async -> Bool {
         do {
             let productIds = [
                 // Legacy per-country IAPs (deprecated for new users; honored for owners).
@@ -202,9 +227,13 @@ final class PurchaseManager: ObservableObject {
                 Self.productEuropeBundle,
                 Self.productAmericasBundle
             ]
-            products = try await Product.products(for: productIds)
+            let loaded = try await Product.products(for: productIds)
+            guard !loaded.isEmpty else { return false }
+            products = loaded
+            return true
         } catch {
             print("Failed to load products: \(error)")
+            return false
         }
     }
 
@@ -227,11 +256,13 @@ final class PurchaseManager: ObservableObject {
                 Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "user_cancelled"])
             case .pending:
                 Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "pending"])
+                purchaseErrorMessage = "Your purchase is waiting for approval. You'll get access as soon as it goes through."
             @unknown default:
                 break
             }
         } catch {
             Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "exception"])
+            purchaseErrorMessage = "The purchase couldn't be completed. You weren't charged. Please try again."
             throw error
         }
     }
@@ -276,7 +307,8 @@ final class PurchaseManager: ObservableObject {
     }
 
     func formattedPrice(for productId: String) -> String {
-        products.first { $0.id == productId }?.displayPrice ?? "$4.99"
+        // Never show a made-up price: a wrong number on a buy button is worse than none.
+        products.first { $0.id == productId }?.displayPrice ?? "—"
     }
 
     /// Optimistically applies a server-granted referral month so the UI unlocks

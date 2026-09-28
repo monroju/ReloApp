@@ -105,6 +105,7 @@ struct LockedCountryPreviewView: View {
             .sheet(isPresented: $showFullPaywall) {
                 PaywallView()
             }
+            .purchaseErrorAlert(purchaseManager)
             .onAppear {
                 Analytics.log(.paywallViewed, country: countryId, extra: ["source": "locked_country_preview"])
             }
