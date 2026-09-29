@@ -21,6 +21,12 @@ final class TaskRepository: ObservableObject {
     /// Guards autoSeedFreeCountries against re-running on every snapshot.
     private var freeSeedAttempted = false
 
+    /// Countries with a seed in flight. The listener and TasksView can both ask to
+    /// seed the same country at launch; both would see "no tasks yet" and insert
+    /// the checklist twice.
+    private var seedingCountries = Set<String>()
+    private let seedLock = NSLock()
+
     private init() {}
 
     private var tasksCollection: CollectionReference? {
@@ -167,6 +173,10 @@ final class TaskRepository: ObservableObject {
     /// attempt (e.g. auth not ready) won't poison future runs.
     /// Safe to call repeatedly: if tasks already exist for the country, this no-ops.
     func autoSeedIfNeeded(for countryId: String) async {
+        let claimed: Bool = seedLock.withLock { seedingCountries.insert(countryId).inserted }
+        guard claimed else { return }
+        defer { seedLock.withLock { _ = seedingCountries.remove(countryId) } }
+
         if isGuest {
             // Guest: check in-memory store
             if localTasks.contains(where: { $0.countryId == countryId }) { return }
@@ -226,10 +236,19 @@ final class TaskRepository: ObservableObject {
                 "completed": false,
                 "createdAt": FieldValue.serverTimestamp()
             ]
+            if let desc = task.description { data["description"] = desc }
             if let cat = task.category { data["category"] = cat }
             if let cityId = task.cityId { data["cityId"] = cityId }
             if let cityName = task.cityName { data["cityName"] = cityName }
             if let countryId = task.countryId { data["countryId"] = countryId }
+            if let links = task.links, !links.isEmpty {
+                data["links"] = links.map { link -> [String: String] in
+                    var d: [String: String] = [:]
+                    if let label = link.label { d["label"] = label }
+                    if let url = link.url { d["url"] = url }
+                    return d
+                }
+            }
             batch.setData(data, forDocument: ref)
         }
         try await batch.commit()

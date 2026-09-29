@@ -164,6 +164,13 @@ struct TasksView: View {
                 }
                 Button("Cancel", role: .cancel) {}
             }
+            .onChange(of: purchaseManager.hasAllAccess) { _ in
+                // A new purchase unlocks countries: load their checklists too.
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
+            .onChange(of: purchaseManager.unlockedCountries) { _ in
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
             .task {
                 vm.startListening()
                 vm.autoSeedUnlockedCountries(purchaseManager)
@@ -177,6 +184,7 @@ struct TasksView: View {
                 // Keep Tasks scoped to whatever the top-bar selector picks.
                 // User can still tap a chip again to deselect ("show all").
                 vm.selectedCountry = newCountry
+                vm.seedIfUnlocked(newCountry, purchaseManager)
             }
             .onChange(of: vm.tasksByPhase.map { $0.1.map(\.completed) }) { _ in
                 checkPhaseCompletion()
