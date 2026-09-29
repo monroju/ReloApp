@@ -60,8 +60,15 @@ struct SettingsView: View {
     private var planSection: some View {
         Section {
             if purchaseManager.hasAllAccess {
-                Label("All Access: every country unlocked", systemImage: "checkmark.seal.fill")
-                    .foregroundColor(.goPrimary)
+                VStack(alignment: .leading, spacing: 4) {
+                    Label("All Access: every country unlocked", systemImage: "checkmark.seal.fill")
+                        .foregroundColor(.goPrimary)
+                    if let source = purchaseManager.accessSourceDescription {
+                        Text(source)
+                            .font(.footnote)
+                            .foregroundColor(.secondary)
+                    }
+                }
             } else {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Free plan")
