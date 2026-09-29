@@ -50,7 +50,7 @@ struct GoThereApp: App {
                         .environmentObject(countrySelection)
                 }
             }
-            .preferredColorScheme(themeVM.isDarkMode ? .dark : .light)
+            .preferredColorScheme(themeVM.colorScheme)
         }
     }
 }

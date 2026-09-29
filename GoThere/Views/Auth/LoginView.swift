@@ -3,10 +3,11 @@ import SwiftUI
 struct LoginView: View {
     @StateObject private var vm = AuthViewModel()
     @EnvironmentObject var themeVM: ThemeViewModel
+    @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
         ZStack {
-            (themeVM.isDarkMode ? Color.goBackgroundDark : Color.goBackgroundLight)
+            (colorScheme == .dark ? Color.goBackgroundDark : Color.goBackgroundLight)
                 .ignoresSafeArea()
 
             // Main form — centered vertically like Android
@@ -184,11 +185,11 @@ struct LoginView: View {
                 HStack {
                     Spacer()
                     Button {
-                        themeVM.toggleTheme()
+                        themeVM.appearance = (colorScheme == .dark) ? .light : .dark
                     } label: {
-                        Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
+                        Image(systemName: colorScheme == .dark ? "sun.max.fill" : "moon.fill")
                             .font(.title3)
-                            .foregroundColor(themeVM.isDarkMode ? .white : .black)
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
                     .padding(32)
                 }
