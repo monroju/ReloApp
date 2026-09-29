@@ -211,7 +211,7 @@ workflows:
           # 61 -> next upload is 62.
           # (Root cause persists: the get-latest-* queries still return 0, so this
           # floor stays the only real lever until those are fixed.)
-          MIN_BUILD_NUMBER=61
+          MIN_BUILD_NUMBER=63
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
