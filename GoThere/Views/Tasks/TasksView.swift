@@ -37,8 +37,17 @@ struct TasksView: View {
                     .padding(.bottom, 4)
 
                 if vm.tasksByPhase.isEmpty {
-                    ContentUnavailableView("No Tasks", systemImage: "checklist",
-                        description: Text("Add your own tasks to track relocation progress."))
+                    ContentUnavailableView {
+                        Label("No Tasks Yet", systemImage: "checklist")
+                    } description: {
+                        Text("Load the step-by-step checklist for \(DestinationConfig.getDestination(countrySelection.current)?.name ?? "your country"), or add your own tasks.")
+                    } actions: {
+                        if purchaseManager.isCountryUnlocked(countrySelection.current) {
+                            Button("Load Checklist") { importSeedTasks(for: countrySelection.current) }
+                                .buttonStyle(.borderedProminent)
+                        }
+                        Button("Add a Task") { showAddTask = true }
+                    }
                 } else {
                     List {
                         // Progress Dashboard
@@ -95,12 +104,12 @@ struct TasksView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 12) {
-                        // Share
-                        ShareLink(item: shareText) {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-
+                        // Secondary actions live in one menu so the top bar keeps room
+                        // for the global Settings button (it used to overflow into "...").
                         Menu {
+                            ShareLink(item: shareText) {
+                                Label("Share Progress", systemImage: "square.and.arrow.up")
+                            }
                             Button {
                                 vm.showCompleted.toggle()
                             } label: {
@@ -367,13 +376,10 @@ struct TasksView: View {
     // MARK: - Seed Import
 
     private func importSeedTasks(for countryId: String) {
-        let fileName: String
-        switch countryId {
-        case "portugal": fileName = "portugal_tasks"
-        case "mexico": fileName = "mexico_tasks"
-        default: fileName = "spain_tasks"
-        }
-        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json"),
+        // Every destination ships a Seeds/<countryId>_tasks.json.
+        let fileName = "\(countryId)_tasks"
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "Seeds")
+                ?? Bundle.main.url(forResource: fileName, withExtension: "json"),
               let data = try? Data(contentsOf: url) else { return }
         struct SeedTask: Codable {
             let title: String; let description: String?; let phaseId: String

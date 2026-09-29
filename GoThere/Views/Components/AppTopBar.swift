@@ -1,89 +1,107 @@
 import SwiftUI
 
-/// Top bar matching Android CenterAlignedTopAppBar:
-/// Left: country flag + dropdown
-/// Center: ic_logo.png (32dp circular)
-/// Right: theme toggle + settings gear
+/// Shared top bar for every tab.
+/// Left: country picker (locked countries open their unlock preview) + Upgrade pill.
+/// Right: one Settings button (plain button, never a hidden menu), so it can't be
+/// pushed into the iOS overflow "..." when a screen adds its own actions.
 struct GoThereTopBar: ViewModifier {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
     @EnvironmentObject var countrySelection: CountrySelection
-    let showThemeToggle: Bool
+
+    @State private var showSettings = false
+    @State private var showPaywall = false
+    @State private var lockedCountry: LockedCountry?
+
+    private struct LockedCountry: Identifiable {
+        let id: String
+        let name: String
+        let flag: String
+    }
 
     func body(content: Content) -> some View {
         content
             .toolbar {
-                // Left — country flag + dropdown
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Menu {
-                        ForEach(DestinationConfig.allDestinations) { dest in
-                            let isUnlocked = purchaseManager.isCountryUnlocked(dest.id)
+                    HStack(spacing: 10) {
+                        countryMenu
+                        if !purchaseManager.hasAllAccess {
                             Button {
-                                if isUnlocked {
-                                    countrySelection.current = dest.id
-                                }
+                                showPaywall = true
                             } label: {
-                                HStack {
-                                    Text("\(dest.flagEmoji) \(dest.name)")
-                                    if !isUnlocked {
-                                        Image(systemName: "lock.fill")
-                                    }
-                                }
+                                Label("Upgrade", systemImage: "crown.fill")
+                                    .labelStyle(.titleAndIcon)
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundColor(.goPrimary)
                             }
+                            .accessibilityLabel("Upgrade: see plans and bundles")
                         }
-                    } label: {
-                        HStack(spacing: 4) {
-                            Text(flagForCountry(countrySelection.current))
-                            Text(nameForCountry(countrySelection.current))
-                                .font(.subheadline.weight(.medium))
-                            Image(systemName: "arrowtriangle.down.fill")
-                                .font(.system(size: 8))
-                        }
-                        .foregroundColor(.primary)
                     }
                 }
 
-                // Center — actual GoThere logo (ic_logo.png, circular 32dp)
-                ToolbarItem(placement: .principal) {
-                    Image("GoThereLogo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 36, height: 36)
-                        .clipShape(Circle())
-                }
-
-                // Right — theme toggle + settings gear
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack(spacing: 8) {
-                        if showThemeToggle {
-                            Button {
-                                themeVM.toggleTheme()
-                            } label: {
-                                Image(systemName: themeVM.isDarkMode ? "sun.max.fill" : "moon.fill")
-                                    .foregroundColor(themeVM.isDarkMode ? .white : .black)
-                            }
-                        }
-                        Menu {
-                            NavigationLink("Cost Calculator") {
-                                CostCalculatorView()
-                            }
-                            NavigationLink("Visa Wizard") {
-                                VisaWizardView(countryId: countrySelection.current)
-                            }
-                            NavigationLink("Destinations") {
-                                DestinationsView()
-                            }
-                            Divider()
-                            Button("Sign Out", role: .destructive) {
-                                AuthService.shared.signOut()
-                            }
-                        } label: {
-                            Image(systemName: "gearshape")
-                                .foregroundColor(.primary)
-                        }
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                            .foregroundColor(.primary)
+                    }
+                    .accessibilityLabel("Settings")
+                }
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+                    .environmentObject(themeVM)
+                    .environmentObject(purchaseManager)
+                    .environmentObject(countrySelection)
+                    .preferredColorScheme(themeVM.colorScheme)
+            }
+            .sheet(isPresented: $showPaywall) {
+                PaywallView()
+                    .environmentObject(purchaseManager)
+            }
+            .sheet(item: $lockedCountry) { c in
+                LockedCountryPreviewView(countryId: c.id, countryName: c.name, countryFlag: c.flag)
+                    .environmentObject(purchaseManager)
+            }
+    }
+
+    private var countryMenu: some View {
+        Menu {
+            ForEach(DestinationConfig.allDestinations) { dest in
+                let isUnlocked = purchaseManager.isCountryUnlocked(dest.id)
+                Button {
+                    if isUnlocked {
+                        countrySelection.current = dest.id
+                    } else {
+                        lockedCountry = LockedCountry(id: dest.id, name: dest.name, flag: dest.flagEmoji)
+                    }
+                } label: {
+                    if isUnlocked {
+                        Text("\(dest.flagEmoji) \(dest.name)")
+                    } else {
+                        Label("\(dest.flagEmoji) \(dest.name)", systemImage: "lock.fill")
                     }
                 }
             }
+            if !purchaseManager.hasAllAccess {
+                Divider()
+                Button {
+                    showPaywall = true
+                } label: {
+                    Label("Unlock all countries", systemImage: "crown.fill")
+                }
+            }
+        } label: {
+            HStack(spacing: 4) {
+                Text(flagForCountry(countrySelection.current))
+                Text(nameForCountry(countrySelection.current))
+                    .font(.subheadline.weight(.medium))
+                Image(systemName: "arrowtriangle.down.fill")
+                    .font(.system(size: 8))
+            }
+            .foregroundColor(.primary)
+        }
     }
 
     private func flagForCountry(_ id: String) -> String {
@@ -96,7 +114,8 @@ struct GoThereTopBar: ViewModifier {
 }
 
 extension View {
+    /// `showThemeToggle` is kept for existing call sites; appearance now lives in Settings.
     func goTopBar(showThemeToggle: Bool = true) -> some View {
-        modifier(GoThereTopBar(showThemeToggle: showThemeToggle))
+        modifier(GoThereTopBar())
     }
 }
