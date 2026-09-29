@@ -164,13 +164,7 @@ struct TasksView: View {
                 }
                 Button("Cancel", role: .cancel) {}
             }
-            .onChange(of: purchaseManager.hasAllAccess) { _ in
-                // A new purchase unlocks countries: load their checklists too.
-                vm.autoSeedUnlockedCountries(purchaseManager)
-            }
-            .onChange(of: purchaseManager.unlockedCountries) { _ in
-                vm.autoSeedUnlockedCountries(purchaseManager)
-            }
+            .modifier(TaskSeedTriggers(vm: vm, purchaseManager: purchaseManager))
             .task {
                 vm.startListening()
                 vm.autoSeedUnlockedCountries(purchaseManager)
@@ -558,5 +552,22 @@ struct FilterChip: View {
                         .stroke(isSelected ? Color.goPrimary : Color.clear, lineWidth: 1)
                 )
         }
+    }
+}
+
+/// Loads checklists for countries that become unlocked after launch (a purchase,
+/// a promo grant). Kept out of TasksView.body so the type-checker stays fast.
+private struct TaskSeedTriggers: ViewModifier {
+    @ObservedObject var vm: TasksViewModel
+    @ObservedObject var purchaseManager: PurchaseManager
+
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: purchaseManager.hasAllAccess) { _, _ in
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
+            .onChange(of: purchaseManager.unlockedCountries) { _, _ in
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
     }
 }
