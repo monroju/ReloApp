@@ -164,6 +164,7 @@ struct TasksView: View {
                 }
                 Button("Cancel", role: .cancel) {}
             }
+            .modifier(TaskSeedTriggers(vm: vm, purchaseManager: purchaseManager))
             .task {
                 vm.startListening()
                 vm.autoSeedUnlockedCountries(purchaseManager)
@@ -177,6 +178,7 @@ struct TasksView: View {
                 // Keep Tasks scoped to whatever the top-bar selector picks.
                 // User can still tap a chip again to deselect ("show all").
                 vm.selectedCountry = newCountry
+                vm.seedIfUnlocked(newCountry, purchaseManager)
             }
             .onChange(of: vm.tasksByPhase.map { $0.1.map(\.completed) }) { _ in
                 checkPhaseCompletion()
@@ -550,5 +552,22 @@ struct FilterChip: View {
                         .stroke(isSelected ? Color.goPrimary : Color.clear, lineWidth: 1)
                 )
         }
+    }
+}
+
+/// Loads checklists for countries that become unlocked after launch (a purchase,
+/// a promo grant). Kept out of TasksView.body so the type-checker stays fast.
+private struct TaskSeedTriggers: ViewModifier {
+    @ObservedObject var vm: TasksViewModel
+    @ObservedObject var purchaseManager: PurchaseManager
+
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: purchaseManager.hasAllAccess) { _, _ in
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
+            .onChange(of: purchaseManager.unlockedCountries) { _, _ in
+                vm.autoSeedUnlockedCountries(purchaseManager)
+            }
     }
 }

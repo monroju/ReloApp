@@ -11,6 +11,16 @@ final class TasksViewModel: ObservableObject {
     private let repo = TaskRepository.shared
     private var cancellables = Set<AnyCancellable>()
 
+    init() {
+        // `tasks` is read straight from the repository, so re-render whenever it
+        // changes. Without this, seeded tasks only appeared after some unrelated
+        // state change redrew the screen.
+        repo.objectWillChange
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in self?.objectWillChange.send() }
+            .store(in: &cancellables)
+    }
+
     var tasks: [TaskItem] {
         repo.tasks
     }
@@ -61,6 +71,12 @@ final class TasksViewModel: ObservableObject {
                 await repo.autoSeedIfNeeded(for: dest.id)
             }
         }
+    }
+
+    /// Loads the checklist for one country if it's unlocked and has no tasks yet.
+    func seedIfUnlocked(_ countryId: String, _ purchaseManager: PurchaseManager) {
+        guard purchaseManager.isCountryUnlocked(countryId) else { return }
+        Task { await repo.autoSeedIfNeeded(for: countryId) }
     }
 
     func toggleCompleted(_ task: TaskItem) {
