@@ -211,7 +211,7 @@ workflows:
           # 61 -> next upload is 62.
           # (Root cause persists: the get-latest-* queries still return 0, so this
           # floor stays the only real lever until those are fixed.)
-          MIN_BUILD_NUMBER=63
+          MIN_BUILD_NUMBER=64
 
           LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$BUNDLE_ID" --platform IOS 2>/dev/null || echo 0)
           LATEST_TF=${LATEST_TF:-0}
@@ -224,9 +224,14 @@ workflows:
           [ "$LATEST_AS" -gt "$LATEST" ] && LATEST=$LATEST_AS
           [ "$COMMIT_COUNT" -gt "$LATEST" ] && LATEST=$COMMIT_COUNT
           [ "$MIN_BUILD_NUMBER" -gt "$LATEST" ] && LATEST=$MIN_BUILD_NUMBER
+          # Codemagic's own per-app build counter only ever increases, so it keeps
+          # numbers unique even when the ASC lookups above come back empty (builds
+          # 68 and 70 reused 62 and 64 that way and were rejected as duplicates).
+          CM_INDEX=${PROJECT_BUILD_NUMBER:-0}
+          [ "$CM_INDEX" -gt "$LATEST" ] && LATEST=$CM_INDEX
 
           NEW_BUILD=$((LATEST + 1))
-          echo "ASC TF: ${LATEST_TF} | ASC App Store: ${LATEST_AS} | commits: ${COMMIT_COUNT} | min: ${MIN_BUILD_NUMBER} | using: ${NEW_BUILD}"
+          echo "ASC TF: ${LATEST_TF} | ASC App Store: ${LATEST_AS} | commits: ${COMMIT_COUNT} | min: ${MIN_BUILD_NUMBER} | codemagic: ${CM_INDEX} | using: ${NEW_BUILD}"
           cd "$CM_BUILD_DIR"
           agvtool new-version -all $NEW_BUILD
 
