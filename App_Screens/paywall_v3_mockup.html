@@ -17,71 +17,70 @@
   * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
   html, body {
     margin: 0; padding: 0;
-    width: 1290px; height: 2796px;
+    width: 1200px; height: 1800px;
     background: var(--bg);
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     color: var(--text);
   }
-  body { padding-top: 60px; padding-bottom: 60px; }
   .nav-bar {
-    height: 120px;
+    height: 96px;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 56px;
+    padding: 0 40px;
     border-bottom: 1px solid var(--border);
   }
-  .nav-bar .close { font-size: 38px; color: var(--teal); font-weight: 500; }
-  .nav-bar .title { font-size: 46px; font-weight: 700; }
-  .nav-bar .spacer { width: 110px; }
+  .nav-bar .close { font-size: 30px; color: var(--teal); font-weight: 500; }
+  .nav-bar .title { font-size: 36px; font-weight: 700; }
+  .nav-bar .spacer { width: 80px; }
 
-  .container { padding: 56px 64px 64px 64px; }
+  .container { padding: 40px 56px 56px 56px; }
 
   .hero {
     display: flex; flex-direction: column; align-items: center; text-align: center;
     margin-bottom: 40px;
   }
   .hero .globe {
-    width: 180px; height: 180px; border-radius: 50%;
+    width: 130px; height: 130px; border-radius: 50%;
     background: var(--teal-container);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 28px;
+    margin-bottom: 18px;
   }
-  .hero .globe img { width: 110px; height: 110px; }
+  .hero .globe img { width: 80px; height: 80px; }
   .hero h1 {
-    font-size: 76px; font-weight: 800; margin: 0 0 22px 0; letter-spacing: -1px;
+    font-size: 56px; font-weight: 800; margin: 0 0 14px 0; letter-spacing: -1px;
   }
   .hero p {
-    font-size: 34px; color: var(--muted); margin: 0;
-    max-width: 1100px; line-height: 1.35;
+    font-size: 26px; color: var(--muted); margin: 0;
+    max-width: 980px; line-height: 1.35;
   }
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-    margin-bottom: 36px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 28px;
   }
   .card {
     background: var(--card-bg);
     border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 34px 32px;
+    border-radius: 22px;
+    padding: 26px 24px;
     display: flex; flex-direction: column; align-items: flex-start;
-    min-height: 260px;
+    min-height: 220px;
     position: relative;
   }
-  .card .flag { width: 84px; height: 84px; margin-bottom: 16px; }
+  .card .flag { width: 64px; height: 64px; margin-bottom: 12px; }
   .card .title {
-    font-size: 38px; font-weight: 700; margin-bottom: 6px;
+    font-size: 28px; font-weight: 700; margin-bottom: 4px;
   }
   .card .desc {
-    font-size: 24px; color: var(--muted); line-height: 1.35;
+    font-size: 19px; color: var(--muted); line-height: 1.3;
     flex: 1;
   }
   .card .price {
-    margin-top: 18px;
-    font-size: 34px; font-weight: 700; color: var(--teal);
+    margin-top: 14px;
+    font-size: 26px; font-weight: 700; color: var(--teal);
     background: var(--teal-container);
-    padding: 14px 28px; border-radius: 18px;
+    padding: 10px 22px; border-radius: 14px;
     align-self: stretch;
     text-align: center;
   }
@@ -90,39 +89,39 @@
     background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
     border: none;
     color: white;
-    padding: 48px 52px;
-    border-radius: 36px;
+    padding: 36px 40px;
+    border-radius: 28px;
     display: flex; align-items: center; justify-content: space-between;
-    gap: 40px;
-    box-shadow: 0 16px 40px rgba(15, 143, 130, 0.32);
+    gap: 32px;
+    box-shadow: 0 12px 32px rgba(15, 143, 130, 0.28);
   }
-  .bundle .left { display: flex; gap: 32px; align-items: center; }
-  .bundle .globe-img { width: 120px; height: 120px; }
-  .bundle .text { display: flex; flex-direction: column; gap: 8px; }
+  .bundle .left { display: flex; gap: 24px; align-items: center; }
+  .bundle .globe-img { width: 90px; height: 90px; }
+  .bundle .text { display: flex; flex-direction: column; gap: 6px; }
   .bundle .badge {
     display: inline-block;
     background: rgba(255,255,255,0.22);
-    font-size: 26px; font-weight: 700; letter-spacing: 0.5px;
-    padding: 8px 18px; border-radius: 14px;
+    font-size: 20px; font-weight: 700; letter-spacing: 0.5px;
+    padding: 6px 14px; border-radius: 10px;
     align-self: flex-start;
     text-transform: uppercase;
   }
   .bundle .title {
-    font-size: 50px; font-weight: 800; color: white;
+    font-size: 38px; font-weight: 800; color: white;
   }
   .bundle .desc {
-    font-size: 28px; color: rgba(255,255,255,0.92); max-width: 700px; line-height: 1.3;
+    font-size: 22px; color: rgba(255,255,255,0.92); max-width: 600px; line-height: 1.3;
   }
   .bundle .price {
     background: white; color: var(--teal-dark);
-    font-size: 48px; font-weight: 800;
-    padding: 28px 44px; border-radius: 24px;
+    font-size: 36px; font-weight: 800;
+    padding: 22px 36px; border-radius: 18px;
     white-space: nowrap;
   }
 
   .footer {
-    margin-top: 44px; text-align: center;
-    font-size: 32px; color: var(--teal); font-weight: 600;
+    margin-top: 32px; text-align: center;
+    font-size: 24px; color: var(--teal); font-weight: 600;
   }
 </style>
 </head>
