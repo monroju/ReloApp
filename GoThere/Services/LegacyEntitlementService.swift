@@ -68,6 +68,14 @@ enum LegacyEntitlementService {
     private static let debugOverrideKey = "debug_force_legacy_paid_install"
     #endif
 
+    /// True for TestFlight and App Review installs (sandbox receipt). Only App Store
+    /// production installs were ever paid, so grandfathering never applies here —
+    /// otherwise testers and Apple's reviewers get All Access and can't reach the
+    /// paywall. Synchronous so the very first render is right.
+    static var isSandboxInstall: Bool {
+        Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+    }
+
     // MARK: - Cached result
 
     /// Last known answer. Read synchronously by `PurchaseManager` at init so the very
@@ -76,6 +84,7 @@ enum LegacyEntitlementService {
         #if DEBUG
         if UserDefaults.standard.bool(forKey: debugOverrideKey) { return true }
         #endif
+        if isSandboxInstall { return false }
         return UserDefaults.standard.bool(forKey: cacheKey)
     }
 
@@ -99,6 +108,8 @@ enum LegacyEntitlementService {
         do {
             let result = try await AppTransaction.shared
             guard case .verified(let appTransaction) = result else { return nil }
+            // TestFlight, App Review and Xcode builds report synthesized sandbox values.
+            guard appTransaction.environment == .production, !isSandboxInstall else { return false }
 
             var isLegacy = appTransaction.originalPurchaseDate < freemiumGoLiveDate
 
@@ -125,6 +136,7 @@ enum LegacyEntitlementService {
     /// practice, the Firestore mirror on a user's second device, where the local app
     /// transaction belongs to a free-era download but the account already earned access.
     static func rememberLegacyEntitlement() {
+        guard !isSandboxInstall else { return }
         UserDefaults.standard.set(true, forKey: cacheKey)
     }
 }

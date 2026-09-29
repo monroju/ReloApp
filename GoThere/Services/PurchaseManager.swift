@@ -150,6 +150,22 @@ final class PurchaseManager: ObservableObject {
         return false
     }
 
+    /// Plain-language reason for the current access level, shown in Settings so a user
+    /// (or support) can see why everything is unlocked.
+    var accessSourceDescription: String? {
+        if isLegacyPaidInstall { return "Early supporter: you bought GoThere before it went free" }
+        if let until = promoAccessUntil, until > Date() {
+            return "Gift month until \(until.formatted(date: .abbreviated, time: .omitted))"
+        }
+        if subscriptionStatus.isActive { return "All-Access subscription" }
+        if ownedSKUs.contains(Self.productAllCountries) { return "Lifetime: all countries" }
+        if ownedSKUs.contains(Self.productEuropeBundle) && ownedSKUs.contains(Self.productAmericasBundle) {
+            return "Europe + Americas bundles"
+        }
+        if hasAllAccess { return "Every country purchased" }
+        return nil
+    }
+
     // MARK: - Lifecycle
 
     private var transactionListener: Task<Void, Never>?
@@ -516,7 +532,8 @@ final class PurchaseManager: ObservableObject {
             }
             // Pre-freemium paid-install grandfathering, earned on another device.
             // Grant-only: a `false`/absent field never revokes a local grant.
-            if data["legacyPaidInstall"] as? Bool == true, !isLegacyPaidInstall {
+            if data["legacyPaidInstall"] as? Bool == true, !isLegacyPaidInstall,
+               !LegacyEntitlementService.isSandboxInstall {
                 isLegacyPaidInstall = true
                 LegacyEntitlementService.rememberLegacyEntitlement()
             }
