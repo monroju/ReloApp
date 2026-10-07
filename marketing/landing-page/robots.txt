@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Build/source files (synced with the site, not for indexing)
+Disallow: /_generate_pseo.py
+Disallow: /_generate_hubs.py
+Disallow: /_generate_compare.py
+Disallow: /_parse_visa_catalog.py
+Disallow: /_generate_sitemap.py
+Disallow: /_indexnow.py
+Disallow: /_pseo_data.json
+Disallow: /_visa_catalog.json
+
+Sitemap: https://getgothere.app/sitemap.xml

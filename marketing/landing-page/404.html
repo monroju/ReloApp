@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found &mdash; GoThere</title>
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#0B0F14">
+<link rel="icon" href="/app-icon.png">
+<style>
+  :root {
+    --teal: #15B8A6;
+    --teal-dark: #0F8F82;
+    --bg-primary: #0B0F14;
+    --bg-card: #1A2332;
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --border: #1E293B;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 32px 20px;
+    background: var(--bg-primary); color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    text-align: center;
+  }
+  .wrap { max-width: 520px; }
+  img.icon { width: 72px; height: 72px; border-radius: 16px; }
+  h1 { font-size: 26px; margin: 22px 0 8px; letter-spacing: -0.01em; }
+  p { margin: 0 0 26px; color: var(--text-secondary); line-height: 1.6; }
+  .cta {
+    display: inline-block; padding: 12px 22px; border-radius: 10px;
+    background: var(--teal); color: #06231F; text-decoration: none; font-weight: 700;
+  }
+  .cta:hover { background: var(--teal-dark); color: #fff; }
+  nav { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--border); }
+  nav a {
+    color: var(--text-secondary); text-decoration: none;
+    font-size: 14px; margin: 0 10px; white-space: nowrap;
+  }
+  nav a:hover { color: var(--teal); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <img class="icon" src="/app-icon.png" alt="GoThere">
+    <h1>That page moved, or never existed</h1>
+    <p>The link you followed does not point anywhere on GoThere. The pages below cover most of what people come here for.</p>
+    <a class="cta" href="/">Go to the homepage</a>
+    <nav>
+      <a href="/compare/">Compare visas</a>
+      <a href="/blog/">Guides</a>
+      <a href="/spain/">Spain</a>
+      <a href="/portugal/">Portugal</a>
+      <a href="/mexico/">Mexico</a>
+      <a href="/safe-harbor/">Safe Harbor</a>
+    </nav>
+  </div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — GoThere</title>
+    <link rel="canonical" href="https://getgothere.app/privacy.html">
+    <meta name="description" content="What GoThere collects, what it does not, and how to delete your data.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #1a1a1a; background: #fafafa; padding: 24px; }
+        .container { max-width: 720px; margin: 0 auto; background: #fff; border-radius: 12px; padding: 40px 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        h1 { font-size: 28px; margin-bottom: 8px; color: #0d9488; }
+        h2 { font-size: 20px; margin: 28px 0 12px; color: #0d9488; }
+        p, li { font-size: 15px; margin-bottom: 12px; }
+        ul { padding-left: 24px; }
+        .updated { font-size: 13px; color: #888; margin-bottom: 24px; }
+        a { color: #0d9488; }
+        .back { display: inline-block; margin-top: 32px; font-size: 14px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: August 13, 2026</p>
+
+<p>GoThere ("we", "our", or "the app") helps people plan a move abroad. This policy covers the
+mobile apps, the website at getgothere.app, and the public assistant endpoint at
+getgothere.app/mcp. It explains what we collect, what we deliberately do not, and your rights.</p>
+
+<h2>1. Information We Collect</h2>
+<p><strong>Account data:</strong> When you create an account we collect your email address and a
+securely hashed password via Firebase Authentication. We do not store your password in plaintext.</p>
+<p><strong>User content:</strong> Tasks, calendar events, documents, and destination preferences you
+create in the app are stored in Google Firebase (Firestore and Firebase Storage) and associated with
+your account.</p>
+<p><strong>Guest mode:</strong> If you use the app as a guest, your data stays on your device and is
+not uploaded to any server.</p>
+<p><strong>Newsletter:</strong> If you submit your email address through the form on our website, it
+is stored in our self-hosted Listmonk instance so we can send you the newsletter. Every email
+includes an unsubscribe link, and unsubscribing removes your address.</p>
+
+<h2>2. How We Use Your Data</h2>
+<ul>
+    <li>To provide and maintain the app's features (task tracking, calendar, documents, decision tools)</li>
+    <li>To sync your data across sessions when signed in</li>
+    <li>To send local notifications for calendar reminders, with your permission</li>
+    <li>To send the newsletter, if you asked for it</li>
+</ul>
+
+<h2>3. What We Do NOT Do</h2>
+<ul>
+    <li>We do <strong>not</strong> sell, rent, or share your personal data with third parties</li>
+    <li>We do <strong>not</strong> use advertising or ad-tracking SDKs</li>
+    <li>We do <strong>not</strong> use your data for profiling or behavioural marketing</li>
+    <li>We do <strong>not</strong> collect location data or device advertising identifiers</li>
+</ul>
+
+<h2>4. Website Analytics</h2>
+<p>Our website uses Cloudflare Web Analytics to count page views. It is cookieless, does not
+fingerprint visitors, and does not track you across other websites. We see aggregate traffic, not
+individuals. See the
+<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a>.</p>
+
+<h2>5. AI Features</h2>
+<p>Where the app offers AI assistance, the text of your request is sent through our proxy to
+Anthropic, which generates the response. We do not use these requests to train models, and we do not
+retain them beyond what is needed to return the answer to you. Avoid putting sensitive personal
+details into free-text AI prompts. See the
+<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>.</p>
+
+<h2>6. Assistant Endpoint (getgothere.app/mcp)</h2>
+<p>We publish a citizenship-by-descent tool that AI assistants such as ChatGPT and Claude can call.
+It is deliberately built to hold nothing:</p>
+<ul>
+    <li>It never asks for names. Ancestors are identified only by relationship, such as "grandparent"</li>
+    <li>The facts supplied (countries and dates of birth) are used to compute an answer in memory and are then discarded</li>
+    <li>Nothing is written to any database, and no account or sign-in is involved</li>
+    <li>Ordinary web server logs record the request, as with any website</li>
+</ul>
+<p>Note that your conversation with the assistant is governed by that assistant's own privacy policy,
+not ours.</p>
+
+<h2>7. Third-Party Services</h2>
+<ul>
+    <li><strong>Google Firebase</strong> (Authentication, Firestore, Storage) — <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a></li>
+    <li><strong>Apple StoreKit</strong> and <strong>Google Play Billing</strong> (in-app purchases) — payment details are handled by Apple and Google and never reach us</li>
+    <li><strong>Anthropic</strong> (AI features, see section 5)</li>
+    <li><strong>Cloudflare</strong> (website analytics and DNS, see section 4)</li>
+</ul>
+
+<h2>8. Data Storage &amp; Security</h2>
+<p>Account data is stored on Google Firebase servers with encryption in transit (TLS) and at rest.
+Access is restricted to your authenticated account. Our website and assistant endpoint are served
+over HTTPS.</p>
+
+<h2>9. Data Retention &amp; Deletion</h2>
+<p>Your data is retained for as long as your account exists. You can delete your account at any time
+from the app's menu. When you delete your account:</p>
+<ul>
+    <li>Your user profile is removed from our database</li>
+    <li>Your authentication credentials are permanently deleted</li>
+    <li>Uploaded documents in Firebase Storage associated with your account are removed</li>
+</ul>
+<p>Newsletter subscriptions are separate: unsubscribe using the link in any email, or write to us.</p>
+
+<h2>10. Children's Privacy</h2>
+<p>GoThere is not directed at children under 13. We do not knowingly collect data from children. If
+you believe a child has provided us with personal data, contact us and we will delete it.</p>
+
+<h2>11. Your Rights</h2>
+<p>Depending on where you live, you may have the right to:</p>
+<ul>
+    <li>Access the personal data we hold about you</li>
+    <li>Request correction of inaccurate data</li>
+    <li>Delete your account and all associated data</li>
+    <li>Export your data upon request</li>
+    <li>Object to processing, or withdraw consent you previously gave</li>
+</ul>
+<p>To exercise any of these, email us at the address below.</p>
+
+<h2>12. Changes to This Policy</h2>
+<p>We may update this policy from time to time. Changes will be posted on this page with an updated
+date. Continued use after changes constitutes acceptance.</p>
+
+<h2>13. Contact</h2>
+<p>Questions about this policy or your data:
+<a href="mailto:gabriel@getgothere.app">gabriel@getgothere.app</a></p>
+
+<a class="back" href="/">&larr; Back to GoThere</a>
+
+</div>
+</body>
+</html>

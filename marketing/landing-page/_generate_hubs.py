@@ -1,0 +1,323 @@
+#!/usr/bin/env python3
+"""Generate hub/index pages for getgothere.app.
+
+Builds the pages that other pages already link to but that did not exist
+(they returned 403): the blog hub and the three country hubs. Activating
+these turns dozens of existing internal links (breadcrumbs, footers,
+"Related guides") from dead ends into real link equity.
+
+Output:
+    /blog/index.html
+    /spain/index.html
+    /portugal/index.html
+    /mexico/index.html
+
+Usage:
+    python _generate_hubs.py
+"""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).parent
+DATA = json.load(open(ROOT / "_pseo_data.json", encoding="utf-8"))
+
+UMAMI = '''<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics -->'''
+APP_URL = "https://apps.apple.com/app/gothere-relocation-guide/id6760248690"
+PLAY_URL = "https://play.google.com/store/apps/details?id=com.gothere.app"
+
+# ---- Blog manifest: slug, title, one-liner, group ------------------------
+# Groups: "start", "move" (residency/income visas), "passport" (citizenship
+# by ancestry).
+POSTS = [
+    ("how-to-move-abroad-from-the-us", "How to Move Abroad from the US: The Complete 2026 Guide",
+     "The big-picture playbook: visa options, checklists, money, healthcare.", "start"),
+
+    ("spain-non-lucrative-visa-2026", "Spain Non-Lucrative Visa 2026",
+     "Real timeline, document checklist, and costs, walked through end to end.", "move"),
+    ("portugal-d7-d8-visa-2026", "Portugal D7 vs D8 Visa 2026",
+     "Which Portuguese visa fits you, with the real post-NHR tax math.", "move"),
+    ("mexico-temporary-resident-visa-2026", "Mexico Temporary Resident Visa 2026",
+     "Income rules, the consulate appointment, and the INM card exchange.", "move"),
+    ("italy-elective-residency-visa-2026", "Italy Elective Residency Visa 2026",
+     "The lowest passive-income bar in Western Europe (~EUR 31k/year).", "move"),
+    ("ireland-stamp-0-retiree-visa-2026", "Ireland Stamp 0 Retiree Visa 2026",
+     "The EUR 50k/year income bar and what this permit does (and never does).", "move"),
+    ("germany-eu-blue-card-2026", "Germany EU Blue Card 2026",
+     "Salary thresholds and how German can cut your PR wait to 21 months.", "move"),
+    ("uk-skilled-worker-visa-2026", "UK Skilled Worker Visa 2026",
+     "The GBP 38,700 threshold, sponsor licences, and the road to ILR.", "move"),
+    ("canada-express-entry-visa-2026", "Canada Express Entry 2026",
+     "How the CRS points system really works and realistic score cutoffs.", "move"),
+    ("hungary-white-card-visa-2026", "Hungary White Card 2026",
+     "The digital nomad visa: EUR 3,000/month, 15% flat tax, hard 2-year cap.", "move"),
+    ("argentina-rentista-visa-2026", "Argentina Visa Rentista 2026",
+     "~$2,000/month passive income and one of the fastest paths to citizenship.", "move"),
+
+    ("italy-jure-sanguinis-citizenship-2026", "Italy Jure Sanguinis Citizenship 2026",
+     "Citizenship by descent after the 2025 reform: who is still eligible.", "passport"),
+    ("ireland-foreign-births-register-2026", "Irish Citizenship Through a Grandparent 2026",
+     "The Foreign Births Register: who qualifies, the fee, the timeline.", "passport"),
+    ("poland-citizenship-confirmation-2026", "Poland Citizenship Confirmation 2026",
+     "Recognising Polish citizenship by descent and the Voivode bottleneck.", "passport"),
+    ("hungary-simplified-naturalization-2026", "Hungary Simplified Naturalization 2026",
+     "The ancestry route, with the Hungarian-language interview to plan for.", "passport"),
+    ("canada-citizenship-by-descent-2026", "Canada Citizenship by Descent 2026",
+     "How Bill C-3 changed who qualifies through a parent or grandparent.", "passport"),
+    ("uk-ancestry-visa-2026", "UK Ancestry Visa 2026",
+     "The #1 misconception: why a UK-born grandparent alone isn't enough.", "passport"),
+]
+
+# Which blog guide belongs to each country hub.
+COUNTRY_GUIDE = {
+    "spain": ("spain-non-lucrative-visa-2026", "Spain Non-Lucrative Visa 2026: the full guide"),
+    "portugal": ("portugal-d7-d8-visa-2026", "Portugal D7 vs D8: which visa is right for you"),
+    "mexico": ("mexico-temporary-resident-visa-2026", "Mexico Temporary Resident Visa: the full guide"),
+}
+
+# Safe Harbor is a free web resource worth surfacing from every hub.
+SAFE_HARBOR = "/safe-harbor/"
+
+CSS = """
+    :root {
+      --teal: #15B8A6; --teal-dark: #0F8F82;
+      --bg: #0B0F14; --bg-card: #1A2332; --border: #1E293B;
+      --text: #F1F5F9; --text-mute: #94A3B8;
+    }
+    *,*:before,*:after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+    nav { padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    nav .container { padding: 0; display: flex; justify-content: space-between; align-items: center; }
+    nav a.logo { font-family: 'DM Sans'; font-weight: 700; font-size: 22px; color: var(--text); }
+    h1 { font-family: 'DM Sans'; font-size: 40px; line-height: 1.2; font-weight: 700; margin: 24px 0 16px; letter-spacing: -0.02em; }
+    h2 { font-family: 'DM Sans'; font-size: 26px; margin: 48px 0 8px; font-weight: 700; letter-spacing: -0.01em; }
+    p { margin: 16px 0; color: var(--text); }
+    .lede { font-size: 18px; color: var(--text-mute); margin: 0 0 24px; }
+    .breadcrumb { font-size: 14px; color: var(--text-mute); margin-bottom: 12px; }
+    .breadcrumb a { color: var(--text-mute); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin: 20px 0; }
+    .tile { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; display: block; }
+    .tile:hover { border-color: var(--teal); text-decoration: none; }
+    .tile h3 { font-size: 17px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
+    .tile p { font-size: 14px; color: var(--text-mute); margin: 0; }
+    .tile .meta { font-size: 13px; color: var(--teal); margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+    th { color: var(--teal); font-weight: 600; background: rgba(21,184,166,0.05); }
+    .cta-box { background: linear-gradient(135deg, var(--teal-dark), var(--teal)); border-radius: 16px; padding: 32px; text-align: center; margin: 48px 0; }
+    .cta-box h3 { color: #fff; font-size: 24px; margin-bottom: 8px; }
+    .cta-box p { color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+    .cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .cta-buttons a { background: #000; color: #fff; padding: 12px 20px; border-radius: 8px; font-weight: 500; display: inline-block; }
+    .cta-buttons a:hover { background: #1a1a1a; text-decoration: none; }
+    .callout { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--teal); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; }
+    footer { border-top: 1px solid var(--border); padding: 32px 24px; margin-top: 64px; color: var(--text-mute); font-size: 14px; }
+    footer .container { padding: 0; }
+    @media (max-width: 600px) { h1 { font-size: 32px; } }
+"""
+
+HEAD = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {umami}
+  <title>{title}</title>
+  <meta name="description" content="{desc}">
+  <link rel="canonical" href="{canonical}">
+  <meta property="og:title" content="{og_title}">
+  <meta property="og:description" content="{desc}">
+  <meta property="og:url" content="{canonical}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://getgothere.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  {schema}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <style>{css}</style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="/" class="logo">GoThere</a>
+      <a href="{app}?utm_source=blog&utm_medium=organic&utm_campaign=hub">Get the app &rarr;</a>
+    </div>
+  </nav>
+  <main class="container">
+"""
+
+FOOTER = """  </main>
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 GoThere &middot; <a href="/">Home</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/safe-harbor/">Safe Harbor Index</a></p>
+    </div>
+  </footer>
+</body>
+</html>
+"""
+
+
+def tile(href, title, desc, meta=""):
+    meta_html = f'<div class="meta">{meta}</div>' if meta else ""
+    return (f'    <a class="tile" href="{href}"><h3>{title}</h3>'
+            f'<p>{desc}</p>{meta_html}</a>\n')
+
+
+def build_blog_hub():
+    canonical = "https://getgothere.app/blog/"
+    schema = ('<script type="application/ld+json">{"@context":"https://schema.org",'
+              '"@type":"Blog","name":"GoThere Blog","url":"https://getgothere.app/blog/",'
+              '"description":"Visa and relocation guides for Americans moving abroad.",'
+              '"publisher":{"@type":"Organization","name":"GoThere"}}</script>')
+    html = HEAD.format(
+        umami=UMAMI, css=CSS, app=APP_URL,
+        title="GoThere Blog: Visa &amp; Relocation Guides for Americans (2026)",
+        desc="Honest, up-to-date visa and relocation guides for Americans moving abroad: Spain, Portugal, Mexico, Italy, Ireland, Germany, Canada and more.",
+        og_title="GoThere Blog: Visa & Relocation Guides for Americans",
+        canonical=canonical, schema=schema,
+    )
+    html += '    <div class="breadcrumb"><a href="/">Home</a> / Blog</div>\n'
+    html += "    <h1>Visa &amp; Relocation Guides for Americans</h1>\n"
+    html += ('    <p class="lede">Real income thresholds, real timelines, real costs. '
+             "Every guide is written for US citizens and updated for 2026. Start with the "
+             "big picture, then dig into the country you have in mind.</p>\n")
+
+    groups = [
+        ("start", "Start here"),
+        ("move", "Move abroad on a visa"),
+        ("passport", "Get a second passport by ancestry"),
+    ]
+    for key, label in groups:
+        html += f"    <h2>{label}</h2>\n    <div class=\"grid\">\n"
+        for slug, title, desc, g in POSTS:
+            if g == key:
+                html += tile(f"/blog/{slug}.html", title, desc, "Read the guide")
+        html += "    </div>\n"
+
+    # Link out to the country + Safe Harbor hubs so the blog hub distributes equity.
+    html += "    <h2>City guides</h2>\n"
+    html += ("    <p>Once you have picked a visa, pick a place. We keep detailed, cost-first "
+             "city guides for the three countries with in-app relocation packs:</p>\n")
+    html += "    <div class=\"grid\">\n"
+    for cslug in ("spain", "portugal", "mexico"):
+        c = DATA[cslug]
+        cities = ", ".join(city["name"] for city in c["cities"].values())
+        html += tile(f"/{cslug}/", f"{c['name']} city guides",
+                     cities, f"{len(c['cities'])} cities")
+    html += "    </div>\n"
+
+    html += "    <h2>Compare your options</h2>\n"
+    html += ("    <p>Not sure which route fits? These side-by-side comparisons line up the real "
+             "income bars, costs, and residency timelines:</p>\n")
+    html += "    <div class=\"grid\">\n"
+    compare_cards = [
+        ("/compare/passive-income-visas/", "Passive-income &amp; retiree visas", "Spain NLV, Portugal D7, Italy Elective and more."),
+        ("/compare/digital-nomad-visas/", "Digital nomad visas", "Spain DNV, Portugal D8, Hungary White Card and more."),
+        ("/compare/citizenship-by-descent/", "Citizenship by ancestry", "A second passport through a parent or grandparent."),
+        ("/compare/work-visas/", "Skilled-work visas", "Germany Blue Card, UK Skilled Worker, Canada Express Entry."),
+    ]
+    for href, t, d in compare_cards:
+        html += tile(href, t, d, "Compare")
+    html += "    </div>\n"
+    html += '    <p><a href="/compare/">See all visa comparisons &rarr;</a></p>\n'
+
+    html += ('    <div class="callout"><strong>Moving with specific needs?</strong> The free '
+             '<a href="/safe-harbor/">Safe Harbor Index</a> covers country-by-country legal and '
+             "safety context for LGBTQ+, trans, disabled, neurodivergent, senior, pregnant, "
+             "single-parent and veteran movers. No signup.</div>\n")
+
+    html += cta_block("hub-blog", "Turn a guide into a plan",
+                      "GoThere gives you the visa checklist, cost calculator, and document "
+                      "tracker for your destination in one app.")
+    html += FOOTER
+    (ROOT / "blog" / "index.html").write_text(html, encoding="utf-8")
+    print("  -> blog/index.html")
+
+
+def cta_block(campaign, heading, sub):
+    return (f'    <div class="cta-box"><h3>{heading}</h3><p>{sub}</p>'
+            '<div class="cta-buttons">'
+            f'<a href="{APP_URL}?utm_source=blog&utm_medium=organic&utm_campaign={campaign}">Download for iOS</a>'
+            f'<a href="{PLAY_URL}&referrer=utm_source%3Dblog%26utm_medium%3Dorganic%26utm_campaign%3D{campaign}">Get on Google Play</a>'
+            "</div></div>\n")
+
+
+def build_country_hub(cslug):
+    c = DATA[cslug]
+    name = c["name"]
+    canonical = f"https://getgothere.app/{cslug}/"
+    guide_slug, guide_title = COUNTRY_GUIDE[cslug]
+    schema = ('<script type="application/ld+json">{"@context":"https://schema.org",'
+              '"@type":"CollectionPage","name":"Moving to ' + name + ' from the US",'
+              '"url":"' + canonical + '","publisher":{"@type":"Organization","name":"GoThere"}}</script>')
+
+    html = HEAD.format(
+        umami=UMAMI, css=CSS, app=APP_URL,
+        title=f"Moving to {name} from the US: 2026 City &amp; Visa Guide | GoThere",
+        desc=f"The 2026 guide to moving to {name} as an American: which city fits you, real cost of living, visa paths, and free relocation tools.",
+        og_title=f"Moving to {name} from the US: The 2026 Guide",
+        canonical=canonical, schema=schema,
+    )
+    html += f'    <div class="breadcrumb"><a href="/">Home</a> / {name}</div>\n'
+    html += f"    <h1>Moving to {name} from the US</h1>\n"
+    html += (f'    <p class="lede">Everything an American needs to plan a move to {name} in 2026: '
+             "which city actually fits your budget and lifestyle, what it really costs, and the "
+             "visa path to get there.</p>\n")
+
+    # Visa path -> the blog guide
+    html += "    <h2>Visa paths for Americans</h2>\n"
+    html += (f"    <p>The main routes into {name} for US citizens are the "
+             f"<strong>{c['primary_visa']}</strong> and the <strong>{c['secondary_visa']}</strong>. "
+             f'We walk both through end to end in the <a href="/blog/{guide_slug}.html">{guide_title}</a>, '
+             f'or see how they stack up against other countries in our '
+             f'<a href="/compare/passive-income-visas/">visa comparisons</a>.</p>\n')
+
+    # City cards
+    cur = "$" if "USD" in (c.get("currency") or "") else "€"
+    html += f"    <h2>Choose your city in {name}</h2>\n    <div class=\"grid\">\n"
+    for city_slug, city in c["cities"].items():
+        one_liner = city["blurb"].split(".")[0] + "."
+        low = city["cost_1br"].split("–")[0].split("-")[0].strip()
+        html += tile(f"/{cslug}/{city_slug}/", city["name"], one_liner,
+                     f"1BR from {cur}{low}/mo")
+    html += "    </div>\n"
+
+    # Cost compare table
+    html += f"    <h2>Cost of living by city (2026)</h2>\n"
+    html += "    <table>\n      <tr><th>City</th><th>1BR rent</th><th>2BR rent</th><th>Groceries (solo)</th></tr>\n"
+    for city_slug, city in c["cities"].items():
+        html += (f'      <tr><td><a href="/{cslug}/{city_slug}/">{city["name"]}</a></td>'
+                 f'<td>{city["cost_1br"]}</td><td>{city["cost_2br"]}</td>'
+                 f'<td>{city["groceries_solo"]}</td></tr>\n')
+    html += "    </table>\n"
+
+    html += ('    <div class="callout"><strong>Moving with specific needs?</strong> The free '
+             f'<a href="/safe-harbor/">Safe Harbor Index</a> has a {name} profile with legal and '
+             "safety context for LGBTQ+, trans, disabled, senior, pregnant, single-parent and "
+             "veteran movers.</div>\n")
+
+    html += cta_block(f"hub-{cslug}", f"Plan your {name} move end to end",
+                      f"GoThere has the visa checklist, cost calculator, and document tracker "
+                      f"for {name}, ready to use today.")
+
+    # Related countries
+    others = [x for x in ("spain", "portugal", "mexico") if x != cslug]
+    links = " &middot; ".join(f'<a href="/{o}/">Moving to {DATA[o]["name"]}</a>' for o in others)
+    html += f"    <h2>Other destinations</h2>\n    <p>{links} &middot; <a href=\"/blog/\">All visa guides</a></p>\n"
+    html += FOOTER
+    (ROOT / cslug / "index.html").write_text(html, encoding="utf-8")
+    print(f"  -> {cslug}/index.html")
+
+
+def main():
+    build_blog_hub()
+    for cslug in ("spain", "portugal", "mexico"):
+        build_country_hub(cslug)
+    print("\ndone")
+
+
+if __name__ == "__main__":
+    main()
