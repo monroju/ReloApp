@@ -36,6 +36,8 @@ def priority_and_freq(url_path: str):
     is_hub = len(seg) == 1  # e.g. "spain", "blog", "compare", "safe-harbor"
     if top in ("spain", "portugal", "mexico"):
         return ("0.9", "weekly") if is_hub else ("0.9", "monthly")
+    if top == "leaving-the-us":
+        return "0.9", "weekly"
     if top == "compare":
         return ("0.9", "weekly") if is_hub else ("0.8", "monthly")
     if top == "safe-harbor":
@@ -50,7 +52,7 @@ def url_for(html: Path) -> str | None:
     parts = rel.parts
     if any(part in SKIP_DIRS for part in parts):
         return None
-    if html.name in SKIP_FILES or html.name.startswith("_"):
+    if html.name in SKIP_FILES or html.name.startswith(("_", "google")):
         return None
     if html.name == "index.html":
         parent = "/".join(parts[:-1])
