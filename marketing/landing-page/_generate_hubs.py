@@ -256,7 +256,7 @@ def build_country_hub(cslug):
 
     html = HEAD.format(
         umami=UMAMI, css=CSS, app=APP_URL,
-        title=f"Moving to {name} from the US: 2026 City &amp; Visa Guide | GoThere",
+        title=f"Moving to {name} from the US: 2026 City &amp; Visa Guide",
         desc=f"The 2026 guide to moving to {name} as an American: which city fits you, real cost of living, visa paths, and free relocation tools.",
         og_title=f"Moving to {name} from the US: The 2026 Guide",
         canonical=canonical, schema=schema,
