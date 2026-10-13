@@ -6,6 +6,8 @@ enum ReviewMilestone: String {
     case firstTaskCompleted = "rp_first_task_completed"
     case visaCompareViewed = "rp_visa_compare_viewed"
     case wizardCompleted = "rp_wizard_completed"
+    case ancestryLikelyEligible = "rp_ancestry_likely_eligible"
+    case decisionTreeResults = "rp_decision_tree_results"
 }
 
 enum ReviewPromptService {

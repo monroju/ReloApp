@@ -188,6 +188,9 @@ struct AncestryCheckerView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(allYes ? Color.green.opacity(0.1) : Color.orange.opacity(0.1))
                 .cornerRadius(12)
+                .onAppear {
+                    if allYes { ReviewPromptService.recordAndMaybeRequest(.ancestryLikelyEligible) }
+                }
             }
         }
     }

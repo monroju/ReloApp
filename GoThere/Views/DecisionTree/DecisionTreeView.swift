@@ -10,6 +10,7 @@ struct DecisionTreeView: View {
         Group {
             if vm.showResults {
                 resultsView
+                    .onAppear { ReviewPromptService.recordAndMaybeRequest(.decisionTreeResults) }
             } else {
                 singlePageView
             }
