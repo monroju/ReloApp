@@ -19,10 +19,10 @@ enum ReviewPromptService {
         let defaults = UserDefaults.standard
         if defaults.bool(forKey: milestone.rawValue) { return }
         defaults.set(true, forKey: milestone.rawValue)
-        requestIfEligible()
+        requestIfEligible(milestone)
     }
 
-    private static func requestIfEligible() {
+    private static func requestIfEligible(_ milestone: ReviewMilestone) {
         let defaults = UserDefaults.standard
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         if defaults.string(forKey: promptedThisVersionKey) == version { return }
@@ -34,6 +34,7 @@ enum ReviewPromptService {
             guard let scene = UIApplication.shared.connectedScenes
                 .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene else { return }
             SKStoreReviewController.requestReview(in: scene)
+            Analytics.log(.reviewPromptRequested, properties: ["milestone": milestone.rawValue])
             defaults.set(Date().timeIntervalSince1970, forKey: lastPromptKey)
             defaults.set(version, forKey: promptedThisVersionKey)
         }

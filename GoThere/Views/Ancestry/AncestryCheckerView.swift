@@ -189,6 +189,10 @@ struct AncestryCheckerView: View {
                 .background(allYes ? Color.green.opacity(0.1) : Color.orange.opacity(0.1))
                 .cornerRadius(12)
                 .onAppear {
+                    Analytics.log(.ancestryResultViewed, country: path.countryId, extra: [
+                        "path_id": path.id,
+                        "likely_eligible": allYes
+                    ])
                     if allYes { ReviewPromptService.recordAndMaybeRequest(.ancestryLikelyEligible) }
                 }
             }

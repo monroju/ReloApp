@@ -121,7 +121,7 @@ struct DestinationsView: View {
         .navigationTitle("Destinations")
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showPaywall) {
-            PaywallView()
+            PaywallView(source: "destinations")
         }
         .sheet(item: $lockedCountryPreview) { descriptor in
             LockedCountryPreviewView(

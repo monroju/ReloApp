@@ -52,7 +52,7 @@ struct AIWhereToStartView: View {
         }
         .navigationTitle("Where should I start?")
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $showPaywall) { PaywallView() }
+        .sheet(isPresented: $showPaywall) { PaywallView(source: "ai_limit") }
         .onAppear {
             Analytics.log(.aiConversationOpened, properties: ["sent_count": ai.sentMessageCount])
         }

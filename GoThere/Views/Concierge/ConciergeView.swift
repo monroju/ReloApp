@@ -128,7 +128,7 @@ struct ConciergeView: View {
                 "createdAt": FieldValue.serverTimestamp()
             ], merge: true)
         }
-        Analytics.log(.purchaseInitiated, properties: ["product_id": "concierge_waitlist"])
+        Analytics.log(.conciergeWaitlistJoined)
         joined = true
     }
 }

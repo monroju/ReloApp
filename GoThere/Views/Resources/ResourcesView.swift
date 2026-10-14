@@ -618,7 +618,7 @@ struct ResourcesView: View {
                 await vm.loadDocuments(for: countrySelection.current)
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "resources")
             }
             .sheet(item: $presentedJourney) { journey in
                 RealJourneyView(journey: journey)

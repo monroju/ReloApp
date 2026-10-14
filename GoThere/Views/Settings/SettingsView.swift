@@ -36,7 +36,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView().environmentObject(purchaseManager)
+                PaywallView(source: "settings").environmentObject(purchaseManager)
             }
             .alert("Delete your account?", isPresented: $showDeleteConfirm) {
                 Button("Cancel", role: .cancel) {}

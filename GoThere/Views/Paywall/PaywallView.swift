@@ -16,6 +16,10 @@ struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isRestoring = false
     @State private var showReferral = false
+    @State private var appearedAt = Date()
+    @State private var viewLogged = false
+    /// Which screen opened the paywall (`02-metrics.md`: paywall conversion by source).
+    var source: String = "unknown"
 
     var body: some View {
         NavigationStack {
@@ -43,13 +47,20 @@ struct PaywallView: View {
                 }
             }
             .onAppear {
-                Analytics.log(.paywallViewed, properties: [
-                    "unlocked_count": purchaseManager.unlockedCountries.count,
-                    "has_all_access": purchaseManager.hasAllAccess,
-                    "subscription_active": purchaseManager.subscriptionStatus.isActive
+                appearedAt = Date()
+                Analytics.paywallSource = source
+            }
+            .task {
+                await purchaseManager.loadProductsIfNeeded()
+                logViewOnce()
+            }
+            .onDisappear {
+                guard viewLogged, !Analytics.purchased(since: appearedAt) else { return }
+                Analytics.log(.paywallDismissed, properties: [
+                    "source": source,
+                    "seconds_on_screen": Int(Date().timeIntervalSince(appearedAt))
                 ])
             }
-            .task { await purchaseManager.loadProductsIfNeeded() }
             .purchaseErrorAlert(purchaseManager)
         }
     }
@@ -511,6 +522,23 @@ struct PaywallView: View {
     }
 
     // MARK: - Pricing helpers
+
+    /// Fires once products are loaded, so `products_shown` reflects what the user could buy.
+    private func logViewOnce() {
+        guard !viewLogged else { return }
+        viewLogged = true
+        let shown = purchaseManager.products.map(\.id).sorted()
+        Analytics.log(.paywallViewed, properties: [
+            "source": source,
+            "variant": "v1",
+            "products_shown": shown,
+            "default_product": shown.contains(PurchaseManager.productAllAccessAnnual)
+                ? PurchaseManager.productAllAccessAnnual : (shown.first ?? "none"),
+            "unlocked_count": purchaseManager.unlockedCountries.count,
+            "has_all_access": purchaseManager.hasAllAccess,
+            "subscription_active": purchaseManager.subscriptionStatus.isActive
+        ])
+    }
 
     private func hasProduct(_ id: String) -> Bool {
         purchaseManager.products.contains { $0.id == id }

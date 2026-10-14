@@ -57,7 +57,7 @@ struct DocumentScanView: View {
             .ignoresSafeArea()
         }
         .sheet(isPresented: $showPaywall) {
-            PaywallView().environmentObject(purchaseManager)
+            PaywallView(source: "document_scan_limit").environmentObject(purchaseManager)
         }
         .onChange(of: photoItem) { item in
             guard let item else { return }
@@ -144,12 +144,12 @@ struct DocumentScanView: View {
     // MARK: - Actions
 
     private func startCamera() {
-        if service.isScanGated { showPaywall = true; return }
+        if service.isScanGated { Analytics.log(.freeLimitReached, properties: ["limit": "document_scan"]); showPaywall = true; return }
         showScanner = true
     }
 
     private func handle(_ image: UIImage) {
-        if service.isScanGated { showPaywall = true; return }
+        if service.isScanGated { Analytics.log(.freeLimitReached, properties: ["limit": "document_scan"]); showPaywall = true; return }
         guard let data = Self.processed(image) else {
             errorMessage = "Couldn't process that image. Please try again."
             return
@@ -160,8 +160,7 @@ struct DocumentScanView: View {
             do {
                 let result = try await service.analyze(imageData: data, country: nil)
                 analysis = result
-                Analytics.log(.purchaseCompleted, properties: [
-                    "product_id": "document_scan",
+                Analytics.log(.documentScanCompleted, properties: [
                     "readable": !result.unreadable
                 ])
             } catch {

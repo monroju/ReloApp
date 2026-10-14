@@ -175,7 +175,7 @@ final class PurchaseManager: ObservableObject {
         Task {
             await refreshLegacyEntitlement()
             await loadProducts()
-            await reconcileEntitlements(silent: true)
+            await reconcileEntitlements(report: nil)
         }
     }
 
@@ -191,12 +191,9 @@ final class PurchaseManager: ObservableObject {
         guard let isLegacy = await LegacyEntitlementService.resolve(), isLegacy else { return }
         guard !isLegacyPaidInstall else { return }
         isLegacyPaidInstall = true
-        Analytics.log(.purchaseCompleted, properties: [
-            "product_id": "legacy_paid_install",
-            "is_subscription": false,
-            "is_bundle": true,
-            "grandfathered": true
-        ])
+        // Not a sale: a pre-freemium buyer confirmed on this device. Kept out of purchase_completed
+        // so store reconciliation (02-metrics.md, gate G1) is not inflated.
+        Analytics.log(.legacyInstallConfirmed, properties: ["$set": ["is_paying": true]])
         await syncToFirestore()
     }
 
@@ -256,8 +253,10 @@ final class PurchaseManager: ObservableObject {
     // MARK: - Purchase + restore
 
     func purchase(_ product: Product) async throws {
-        Analytics.log(.purchaseInitiated, properties: [
+        let source = Analytics.paywallSource
+        Analytics.log(.purchaseStarted, properties: [
             "product_id": product.id,
+            "source": source,
             "price": (product.price as NSDecimalNumber).doubleValue,
             "currency": product.priceFormatStyle.currencyCode
         ])
@@ -266,27 +265,26 @@ final class PurchaseManager: ObservableObject {
             switch result {
             case .success(let verification):
                 let transaction = try checkVerified(verification)
-                await updatePurchased(transaction)
+                await updatePurchased(transaction, report: .purchaseCompleted)
                 await transaction.finish()
             case .userCancelled:
-                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "user_cancelled"])
+                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "user_cancelled", "source": source])
             case .pending:
-                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "pending"])
+                Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "pending", "source": source])
                 purchaseErrorMessage = "Your purchase is waiting for approval. You'll get access as soon as it goes through."
             @unknown default:
                 break
             }
         } catch {
-            Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "exception"])
+            Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "exception", "source": source])
             purchaseErrorMessage = "The purchase couldn't be completed. You weren't charged. Please try again."
             throw error
         }
     }
 
     func restorePurchases() async {
-        // User-initiated — fires purchase analytics for each restored entitlement,
-        // matching the original behavior.
-        await reconcileEntitlements(silent: false)
+        // User-initiated: fires purchase_restored (not purchase_completed) per restored entitlement.
+        await reconcileEntitlements(report: .purchaseRestored)
     }
 
     // MARK: - Entitlement evaluation
@@ -296,12 +294,12 @@ final class PurchaseManager: ObservableObject {
     /// transaction.
     /// Does NOT call `transaction.finish()` — currentEntitlements are already-delivered
     /// entitlements; the original `restorePurchases` followed the same pattern.
-    /// `silent: true` is used at launch so existing entitlements don't re-fire as fresh purchases.
-    private func reconcileEntitlements(silent: Bool) async {
+    /// `report: nil` is used at launch so existing entitlements don't re-fire as fresh purchases.
+    private func reconcileEntitlements(report: AnalyticsEvent?) async {
         var seenSubscription = false
         for await result in StoreTransaction.currentEntitlements {
             if let transaction = try? checkVerified(result) {
-                await updatePurchased(transaction, silent: silent)
+                await updatePurchased(transaction, report: report)
                 if transaction.productType == .autoRenewable {
                     seenSubscription = true
                 }
@@ -341,7 +339,11 @@ final class PurchaseManager: ObservableObject {
         Task.detached { [weak self] in
             for await result in StoreTransaction.updates {
                 if let transaction = try? await self?.checkVerified(result) {
-                    await self?.updatePurchased(transaction)
+                    // Renewals are reported server side (functions → PostHog); only a first
+                    // transaction arriving here (Ask to Buy approval, offer code, promoted
+                    // purchase) is a new sale.
+                    let isFirst = transaction.originalID == transaction.id
+                    await self?.updatePurchased(transaction, report: isFirst ? .purchaseCompleted : nil)
                     await transaction.finish()
                 }
             }
@@ -358,9 +360,9 @@ final class PurchaseManager: ObservableObject {
     }
 
     /// Apply a verified transaction to local state and Firestore.
-    /// `silent: true` suppresses purchaseCompleted / countryUnlocked analytics — used by
-    /// `refreshEntitlements` at launch so existing entitlements don't re-fire as fresh purchases.
-    private func updatePurchased(_ transaction: StoreTransaction, silent: Bool = false) async {
+    /// `report` picks the analytics event: `.purchaseCompleted` for a new sale, `.purchaseRestored`
+    /// for the restore button, `nil` for launch reconciliation and renewals (no event).
+    private func updatePurchased(_ transaction: StoreTransaction, report: AnalyticsEvent?) async {
         let productId = transaction.productID
         let unlockedFromThis: [String]
         var isSubscription = false
@@ -409,18 +411,30 @@ final class PurchaseManager: ObservableObject {
             await writePurchaseLookup(transaction)
         }
 
-        if !silent {
-            Analytics.log(.purchaseCompleted, properties: [
+        if let report, transaction.revocationDate == nil {
+            let product = products.first { $0.id == productId }
+            var props: [String: Any] = [
                 "product_id": productId,
+                "source": Analytics.paywallSource,
+                "is_restore": report == .purchaseRestored,
+                "is_trial": transaction.offerType == .introductory,
                 "transaction_id": String(transaction.id),
                 "countries_unlocked": unlockedFromThis,
                 "is_bundle": productId == Self.productAllCountries
                     || productId == Self.productEuropeBundle
                     || productId == Self.productAmericasBundle,
-                "is_subscription": isSubscription
-            ])
-            unlockedFromThis.forEach { country in
-                Analytics.log(.countryUnlocked, country: country, extra: ["product_id": productId])
+                "is_subscription": isSubscription,
+                "$set": ["is_paying": true, "premium_product": productId]
+            ]
+            if let product {
+                props["price"] = (product.price as NSDecimalNumber).doubleValue
+                props["currency"] = product.priceFormatStyle.currencyCode
+            }
+            Analytics.log(report, properties: props)
+            if report == .purchaseCompleted {
+                unlockedFromThis.forEach { country in
+                    Analytics.log(.countryUnlocked, country: country, extra: ["product_id": productId])
+                }
             }
         }
 

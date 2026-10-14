@@ -15,7 +15,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             apiKey: "phc_zdWSqHah9LiyNqn38H2i3E48XPv5acrWsXedfUWVGSLb",
             host: "https://eu.i.posthog.com"
         )
+        phConfig.captureApplicationLifecycleEvents = true
         PostHogSDK.shared.setup(phConfig)
+        Analytics.registerSuperProperties()
+        InstallAttribution.resolveOnce()
         PushNotificationService.shared.configureOnLaunch()
         FirstWeekTrialService.bootstrap()
         return true

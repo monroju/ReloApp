@@ -88,7 +88,7 @@ struct HomeView: View {
                 calendarVM.startListening()
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "home")
             }
             .alert("Delete Account", isPresented: $showDeleteAccount) {
                 Button("Cancel", role: .cancel) { }

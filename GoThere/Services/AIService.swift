@@ -93,7 +93,7 @@ final class AIService: ObservableObject {
     func send(_ text: String) async {
         guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         guard !isPaywallGated else {
-            Analytics.log(.aiFreeLimitReached)
+            Analytics.log(.freeLimitReached, properties: ["limit": "ai"])
             lastError = "You've used all free messages. Upgrade to keep going."
             return
         }

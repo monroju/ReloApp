@@ -35,9 +35,10 @@ struct RealJourneyView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "real_journey")
             }
             .onAppear {
+                guard !isUnlocked else { return }
                 Analytics.log(.paywallViewed, country: journey.countryId, extra: [
                     "source": "real_journey",
                     "journey_id": journey.id,

@@ -205,8 +205,7 @@ struct ReferralView: View {
             purchaseManager.applyPromoGrant(until: result.premiumUntil)
             redeemSucceeded = true
             redeemMessage = "You're in — \(result.rewardDays) days of All-Access unlocked."
-            Analytics.log(.purchaseCompleted, properties: [
-                "product_id": "referral_redeem",
+            Analytics.log(.referralRedeemed, properties: [
                 "reward_days": result.rewardDays
             ])
         } catch {
