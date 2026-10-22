@@ -184,7 +184,12 @@ struct SettingsView: View {
                                 .foregroundColor(.secondary)
                         }
                     } icon: {
-                        Image(systemName: app.systemImage)
+                        Image(app.iconName)
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 32, height: 32)
+                            .clipShape(RoundedRectangle(cornerRadius: 7, style: .continuous))
                     }
                 }
             }

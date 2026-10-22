@@ -20,11 +20,11 @@ enum PromoApp: String {
         }
     }
 
-    /// SF Symbol shown next to the app name.
-    var systemImage: String {
+    /// Asset catalog name of the app's real icon, shown next to the app name.
+    var iconName: String {
         switch self {
-        case .localista: return "newspaper"
-        case .passdgt: return "car"
+        case .localista: return "PromoLocalista"
+        case .passdgt: return "PromoPassDGT"
         }
     }
 

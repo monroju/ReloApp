@@ -816,10 +816,12 @@ struct ResourcesView: View {
             CrossPromo.open(app, placement: .resources, countryId: countrySelection.current)
         } label: {
             HStack(spacing: 12) {
-                Image(systemName: app.systemImage)
-                    .font(.title2)
-                    .foregroundColor(.goPrimary)
-                    .frame(width: 36, height: 36)
+                Image(app.iconName)
+                    .renderingMode(.original)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 40, height: 40)
+                    .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(app.title)
                         .font(.subheadline.weight(.semibold))
