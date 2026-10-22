@@ -573,38 +573,13 @@ struct ResourcesView: View {
                         }
                     }
 
-                    // Cross-promotion: Localista (always visible)
+                    // Cross-promotion: Localista always, PassDGT only on Spain
                     Divider().padding(.vertical, 8)
 
-                    Button {
-                        if let url = URL(string: "https://apps.apple.com/app/localista-spain-expat-news/id6760856341") {
-                            UIApplication.shared.open(url)
-                        }
-                    } label: {
-                        HStack(spacing: 12) {
-                            Image(systemName: "newspaper")
-                                .font(.title2)
-                                .foregroundColor(.goPrimary)
-                                .frame(width: 36, height: 36)
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("Try Localista")
-                                    .font(.subheadline.weight(.semibold))
-                                    .foregroundColor(.primary)
-                                Text("Spain news in English — 30+ cities, emergency alerts, expat guides")
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                                    .lineLimit(2)
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding(14)
-                        .background(Color(.secondarySystemGroupedBackground))
-                        .cornerRadius(12)
+                    crossPromoCard(.localista)
+                    if countrySelection.current == DestinationConfig.spain {
+                        crossPromoCard(.passdgt)
                     }
-                    .buttonStyle(.plain)
                 }
                 .padding(.horizontal, 12)
                 .padding(.vertical, 12)
@@ -834,6 +809,37 @@ struct ResourcesView: View {
     }
 
     // MARK: - Helpers
+
+    /// Card linking to one of our other apps' App Store listing.
+    private func crossPromoCard(_ app: PromoApp) -> some View {
+        Button {
+            CrossPromo.open(app, placement: .resources, countryId: countrySelection.current)
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: app.systemImage)
+                    .font(.title2)
+                    .foregroundColor(.goPrimary)
+                    .frame(width: 36, height: 36)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(app.title)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.primary)
+                    Text(app.subtitle)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+            .padding(14)
+            .background(Color(.secondarySystemGroupedBackground))
+            .cornerRadius(12)
+        }
+        .buttonStyle(.plain)
+    }
 
     private var countryName: String {
         DestinationConfig.getDestination(countrySelection.current)?.name ?? "Spain"
