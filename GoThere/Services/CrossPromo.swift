@@ -44,7 +44,7 @@ enum CrossPromoPlacement: String {
 enum CrossPromo {
     /// Logs `cross_promo_tapped` and opens the App Store listing.
     static func open(_ app: PromoApp, placement: CrossPromoPlacement, countryId: String? = nil) {
-        var props: [String: Any] = ["app": app.rawValue, "placement": placement.rawValue]
+        var props: [String: Any] = ["target_app": app.rawValue, "placement": placement.rawValue]
         if let countryId { props["country_id"] = countryId }
         Analytics.log(.crossPromoTapped, properties: props)
         UIApplication.shared.open(app.storeURL)
