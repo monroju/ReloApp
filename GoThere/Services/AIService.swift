@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseAuth
 
 /// Wave 2 — AI conversational entry point.
 ///
@@ -150,6 +151,9 @@ final class AIService: ObservableObject {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue(Self.systemPromptVersion, forHTTPHeaderField: "X-System-Prompt-Version")
         request.setValue(Self.appToken, forHTTPHeaderField: "X-GoThere-App-Token")
+        if let idToken = await AIAuth.idToken() {
+            request.setValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
+        }
 
         let body = AIProxyRequest(
             systemPromptVersion: Self.systemPromptVersion,
@@ -164,6 +168,9 @@ final class AIService: ObservableObject {
         }
         guard (200..<300).contains(http.statusCode) else {
             let raw = String(data: data, encoding: .utf8) ?? "(no body)"
+            if AIAuth.isDailyLimit(status: http.statusCode, body: data) {
+                throw AIServiceError.dailyLimit
+            }
             throw AIServiceError.proxyStatus(http.statusCode, raw)
         }
         do {
@@ -191,15 +198,39 @@ final class AIService: ObservableObject {
     }
 }
 
+// MARK: - Auth
+
+/// Signed-in user's Firebase ID token for the AI endpoints, sent as
+/// `Authorization: Bearer`. Never blocks a request: no user or a failed
+/// refresh just means the header is left off.
+enum AIAuth {
+    static let dailyLimitMessage = "You've reached today's AI limit. Try again tomorrow."
+
+    static func idToken() async -> String? {
+        guard let user = Auth.auth().currentUser else { return nil }
+        return try? await user.getIDToken()
+    }
+
+    /// The proxy answers 429 with `"code":"daily_limit"` when a quota is used up.
+    static func isDailyLimit(status: Int, body: Data) -> Bool {
+        guard status == 429,
+              let json = try? JSONSerialization.jsonObject(with: body) as? [String: Any] else { return false }
+        return (json["code"] as? String) == "daily_limit"
+    }
+}
+
 // MARK: - Errors
 
 enum AIServiceError: Error {
     case transport(String)
     case proxyStatus(Int, String)
     case decode(String)
+    case dailyLimit
 
     var userFacing: String {
         switch self {
+        case .dailyLimit:
+            return AIAuth.dailyLimitMessage
         case .transport(let s):
             return "Connection problem: \(s)"
         case .proxyStatus(let code, _):

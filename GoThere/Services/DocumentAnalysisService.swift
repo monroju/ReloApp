@@ -127,10 +127,16 @@ final class DocumentAnalysisService: ObservableObject {
         req.httpMethod = "POST"
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.setValue(AIService.appToken, forHTTPHeaderField: "X-GoThere-App-Token")
+        if let idToken = await AIAuth.idToken() {
+            req.setValue("Bearer \(idToken)", forHTTPHeaderField: "Authorization")
+        }
         req.httpBody = try JSONSerialization.data(withJSONObject: payload)
 
         let (data, resp) = try await session.data(for: req)
         if let http = resp as? HTTPURLResponse, http.statusCode != 200 {
+            if AIAuth.isDailyLimit(status: http.statusCode, body: data) {
+                throw DocumentAnalysisError.server(AIAuth.dailyLimitMessage)
+            }
             let msg = (try? JSONSerialization.jsonObject(with: data) as? [String: Any])?["error"] as? String
             throw DocumentAnalysisError.server(msg ?? "The document reader is unavailable right now. Please try again.")
         }

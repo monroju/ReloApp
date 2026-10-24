@@ -44,7 +44,7 @@ struct TasksView: View {
                     } actions: {
                         if purchaseManager.isCountryUnlocked(countrySelection.current) {
                             Button("Load Checklist") { importSeedTasks(for: countrySelection.current) }
-                                .buttonStyle(.borderedProminent)
+                                .buttonStyle(.goRaised)
                         }
                         Button("Add a Task") { showAddTask = true }
                     }

@@ -398,10 +398,8 @@ struct PaywallView: View {
                     Text("Subscribe")
                         .font(.subheadline.bold())
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.goPrimary)
+                .buttonStyle(.goRaised)
             }
         }
         .goCard()
@@ -450,10 +448,8 @@ struct PaywallView: View {
                     Text("Unlock \(countries.count) countries")
                         .font(.subheadline.bold())
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.goPrimary)
+                .buttonStyle(.goRaised)
             }
         }
         .goCard()
@@ -511,10 +507,8 @@ struct PaywallView: View {
                     Text(isAvailable ? "Purchase" : (purchaseManager.isLoadingProducts ? "Loading price…" : "Unavailable right now"))
                         .font(.subheadline.bold())
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 8)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.goPrimary)
+                .buttonStyle(.goRaised)
                 .disabled(!isAvailable)
             }
         }
