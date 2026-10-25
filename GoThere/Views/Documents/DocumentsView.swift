@@ -21,8 +21,10 @@ struct DocumentsView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     // Header
                     HStack {
-                        Text("Your Documents")
+                        Text("Documents")
                             .font(.title2.bold())
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
 
                         Button {
                             Task { vm.startListening() }
@@ -46,21 +48,15 @@ struct DocumentsView: View {
                                         .stroke(Color.goPrimary, lineWidth: 1.5)
                                 )
                         }
+                        .buttonStyle(.goPress)
 
                         Button {
                             pendingSlot = nil
                             showFilePicker = true
                         } label: {
                             Text("Upload")
-                                .font(.subheadline.weight(.medium))
-                                .foregroundColor(.goPrimary)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 20)
-                                        .stroke(Color.goPrimary, lineWidth: 1.5)
-                                )
                         }
+                        .buttonStyle(.goRaised)
                     }
 
                     // Vault status summary (Differentiation Wave) — only once
@@ -78,8 +74,7 @@ struct DocumentsView: View {
                                 .foregroundColor(.secondary)
                         }
                         .padding()
-                        .background(Color.goPrimary.opacity(0.08))
-                        .cornerRadius(12)
+                        .goRaised()
                     }
 
                     // Upload progress

@@ -240,16 +240,16 @@ enum DestinationConfig {
         name: "Italy",
         flagEmoji: "\u{1F1EE}\u{1F1F9}",
         region: "Europe",
-        description: "Italian citizenship by descent (jure sanguinis). The March 2025 reform limits eligibility to applicants with an Italian-born parent or grandparent — but those who qualify gain Italian (and EU) citizenship for life.",
+        description: "Italian citizenship by descent (jure sanguinis). The March 2025 reform limits eligibility to applicants with a parent or grandparent who held only Italian citizenship (or a parent who lived in Italy 2+ years before their birth). Those who qualify gain Italian (and EU) citizenship for life.",
         visaTracks: [
             VisaTrack(
                 id: italyJureSanguinis,
                 destinationId: italy,
                 name: "Italian Citizenship by Descent (Jure Sanguinis)",
                 shortName: "Jure Sanguinis",
-                description: "Italian citizenship is transmitted by blood (jure sanguinis). Decree-Law 36/2025 (in force March 28, 2025) restricted eligibility to applicants with at least one Italian-born parent or grandparent for applications filed on or after that date. The unbroken citizenship chain must be intact (no ancestor naturalized as a US citizen before passing citizenship to the next generation in the line).",
+                description: "Italian citizenship is transmitted by blood (jure sanguinis). Decree-Law 36/2025 (in force March 28, 2025) restricted eligibility for people born abroad with another citizenship: you need a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born. Applications filed by 27 March 2025 keep the old rules. Upheld by the Constitutional Court in 2026 (ruling 63/2026). The unbroken citizenship chain must be intact (no ancestor naturalized as a US citizen before passing citizenship to the next generation in the line).",
                 requirements: [
-                    "Italian-born parent or grandparent in your direct line (post-2025 reform)",
+                    "Parent or grandparent with only Italian citizenship, or a parent who lived in Italy 2+ years before your birth (post-2025 reform)",
                     "Unbroken citizenship chain — Italian ancestor did not naturalize as a US citizen before the next generation in the line was born (or if they did, only after that birth)",
                     "Certified vital records (birth, marriage, death) for each generation, with Apostille + sworn Italian translation",
                     "Application filed at the Italian consulate having jurisdiction over your US residence (or via 1948 case in Italian court if descent passes through a female ancestor before 1948)",

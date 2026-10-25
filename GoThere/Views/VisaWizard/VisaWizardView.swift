@@ -312,6 +312,7 @@ struct VisaWizardView: View {
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.top, 40)
+                    .onAppear { ReviewPromptService.recordAndMaybeRequest(.wizardCompleted) }
                 } else {
                     inFluxBanner
 

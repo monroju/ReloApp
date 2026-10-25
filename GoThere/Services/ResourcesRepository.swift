@@ -98,7 +98,7 @@ final class ResourcesRepository: ObservableObject {
             return [
                 ResourceItem(name: "Foreign_Births_Register_Application.pdf", path: "VisaForms/ireland/Foreign_Births_Register_Application.pdf", sizeBytes: 220_000, downloadUrl: "https://www.ireland.ie/en/dfa/citizenship/born-abroad/", category: "VisaForms"),
                 ResourceItem(name: "FBR_Required_Documents_Checklist.pdf", path: "VisaForms/ireland/FBR_Required_Documents_Checklist.pdf", sizeBytes: 175_000, downloadUrl: "https://www.ireland.ie/en/dfa/citizenship/", category: "VisaForms"),
-                ResourceItem(name: "Apostille_Translation_Guide_IE.pdf", path: "Resources/ireland/Apostille_Translation_Guide_IE.pdf", sizeBytes: 145_000, downloadUrl: "https://www.dfa.ie/passports/the-apostille-and-authentication-service/", category: "Resources"),
+                ResourceItem(name: "Apostille_Translation_Guide_IE.pdf", path: "Resources/ireland/Apostille_Translation_Guide_IE.pdf", sizeBytes: 145_000, downloadUrl: "https://www.ireland.ie/en/dfa/", category: "Resources"),
                 ResourceItem(name: "PPS_Number_Registration_Guide.pdf", path: "Arrival/ireland/PPS_Number_Registration_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://www.gov.ie/en/service/12e6de-get-a-personal-public-service-pps-number/", category: "Arrival"),
                 ResourceItem(name: "HSE_Healthcare_Registration.pdf", path: "Arrival/ireland/HSE_Healthcare_Registration.pdf", sizeBytes: 180_000, downloadUrl: "https://www2.hse.ie/services/medical-cards/", category: "Arrival"),
                 ResourceItem(name: "Rental_Contract_Template_IE.pdf", path: "Templates/ireland/Rental_Contract_Template_IE.pdf", sizeBytes: 240_000, downloadUrl: nil, category: "Templates"),

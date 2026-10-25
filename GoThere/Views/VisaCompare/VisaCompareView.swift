@@ -93,6 +93,7 @@ struct VisaCompareView: View {
             }
         }
         .onAppear {
+            Analytics.log(.visaCompareViewed, properties: ["country_id": initialCountryId ?? "all"])
             ReviewPromptService.recordAndMaybeRequest(.visaCompareViewed)
         }
     }

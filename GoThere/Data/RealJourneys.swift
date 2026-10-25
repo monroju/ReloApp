@@ -424,7 +424,7 @@ enum RealJourneys {
         totalDuration: "~14 months from comune request to Italian passport in hand",
         feeSummary: "Italian citizenship lawyer retainer ≈ €3,500-€6,000 for a clean consulate case; €8,000-€15,000+ for a 1948 Court of Rome filing. Document costs (apostilles, sworn translations, GRO-equivalent civil records) add another €800-€2,000.",
         eligibilitySummary: [
-            "Italian-born parent or grandparent in your line (post-DL 36/2025 cap)",
+            "Parent or grandparent with only Italian citizenship, or a parent who lived in Italy 2+ years before your birth (post-DL 36/2025)",
             "Citizenship chain not broken by ancestor's naturalisation before the next generation in line was born",
             "1948 case (maternal line where child was born before 1 January 1948) requires Court of Rome action — no consulate route",
             "Application filed before 23:59 Rome time on 27 March 2025 falls under the pre-reform rules"

@@ -26,6 +26,7 @@ struct SettingsView: View {
                 appearanceSection
                 toolsSection
                 accountSection
+                moreFromUsSection
                 aboutSection
             }
             .navigationTitle("Settings")
@@ -36,7 +37,7 @@ struct SettingsView: View {
                 }
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView().environmentObject(purchaseManager)
+                PaywallView(source: "settings").environmentObject(purchaseManager)
             }
             .alert("Delete your account?", isPresented: $showDeleteConfirm) {
                 Button("Cancel", role: .cancel) {}
@@ -164,6 +165,32 @@ struct SettingsView: View {
             if !auth.isGuest {
                 Button("Delete Account", role: .destructive) {
                     showDeleteConfirm = true
+                }
+            }
+        }
+    }
+
+    private var moreFromUsSection: some View {
+        Section("More from us") {
+            ForEach([PromoApp.localista, .passdgt], id: \.self) { app in
+                Button {
+                    CrossPromo.open(app, placement: .settings, countryId: countrySelection.current)
+                } label: {
+                    Label {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(app.title)
+                            Text(app.subtitle)
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+                    } icon: {
+                        Image(app.iconName)
+                            .renderingMode(.original)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 32, height: 32)
+                            .clipShape(RoundedRectangle(cornerRadius: 7, style: .continuous))
+                    }
                 }
             }
         }

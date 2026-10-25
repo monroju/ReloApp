@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-05-28",
+  "lastUpdated": "2026-10-12",
   "disclaimer": "Eligibility rules summarised from publicly available consular guidance. Final eligibility is determined by the destination country's consulate or government. This is research, not legal advice — confirm with a qualified immigration lawyer before filing.",
   "paths": [
     {
@@ -9,12 +9,20 @@
       "countryName": "Italy",
       "shortName": "Jure Sanguinis",
       "fullName": "Italian Citizenship by Descent",
-      "summary": "Italy passes citizenship through bloodline with no generational limit on the paternal side and from 1 Jan 1948 onward on the maternal side. If any direct ancestor was Italian at the time their child was born, you likely qualify.",
+      "summary": "Since 28 March 2025, if you were born abroad and hold another citizenship, Italy only recognizes citizenship by descent if you have a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born. An Italian-born grandparent who later became a US citizen does not count. Applications, booked consulate appointments and court cases filed by 27 March 2025 keep the old rules. Italy's Constitutional Court upheld the law in 2026 (ruling 63/2026).",
+      "lastVerified": "2026-10-12",
+      "legalSource": "Law 91/1992 art. 3-bis (added by Decree-Law 36/2025, converted by Law 74/2025); Corte costituzionale sentenza 63/2026",
       "incomeRequired": false,
       "estCostUSD": { "low": 700, "high": 4500, "note": "Document procurement + apostilles + consular fees. Most cost is paperwork hunt, not government fees." },
       "estTimelineMonths": { "low": 18, "high": 48 },
       "outcome": "Full Italian + EU citizenship + passport. Right to live and work anywhere in the EU/EEA.",
       "eligibilityRules": [
+        {
+          "id": "close_link_law_74_2025",
+          "label": "You have a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born",
+          "explanation": "Required since 28 March 2025 for anyone born abroad who holds another citizenship (Law 91/1992 art. 3-bis). Great-grandparent lines are closed unless your application, booked appointment or court case was filed by 23:59 Rome time on 27 March 2025.",
+          "required": true
+        },
         {
           "id": "ancestor_italian_at_emigration",
           "label": "Your Italian ancestor was still an Italian citizen when their child (your next-up ancestor) was born",
@@ -79,7 +87,7 @@
         "Two witnesses to certify the application form"
       ],
       "lowIncomeNotes": "No income test. €278 fee is the only government cost. Application is by post — no travel required. Once registered, you can apply for an Irish passport for €80 and move to Ireland (or any EU country) without further immigration paperwork.",
-      "officialUrl": "https://www.dfa.ie/citizenship/born-abroad/registering-a-foreign-birth/"
+      "officialUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/"
     },
     {
       "id": "germany_stag",

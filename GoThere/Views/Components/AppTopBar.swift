@@ -57,7 +57,7 @@ struct GoThereTopBar: ViewModifier {
                     .preferredColorScheme(themeVM.colorScheme)
             }
             .sheet(isPresented: $showPaywall) {
-                PaywallView()
+                PaywallView(source: "top_bar")
                     .environmentObject(purchaseManager)
             }
             .sheet(item: $lockedCountry) { c in

@@ -33,6 +33,7 @@ final class AuthService: ObservableObject {
         #endif
 
         authListener = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            if let uid = user?.uid { Analytics.identify(uid: uid) }
             DispatchQueue.main.async {
                 self?.currentUser = user
                 self?.isAuthenticated = user != nil || (self?.isGuest ?? false)
@@ -52,6 +53,7 @@ final class AuthService: ObservableObject {
         #endif
         do {
             try await Auth.auth().signIn(withEmail: email, password: password)
+            Analytics.log(.loginCompleted, properties: ["method": "email"])
         } catch let error as NSError where error.code == 17995 {
             // Keychain error — server auth may have succeeded anyway
             if let user = Auth.auth().currentUser {
@@ -81,6 +83,7 @@ final class AuthService: ObservableObject {
                 "email": email,
                 "createdAt": FieldValue.serverTimestamp()
             ])
+            Analytics.log(.signupCompleted, properties: ["method": "email", "from_guest": isGuest])
         } catch let error as NSError where error.code == 17995 {
             if let user = Auth.auth().currentUser {
                 await MainActor.run {
@@ -97,6 +100,7 @@ final class AuthService: ObservableObject {
     }
 
     func signInAsGuest() {
+        Analytics.log(.guestStarted)
         isGuest = true
         isAuthenticated = true
     }
@@ -118,6 +122,7 @@ final class AuthService: ObservableObject {
     func signOut() {
         isGuest = false
         if firebaseAvailable { try? Auth.auth().signOut() }
+        Analytics.reset()
     }
 
     enum AuthError: LocalizedError {

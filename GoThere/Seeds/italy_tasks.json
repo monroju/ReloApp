@@ -1,7 +1,7 @@
 [
   {
-    "title": "Confirm you have an Italian-born parent or grandparent",
-    "description": "After Decree-Law 36/2025 (in force 2025-03-28), Italian citizenship by descent (jure sanguinis) requires at least one parent or grandparent who was born in Italy. Great-grandparent paths are largely closed for applications filed after that date.",
+    "title": "Confirm you meet the 2025 close-link rule",
+    "description": "After Decree-Law 36/2025 (in force 2025-03-28), Italian citizenship by descent (jure sanguinis) requires, for anyone born abroad with another citizenship, a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born. Being born in Italy is not enough: a grandparent who became a US citizen does not count. Great-grandparent paths are closed for applications filed after 27 March 2025.",
     "phaseId": "phase_1_plan",
     "visaTrackId": "it_jure_sanguinis",
     "order": 1,
