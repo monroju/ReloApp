@@ -1,5 +1,6 @@
 import Foundation
 import StoreKit
+import CryptoKit
 import FirebaseFirestore
 
 private typealias StoreTransaction = StoreKit.Transaction
@@ -261,7 +262,13 @@ final class PurchaseManager: ObservableObject {
             "currency": product.priceFormatStyle.currencyCode
         ])
         do {
-            let result = try await product.purchase()
+            var options: Set<Product.PurchaseOption> = []
+            if let uid = AuthService.shared.uid {
+                // Binds the transaction to this Firebase account; the server
+                // compares it with the iapPurchases row (functions/apple.js).
+                options.insert(.appAccountToken(Self.appAccountToken(for: uid)))
+            }
+            let result = try await product.purchase(options: options)
             switch result {
             case .success(let verification):
                 let transaction = try checkVerified(verification)
@@ -490,6 +497,16 @@ final class PurchaseManager: ObservableObject {
         } else {
             subscriptionStatus = .expired
         }
+    }
+
+    /// UUID made from sha256("gothere:" + uid), RFC 4122 version/variant bits
+    /// set. Must match appAccountTokenFor in functions/apple.js.
+    static func appAccountToken(for uid: String) -> UUID {
+        var b = Array(SHA256.hash(data: Data("gothere:\(uid)".utf8)).prefix(16))
+        b[6] = (b[6] & 0x0f) | 0x50
+        b[8] = (b[8] & 0x3f) | 0x80
+        return UUID(uuid: (b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7],
+                           b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15]))
     }
 
     // MARK: - Firestore sync
