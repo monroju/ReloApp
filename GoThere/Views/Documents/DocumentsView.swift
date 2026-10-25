@@ -21,8 +21,10 @@ struct DocumentsView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     // Header
                     HStack {
-                        Text("Your Documents")
+                        Text("Documents")
                             .font(.title2.bold())
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
 
                         Button {
                             Task { vm.startListening() }
