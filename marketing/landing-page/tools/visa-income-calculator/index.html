@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics --><script src="/assets/gt.js" defer></script>
+  <title>Visa Income Calculator: Do You Earn Enough to Move Abroad? (2026)</title>
+  <meta name="description" content="Enter your income and see which of 9 retiree, passive-income and digital nomad visas in Spain, Portugal, Ireland, Italy and Mexico you qualify for. Every threshold sourced and dated.">
+  <link rel="canonical" href="https://getgothere.app/tools/visa-income-calculator/">
+  <meta property="og:title" content="Visa Income Calculator: Do You Earn Enough to Move Abroad? (2026)">
+  <meta property="og:description" content="Enter your income and see which of 9 retiree, passive-income and digital nomad visas in Spain, Portugal, Ireland, Italy and Mexico you qualify for. Every threshold sourced and dated.">
+  <meta property="og:url" content="https://getgothere.app/tools/visa-income-calculator/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://getgothere.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Visa income calculator", "url": "https://getgothere.app/tools/visa-income-calculator/", "description": "Enter your income and see which of 9 retiree, passive-income and digital nomad visas in Spain, Portugal, Ireland, Italy and Mexico you qualify for. Every threshold sourced and dated.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "GoThere", "url": "https://getgothere.app"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://getgothere.app/"}, {"@type": "ListItem", "position": 2, "name": "Free tools", "item": "https://getgothere.app/tools/"}, {"@type": "ListItem", "position": 3, "name": "Visa income calculator", "item": "https://getgothere.app/tools/visa-income-calculator/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much income do I need to move abroad from the US?", "acceptedAnswer": {"@type": "Answer", "text": "Of the visas here, the lowest bar is the Portugal D7 Visa at €920 a month for the applicant. The highest personal-income bar is the Mexico Permanent Resident Visa."}}, {"@type": "Question", "name": "Do these thresholds include my spouse and children?", "acceptedAnswer": {"@type": "Answer", "text": "No. They are for the main applicant. Each visa adds an amount per family member, listed next to it."}}, {"@type": "Question", "name": "Which exchange rate does the calculator use?", "acceptedAnswer": {"@type": "Answer", "text": "The European Central Bank reference rate published on 2026-10-26: 1 US dollar = 0.8938 euros. Rates move every day, so leave yourself a margin if you are close to a threshold."}}, {"@type": "Question", "name": "Does any income count?", "acceptedAnswer": {"@type": "Answer", "text": "No. Retiree and passive-income visas usually exclude salary, and digital nomad visas need income from remote work. Check the basis line under each visa."}}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --teal:#15B8A6; --teal-dark:#0F8F82; --bg:#0B0F14; --bg-card:#1A2332; --border:#1E293B; --text:#F1F5F9; --text-mute:#94A3B8; }
+    *,*:before,*:after { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:Inter,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased; }
+    a { color:var(--teal); text-decoration:none; } a:hover { text-decoration:underline; }
+    .container { max-width:900px; margin:0 auto; padding:32px 24px; }
+    nav { padding:20px 24px; border-bottom:1px solid var(--border); }
+    nav .container { padding:0; display:flex; justify-content:space-between; align-items:center; }
+    nav a.logo { font-family:'DM Sans'; font-weight:700; font-size:22px; color:var(--text); }
+    h1 { font-family:'DM Sans'; font-size:38px; line-height:1.2; font-weight:700; margin:24px 0 16px; letter-spacing:-0.02em; }
+    h2 { font-family:'DM Sans'; font-size:25px; margin:48px 0 8px; font-weight:700; letter-spacing:-0.01em; }
+    h3 { font-size:19px; margin:28px 0 6px; font-weight:600; }
+    p { margin:16px 0; }
+    .lede { font-size:18px; color:var(--text-mute); margin:0 0 24px; }
+    .breadcrumb { font-size:14px; color:var(--text-mute); margin-bottom:12px; }
+    .breadcrumb a { color:var(--text-mute); }
+    .table-wrap { overflow-x:auto; margin:20px 0; }
+    table { width:100%; border-collapse:collapse; font-size:14px; min-width:640px; }
+    th,td { padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); vertical-align:top; }
+    th { color:var(--teal); font-weight:600; background:rgba(21,184,166,0.05); position:sticky; top:0; }
+    td.visa { font-weight:600; color:var(--text); white-space:nowrap; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; margin:20px 0; }
+    .tile { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:18px 20px; display:block; }
+    .tile:hover { border-color:var(--teal); text-decoration:none; }
+    .tile h3 { font-size:17px; font-weight:600; color:var(--text); margin:0 0 6px; }
+    .tile p { font-size:14px; color:var(--text-mute); margin:0; }
+    .card { background:var(--bg-card); border:1px solid var(--border); border-radius:12px; padding:20px 22px; margin:16px 0; }
+    .card h3 { margin-top:0; }
+    .pros-cons { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:12px 0; }
+    .pros-cons ul { margin:6px 0 0 18px; font-size:14px; color:var(--text-mute); }
+    .pros h4,.cons h4 { font-size:12px; text-transform:uppercase; letter-spacing:0.04em; }
+    .pros h4 { color:var(--teal); } .cons h4 { color:#f87171; }
+    .cta-box { background:linear-gradient(135deg,var(--teal-dark),var(--teal)); border-radius:16px; padding:32px; text-align:center; margin:48px 0; }
+    .cta-box h3 { color:#fff; font-size:24px; margin-bottom:8px; } .cta-box p { color:rgba(255,255,255,0.9); margin-bottom:20px; }
+    .cta-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .cta-buttons a { background:#000; color:#fff; padding:12px 20px; border-radius:8px; font-weight:500; }
+    .cta-buttons a:hover { background:#1a1a1a; text-decoration:none; }
+    .callout { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--teal); border-radius:8px; padding:16px 20px; margin:24px 0; font-size:15px; }
+    footer { border-top:1px solid var(--border); padding:32px 24px; margin-top:64px; color:var(--text-mute); font-size:14px; }
+    footer .container { padding:0; }
+    @media (max-width:600px){ h1{font-size:30px;} .pros-cons{grid-template-columns:1fr;} }
+
+    .answer { background:var(--bg-card); border:1px solid var(--border); border-left:3px solid var(--teal); border-radius:8px; padding:18px 22px; margin:8px 0 20px; font-size:17px; }
+    .answer p { margin:8px 0; }
+    .verified { font-size:13px; color:var(--text-mute); margin:0 0 24px; }
+    .src { font-size:12px; margin-left:4px; white-space:nowrap; }
+    .nv { color:#fbbf24; font-size:13px; }
+    .usd { color:var(--text-mute); font-size:13px; }
+    dl.facts { display:grid; grid-template-columns:200px 1fr; gap:8px 16px; margin:16px 0; font-size:15px; }
+    dl.facts dt { color:var(--text-mute); } dl.facts dd { margin:0; }
+    ol.steps { margin:12px 0 12px 22px; } ol.steps li { margin:6px 0; }
+    details { margin:12px 0; font-size:14px; color:var(--text-mute); }
+    details summary { cursor:pointer; color:var(--teal); }
+    details li { margin:6px 0 6px 18px; }
+    .tag { display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; border:1px solid var(--border); color:var(--text-mute); margin-right:6px; }
+    .change { border-bottom:1px solid var(--border); padding:18px 0; }
+    .change h2 { font-size:20px; margin:8px 0; }
+    .diff { font-size:14px; } .diff del { color:#f87171; } .diff ins { color:var(--teal); text-decoration:none; }
+    @media (max-width:600px){ dl.facts{grid-template-columns:1fr;} dl.facts dt{margin-top:8px;} }
+
+    [hidden] { display:none !important; }
+    form.tool { background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:20px 22px; margin:16px 0; }
+    form.tool fieldset { border:0; padding:0; margin:0 0 16px; }
+    form.tool legend { font-weight:600; margin-bottom:8px; }
+    form.tool label { display:block; font-size:14px; color:var(--text-mute); margin:8px 0 4px; }
+    form.tool input, form.tool select { background:var(--bg); color:var(--text); border:1px solid var(--border); border-radius:6px; padding:8px 10px; font:inherit; width:100%; max-width:260px; box-sizing:border-box; }
+    form.tool .row { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:4px 16px; padding:12px 0; border-top:1px solid var(--border); }
+    form.tool .row h3 { grid-column:1/-1; margin:0; font-size:16px; }
+    form.tool .radios label { display:inline-flex; align-items:center; gap:6px; margin-right:18px; color:var(--text); font-size:15px; }
+    form.tool .radios input { width:auto; }
+    form.tool button { background:var(--teal); color:#0B0F14; border:0; border-radius:8px; padding:12px 22px; font:inherit; font-weight:600; cursor:pointer; margin-top:8px; }
+    form.tool .check { display:flex; align-items:center; gap:8px; color:var(--text); font-size:15px; }
+    form.tool .check input { width:auto; }
+    .result { margin:20px 0; }
+    .result .band { border-radius:8px; padding:16px 20px; border:1px solid var(--border); background:var(--bg-card); }
+    .band.green { border-left:4px solid #22c55e; } .band.yellow { border-left:4px solid #fbbf24; } .band.red { border-left:4px solid #f87171; }
+    .band h2 { margin:0 0 8px; font-size:20px; }
+    .band ul { margin:8px 0 8px 20px; } .band li { margin:4px 0; }
+    .muted { color:var(--text-mute); font-size:14px; }
+    table.calc { width:100%; border-collapse:collapse; font-size:15px; margin:12px 0; }
+    table.calc th, table.calc td { text-align:left; padding:10px 8px; border-bottom:1px solid var(--border); vertical-align:top; }
+    table.calc th { color:var(--text-mute); font-weight:500; font-size:13px; }
+    .ok { color:#22c55e; font-weight:600; } .short { color:#f87171; font-weight:600; } .close { color:#fbbf24; font-weight:600; }
+    .tools-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; margin:20px 0; }
+    .tools-grid a.card { display:block; background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:20px; text-decoration:none; color:var(--text); }
+    .tools-grid a.card h2 { font-size:19px; margin:0 0 8px; color:var(--teal); }
+    @media (max-width:600px){ table.calc thead { display:none; } table.calc td { display:block; border:0; padding:4px 0; } table.calc tr { display:block; border-bottom:1px solid var(--border); padding:10px 0; } }
+</style>
+</head>
+<body>
+  <nav><div class="container"><a href="/" class="logo">GoThere</a><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_visa-income-calculator&mt=8">Get the app &rarr;</a></div></nav>
+  <main class="container">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/tools/">Free tools</a> / Visa income calculator</p>
+    <h1>Visa income calculator</h1>
+    <div class="answer"><p>Enter what you earn and see which of <strong>9 residence visas</strong> in Spain, Portugal, Ireland, Italy and Mexico your income clears, and by how much.</p><p>Every threshold comes from an official source with the date we checked it. Nothing you type leaves your browser.</p></div>
+    <p class="verified">Exchange rates: ECB reference rates of 2026-10-26 (1 USD = €0.8938) via <a class="src" href="https://frankfurter.dev/" rel="nofollow noopener" target="_blank">Frankfurter</a></p>
+    <form class="tool" id="income" novalidate>
+      <div class="row" style="border-top:0">
+        <div><label for="amount">Your income</label><input id="amount" name="amount" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 3500" required></div>
+        <div><label for="currency">Currency</label><select id="currency" name="currency"><option value="USD">US dollars</option><option value="EUR">Euros</option></select></div>
+        <div><label for="period">Per</label><select id="period" name="period"><option value="month">month</option><option value="year">year</option></select></div>
+      </div>
+      <button type="submit">Compare</button>
+    </form>
+    <div class="result" id="income-result" aria-live="polite"></div>
+    <h2>All thresholds, lowest first</h2>
+    <table class="calc"><thead><tr><th>Visa</th><th>Applicant needs</th><th>Family members</th></tr></thead><tbody><tr><td><a href="/move/us-to-pt/#pt_d7">Portugal D7 Visa</a><div class="muted">100% of the national minimum wage (RMMG), Portaria 1563/2007</div></td><td>€920 <span class="usd">(≈ $1,029)</span>/mo <a class="src" href="https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">+50% RMMG (EUR 460/mo) per additional adult; +30% RMMG (EUR 276/mo) per child under 18 or dependent adult child</td></tr><tr><td><a href="/move/us-to-it/#it_dnv">Italy Digital Nomad Visa</a><div class="muted">Income from lawful sources at least three times the minimum income level for exemption from healthcare cost-sharing; must come from the remote work itself (LA: Social Security, rents or stocks not counted)</div></td><td>€2,066 <span class="usd">(≈ $2,311)</span>/mo <a class="src" href="https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">No family figure published</td></tr><tr><td><a href="/move/us-to-es/#es_nlv">Spain Non-Lucrative Visa</a><div class="muted">400% of IPREM per month for the applicant (IPREM 2026 = EUR 600/month, EUR 7,200/year)</div></td><td>€2,400 <span class="usd">(≈ $2,685)</span>/mo <a class="src" href="https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">+100% of IPREM per family member: EUR 600/month (EUR 7,200/year)</td></tr><tr><td><a href="/move/us-to-es/#es_dnv">Spain Digital Nomad Visa</a><div class="muted">200% of the monthly SMI (SMI 2026 = EUR 1,221/month in 14 payments, EUR 17,094/year; Real Decreto 126/2026)</div></td><td>€2,442 <span class="usd">(≈ $2,732)</span>/mo <a class="src" href="https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">First family member +75% SMI (EUR 916/month); each additional member +25% SMI (EUR 305/month)</td></tr><tr><td><a href="/move/us-to-it/#it_elective">Italy Elective Residence Visa</a><div class="muted">Stable passive income (pensions, annuities, property, investments, stable business activities); employment income not accepted. US consulates apply roughly EUR 31,000 per year per applicant.</div></td><td>€2,583 <span class="usd">(≈ $2,890)</span>/mo <a class="src" href="https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">Consulate General New York: &#x27;For family applications, each applicant must demonstrate sufficient financial resources, typically around EUR 31,000 per person.&#x27; Boston: &#x27;totaling more than 31,000 euros yearly per applicant&#x27;, one packet per applicant. No US consulate page found states the +20% spouse / +5% per child rule.</td></tr><tr><td><a href="/move/us-to-pt/#pt_d8">Portugal D8 Digital Nomad Visa</a><div class="muted">4x the national minimum wage (RMMG), average of the last 3 months</div></td><td>€3,680 <span class="usd">(≈ $4,117)</span>/mo <a class="src" href="https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">No family figure published</td></tr><tr><td><a href="/move/us-to-mx/#mx_temp_econ">Mexico Temporary Resident Visa</a><div class="muted">Monthly income from employment or pension, net of taxes, above 680 days of UMA, for each of the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 5, req. III.a.2). 680 x UMA 2026 daily value MXN 117.31 = MXN 79,770.80.</div></td><td>MX$79,771 <span class="usd">(≈ $4,285)</span>/mo <a class="src" href="https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">No family figure published</td></tr><tr><td><a href="/move/us-to-ie/#ie_stamp_0">Ireland Stamp 0 (independent means)</a><div class="muted">Individual income of EUR 50,000 per year (pension income or readily accessible funds; investment sums are not normally measured), verified by an Irish accountancy firm</div></td><td>€4,167 <span class="usd">(≈ $4,662)</span>/mo <a class="src" href="https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">Official page states an &#x27;individual income&#x27; requirement; no separate dependant figure published</td></tr><tr><td><a href="/move/us-to-mx/#mx_perm">Mexico Permanent Resident Visa</a><div class="muted">Monthly pension income, net of taxes, above 1,140 days of UMA for the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 7, req. III.a.2). 1,140 x UMA 2026 MXN 117.31 = MXN 133,733.40.</div></td><td>MX$133,733 <span class="usd">(≈ $7,184)</span>/mo <a class="src" href="https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf" rel="nofollow noopener" target="_blank">[official source]</a><div class="muted">Verified 2026-10-26</div></td><td class="muted">No family figure published</td></tr></tbody></table>
+    <h2>Job-offer visas</h2>
+    <p>These test the salary of a job you have been offered in the country, not the income you have now:</p>
+    <ul><li><a href="/move/us-to-ie/#ie_critical_skills">Ireland Critical Skills Employment Permit</a>: salary of at least €40,904 <span class="usd">(≈ $45,764)</span>/year from an Irish employer <a class="src" href="https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/" rel="nofollow noopener" target="_blank">[official source]</a>. Minimum annual remuneration EUR 40,904 for occupations on the Critical Skills Occupations List with a relevant degree; EUR 68,911 for all other eligible occupations (degree or relevant experience); EUR 36,848 for recent relevant graduates (Level 8+, within 12 months)</li></ul>
+    <h2>Questions</h2>
+    <h3>How much income do I need to move abroad from the US?</h3>
+    <p>Of the visas here, the lowest bar is the Portugal D7 Visa at €920 a month for the applicant. The highest personal-income bar is the Mexico Permanent Resident Visa.</p>
+    <h3>Do these thresholds include my spouse and children?</h3>
+    <p>No. They are for the main applicant. Each visa adds an amount per family member, listed next to it.</p>
+    <h3>Which exchange rate does the calculator use?</h3>
+    <p>The European Central Bank reference rate published on 2026-10-26: 1 US dollar = 0.8938 euros. Rates move every day, so leave yourself a margin if you are close to a threshold.</p>
+    <h3>Does any income count?</h3>
+    <p>No. Retiree and passive-income visas usually exclude salary, and digital nomad visas need income from remote work. Check the basis line under each visa.</p>
+    <div class="cta-box"><h3>Found a visa that fits?</h3><p>GoThere turns it into a step-by-step checklist, with the documents and deadlines for your situation.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_visa-income-calculator&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dtools%26utm_medium%3Dorganic%26utm_campaign%3Dvisa-income-calculator">Get on Google Play</a></div></div>
+    <script type="application/json" id="income-data">{"rates": {"EUR": 0.89381, "MXN": 18.6155}, "date": "2026-10-26", "visas": [{"id": "pt_d7", "name": "Portugal D7 Visa", "link": "/move/us-to-pt/#pt_d7", "monthly": 920, "currency": "EUR", "family": "+50% RMMG (EUR 460/mo) per additional adult; +30% RMMG (EUR 276/mo) per child under 18 or dependent adult child", "audience": "retirees and people living on passive income"}, {"id": "it_dnv", "name": "Italy Digital Nomad Visa", "link": "/move/us-to-it/#it_dnv", "monthly": 2065.75, "currency": "EUR", "family": "", "audience": "highly skilled remote workers"}, {"id": "es_nlv", "name": "Spain Non-Lucrative Visa", "link": "/move/us-to-es/#es_nlv", "monthly": 2400, "currency": "EUR", "family": "+100% of IPREM per family member: EUR 600/month (EUR 7,200/year)", "audience": "retirees and people living on passive income"}, {"id": "es_dnv", "name": "Spain Digital Nomad Visa", "link": "/move/us-to-es/#es_dnv", "monthly": 2442, "currency": "EUR", "family": "First family member +75% SMI (EUR 916/month); each additional member +25% SMI (EUR 305/month)", "audience": "remote workers for employers or clients outside Spain"}, {"id": "it_elective", "name": "Italy Elective Residence Visa", "link": "/move/us-to-it/#it_elective", "monthly": 2583.33, "currency": "EUR", "family": "Consulate General New York: 'For family applications, each applicant must demonstrate sufficient financial resources, typically around EUR 31,000 per person.' Boston: 'totaling more than 31,000 euros yearly per applicant', one packet per applicant. No US consulate page found states the +20% spouse / +5% per child rule.", "audience": "retirees and people living on passive income"}, {"id": "pt_d8", "name": "Portugal D8 Digital Nomad Visa", "link": "/move/us-to-pt/#pt_d8", "monthly": 3680, "currency": "EUR", "family": "", "audience": "remote workers for employers or clients outside Portugal"}, {"id": "mx_temp_econ", "name": "Mexico Temporary Resident Visa", "link": "/move/us-to-mx/#mx_temp_econ", "monthly": 79770.8, "currency": "MXN", "family": "", "audience": "people with steady income or savings"}, {"id": "ie_stamp_0", "name": "Ireland Stamp 0 (independent means)", "link": "/move/us-to-ie/#ie_stamp_0", "monthly": 4166.67, "currency": "EUR", "family": "Official page states an 'individual income' requirement; no separate dependant figure published", "audience": "financially independent retirees"}, {"id": "mx_perm", "name": "Mexico Permanent Resident Visa", "link": "/move/us-to-mx/#mx_perm", "monthly": 133733.4, "currency": "MXN", "family": "", "audience": "retirees with a pension"}]}</script>
+
+<script>
+(function () {
+  var DATA = JSON.parse(document.getElementById("income-data").textContent);
+  var form = document.getElementById("income");
+  var out = document.getElementById("income-result");
+  var SYM = { EUR: "€", USD: "$", MXN: "MX$" };
+  function usd(amount, cur) { return cur === "USD" ? amount : amount / DATA.rates[cur]; }
+  function fmt(n, cur) { return (SYM[cur] || cur + " ") + Math.round(n).toLocaleString("en-US"); }
+  function el(tag, text, cls) { var e = document.createElement(tag); if (text) e.textContent = text; if (cls) e.className = cls; return e; }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var amount = parseFloat(form.elements.amount.value);
+    if (!(amount > 0)) { out.textContent = "Enter your income to compare."; return; }
+    var cur = form.elements.currency.value;
+    var monthlyUsd = usd(form.elements.period.value === "year" ? amount / 12 : amount, cur);
+    var table = el("table", null, "calc"), head = el("tr");
+    ["Visa", "Needs (applicant)", "You", "Family members"].forEach(function (h) { head.appendChild(el("th", h)); });
+    var thead = el("thead"); thead.appendChild(head); table.appendChild(thead);
+    var tbody = el("tbody"), meets = 0;
+    DATA.visas.forEach(function (v) {
+      var needUsd = usd(v.monthly, v.currency), tr = el("tr");
+      var name = el("td"), a = el("a", v.name); a.href = v.link; name.appendChild(a);
+      name.appendChild(el("div", "For " + v.audience, "muted")); tr.appendChild(name);
+      tr.appendChild(el("td", fmt(v.monthly, v.currency) + "/mo" + (v.currency !== "USD" ? " (≈ " + fmt(needUsd, "USD") + ")" : "")));
+      var gap = monthlyUsd - needUsd, cell;
+      if (gap >= needUsd * 0.1) { cell = el("td", "Meets it", "ok"); meets++; }
+      else if (gap >= 0) { cell = el("td", "Just meets it, within 10%", "close"); meets++; }
+      else { cell = el("td", "Short by " + fmt(-gap, "USD") + "/mo", "short"); }
+      tr.appendChild(cell);
+      tr.appendChild(el("td", v.family || "No family figure published", "muted"));
+      tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+    out.textContent = "";
+    out.appendChild(el("p", "Your income: about " + fmt(monthlyUsd, "USD") + " a month. You meet " + meets + " of " + DATA.visas.length + " income thresholds for the applicant alone."));
+    out.appendChild(table);
+    out.appendChild(el("p", "Thresholds are for the main applicant. Each visa adds an amount for a spouse or children, shown in the last column. Close to the line? Exchange rates move, and consulates judge borderline cases, so give yourself a margin.", "muted"));
+    if (window.gtTrack) window.gtTrack("tool_income_calc", { currency: cur, period: form.elements.period.value, meets: meets });
+  });
+})();
+</script>
+  </main>
+  <footer><div class="container"><p>&copy; 2026 GoThere &middot; <a href="/">Home</a> &middot; <a href="/move/">Move abroad</a> &middot; <a href="/compare/">Compare visas</a> &middot; <a href="/updates/">Rule changes</a> &middot; <a href="/tools/">Free tools</a> &middot; <a href="/blog/">Blog</a></p>
+  <p>GoThere is research, not legal advice. Rules change; confirm with the consulate or a qualified immigration lawyer before you file.</p></div></footer>
+</body>
+</html>

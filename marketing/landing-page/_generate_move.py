@@ -424,7 +424,8 @@ def build_hub(built):
         body += (f'    <a class="tile" href="{b["path"]}"><h3>{b["c"]["flag"]} US to {b["c"]["name"]}</h3>'
                  f"<p>{esc(names)}. Verified {b['verified']}.</p></a>\n")
     body += "    </div>\n"
-    body += '    <div class="callout">Rules change. See <a href="/updates/">what changed recently</a>, or <a href="/compare/">compare visas side by side</a>.</div>\n'
+    body += ('    <div class="callout">Do you earn enough? Try the <a href="/tools/visa-income-calculator/">visa income calculator</a>. '
+             'Rules change: see <a href="/updates/">what changed recently</a>, or <a href="/compare/">compare visas side by side</a>.</div>\n')
     body += cta("hub", "Not sure which country fits?", "GoThere matches your income, timeline and family to the routes you qualify for.")
     schema = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Move abroad from the US",
                "url": SITE + "/move/", "hasPart": [SITE + b["path"] for b in built]}]
@@ -508,6 +509,8 @@ def build_llms(built):
               "", "## Compare", "",
               f"- [Compare visas]({SITE}/compare/): passive income, digital nomad, work, investment and citizenship-by-descent routes side by side",
               "", "## Tools", "",
+              f"- [Citizenship by descent checker]({SITE}/tools/citizenship-by-descent/): web form over the same rules, Ireland and Canada",
+              f"- [Visa income calculator]({SITE}/tools/visa-income-calculator/): your income against every verified visa threshold, ECB exchange rates",
               f"- [Citizenship by descent MCP server]({SITE}/mcp): deterministic eligibility checks for Ireland and Canada (MCP Registry: app.getgothere/citizenship)",
               "", "## Optional", "",
               f"- [Blog]({SITE}/blog/): long-form visa guides",

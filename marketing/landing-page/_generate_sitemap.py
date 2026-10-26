@@ -38,6 +38,8 @@ def priority_and_freq(url_path: str):
         return ("0.9", "weekly") if is_hub else ("0.9", "monthly")
     if top == "move":
         return ("0.9", "weekly") if is_hub else ("1.0", "weekly")
+    if top == "tools":
+        return ("0.8", "weekly") if is_hub else ("0.9", "monthly")
     if top == "updates":
         return "0.8", "weekly"
     if top == "leaving-the-us":

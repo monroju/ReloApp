@@ -22,6 +22,8 @@
 
 ## Tools
 
+- [Citizenship by descent checker](https://getgothere.app/tools/citizenship-by-descent/): web form over the same rules, Ireland and Canada
+- [Visa income calculator](https://getgothere.app/tools/visa-income-calculator/): your income against every verified visa threshold, ECB exchange rates
 - [Citizenship by descent MCP server](https://getgothere.app/mcp): deterministic eligibility checks for Ireland and Canada (MCP Registry: app.getgothere/citizenship)
 
 ## Optional

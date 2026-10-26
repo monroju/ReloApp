@@ -6,6 +6,7 @@ Disallow: /_generate_pseo.py
 Disallow: /_generate_hubs.py
 Disallow: /_generate_compare.py
 Disallow: /_generate_move.py
+Disallow: /_generate_tools.py
 Disallow: /_parse_visa_catalog.py
 Disallow: /_generate_sitemap.py
 Disallow: /_indexnow.py
