@@ -264,13 +264,13 @@ def build_country_hub(cslug):
 
     html = HEAD.format(
         umami=UMAMI, css=CSS, app=APP_URL,
-        title=f"Moving to {name} from the US: 2026 City &amp; Visa Guide",
-        desc=f"The 2026 guide to moving to {name} as an American: which city fits you, real cost of living, visa paths, and free relocation tools.",
-        og_title=f"Moving to {name} from the US: The 2026 Guide",
+        title=f"Where to Live in {name}: 2026 City Guides for Americans",
+        desc=f"Which {name} city fits you as an American in 2026: real cost of living, neighborhoods and lifestyle, city by city. Visa rules are in our verified US to {name} guide.",
+        og_title=f"Where to Live in {name}: City Guides for Americans",
         canonical=canonical, schema=schema,
     )
     html += f'    <div class="breadcrumb"><a href="/">Home</a> / {name}</div>\n'
-    html += f"    <h1>Moving to {name} from the US</h1>\n"
+    html += f"    <h1>Where to live in {name}: city guides for Americans</h1>\n"
     html += (f'    <p class="lede">Everything an American needs to plan a move to {name} in 2026: '
              "which city actually fits your budget and lifestyle, what it really costs, and the "
              "visa path to get there.</p>\n")
