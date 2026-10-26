@@ -193,7 +193,7 @@ enum DestinationConfig {
                     "If born on/after 2025-12-15 to a Canadian parent who is also a citizen by descent: parent must have spent ≥1,095 days physically in Canada before your birth (Substantial Connection test)",
                     "Apply to IRCC for proof of citizenship (Form CIT 0001)"
                 ],
-                estimatedProcessingTime: "6–12 months for proof of citizenship",
+                estimatedProcessingTime: "About 34 months for proof of citizenship (IRCC, Oct 2026)",
                 officialUrl: "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-citizenship/proof-citizenship.html"
             )
         ],
