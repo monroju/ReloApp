@@ -220,10 +220,12 @@ def gen_row(rel, default_born):
     row = (f'      <div class="row" id="row-{rel}"{hidden}><h3>{REL_LABEL[rel]}</h3>\n'
            f'        <div><label for="{rel}_born">Born in</label><select id="{rel}_born" name="{rel}_born">{opts}</select></div>\n'
            f'        <div><label for="{rel}_year">Birth year</label><input id="{rel}_year" name="{rel}_year" type="number" min="1850" max="2026" inputmode="numeric" placeholder="e.g. {EXAMPLE_YEAR[rel]}"></div>\n')
-    if rel != "self":
+    if rel == "parent":
+        # Ireland: only the parent's own FBR registration date decides (1956 Act s.7(3)).
         row += (f'        <div data-only="ie"><label for="{rel}_fbr">Year added to Irish Foreign Births Register</label>'
-                f'<input id="{rel}_fbr" name="{rel}_fbr" type="number" min="1900" max="2026" inputmode="numeric" placeholder="blank if never"></div>\n'
-                f'        <div data-only="ca"><label for="{rel}_nat">Year naturalized as Canadian</label>'
+                f'<input id="{rel}_fbr" name="{rel}_fbr" type="number" min="1900" max="2026" inputmode="numeric" placeholder="blank if never"></div>\n')
+    if rel != "self":
+        row += (f'        <div data-only="ca"><label for="{rel}_nat">Year naturalized as Canadian</label>'
                 f'<input id="{rel}_nat" name="{rel}_nat" type="number" min="1850" max="2026" inputmode="numeric" placeholder="blank if not"></div>\n')
     if rel == "parent":
         row += (f'        <div data-only="ca"><label for="{rel}_days">Days they lived in Canada before your birth</label>'
