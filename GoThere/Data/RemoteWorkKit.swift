@@ -93,7 +93,7 @@ compliance with the visa's local-client limit where applicable.
             detail: "Spend more than ~183 days in a calendar year in most countries and you become a tax resident there — owing tax on (often) worldwide income, regardless of where your employer is. Plan your move date around the tax year."),
         TaxWarning(id: "us_worldwide",
             title: "The US taxes you no matter where you live",
-            detail: "US citizens and green-card holders file US returns on worldwide income forever. The Foreign Earned Income Exclusion (~$126k for 2024) and Foreign Tax Credit usually prevent double taxation — but you must file to claim them."),
+            detail: "US citizens and green-card holders file US returns on worldwide income forever. The Foreign Earned Income Exclusion ($132,900 for 2026) and Foreign Tax Credit usually prevent double taxation — but you must file to claim them."),
         TaxWarning(id: "double_tax_treaty",
             title: "Check the US tax treaty + totalization agreement",
             detail: "Most GoThere destinations have a US tax treaty (avoids double income tax) and a Social Security totalization agreement (avoids paying into two systems). Mexico and Argentina have weaker coverage — verify before you rely on it."),
