@@ -166,7 +166,7 @@ def page():
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "64a77b8c518846cd99a83b9c13466ac3"}}'></script><!-- End Cloudflare Web Analytics -->
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{{"token": "64a77b8c518846cd99a83b9c13466ac3"}}'></script><!-- End Cloudflare Web Analytics --><script src="/assets/gt.js" defer></script>
   <title>{e(title)}</title>
   <meta name="description" content="{e(desc)}">
   <link rel="canonical" href="{canon}">

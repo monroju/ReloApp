@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 DATA = json.load(open(ROOT / "_pseo_data.json", encoding="utf-8"))
 
-UMAMI = '''<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics -->'''
+UMAMI = '''<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics --><script src="/assets/gt.js" defer></script>'''
 APP_URL = "https://apps.apple.com/app/gothere-relocation-guide/id6760248690"
 PLAY_URL = "https://play.google.com/store/apps/details?id=com.gothere.app"
 

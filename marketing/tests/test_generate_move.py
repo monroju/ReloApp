@@ -78,3 +78,16 @@ def test_llms_txt_and_updates():
         assert f"/move/us-to-{slug}/" in llms
     feed = json.loads((SITE_DIR / "updates" / "feed.json").read_text(encoding="utf-8"))
     assert feed["items"] and all(i["external_url"].startswith("https://") for i in feed["items"])
+
+
+def test_every_page_loads_site_analytics():
+    missing = [str(p.relative_to(SITE_DIR)) for p in SITE_DIR.rglob("*.html")
+               if p.name != "googleade6ce484cc5585a.html" and "_u" not in p.parts
+               and "</head>" in (t := p.read_text(encoding="utf-8")) and "/assets/gt.js" not in t]
+    assert not missing, missing
+
+
+def test_analytics_is_cookieless():
+    js = (SITE_DIR / "assets" / "gt.js").read_text(encoding="utf-8")
+    assert 'persistence: "memory"' in js and "autocapture: false" in js
+    assert "disable_session_recording: true" in js and "eu.i.posthog.com" in js
