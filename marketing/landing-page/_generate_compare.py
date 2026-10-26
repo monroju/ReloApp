@@ -14,9 +14,15 @@ Builds:
 Data source is the parsed JSON, so refreshing = re-run _parse_visa_catalog.py.
 """
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
+sys.path.insert(0, str(ROOT.parent.parent.parent / "_marketing" / "paid"))
+from link_builder import apple_link  # noqa: E402
+
+# Visas re-verified field by field against official sources (canonical data).
+VERIFIED = {v["id"]: v for v in json.load(open(ROOT.parent.parent.parent / "shared" / "data" / "visas.json", encoding="utf-8"))}
 VISAS = {v["id"]: v for v in json.load(open(ROOT / "_visa_catalog.json", encoding="utf-8"))}
 
 UMAMI = '''<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics -->'''
@@ -115,7 +121,7 @@ HEAD = """<!DOCTYPE html>
   <style>{css}</style>
 </head>
 <body>
-  <nav><div class="container"><a href="/" class="logo">GoThere</a><a href="{app}?utm_source=blog&utm_medium=organic&utm_campaign=compare">Get the app &rarr;</a></div></nav>
+  <nav><div class="container"><a href="/" class="logo">GoThere</a><a href="{nav_app}">Get the app &rarr;</a></div></nav>
   <main class="container">
 """
 
@@ -126,9 +132,14 @@ FOOTER = """  </main>
 """
 
 
-def cta(campaign, heading, sub):
+def ios_link(path):
+    """App Store link with pt/ct (Apple ignores utm_*). ct matches the audit fixer's path-derived name."""
+    return apple_link("gothere", "blog", path.strip("/").replace("/", "-")[:32])
+
+
+def cta(campaign, heading, sub, path):
     return (f'    <div class="cta-box"><h3>{heading}</h3><p>{sub}</p><div class="cta-buttons">'
-            f'<a href="{APP_URL}?utm_source=blog&utm_medium=organic&utm_campaign={campaign}">Download for iOS</a>'
+            f'<a href="{ios_link(path)}">Download for iOS</a>'
             f'<a href="{PLAY_URL}&referrer=utm_source%3Dblog%26utm_medium%3Dorganic%26utm_campaign%3D{campaign}">Get on Google Play</a>'
             "</div></div>\n")
 
@@ -161,6 +172,12 @@ def visa_detail(vid):
     if hub:
         links.append(f'<a href="{hub}">City guides</a>')
     links.append(f'<a href="{v["officialUrl"]}" rel="nofollow" target="_blank">Official source</a>')
+    ver = VERIFIED.get(vid)
+    if ver:
+        status = (f'<span style="color:var(--teal);">&#10003; Verified {ver["lastVerified"]}</span> against official sources. '
+                  f'<a href="/move/us-to-{ver["country"].lower()}/#{vid}">Every figure with its source</a>')
+    else:
+        status = '<span style="color:#fbbf24;">Not yet re-verified</span> against official sources; confirm figures with the consulate.'
     pros = "".join(f"<li>{p}</li>" for p in v["pros"])
     cons = "".join(f"<li>{c}</li>" for c in v["cons"])
     return (
@@ -173,12 +190,13 @@ def visa_detail(vid):
         f'      <div class="pros-cons"><div class="pros"><h4>Pros</h4><ul>{pros}</ul></div>'
         f'<div class="cons"><h4>Trade-offs</h4><ul>{cons}</ul></div></div>\n'
         f'      <p style="font-size:14px;">{" &middot; ".join(links)}</p>\n'
+        f'      <p style="font-size:13px;color:var(--text-mute);margin:4px 0 0;">{status}</p>\n'
         f'    </div>\n'
     )
 
 
 def page(path, title, desc, og_title, body, schema=""):
-    html = HEAD.format(umami=UMAMI, css=CSS, app=APP_URL, title=title, desc=desc,
+    html = HEAD.format(umami=UMAMI, css=CSS, nav_app=ios_link(path), title=title, desc=desc,
                        og_title=og_title, canonical=f"https://getgothere.app{path}", schema=schema)
     html += body + FOOTER
     out = ROOT / path.strip("/")
@@ -251,7 +269,7 @@ def build_roundup(cfg):
     for vid in cfg["ids"]:
         body += visa_detail(vid)
     body += cta(cfg["campaign"], "Not sure which one fits?",
-                "GoThere's visa matcher takes your income, timeline, and goals and ranks every route for you, then tracks the checklist for the one you pick.")
+                "GoThere's visa matcher takes your income, timeline, and goals and ranks every route for you, then tracks the checklist for the one you pick.", cfg["path"])
     # related roundups
     others = [r for r in ROUNDUPS if r["path"] != cfg["path"]]
     links = " &middot; ".join(f'<a href="{r["path"]}">{r["h1"].split("(")[0].strip().replace("&amp;","&")}</a>' for r in others)
@@ -340,7 +358,7 @@ def build_headtohead(cfg):
     body += "    <h2>The details</h2>\n"
     body += visa_detail(cfg["a"]) + visa_detail(cfg["b"])
     body += cta(cfg["campaign"], "Model both against your own numbers",
-                "GoThere runs your real income and family size against every visa's threshold, then tracks the document checklist for the one you choose.")
+                "GoThere runs your real income and family size against every visa's threshold, then tracks the document checklist for the one you choose.", cfg["path"])
     body += ('    <h2>Related</h2>\n    <p><a href="/compare/passive-income-visas/">All passive-income visas</a> '
              '&middot; <a href="/compare/digital-nomad-visas/">All digital nomad visas</a> '
              '&middot; <a href="/spain/">Moving to Spain</a> &middot; <a href="/portugal/">Moving to Portugal</a></p>\n')
@@ -370,7 +388,7 @@ def build_hub():
         body += f'    <a class="tile" href="{cfg["path"]}"><h3>{cfg["h1"].split(":")[0]}</h3><p>{cfg["desc"][:90]}...</p></a>\n'
     body += "    </div>\n"
     body += ('    <div class="callout">These pages compare the rules. The '
-             '<a href="' + APP_URL + '?utm_source=blog&utm_medium=organic&utm_campaign=cmp-hub">GoThere app</a> '
+             '<a href="' + ios_link("/compare/") + '">GoThere app</a> '
              "compares them against <em>your</em> income, timeline and family, then tracks the checklist for the one you pick.</div>\n")
     page("/compare/", "Compare Visas &amp; Second Passports for Americans 2026",
          "Compare every route abroad for Americans in 2026: passive-income, digital nomad, work, investment and citizenship-by-descent visas, side by side with real thresholds and costs.",

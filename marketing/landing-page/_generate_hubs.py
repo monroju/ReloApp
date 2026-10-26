@@ -192,6 +192,14 @@ def build_blog_hub():
     ]
     for key, label in groups:
         html += f"    <h2>{label}</h2>\n    <div class=\"grid\">\n"
+        if key == "start":
+            # Non-blog pages that belong at the top of the reading path.
+            html += tile("/leaving-the-us/", "Leaving the US: 6 Realistic Paths Abroad",
+                         "Six paths that work for Americans, with official 2026 income thresholds and a free checklist.",
+                         "See the paths")
+            html += tile("/move/", "Move abroad: verified country guides",
+                         "Spain, Portugal, Ireland, Italy and Mexico. Every income bar, fee and timeline linked to its official source.",
+                         "Pick a country")
         for slug, title, desc, g in POSTS:
             if g == key:
                 html += tile(f"/blog/{slug}.html", title, desc, "Read the guide")
