@@ -1,0 +1,252 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "country": "IE",
+  "name": "Ireland",
+  "guide": "https://getgothere.app/move/us-to-ie/",
+  "lastVerified": "2026-10-26",
+  "visas": [
+    {
+      "id": "ie_stamp_0",
+      "country": "IE",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Stamp 0 permission for persons of independent means (retirement)",
+      "shortName": "Stamp 0",
+      "income": {
+        "monthly": null,
+        "annual": 50000,
+        "currency": "EUR",
+        "basis": "Individual income of EUR 50,000 per year (pension income or readily accessible funds; investment sums are not normally measured), verified by an Irish accountancy firm",
+        "perDependent": "Official page states an 'individual income' requirement; no separate dependant figure published",
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official wording: 'you should have an individual income of EUR 50,000 per year'. A secondary source (Lewis Silkin, 2025) says a married couple needs EUR 100,000 combined; the official page only implies this via 'individual income'. Finances must be presented as a monthly spreadsheet in euros and certified by an Irish accountancy firm."
+      },
+      "savings": {
+        "amount": null,
+        "currency": "EUR",
+        "basis": "Access to a lump sum to cover any sudden major expenses, for example equal to the price of a residential dwelling in the State",
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No fixed euro amount is published. The official example benchmark is the price of a residential dwelling in Ireland, so the required sum varies with property prices."
+      },
+      "processingTimeDays": {
+        "min": 120,
+        "max": 120,
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official: 'The average processing time for applications is four months' (converted to about 120 days). Delays expected if documents are missing; processed in chronological order. Page last updated 25 June 2026."
+      },
+      "fees": [
+        {
+          "label": "Immigration registration (IRP card), Stamp 0",
+          "amount": 300,
+          "currency": "EUR",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Fee table lists Stamp 0 at EUR 300 per person, card payment only. No separate application fee for the Stamp 0 permission itself is stated on the official retirement page. Private medical insurance and Irish accountant certification are additional mandatory costs (amounts not published)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable annually via TPER Renewal Form on the ISD Customer Service portal, with continued compliance with financial conditions",
+        "sourceUrl": "https://newlandchase.com/ireland-ways-to-retire-to-ireland",
+        "sourceType": "secondary",
+        "lastVerified": "2026-10-26",
+        "note": "Secondary source: no official page found stating the 12-month length; Newland Chase, Lewis Silkin and Ferrys Solicitors all say one year at a time, renewable annually. Renewal process (TPER Renewal Form, portal submission) is confirmed on the official retirement page."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/information-on-registering/immigration-permission-stamps/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official Stamp 0 conditions: 'You must not work or engage in any business, trade or profession unless specified in a letter of permission'. No State benefits or publicly funded services; private medical insurance required. Passive income from pensions or investments is the basis of the route."
+      },
+      "pathToPR": {
+        "years": null,
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/information-on-registering/immigration-permission-stamps/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ireland has no formal 'PR'; the closest equivalents are Stamp 4 (long-term residence) and Stamp 5 (without condition as to time). The official stamps page describes Stamp 0 as a 'temporary period' permission and does not list it as leading to Stamp 4 or Stamp 5. No official page found that gives a Stamp 0 to Stamp 4/5 pathway, so left null."
+      },
+      "pathToCitizenship": {
+        "years": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "Not yet verified: current irishimmigration.ie naturalisation guide lists Stamp 0 as reckonable, but a 2018 Dept of Justice PQ reply and several law firms say it is not. Withheld until confirmed. Previous research note: CONFLICT, treat with caution. The current ISD naturalisation guide lists 'Stamp 0' under 'Time that Counts Towards Citizenship', and its list of non-reckonable time names only Stamp 2/2A, undocumented time and pre-decision protection time. Legal basis: Irish Nationality and Citizenship Act 1956 s.15, 5 years reckonable residence in the last 9 years including 1 year continuous immediately before applying (70-day absence rule). However, older Department of Justice positions (parliamentary reply 2018) and several law firms/advisers describe Stamp 0 as NOT reckonable. The 5-year figure applies only if ISD accepts the Stamp 0 time; naturalisation is discretionary."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Prepare financial evidence certified by an Irish accountant",
+          "detail": "Show EUR 50,000+ individual annual income and access to a lump sum (about the price of a home in Ireland), as a monthly spreadsheet in euros, plus 6 months of bank statements, private medical insurance with full private hospital cover, police clearance and health declaration.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 2,
+          "title": "Apply for Stamp 0 before travelling",
+          "detail": "Complete the TPER application form and post it with documents to Stamp 0 Independent Means Section, Domestic Residence and Permissions Division, ISD, 13-14 Burgh Quay, Dublin 2. All applicants must apply before arriving in Ireland. Average processing is four months.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 3,
+          "title": "Receive approval letter and travel (no visa needed for US citizens)",
+          "detail": "Non-visa-required nationals such as US citizens may travel once they hold the approval letter; no D Reside visa is needed. Entry is at the discretion of the immigration officer.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 4,
+          "title": "Register within 90 days and get an IRP card",
+          "detail": "Book a registration appointment via the ISD Customer Service portal after arrival, attend to be fingerprinted, pay the EUR 300 fee and receive the Irish Residence Permit card by post.",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/"
+        },
+        {
+          "order": 5,
+          "title": "Renew each year",
+          "detail": "Submit the TPER Renewal Form and updated documents via the Customer Service portal; the approval letter is then used to renew the IRP registration.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        }
+      ],
+      "officialUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified/conflicting: (1) Initial 12-month duration only from secondary sources (Newland Chase, Lewis Silkin, Ferrys). (2) Couple income EUR 100,000 only from secondary source; official says 'individual income'. (3) Lump sum has no fixed amount, only the example 'price of a residential dwelling'. (4) Reckonability for citizenship conflicts: current official ISD guide lists Stamp 0 as time that counts, while a 2018 Department of Justice parliamentary reply and law firms say it does not; GoThere previously stated no citizenship path. (5) No official pathway from Stamp 0 to Stamp 4/5, so pathToPR is null. (6) No application fee found for the Stamp 0 permission itself; only the EUR 300 registration fee."
+    },
+    {
+      "id": "ie_critical_skills",
+      "country": "IE",
+      "from": [
+        "US"
+      ],
+      "category": "work",
+      "name": "Critical Skills Employment Permit",
+      "shortName": "Critical Skills",
+      "income": {
+        "monthly": null,
+        "annual": 40904,
+        "currency": "EUR",
+        "basis": "Minimum annual remuneration EUR 40,904 for occupations on the Critical Skills Occupations List with a relevant degree; EUR 68,911 for all other eligible occupations (degree or relevant experience); EUR 36,848 for recent relevant graduates (Level 8+, within 12 months)",
+        "perDependent": null,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Thresholds in force since 1 March 2026 for new applications and renewals (up from EUR 38,000 / EUR 64,000), per DETE press release of 2 December 2025 (https://enterprise.gov.ie/en/news-and-events/department-news/2025/december/20251202.html). From 2027 to 2030 thresholds are to be indexed annually to CSO average earnings, so re-check each January. Job offer must be at least 2 years. Roles covered by the public sector pay deal are exempt from the thresholds."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings requirement is stated on the DETE CSEP page; eligibility is based on the job offer and salary."
+      },
+      "processingTimeDays": {
+        "min": 7,
+        "max": 7,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/current-application-processing-dates/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "DETE processing dates: as of 23 October 2026 CSEP applications received 16 October 2026 were being processed (7 days); an earlier snapshot as of 7 October 2026 showed 30 September 2026 (also 7 days). This is queue time at DETE only; queries, decision issue, travel and immigration registration add time. The page does not split trusted partner and standard applications. Backlogs vary month to month."
+      },
+      "fees": [
+        {
+          "label": "Critical Skills Employment Permit processing fee",
+          "amount": 1000,
+          "currency": "EUR",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "90% refunded if unsuccessful. Under s.55 Employment Permits Act 2024 the employer may not recover the fee or expenses from the permit holder (the fee can be paid by either party)."
+        },
+        {
+          "label": "Immigration registration (IRP card), Stamp 1",
+          "amount": 300,
+          "currency": "EUR",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 300 per person, card only; Stamp 4 registration is also EUR 300."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Not renewed as a CSEP; holders apply to the Department of Justice for Stamp 4 instead",
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "DETE page: job offer must be at least 2 years and the immigration permission is granted for 2 years; holders 'apply directly to the Dept of Justice for a Stamp 4' rather than renewing the permit."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Work only for the permit employer in the permit occupation. Under the Employment Permits Act 2024 (in force 2 September 2024) and s.18 Employment Permits Regulations 2024, a change of employer is not considered until 9 months after first starting work on an employment permit, except redundancy or fundamentally changed circumstances; after redundancy the holder has 6 months to find new work. On Stamp 4 the holder may work for any employer without a permit. Spouses/partners get Stamp 1G and can work without a permit."
+      },
+      "pathToPR": {
+        "years": 1.75,
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-renew-your-current-permission/information-on-stamp-4-upgrades",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ireland has no formal PR; mapped to Stamp 4. ISD: eligible for Stamp 4 'upon completion of 21 months from commencement of employment in the State' on a CSEP (commencement shown via Revenue Employment Detail Summary). The stamps page summarises this as after 2 years. Stamp 4 is still a renewable time-limited permission. Separate Long Term Residence application possible after 60 months of permission (DETE CSEP page)."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.irishimmigration.ie/how-to-become-a-citizen/become-an-irish-citizen-by-naturalisation",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Irish Nationality and Citizenship Act 1956 s.15: 5 years reckonable residence in the last 9 years, including 1 full year continuous immediately before applying (70-day absence rule, up to 30 more days in exceptional circumstances). Stamp 1 on a CSEP and Stamp 4 both count as reckonable. Naturalisation is at the Minister's discretion."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Get a qualifying job offer of at least 2 years",
+          "detail": "EUR 40,904+ for a Critical Skills Occupations List role with a relevant degree, or EUR 68,911+ for other eligible roles (EUR 36,848 for recent relevant graduates).",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/"
+        },
+        {
+          "order": 2,
+          "title": "Employer or employee applies to DETE and pays EUR 1,000",
+          "detail": "Applications are processed in date order; check DETE's current processing dates page.",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/current-application-processing-dates/"
+        },
+        {
+          "order": 3,
+          "title": "Travel to Ireland (no entry visa needed for US citizens) and register within 90 days",
+          "detail": "Book a first registration via the ISD Customer Service portal after arrival, pay EUR 300 and receive an IRP card (Stamp 1).",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/"
+        },
+        {
+          "order": 4,
+          "title": "Bring family",
+          "detail": "CSEP holders can apply for immediate family reunification; spouses/partners receive Stamp 1G and may work without a permit.",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/"
+        },
+        {
+          "order": 5,
+          "title": "Upgrade to Stamp 4 after 21 months",
+          "detail": "Apply to ISD for Stamp 4 once 21 months of employment on the CSEP are completed; Stamp 4 allows work without an employment permit.",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-renew-your-current-permission/information-on-stamp-4-upgrades"
+        },
+        {
+          "order": 6,
+          "title": "Apply for naturalisation after 5 years reckonable residence",
+          "detail": "5 years in the last 9, including 1 continuous year immediately before applying.",
+          "sourceUrl": "https://www.irishimmigration.ie/how-to-become-a-citizen/become-an-irish-citizen-by-naturalisation"
+        }
+      ],
+      "officialUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Salary thresholds changed 1 March 2026 (EUR 38,000 to 40,904; EUR 64,000 to 68,911; new graduate rate EUR 36,848) and will be indexed annually 2027 to 2030, so re-verify in early 2027. Stamp 4 eligibility is 21 months, not a full 2 years. Processing time is DETE queue time only (about 7 days in October 2026) and excludes registration. The DETE processing page does not distinguish trusted partner from standard applications. Long Term Residence after 60 months is stated on the DETE page but the ISD LTR page was not checked."
+    }
+  ]
+}

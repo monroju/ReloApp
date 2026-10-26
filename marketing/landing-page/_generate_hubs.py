@@ -266,6 +266,11 @@ def build_country_hub(cslug):
     html += (f'    <p class="lede">Everything an American needs to plan a move to {name} in 2026: '
              "which city actually fits your budget and lifestyle, what it really costs, and the "
              "visa path to get there.</p>\n")
+    # Canonical visa page (built by _generate_move.py from the verified data).
+    move = {"spain": "es", "portugal": "pt", "mexico": "mx"}[cslug]
+    html += (f'    <div class="callout"><strong>Visas, income and steps:</strong> every {name} route for '
+             f'Americans, each figure linked to the official source, in <a href="/move/us-to-{move}/">'
+             f"US to {name}: the verified visa guide</a>.</div>\n")
 
     # Visa path -> the blog guide
     html += "    <h2>Visa paths for Americans</h2>\n"

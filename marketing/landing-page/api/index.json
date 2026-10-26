@@ -1,0 +1,37 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "countries": [
+    {
+      "country": "ES",
+      "name": "Spain",
+      "url": "https://getgothere.app/api/countries/es.json",
+      "lastVerified": "2026-10-26"
+    },
+    {
+      "country": "PT",
+      "name": "Portugal",
+      "url": "https://getgothere.app/api/countries/pt.json",
+      "lastVerified": "2026-10-26"
+    },
+    {
+      "country": "IE",
+      "name": "Ireland",
+      "url": "https://getgothere.app/api/countries/ie.json",
+      "lastVerified": "2026-10-26"
+    },
+    {
+      "country": "IT",
+      "name": "Italy",
+      "url": "https://getgothere.app/api/countries/it.json",
+      "lastVerified": "2026-10-26"
+    },
+    {
+      "country": "MX",
+      "name": "Mexico",
+      "url": "https://getgothere.app/api/countries/mx.json",
+      "lastVerified": "2026-10-26"
+    }
+  ]
+}

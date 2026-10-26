@@ -1,0 +1,264 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "country": "ES",
+  "name": "Spain",
+  "guide": "https://getgothere.app/move/us-to-es/",
+  "lastVerified": "2026-10-26",
+  "visas": [
+    {
+      "id": "es_nlv",
+      "country": "ES",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Non-Lucrative Residence Visa (residencia temporal no lucrativa)",
+      "shortName": "NLV",
+      "income": {
+        "monthly": 2400,
+        "annual": 28800,
+        "currency": "EUR",
+        "basis": "400% of IPREM per month for the applicant (IPREM 2026 = EUR 600/month, EUR 7,200/year)",
+        "perDependent": "+100% of IPREM per family member: EUR 600/month (EUR 7,200/year)",
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Rule (400% IPREM applicant, 100% IPREM per family member) from Ministerio de Inclusión Hoja 6 (updated May 2025, cites RD 1155/2024 arts. 60-63) and US consulate pages (Boston, Chicago, Washington). IPREM 2026 = EUR 600/month, EUR 7,200/year (12 pagas): SEPE https://www.sepe.es/HomeSepe/prestaciones-desempleo/Cuantias-anuales.html and Consulate LA https://www.exteriores.gob.es/Consulados/losangeles/en/ServiciosConsulares/Documents/IPREM.pdf; legal basis Ley 31/2022 (PGE 2023) prorogued, IPREM unchanged since 2023. Arithmetic: 4 x 600 = 2,400/month; 2,400 x 12 = 28,800/year. Couple: 2,400 + 600 = 3,000/month (36,000/year). Couple + 1 child: 3,600/month (43,200/year). Washington consulate states the requirement on an annual basis (400% IPREM annually)."
+      },
+      "savings": {
+        "amount": 28800,
+        "currency": "EUR",
+        "basis": "Funds covering the first year: 400% IPREM x 12 months (EUR 2,400 x 12); +EUR 7,200 per family member",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Consulates accept either sufficient own funds for the initial year or a regular income (Chicago, Washington pages). Hoja 6 says means can be proven by any means, including property titles, certified cheques or credit cards with bank certification. The amount is computed from the IPREM rule (4 x 600 x 12), not a figure printed on the page. Chicago also asks for bank account details incl. balances at 31 Dec of the previous year and average balance."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 90,
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Boston consulate: legal period for a decision is 3 months from the day after submission, extendable if an interview or extra documents are requested. Inside that, the Oficina de Extranjería must resolve the residence authorization within 1 month of receiving the consulate's communication; silence = refusal (Hoja 6). Once granted, the applicant has 1 month to collect the visa. Real-world times vary by consulate and BLS appointment availability; no official average published."
+      },
+      "fees": [
+        {
+          "label": "National visa fee (US citizens, reciprocity rate)",
+          "amount": 140,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Chicago page lists 2026: Americans $140, other nationalities $106. Houston and Boston also state $140 for US passport holders. Washington says rates apply by reciprocity and are revised quarterly with exchange rates. Paid by money order; non-refundable. BLS service charges are extra and not included."
+        },
+        {
+          "label": "Residence authorization fee (Modelo 790 código 052, epígrafe 2.1.1)",
+          "amount": 13,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Chicago: fee for 2026 is $13 (also $13 at Boston, Houston, Washington). Per applicant. Total per applicant at the consulate: $140 + $13 = $153. TIE card fee in Spain is separate and not verified here."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable for 2 years at a time, then eligible for long-term residence after 5 years",
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/renovacion-de-la-autorizacion-de-residencia-temporal-no-lucrativa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Initial authorization lasts 1 year from entry (Hoja 6). Visa itself valid up to 90 days for entry (Boston; Hoja 6: never more than 3 months). Renewed authorization valid 2 years unless long-term residence applies (Hoja 7); apply in the 2 months before expiry or up to 3 months after. Renewal also requires sufficient means for the renewal period."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Boston: the visa 'does not allow any type of work or professional activity, including remote, as this is not a digital nomad visa.' Hoja 6: authorizes residence without carrying out work or professional activities."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Residencia de larga duración (national): 5 years of legal and continuous residence in Spain before applying (Hoja 49; Ley Orgánica 4/2000 art. 32; RD 1155/2024). Long-term EU status (Hoja 50) also requires 5 years. Absence limits that break continuity are not verified here."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://www.boe.es/buscar/doc.php?id=BOE-A-2002-19484",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Código Civil art. 22.1 (as amended by Ley 36/2002): naturalization by residence requires 10 years of legal, continuous residence immediately before applying. The 2-year reduced period applies only to nationals of Ibero-American countries, Andorra, Philippines, Equatorial Guinea, Portugal and Sephardic Jews; US citizens are not covered. Art. 23 requires renouncing prior nationality (US not exempt). Resolution time: max 1 year, silence = refusal (Ley 36/2002 DA)."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather documents in the US",
+          "detail": "EX-01 form, passport valid 1+ year, FBI fingerprint background check (max 6 months old) with FBI Apostille and sworn Spanish translation, medical certificate (max 3 months old), proof of means (400% IPREM), Spanish health insurance with no copay or limits, proof of residence in the consular district.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx"
+        },
+        {
+          "order": 2,
+          "title": "Apply in person at the consulate (or its BLS centre) for your US state",
+          "detail": "Each US consulate only accepts residents of its district. Pay the $140 visa fee + $13 Modelo 790-052 fee per applicant.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx"
+        },
+        {
+          "order": 3,
+          "title": "Wait for the decision (legal limit 3 months)",
+          "detail": "The consulate forwards the file to the Spanish immigration office, which resolves the residence authorization within 1 month of receiving it.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 4,
+          "title": "Collect the visa within 1 month and enter Spain within its validity",
+          "detail": "Visa valid for up to 3 months; the 1-year authorization starts on the date of entry.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 5,
+          "title": "Apply for the TIE (foreigner ID card) within 1 month of entry",
+          "detail": "In person at the Policía Nacional station or Oficina de Extranjería for your place of residence.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 6,
+          "title": "Renew before the first year ends",
+          "detail": "Apply in the 2 months before expiry; renewal gives 2 more years if means are maintained.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/renovacion-de-la-autorizacion-de-residencia-temporal-no-lucrativa"
+        }
+      ],
+      "officialUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Changes vs app: fee was ~EUR 600, verified US-citizen fee is $140 visa + $13 residence fee = $153 per applicant (2026, Chicago/Houston/Boston). Processing: app said 2-3 months; official legal maximum is 3 months (no official minimum). Income unchanged at EUR 2,400/mo (IPREM still EUR 600 in 2026 because the 2023 budget is prorogued). Not verified: TIE card fee, BLS service charges, exact absence limits for PR/citizenship continuity, whether every US consulate charges the same $140 (Washington page only says 'reciprocity rates, revised quarterly'). RD 1155/2024 (in force May 2025) now governs NLV (arts. 60-63); the official Hoja 6 updated May 2025 keeps 400%/100% IPREM and 1-year initial term; renewal sheet (Hoja 7) states 2-year renewals. Some secondary sources claim the new reglamento lets NLV holders switch to work authorizations; not verified from an official page, so not included."
+    },
+    {
+      "id": "es_dnv",
+      "country": "ES",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Digital Nomad Visa (visado para teletrabajo de carácter internacional, Ley 14/2013 as amended by Ley 28/2022)",
+      "shortName": "DNV",
+      "income": {
+        "monthly": 2442,
+        "annual": null,
+        "currency": "EUR",
+        "basis": "200% of the monthly SMI (SMI 2026 = EUR 1,221/month in 14 payments, EUR 17,094/year; Real Decreto 126/2026)",
+        "perDependent": "First family member +75% SMI (EUR 916/month); each additional member +25% SMI (EUR 305/month)",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Rule from the joint DGM/DGEEAC instruction of 29 Mar 2023 (https://www.inclusion.gob.es/documents/410169/0/report_report_2301+Instrucci%C3%B3n+conjunta+Teletrabajadores+de+car%C3%A1cter+internacional_rev13_FIRMADAS.pdf/d6c8533a-c98e-6157-da03-a598f0e1c017?t=1681813834808): holder 200% SMI monthly; 2-person family unit +75% SMI; +25% SMI per additional member. SMI 2026 = EUR 40.70/day or EUR 1,221/month (RD 126/2026, BOE-A-2026-3815, https://www.boe.es/eli/es/rd/2026/02/18/126/con), EUR 17,094/year (SEPE). Houston consulate (official) computes on the monthly figure: 2 x 1,221 = 2,442/month (~$2,845); 0.75 x 1,221 = 915.75 ~ 916; 0.25 x 1,221 = 305.25 ~ 305. CONFLICT: many secondary sources prorate the 14-payment annual SMI over 12 months: 17,094 / 12 = 1,424.50; x 2 = 2,849/month (34,188/year); family +1,068.38 and +356.13. Ministry of Inclusión (UGE) historically used the prorated figure for in-Spain residence applications (2025: EUR 2,762 = 16,576 x 2 / 12), but no official 2026 UGE page confirming 2,849 was found. Annual left null because the official consular page gives only a monthly figure. Safe planning figure: EUR 2,849/month. Couple (Houston basis): 2,442 + 916 = 3,358/month; couple + 1 child: 3,663/month."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No separate savings threshold on US consulate pages; requirement is expressed as monthly income (any means of proof: employment contract, firm job offer, commercial contract). Some non-US consulates mention 'own financial means' as an alternative; not verified for US consulates."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 10,
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Value is in BUSINESS days (días hábiles), about 2 calendar weeks. Ley 14/2013 art. 75.5: visa applications are resolved and notified within 10 business days (Houston consulate repeats this; extendable if an interview or extra documents are needed). In-Spain residence authorization via UGE (art. 76.1): max 20 days from electronic filing, positive silence (approved if no answer). Real-world consular times and BLS appointment waits vary; not officially published."
+      },
+      "fees": [
+        {
+          "label": "National visa fee (US citizens, reciprocity rate)",
+          "amount": 190,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Houston page: 'Americans $190'. Miami page (https://www.exteriores.gob.es/Consulados/miami/en/ServiciosConsulares/Paginas/TELEWORK-VISA.aspx) states Americans $190, other nationalities $94, 'from Jan. 1st 2025' (not updated label for 2026). New York 2025 fee list: visas under the Law of Entrepreneurs $190. Money order; non-refundable. NIE fee, BLS charges and the in-Spain UGE residence fee not verified here."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Visa holders can apply in Spain for a residence authorization of up to 3 years (within 60 days before visa expiry); renewals for 2 years each",
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley 14/2013 art. 74 quater: visa valid max 1 year (or shorter if the work period is shorter); art. 74 quater.3: residence application in the 60 natural days before visa expiry; art. 74 quinquies.2: residence authorization max 3 years; art. 76.3: renewals for 2-year periods. Applicants already legally in Spain can apply directly to the UGE for the 3-year residence without a visa."
+      },
+      "workAllowed": {
+        "value": "foreignOnly",
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley 14/2013 art. 74 bis.1: employees may only work for companies located outside Spain; self-employed may work for Spanish companies up to 20% of their total professional activity. Work must be remote via telematic means. Requires 3+ months' relationship with the foreign employer/clients and the company must have operated at least 1 year (art. 74 ter)."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Residencia de larga duración: 5 years of legal and continuous residence (Hoja 49; Ley Orgánica 4/2000 art. 32). Time on the DNV counts as legal residence (inference: it is a residence title under Ley 14/2013; no official page found that addresses DNV time explicitly)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://www.boe.es/buscar/doc.php?id=BOE-A-2002-19484",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Código Civil art. 22.1: 10 years of legal, continuous residence; US citizens do not qualify for the 2-year reduced period (Ibero-America, Andorra, Philippines, Equatorial Guinea, Portugal, Sephardic). Art. 23: renunciation of prior nationality required."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Get a Spanish NIE number from your consulate",
+          "detail": "Houston and other US consulates require the NIE before the visa application.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx"
+        },
+        {
+          "order": 2,
+          "title": "Gather documents",
+          "detail": "Employer/client certificate (3+ months, remote work allowed), company active 1+ year, degree or 3 years' experience, income 200% SMI, FBI background check with Apostille and translation, health insurance, and US Social Security Certificate of Coverage (US-Spain agreement) or Spanish Social Security registration.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Telework-visa.aspx"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at your consulate's BLS centre and pay $190",
+          "detail": "Only residents of the consular district may apply there.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx"
+        },
+        {
+          "order": 4,
+          "title": "Decision within 10 business days",
+          "detail": "Legal deadline under Ley 14/2013 art. 75.5; longer if an interview or more documents are requested.",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        },
+        {
+          "order": 5,
+          "title": "Move to Spain; the 1-year visa is your residence title",
+          "detail": "A TIE card is optional during the visa year and can be requested at the Oficina de Extranjería or Police station.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/miami/en/ServiciosConsulares/Paginas/TELEWORK-VISA.aspx"
+        },
+        {
+          "order": 6,
+          "title": "Apply to the UGE for the 3-year residence authorization",
+          "detail": "File online within the 60 days before the visa expires; UGE must answer within 20 days (silence = approval).",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        },
+        {
+          "order": 7,
+          "title": "Get your TIE",
+          "detail": "Authorizations valid over 6 months require applying for the foreigner identity card (Ley 14/2013 art. 76.2).",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        }
+      ],
+      "officialUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Telework-visa.aspx",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "INCOME CONFLICT: official Houston consulate page = EUR 2,442/month (2 x 1,221 monthly SMI); widely cited secondary figure = EUR 2,849/month (17,094 x 2 / 12, prorated). No official 2026 UGE or Ministry page found stating 2,849; one secondary report (GPA, May 2026) even claims the Ministry kept EUR 2,762. Treat EUR 2,849 as the conservative planning figure. Dependents: official rule is +75% SMI for the first family member and +25% per additional member (not specifically 'spouse' and 'child'). Processing: app said 20-45 days; statutory maximum is 10 business days for the consular visa and 20 days for UGE residence. Fee: app value not given for DNV; US citizens pay $190 (Houston, Miami; Miami label says 'from Jan 1 2025'). Washington page fee table not machine-readable. Not verified: NIE fee, BLS service charge, UGE residence fee, TIE fee, whether DNV time counts toward PR explicitly. RD 1155/2024 (in force May 2025) is the general immigration reglamento; the DNV is governed by Ley 14/2013 and the 2023 joint instruction, and no official source found indicating the new reglamento changed DNV thresholds or durations (inference)."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://getgothere.app/schema/visa.schema.json",
+  "title": "GoThere visa record",
+  "description": "One residence/visa route. Every non-null fact carries sourceUrl + lastVerified. Null means not yet verified and renders as 'Not yet verified'.",
+  "type": "object",
+  "required": ["id", "country", "from", "category", "name", "shortName", "income", "savings", "processingTimeDays", "fees", "duration", "workAllowed", "pathToPR", "pathToCitizenship", "steps", "officialUrl", "lastVerified"],
+  "additionalProperties": false,
+  "$defs": {
+    "date": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "url": {"type": ["string", "null"], "pattern": "^https://"},
+    "sourceType": {"type": ["string", "null"], "enum": ["official", "secondary", null]},
+    "sourced": {
+      "type": "object",
+      "required": ["sourceUrl", "sourceType", "lastVerified"],
+      "properties": {
+        "sourceUrl": {"$ref": "#/$defs/url"},
+        "sourceType": {"$ref": "#/$defs/sourceType"},
+        "lastVerified": {"$ref": "#/$defs/date"},
+        "note": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z]{2}_[a-z0-9_]+$"},
+    "country": {"type": "string", "pattern": "^[A-Z]{2}$"},
+    "from": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z]{2}$"}, "minItems": 1},
+    "category": {"type": "string", "enum": ["passiveIncome", "digitalNomad", "work", "student", "family", "selfEmployed", "investment", "ancestry"]},
+    "name": {"type": "string"},
+    "shortName": {"type": "string"},
+    "income": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "monthly": {"type": ["number", "null"]},
+        "annual": {"type": ["number", "null"]},
+        "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+        "basis": {"type": ["string", "null"]},
+        "perDependent": {"type": ["string", "null"]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "savings": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "amount": {"type": ["number", "null"]},
+        "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+        "basis": {"type": ["string", "null"]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "processingTimeDays": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "min": {"type": ["integer", "null"], "minimum": 0},
+        "max": {"type": ["integer", "null"], "minimum": 0},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "fees": {
+      "type": "array",
+      "items": {
+        "allOf": [{"$ref": "#/$defs/sourced"}],
+        "required": ["label", "amount", "currency"],
+        "properties": {
+          "label": {"type": "string"},
+          "amount": {"type": "number"},
+          "currency": {"type": "string", "pattern": "^[A-Z]{3}$"},
+          "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+        },
+        "additionalProperties": false
+      }
+    },
+    "duration": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "initialMonths": {"type": ["integer", "null"], "minimum": 0},
+        "renewal": {"type": ["string", "null"]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "workAllowed": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "value": {"type": ["string", "null"], "enum": ["no", "foreignOnly", "yes", "restricted", null]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "pathToPR": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "years": {"type": ["number", "null"]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "pathToCitizenship": {
+      "allOf": [{"$ref": "#/$defs/sourced"}],
+      "properties": {
+        "years": {"type": ["number", "null"]},
+        "sourceUrl": {}, "sourceType": {}, "lastVerified": {}, "note": {}
+      },
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["order", "title", "sourceUrl"],
+        "properties": {
+          "order": {"type": "integer", "minimum": 1},
+          "title": {"type": "string"},
+          "detail": {"type": ["string", "null"]},
+          "sourceUrl": {"$ref": "#/$defs/url"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "officialUrl": {"type": "string", "pattern": "^https://"},
+    "lastVerified": {"$ref": "#/$defs/date"},
+    "verificationNotes": {"type": ["string", "null"]}
+  }
+}

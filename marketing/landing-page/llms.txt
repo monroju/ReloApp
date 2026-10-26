@@ -1,0 +1,30 @@
+# GoThere
+
+> GoThere helps Americans move abroad: which visa fits, how much income it needs, how long it takes, and the steps. Facts on the pages below link to official government sources and carry a last-verified date.
+
+## Country guides (US to X)
+
+- [US to Spain](https://getgothere.app/move/us-to-es/): Non-Lucrative Visa, Digital Nomad Visa. Verified 2026-10-26.
+- [US to Portugal](https://getgothere.app/move/us-to-pt/): D7 Visa, D8 Digital Nomad Visa. Verified 2026-10-26.
+- [US to Ireland](https://getgothere.app/move/us-to-ie/): Stamp 0 (independent means), Critical Skills Employment Permit. Verified 2026-10-26.
+- [US to Italy](https://getgothere.app/move/us-to-it/): Elective Residence Visa, Digital Nomad Visa. Verified 2026-10-26.
+- [US to Mexico](https://getgothere.app/move/us-to-mx/): Temporary Resident Visa, Permanent Resident Visa. Verified 2026-10-26.
+
+## Data
+
+- [Visa data index](https://getgothere.app/api/index.json): JSON, one file per country, every fact with sourceUrl + lastVerified
+- [All visas](https://getgothere.app/api/visas.json): every verified record
+- [Rule changes](https://getgothere.app/updates/): verified changes, also as [JSON Feed](https://getgothere.app/updates/feed.json)
+
+## Compare
+
+- [Compare visas](https://getgothere.app/compare/): passive income, digital nomad, work, investment and citizenship-by-descent routes side by side
+
+## Tools
+
+- [Citizenship by descent MCP server](https://getgothere.app/mcp): deterministic eligibility checks for Ireland and Canada (MCP Registry: app.getgothere/citizenship)
+
+## Optional
+
+- [Blog](https://getgothere.app/blog/): long-form visa guides
+- [Safe Harbor Index](https://getgothere.app/safe-harbor/): destination safety for specific groups

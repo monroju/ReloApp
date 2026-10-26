@@ -1,0 +1,267 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "country": "MX",
+  "name": "Mexico",
+  "guide": "https://getgothere.app/move/us-to-mx/",
+  "lastVerified": "2026-10-26",
+  "visas": [
+    {
+      "id": "mx_temp_econ",
+      "country": "MX",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Temporary Resident visa by economic solvency (Residente Temporal, solvencia económica)",
+      "shortName": "Temp Econ",
+      "income": {
+        "monthly": 79770.8,
+        "annual": null,
+        "currency": "MXN",
+        "basis": "Monthly income from employment or pension, net of taxes, above 680 days of UMA, for each of the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 5, req. III.a.2). 680 x UMA 2026 daily value MXN 117.31 = MXN 79,770.80.",
+        "perDependent": null,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 4,273 at the DOF FIX rate of 18.6670 MXN/USD published 26-10-2026 (https://dof.gob.mx/indicadores.php). UMA 2026 = MXN 117.31/day, in force from 1 Feb 2026 (INEGI, https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf). IMPORTANT: the 2025 Lineamientos (in force 15 days after 25-07-2025 publication) abrogated the 2014 Lineamientos and switched the reference from minimum wage to UMA; the '300 days of minimum wage' rule is no longer the legal basis. Source is the DOF text hosted by the Houston consulate (official copy); DOF original: https://dof.gob.mx/index_111.php?year=2025&month=07&day=25. The 15-05-2026 amendment (DOF codigo 5787660) did not change solvency amounts. Consulates publish their own USD figures, which vary: San Diego 2026 USD 4,049 (= 680 UMA at ~19.70 MXN/USD); New York 2026 USD 4,200; Las Vegas 2026 USD 4,630; Del Rio approx USD 4,786.38; Houston 2025 sheet approx USD 4,342.08; Washington DC sheet (file dated July 2026) still says MXN 83,640 (= 300 x 2025 minimum wage 278.80, i.e. the old rule). Applicants must meet the figure of the consulate where they apply. Dependents: Houston adds 220 days UMA per dependent per month (not separately verified in the Lineamientos for this route)."
+      },
+      "savings": {
+        "amount": 1344372.6,
+        "currency": "MXN",
+        "basis": "Average monthly balance in investments or bank accounts equivalent to 11,460 days of UMA over the last 12 months (Lineamientos DOF 25-07-2025, Trámite 5, req. III.a.1). 11,460 x MXN 117.31 = MXN 1,344,372.60.",
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 72,019 at DOF FIX 18.6670 MXN/USD (26-10-2026). Consulate variance: San Diego 2026 USD 68,241; New York 2026 USD 71,500; New Brunswick 2026 USD 75,500; Las Vegas 2026 USD 78,025; Del Rio approx USD 79,772.93; Washington DC sheet (July 2026 file) MXN 1,394,000 (= 5,000 x 2025 minimum wage, old 2014 rule). The task brief's '5,000 days of minimum wage' multiplier is from the abrogated 2014 Lineamientos (inferred from Washington's figure; 2014 text not re-read). At the 2026 minimum wage (MXN 315.04) the old rule would give MXN 1,575,200, but it is no longer the legal basis."
+      },
+      "processingTimeDays": {
+        "min": 0,
+        "max": 14,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official: consulate resolves within up to 10 business days from the consular interview (Lineamientos 2025, consular interview provisions: 'plazo de hasta 10 días hábiles, contados a partir del día en que se haya realizado la entrevista consular'; Trámite 5 'Plazo máximo para resolver: 10 días hábiles'); max 14 is that period expressed in calendar days. Washington DC sheet says the visa is normally ready the same day at 1:30 pm (not guaranteed), hence min 0. After issue: visa valid up to 180 days, single entry (Trámite 5 'Vigencia máxima de la visa: 180 días'), not 30 days as the brief assumed. After entry: must apply for the resident card (canje) at INM within 30 calendar days. INM's canje resolution time was not verified, and appointment wait times at consulates (not counted here) vary widely."
+      },
+      "fees": [
+        {
+          "label": "Consular visa fee (SRE, Ley Federal de Derechos art. 22-III-d)",
+          "amount": 56,
+          "currency": "USD",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "LFD (text updated by RMF DOF 28-12-2025, https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf) sets MXN 990.79 for ordinary visas; consulates charge it in USD. USD 56 is stated on 2026 sheets from San Diego (cash only), Washington DC, New York, New Brunswick and Las Vegas. Older pages show USD 54 (Houston 2025, Atlanta, Saint Paul) or USD 53 (Orlando 2024). Non-refundable if refused."
+        },
+        {
+          "label": "INM temporary resident card, 1 year (canje), LFD art. 8-VI-a",
+          "amount": 11140.74,
+          "currency": "MXN",
+          "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Approx USD 597 at 18.6670. Amount reformed DOF 07-11-2025, in force 1 Jan 2026 (roughly double the 2025 fee of about MXN 5,570). INM canje table shows MXN 11,141 at 100%; the 50% rate applies only to family unity, job offer or invitation cases (https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es), so economic-solvency applicants pay full. Renewal fees (LFD art. 8-VI): 2 years MXN 16,693.36; 3 years MXN 21,142.58; 4 years MXN 25,057.82. The brief's '~$300 INM card' is outdated."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renew within 30 days before expiry for further periods (card may be 1, 2, 3 or 4 years) until 4 years total as temporary resident; then change to permanent resident.",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Reglamento de la Ley de Migración art. 156: temporary resident card valid 1, 2, 3 or 4 years; renewals requested within 30 days before expiry up to 4 years total. Ley de Migración art. 52-VII: stay up to 4 years. The 12-month first card is inferred: INM's canje fee table lists only the 1-year temporary resident card for canje; no official page states it in words."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 52-VII: temporary residents may obtain a permit to work for pay in Mexico, subject to a job offer (separate INM work permission). Houston consulate states this visa allows work if the salary is paid abroad (remote work); San Diego requires an employer letter agreeing to remote work when solvency is shown via employment."
+      },
+      "pathToPR": {
+        "years": 4,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 54-V: permanent residence after 4 years holding temporary residence; Reglamento art. 141-VI-c (change of condition after 4 years). Reglamento also allows earlier change for pensioners/retirees with sufficient foreign income (art. 141-VI-b) and under a points system (not implemented)."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/53.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Nacionalidad art. 20: 5 years of residence immediately before the application (2 years for Latin American/Iberian nationals, Mexican children, spouses of Mexicans; not applicable to US citizens by default). Art. 21: absences over 6 months in total during the last 2 years break residence. SRE form DNN-3 (https://sre.gob.mx/images/stories/docnatnacio/dnn3.pdf) accepts the temporary OR permanent resident card as proof of residence, so time as temporary resident counts (temporary resident STUDENT time does not). So 5 years counted from the first temporary resident card, not from PR."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Book a visa appointment at the Mexican consulate",
+          "detail": "Appointments only through MiConsulado (citas.sre.gob.mx or by phone/WhatsApp). Apply at the consulate with jurisdiction over your US residence.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf"
+        },
+        {
+          "order": 2,
+          "title": "Attend the interview with solvency proof and pay the visa fee",
+          "detail": "Bring the application form, passport, photo, 12 months of bank/investment statements or 6 months of income/pension statements (originals, bank-stamped if printed online), and pay the fee (USD 56 at most consulates). Biometrics are taken.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf"
+        },
+        {
+          "order": 3,
+          "title": "Receive the visa (up to 10 business days)",
+          "detail": "The consulate resolves within 10 business days; the visa is single-entry and valid up to 180 days from issue.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf"
+        },
+        {
+          "order": 4,
+          "title": "Enter Mexico and get your FMM marked for canje",
+          "detail": "Show the residence visa to the immigration officer at entry so the FMM is issued for exchange (canje) for a resident card.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 5,
+          "title": "Apply for canje at INM within 30 calendar days of entry",
+          "detail": "File 'Expedición de documento por canje' at an INM office: passport, FMM, visa, formato básico, and proof of payment of the card fee (MXN 11,140.74 for 1 year in 2026).",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 6,
+          "title": "Give biometrics and receive the temporary resident card",
+          "detail": "Attend in person for photos, signature and fingerprints; INM issues the tarjeta de residente temporal.",
+          "sourceUrl": "https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es"
+        }
+      ],
+      "officialUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Legal basis changed: since Aug 2025 thresholds are set in UMA (680 days income / 11,460 days balance), not minimum wage (300 / 5,000 days). Consulate USD figures vary from USD 4,049 to 4,786 (income) and USD 68,241 to 79,773 (balance); Washington DC still publishes the old minimum-wage figures in MXN. Lineamientos read from the copy hosted by the Houston consulate (DOF direct page did not load). INM card fee doubled for 2026 (MXN 11,140.74). Unverified: INM canje processing time; that the first card at canje is always 1 year (inferred from INM fee table); per-dependent amounts for this route; SRE naturalisation web page blocked by a bot check, so the DNN-3 form was used instead."
+    },
+    {
+      "id": "mx_perm",
+      "country": "MX",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Permanent Resident visa for retirees/pensioners (Residente Permanente, jubilado o pensionado)",
+      "shortName": "Permanent",
+      "income": {
+        "monthly": 133733.4,
+        "annual": null,
+        "currency": "MXN",
+        "basis": "Monthly pension income, net of taxes, above 1,140 days of UMA for the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 7, req. III.a.2). 1,140 x UMA 2026 MXN 117.31 = MXN 133,733.40.",
+        "perDependent": null,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 7,164 at DOF FIX 18.6670 MXN/USD (26-10-2026, https://dof.gob.mx/indicadores.php). UMA 2026 per INEGI. Only pension income counts on the income route (employment income does not, unlike the temporary route). The brief's '500 days of minimum wage' is the abrogated 2014 rule (would be MXN 157,520 at the 2026 minimum wage). Consulate variance: San Diego 2026 USD 6,788 (= 1,140 UMA at ~19.70 MXN/USD); Saint Paul USD 7,350 (page undated, fee shown USD 54 suggests 2025)."
+      },
+      "savings": {
+        "amount": 5378663.5,
+        "currency": "MXN",
+        "basis": "Average monthly balance in investments or bank accounts equivalent to 45,850 days of UMA over the last 12 months (Lineamientos DOF 25-07-2025, Trámite 7, req. III.a.1). 45,850 x MXN 117.31 = MXN 5,378,663.50.",
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 288,138 at DOF FIX 18.6670. Consulate variance: San Diego 2026 USD 273,025; Saint Paul USD 367,650 (undated). The brief's '20,000 days of minimum wage' is the abrogated 2014 rule (would be MXN 6,300,800 in 2026)."
+      },
+      "processingTimeDays": {
+        "min": 0,
+        "max": 14,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Trámite 7: maximum 10 business days to resolve (about 14 calendar days); San Diego states 1 to 10 business days. Visa valid up to 180 days, single entry. Canje at INM within 30 calendar days of entry. INM canje resolution time not verified. Min 0 reflects same-day issue reported by some consulates (Washington DC sheet for temporary visas); not guaranteed."
+      },
+      "fees": [
+        {
+          "label": "Consular visa fee (SRE, Ley Federal de Derechos art. 22-III-d)",
+          "amount": 56,
+          "currency": "USD",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "LFD sets MXN 990.79; San Diego 2026 charges USD 56 cash, non-refundable. Older consulate pages show USD 54."
+        },
+        {
+          "label": "INM permanent resident card (canje), LFD art. 8-VII",
+          "amount": 13578.96,
+          "currency": "MXN",
+          "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Approx USD 727 at 18.6670. Reformed DOF 07-11-2025, in force 1 Jan 2026 (2025 fee about MXN 6,789). INM canje table: MXN 13,579 at 100%; the 50% rate is only for family unity, job offer or invitation cases, so pensioners pay full."
+        }
+      ],
+      "duration": {
+        "initialMonths": null,
+        "renewal": "Card has indefinite validity for adults; no renewal needed.",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Reglamento de la Ley de Migración art. 157: permanent resident card has indefinite validity (minors renew yearly until age 3, then every 4 years until adulthood). Ley de Migración art. 52-IX: stay indefinitely."
+      },
+      "workAllowed": {
+        "value": "yes",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 52-IX: permanent residence authorises indefinite stay 'con permiso para trabajar a cambio de una remuneración en el país'. Inconsistency: art. 54 (last paragraph) says permanent residents 'tendrán la posibilidad de obtener un permiso para trabajar... sujeto a una oferta de empleo'. Art. 52-IX is the commonly applied reading; practice not verified with INM."
+      },
+      "pathToPR": {
+        "years": 0,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 54-III and Reglamento art. 139-III: retirees/pensioners with foreign pension income sufficient to live in Mexico are granted permanent residence directly."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/53.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Nacionalidad art. 20: 5 years of residence immediately before the application; art. 21: absences over 6 months total in the last 2 years break residence. SRE form DNN-3 (https://sre.gob.mx/images/stories/docnatnacio/dnn3.pdf) accepts the permanent (or temporary) resident card as proof. Shorter 2-year routes exist (Mexican children, spouse of a Mexican, Latin American/Iberian origin)."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Book a visa appointment at the Mexican consulate",
+          "detail": "Appointments only through MiConsulado (citas.sre.gob.mx or by phone/WhatsApp), in the visa department.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf"
+        },
+        {
+          "order": 2,
+          "title": "Attend the interview with pension or savings proof and pay the visa fee",
+          "detail": "Bring the application, passport, photo, 6 months of pension income statements or 12 months of investment/bank statements (originals with bank stamp), and pay USD 56. Interview and biometrics on the day.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf"
+        },
+        {
+          "order": 3,
+          "title": "Receive the visa (up to 10 business days)",
+          "detail": "Single-entry visa valid up to 180 days from issue.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf"
+        },
+        {
+          "order": 4,
+          "title": "Enter Mexico and get your FMM marked for canje",
+          "detail": "Show the visa at the port of entry; the FMM is issued for exchange for a resident card.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 5,
+          "title": "Apply for canje at INM within 30 calendar days of entry",
+          "detail": "File 'Expedición de documento por canje' with passport, FMM, visa, formato básico and proof of paying MXN 13,578.96.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 6,
+          "title": "Give biometrics and receive the permanent resident card",
+          "detail": "Attend in person for photo, signature and fingerprints; INM issues the tarjeta de residente permanente (indefinite validity).",
+          "sourceUrl": "https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es"
+        }
+      ],
+      "officialUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Thresholds are now 1,140 UMA days pension income / 45,850 UMA days balance (Lineamientos 2025), not 500 / 20,000 days of minimum wage. Pension income only on the income route. Consulate USD figures vary (San Diego USD 6,788 / 273,025; Saint Paul USD 7,350 / 367,650, undated). INM card fee doubled for 2026 (MXN 13,578.96). Ley de Migración art. 52-IX vs art. 54 wording on work permission conflicts. Not verified: INM canje processing time; LA, Chicago and New York permanent-resident USD figures (pages not retrieved); per-dependent requirements."
+    }
+  ]
+}

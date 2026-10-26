@@ -1,0 +1,80 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "GoThere: visa rule changes",
+  "home_page_url": "https://getgothere.app/updates/",
+  "feed_url": "https://getgothere.app/updates/feed.json",
+  "items": [
+    {
+      "id": "2026-10-26-PT-pt_d7-pt_d8",
+      "url": "https://getgothere.app/updates/#2026-10-26-pt-pt_d7",
+      "title": "Portugal citizenship now takes 10 years for US citizens",
+      "content_text": "Lei Orgânica 1/2026 (in force 19 May 2026) raised the residence requirement for naturalisation from 5 to 10 years for most nationalities, 7 for CPLP and EU nationals. Applications pending on 19 May 2026 keep the old 5-year rule.",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://diariodarepublica.pt/dr/detalhe/lei-organica/1-2026-1123539996",
+      "tags": [
+        "PT",
+        "law"
+      ]
+    },
+    {
+      "id": "2026-10-26-PT-pt_d7-pt_d8",
+      "url": "https://getgothere.app/updates/#2026-10-26-pt-pt_d7",
+      "title": "Portugal D7 and D8 income thresholds rise with the 2026 minimum wage",
+      "content_text": "Minimum wage is €920/month in 2026 (Decreto-Lei 139/2025). D7 needs 1x (€920/month), D8 needs 4x (€3,680/month). National visa fee is €110.",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+      "tags": [
+        "PT",
+        "threshold"
+      ]
+    },
+    {
+      "id": "2026-10-26-ES-es_dnv",
+      "url": "https://getgothere.app/updates/#2026-10-26-es-es_dnv",
+      "title": "Spain digital nomad visa: consulates list €2,442/month for 2026",
+      "content_text": "US-based Spanish consulates state 200% of the 2026 monthly minimum wage (€1,221 x 2 = €2,442). Applications filed inside Spain are often assessed at about €2,849 (annual SMI spread over 12 months). Family: +75% for the first member, +25% for each additional one.",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx",
+      "tags": [
+        "ES",
+        "threshold"
+      ]
+    },
+    {
+      "id": "2026-10-26-IE-ie_critical_skills",
+      "url": "https://getgothere.app/updates/#2026-10-26-ie-ie_critical_skills",
+      "title": "Ireland Critical Skills salary floors raised",
+      "content_text": "Since 1 March 2026: €40,904 for listed occupations with a relevant degree, €68,911 for other eligible occupations, €36,848 for recent graduates. Stamp 4 after 21 months on the permit. Thresholds will be indexed yearly from 2027.",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+      "tags": [
+        "IE",
+        "threshold"
+      ]
+    },
+    {
+      "id": "2026-10-26-IT-it_dnv-it_elective",
+      "url": "https://getgothere.app/updates/#2026-10-26-it-it_dnv",
+      "title": "Italy: digital nomad income bar ~€24,789/year; national visa fee €116",
+      "content_text": "US consulates (Los Angeles, New York) state €24,789/year for the digital nomad visa. The national (type D) visa fee is €116; the €300 figure that circulates is the citizenship application fee.",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa",
+      "tags": [
+        "IT",
+        "threshold"
+      ]
+    },
+    {
+      "id": "2026-10-26-MX-mx_temp_econ-mx_perm",
+      "url": "https://getgothere.app/updates/#2026-10-26-mx-mx_temp_econ",
+      "title": "Mexico residency thresholds now set in UMA, card fees doubled",
+      "content_text": "The 2025 visa guidelines (DOF 25 July 2025) set solvency in days of UMA: temporary residence 680 days monthly income (MXN 79,770.80) or 11,460 days savings; permanent (pension) 1,140 days (MXN 133,733.40) or 45,850 days. INM card fees for 2026: MXN 11,140.74 (temporary, 1 year), MXN 13,578.96 (permanent).",
+      "date_published": "2026-10-26T00:00:00Z",
+      "external_url": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+      "tags": [
+        "MX",
+        "law"
+      ]
+    }
+  ]
+}

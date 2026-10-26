@@ -1,0 +1,321 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "country": "IT",
+  "name": "Italy",
+  "guide": "https://getgothere.app/move/us-to-it/",
+  "lastVerified": "2026-10-26",
+  "visas": [
+    {
+      "id": "it_elective",
+      "country": "IT",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Elective Residence visa (residenza elettiva)",
+      "shortName": "Elective",
+      "income": {
+        "monthly": null,
+        "annual": 31000,
+        "currency": "EUR",
+        "basis": "Stable passive income (pensions, annuities, property, investments, stable business activities); employment income not accepted. US consulates apply roughly EUR 31,000 per year per applicant.",
+        "perDependent": "Consulate General New York: 'For family applications, each applicant must demonstrate sufficient financial resources, typically around EUR 31,000 per person.' Boston: 'totaling more than 31,000 euros yearly per applicant', one packet per applicant. No US consulate page found states the +20% spouse / +5% per child rule.",
+        "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "There is no statutory figure. vistoperitalia.esteri.it (infovisto code 5_0_D) states no amount and only refers to the Interior Ministry Directive of 1 March 2000 (means of subsistence table). Consulate figures vary: New York says 'typically around EUR 31,000 per person'; Boston says 'more than 31,000 euros yearly per applicant' (https://consboston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/elective-residency); Los Angeles, Chicago, Houston and San Francisco state no figure, only 'substantial and stable' passive income (SF calls the visa targeted at 'wealthy persons'). Consulate Paris says the Table A minimum (about EUR 31,000) is 'only a starting point'. The exact EUR 31,159.88 figure was not found on any official page checked. Monthly is left null because no official US page states a monthly figure (Consulate Sydney states EUR 2,600/month, but that is not a US post)."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No fixed savings amount found on official pages. Consulates ask for bank statements (San Francisco: last three months) and two years of US tax returns, and Houston asks for 'well documented and substantive financial resources'."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 90,
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Consulate General Los Angeles: 'The processing time for this visa may be up to 90 (ninety days)... Rush processing is not possible.' Other US consulates may differ. Appointment wait times through Prenot@mi are not included."
+      },
+      "fees": [
+        {
+          "label": "National (type D) long-stay visa fee",
+          "amount": 116,
+          "currency": "EUR",
+          "sourceUrl": "https://www.esteri.it/wp-content/uploads/2026/09/tariffa_consolare.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Tabella dei diritti consolari, art. 29: national visa for long stays (type D) EUR 116.00. Non-refundable. Paid in USD at US consulates at the quarterly exchange rate."
+        },
+        {
+          "label": "National visa fee in USD at Consulate General Los Angeles (1 Oct to 31 Dec 2026)",
+          "amount": 133.6,
+          "currency": "USD",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/handling-fees-for-visa-applications/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "USD amount is updated every quarter and may differ slightly between consulates. Payment by money order or cashier's check."
+        },
+        {
+          "label": "Permesso di soggiorno: electronic card (smart card) production",
+          "amount": 30.46,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section J (Residenza elettiva) of the Polizia di Stato kit checklist: bollettino for the smart card EUR 30.46 plus the applicable contribution. The PDF is undated. Amounts were confirmed on portaleimmigrazione.it/ITA/tabelleCosti.html."
+        },
+        {
+          "label": "Permesso di soggiorno contribution, permit up to 1 year",
+          "amount": 40,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 40 for permits up to 1 year and EUR 50 for permits over 1 and up to 2 years (same section J). The first permit is usually 1 year, so the bollettino totals EUR 70.46 (EUR 80.46 for a 2-year permit)."
+        },
+        {
+          "label": "Revenue stamp (marca da bollo) for permesso application",
+          "amount": 16,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section A: 'marca da bollo da 16,00' required for every residence permit."
+        },
+        {
+          "label": "Poste Italiane fee for sending the permesso kit",
+          "amount": 30,
+          "currency": "EUR",
+          "sourceUrl": "https://www.portaleimmigrazione.it/ITA/tabelleCosti.html",
+          "sourceType": "secondary",
+          "lastVerified": "2026-10-26",
+          "note": "Portale Immigrazione (the Poste Italiane / Interior Ministry application portal, not on the official-domain list) states EUR 30.00 paid at the post office. No poliziadistato.it page stating this fee could be read: the poliziadistato.it HTML pages were blocked by its firewall."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable at the competent Questura as long as the original requirements continue to be met",
+        "sourceUrl": "https://ambalkuwait.esteri.it/it/italia-e-kuwait/diplomazia-economica/fare-affari-in-italia/opportunita-di-investimento/387-2",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Embassy of Italy in Kuwait (esteri.it): the elective residence visa lasts 1 year and is 'facilmente rinnovabile in Italia presso la Questura territorialmente competente' if the requirements are still met. The permit cannot be renewed after a continuous absence from Italy of more than six months (art. 13 DPR 394/1999, cited on the same page). The app's '2-year renewals' is NOT confirmed by any official page. It is only implied by the Polizia di Stato checklist listing a EUR 50 contribution for elective permits 'over 1 and up to 2 years'. No US consulate page checked states the duration."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Los Angeles: 'not allowed to work or seek employment under any conditions'. New York: 'DOES NOT ALLOW ANY WORK ACTIVITIES IN ITALY'. Houston adds that applicants 'may continue taking care of their own commercial or financial business which are held abroad'."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "EU long-term residence permit (permesso UE per soggiornanti di lungo periodo), art. 9 D.Lgs. 286/1998. The Polizia di Stato checklist (section K) requires five years of legal stay from the first permit's issue date, plus income not below the annual assegno sociale. The art. 9 text on normattiva.it was not re-read; the Italian language test and other requirements are not covered here."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Law 91/1992 art. 9 c.1 lett. f: a non-EU foreigner who 'risiede legalmente da almeno dieci anni'. Italian language knowledge is required (L. 132/2018). The decision deadline is 24 months, extendable to 36. The Interior Ministry page (published 11/11/2024) mentions only L. 63/2025, a narrow new case for relatives of infrastructure-collapse victims; it shows no 2025-2026 change to the 10-year rule. The 2025 descent reform (DL 36/2025) affected ius sanguinis only. A secondary source (cittadinanza.net, Sep 2026) also says 10 years remains after the 2025 referendum."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Secure housing in Italy",
+          "detail": "Sign a lease ('Contratto di Locazione ad Uso Abitativo') registered with the Agenzia delle Entrate, or buy a property, in the applicant's name for the whole period. Hotels or hosting by third parties are not accepted.",
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency"
+        },
+        {
+          "order": 2,
+          "title": "Gather passive income proof and documents",
+          "detail": "Bank, pension and Social Security letters, last 2 years of tax returns, a letter explaining why you are moving, a one-way flight reservation, the national visa form and a photo. Each family member applies separately.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at the Italian consulate for your US state",
+          "detail": "Book a national (D) visa appointment, pay the fee by money order or cashier's check, and give fingerprints (required since 11 January 2025). Decision in up to 90 days.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa"
+        },
+        {
+          "order": 4,
+          "title": "Enter Italy and request the permesso di soggiorno within 8 working days",
+          "detail": "Send the application kit from an authorised Poste Italiane office (Sportello Amico). You receive login details for the Portale Immigrazione and a fingerprinting appointment at the Questura.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        },
+        {
+          "order": 5,
+          "title": "Attend the Questura appointment and collect the permesso",
+          "detail": "The Questura takes fingerprints and later tells you when the permit is ready.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        },
+        {
+          "order": 6,
+          "title": "Register your residence with the comune",
+          "detail": "Non-EU holders of a permesso must register (iscrizione anagrafica) with the municipality where they live.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        }
+      ],
+      "officialUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Not verified or conflicting: (1) No official income figure exists. vistoperitalia.esteri.it states none, and US consulates range from 'around EUR 31,000 per person' (NY) and 'more than EUR 31,000 per applicant' (Boston) to no figure at all (LA, SF, Chicago, Houston). EUR 31,159.88 was not found on any official page. (2) The app's +20% spouse / +5% per child rule is not stated by any US consulate; NY and Boston require the full amount per applicant. A July 2025 Rome administrative court (TAR) ruling reportedly faulted full per-child amounts (secondary only, italiancitizenshipassistance.com). (3) No property requirement amount exists, but every US consulate checked requires a registered lease or deed before applying. (4) Renewal length (app says 2 years) is unconfirmed; it is only implied by the EUR 50 contribution tier. (5) USD visa fee varies by consulate and quarter. (6) The Poste kit fee of EUR 30 comes from portaleimmigrazione.it (secondary). (7) The app's fee of EUR 300 is wrong for the visa; EUR 300 is the consular fee for a citizenship-by-descent recognition application (art. 7-bis of the fee table)."
+    },
+    {
+      "id": "it_dnv",
+      "country": "IT",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Digital Nomad / Remote Worker visa (nomadi digitali e lavoratori da remoto)",
+      "shortName": "DNV",
+      "income": {
+        "monthly": null,
+        "annual": 24789,
+        "currency": "EUR",
+        "basis": "Income from lawful sources at least three times the minimum income level for exemption from healthcare cost-sharing; must come from the remote work itself (LA: Social Security, rents or stocks not counted)",
+        "perDependent": null,
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Los Angeles and New York (https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/digital-nomad-remote-worker-visa) both say 'no less than 24,789 euros' per year, written 'at the time of this writing in 2024'. Conflict: Consulate London and Embassy Pristina use a base of EUR 8,500, i.e. triple = EUR 25,500. Remote employees must also earn at least the relevant Italian national collective agreement (CCNL) salary and not below the ISTAT median annual salary. The app's EUR 28,000 is not supported by any official page found. No per-dependent amount is stated: family members join later through family reunification from Italy."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No savings requirement stated on the official pages checked."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 120,
+        "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Houston: 'up to 120 days for self-employed applicants and up to 30 days for subordinate workers' (remote employees). Los Angeles and New York state no processing time. Other consulates may differ."
+      },
+      "fees": [
+        {
+          "label": "National (type D) long-stay visa fee",
+          "amount": 116,
+          "currency": "EUR",
+          "sourceUrl": "https://www.esteri.it/wp-content/uploads/2026/09/tariffa_consolare.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Tabella dei diritti consolari, art. 29: national visa for long stays (type D) EUR 116.00. Non-refundable."
+        },
+        {
+          "label": "National visa fee in USD at Consulate General Los Angeles (1 Oct to 31 Dec 2026)",
+          "amount": 133.6,
+          "currency": "USD",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/handling-fees-for-visa-applications/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Adjusted quarterly. Stays of 90 days or less use the Schengen fee instead ($103.70)."
+        },
+        {
+          "label": "Permesso di soggiorno: card production plus contribution for a permit up to 1 year",
+          "amount": 70.46,
+          "currency": "EUR",
+          "sourceUrl": "https://www.portaleimmigrazione.it/ITA/tabelleCosti.html",
+          "sourceType": "secondary",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 30.46 card production plus EUR 40 contribution for permits over 3 months and up to 1 year. The Polizia di Stato checklist (https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it) gives the same amounts for the categories it lists, but it has no specific section for the digital nomad permit. Whether this permit is filed by postal kit or directly at the Questura was not confirmed. LA says to check with the local Questura."
+        },
+        {
+          "label": "Revenue stamp (marca da bollo) for permesso application",
+          "amount": 16,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section A: required for every residence permit."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable at the Questura while the work, lodging and health insurance requirements continue to be met",
+        "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Art. 27 c.1-sexies D.Lgs. 286/1998: the permit is issued 'per un periodo non superiore a un anno' after the entry visa. Renewability is stated by Consulate LA ('you can renew it locally at the Questura as long as you maintain your employment, lodging, and health insurance'). The integrazionemigranti.gov.it summary of DM 29/02/2024 also says 'durata massima di un anno, ma rinnovabile', with the permit marked 'nomade digitale - lavoratore da remoto'."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Allowed only for highly qualified work done remotely with technology, as self-employed (digital nomad) or for a company 'anche non residente' in Italy (remote worker). No nulla osta needed. Per the normattiva paraphrase, the law does not limit employers or clients to foreign ones, so the app's 'foreign employer/clients only' is NOT supported by the statute text. US consulates frame the visa around remote work. Highly qualified means a recognised degree (CIMEA or Declaration of Value), a regulated-profession attestation, or 5 years' experience (3 of the last 7 years for ICT). It also requires at least 6 months' prior experience in the field (Consulate LA)."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "EU long-term residence permit, art. 9 D.Lgs. 286/1998: five years of legal stay from the first permit plus income at least the assegno sociale (Polizia di Stato checklist section K). NOT verified: whether years on a digital nomad permit count fully toward the 5 years. No official page addressing this permit type specifically was found."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Law 91/1992 art. 9 c.1 lett. f: 10 years of legal residence for non-EU foreigners, plus Italian language knowledge. Decision in 24 months, extendable to 36. No 2025-2026 change to the 10-year rule found on the Interior Ministry page."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Confirm you qualify as a highly skilled remote worker",
+          "detail": "Prove a degree (recognised via CIMEA or a Declaration of Value), a regulated-profession attestation, or 5 years' experience (3 for ICT), plus at least 6 months in the field. Remote employees also need a contract meeting CCNL / ISTAT median pay and an employer declaration.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 2,
+          "title": "Secure housing and health insurance",
+          "detail": "Get a lease registered with the Agenzia delle Entrate, or a deed, in your name for the whole visa period, plus medical insurance covering Italy.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at the Italian consulate for your US state",
+          "detail": "Book a national visa appointment marked 'Digital Nomad or Remote Work'. Bring the national visa form, income proof (at least about EUR 24,789 a year), and the fee by money order or cashier's check. Fingerprints are taken.",
+          "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the visa decision",
+          "detail": "Houston says up to 120 days for self-employed applicants and up to 30 days for remote employees.",
+          "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad"
+        },
+        {
+          "order": 5,
+          "title": "Enter Italy and apply for the permesso di soggiorno within 8 working days",
+          "detail": "Apply at the Questura with jurisdiction over your Italian address, bringing copies of your visa documents.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 6,
+          "title": "Receive the 1-year 'nomade digitale - lavoratore da remoto' permit",
+          "detail": "Valid up to one year and renewable at the Questura. Family reunification (spouse, children under 18) can then be requested from Italy.",
+          "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27"
+        }
+      ],
+      "officialUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Not verified or conflicting: (1) Income: US consulates (LA, NY) state EUR 24,789 per year as of 2024, but London and Pristina use EUR 8,500 x 3 = EUR 25,500. The current healthcare-exemption threshold was not confirmed on a salute.gov.it page. App's EUR 28,000 is not supported. (2) Legal basis: normattiva shows the category as art. 27 c.1 lett. q-bis and c.1-sexies D.Lgs. 286/1998, not 'q-quater' as in the brief. Implementing DM 29 Feb 2024 published in GU n.79 of 4 Apr 2024 (https://www.gazzettaufficiale.it/eli/id/2024/04/04/24A01716/sg); its article text could not be retrieved. (3) 'Foreign employer/clients only' is not in the statute, which allows a company 'anche non residente'. (4) Whether DNV years count toward the 5-year EU long-term permit is unconfirmed. (5) Permesso filing channel (postal kit vs Questura) and the EUR 30 Poste fee were not confirmed for this permit. (6) Processing time is from Houston only."
+    }
+  ]
+}

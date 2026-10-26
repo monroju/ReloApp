@@ -1,0 +1,1317 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "visas": [
+    {
+      "id": "es_dnv",
+      "country": "ES",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Digital Nomad Visa (visado para teletrabajo de carácter internacional, Ley 14/2013 as amended by Ley 28/2022)",
+      "shortName": "DNV",
+      "income": {
+        "monthly": 2442,
+        "annual": null,
+        "currency": "EUR",
+        "basis": "200% of the monthly SMI (SMI 2026 = EUR 1,221/month in 14 payments, EUR 17,094/year; Real Decreto 126/2026)",
+        "perDependent": "First family member +75% SMI (EUR 916/month); each additional member +25% SMI (EUR 305/month)",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Rule from the joint DGM/DGEEAC instruction of 29 Mar 2023 (https://www.inclusion.gob.es/documents/410169/0/report_report_2301+Instrucci%C3%B3n+conjunta+Teletrabajadores+de+car%C3%A1cter+internacional_rev13_FIRMADAS.pdf/d6c8533a-c98e-6157-da03-a598f0e1c017?t=1681813834808): holder 200% SMI monthly; 2-person family unit +75% SMI; +25% SMI per additional member. SMI 2026 = EUR 40.70/day or EUR 1,221/month (RD 126/2026, BOE-A-2026-3815, https://www.boe.es/eli/es/rd/2026/02/18/126/con), EUR 17,094/year (SEPE). Houston consulate (official) computes on the monthly figure: 2 x 1,221 = 2,442/month (~$2,845); 0.75 x 1,221 = 915.75 ~ 916; 0.25 x 1,221 = 305.25 ~ 305. CONFLICT: many secondary sources prorate the 14-payment annual SMI over 12 months: 17,094 / 12 = 1,424.50; x 2 = 2,849/month (34,188/year); family +1,068.38 and +356.13. Ministry of Inclusión (UGE) historically used the prorated figure for in-Spain residence applications (2025: EUR 2,762 = 16,576 x 2 / 12), but no official 2026 UGE page confirming 2,849 was found. Annual left null because the official consular page gives only a monthly figure. Safe planning figure: EUR 2,849/month. Couple (Houston basis): 2,442 + 916 = 3,358/month; couple + 1 child: 3,663/month."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No separate savings threshold on US consulate pages; requirement is expressed as monthly income (any means of proof: employment contract, firm job offer, commercial contract). Some non-US consulates mention 'own financial means' as an alternative; not verified for US consulates."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 10,
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Value is in BUSINESS days (días hábiles), about 2 calendar weeks. Ley 14/2013 art. 75.5: visa applications are resolved and notified within 10 business days (Houston consulate repeats this; extendable if an interview or extra documents are needed). In-Spain residence authorization via UGE (art. 76.1): max 20 days from electronic filing, positive silence (approved if no answer). Real-world consular times and BLS appointment waits vary; not officially published."
+      },
+      "fees": [
+        {
+          "label": "National visa fee (US citizens, reciprocity rate)",
+          "amount": 190,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Houston page: 'Americans $190'. Miami page (https://www.exteriores.gob.es/Consulados/miami/en/ServiciosConsulares/Paginas/TELEWORK-VISA.aspx) states Americans $190, other nationalities $94, 'from Jan. 1st 2025' (not updated label for 2026). New York 2025 fee list: visas under the Law of Entrepreneurs $190. Money order; non-refundable. NIE fee, BLS charges and the in-Spain UGE residence fee not verified here."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Visa holders can apply in Spain for a residence authorization of up to 3 years (within 60 days before visa expiry); renewals for 2 years each",
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley 14/2013 art. 74 quater: visa valid max 1 year (or shorter if the work period is shorter); art. 74 quater.3: residence application in the 60 natural days before visa expiry; art. 74 quinquies.2: residence authorization max 3 years; art. 76.3: renewals for 2-year periods. Applicants already legally in Spain can apply directly to the UGE for the 3-year residence without a visa."
+      },
+      "workAllowed": {
+        "value": "foreignOnly",
+        "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley 14/2013 art. 74 bis.1: employees may only work for companies located outside Spain; self-employed may work for Spanish companies up to 20% of their total professional activity. Work must be remote via telematic means. Requires 3+ months' relationship with the foreign employer/clients and the company must have operated at least 1 year (art. 74 ter)."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Residencia de larga duración: 5 years of legal and continuous residence (Hoja 49; Ley Orgánica 4/2000 art. 32). Time on the DNV counts as legal residence (inference: it is a residence title under Ley 14/2013; no official page found that addresses DNV time explicitly)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://www.boe.es/buscar/doc.php?id=BOE-A-2002-19484",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Código Civil art. 22.1: 10 years of legal, continuous residence; US citizens do not qualify for the 2-year reduced period (Ibero-America, Andorra, Philippines, Equatorial Guinea, Portugal, Sephardic). Art. 23: renunciation of prior nationality required."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Get a Spanish NIE number from your consulate",
+          "detail": "Houston and other US consulates require the NIE before the visa application.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx"
+        },
+        {
+          "order": 2,
+          "title": "Gather documents",
+          "detail": "Employer/client certificate (3+ months, remote work allowed), company active 1+ year, degree or 3 years' experience, income 200% SMI, FBI background check with Apostille and translation, health insurance, and US Social Security Certificate of Coverage (US-Spain agreement) or Spanish Social Security registration.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Telework-visa.aspx"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at your consulate's BLS centre and pay $190",
+          "detail": "Only residents of the consular district may apply there.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/houston/en/ServiciosConsulares/Paginas/Consular/TELEWORK-Visa-(Digital-Nomad-Visa)-.aspx"
+        },
+        {
+          "order": 4,
+          "title": "Decision within 10 business days",
+          "detail": "Legal deadline under Ley 14/2013 art. 75.5; longer if an interview or more documents are requested.",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        },
+        {
+          "order": 5,
+          "title": "Move to Spain; the 1-year visa is your residence title",
+          "detail": "A TIE card is optional during the visa year and can be requested at the Oficina de Extranjería or Police station.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/miami/en/ServiciosConsulares/Paginas/TELEWORK-VISA.aspx"
+        },
+        {
+          "order": 6,
+          "title": "Apply to the UGE for the 3-year residence authorization",
+          "detail": "File online within the 60 days before the visa expires; UGE must answer within 20 days (silence = approval).",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        },
+        {
+          "order": 7,
+          "title": "Get your TIE",
+          "detail": "Authorizations valid over 6 months require applying for the foreigner identity card (Ley 14/2013 art. 76.2).",
+          "sourceUrl": "https://www.boe.es/buscar/act.php?id=BOE-A-2013-10074"
+        }
+      ],
+      "officialUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Telework-visa.aspx",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "INCOME CONFLICT: official Houston consulate page = EUR 2,442/month (2 x 1,221 monthly SMI); widely cited secondary figure = EUR 2,849/month (17,094 x 2 / 12, prorated). No official 2026 UGE or Ministry page found stating 2,849; one secondary report (GPA, May 2026) even claims the Ministry kept EUR 2,762. Treat EUR 2,849 as the conservative planning figure. Dependents: official rule is +75% SMI for the first family member and +25% per additional member (not specifically 'spouse' and 'child'). Processing: app said 20-45 days; statutory maximum is 10 business days for the consular visa and 20 days for UGE residence. Fee: app value not given for DNV; US citizens pay $190 (Houston, Miami; Miami label says 'from Jan 1 2025'). Washington page fee table not machine-readable. Not verified: NIE fee, BLS service charge, UGE residence fee, TIE fee, whether DNV time counts toward PR explicitly. RD 1155/2024 (in force May 2025) is the general immigration reglamento; the DNV is governed by Ley 14/2013 and the 2023 joint instruction, and no official source found indicating the new reglamento changed DNV thresholds or durations (inference)."
+    },
+    {
+      "id": "es_nlv",
+      "country": "ES",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Non-Lucrative Residence Visa (residencia temporal no lucrativa)",
+      "shortName": "NLV",
+      "income": {
+        "monthly": 2400,
+        "annual": 28800,
+        "currency": "EUR",
+        "basis": "400% of IPREM per month for the applicant (IPREM 2026 = EUR 600/month, EUR 7,200/year)",
+        "perDependent": "+100% of IPREM per family member: EUR 600/month (EUR 7,200/year)",
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Rule (400% IPREM applicant, 100% IPREM per family member) from Ministerio de Inclusión Hoja 6 (updated May 2025, cites RD 1155/2024 arts. 60-63) and US consulate pages (Boston, Chicago, Washington). IPREM 2026 = EUR 600/month, EUR 7,200/year (12 pagas): SEPE https://www.sepe.es/HomeSepe/prestaciones-desempleo/Cuantias-anuales.html and Consulate LA https://www.exteriores.gob.es/Consulados/losangeles/en/ServiciosConsulares/Documents/IPREM.pdf; legal basis Ley 31/2022 (PGE 2023) prorogued, IPREM unchanged since 2023. Arithmetic: 4 x 600 = 2,400/month; 2,400 x 12 = 28,800/year. Couple: 2,400 + 600 = 3,000/month (36,000/year). Couple + 1 child: 3,600/month (43,200/year). Washington consulate states the requirement on an annual basis (400% IPREM annually)."
+      },
+      "savings": {
+        "amount": 28800,
+        "currency": "EUR",
+        "basis": "Funds covering the first year: 400% IPREM x 12 months (EUR 2,400 x 12); +EUR 7,200 per family member",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/washington/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Consulates accept either sufficient own funds for the initial year or a regular income (Chicago, Washington pages). Hoja 6 says means can be proven by any means, including property titles, certified cheques or credit cards with bank certification. The amount is computed from the IPREM rule (4 x 600 x 12), not a figure printed on the page. Chicago also asks for bank account details incl. balances at 31 Dec of the previous year and average balance."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 90,
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Boston consulate: legal period for a decision is 3 months from the day after submission, extendable if an interview or extra documents are requested. Inside that, the Oficina de Extranjería must resolve the residence authorization within 1 month of receiving the consulate's communication; silence = refusal (Hoja 6). Once granted, the applicant has 1 month to collect the visa. Real-world times vary by consulate and BLS appointment availability; no official average published."
+      },
+      "fees": [
+        {
+          "label": "National visa fee (US citizens, reciprocity rate)",
+          "amount": 140,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Chicago page lists 2026: Americans $140, other nationalities $106. Houston and Boston also state $140 for US passport holders. Washington says rates apply by reciprocity and are revised quarterly with exchange rates. Paid by money order; non-refundable. BLS service charges are extra and not included."
+        },
+        {
+          "label": "Residence authorization fee (Modelo 790 código 052, epígrafe 2.1.1)",
+          "amount": 13,
+          "currency": "USD",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Chicago: fee for 2026 is $13 (also $13 at Boston, Houston, Washington). Per applicant. Total per applicant at the consulate: $140 + $13 = $153. TIE card fee in Spain is separate and not verified here."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable for 2 years at a time, then eligible for long-term residence after 5 years",
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/renovacion-de-la-autorizacion-de-residencia-temporal-no-lucrativa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Initial authorization lasts 1 year from entry (Hoja 6). Visa itself valid up to 90 days for entry (Boston; Hoja 6: never more than 3 months). Renewed authorization valid 2 years unless long-term residence applies (Hoja 7); apply in the 2 months before expiry or up to 3 months after. Renewal also requires sufficient means for the renewal period."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Boston: the visa 'does not allow any type of work or professional activity, including remote, as this is not a digital nomad visa.' Hoja 6: authorizes residence without carrying out work or professional activities."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Residencia de larga duración (national): 5 years of legal and continuous residence in Spain before applying (Hoja 49; Ley Orgánica 4/2000 art. 32; RD 1155/2024). Long-term EU status (Hoja 50) also requires 5 years. Absence limits that break continuity are not verified here."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://www.boe.es/buscar/doc.php?id=BOE-A-2002-19484",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Código Civil art. 22.1 (as amended by Ley 36/2002): naturalization by residence requires 10 years of legal, continuous residence immediately before applying. The 2-year reduced period applies only to nationals of Ibero-American countries, Andorra, Philippines, Equatorial Guinea, Portugal and Sephardic Jews; US citizens are not covered. Art. 23 requires renouncing prior nationality (US not exempt). Resolution time: max 1 year, silence = refusal (Ley 36/2002 DA)."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather documents in the US",
+          "detail": "EX-01 form, passport valid 1+ year, FBI fingerprint background check (max 6 months old) with FBI Apostille and sworn Spanish translation, medical certificate (max 3 months old), proof of means (400% IPREM), Spanish health insurance with no copay or limits, proof of residence in the consular district.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/boston/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx"
+        },
+        {
+          "order": 2,
+          "title": "Apply in person at the consulate (or its BLS centre) for your US state",
+          "detail": "Each US consulate only accepts residents of its district. Pay the $140 visa fee + $13 Modelo 790-052 fee per applicant.",
+          "sourceUrl": "https://www.exteriores.gob.es/Consulados/chicago/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx"
+        },
+        {
+          "order": 3,
+          "title": "Wait for the decision (legal limit 3 months)",
+          "detail": "The consulate forwards the file to the Spanish immigration office, which resolves the residence authorization within 1 month of receiving it.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 4,
+          "title": "Collect the visa within 1 month and enter Spain within its validity",
+          "detail": "Visa valid for up to 3 months; the 1-year authorization starts on the date of entry.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 5,
+          "title": "Apply for the TIE (foreigner ID card) within 1 month of entry",
+          "detail": "In person at the Policía Nacional station or Oficina de Extranjería for your place of residence.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa"
+        },
+        {
+          "order": 6,
+          "title": "Renew before the first year ends",
+          "detail": "Apply in the 2 months before expiry; renewal gives 2 more years if means are maintained.",
+          "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/renovacion-de-la-autorizacion-de-residencia-temporal-no-lucrativa"
+        }
+      ],
+      "officialUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Changes vs app: fee was ~EUR 600, verified US-citizen fee is $140 visa + $13 residence fee = $153 per applicant (2026, Chicago/Houston/Boston). Processing: app said 2-3 months; official legal maximum is 3 months (no official minimum). Income unchanged at EUR 2,400/mo (IPREM still EUR 600 in 2026 because the 2023 budget is prorogued). Not verified: TIE card fee, BLS service charges, exact absence limits for PR/citizenship continuity, whether every US consulate charges the same $140 (Washington page only says 'reciprocity rates, revised quarterly'). RD 1155/2024 (in force May 2025) now governs NLV (arts. 60-63); the official Hoja 6 updated May 2025 keeps 400%/100% IPREM and 1-year initial term; renewal sheet (Hoja 7) states 2-year renewals. Some secondary sources claim the new reglamento lets NLV holders switch to work authorizations; not verified from an official page, so not included."
+    },
+    {
+      "id": "ie_critical_skills",
+      "country": "IE",
+      "from": [
+        "US"
+      ],
+      "category": "work",
+      "name": "Critical Skills Employment Permit",
+      "shortName": "Critical Skills",
+      "income": {
+        "monthly": null,
+        "annual": 40904,
+        "currency": "EUR",
+        "basis": "Minimum annual remuneration EUR 40,904 for occupations on the Critical Skills Occupations List with a relevant degree; EUR 68,911 for all other eligible occupations (degree or relevant experience); EUR 36,848 for recent relevant graduates (Level 8+, within 12 months)",
+        "perDependent": null,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Thresholds in force since 1 March 2026 for new applications and renewals (up from EUR 38,000 / EUR 64,000), per DETE press release of 2 December 2025 (https://enterprise.gov.ie/en/news-and-events/department-news/2025/december/20251202.html). From 2027 to 2030 thresholds are to be indexed annually to CSO average earnings, so re-check each January. Job offer must be at least 2 years. Roles covered by the public sector pay deal are exempt from the thresholds."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings requirement is stated on the DETE CSEP page; eligibility is based on the job offer and salary."
+      },
+      "processingTimeDays": {
+        "min": 7,
+        "max": 7,
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/current-application-processing-dates/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "DETE processing dates: as of 23 October 2026 CSEP applications received 16 October 2026 were being processed (7 days); an earlier snapshot as of 7 October 2026 showed 30 September 2026 (also 7 days). This is queue time at DETE only; queries, decision issue, travel and immigration registration add time. The page does not split trusted partner and standard applications. Backlogs vary month to month."
+      },
+      "fees": [
+        {
+          "label": "Critical Skills Employment Permit processing fee",
+          "amount": 1000,
+          "currency": "EUR",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "90% refunded if unsuccessful. Under s.55 Employment Permits Act 2024 the employer may not recover the fee or expenses from the permit holder (the fee can be paid by either party)."
+        },
+        {
+          "label": "Immigration registration (IRP card), Stamp 1",
+          "amount": 300,
+          "currency": "EUR",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 300 per person, card only; Stamp 4 registration is also EUR 300."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Not renewed as a CSEP; holders apply to the Department of Justice for Stamp 4 instead",
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "DETE page: job offer must be at least 2 years and the immigration permission is granted for 2 years; holders 'apply directly to the Dept of Justice for a Stamp 4' rather than renewing the permit."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Work only for the permit employer in the permit occupation. Under the Employment Permits Act 2024 (in force 2 September 2024) and s.18 Employment Permits Regulations 2024, a change of employer is not considered until 9 months after first starting work on an employment permit, except redundancy or fundamentally changed circumstances; after redundancy the holder has 6 months to find new work. On Stamp 4 the holder may work for any employer without a permit. Spouses/partners get Stamp 1G and can work without a permit."
+      },
+      "pathToPR": {
+        "years": 1.75,
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-renew-your-current-permission/information-on-stamp-4-upgrades",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ireland has no formal PR; mapped to Stamp 4. ISD: eligible for Stamp 4 'upon completion of 21 months from commencement of employment in the State' on a CSEP (commencement shown via Revenue Employment Detail Summary). The stamps page summarises this as after 2 years. Stamp 4 is still a renewable time-limited permission. Separate Long Term Residence application possible after 60 months of permission (DETE CSEP page)."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.irishimmigration.ie/how-to-become-a-citizen/become-an-irish-citizen-by-naturalisation",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Irish Nationality and Citizenship Act 1956 s.15: 5 years reckonable residence in the last 9 years, including 1 full year continuous immediately before applying (70-day absence rule, up to 30 more days in exceptional circumstances). Stamp 1 on a CSEP and Stamp 4 both count as reckonable. Naturalisation is at the Minister's discretion."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Get a qualifying job offer of at least 2 years",
+          "detail": "EUR 40,904+ for a Critical Skills Occupations List role with a relevant degree, or EUR 68,911+ for other eligible roles (EUR 36,848 for recent relevant graduates).",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/"
+        },
+        {
+          "order": 2,
+          "title": "Employer or employee applies to DETE and pays EUR 1,000",
+          "detail": "Applications are processed in date order; check DETE's current processing dates page.",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/current-application-processing-dates/"
+        },
+        {
+          "order": 3,
+          "title": "Travel to Ireland (no entry visa needed for US citizens) and register within 90 days",
+          "detail": "Book a first registration via the ISD Customer Service portal after arrival, pay EUR 300 and receive an IRP card (Stamp 1).",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/"
+        },
+        {
+          "order": 4,
+          "title": "Bring family",
+          "detail": "CSEP holders can apply for immediate family reunification; spouses/partners receive Stamp 1G and may work without a permit.",
+          "sourceUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/"
+        },
+        {
+          "order": 5,
+          "title": "Upgrade to Stamp 4 after 21 months",
+          "detail": "Apply to ISD for Stamp 4 once 21 months of employment on the CSEP are completed; Stamp 4 allows work without an employment permit.",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-renew-your-current-permission/information-on-stamp-4-upgrades"
+        },
+        {
+          "order": 6,
+          "title": "Apply for naturalisation after 5 years reckonable residence",
+          "detail": "5 years in the last 9, including 1 continuous year immediately before applying.",
+          "sourceUrl": "https://www.irishimmigration.ie/how-to-become-a-citizen/become-an-irish-citizen-by-naturalisation"
+        }
+      ],
+      "officialUrl": "https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/permit-types/critical-skills-employment-permit/",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Salary thresholds changed 1 March 2026 (EUR 38,000 to 40,904; EUR 64,000 to 68,911; new graduate rate EUR 36,848) and will be indexed annually 2027 to 2030, so re-verify in early 2027. Stamp 4 eligibility is 21 months, not a full 2 years. Processing time is DETE queue time only (about 7 days in October 2026) and excludes registration. The DETE processing page does not distinguish trusted partner from standard applications. Long Term Residence after 60 months is stated on the DETE page but the ISD LTR page was not checked."
+    },
+    {
+      "id": "ie_stamp_0",
+      "country": "IE",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Stamp 0 permission for persons of independent means (retirement)",
+      "shortName": "Stamp 0",
+      "income": {
+        "monthly": null,
+        "annual": 50000,
+        "currency": "EUR",
+        "basis": "Individual income of EUR 50,000 per year (pension income or readily accessible funds; investment sums are not normally measured), verified by an Irish accountancy firm",
+        "perDependent": "Official page states an 'individual income' requirement; no separate dependant figure published",
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official wording: 'you should have an individual income of EUR 50,000 per year'. A secondary source (Lewis Silkin, 2025) says a married couple needs EUR 100,000 combined; the official page only implies this via 'individual income'. Finances must be presented as a monthly spreadsheet in euros and certified by an Irish accountancy firm."
+      },
+      "savings": {
+        "amount": null,
+        "currency": "EUR",
+        "basis": "Access to a lump sum to cover any sudden major expenses, for example equal to the price of a residential dwelling in the State",
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No fixed euro amount is published. The official example benchmark is the price of a residential dwelling in Ireland, so the required sum varies with property prices."
+      },
+      "processingTimeDays": {
+        "min": 120,
+        "max": 120,
+        "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official: 'The average processing time for applications is four months' (converted to about 120 days). Delays expected if documents are missing; processed in chronological order. Page last updated 25 June 2026."
+      },
+      "fees": [
+        {
+          "label": "Immigration registration (IRP card), Stamp 0",
+          "amount": 300,
+          "currency": "EUR",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Fee table lists Stamp 0 at EUR 300 per person, card payment only. No separate application fee for the Stamp 0 permission itself is stated on the official retirement page. Private medical insurance and Irish accountant certification are additional mandatory costs (amounts not published)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable annually via TPER Renewal Form on the ISD Customer Service portal, with continued compliance with financial conditions",
+        "sourceUrl": "https://newlandchase.com/ireland-ways-to-retire-to-ireland",
+        "sourceType": "secondary",
+        "lastVerified": "2026-10-26",
+        "note": "Secondary source: no official page found stating the 12-month length; Newland Chase, Lewis Silkin and Ferrys Solicitors all say one year at a time, renewable annually. Renewal process (TPER Renewal Form, portal submission) is confirmed on the official retirement page."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/information-on-registering/immigration-permission-stamps/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official Stamp 0 conditions: 'You must not work or engage in any business, trade or profession unless specified in a letter of permission'. No State benefits or publicly funded services; private medical insurance required. Passive income from pensions or investments is the basis of the route."
+      },
+      "pathToPR": {
+        "years": null,
+        "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/information-on-registering/immigration-permission-stamps/",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ireland has no formal 'PR'; the closest equivalents are Stamp 4 (long-term residence) and Stamp 5 (without condition as to time). The official stamps page describes Stamp 0 as a 'temporary period' permission and does not list it as leading to Stamp 4 or Stamp 5. No official page found that gives a Stamp 0 to Stamp 4/5 pathway, so left null."
+      },
+      "pathToCitizenship": {
+        "years": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "Not yet verified: current irishimmigration.ie naturalisation guide lists Stamp 0 as reckonable, but a 2018 Dept of Justice PQ reply and several law firms say it is not. Withheld until confirmed. Previous research note: CONFLICT, treat with caution. The current ISD naturalisation guide lists 'Stamp 0' under 'Time that Counts Towards Citizenship', and its list of non-reckonable time names only Stamp 2/2A, undocumented time and pre-decision protection time. Legal basis: Irish Nationality and Citizenship Act 1956 s.15, 5 years reckonable residence in the last 9 years including 1 year continuous immediately before applying (70-day absence rule). However, older Department of Justice positions (parliamentary reply 2018) and several law firms/advisers describe Stamp 0 as NOT reckonable. The 5-year figure applies only if ISD accepts the Stamp 0 time; naturalisation is discretionary."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Prepare financial evidence certified by an Irish accountant",
+          "detail": "Show EUR 50,000+ individual annual income and access to a lump sum (about the price of a home in Ireland), as a monthly spreadsheet in euros, plus 6 months of bank statements, private medical insurance with full private hospital cover, police clearance and health declaration.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 2,
+          "title": "Apply for Stamp 0 before travelling",
+          "detail": "Complete the TPER application form and post it with documents to Stamp 0 Independent Means Section, Domestic Residence and Permissions Division, ISD, 13-14 Burgh Quay, Dublin 2. All applicants must apply before arriving in Ireland. Average processing is four months.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 3,
+          "title": "Receive approval letter and travel (no visa needed for US citizens)",
+          "detail": "Non-visa-required nationals such as US citizens may travel once they hold the approval letter; no D Reside visa is needed. Entry is at the discretion of the immigration officer.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        },
+        {
+          "order": 4,
+          "title": "Register within 90 days and get an IRP card",
+          "detail": "Book a registration appointment via the ISD Customer Service portal after arrival, attend to be fingerprinted, pay the EUR 300 fee and receive the Irish Residence Permit card by post.",
+          "sourceUrl": "https://www.irishimmigration.ie/registering-your-immigration-permission/how-to-register-your-immigration-permission-for-the-first-time/required-documents/"
+        },
+        {
+          "order": 5,
+          "title": "Renew each year",
+          "detail": "Submit the TPER Renewal Form and updated documents via the Customer Service portal; the approval letter is then used to renew the IRP registration.",
+          "sourceUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/"
+        }
+      ],
+      "officialUrl": "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland/",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified/conflicting: (1) Initial 12-month duration only from secondary sources (Newland Chase, Lewis Silkin, Ferrys). (2) Couple income EUR 100,000 only from secondary source; official says 'individual income'. (3) Lump sum has no fixed amount, only the example 'price of a residential dwelling'. (4) Reckonability for citizenship conflicts: current official ISD guide lists Stamp 0 as time that counts, while a 2018 Department of Justice parliamentary reply and law firms say it does not; GoThere previously stated no citizenship path. (5) No official pathway from Stamp 0 to Stamp 4/5, so pathToPR is null. (6) No application fee found for the Stamp 0 permission itself; only the EUR 300 registration fee."
+    },
+    {
+      "id": "it_dnv",
+      "country": "IT",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Digital Nomad / Remote Worker visa (nomadi digitali e lavoratori da remoto)",
+      "shortName": "DNV",
+      "income": {
+        "monthly": null,
+        "annual": 24789,
+        "currency": "EUR",
+        "basis": "Income from lawful sources at least three times the minimum income level for exemption from healthcare cost-sharing; must come from the remote work itself (LA: Social Security, rents or stocks not counted)",
+        "perDependent": null,
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Los Angeles and New York (https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/digital-nomad-remote-worker-visa) both say 'no less than 24,789 euros' per year, written 'at the time of this writing in 2024'. Conflict: Consulate London and Embassy Pristina use a base of EUR 8,500, i.e. triple = EUR 25,500. Remote employees must also earn at least the relevant Italian national collective agreement (CCNL) salary and not below the ISTAT median annual salary. The app's EUR 28,000 is not supported by any official page found. No per-dependent amount is stated: family members join later through family reunification from Italy."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No savings requirement stated on the official pages checked."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 120,
+        "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Houston: 'up to 120 days for self-employed applicants and up to 30 days for subordinate workers' (remote employees). Los Angeles and New York state no processing time. Other consulates may differ."
+      },
+      "fees": [
+        {
+          "label": "National (type D) long-stay visa fee",
+          "amount": 116,
+          "currency": "EUR",
+          "sourceUrl": "https://www.esteri.it/wp-content/uploads/2026/09/tariffa_consolare.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Tabella dei diritti consolari, art. 29: national visa for long stays (type D) EUR 116.00. Non-refundable."
+        },
+        {
+          "label": "National visa fee in USD at Consulate General Los Angeles (1 Oct to 31 Dec 2026)",
+          "amount": 133.6,
+          "currency": "USD",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/handling-fees-for-visa-applications/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Adjusted quarterly. Stays of 90 days or less use the Schengen fee instead ($103.70)."
+        },
+        {
+          "label": "Permesso di soggiorno: card production plus contribution for a permit up to 1 year",
+          "amount": 70.46,
+          "currency": "EUR",
+          "sourceUrl": "https://www.portaleimmigrazione.it/ITA/tabelleCosti.html",
+          "sourceType": "secondary",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 30.46 card production plus EUR 40 contribution for permits over 3 months and up to 1 year. The Polizia di Stato checklist (https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it) gives the same amounts for the categories it lists, but it has no specific section for the digital nomad permit. Whether this permit is filed by postal kit or directly at the Questura was not confirmed. LA says to check with the local Questura."
+        },
+        {
+          "label": "Revenue stamp (marca da bollo) for permesso application",
+          "amount": 16,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section A: required for every residence permit."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable at the Questura while the work, lodging and health insurance requirements continue to be met",
+        "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Art. 27 c.1-sexies D.Lgs. 286/1998: the permit is issued 'per un periodo non superiore a un anno' after the entry visa. Renewability is stated by Consulate LA ('you can renew it locally at the Questura as long as you maintain your employment, lodging, and health insurance'). The integrazionemigranti.gov.it summary of DM 29/02/2024 also says 'durata massima di un anno, ma rinnovabile', with the permit marked 'nomade digitale - lavoratore da remoto'."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Allowed only for highly qualified work done remotely with technology, as self-employed (digital nomad) or for a company 'anche non residente' in Italy (remote worker). No nulla osta needed. Per the normattiva paraphrase, the law does not limit employers or clients to foreign ones, so the app's 'foreign employer/clients only' is NOT supported by the statute text. US consulates frame the visa around remote work. Highly qualified means a recognised degree (CIMEA or Declaration of Value), a regulated-profession attestation, or 5 years' experience (3 of the last 7 years for ICT). It also requires at least 6 months' prior experience in the field (Consulate LA)."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "EU long-term residence permit, art. 9 D.Lgs. 286/1998: five years of legal stay from the first permit plus income at least the assegno sociale (Polizia di Stato checklist section K). NOT verified: whether years on a digital nomad permit count fully toward the 5 years. No official page addressing this permit type specifically was found."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Law 91/1992 art. 9 c.1 lett. f: 10 years of legal residence for non-EU foreigners, plus Italian language knowledge. Decision in 24 months, extendable to 36. No 2025-2026 change to the 10-year rule found on the Interior Ministry page."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Confirm you qualify as a highly skilled remote worker",
+          "detail": "Prove a degree (recognised via CIMEA or a Declaration of Value), a regulated-profession attestation, or 5 years' experience (3 for ICT), plus at least 6 months in the field. Remote employees also need a contract meeting CCNL / ISTAT median pay and an employer declaration.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 2,
+          "title": "Secure housing and health insurance",
+          "detail": "Get a lease registered with the Agenzia delle Entrate, or a deed, in your name for the whole visa period, plus medical insurance covering Italy.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at the Italian consulate for your US state",
+          "detail": "Book a national visa appointment marked 'Digital Nomad or Remote Work'. Bring the national visa form, income proof (at least about EUR 24,789 a year), and the fee by money order or cashier's check. Fingerprints are taken.",
+          "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the visa decision",
+          "detail": "Houston says up to 120 days for self-employed applicants and up to 30 days for remote employees.",
+          "sourceUrl": "https://conshouston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/digital-nomad"
+        },
+        {
+          "order": 5,
+          "title": "Enter Italy and apply for the permesso di soggiorno within 8 working days",
+          "detail": "Apply at the Questura with jurisdiction over your Italian address, bringing copies of your visa documents.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa"
+        },
+        {
+          "order": 6,
+          "title": "Receive the 1-year 'nomade digitale - lavoratore da remoto' permit",
+          "detail": "Valid up to one year and renewable at the Questura. Family reunification (spouse, children under 18) can then be requested from Italy.",
+          "sourceUrl": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:1998-07-25;286~art27"
+        }
+      ],
+      "officialUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/digital-nomad-remote-worker-visa",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Not verified or conflicting: (1) Income: US consulates (LA, NY) state EUR 24,789 per year as of 2024, but London and Pristina use EUR 8,500 x 3 = EUR 25,500. The current healthcare-exemption threshold was not confirmed on a salute.gov.it page. App's EUR 28,000 is not supported. (2) Legal basis: normattiva shows the category as art. 27 c.1 lett. q-bis and c.1-sexies D.Lgs. 286/1998, not 'q-quater' as in the brief. Implementing DM 29 Feb 2024 published in GU n.79 of 4 Apr 2024 (https://www.gazzettaufficiale.it/eli/id/2024/04/04/24A01716/sg); its article text could not be retrieved. (3) 'Foreign employer/clients only' is not in the statute, which allows a company 'anche non residente'. (4) Whether DNV years count toward the 5-year EU long-term permit is unconfirmed. (5) Permesso filing channel (postal kit vs Questura) and the EUR 30 Poste fee were not confirmed for this permit. (6) Processing time is from Houston only."
+    },
+    {
+      "id": "it_elective",
+      "country": "IT",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Elective Residence visa (residenza elettiva)",
+      "shortName": "Elective",
+      "income": {
+        "monthly": null,
+        "annual": 31000,
+        "currency": "EUR",
+        "basis": "Stable passive income (pensions, annuities, property, investments, stable business activities); employment income not accepted. US consulates apply roughly EUR 31,000 per year per applicant.",
+        "perDependent": "Consulate General New York: 'For family applications, each applicant must demonstrate sufficient financial resources, typically around EUR 31,000 per person.' Boston: 'totaling more than 31,000 euros yearly per applicant', one packet per applicant. No US consulate page found states the +20% spouse / +5% per child rule.",
+        "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "There is no statutory figure. vistoperitalia.esteri.it (infovisto code 5_0_D) states no amount and only refers to the Interior Ministry Directive of 1 March 2000 (means of subsistence table). Consulate figures vary: New York says 'typically around EUR 31,000 per person'; Boston says 'more than 31,000 euros yearly per applicant' (https://consboston.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/elective-residency); Los Angeles, Chicago, Houston and San Francisco state no figure, only 'substantial and stable' passive income (SF calls the visa targeted at 'wealthy persons'). Consulate Paris says the Table A minimum (about EUR 31,000) is 'only a starting point'. The exact EUR 31,159.88 figure was not found on any official page checked. Monthly is left null because no official US page states a monthly figure (Consulate Sydney states EUR 2,600/month, but that is not a US post)."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": null,
+        "sourceType": null,
+        "lastVerified": null,
+        "note": "No fixed savings amount found on official pages. Consulates ask for bank statements (San Francisco: last three months) and two years of US tax returns, and Houston asks for 'well documented and substantive financial resources'."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 90,
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Consulate General Los Angeles: 'The processing time for this visa may be up to 90 (ninety days)... Rush processing is not possible.' Other US consulates may differ. Appointment wait times through Prenot@mi are not included."
+      },
+      "fees": [
+        {
+          "label": "National (type D) long-stay visa fee",
+          "amount": 116,
+          "currency": "EUR",
+          "sourceUrl": "https://www.esteri.it/wp-content/uploads/2026/09/tariffa_consolare.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Tabella dei diritti consolari, art. 29: national visa for long stays (type D) EUR 116.00. Non-refundable. Paid in USD at US consulates at the quarterly exchange rate."
+        },
+        {
+          "label": "National visa fee in USD at Consulate General Los Angeles (1 Oct to 31 Dec 2026)",
+          "amount": 133.6,
+          "currency": "USD",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/handling-fees-for-visa-applications/",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "USD amount is updated every quarter and may differ slightly between consulates. Payment by money order or cashier's check."
+        },
+        {
+          "label": "Permesso di soggiorno: electronic card (smart card) production",
+          "amount": 30.46,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section J (Residenza elettiva) of the Polizia di Stato kit checklist: bollettino for the smart card EUR 30.46 plus the applicable contribution. The PDF is undated. Amounts were confirmed on portaleimmigrazione.it/ITA/tabelleCosti.html."
+        },
+        {
+          "label": "Permesso di soggiorno contribution, permit up to 1 year",
+          "amount": 40,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "EUR 40 for permits up to 1 year and EUR 50 for permits over 1 and up to 2 years (same section J). The first permit is usually 1 year, so the bollettino totals EUR 70.46 (EUR 80.46 for a 2-year permit)."
+        },
+        {
+          "label": "Revenue stamp (marca da bollo) for permesso application",
+          "amount": 16,
+          "currency": "EUR",
+          "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Section A: 'marca da bollo da 16,00' required for every residence permit."
+        },
+        {
+          "label": "Poste Italiane fee for sending the permesso kit",
+          "amount": 30,
+          "currency": "EUR",
+          "sourceUrl": "https://www.portaleimmigrazione.it/ITA/tabelleCosti.html",
+          "sourceType": "secondary",
+          "lastVerified": "2026-10-26",
+          "note": "Portale Immigrazione (the Poste Italiane / Interior Ministry application portal, not on the official-domain list) states EUR 30.00 paid at the post office. No poliziadistato.it page stating this fee could be read: the poliziadistato.it HTML pages were blocked by its firewall."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renewable at the competent Questura as long as the original requirements continue to be met",
+        "sourceUrl": "https://ambalkuwait.esteri.it/it/italia-e-kuwait/diplomazia-economica/fare-affari-in-italia/opportunita-di-investimento/387-2",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Embassy of Italy in Kuwait (esteri.it): the elective residence visa lasts 1 year and is 'facilmente rinnovabile in Italia presso la Questura territorialmente competente' if the requirements are still met. The permit cannot be renewed after a continuous absence from Italy of more than six months (art. 13 DPR 394/1999, cited on the same page). The app's '2-year renewals' is NOT confirmed by any official page. It is only implied by the Polizia di Stato checklist listing a EUR 50 contribution for elective permits 'over 1 and up to 2 years'. No US consulate page checked states the duration."
+      },
+      "workAllowed": {
+        "value": "no",
+        "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Los Angeles: 'not allowed to work or seek employment under any conditions'. New York: 'DOES NOT ALLOW ANY WORK ACTIVITIES IN ITALY'. Houston adds that applicants 'may continue taking care of their own commercial or financial business which are held abroad'."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://questure.poliziadistato.it/statics/05/documenti_per_rilascio_permessi_di_soggiorno_da_richiedere_con_kit_postale.pdf?lang=it",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "EU long-term residence permit (permesso UE per soggiornanti di lungo periodo), art. 9 D.Lgs. 286/1998. The Polizia di Stato checklist (section K) requires five years of legal stay from the first permit's issue date, plus income not below the annual assegno sociale. The art. 9 text on normattiva.it was not re-read; the Italian language test and other requirements are not covered here."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://libertaciviliimmigrazione.dlci.interno.gov.it/temi/concessione-della-cittadinanza-italiana-residenza-sul-territorio-italiano-ai-sensi-dellart-9",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Law 91/1992 art. 9 c.1 lett. f: a non-EU foreigner who 'risiede legalmente da almeno dieci anni'. Italian language knowledge is required (L. 132/2018). The decision deadline is 24 months, extendable to 36. The Interior Ministry page (published 11/11/2024) mentions only L. 63/2025, a narrow new case for relatives of infrastructure-collapse victims; it shows no 2025-2026 change to the 10-year rule. The 2025 descent reform (DL 36/2025) affected ius sanguinis only. A secondary source (cittadinanza.net, Sep 2026) also says 10 years remains after the 2025 referendum."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Secure housing in Italy",
+          "detail": "Sign a lease ('Contratto di Locazione ad Uso Abitativo') registered with the Agenzia delle Entrate, or buy a property, in the applicant's name for the whole period. Hotels or hosting by third parties are not accepted.",
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visas-to-enter-italy/elective-residency"
+        },
+        {
+          "order": 2,
+          "title": "Gather passive income proof and documents",
+          "detail": "Bank, pension and Social Security letters, last 2 years of tax returns, a letter explaining why you are moving, a one-way flight reservation, the national visa form and a photo. Each family member applies separately.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa"
+        },
+        {
+          "order": 3,
+          "title": "Apply in person at the Italian consulate for your US state",
+          "detail": "Book a national (D) visa appointment, pay the fee by money order or cashier's check, and give fingerprints (required since 11 January 2025). Decision in up to 90 days.",
+          "sourceUrl": "https://conslosangeles.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti/visa-type/elective-residency-visa"
+        },
+        {
+          "order": 4,
+          "title": "Enter Italy and request the permesso di soggiorno within 8 working days",
+          "detail": "Send the application kit from an authorised Poste Italiane office (Sportello Amico). You receive login details for the Portale Immigrazione and a fingerprinting appointment at the Questura.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        },
+        {
+          "order": 5,
+          "title": "Attend the Questura appointment and collect the permesso",
+          "detail": "The Questura takes fingerprints and later tells you when the permit is ready.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        },
+        {
+          "order": 6,
+          "title": "Register your residence with the comune",
+          "detail": "Non-EU holders of a permesso must register (iscrizione anagrafica) with the municipality where they live.",
+          "sourceUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D"
+        }
+      ],
+      "officialUrl": "https://vistoperitalia.esteri.it/infovisto?code=5_0_D",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Not verified or conflicting: (1) No official income figure exists. vistoperitalia.esteri.it states none, and US consulates range from 'around EUR 31,000 per person' (NY) and 'more than EUR 31,000 per applicant' (Boston) to no figure at all (LA, SF, Chicago, Houston). EUR 31,159.88 was not found on any official page. (2) The app's +20% spouse / +5% per child rule is not stated by any US consulate; NY and Boston require the full amount per applicant. A July 2025 Rome administrative court (TAR) ruling reportedly faulted full per-child amounts (secondary only, italiancitizenshipassistance.com). (3) No property requirement amount exists, but every US consulate checked requires a registered lease or deed before applying. (4) Renewal length (app says 2 years) is unconfirmed; it is only implied by the EUR 50 contribution tier. (5) USD visa fee varies by consulate and quarter. (6) The Poste kit fee of EUR 30 comes from portaleimmigrazione.it (secondary). (7) The app's fee of EUR 300 is wrong for the visa; EUR 300 is the consular fee for a citizenship-by-descent recognition application (art. 7-bis of the fee table)."
+    },
+    {
+      "id": "mx_perm",
+      "country": "MX",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Permanent Resident visa for retirees/pensioners (Residente Permanente, jubilado o pensionado)",
+      "shortName": "Permanent",
+      "income": {
+        "monthly": 133733.4,
+        "annual": null,
+        "currency": "MXN",
+        "basis": "Monthly pension income, net of taxes, above 1,140 days of UMA for the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 7, req. III.a.2). 1,140 x UMA 2026 MXN 117.31 = MXN 133,733.40.",
+        "perDependent": null,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 7,164 at DOF FIX 18.6670 MXN/USD (26-10-2026, https://dof.gob.mx/indicadores.php). UMA 2026 per INEGI. Only pension income counts on the income route (employment income does not, unlike the temporary route). The brief's '500 days of minimum wage' is the abrogated 2014 rule (would be MXN 157,520 at the 2026 minimum wage). Consulate variance: San Diego 2026 USD 6,788 (= 1,140 UMA at ~19.70 MXN/USD); Saint Paul USD 7,350 (page undated, fee shown USD 54 suggests 2025)."
+      },
+      "savings": {
+        "amount": 5378663.5,
+        "currency": "MXN",
+        "basis": "Average monthly balance in investments or bank accounts equivalent to 45,850 days of UMA over the last 12 months (Lineamientos DOF 25-07-2025, Trámite 7, req. III.a.1). 45,850 x MXN 117.31 = MXN 5,378,663.50.",
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 288,138 at DOF FIX 18.6670. Consulate variance: San Diego 2026 USD 273,025; Saint Paul USD 367,650 (undated). The brief's '20,000 days of minimum wage' is the abrogated 2014 rule (would be MXN 6,300,800 in 2026)."
+      },
+      "processingTimeDays": {
+        "min": 0,
+        "max": 14,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Trámite 7: maximum 10 business days to resolve (about 14 calendar days); San Diego states 1 to 10 business days. Visa valid up to 180 days, single entry. Canje at INM within 30 calendar days of entry. INM canje resolution time not verified. Min 0 reflects same-day issue reported by some consulates (Washington DC sheet for temporary visas); not guaranteed."
+      },
+      "fees": [
+        {
+          "label": "Consular visa fee (SRE, Ley Federal de Derechos art. 22-III-d)",
+          "amount": 56,
+          "currency": "USD",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "LFD sets MXN 990.79; San Diego 2026 charges USD 56 cash, non-refundable. Older consulate pages show USD 54."
+        },
+        {
+          "label": "INM permanent resident card (canje), LFD art. 8-VII",
+          "amount": 13578.96,
+          "currency": "MXN",
+          "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Approx USD 727 at 18.6670. Reformed DOF 07-11-2025, in force 1 Jan 2026 (2025 fee about MXN 6,789). INM canje table: MXN 13,579 at 100%; the 50% rate is only for family unity, job offer or invitation cases, so pensioners pay full."
+        }
+      ],
+      "duration": {
+        "initialMonths": null,
+        "renewal": "Card has indefinite validity for adults; no renewal needed.",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Reglamento de la Ley de Migración art. 157: permanent resident card has indefinite validity (minors renew yearly until age 3, then every 4 years until adulthood). Ley de Migración art. 52-IX: stay indefinitely."
+      },
+      "workAllowed": {
+        "value": "yes",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 52-IX: permanent residence authorises indefinite stay 'con permiso para trabajar a cambio de una remuneración en el país'. Inconsistency: art. 54 (last paragraph) says permanent residents 'tendrán la posibilidad de obtener un permiso para trabajar... sujeto a una oferta de empleo'. Art. 52-IX is the commonly applied reading; practice not verified with INM."
+      },
+      "pathToPR": {
+        "years": 0,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 54-III and Reglamento art. 139-III: retirees/pensioners with foreign pension income sufficient to live in Mexico are granted permanent residence directly."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/53.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Nacionalidad art. 20: 5 years of residence immediately before the application; art. 21: absences over 6 months total in the last 2 years break residence. SRE form DNN-3 (https://sre.gob.mx/images/stories/docnatnacio/dnn3.pdf) accepts the permanent (or temporary) resident card as proof. Shorter 2-year routes exist (Mexican children, spouse of a Mexican, Latin American/Iberian origin)."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Book a visa appointment at the Mexican consulate",
+          "detail": "Appointments only through MiConsulado (citas.sre.gob.mx or by phone/WhatsApp), in the visa department.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf"
+        },
+        {
+          "order": 2,
+          "title": "Attend the interview with pension or savings proof and pay the visa fee",
+          "detail": "Bring the application, passport, photo, 6 months of pension income statements or 12 months of investment/bank statements (originals with bank stamp), and pay USD 56. Interview and biometrics on the day.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/espanol/7a_Residente_Permanente_por_jubilacion_o_pension.pdf"
+        },
+        {
+          "order": 3,
+          "title": "Receive the visa (up to 10 business days)",
+          "detail": "Single-entry visa valid up to 180 days from issue.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf"
+        },
+        {
+          "order": 4,
+          "title": "Enter Mexico and get your FMM marked for canje",
+          "detail": "Show the visa at the port of entry; the FMM is issued for exchange for a resident card.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 5,
+          "title": "Apply for canje at INM within 30 calendar days of entry",
+          "detail": "File 'Expedición de documento por canje' with passport, FMM, visa, formato básico and proof of paying MXN 13,578.96.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 6,
+          "title": "Give biometrics and receive the permanent resident card",
+          "detail": "Attend in person for photo, signature and fingerprints; INM issues the tarjeta de residente permanente (indefinite validity).",
+          "sourceUrl": "https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es"
+        }
+      ],
+      "officialUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Thresholds are now 1,140 UMA days pension income / 45,850 UMA days balance (Lineamientos 2025), not 500 / 20,000 days of minimum wage. Pension income only on the income route. Consulate USD figures vary (San Diego USD 6,788 / 273,025; Saint Paul USD 7,350 / 367,650, undated). INM card fee doubled for 2026 (MXN 13,578.96). Ley de Migración art. 52-IX vs art. 54 wording on work permission conflicts. Not verified: INM canje processing time; LA, Chicago and New York permanent-resident USD figures (pages not retrieved); per-dependent requirements."
+    },
+    {
+      "id": "mx_temp_econ",
+      "country": "MX",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Temporary Resident visa by economic solvency (Residente Temporal, solvencia económica)",
+      "shortName": "Temp Econ",
+      "income": {
+        "monthly": 79770.8,
+        "annual": null,
+        "currency": "MXN",
+        "basis": "Monthly income from employment or pension, net of taxes, above 680 days of UMA, for each of the last 6 months (Lineamientos Generales para la expedición de visas, DOF 25-07-2025, Trámite 5, req. III.a.2). 680 x UMA 2026 daily value MXN 117.31 = MXN 79,770.80.",
+        "perDependent": null,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 4,273 at the DOF FIX rate of 18.6670 MXN/USD published 26-10-2026 (https://dof.gob.mx/indicadores.php). UMA 2026 = MXN 117.31/day, in force from 1 Feb 2026 (INEGI, https://www.inegi.org.mx/contenidos/saladeprensa/boletines/2026/uma/uma2026.pdf). IMPORTANT: the 2025 Lineamientos (in force 15 days after 25-07-2025 publication) abrogated the 2014 Lineamientos and switched the reference from minimum wage to UMA; the '300 days of minimum wage' rule is no longer the legal basis. Source is the DOF text hosted by the Houston consulate (official copy); DOF original: https://dof.gob.mx/index_111.php?year=2025&month=07&day=25. The 15-05-2026 amendment (DOF codigo 5787660) did not change solvency amounts. Consulates publish their own USD figures, which vary: San Diego 2026 USD 4,049 (= 680 UMA at ~19.70 MXN/USD); New York 2026 USD 4,200; Las Vegas 2026 USD 4,630; Del Rio approx USD 4,786.38; Houston 2025 sheet approx USD 4,342.08; Washington DC sheet (file dated July 2026) still says MXN 83,640 (= 300 x 2025 minimum wage 278.80, i.e. the old rule). Applicants must meet the figure of the consulate where they apply. Dependents: Houston adds 220 days UMA per dependent per month (not separately verified in the Lineamientos for this route)."
+      },
+      "savings": {
+        "amount": 1344372.6,
+        "currency": "MXN",
+        "basis": "Average monthly balance in investments or bank accounts equivalent to 11,460 days of UMA over the last 12 months (Lineamientos DOF 25-07-2025, Trámite 5, req. III.a.1). 11,460 x MXN 117.31 = MXN 1,344,372.60.",
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Approx USD 72,019 at DOF FIX 18.6670 MXN/USD (26-10-2026). Consulate variance: San Diego 2026 USD 68,241; New York 2026 USD 71,500; New Brunswick 2026 USD 75,500; Las Vegas 2026 USD 78,025; Del Rio approx USD 79,772.93; Washington DC sheet (July 2026 file) MXN 1,394,000 (= 5,000 x 2025 minimum wage, old 2014 rule). The task brief's '5,000 days of minimum wage' multiplier is from the abrogated 2014 Lineamientos (inferred from Washington's figure; 2014 text not re-read). At the 2026 minimum wage (MXN 315.04) the old rule would give MXN 1,575,200, but it is no longer the legal basis."
+      },
+      "processingTimeDays": {
+        "min": 0,
+        "max": 14,
+        "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official: consulate resolves within up to 10 business days from the consular interview (Lineamientos 2025, consular interview provisions: 'plazo de hasta 10 días hábiles, contados a partir del día en que se haya realizado la entrevista consular'; Trámite 5 'Plazo máximo para resolver: 10 días hábiles'); max 14 is that period expressed in calendar days. Washington DC sheet says the visa is normally ready the same day at 1:30 pm (not guaranteed), hence min 0. After issue: visa valid up to 180 days, single entry (Trámite 5 'Vigencia máxima de la visa: 180 días'), not 30 days as the brief assumed. After entry: must apply for the resident card (canje) at INM within 30 calendar days. INM's canje resolution time was not verified, and appointment wait times at consulates (not counted here) vary widely."
+      },
+      "fees": [
+        {
+          "label": "Consular visa fee (SRE, Ley Federal de Derechos art. 22-III-d)",
+          "amount": 56,
+          "currency": "USD",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "LFD (text updated by RMF DOF 28-12-2025, https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf) sets MXN 990.79 for ordinary visas; consulates charge it in USD. USD 56 is stated on 2026 sheets from San Diego (cash only), Washington DC, New York, New Brunswick and Las Vegas. Older pages show USD 54 (Houston 2025, Atlanta, Saint Paul) or USD 53 (Orlando 2024). Non-refundable if refused."
+        },
+        {
+          "label": "INM temporary resident card, 1 year (canje), LFD art. 8-VI-a",
+          "amount": 11140.74,
+          "currency": "MXN",
+          "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LFD.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "Approx USD 597 at 18.6670. Amount reformed DOF 07-11-2025, in force 1 Jan 2026 (roughly double the 2025 fee of about MXN 5,570). INM canje table shows MXN 11,141 at 100%; the 50% rate applies only to family unity, job offer or invitation cases (https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es), so economic-solvency applicants pay full. Renewal fees (LFD art. 8-VI): 2 years MXN 16,693.36; 3 years MXN 21,142.58; 4 years MXN 25,057.82. The brief's '~$300 INM card' is outdated."
+        }
+      ],
+      "duration": {
+        "initialMonths": 12,
+        "renewal": "Renew within 30 days before expiry for further periods (card may be 1, 2, 3 or 4 years) until 4 years total as temporary resident; then change to permanent resident.",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/regley/Reg_LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Reglamento de la Ley de Migración art. 156: temporary resident card valid 1, 2, 3 or 4 years; renewals requested within 30 days before expiry up to 4 years total. Ley de Migración art. 52-VII: stay up to 4 years. The 12-month first card is inferred: INM's canje fee table lists only the 1-year temporary resident card for canje; no official page states it in words."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 52-VII: temporary residents may obtain a permit to work for pay in Mexico, subject to a job offer (separate INM work permission). Houston consulate states this visa allows work if the salary is paid abroad (remote work); San Diego requires an employer letter agreeing to remote work when solvency is shown via employment."
+      },
+      "pathToPR": {
+        "years": 4,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/LMigra.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Migración art. 54-V: permanent residence after 4 years holding temporary residence; Reglamento art. 141-VI-c (change of condition after 4 years). Reglamento also allows earlier change for pensioners/retirees with sufficient foreign income (art. 141-VI-b) and under a points system (not implemented)."
+      },
+      "pathToCitizenship": {
+        "years": 5,
+        "sourceUrl": "https://www.diputados.gob.mx/LeyesBiblio/pdf/53.pdf",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Ley de Nacionalidad art. 20: 5 years of residence immediately before the application (2 years for Latin American/Iberian nationals, Mexican children, spouses of Mexicans; not applicable to US citizens by default). Art. 21: absences over 6 months in total during the last 2 years break residence. SRE form DNN-3 (https://sre.gob.mx/images/stories/docnatnacio/dnn3.pdf) accepts the temporary OR permanent resident card as proof of residence, so time as temporary resident counts (temporary resident STUDENT time does not). So 5 years counted from the first temporary resident card, not from PR."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Book a visa appointment at the Mexican consulate",
+          "detail": "Appointments only through MiConsulado (citas.sre.gob.mx or by phone/WhatsApp). Apply at the consulate with jurisdiction over your US residence.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf"
+        },
+        {
+          "order": 2,
+          "title": "Attend the interview with solvency proof and pay the visa fee",
+          "detail": "Bring the application form, passport, photo, 12 months of bank/investment statements or 6 months of income/pension statements (originals, bank-stamped if printed online), and pay the fee (USD 56 at most consulates). Biometrics are taken.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/sandiego/images/visas/ingles/5a_Temporary_Resident_Visa_-_Economic_Solvency.pdf"
+        },
+        {
+          "order": 3,
+          "title": "Receive the visa (up to 10 business days)",
+          "detail": "The consulate resolves within 10 business days; the visa is single-entry and valid up to 180 days from issue.",
+          "sourceUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf"
+        },
+        {
+          "order": 4,
+          "title": "Enter Mexico and get your FMM marked for canje",
+          "detail": "Show the residence visa to the immigration officer at entry so the FMM is issued for exchange (canje) for a resident card.",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 5,
+          "title": "Apply for canje at INM within 30 calendar days of entry",
+          "detail": "File 'Expedición de documento por canje' at an INM office: passport, FMM, visa, formato básico, and proof of payment of the card fee (MXN 11,140.74 for 1 year in 2026).",
+          "sourceUrl": "https://www.inm.gob.mx/static/Tramites/expedicion_documento_canje.pdf"
+        },
+        {
+          "order": 6,
+          "title": "Give biometrics and receive the temporary resident card",
+          "detail": "Attend in person for photos, signature and fingerprints; INM issues the tarjeta de residente temporal.",
+          "sourceUrl": "https://www.inm.gob.mx/mpublic/publico/inm-tramites.html?a=thgeGuQHx2k%3D&tr=hyBh72VpD1w%3D&h_sdp00=giUnJ9XgtISVcdYJXduIGw%3D%3D&h_dsplp02=es"
+        }
+      ],
+      "officialUrl": "https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Legal basis changed: since Aug 2025 thresholds are set in UMA (680 days income / 11,460 days balance), not minimum wage (300 / 5,000 days). Consulate USD figures vary from USD 4,049 to 4,786 (income) and USD 68,241 to 79,773 (balance); Washington DC still publishes the old minimum-wage figures in MXN. Lineamientos read from the copy hosted by the Houston consulate (DOF direct page did not load). INM card fee doubled for 2026 (MXN 11,140.74). Unverified: INM canje processing time; that the first card at canje is always 1 year (inferred from INM fee table); per-dependent amounts for this route; SRE naturalisation web page blocked by a bot check, so the DNN-3 form was used instead."
+    },
+    {
+      "id": "pt_d7",
+      "country": "PT",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Residence visa for retirees, religious workers and persons living on own income (D7)",
+      "shortName": "D7",
+      "income": {
+        "monthly": 920,
+        "annual": 11040,
+        "currency": "EUR",
+        "basis": "100% of the national minimum wage (RMMG), Portaria 1563/2007",
+        "perDependent": "+50% RMMG (EUR 460/mo) per additional adult; +30% RMMG (EUR 276/mo) per child under 18 or dependent adult child",
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "2026 RMMG = EUR 920 (Decreto-Lei 139/2025 of 29 Dec 2025, stated on vistos.mne.gov.pt and DGERT https://www.dgert.gov.pt/retribuicao-minima-mensal-garantida-para-2026). Applicant: 100% x 920 = 920/mo; 920 x 12 = 11,040/yr. Spouse/second adult: 50% x 920 = 460/mo. Each child under 18 or dependent adult child: 30% x 920 = 276/mo. Example couple + 2 children: 920 + 460 + 276 + 276 = 1,932/mo. Percentages from Portaria 1563/2007 art. 2 n.2 as stated on vistos.mne.gov.pt and aima.gov.pt (the AIMA page still shows the 2025 figure of EUR 870). Amount is net of social security contributions. The official page gives no annual figure; 11,040 is arithmetic."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings amount is stated on official pages for retirees or passive income: they must prove the income and its availability in Portugal. A 12-month RMMG balance (EUR 11,040) is commonly reported as consular practice by secondary sources, but this is unverified; on vistos.mne.gov.pt the 12-month rule is stated only for investors, researchers, religious workers and students."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 60,
+        "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official consular decision period for residence visas is 60 days 'except in circumstances stipulated by law' (vistos.mne.gov.pt Prazos). The Consulate General in New York states a minimum processing time of 4 to 8 weeks for national visas (https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos). No official minimum, so min is null. After arrival, Lei 23/2007 art. 82 n.5 (version amended by Lei 62/2026 of 10 September) sets 90 days, extendable by 30, for AIMA to decide the residence permit (consolidated text read on pgdlisboa.pt, https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=). Real-world AIMA delays for appointments and permit cards are widely reported and often exceed these legal periods; no official backlog figure found."
+      },
+      "fees": [
+        {
+          "label": "National (residence) visa fee",
+          "amount": 110,
+          "currency": "EUR",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "National visa processing fee per vistos.mne.gov.pt (was EUR 90 earlier). USD amount charged in the US not verified. Exempt: children under 6, among others. VFS service fee and AIMA residence permit card fee not verified (AIMA links a fee table PDF that was not read)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Renewable for successive 3-year periods",
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "initialMonths refers to the temporary residence permit issued by AIMA (Lei 23/2007 art. 75 n.1): 2 years from issue. The consular residence visa itself is valid 4 months, two entries (https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto). The permit may be cancelled for absence over 6 consecutive or 8 non-consecutive months during its validity (art. 85 n.2)."
+      },
+      "workAllowed": {
+        "value": "yes",
+        "sourceUrl": "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Lei 23/2007 art. 83 n.1 b) and c): a residence permit holder may do salaried and self-employed work without special authorisation. Source is the consolidated text on pgdlisboa.pt (Lisbon Regional Prosecutor's Office), version including Lei 62/2026."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-permanente-art-80-o",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Permanent residence after holding a temporary residence permit for at least 5 years, plus basic Portuguese (e.g. A2 PLA certificate), means of subsistence, accommodation, tax/social security compliance and no conviction over 1 year in the last 5 years. Legal basis: Lei 23/2007 art. 80 with art. 64 and Decreto Regulamentar 84/2007 (art. 80 n.1 a) confirmed in the consolidated text including Lei 62/2026)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/lei-organica/1-2026-1123539996",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "10 years of legal residence for nationals of countries outside the CPLP and EU (US citizens), per Lei 37/81 art. 6 n.1 b) as amended by Lei Organica n.1/2026 of 18 May (approved by Parliament 1 Apr 2026, promulgated by President Seguro 3 May 2026, published DR 1st series n.95 on 18 May 2026, in force the next day, 19 May 2026, per its art. 8). CPLP and EU nationals: 7 years. Counting: art. 15 n.1 counts residence held under any title, visa or permit under the foreigners law; art. 15 n.3 sums all legal residence periods, continuous or not, provided they fall within a maximum window of 12 years for non-CPLP/non-EU nationals (9 for CPLP/EU, 6 for stateless). The old art. 15 n.4 is revoked (art. 5); secondary sources describe it as the 2024 rule that counted time from the residence permit application, so time spent waiting on AIMA before a permit is granted no longer counts (inference from secondary reporting; the revoked text itself was not read). Transitional rule (art. 7 n.2): applications pending on 19 May 2026 are decided under the previous law (5 years). New requirements also include a Portuguese language/culture test and knowledge of rights, duties and state organisation (art. 6 n.1 c, d). A first version was partly struck down by the Constitutional Court in Dec 2025 (Acordao 1133/2025, per secondary sources); a separate decree on loss of nationality was reported as still under Constitutional Court review. No official source found of any later change up to Oct 2026."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather the residence visa documents",
+          "detail": "Proof of retirement pension, or of passive income from movable/immovable property, intellectual property or financial investments, plus proof the income is available in Portugal; passport, 2 photos, application form, travel/health insurance, apostilled criminal record certificate, proof of means of subsistence.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia"
+        },
+        {
+          "order": 2,
+          "title": "Book and submit the application at VFS Global (US)",
+          "detail": "Portuguese consulates in the US process visa applications exclusively through VFS Global (New York centre: 128 East 32nd Street). Apply at the centre for the consulate covering your US state.",
+          "sourceUrl": "https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos"
+        },
+        {
+          "order": 3,
+          "title": "Pay the national visa fee (EUR 110)",
+          "detail": "Exemptions include children under 6. A VFS service fee is charged on top (amount not verified).",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the consular decision (legal limit 60 days)",
+          "detail": null,
+          "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines"
+        },
+        {
+          "order": 5,
+          "title": "Enter Portugal within the visa's 4-month validity",
+          "detail": "The residence visa is valid for two entries and four months, during which you must apply to AIMA for a residence permit.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto"
+        },
+        {
+          "order": 6,
+          "title": "Attend AIMA and apply for the residence permit",
+          "detail": "In person at an AIMA Loja by appointment (online platform for visa holders being rolled out), with passport, valid visa, address declaration and proof of means; Modelo 1 form.",
+          "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1"
+        },
+        {
+          "order": 7,
+          "title": "Receive the temporary residence permit",
+          "detail": "Valid 2 years from issue, renewable for successive 3-year periods.",
+          "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1"
+        }
+      ],
+      "officialUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified: VFS Global US service fee and USD amount of the EUR 110 visa fee (VFS site blocked automated access); AIMA residence permit fee; whether US consulates require a 12-month savings balance or a Portuguese bank account; real AIMA backlog times. Conflict: AIMA meios de subsistencia page still shows the 2025 minimum wage (EUR 870); vistos.mne.gov.pt shows 2026 EUR 920. Old app fee EUR 90 is outdated (now EUR 110). Citizenship is 10 years for US nationals under Lei Organica 1/2026; applications filed before 19 May 2026 stay under the old 5-year rule. Constitutional Court ruling number from secondary sources only. Work rights article read via pgdlisboa.pt consolidated text, not the DR consolidated page."
+    },
+    {
+      "id": "pt_d8",
+      "country": "PT",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Residence visa for remote professional activity (digital nomad, D8)",
+      "shortName": "D8",
+      "income": {
+        "monthly": 3680,
+        "annual": 44160,
+        "currency": "EUR",
+        "basis": "4x the national minimum wage (RMMG), average of the last 3 months",
+        "perDependent": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official requirement: proof of average monthly income over the last 3 months from subordinate or independent work of at least four RMMG (Lei 23/2007 art. 61-B). 2026 RMMG = EUR 920 (Decreto-Lei 139/2025). 4 x 920 = 3,680/mo; 3,680 x 12 = 44,160/yr (arithmetic, not stated on the page)."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings requirement appears on the official D8 residence visa checklist; means of subsistence are assessed from the work or service contracts. The '12x minimum wage savings' figure seen online is not on official pages and is unverified. Dependents: no official D8 add-on is stated; the general Portaria 1563/2007 percentages (+50% adult, +30% child) may be applied to accompanying family, unverified."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 60,
+        "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official consular decision period for residence visas is 60 days 'except in circumstances stipulated by law' (vistos.mne.gov.pt Prazos). The Consulate General in New York states a minimum processing time of 4 to 8 weeks for national visas (https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos). No official minimum, so min is null. After arrival, Lei 23/2007 art. 82 n.5 (version amended by Lei 62/2026 of 10 September) sets 90 days, extendable by 30, for AIMA to decide the residence permit (consolidated text read on pgdlisboa.pt, https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=). Real-world AIMA delays for appointments and permit cards are widely reported and often exceed these legal periods; no official backlog figure found."
+      },
+      "fees": [
+        {
+          "label": "National (residence) visa fee",
+          "amount": 110,
+          "currency": "EUR",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "National visa processing fee per vistos.mne.gov.pt (was EUR 90 earlier). USD amount charged in the US not verified. Exempt: children under 6, among others. VFS service fee and AIMA residence permit card fee not verified (AIMA links a fee table PDF that was not read)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Renewable for successive 3-year periods",
+        "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "initialMonths refers to the AIMA residence permit: 2 years from issue, renewable for successive 3-year periods. The consular residence visa itself is valid 4 months, two entries (https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto). A separate temporary-stay remote work visa (under 1 year) exists and is not this record."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "The visa is granted for remote work for employers or clients domiciled outside Portugal (Lei 23/2007 art. 61-B). Once the residence permit is issued, art. 83 n.1 b) and c) give permit holders the general right to salaried and self-employed work, 'without prejudice to special provisions'. No official page says whether Portuguese-sourced work affects renewal of a D8-based permit, so marked restricted. Consolidated text read on pgdlisboa.pt."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-permanente-art-80-o",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Permanent residence after holding a temporary residence permit for at least 5 years, plus basic Portuguese (e.g. A2 PLA certificate), means of subsistence, accommodation, tax/social security compliance and no conviction over 1 year in the last 5 years. Legal basis: Lei 23/2007 art. 80 with art. 64 and Decreto Regulamentar 84/2007 (art. 80 n.1 a) confirmed in the consolidated text including Lei 62/2026)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/lei-organica/1-2026-1123539996",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "10 years of legal residence for nationals of countries outside the CPLP and EU (US citizens), per Lei 37/81 art. 6 n.1 b) as amended by Lei Organica n.1/2026 of 18 May (approved by Parliament 1 Apr 2026, promulgated by President Seguro 3 May 2026, published DR 1st series n.95 on 18 May 2026, in force the next day, 19 May 2026, per its art. 8). CPLP and EU nationals: 7 years. Counting: art. 15 n.1 counts residence held under any title, visa or permit under the foreigners law; art. 15 n.3 sums all legal residence periods, continuous or not, provided they fall within a maximum window of 12 years for non-CPLP/non-EU nationals (9 for CPLP/EU, 6 for stateless). The old art. 15 n.4 is revoked (art. 5); secondary sources describe it as the 2024 rule that counted time from the residence permit application, so time spent waiting on AIMA before a permit is granted no longer counts (inference from secondary reporting; the revoked text itself was not read). Transitional rule (art. 7 n.2): applications pending on 19 May 2026 are decided under the previous law (5 years). New requirements also include a Portuguese language/culture test and knowledge of rights, duties and state organisation (art. 6 n.1 c, d). A first version was partly struck down by the Constitutional Court in Dec 2025 (Acordao 1133/2025, per secondary sources); a separate decree on loss of nationality was reported as still under Constitutional Court review. No official source found of any later change up to Oct 2026."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather the residence visa documents",
+          "detail": "Employment contract or employer declaration, or service contracts with entities abroad; proof of average monthly income over the last 3 months of at least 4x RMMG; proof of tax residence; passport, 2 photos, application form, travel/health insurance, apostilled criminal record certificate.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia"
+        },
+        {
+          "order": 2,
+          "title": "Book and submit the application at VFS Global (US)",
+          "detail": "Portuguese consulates in the US process visa applications exclusively through VFS Global (New York centre: 128 East 32nd Street). Apply at the centre for the consulate covering your US state.",
+          "sourceUrl": "https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos"
+        },
+        {
+          "order": 3,
+          "title": "Pay the national visa fee (EUR 110)",
+          "detail": "Exemptions include children under 6. A VFS service fee is charged on top (amount not verified).",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the consular decision (legal limit 60 days)",
+          "detail": null,
+          "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines"
+        },
+        {
+          "order": 5,
+          "title": "Enter Portugal within the visa's 4-month validity",
+          "detail": "The residence visa is valid for two entries and four months, during which you must apply to AIMA for a residence permit.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto"
+        },
+        {
+          "order": 6,
+          "title": "Attend AIMA and apply for the residence permit",
+          "detail": "In person at an AIMA Loja by appointment (online platform for visa holders being rolled out), with passport, valid visa, address declaration and proof of means; Modelo 1 form.",
+          "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe"
+        },
+        {
+          "order": 7,
+          "title": "Receive the temporary residence permit",
+          "detail": "Valid 2 years from issue, renewable for successive 3-year periods.",
+          "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe"
+        }
+      ],
+      "officialUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified: VFS Global US service fee and USD amount of the EUR 110 visa fee; AIMA permit fee; savings expectation (no official 12x RMMG rule found for the D8 residence visa); dependent income add-on for D8; real AIMA backlog. AIMA lists the D8 permit legal basis as REPSAE art. 88 n.1 with DR 84/2007 arts. 42-G, 42-H. Old app fee EUR 90 and income EUR 3,480 are outdated (now EUR 110 and EUR 3,680). Citizenship is 10 years for US nationals under Lei Organica 1/2026; Constitutional Court ruling number from secondary sources only."
+    }
+  ]
+}

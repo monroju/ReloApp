@@ -1,0 +1,261 @@
+{
+  "publisher": "GoThere (https://getgothere.app)",
+  "disclaimer": "Research, not legal advice. Each fact carries sourceUrl and lastVerified; null means not yet verified. Confirm with the consulate before filing.",
+  "schema": "https://getgothere.app/api/visa.schema.json",
+  "country": "PT",
+  "name": "Portugal",
+  "guide": "https://getgothere.app/move/us-to-pt/",
+  "lastVerified": "2026-10-26",
+  "visas": [
+    {
+      "id": "pt_d7",
+      "country": "PT",
+      "from": [
+        "US"
+      ],
+      "category": "passiveIncome",
+      "name": "Residence visa for retirees, religious workers and persons living on own income (D7)",
+      "shortName": "D7",
+      "income": {
+        "monthly": 920,
+        "annual": 11040,
+        "currency": "EUR",
+        "basis": "100% of the national minimum wage (RMMG), Portaria 1563/2007",
+        "perDependent": "+50% RMMG (EUR 460/mo) per additional adult; +30% RMMG (EUR 276/mo) per child under 18 or dependent adult child",
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "2026 RMMG = EUR 920 (Decreto-Lei 139/2025 of 29 Dec 2025, stated on vistos.mne.gov.pt and DGERT https://www.dgert.gov.pt/retribuicao-minima-mensal-garantida-para-2026). Applicant: 100% x 920 = 920/mo; 920 x 12 = 11,040/yr. Spouse/second adult: 50% x 920 = 460/mo. Each child under 18 or dependent adult child: 30% x 920 = 276/mo. Example couple + 2 children: 920 + 460 + 276 + 276 = 1,932/mo. Percentages from Portaria 1563/2007 art. 2 n.2 as stated on vistos.mne.gov.pt and aima.gov.pt (the AIMA page still shows the 2025 figure of EUR 870). Amount is net of social security contributions. The official page gives no annual figure; 11,040 is arithmetic."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/meios-de-subsistencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings amount is stated on official pages for retirees or passive income: they must prove the income and its availability in Portugal. A 12-month RMMG balance (EUR 11,040) is commonly reported as consular practice by secondary sources, but this is unverified; on vistos.mne.gov.pt the 12-month rule is stated only for investors, researchers, religious workers and students."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 60,
+        "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official consular decision period for residence visas is 60 days 'except in circumstances stipulated by law' (vistos.mne.gov.pt Prazos). The Consulate General in New York states a minimum processing time of 4 to 8 weeks for national visas (https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos). No official minimum, so min is null. After arrival, Lei 23/2007 art. 82 n.5 (version amended by Lei 62/2026 of 10 September) sets 90 days, extendable by 30, for AIMA to decide the residence permit (consolidated text read on pgdlisboa.pt, https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=). Real-world AIMA delays for appointments and permit cards are widely reported and often exceed these legal periods; no official backlog figure found."
+      },
+      "fees": [
+        {
+          "label": "National (residence) visa fee",
+          "amount": 110,
+          "currency": "EUR",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "National visa processing fee per vistos.mne.gov.pt (was EUR 90 earlier). USD amount charged in the US not verified. Exempt: children under 6, among others. VFS service fee and AIMA residence permit card fee not verified (AIMA links a fee table PDF that was not read)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Renewable for successive 3-year periods",
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "initialMonths refers to the temporary residence permit issued by AIMA (Lei 23/2007 art. 75 n.1): 2 years from issue. The consular residence visa itself is valid 4 months, two entries (https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto). The permit may be cancelled for absence over 6 consecutive or 8 non-consecutive months during its validity (art. 85 n.2)."
+      },
+      "workAllowed": {
+        "value": "yes",
+        "sourceUrl": "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Lei 23/2007 art. 83 n.1 b) and c): a residence permit holder may do salaried and self-employed work without special authorisation. Source is the consolidated text on pgdlisboa.pt (Lisbon Regional Prosecutor's Office), version including Lei 62/2026."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-permanente-art-80-o",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Permanent residence after holding a temporary residence permit for at least 5 years, plus basic Portuguese (e.g. A2 PLA certificate), means of subsistence, accommodation, tax/social security compliance and no conviction over 1 year in the last 5 years. Legal basis: Lei 23/2007 art. 80 with art. 64 and Decreto Regulamentar 84/2007 (art. 80 n.1 a) confirmed in the consolidated text including Lei 62/2026)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/lei-organica/1-2026-1123539996",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "10 years of legal residence for nationals of countries outside the CPLP and EU (US citizens), per Lei 37/81 art. 6 n.1 b) as amended by Lei Organica n.1/2026 of 18 May (approved by Parliament 1 Apr 2026, promulgated by President Seguro 3 May 2026, published DR 1st series n.95 on 18 May 2026, in force the next day, 19 May 2026, per its art. 8). CPLP and EU nationals: 7 years. Counting: art. 15 n.1 counts residence held under any title, visa or permit under the foreigners law; art. 15 n.3 sums all legal residence periods, continuous or not, provided they fall within a maximum window of 12 years for non-CPLP/non-EU nationals (9 for CPLP/EU, 6 for stateless). The old art. 15 n.4 is revoked (art. 5); secondary sources describe it as the 2024 rule that counted time from the residence permit application, so time spent waiting on AIMA before a permit is granted no longer counts (inference from secondary reporting; the revoked text itself was not read). Transitional rule (art. 7 n.2): applications pending on 19 May 2026 are decided under the previous law (5 years). New requirements also include a Portuguese language/culture test and knowledge of rights, duties and state organisation (art. 6 n.1 c, d). A first version was partly struck down by the Constitutional Court in Dec 2025 (Acordao 1133/2025, per secondary sources); a separate decree on loss of nationality was reported as still under Constitutional Court review. No official source found of any later change up to Oct 2026."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather the residence visa documents",
+          "detail": "Proof of retirement pension, or of passive income from movable/immovable property, intellectual property or financial investments, plus proof the income is available in Portugal; passport, 2 photos, application form, travel/health insurance, apostilled criminal record certificate, proof of means of subsistence.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia"
+        },
+        {
+          "order": 2,
+          "title": "Book and submit the application at VFS Global (US)",
+          "detail": "Portuguese consulates in the US process visa applications exclusively through VFS Global (New York centre: 128 East 32nd Street). Apply at the centre for the consulate covering your US state.",
+          "sourceUrl": "https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos"
+        },
+        {
+          "order": 3,
+          "title": "Pay the national visa fee (EUR 110)",
+          "detail": "Exemptions include children under 6. A VFS service fee is charged on top (amount not verified).",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the consular decision (legal limit 60 days)",
+          "detail": null,
+          "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines"
+        },
+        {
+          "order": 5,
+          "title": "Enter Portugal within the visa's 4-month validity",
+          "detail": "The residence visa is valid for two entries and four months, during which you must apply to AIMA for a residence permit.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto"
+        },
+        {
+          "order": 6,
+          "title": "Attend AIMA and apply for the residence permit",
+          "detail": "In person at an AIMA Loja by appointment (online platform for visa holders being rolled out), with passport, valid visa, address declaration and proof of means; Modelo 1 form.",
+          "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1"
+        },
+        {
+          "order": 7,
+          "title": "Receive the temporary residence permit",
+          "detail": "Valid 2 years from issue, renewable for successive 3-year periods.",
+          "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-regime-e-requisitos-gerais-art-o-77-o-n-o-1"
+        }
+      ],
+      "officialUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified: VFS Global US service fee and USD amount of the EUR 110 visa fee (VFS site blocked automated access); AIMA residence permit fee; whether US consulates require a 12-month savings balance or a Portuguese bank account; real AIMA backlog times. Conflict: AIMA meios de subsistencia page still shows the 2025 minimum wage (EUR 870); vistos.mne.gov.pt shows 2026 EUR 920. Old app fee EUR 90 is outdated (now EUR 110). Citizenship is 10 years for US nationals under Lei Organica 1/2026; applications filed before 19 May 2026 stay under the old 5-year rule. Constitutional Court ruling number from secondary sources only. Work rights article read via pgdlisboa.pt consolidated text, not the DR consolidated page."
+    },
+    {
+      "id": "pt_d8",
+      "country": "PT",
+      "from": [
+        "US"
+      ],
+      "category": "digitalNomad",
+      "name": "Residence visa for remote professional activity (digital nomad, D8)",
+      "shortName": "D8",
+      "income": {
+        "monthly": 3680,
+        "annual": 44160,
+        "currency": "EUR",
+        "basis": "4x the national minimum wage (RMMG), average of the last 3 months",
+        "perDependent": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official requirement: proof of average monthly income over the last 3 months from subordinate or independent work of at least four RMMG (Lei 23/2007 art. 61-B). 2026 RMMG = EUR 920 (Decreto-Lei 139/2025). 4 x 920 = 3,680/mo; 3,680 x 12 = 44,160/yr (arithmetic, not stated on the page)."
+      },
+      "savings": {
+        "amount": null,
+        "currency": null,
+        "basis": null,
+        "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "No savings requirement appears on the official D8 residence visa checklist; means of subsistence are assessed from the work or service contracts. The '12x minimum wage savings' figure seen online is not on official pages and is unverified. Dependents: no official D8 add-on is stated; the general Portaria 1563/2007 percentages (+50% adult, +30% child) may be applied to accompanying family, unverified."
+      },
+      "processingTimeDays": {
+        "min": null,
+        "max": 60,
+        "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Official consular decision period for residence visas is 60 days 'except in circumstances stipulated by law' (vistos.mne.gov.pt Prazos). The Consulate General in New York states a minimum processing time of 4 to 8 weeks for national visas (https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos). No official minimum, so min is null. After arrival, Lei 23/2007 art. 82 n.5 (version amended by Lei 62/2026 of 10 September) sets 90 days, extendable by 30, for AIMA to decide the residence permit (consolidated text read on pgdlisboa.pt, https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=). Real-world AIMA delays for appointments and permit cards are widely reported and often exceed these legal periods; no official backlog figure found."
+      },
+      "fees": [
+        {
+          "label": "National (residence) visa fee",
+          "amount": 110,
+          "currency": "EUR",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos",
+          "sourceType": "official",
+          "lastVerified": "2026-10-26",
+          "note": "National visa processing fee per vistos.mne.gov.pt (was EUR 90 earlier). USD amount charged in the US not verified. Exempt: children under 6, among others. VFS service fee and AIMA residence permit card fee not verified (AIMA links a fee table PDF that was not read)."
+        }
+      ],
+      "duration": {
+        "initialMonths": 24,
+        "renewal": "Renewable for successive 3-year periods",
+        "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "initialMonths refers to the AIMA residence permit: 2 years from issue, renewable for successive 3-year periods. The consular residence visa itself is valid 4 months, two entries (https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto). A separate temporary-stay remote work visa (under 1 year) exists and is not this record."
+      },
+      "workAllowed": {
+        "value": "restricted",
+        "sourceUrl": "https://www.pgdlisboa.pt/leis/lei_mostra_articulado.php?artigo_id=920A0083&nid=920&tabela=leis&pagina=1&ficha=1&so_miolo=&nversao=",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "The visa is granted for remote work for employers or clients domiciled outside Portugal (Lei 23/2007 art. 61-B). Once the residence permit is issued, art. 83 n.1 b) and c) give permit holders the general right to salaried and self-employed work, 'without prejudice to special provisions'. No official page says whether Portuguese-sourced work affects renewal of a D8-based permit, so marked restricted. Consolidated text read on pgdlisboa.pt."
+      },
+      "pathToPR": {
+        "years": 5,
+        "sourceUrl": "https://aima.gov.pt/pt/viver/autorizacao-de-residencia-permanente-art-80-o",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "Permanent residence after holding a temporary residence permit for at least 5 years, plus basic Portuguese (e.g. A2 PLA certificate), means of subsistence, accommodation, tax/social security compliance and no conviction over 1 year in the last 5 years. Legal basis: Lei 23/2007 art. 80 with art. 64 and Decreto Regulamentar 84/2007 (art. 80 n.1 a) confirmed in the consolidated text including Lei 62/2026)."
+      },
+      "pathToCitizenship": {
+        "years": 10,
+        "sourceUrl": "https://diariodarepublica.pt/dr/detalhe/lei-organica/1-2026-1123539996",
+        "sourceType": "official",
+        "lastVerified": "2026-10-26",
+        "note": "10 years of legal residence for nationals of countries outside the CPLP and EU (US citizens), per Lei 37/81 art. 6 n.1 b) as amended by Lei Organica n.1/2026 of 18 May (approved by Parliament 1 Apr 2026, promulgated by President Seguro 3 May 2026, published DR 1st series n.95 on 18 May 2026, in force the next day, 19 May 2026, per its art. 8). CPLP and EU nationals: 7 years. Counting: art. 15 n.1 counts residence held under any title, visa or permit under the foreigners law; art. 15 n.3 sums all legal residence periods, continuous or not, provided they fall within a maximum window of 12 years for non-CPLP/non-EU nationals (9 for CPLP/EU, 6 for stateless). The old art. 15 n.4 is revoked (art. 5); secondary sources describe it as the 2024 rule that counted time from the residence permit application, so time spent waiting on AIMA before a permit is granted no longer counts (inference from secondary reporting; the revoked text itself was not read). Transitional rule (art. 7 n.2): applications pending on 19 May 2026 are decided under the previous law (5 years). New requirements also include a Portuguese language/culture test and knowledge of rights, duties and state organisation (art. 6 n.1 c, d). A first version was partly struck down by the Constitutional Court in Dec 2025 (Acordao 1133/2025, per secondary sources); a separate decree on loss of nationality was reported as still under Constitutional Court review. No official source found of any later change up to Oct 2026."
+      },
+      "steps": [
+        {
+          "order": 1,
+          "title": "Gather the residence visa documents",
+          "detail": "Employment contract or employer declaration, or service contracts with entities abroad; proof of average monthly income over the last 3 months of at least 4x RMMG; proof of tax residence; passport, 2 photos, application form, travel/health insurance, apostilled criminal record certificate.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia"
+        },
+        {
+          "order": 2,
+          "title": "Book and submit the application at VFS Global (US)",
+          "detail": "Portuguese consulates in the US process visa applications exclusively through VFS Global (New York centre: 128 East 32nd Street). Apply at the centre for the consulate covering your US state.",
+          "sourceUrl": "https://novaiorque.consuladoportugal.mne.gov.pt/pt/assuntos-consulares/vistos"
+        },
+        {
+          "order": 3,
+          "title": "Pay the national visa fee (EUR 110)",
+          "detail": "Exemptions include children under 6. A VFS service fee is charged on top (amount not verified).",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/emolumentos"
+        },
+        {
+          "order": 4,
+          "title": "Wait for the consular decision (legal limit 60 days)",
+          "detail": null,
+          "sourceUrl": "https://vistos.mne.gov.pt/en/national-visas/general-information/deadlines"
+        },
+        {
+          "order": 5,
+          "title": "Enter Portugal within the visa's 4-month validity",
+          "detail": "The residence visa is valid for two entries and four months, during which you must apply to AIMA for a residence permit.",
+          "sourceUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/informacao-geral/tipo-de-visto"
+        },
+        {
+          "order": 6,
+          "title": "Attend AIMA and apply for the residence permit",
+          "detail": "In person at an AIMA Loja by appointment (online platform for visa holders being rolled out), with passport, valid visa, address declaration and proof of means; Modelo 1 form.",
+          "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe"
+        },
+        {
+          "order": 7,
+          "title": "Receive the temporary residence permit",
+          "detail": "Valid 2 years from issue, renewable for successive 3-year periods.",
+          "sourceUrl": "https://aima.gov.pt/pt/trabalhar/autorizacao-de-residencia-para-o-exercicio-de-atividade-profissional-prestada-de-forma-remota-com-visto-de-residencia-para-o-exe"
+        }
+      ],
+      "officialUrl": "https://vistos.mne.gov.pt/pt/vistos-nacionais/documentacao-instrutoria/residencia",
+      "lastVerified": "2026-10-26",
+      "verificationNotes": "Unverified: VFS Global US service fee and USD amount of the EUR 110 visa fee; AIMA permit fee; savings expectation (no official 12x RMMG rule found for the D8 residence visa); dependent income add-on for D8; real AIMA backlog. AIMA lists the D8 permit legal basis as REPSAE art. 88 n.1 with DR 84/2007 arts. 42-G, 42-H. Old app fee EUR 90 and income EUR 3,480 are outdated (now EUR 110 and EUR 3,680). Citizenship is 10 years for US nationals under Lei Organica 1/2026; Constitutional Court ruling number from secondary sources only."
+    }
+  ]
+}

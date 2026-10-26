@@ -36,6 +36,10 @@ def priority_and_freq(url_path: str):
     is_hub = len(seg) == 1  # e.g. "spain", "blog", "compare", "safe-harbor"
     if top in ("spain", "portugal", "mexico"):
         return ("0.9", "weekly") if is_hub else ("0.9", "monthly")
+    if top == "move":
+        return ("0.9", "weekly") if is_hub else ("1.0", "weekly")
+    if top == "updates":
+        return "0.8", "weekly"
     if top == "leaving-the-us":
         return "0.9", "weekly"
     if top == "compare":
