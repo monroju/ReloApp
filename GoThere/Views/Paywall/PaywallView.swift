@@ -545,9 +545,9 @@ struct PaywallView: View {
         let m = CountryMetricsService.compute(for: countryId)
         var parts: [String] = []
         if m.wizardTracksCount > 0 {
-            parts.append(String(localized: "\(m.wizardTracksCount) step-by-step wizard\(m.wizardTracksCount == 1 ? "" : "s")"))
+            parts.append(String(localized: "\(m.wizardTracksCount) step-by-step wizards"))
         } else if m.visaPathsCount > 0 {
-            parts.append(String(localized: "\(m.visaPathsCount) visa path\(m.visaPathsCount == 1 ? "" : "s")"))
+            parts.append(String(localized: "\(m.visaPathsCount) visa paths"))
         }
         if m.documentsCount > 0 {
             parts.append(String(localized: "\(m.documentsCount) documents"))

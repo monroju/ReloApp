@@ -85,8 +85,8 @@ extension UserDocument {
     /// 3 days ago", "No expiry". Used on the row + detail header.
     var expiryLabel: String {
         guard let days = daysUntilExpiration else { return String(localized: "No expiry date") }
-        if days < 0 { return String(localized: "Expired \(-days) day\(-days == 1 ? "" : "s") ago") }
+        if days < 0 { return days == -1 ? String(localized: "Expired 1 day ago") : String(localized: "Expired \(-days) days ago") }
         if days == 0 { return String(localized: "Expires today") }
-        return String(localized: "Expires in \(days) day\(days == 1 ? "" : "s")")
+        return days == 1 ? String(localized: "Expires in 1 day") : String(localized: "Expires in \(days) days")
     }
 }

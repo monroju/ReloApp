@@ -428,7 +428,7 @@ extension VisaWizardView {
                     let dependents = answeredDependentCount
                     let effective = visa.requiredMonthlyEUR(dependents: dependents) ?? threshold
                     let fundsLine: String = dependents > 0
-                        ? String(localized: "Requires ~€\(effective.formatted())/mo proof of funds for you + \(dependents) dependent\(dependents == 1 ? "" : "s").")
+                        ? String(localized: "Requires ~€\(effective.formatted())/mo proof of funds for you + \(dependents) dependents.")
                         : String(localized: "Requires ~€\(effective.formatted())/mo proof of funds.")
                     Text(fundsLine)
                         .font(.caption)

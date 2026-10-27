@@ -372,7 +372,7 @@ struct CostCalculatorView: View {
                     .font(.caption)
                     .foregroundColor(.secondary)
             } else if pointsBased > 0 {
-                Text("+ \(pointsBased) other visa\(pointsBased == 1 ? "" : "s") in this country uses non-income criteria (points / employer / ancestry).")
+                Text("+ \(pointsBased) other visas in this country use non-income criteria (points / employer / ancestry).")
                     .font(.caption)
                     .foregroundColor(.secondary)
             }

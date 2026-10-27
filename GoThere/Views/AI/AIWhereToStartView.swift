@@ -221,7 +221,7 @@ struct AIWhereToStartView: View {
                     }
                     .padding(.horizontal, 12)
                 } else if remaining <= 2 {
-                    Text("\(remaining) free message\(remaining == 1 ? "" : "s") left")
+                    Text("\(remaining) free messages left")
                         .font(.caption2)
                         .foregroundColor(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
