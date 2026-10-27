@@ -219,7 +219,7 @@ struct CostCalculatorView: View {
         )
     }
 
-    private func lifestyleToggle(icon: String, label: String, isOn: Binding<Bool>) -> some View {
+    private func lifestyleToggle(icon: String, label: LocalizedStringKey, isOn: Binding<Bool>) -> some View {
         HStack {
             Image(systemName: icon)
                 .foregroundColor(.goPrimary)
@@ -282,7 +282,7 @@ struct CostCalculatorView: View {
         }
     }
 
-    private func costRow(icon: String, label: String, amount: Int) -> some View {
+    private func costRow(icon: String, label: LocalizedStringKey, amount: Int) -> some View {
         HStack {
             Image(systemName: icon)
                 .foregroundColor(.secondary)
@@ -379,7 +379,7 @@ struct CostCalculatorView: View {
         }
     }
 
-    private func affordabilityGroup(icon: String, iconColor: Color, label: String, visas: [VisaInfo], totalEUR: Int) -> some View {
+    private func affordabilityGroup(icon: String, iconColor: Color, label: LocalizedStringKey, visas: [VisaInfo], totalEUR: Int) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
                 Image(systemName: icon)
@@ -420,7 +420,7 @@ struct CostCalculatorView: View {
                 if visa.monthlyIncomeEUR != nil {
                     let bar = visa.requiredMonthlyEUR(dependents: dependents) ?? visa.monthlyIncomeEUR!
                     let gap = bar - totalEUR
-                    let dependentSuffix = dependents > 0 ? " (you + \(dependents))" : ""
+                    let dependentSuffix = dependents > 0 ? String(localized: " (you + \(dependents))") : ""
                     if gap > 0 {
                         Text("requires €\(bar.formatted())/mo\(dependentSuffix) · short €\(gap.formatted())/mo")
                             .font(.caption)

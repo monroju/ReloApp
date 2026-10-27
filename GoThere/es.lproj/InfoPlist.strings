@@ -1,0 +1,3 @@
+/* Spanish (es) localization of Info.plist keys. */
+"CFBundleDisplayName" = "GoThere";
+"NSCameraUsageDescription" = "GoThere usa la cámara para escanear documentos oficiales, explicártelos en palabras sencillas y marcar cualquier fecha límite.";

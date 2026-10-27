@@ -102,7 +102,7 @@ struct MoneyInsuranceView: View {
         }
     }
 
-    private func section(title: String, subtitle: String, providers: [MoneyProvider]) -> some View {
+    private func section(title: LocalizedStringKey, subtitle: LocalizedStringKey, providers: [MoneyProvider]) -> some View {
         VStack(alignment: .leading, spacing: 10) {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title).font(.headline)

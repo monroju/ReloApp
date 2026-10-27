@@ -37,14 +37,14 @@ enum PoiCategory: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .bank: return "Banks"
-        case .hospital: return "Hospitals"
-        case .clinic: return "Clinics"
-        case .governmentImmigration: return "Immigration"
-        case .governmentTax: return "Tax Office"
-        case .coworking: return "Coworking"
-        case .supermarket: return "Supermarkets"
-        case .internationalSchool: return "Intl Schools"
+        case .bank: return String(localized: "Banks")
+        case .hospital: return String(localized: "Hospitals")
+        case .clinic: return String(localized: "Clinics")
+        case .governmentImmigration: return String(localized: "Immigration")
+        case .governmentTax: return String(localized: "Tax Office")
+        case .coworking: return String(localized: "Coworking")
+        case .supermarket: return String(localized: "Supermarkets")
+        case .internationalSchool: return String(localized: "Intl Schools")
         }
     }
 

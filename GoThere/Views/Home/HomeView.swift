@@ -251,7 +251,7 @@ struct HomeView: View {
         .goCard()
     }
 
-    private func statBubble(value: String, label: String) -> some View {
+    private func statBubble(value: String, label: LocalizedStringKey) -> some View {
         VStack(spacing: 4) {
             Text(value)
                 .font(.title2.bold())
@@ -383,7 +383,7 @@ struct HomeView: View {
         .cornerRadius(12)
     }
 
-    private func quickLinkTile(icon: String, title: String, color: Color) -> some View {
+    private func quickLinkTile(icon: String, title: LocalizedStringKey, color: Color) -> some View {
         VStack(spacing: 8) {
             Image(systemName: icon)
                 .font(.title2)

@@ -151,7 +151,7 @@ struct DocumentScanView: View {
     private func handle(_ image: UIImage) {
         if service.isScanGated { Analytics.log(.freeLimitReached, properties: ["limit": "document_scan"]); showPaywall = true; return }
         guard let data = Self.processed(image) else {
-            errorMessage = "Couldn't process that image. Please try again."
+            errorMessage = String(localized: "Couldn't process that image. Please try again.")
             return
         }
         errorMessage = nil
@@ -274,7 +274,7 @@ private struct DocumentResultView: View {
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
-    private func section(_ title: String, _ body: String) -> some View {
+    private func section(_ title: LocalizedStringKey, _ body: String) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title).font(.headline).foregroundColor(.goPrimary)
             Text(body).font(.subheadline)

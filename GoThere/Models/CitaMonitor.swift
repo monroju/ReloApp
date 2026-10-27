@@ -16,12 +16,12 @@ enum CitaAppointmentType: String, Codable, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .nieInitial:          return "NIE — Initial"
-        case .nieRenewal:          return "NIE / Cert Renewal"
-        case .tie:                 return "TIE Card"
-        case .residencyCertificate: return "Residency Certificate"
-        case .empadronamiento:     return "Empadronamiento (Padrón)"
-        case .consulate:           return "Consulate (pre-departure)"
+        case .nieInitial:          return String(localized: "NIE — Initial")
+        case .nieRenewal:          return String(localized: "NIE / Cert Renewal")
+        case .tie:                 return String(localized: "TIE Card")
+        case .residencyCertificate: return String(localized: "Residency Certificate")
+        case .empadronamiento:     return String(localized: "Empadronamiento (Padrón)")
+        case .consulate:           return String(localized: "Consulate (pre-departure)")
         }
     }
 

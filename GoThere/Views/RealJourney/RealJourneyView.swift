@@ -285,21 +285,21 @@ struct RealJourneyView: View {
 
     // MARK: - Helpers
 
-    private func sectionHeader(_ title: String, icon: String) -> some View {
+    private func sectionHeader(_ title: LocalizedStringKey, icon: String) -> some View {
         HStack(spacing: 8) {
             Image(systemName: icon).foregroundColor(.goPrimary)
             Text(title).font(.subheadline.bold())
         }
     }
 
-    private func subSection<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
+    private func subSection<Content: View>(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title).font(.caption.bold()).foregroundColor(.secondary)
             content()
         }
     }
 
-    private func bulletRow(_ text: String) -> some View {
+    private func bulletRow(_ text: LocalizedStringKey) -> some View {
         HStack(alignment: .top, spacing: 8) {
             Image(systemName: "checkmark.circle.fill").foregroundColor(.goPrimary).font(.caption)
             Text(text).font(.subheadline).fixedSize(horizontal: false, vertical: true)

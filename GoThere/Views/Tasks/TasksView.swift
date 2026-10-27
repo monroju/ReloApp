@@ -540,7 +540,7 @@ struct FilterChip: View {
 
     var body: some View {
         Button(action: action) {
-            Text(title)
+            Text(title.uiLocalized)
                 .font(.caption)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 6)

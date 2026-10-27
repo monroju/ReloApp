@@ -152,7 +152,7 @@ struct DocumentsView: View {
         .cornerRadius(12)
     }
 
-    private func summaryPill(_ text: String, _ color: Color) -> some View {
+    private func summaryPill(_ text: LocalizedStringKey, _ color: Color) -> some View {
         HStack(spacing: 5) {
             Circle().fill(color).frame(width: 7, height: 7)
             Text(text)

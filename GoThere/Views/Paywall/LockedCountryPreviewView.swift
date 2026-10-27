@@ -153,7 +153,7 @@ struct LockedCountryPreviewView: View {
         }
     }
 
-    private func metricTile(value: String, label: String) -> some View {
+    private func metricTile(value: String, label: LocalizedStringKey) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(value)
                 .font(.title.bold())
@@ -292,7 +292,7 @@ struct LockedCountryPreviewView: View {
         }
     }
 
-    private func teaserPlaceholderRow(icon: String, label: String) -> some View {
+    private func teaserPlaceholderRow(icon: String, label: LocalizedStringKey) -> some View {
         HStack {
             Image(systemName: icon)
                 .foregroundColor(.goPrimary)

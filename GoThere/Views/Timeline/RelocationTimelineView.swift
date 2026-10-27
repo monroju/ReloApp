@@ -49,7 +49,7 @@ struct RelocationTimelineView: View {
                 Text("I want to be gone in")
                     .font(.subheadline).foregroundColor(.primary)
                 Spacer()
-                Text("\(Int(totalMonths)) month\(Int(totalMonths) == 1 ? "" : "s")")
+                Text(Int(totalMonths) == 1 ? String(localized: "1 month") : String(localized: "\(Int(totalMonths)) months"))
                     .font(.subheadline.bold()).foregroundColor(.goPrimary)
             }
             Slider(value: $totalMonths, in: 1...18, step: 1).tint(.goPrimary)

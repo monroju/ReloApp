@@ -18,7 +18,7 @@ struct CalendarScreenView: View {
                     // View mode picker
                     Picker("View", selection: $viewMode) {
                         ForEach(CalendarViewMode.allCases, id: \.self) { mode in
-                            Text(mode.rawValue).tag(mode)
+                            Text(mode.rawValue.uiLocalized).tag(mode)
                         }
                     }
                     .pickerStyle(.segmented)

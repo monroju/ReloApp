@@ -95,7 +95,7 @@ final class AIService: ObservableObject {
         guard !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         guard !isPaywallGated else {
             Analytics.log(.freeLimitReached, properties: ["limit": "ai"])
-            lastError = "You've used all free messages. Upgrade to keep going."
+            lastError = String(localized: "You've used all free messages. Upgrade to keep going.")
             return
         }
 
@@ -204,7 +204,7 @@ final class AIService: ObservableObject {
 /// `Authorization: Bearer`. Never blocks a request: no user or a failed
 /// refresh just means the header is left off.
 enum AIAuth {
-    static let dailyLimitMessage = "You've reached today's AI limit. Try again tomorrow."
+    static let dailyLimitMessage = String(localized: "You've reached today's AI limit. Try again tomorrow.")
 
     static func idToken() async -> String? {
         guard let user = Auth.auth().currentUser else { return nil }

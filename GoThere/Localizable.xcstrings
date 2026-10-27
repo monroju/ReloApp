@@ -1,0 +1,7026 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    " (you + %lld)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " (tú + %lld)"
+          }
+        }
+      }
+    },
+    "\"Gone in N months\" → a personalized month-by-month plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "\"Me voy en N meses\" → un plan personalizado mes a mes"
+          }
+        }
+      }
+    },
+    "$%@/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "$%@/mes"
+          }
+        }
+      }
+    },
+    "%@ %@ Resources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos: %1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ %@ — tax regimes": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@: regímenes fiscales"
+          }
+        }
+      }
+    },
+    "%@ Family of 4": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Familia de 4"
+          }
+        }
+      }
+    },
+    "%@ is locked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ está bloqueado"
+          }
+        }
+      }
+    },
+    "%@ Single": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ Individual"
+          }
+        }
+      }
+    },
+    "%@ • %lld steps • %lld tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ • %2$lld pasos • %3$lld tareas"
+          }
+        }
+      }
+    },
+    "%lld cities": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ciudades"
+          }
+        }
+      }
+    },
+    "%lld complete": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld completos"
+          }
+        }
+      }
+    },
+    "%lld days to your target date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld días para tu fecha meta"
+          }
+        }
+      }
+    },
+    "%lld days until your move": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faltan %lld días para tu mudanza"
+          }
+        }
+      }
+    },
+    "%lld documents": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld documentos"
+          }
+        }
+      }
+    },
+    "%lld expired": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld vencidos"
+          }
+        }
+      }
+    },
+    "%lld expiring soon": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld por vencer"
+          }
+        }
+      }
+    },
+    "%lld free message%@ left": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld mensaje%2$@ gratis restante%2$@"
+          }
+        }
+      }
+    },
+    "%lld missing": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld faltantes"
+          }
+        }
+      }
+    },
+    "%lld months": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld meses"
+          }
+        }
+      }
+    },
+    "%lld of %lld countries unlocked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld países desbloqueados"
+          }
+        }
+      }
+    },
+    "%lld of %lld tasks completed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld tareas completadas"
+          }
+        }
+      }
+    },
+    "%lld places": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld lugares"
+          }
+        }
+      }
+    },
+    "%lld pts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld pts"
+          }
+        }
+      }
+    },
+    "%lld step-by-step wizard%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld asistente%2$@ paso a paso"
+          }
+        }
+      }
+    },
+    "%lld tasks added!": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Se agregaron %lld tareas!"
+          }
+        }
+      }
+    },
+    "%lld tasks remaining": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quedan %lld tareas"
+          }
+        }
+      }
+    },
+    "%lld tasks tailored to your situation.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tareas hechas a tu medida."
+          }
+        }
+      }
+    },
+    "%lld visa path%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld ruta%2$@ de visa"
+          }
+        }
+      }
+    },
+    "%lld visa types": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld tipos de visa"
+          }
+        }
+      }
+    },
+    "%lld%% flat": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%% fijo"
+          }
+        }
+      }
+    },
+    "%lld–%lld mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld–%2$lld meses"
+          }
+        }
+      }
+    },
+    "+ %lld other visa%@ in this country uses non-income criteria (points / employer / ancestry).": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "+ %1$lld visa%2$@ más en este país con criterios distintos al ingreso (puntos, empleador o ascendencia)."
+          }
+        }
+      }
+    },
+    "/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/mes"
+          }
+        }
+      }
+    },
+    "/yr": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "/año"
+          }
+        }
+      }
+    },
+    "1 BR": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 hab."
+          }
+        }
+      }
+    },
+    "1 city": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 ciudad"
+          }
+        }
+      }
+    },
+    "1 month": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 mes"
+          }
+        }
+      }
+    },
+    "2 BR": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2 hab."
+          }
+        }
+      }
+    },
+    "5-year work visa for Commonwealth citizens with a UK-born grandparent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visa de trabajo de 5 años para ciudadanos de la Commonwealth con un abuelo nacido en el Reino Unido"
+          }
+        }
+      }
+    },
+    "A few things need attention": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algunas cosas necesitan atención"
+          }
+        }
+      }
+    },
+    "A guide, not a guarantee — visa processing times vary and can dominate your timeline. Start the visa step as early as possible.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Es una guía, no una garantía: los tiempos de trámite de visa varían y pueden marcar todo tu calendario. Empieza el paso de la visa lo antes posible."
+          }
+        }
+      }
+    },
+    "A realistic one-time budget to get there and stay afloat your first few months. Most people overestimate this wildly.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un presupuesto realista, de una sola vez, para llegar y sostenerte los primeros meses. La mayoría lo sobreestima muchísimo."
+          }
+        }
+      }
+    },
+    "A second passport for the cost of paperwork. What investors pay $200k+ for via citizenship-by-investment, you may inherit — full EU mobility, a tax-residency option, and a real Plan B.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un segundo pasaporte por el costo del papeleo. Lo que los inversionistas pagan con más de $200k por ciudadanía por inversión, tú podrías heredarlo: movilidad total en la UE, una opción de residencia fiscal y un Plan B de verdad."
+          }
+        }
+      }
+    },
+    "Account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuenta"
+          }
+        }
+      }
+    },
+    "Action required before your target date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hay pendientes antes de tu fecha meta"
+          }
+        }
+      }
+    },
+    "Active": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activo"
+          }
+        }
+      }
+    },
+    "Add": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar"
+          }
+        }
+      }
+    },
+    "Add %lld Tasks to My Checklist": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar %lld tareas a mi lista"
+          }
+        }
+      }
+    },
+    "Add a cita target": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar una cita a vigilar"
+          }
+        }
+      }
+    },
+    "Add a Task": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar una tarea"
+          }
+        }
+      }
+    },
+    "Add personal notes...": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agrega notas personales..."
+          }
+        }
+      }
+    },
+    "Add starter tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agregar tareas iniciales"
+          }
+        }
+      }
+    },
+    "Add the appointment you're chasing to get a one-tap portal link and check reminders.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agrega la cita que buscas para tener el enlace al portal a un toque y recordatorios para revisar."
+          }
+        }
+      }
+    },
+    "ADHD medication": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicinas para el TDAH"
+          }
+        }
+      }
+    },
+    "ADHD meds, HRT, insulin — availability and what you can carry in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicinas para el TDAH, TRH, insulina: disponibilidad y lo que puedes llevar"
+          }
+        }
+      }
+    },
+    "ADHD meds, HRT, insulin — what's available and what you can carry in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicinas para el TDAH, TRH, insulina: qué hay disponible y qué puedes llevar"
+          }
+        }
+      }
+    },
+    "Adults": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adultos"
+          }
+        }
+      }
+    },
+    "Agriculture": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agricultura"
+          }
+        }
+      }
+    },
+    "Alerts on — we'll notify you of major changes.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alertas activas: te avisaremos de los cambios importantes."
+          }
+        }
+      }
+    },
+    "All": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos"
+          }
+        }
+      }
+    },
+    "All Access: every country unlocked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All Access: todos los países desbloqueados"
+          }
+        }
+      }
+    },
+    "All Destinations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los destinos"
+          }
+        }
+      }
+    },
+    "All Phases": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas las fases"
+          }
+        }
+      }
+    },
+    "All tasks complete!": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Todas las tareas completas!"
+          }
+        }
+      }
+    },
+    "All-Access subscription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción All-Access"
+          }
+        }
+      }
+    },
+    "All-Access Subscription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción All-Access"
+          }
+        }
+      }
+    },
+    "All-Access subscriptions renew automatically unless cancelled at least 24 hours before the end of the current period. Payment is charged to your Apple ID at confirmation of purchase and at each renewal. Manage or cancel anytime in your App Store account settings.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las suscripciones All-Access se renuevan automáticamente salvo que las canceles al menos 24 horas antes de que termine el periodo actual. El pago se carga a tu Apple ID al confirmar la compra y en cada renovación. Adminístralas o cancélalas cuando quieras en los ajustes de tu cuenta del App Store."
+          }
+        }
+      }
+    },
+    "Already purchased? Restore": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Ya compraste? Restaurar"
+          }
+        }
+      }
+    },
+    "Already subscribed? Restore": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Ya tienes suscripción? Restaurar"
+          }
+        }
+      }
+    },
+    "Americas Bundle": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquete Américas"
+          }
+        }
+      }
+    },
+    "Ancestry (Optional)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ascendencia (opcional)"
+          }
+        }
+      }
+    },
+    "Ancestry Citizenship": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudadanía por ascendencia"
+          }
+        }
+      }
+    },
+    "Anchor date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha base"
+          }
+        }
+      }
+    },
+    "Annual All-Access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All-Access anual"
+          }
+        }
+      }
+    },
+    "Answer one question — we'll point you to the right tool": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Responde una pregunta y te llevamos a la herramienta correcta"
+          }
+        }
+      }
+    },
+    "Any": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cualquiera"
+          }
+        }
+      }
+    },
+    "Anything you upload outside a checklist slot lands here.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todo lo que subas fuera de la lista de documentos queda aquí."
+          }
+        }
+      }
+    },
+    "Apostille": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apostilla"
+          }
+        }
+      }
+    },
+    "Apostille & translation": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apostilla y traducción"
+          }
+        }
+      }
+    },
+    "Apostille needed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falta apostilla"
+          }
+        }
+      }
+    },
+    "Apostille obtained": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apostilla obtenida"
+          }
+        }
+      }
+    },
+    "Apostille required": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requiere apostilla"
+          }
+        }
+      }
+    },
+    "Appearance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apariencia"
+          }
+        }
+      }
+    },
+    "Apply": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitar"
+          }
+        }
+      }
+    },
+    "Appointment": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cita"
+          }
+        }
+      }
+    },
+    "Argentine": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Argentina"
+          }
+        }
+      }
+    },
+    "Arrive": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llegar"
+          }
+        }
+      }
+    },
+    "Article 116 + StAG §15 citizenship restoration": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restitución de ciudadanía por el Artículo 116 + StAG §15"
+          }
+        }
+      }
+    },
+    "As you add a visa, documents, and a target date, GoThere will surface compound insights here.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuando agregues una visa, documentos y una fecha meta, GoThere te mostrará aquí recomendaciones combinadas."
+          }
+        }
+      }
+    },
+    "Ask anything…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pregunta lo que quieras…"
+          }
+        }
+      }
+    },
+    "Availability of your meds, who can prescribe them, and what you're allowed to bring through the border.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si tus medicinas están disponibles, quién puede recetarlas y qué puedes pasar por la frontera."
+          }
+        }
+      }
+    },
+    "Awesome!": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Genial!"
+          }
+        }
+      }
+    },
+    "Back": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atrás"
+          }
+        }
+      }
+    },
+    "Back to countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a los países"
+          }
+        }
+      }
+    },
+    "Ballpark range: $%@ – $%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rango aproximado: $%1$@ – $%2$@"
+          }
+        }
+      }
+    },
+    "Banking": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Banca"
+          }
+        }
+      }
+    },
+    "Banks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bancos"
+          }
+        }
+      }
+    },
+    "Basic knowledge": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conocimiento básico"
+          }
+        }
+      }
+    },
+    "Below threshold": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por debajo del mínimo"
+          }
+        }
+      }
+    },
+    "BEST VALUE": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MEJOR PRECIO"
+          }
+        }
+      }
+    },
+    "Best value — locked-in price, every country, every update": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mejor precio: tarifa fija, todos los países, todas las actualizaciones"
+          }
+        }
+      }
+    },
+    "Bring Your Job": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llévate tu trabajo"
+          }
+        }
+      }
+    },
+    "Bring your job abroad": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llévate tu trabajo al extranjero"
+          }
+        }
+      }
+    },
+    "British": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Británica"
+          }
+        }
+      }
+    },
+    "Budget": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presupuesto"
+          }
+        }
+      }
+    },
+    "Budget-Friendly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Económico"
+          }
+        }
+      }
+    },
+    "Build my move timeline": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Armar mi calendario de mudanza"
+          }
+        }
+      }
+    },
+    "Business Focus": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enfoque de trabajo"
+          }
+        }
+      }
+    },
+    "Buy your optionality": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compra tus opciones"
+          }
+        }
+      }
+    },
+    "By continuing, you agree to our ": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Al continuar, aceptas nuestra "
+          }
+        }
+      }
+    },
+    "Calendar": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendario"
+          }
+        }
+      }
+    },
+    "Call": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llamar"
+          }
+        }
+      }
+    },
+    "Can I afford to move?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Me alcanza para mudarme?"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancelar"
+          }
+        }
+      }
+    },
+    "Cash runway": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colchón de efectivo"
+          }
+        }
+      }
+    },
+    "Catch a slot the moment you can": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atrapa un turno en cuanto se pueda"
+          }
+        }
+      }
+    },
+    "Category": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Categoría"
+          }
+        }
+      }
+    },
+    "Change the app language in iOS Settings. GoThere follows your choice.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambia el idioma de la app en los Ajustes de iOS. GoThere sigue tu elección."
+          }
+        }
+      }
+    },
+    "Change visa track": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambiar ruta de visa"
+          }
+        }
+      }
+    },
+    "Check back later for PDF guides and forms": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vuelve más tarde para ver guías y formularios en PDF"
+          }
+        }
+      }
+    },
+    "Checked %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisado %@"
+          }
+        }
+      }
+    },
+    "Children": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Niños"
+          }
+        }
+      }
+    },
+    "Choose a photo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegir una foto"
+          }
+        }
+      }
+    },
+    "Choose Your Visa Path": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige tu ruta de visa"
+          }
+        }
+      }
+    },
+    "Cita Monitor": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monitor de citas"
+          }
+        }
+      }
+    },
+    "Cities covered": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudades incluidas"
+          }
+        }
+      }
+    },
+    "Citizenship by descent is the free version of a second passport — check your eligibility first.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La ciudadanía por ascendencia es la versión gratis de un segundo pasaporte. Primero revisa si calificas."
+          }
+        }
+      }
+    },
+    "Citizenship by descent may apply. We'll suggest the matching visa path.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podría aplicar la ciudadanía por ascendencia. Te sugerimos la ruta de visa que corresponde."
+          }
+        }
+      }
+    },
+    "Citizenship by option — for children of native Argentines": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudadanía por opción: para hijos de argentinos nativos"
+          }
+        }
+      }
+    },
+    "Citizenship: %@ · Processing: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudadanía: %1$@ · Trámite: %2$@"
+          }
+        }
+      }
+    },
+    "City": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudad"
+          }
+        }
+      }
+    },
+    "City / country (e.g. New York)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudad / país (p. ej., Nueva York)"
+          }
+        }
+      }
+    },
+    "Civil": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Registro civil"
+          }
+        }
+      }
+    },
+    "Clear": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar"
+          }
+        }
+      }
+    },
+    "Clear (%lld)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Borrar (%lld)"
+          }
+        }
+      }
+    },
+    "Clinics": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clínicas"
+          }
+        }
+      }
+    },
+    "Close": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar"
+          }
+        }
+      }
+    },
+    "Comfortable": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cómodo"
+          }
+        }
+      }
+    },
+    "Comfortable fit": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Te alcanza bien"
+          }
+        }
+      }
+    },
+    "COMING SOON": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRÓXIMAMENTE"
+          }
+        }
+      }
+    },
+    "Compare %lld Visas": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar %lld visas"
+          }
+        }
+      }
+    },
+    "Compare Costs": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar costos"
+          }
+        }
+      }
+    },
+    "Compare destinations on LGBTQ+, disability, reproductive & senior protections": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compara destinos según protecciones LGBTQ+, de discapacidad, reproductivas y para adultos mayores"
+          }
+        }
+      }
+    },
+    "Compare destinations on the protections most relevant to you and your family — not just cost and visas.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compara destinos según las protecciones que más importan para ti y tu familia, no solo costo y visas."
+          }
+        }
+      }
+    },
+    "Compare destinations on the protections that matter to you.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compara destinos según las protecciones que te importan."
+          }
+        }
+      }
+    },
+    "Compare every visa side by side.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compara todas las visas lado a lado."
+          }
+        }
+      }
+    },
+    "Compare Visa Types": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar tipos de visa"
+          }
+        }
+      }
+    },
+    "Complete": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completo"
+          }
+        }
+      }
+    },
+    "Concierge": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concierge"
+          }
+        }
+      }
+    },
+    "Concierge connects you with independent, licensed professionals. GoThere is not a law firm and does not provide legal or tax advice.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Concierge te conecta con profesionales independientes con licencia. GoThere no es un despacho de abogados y no da asesoría legal ni fiscal."
+          }
+        }
+      }
+    },
+    "Confirm Password": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirmar contraseña"
+          }
+        }
+      }
+    },
+    "Confirmation of Polish citizenship by descent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Confirmación de ciudadanía polaca por ascendencia"
+          }
+        }
+      }
+    },
+    "Cons": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desventajas"
+          }
+        }
+      }
+    },
+    "Consulate (pre-departure)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consulado (antes de viajar)"
+          }
+        }
+      }
+    },
+    "Consulate location": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ubicación del consulado"
+          }
+        }
+      }
+    },
+    "Contact Support": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contactar a soporte"
+          }
+        }
+      }
+    },
+    "Continue as Guest": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continuar como invitado"
+          }
+        }
+      }
+    },
+    "Copy": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copiar"
+          }
+        }
+      }
+    },
+    "Cost": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costo"
+          }
+        }
+      }
+    },
+    "Cost Calculator": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calculadora de costos"
+          }
+        }
+      }
+    },
+    "Cost to Move": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costo de mudarte"
+          }
+        }
+      }
+    },
+    "Couldn't delete account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo eliminar la cuenta"
+          }
+        }
+      }
+    },
+    "Couldn't process that image. Please try again.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo procesar esa imagen. Inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "Couldn't read this clearly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo leer bien"
+          }
+        }
+      }
+    },
+    "Country": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "País"
+          }
+        }
+      }
+    },
+    "Couple": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pareja"
+          }
+        }
+      }
+    },
+    "Cover accepted for visas, plus options for nomads and shorter stays.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coberturas aceptadas para visas, más opciones para nómadas y estancias cortas."
+          }
+        }
+      }
+    },
+    "Coworking": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coworking"
+          }
+        }
+      }
+    },
+    "Create a free account to invite friends and redeem codes. Referral months are tied to your account, so guest mode can't earn them.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea una cuenta gratis para invitar amigos y canjear códigos. Los meses de regalo van ligados a tu cuenta, así que el modo invitado no puede ganarlos."
+          }
+        }
+      }
+    },
+    "Criminal Record": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antecedentes penales"
+          }
+        }
+      }
+    },
+    "Cross-phase gotchas worth knowing": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trampas que conviene conocer en todas las fases"
+          }
+        }
+      }
+    },
+    "Currently Active": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activo ahora"
+          }
+        }
+      }
+    },
+    "Currently subscribed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscripción activa"
+          }
+        }
+      }
+    },
+    "Customize Your Lifestyle": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personaliza tu estilo de vida"
+          }
+        }
+      }
+    },
+    "D7 & D8 visa guides, tasks, and resources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guías, tareas y recursos de las visas D7 y D8"
+          }
+        }
+      }
+    },
+    "Dark": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oscuro"
+          }
+        }
+      }
+    },
+    "Date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha"
+          }
+        }
+      }
+    },
+    "Decision Tree": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Árbol de decisión"
+          }
+        }
+      }
+    },
+    "Decision Tree ranks these for your profile": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El Árbol de decisión las ordena según tu perfil"
+          }
+        }
+      }
+    },
+    "Decision Tree: Best Places": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Árbol de decisión: mejores lugares"
+          }
+        }
+      }
+    },
+    "Default": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Predeterminado"
+          }
+        }
+      }
+    },
+    "Delete": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar"
+          }
+        }
+      }
+    },
+    "Delete Account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eliminar cuenta"
+          }
+        }
+      }
+    },
+    "Delete your account?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Eliminar tu cuenta?"
+          }
+        }
+      }
+    },
+    "Dependents (for visa threshold)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dependientes (para el mínimo de la visa)"
+          }
+        }
+      }
+    },
+    "Destination": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destino"
+          }
+        }
+      }
+    },
+    "Destination Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tareas del destino"
+          }
+        }
+      }
+    },
+    "Destinations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destinos"
+          }
+        }
+      }
+    },
+    "Detach": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desvincular"
+          }
+        }
+      }
+    },
+    "Details": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Detalles"
+          }
+        }
+      }
+    },
+    "Different country than your current selection — worth a look.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Es otro país distinto al que elegiste, pero vale la pena verlo."
+          }
+        }
+      }
+    },
+    "Dining Out": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comer fuera"
+          }
+        }
+      }
+    },
+    "Direct path blocked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruta directa bloqueada"
+          }
+        }
+      }
+    },
+    "Disabled / Accessibility": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discapacidad / accesibilidad"
+          }
+        }
+      }
+    },
+    "Do you qualify?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Calificas?"
+          }
+        }
+      }
+    },
+    "Docs": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Docs"
+          }
+        }
+      }
+    },
+    "Document": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documento"
+          }
+        }
+      }
+    },
+    "Document name": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombre del documento"
+          }
+        }
+      }
+    },
+    "Documents": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos"
+          }
+        }
+      }
+    },
+    "Documents you need": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos que necesitas"
+          }
+        }
+      }
+    },
+    "Documents you'll need": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos que vas a necesitar"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listo"
+          }
+        }
+      }
+    },
+    "Downloadable Documents": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos descargables"
+          }
+        }
+      }
+    },
+    "Due Date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha límite"
+          }
+        }
+      }
+    },
+    "Due: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha límite: %@"
+          }
+        }
+      }
+    },
+    "Early supporter: you bought GoThere before it went free": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoyo temprano: compraste GoThere antes de que fuera gratis"
+          }
+        }
+      }
+    },
+    "Eligibility snapshot": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resumen de requisitos"
+          }
+        }
+      }
+    },
+    "Email": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correo electrónico"
+          }
+        }
+      }
+    },
+    "Empadronamiento (Padrón)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empadronamiento (Padrón)"
+          }
+        }
+      }
+    },
+    "Employer-letter templates + the tax traps to avoid.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plantillas de carta del empleador + las trampas fiscales que debes evitar."
+          }
+        }
+      }
+    },
+    "Employer-letter templates + the tax-residency traps to avoid": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plantillas de carta del empleador + las trampas de residencia fiscal que debes evitar"
+          }
+        }
+      }
+    },
+    "English only": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo inglés"
+          }
+        }
+      }
+    },
+    "Enter code": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingresa el código"
+          }
+        }
+      }
+    },
+    "Error": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Error"
+          }
+        }
+      }
+    },
+    "Estimate your monthly expenses": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calcula tus gastos mensuales"
+          }
+        }
+      }
+    },
+    "Estimate your real cost to land in %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calcula lo que de verdad te cuesta llegar a %@"
+          }
+        }
+      }
+    },
+    "Estimated landing budget": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presupuesto estimado de llegada"
+          }
+        }
+      }
+    },
+    "Estimates only — actual costs vary by city, season, and visa track. Figures refreshed for 2025-2026. Not financial advice.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo son estimaciones: los costos reales varían según ciudad, temporada y ruta de visa. Cifras actualizadas para 2025-2026. No es asesoría financiera."
+          }
+        }
+      }
+    },
+    "Estimates only — premiums vary by age, health, and plan. US figures from 2024 KFF/marketplace averages. Not insurance advice.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo son estimaciones: las primas varían según edad, salud y plan. Cifras de EE. UU. según promedios KFF/marketplace 2024. No es asesoría de seguros."
+          }
+        }
+      }
+    },
+    "Europe + Americas bundles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquetes Europa + Américas"
+          }
+        }
+      }
+    },
+    "Europe Bundle": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquete Europa"
+          }
+        }
+      }
+    },
+    "Event title": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Título del evento"
+          }
+        }
+      }
+    },
+    "Every country purchased": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los países comprados"
+          }
+        }
+      }
+    },
+    "Every country, every visa path, every update — all-in for one price.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todos los países, todas las visas, todas las actualizaciones, por un solo precio."
+          }
+        }
+      }
+    },
+    "Every document the lawyer requested, by phase": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada documento que pidió el abogado, por fase"
+          }
+        }
+      }
+    },
+    "Examples": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejemplos"
+          }
+        }
+      }
+    },
+    "Expiration": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vencimiento"
+          }
+        }
+      }
+    },
+    "Expired": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vencido"
+          }
+        }
+      }
+    },
+    "Expired %lld day%@ ago": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Venció hace %1$lld día%2$@"
+          }
+        }
+      }
+    },
+    "Expires": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vence"
+          }
+        }
+      }
+    },
+    "Expires in %lld day%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vence en %1$lld día%2$@"
+          }
+        }
+      }
+    },
+    "Expires today": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vence hoy"
+          }
+        }
+      }
+    },
+    "Family threshold scales with dependents — answer the family question on the earlier wizard step to refine.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El mínimo familiar sube según tus dependientes. Responde la pregunta de familia del paso anterior para afinarlo."
+          }
+        }
+      }
+    },
+    "Family with Kids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familia con hijos"
+          }
+        }
+      }
+    },
+    "FamilyKids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familia con hijos"
+          }
+        }
+      }
+    },
+    "Feature": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Característica"
+          }
+        }
+      }
+    },
+    "Fees & payment structure": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costos y forma de pago"
+          }
+        }
+      }
+    },
+    "Finance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finanzas"
+          }
+        }
+      }
+    },
+    "Financial": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finanzas"
+          }
+        }
+      }
+    },
+    "Find Your City": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Encuentra tu ciudad"
+          }
+        }
+      }
+    },
+    "Flexible month-to-month access — cancel anytime": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceso flexible mes a mes, cancela cuando quieras"
+          }
+        }
+      }
+    },
+    "Fluent in local language": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hablo el idioma local"
+          }
+        }
+      }
+    },
+    "Follow-up": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguimiento"
+          }
+        }
+      }
+    },
+    "For security, please sign out, sign back in, and try again. (%@)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Por seguridad, cierra sesión, vuelve a iniciarla e inténtalo de nuevo. (%@)"
+          }
+        }
+      }
+    },
+    "For You": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para ti"
+          }
+        }
+      }
+    },
+    "Foreign Births Register — Irish/EU citizenship by descent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foreign Births Register: ciudadanía irlandesa/UE por ascendencia"
+          }
+        }
+      }
+    },
+    "Forgot Password?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Olvidaste tu contraseña?"
+          }
+        }
+      }
+    },
+    "Free plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plan gratuito"
+          }
+        }
+      }
+    },
+    "Freelance / self income OK": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acepta ingreso freelance / propio"
+          }
+        }
+      }
+    },
+    "from $%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "desde $%@"
+          }
+        }
+      }
+    },
+    "From the document:": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Del documento:"
+          }
+        }
+      }
+    },
+    "Full breakdown with city dropdown unlocks here": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquí se desbloquea el desglose completo por ciudad"
+          }
+        }
+      }
+    },
+    "German": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alemana"
+          }
+        }
+      }
+    },
+    "Get set up abroad": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepárate para vivir fuera"
+          }
+        }
+      }
+    },
+    "Gift month until %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mes de regalo hasta el %@"
+          }
+        }
+      }
+    },
+    "Give a month, get a month": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regala un mes, recibe un mes"
+          }
+        }
+      }
+    },
+    "Go to Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ir a Tareas"
+          }
+        }
+      }
+    },
+    "Golden visas & citizenship by investment.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Golden visas y ciudadanía por inversión."
+          }
+        }
+      }
+    },
+    "Golden visas & second passports": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Golden visas y segundos pasaportes"
+          }
+        }
+      }
+    },
+    "Got a code from a friend?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Te pasaron un código?"
+          }
+        }
+      }
+    },
+    "Got a letter you can't read?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Te llegó una carta que no entiendes?"
+          }
+        }
+      }
+    },
+    "Gotchas": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trampas"
+          }
+        }
+      }
+    },
+    "GoThere Concierge": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GoThere Concierge"
+          }
+        }
+      }
+    },
+    "GoThere explains documents to help you understand them. It is not legal, tax, or immigration advice. Always verify with the office that sent it, or a qualified professional, before acting.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GoThere explica documentos para ayudarte a entenderlos. No es asesoría legal, fiscal ni migratoria. Antes de actuar, verifica siempre con la oficina que lo envió o con un profesional calificado."
+          }
+        }
+      }
+    },
+    "GoThere opens the official portal and reminds you to check — it doesn't book or monitor the government system for you.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GoThere abre el portal oficial y te recuerda revisar. No reserva ni vigila el sistema del gobierno por ti."
+          }
+        }
+      }
+    },
+    "Groceries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supermercado"
+          }
+        }
+      }
+    },
+    "Gym": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gimnasio"
+          }
+        }
+      }
+    },
+    "Gym Membership": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gimnasio"
+          }
+        }
+      }
+    },
+    "Has an expiry date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiene fecha de vencimiento"
+          }
+        }
+      }
+    },
+    "Have EU or Latin heritage? Claim it for ~$0": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Tienes raíces europeas o latinas? Reclámalas por ~$0"
+          }
+        }
+      }
+    },
+    "Health Insurance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro médico"
+          }
+        }
+      }
+    },
+    "Health insurance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro médico"
+          }
+        }
+      }
+    },
+    "Healthcare": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salud"
+          }
+        }
+      }
+    },
+    "Healthcare Costs": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costos de salud"
+          }
+        }
+      }
+    },
+    "Healthcare costs vs the US": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costos de salud frente a EE. UU."
+          }
+        }
+      }
+    },
+    "High": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alto"
+          }
+        }
+      }
+    },
+    "Hormone therapy (HRT)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terapia hormonal (TRH)"
+          }
+        }
+      }
+    },
+    "Hospitals": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hospitales"
+          }
+        }
+      }
+    },
+    "Household": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hogar"
+          }
+        }
+      }
+    },
+    "Housing": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vivienda"
+          }
+        }
+      }
+    },
+    "Housing Type": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo de vivienda"
+          }
+        }
+      }
+    },
+    "Hungarian": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Húngara"
+          }
+        }
+      }
+    },
+    "I don't know where to start": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No sé por dónde empezar"
+          }
+        }
+      }
+    },
+    "I might have EU or Latin heritage": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puede que tenga raíces europeas o latinas"
+          }
+        }
+      }
+    },
+    "I want a Plan B / second passport": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quiero un Plan B / segundo pasaporte"
+          }
+        }
+      }
+    },
+    "I want to be gone in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me quiero ir en"
+          }
+        }
+      }
+    },
+    "I work remotely": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trabajo remoto"
+          }
+        }
+      }
+    },
+    "I'm moving with kids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me mudo con hijos"
+          }
+        }
+      }
+    },
+    "I'm worried about rights or safety": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Me preocupan mis derechos o mi seguridad"
+          }
+        }
+      }
+    },
+    "Identity": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identidad"
+          }
+        }
+      }
+    },
+    "If money is tight": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Si el dinero es poco"
+          }
+        }
+      }
+    },
+    "Immigration": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Migración"
+          }
+        }
+      }
+    },
+    "Import Seed Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Importar tareas base"
+          }
+        }
+      }
+    },
+    "in %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "en %@"
+          }
+        }
+      }
+    },
+    "Income (varies)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingreso (varía)"
+          }
+        }
+      }
+    },
+    "Income fit": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajuste de ingresos"
+          }
+        }
+      }
+    },
+    "Income required": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingreso requerido"
+          }
+        }
+      }
+    },
+    "Income test": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requisito de ingresos"
+          }
+        }
+      }
+    },
+    "Incorrect password. Please try again.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contraseña incorrecta. Inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "Individual Countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Países individuales"
+          }
+        }
+      }
+    },
+    "Informational only — school fees and rules change. Confirm with each school and consulate. Not legal advice.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo informativo: las colegiaturas y reglas cambian. Confirma con cada escuela y consulado. No es asesoría legal."
+          }
+        }
+      }
+    },
+    "Informational only. Verify with the official source — and a licensed lawyer for legal questions.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo informativo. Verifica con la fuente oficial, y con un abogado con licencia para temas legales."
+          }
+        }
+      }
+    },
+    "Inside this guide": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En esta guía"
+          }
+        }
+      }
+    },
+    "Insights are informational — verify visa, income, and document rules with official sources.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las recomendaciones son informativas: verifica las reglas de visa, ingresos y documentos con fuentes oficiales."
+          }
+        }
+      }
+    },
+    "Insulin & diabetes care": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insulina y atención de la diabetes"
+          }
+        }
+      }
+    },
+    "Internet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Internet"
+          }
+        }
+      }
+    },
+    "Intl Schools": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuelas internac."
+          }
+        }
+      }
+    },
+    "Investment Routes": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rutas por inversión"
+          }
+        }
+      }
+    },
+    "Invite Friends": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Invitar amigos"
+          }
+        }
+      }
+    },
+    "Irish": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Irlandesa"
+          }
+        }
+      }
+    },
+    "Issuing country": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "País emisor"
+          }
+        }
+      }
+    },
+    "Italian": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Italiana"
+          }
+        }
+      }
+    },
+    "Italian, Irish, German, Polish, or Hungarian grandparent? Check eligibility — free, no income test.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Tienes un abuelo italiano, irlandés, alemán, polaco o húngaro? Revisa si calificas: gratis y sin requisito de ingresos."
+          }
+        }
+      }
+    },
+    "Join the waitlist": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unirme a la lista de espera"
+          }
+        }
+      }
+    },
+    "Jure sanguinis — Italian/EU citizenship by descent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jure sanguinis: ciudadanía italiana/UE por ascendencia"
+          }
+        }
+      }
+    },
+    "Just show me my options": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo muéstrame mis opciones"
+          }
+        }
+      }
+    },
+    "Language / Idioma": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma / Language"
+          }
+        }
+      }
+    },
+    "Language Comfort": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manejo del idioma"
+          }
+        }
+      }
+    },
+    "Lean": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Austero"
+          }
+        }
+      }
+    },
+    "Let's set up your move": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos a preparar tu mudanza"
+          }
+        }
+      }
+    },
+    "LGBTQ+": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LGBTQ+"
+          }
+        }
+      }
+    },
+    "Lifestyle": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estilo de vida"
+          }
+        }
+      }
+    },
+    "Lifetime All-Access — Pay Once": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All-Access de por vida: paga una vez"
+          }
+        }
+      }
+    },
+    "Lifetime: all countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De por vida: todos los países"
+          }
+        }
+      }
+    },
+    "Light": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claro"
+          }
+        }
+      }
+    },
+    "Likely eligible ✓": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Probablemente calificas ✓"
+          }
+        }
+      }
+    },
+    "Load Checklist": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargar lista"
+          }
+        }
+      }
+    },
+    "Load the step-by-step checklist for %@, or add your own tasks.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Carga la lista paso a paso para %@, o agrega tus propias tareas."
+          }
+        }
+      }
+    },
+    "Loading map data...": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargando datos del mapa..."
+          }
+        }
+      }
+    },
+    "Loading price…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cargando precio…"
+          }
+        }
+      }
+    },
+    "Locked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bloqueado"
+          }
+        }
+      }
+    },
+    "Log In": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar sesión"
+          }
+        }
+      }
+    },
+    "Logistics": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logística"
+          }
+        }
+      }
+    },
+    "Low": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bajo"
+          }
+        }
+      }
+    },
+    "Lowest income": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Menor ingreso"
+          }
+        }
+      }
+    },
+    "Manage Subscription": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Administrar suscripción"
+          }
+        }
+      }
+    },
+    "Max monthly income required": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingreso mensual máximo requerido"
+          }
+        }
+      }
+    },
+    "Meals out per week": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comidas fuera por semana"
+          }
+        }
+      }
+    },
+    "Medical": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Médico"
+          }
+        }
+      }
+    },
+    "Medium": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medio"
+          }
+        }
+      }
+    },
+    "Meds & Care Abroad": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Medicinas y atención fuera"
+          }
+        }
+      }
+    },
+    "Mexico + Argentina (Spain & Canada are free)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "México + Argentina (España y Canadá son gratis)"
+          }
+        }
+      }
+    },
+    "Mid-Range": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intermedio"
+          }
+        }
+      }
+    },
+    "Missing": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falta"
+          }
+        }
+      }
+    },
+    "Moderate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Moderado"
+          }
+        }
+      }
+    },
+    "Money & Insurance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dinero y seguros"
+          }
+        }
+      }
+    },
+    "Money's tight — is this even possible?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El dinero es poco, ¿se puede?"
+          }
+        }
+      }
+    },
+    "Month": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mes"
+          }
+        }
+      }
+    },
+    "Monthly All-Access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All-Access mensual"
+          }
+        }
+      }
+    },
+    "Monthly Cost Breakdown": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desglose de costo mensual"
+          }
+        }
+      }
+    },
+    "Months to budget before income stabilises": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Meses a presupuestar hasta que tu ingreso se estabilice"
+          }
+        }
+      }
+    },
+    "More from us": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Más de nosotros"
+          }
+        }
+      }
+    },
+    "Mountain": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Montaña"
+          }
+        }
+      }
+    },
+    "Move readiness": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparación para mudarte"
+          }
+        }
+      }
+    },
+    "Moving abroad with children": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudarte al extranjero con hijos"
+          }
+        }
+      }
+    },
+    "Moving with children": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudarte con hijos"
+          }
+        }
+      }
+    },
+    "Moving with Kids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudarte con hijos"
+          }
+        }
+      }
+    },
+    "Moving with kids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudarte con hijos"
+          }
+        }
+      }
+    },
+    "My Move": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mi mudanza"
+          }
+        }
+      }
+    },
+    "My Move Timeline": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mi calendario de mudanza"
+          }
+        }
+      }
+    },
+    "Name": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nombre"
+          }
+        }
+      }
+    },
+    "Neurodivergent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Neurodivergente"
+          }
+        }
+      }
+    },
+    "New Cita Target": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nueva cita a vigilar"
+          }
+        }
+      }
+    },
+    "New Event": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nuevo evento"
+          }
+        }
+      }
+    },
+    "New Task": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nueva tarea"
+          }
+        }
+      }
+    },
+    "NIE / Cert Renewal": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NIE / renovación de certificado"
+          }
+        }
+      }
+    },
+    "NIE — Initial": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NIE: inicial"
+          }
+        }
+      }
+    },
+    "No": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No"
+          }
+        }
+      }
+    },
+    "No account found with this email.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No encontramos una cuenta con este correo."
+          }
+        }
+      }
+    },
+    "No charge to express interest. We'll only reach out when it launches.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar interés no tiene costo. Solo te escribiremos cuando se lance."
+          }
+        }
+      }
+    },
+    "No cita targets yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay citas a vigilar"
+          }
+        }
+      }
+    },
+    "No continuity data for this country yet.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay datos de continuidad de atención para este país."
+          }
+        }
+      }
+    },
+    "No deadline stated in this document.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este documento no indica fecha límite."
+          }
+        }
+      }
+    },
+    "No degree needed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin título universitario"
+          }
+        }
+      }
+    },
+    "No documents yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay documentos"
+          }
+        }
+      }
+    },
+    "No downloadable documents yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay documentos descargables"
+          }
+        }
+      }
+    },
+    "No events for this date.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay eventos para esta fecha."
+          }
+        }
+      }
+    },
+    "No expiry date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin fecha de vencimiento"
+          }
+        }
+      }
+    },
+    "No income-based visas for this country in the catalog — the available visas here use points / employer / ancestry criteria.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay visas basadas en ingresos para este país en el catálogo. Las visas disponibles usan criterios de puntos, empleador o ascendencia."
+          }
+        }
+      }
+    },
+    "No Preference": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin preferencia"
+          }
+        }
+      }
+    },
+    "No Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin tareas"
+          }
+        }
+      }
+    },
+    "No Tasks Yet": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no hay tareas"
+          }
+        }
+      }
+    },
+    "No upcoming events": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay eventos próximos"
+          }
+        }
+      }
+    },
+    "None": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna"
+          }
+        }
+      }
+    },
+    "None / Not sure": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ninguna / no sé"
+          }
+        }
+      }
+    },
+    "Not Applicable": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No aplica"
+          }
+        }
+      }
+    },
+    "Notes": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notas"
+          }
+        }
+      }
+    },
+    "Nothing needs your attention": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nada necesita tu atención"
+          }
+        }
+      }
+    },
+    "Official government source": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuente oficial del gobierno"
+          }
+        }
+      }
+    },
+    "Official program ↗": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Programa oficial ↗"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        }
+      }
+    },
+    "One or more required rules failed. Check the workaround notes above — some failed rules have court-petition paths that still work.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se cumple una o más reglas obligatorias. Revisa las alternativas de arriba: algunas reglas tienen una vía por petición judicial que todavía funciona."
+          }
+        }
+      }
+    },
+    "One purchase covers every current and future country.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una sola compra cubre todos los países actuales y futuros."
+          }
+        }
+      }
+    },
+    "One-tap access to Spain's cita previa portal + reminders to check": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceso a un toque al portal de cita previa de España + recordatorios para revisar"
+          }
+        }
+      }
+    },
+    "Only moving within one continent? Skip the rest.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Solo te mudas dentro de un continente? Olvídate del resto."
+          }
+        }
+      }
+    },
+    "Open a multi-currency account before you land, then a local one once you're settled.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre una cuenta multimoneda antes de llegar y una local cuando ya estés instalado."
+          }
+        }
+      }
+    },
+    "Open booking portal": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir portal de citas"
+          }
+        }
+      }
+    },
+    "Open Official — %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir sitio oficial: %@"
+          }
+        }
+      }
+    },
+    "Open the Cost Calculator anytime to compare this against your estimated monthly lifestyle.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre la Calculadora de costos cuando quieras para compararlo con tu estilo de vida mensual estimado."
+          }
+        }
+      }
+    },
+    "Opens iOS Settings to change the app language": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre los Ajustes de iOS para cambiar el idioma de la app"
+          }
+        }
+      }
+    },
+    "Or pay once for a single country — the cheapest way to start.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O paga una vez por un solo país: la forma más barata de empezar."
+          }
+        }
+      }
+    },
+    "Original language: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Idioma original: %@"
+          }
+        }
+      }
+    },
+    "Other": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otro"
+          }
+        }
+      }
+    },
+    "Other uploads": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otros archivos"
+          }
+        }
+      }
+    },
+    "Password": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contraseña"
+          }
+        }
+      }
+    },
+    "Password must be at least 6 characters.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La contraseña debe tener al menos 6 caracteres."
+          }
+        }
+      }
+    },
+    "Password reset email sent! Check your inbox.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Te enviamos un correo para restablecer tu contraseña! Revisa tu bandeja de entrada."
+          }
+        }
+      }
+    },
+    "Passwords do not match.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las contraseñas no coinciden."
+          }
+        }
+      }
+    },
+    "Person of Color": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Persona de color"
+          }
+        }
+      }
+    },
+    "Personal Considerations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consideraciones personales"
+          }
+        }
+      }
+    },
+    "Phase": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fase"
+          }
+        }
+      }
+    },
+    "Phase Complete! 🎉": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Fase completa! 🎉"
+          }
+        }
+      }
+    },
+    "Phase-by-phase walkthrough": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recorrido fase por fase"
+          }
+        }
+      }
+    },
+    "Photograph any official letter or form — from immigration, tax, your landlord, the bank, or the health service. We explain it in plain English and flag any deadline, even if it's in another language.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toma foto de cualquier carta o formulario oficial: de migración, impuestos, tu arrendador, el banco o el servicio de salud. Te lo explicamos en palabras sencillas y marcamos cualquier fecha límite, aunque esté en otro idioma."
+          }
+        }
+      }
+    },
+    "Pick at least one consideration to compare destinations.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige al menos una consideración para comparar destinos."
+          }
+        }
+      }
+    },
+    "Pick the ancestor's country": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige el país de tu ancestro"
+          }
+        }
+      }
+    },
+    "Pick what fits your situation — we'll take you straight to the right tool.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige lo que se parece a tu situación y te llevamos directo a la herramienta correcta."
+          }
+        }
+      }
+    },
+    "Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Planear"
+          }
+        }
+      }
+    },
+    "Please enter a valid email address.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingresa un correo electrónico válido."
+          }
+        }
+      }
+    },
+    "Please enter a valid email and password (6+ characters).": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingresa un correo válido y una contraseña (6 caracteres o más)."
+          }
+        }
+      }
+    },
+    "Please enter your email address first.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primero ingresa tu correo electrónico."
+          }
+        }
+      }
+    },
+    "Point the camera at a letter or form you received — from immigration, tax, your landlord, the bank, or the health service.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apunta la cámara a una carta o formulario que recibiste: de migración, impuestos, tu arrendador, el banco o el servicio de salud."
+          }
+        }
+      }
+    },
+    "Policy Watch": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vigilancia de políticas"
+          }
+        }
+      }
+    },
+    "Polish": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Polaca"
+          }
+        }
+      }
+    },
+    "Portugal, Ireland, Italy, Germany, Poland, Hungary, UK Ancestry": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Portugal, Irlanda, Italia, Alemania, Polonia, Hungría, UK Ancestry"
+          }
+        }
+      }
+    },
+    "Practice the Spanish DGT theory test in English. Free, offline.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Practica el examen teórico de la DGT de España en inglés. Gratis y sin conexión."
+          }
+        }
+      }
+    },
+    "Prefer Big Cities": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prefiero ciudades grandes"
+          }
+        }
+      }
+    },
+    "Prefer Coastal Living": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prefiero vivir en la costa"
+          }
+        }
+      }
+    },
+    "Prefer free? Invite a friend": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Prefieres gratis? Invita a un amigo"
+          }
+        }
+      }
+    },
+    "Preferential tax regimes are time-sensitive and conditional — election windows are short. Confirm eligibility with a cross-border tax advisor before relying on a rate.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los regímenes fiscales preferentes tienen plazos y condiciones, y los periodos para elegirlos son cortos. Confirma si calificas con un asesor fiscal internacional antes de contar con una tasa."
+          }
+        }
+      }
+    },
+    "Preferred Climate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clima preferido"
+          }
+        }
+      }
+    },
+    "Pregnant / Expecting": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Embarazo"
+          }
+        }
+      }
+    },
+    "PREMIUM": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PREMIUM"
+          }
+        }
+      }
+    },
+    "Premium": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Premium"
+          }
+        }
+      }
+    },
+    "Privacy Policy": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Política de privacidad"
+          }
+        }
+      }
+    },
+    "Private Health Insurance": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro médico privado"
+          }
+        }
+      }
+    },
+    "Private insurance — monthly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro privado: mensual"
+          }
+        }
+      }
+    },
+    "PRO": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRO"
+          }
+        }
+      }
+    },
+    "Processing time": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempo de trámite"
+          }
+        }
+      }
+    },
+    "Progress": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avance"
+          }
+        }
+      }
+    },
+    "Pros": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ventajas"
+          }
+        }
+      }
+    },
+    "Province": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Provincia"
+          }
+        }
+      }
+    },
+    "Province-specific timing expectations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiempos esperados según la provincia"
+          }
+        }
+      }
+    },
+    "Public Transport": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transporte público"
+          }
+        }
+      }
+    },
+    "Purchase": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comprar"
+          }
+        }
+      }
+    },
+    "Quick Actions": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accesos rápidos"
+          }
+        }
+      }
+    },
+    "Quick Links": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enlaces rápidos"
+          }
+        }
+      }
+    },
+    "Re-import Seed Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Volver a importar tareas base"
+          }
+        }
+      }
+    },
+    "Reading your document…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leyendo tu documento…"
+          }
+        }
+      }
+    },
+    "ready": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "listo"
+          }
+        }
+      }
+    },
+    "Real fee ranges + payment-split structure": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rangos reales de costos + cómo se dividen los pagos"
+          }
+        }
+      }
+    },
+    "Real Journey": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Historia real"
+          }
+        }
+      }
+    },
+    "Redeem": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canjear"
+          }
+        }
+      }
+    },
+    "Region Bundles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paquetes regionales"
+          }
+        }
+      }
+    },
+    "Remind me to check (Mon–Fri mornings)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recordarme revisar (lun–vie por la mañana)"
+          }
+        }
+      }
+    },
+    "Reminders on · Mon–Fri 8:30": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recordatorios activos · lun–vie 8:30"
+          }
+        }
+      }
+    },
+    "Reminders paused": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recordatorios en pausa"
+          }
+        }
+      }
+    },
+    "Remote Work": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trabajo remoto"
+          }
+        }
+      }
+    },
+    "Remove": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quitar"
+          }
+        }
+      }
+    },
+    "Rent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renta"
+          }
+        }
+      }
+    },
+    "Replace file": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reemplazar archivo"
+          }
+        }
+      }
+    },
+    "Replace…": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reemplazar…"
+          }
+        }
+      }
+    },
+    "Required documents": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos requeridos"
+          }
+        }
+      }
+    },
+    "Requires ~€%@/mo proof of funds for you + %lld dependent%@.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requiere comprobar ~€%1$@/mes de fondos para ti + %2$lld dependiente%3$@."
+          }
+        }
+      }
+    },
+    "Requires ~€%@/mo proof of funds.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requiere comprobar ~€%@/mes de fondos."
+          }
+        }
+      }
+    },
+    "requires €%@/mo%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "requiere €%1$@/mes%2$@"
+          }
+        }
+      }
+    },
+    "requires €%@/mo%@ · short €%@/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "requiere €%1$@/mes%2$@ · te faltan €%3$@/mes"
+          }
+        }
+      }
+    },
+    "Residency & citizenship by investment — incl. Caribbean CBI": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Residencia y ciudadanía por inversión, incluye CBI del Caribe"
+          }
+        }
+      }
+    },
+    "Residency and second-passport routes via investment — for diversification, mobility, and a real Plan B.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rutas de residencia y segundo pasaporte por inversión: para diversificar, moverte y tener un Plan B de verdad."
+          }
+        }
+      }
+    },
+    "Residency Certificate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Certificado de residencia"
+          }
+        }
+      }
+    },
+    "Resources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos"
+          }
+        }
+      }
+    },
+    "Restore finished. Anything bought with this Apple ID is unlocked.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restauración lista. Todo lo que compraste con este Apple ID está desbloqueado."
+          }
+        }
+      }
+    },
+    "Restore Purchases": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restaurar compras"
+          }
+        }
+      }
+    },
+    "Retiree": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jubilado"
+          }
+        }
+      }
+    },
+    "Rights & Safety": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derechos y seguridad"
+          }
+        }
+      }
+    },
+    "Rules changing — verify before you start": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las reglas están cambiando: verifica antes de empezar"
+          }
+        }
+      }
+    },
+    "Safety is Critical": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La seguridad es clave"
+          }
+        }
+      }
+    },
+    "Sample monthly cost": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejemplo de costo mensual"
+          }
+        }
+      }
+    },
+    "Sanitized correspondence patterns (what the lawyer actually said)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ejemplos de mensajes, sin datos personales (lo que de verdad dijo el abogado)"
+          }
+        }
+      }
+    },
+    "Save": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guardar"
+          }
+        }
+      }
+    },
+    "save %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ahorra %@"
+          }
+        }
+      }
+    },
+    "Scan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escanear"
+          }
+        }
+      }
+    },
+    "Scan a Doc": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escanear doc"
+          }
+        }
+      }
+    },
+    "Scan a Document": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escanear un documento"
+          }
+        }
+      }
+    },
+    "Scan another document": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escanear otro documento"
+          }
+        }
+      }
+    },
+    "Scan with camera": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escanear con la cámara"
+          }
+        }
+      }
+    },
+    "Schedule for %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Agenda del %@"
+          }
+        }
+      }
+    },
+    "Schooling, healthcare & child visas, country by country.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuela, salud y visas para niños, país por país."
+          }
+        }
+      }
+    },
+    "Schooling, healthcare & visas for your children in %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuela, salud y visas para tus hijos en %@"
+          }
+        }
+      }
+    },
+    "Schooling, healthcare, and visa status for your kids — the questions every relocating parent asks first.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuela, salud y situación migratoria de tus hijos: lo primero que pregunta todo papá o mamá que se muda."
+          }
+        }
+      }
+    },
+    "Search tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buscar tareas"
+          }
+        }
+      }
+    },
+    "See %@ premiums and public coverage next to US prices": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mira las primas y la cobertura pública de %@ junto a los precios de EE. UU."
+          }
+        }
+      }
+    },
+    "See all visas in %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver todas las visas en %@"
+          }
+        }
+      }
+    },
+    "See plans and bundles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver planes y paquetes"
+          }
+        }
+      }
+    },
+    "See Results": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver resultados"
+          }
+        }
+      }
+    },
+    "See the real cost to move + the cheapest visa paths.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mira el costo real de mudarte + las rutas de visa más baratas."
+          }
+        }
+      }
+    },
+    "Select 2-3 visas to see eligibility, cost, and citizenship paths side-by-side.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige 2 o 3 visas para ver requisitos, costo y rutas a la ciudadanía lado a lado."
+          }
+        }
+      }
+    },
+    "Select any that apply — affects safety, healthcare & rights scoring.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige las que apliquen: afectan la puntuación de seguridad, salud y derechos."
+          }
+        }
+      }
+    },
+    "Select Date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegir fecha"
+          }
+        }
+      }
+    },
+    "Select Destination": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elegir destino"
+          }
+        }
+      }
+    },
+    "Select the visa type you're pursuing in %@. We'll create a personalized step-by-step checklist.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige el tipo de visa que buscas en %@. Te armamos una lista personalizada paso a paso."
+          }
+        }
+      }
+    },
+    "Senior (60+)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Adulto mayor (60+)"
+          }
+        }
+      }
+    },
+    "Set": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fijar"
+          }
+        }
+      }
+    },
+    "Set Due Date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fijar fecha límite"
+          }
+        }
+      }
+    },
+    "Settings": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustes"
+          }
+        }
+      }
+    },
+    "Share": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartir"
+          }
+        }
+      }
+    },
+    "Share Progress": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartir avance"
+          }
+        }
+      }
+    },
+    "Share your code. When a friend redeems it, you both get 30 days of All-Access — every country, every visa path — free.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparte tu código. Cuando un amigo lo canjee, los dos reciben 30 días de All-Access gratis: todos los países y todas las rutas de visa."
+          }
+        }
+      }
+    },
+    "Show in USD": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar en USD"
+          }
+        }
+      }
+    },
+    "Side-by-Side": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lado a lado"
+          }
+        }
+      }
+    },
+    "Side-by-side eligibility, cost & citizenship paths": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requisitos, costo y rutas a la ciudadanía lado a lado"
+          }
+        }
+      }
+    },
+    "Sign Out": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cerrar sesión"
+          }
+        }
+      }
+    },
+    "Sign Up": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crear cuenta"
+          }
+        }
+      }
+    },
+    "Simplified naturalization — Hungarian descent + language": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Naturalización simplificada: ascendencia húngara + idioma"
+          }
+        }
+      }
+    },
+    "Single": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soltero"
+          }
+        }
+      }
+    },
+    "Single Parent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Madre o padre soltero"
+          }
+        }
+      }
+    },
+    "SingleParent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Madre/padre soltero"
+          }
+        }
+      }
+    },
+    "Singles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Soltero"
+          }
+        }
+      }
+    },
+    "Six EU countries pass citizenship down to grandchildren or further. No income test, no residency requirement, no language test (mostly). The hardest part is the paperwork.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seis países de la UE transmiten la ciudadanía a nietos o más allá. Sin requisito de ingresos, sin residencia y (casi siempre) sin examen de idioma. Lo más difícil es el papeleo."
+          }
+        }
+      }
+    },
+    "SOON": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "PRONTO"
+          }
+        }
+      }
+    },
+    "Sort": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ordenar"
+          }
+        }
+      }
+    },
+    "Sourced from ILGA-Europe, EU directives, OECD, and SSA data. Informational only — laws change; verify current protections before deciding.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuentes: ILGA-Europe, directivas de la UE, OCDE y datos de la SSA. Solo informativo: las leyes cambian, verifica las protecciones vigentes antes de decidir."
+          }
+        }
+      }
+    },
+    "Sourced from INCB country regulations, national medicine agencies, and the CDC Yellow Book. Informational only — always confirm with the destination's customs authority and a clinician before travelling with medication.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuentes: regulaciones por país de la JIFE (INCB), agencias nacionales de medicamentos y el CDC Yellow Book. Solo informativo: confirma siempre con la aduana del destino y un médico antes de viajar con medicinas."
+          }
+        }
+      }
+    },
+    "Spain + Canada free, plus 9 more countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "España + Canadá gratis, más otros 9 países"
+          }
+        }
+      }
+    },
+    "Spain and Canada are free. Pick the plan that fits — subscribe for everything, pay once for lifetime, grab a region bundle, or unlock a single country.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "España y Canadá son gratis. Elige el plan que te sirva: suscríbete para todo, paga una sola vez de por vida, toma un paquete regional o desbloquea un solo país."
+          }
+        }
+      }
+    },
+    "Spain news, alerts and trámites in English": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Noticias, alertas y trámites de España en inglés"
+          }
+        }
+      }
+    },
+    "Spain's cita previa system books out fast. Save your targets here — we'll open the right official portal in one tap and remind you to check on weekday mornings, when slots are released.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El sistema de cita previa de España se llena rápido. Guarda aquí las citas que buscas: abrimos el portal oficial correcto con un toque y te recordamos revisar entre semana por la mañana, cuando se liberan turnos."
+          }
+        }
+      }
+    },
+    "Start Over": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empezar de nuevo"
+          }
+        }
+      }
+    },
+    "Start Wizard — %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Iniciar asistente: %@"
+          }
+        }
+      }
+    },
+    "Stay on track with your checklist!": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Sigue al día con tu lista!"
+          }
+        }
+      }
+    },
+    "Step %lld of %lld": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paso %1$lld de %2$lld"
+          }
+        }
+      }
+    },
+    "Step-by-step wizard%@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistente%@ paso a paso"
+          }
+        }
+      }
+    },
+    "Studio": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estudio"
+          }
+        }
+      }
+    },
+    "Studio in %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estudio en %@"
+          }
+        }
+      }
+    },
+    "Subsanación playbook + 30-day deadline interpretation": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guía de subsanación + cómo leer el plazo de 30 días"
+          }
+        }
+      }
+    },
+    "Subscribe": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suscribirme"
+          }
+        }
+      }
+    },
+    "Supermarkets": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Supermercados"
+          }
+        }
+      }
+    },
+    "Sworn translation": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traducción jurada"
+          }
+        }
+      }
+    },
+    "Sworn translation required": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requiere traducción jurada"
+          }
+        }
+      }
+    },
+    "System": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sistema"
+          }
+        }
+      }
+    },
+    "Take your remote job with you": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llévate tu trabajo remoto"
+          }
+        }
+      }
+    },
+    "Talk to a concierge": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hablar con un concierge"
+          }
+        }
+      }
+    },
+    "Tap to add expiry & details": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toca para agregar vencimiento y detalles"
+          }
+        }
+      }
+    },
+    "Target application date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fecha meta de solicitud"
+          }
+        }
+      }
+    },
+    "Task title": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Título de la tarea"
+          }
+        }
+      }
+    },
+    "Tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tareas"
+          }
+        }
+      }
+    },
+    "Tasks Done": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tareas hechas"
+          }
+        }
+      }
+    },
+    "Tasks will appear when you select a destination and visa track.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las tareas aparecen cuando eliges un destino y una ruta de visa."
+          }
+        }
+      }
+    },
+    "Tax Office": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oficina de impuestos"
+          }
+        }
+      }
+    },
+    "Tech / Startup": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tecnología / startup"
+          }
+        }
+      }
+    },
+    "Tell me about your situation.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuéntame tu situación."
+          }
+        }
+      }
+    },
+    "Tell us about your situation — we'll suggest visa paths and costs from GoThere's data.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cuéntanos tu situación y te sugerimos rutas de visa y costos con los datos de GoThere."
+          }
+        }
+      }
+    },
+    "Tell us when you want to be gone — we'll build the plan backwards from your departure.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dinos cuándo te quieres ir y armamos el plan hacia atrás desde tu salida."
+          }
+        }
+      }
+    },
+    "Temperate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Templado"
+          }
+        }
+      }
+    },
+    "Temporary resident visa guides, tasks, and resources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Guías, tareas y recursos de la visa de residente temporal"
+          }
+        }
+      }
+    },
+    "Terms of Use": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Términos de uso"
+          }
+        }
+      }
+    },
+    "That doesn't look like an official document": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eso no parece un documento oficial"
+          }
+        }
+      }
+    },
+    "The insurance and banking you'll need for %@ — starting with what your visa actually requires.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los seguros y la banca que vas a necesitar para %@, empezando por lo que de verdad pide tu visa."
+          }
+        }
+      }
+    },
+    "The purchase couldn't be completed. You weren't charged. Please try again.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo completar la compra. No se te cobró nada. Inténtalo de nuevo."
+          }
+        }
+      }
+    },
+    "The standing rules that shape every US move — and what to do about each. We'll ping you when something material changes.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las reglas vigentes que influyen en toda mudanza desde EE. UU., y qué hacer con cada una. Te avisamos cuando algo importante cambie."
+          }
+        }
+      }
+    },
+    "The two things remote workers get wrong: proving employment to a consulate, and tax residency. Here's both.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las dos cosas en las que más se equivocan quienes trabajan remoto: demostrar su empleo ante un consulado y la residencia fiscal. Aquí tienes ambas."
+          }
+        }
+      }
+    },
+    "Theme": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tema"
+          }
+        }
+      }
+    },
+    "This applies to me / my family": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto aplica a mí / a mi familia"
+          }
+        }
+      }
+    },
+    "This is an informational directory, not financial advice or an endorsement. Coverage rules differ by visa — always confirm a policy meets your specific visa's requirements before you buy, and check fees and terms with each provider.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este es un directorio informativo, no asesoría financiera ni una recomendación. Las reglas de cobertura cambian según la visa: antes de comprar, confirma siempre que la póliza cumple los requisitos de tu visa y revisa costos y condiciones con cada proveedor."
+          }
+        }
+      }
+    },
+    "This permanently deletes your account and your saved tasks, documents and progress. It can't be undone. Active App Store subscriptions must be cancelled separately in your Apple ID settings.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto elimina para siempre tu cuenta y tus tareas, documentos y avance guardados. No se puede deshacer. Las suscripciones activas del App Store se cancelan aparte, en los ajustes de tu Apple ID."
+          }
+        }
+      }
+    },
+    "This visa uses non-income criteria (points / employer / ancestry). Check the official requirements in Resources.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta visa usa criterios distintos al ingreso (puntos, empleador o ascendencia). Revisa los requisitos oficiales en Recursos."
+          }
+        }
+      }
+    },
+    "This will permanently delete your account and all associated data. This cannot be undone.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esto eliminará para siempre tu cuenta y todos tus datos. No se puede deshacer."
+          }
+        }
+      }
+    },
+    "TIE Card": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tarjeta TIE"
+          }
+        }
+      }
+    },
+    "Tight — within 25%% of threshold": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Justo: a menos de 25%% del mínimo"
+          }
+        }
+      }
+    },
+    "Timeline": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plazo"
+          }
+        }
+      }
+    },
+    "Tip of the Day": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Consejo del día"
+          }
+        }
+      }
+    },
+    "Tools": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herramientas"
+          }
+        }
+      }
+    },
+    "Total": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Total"
+          }
+        }
+      }
+    },
+    "Tourism": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turismo"
+          }
+        }
+      }
+    },
+    "Transgender": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transgénero"
+          }
+        }
+      }
+    },
+    "Translation needed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Falta traducción"
+          }
+        }
+      }
+    },
+    "Translation obtained": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traducción obtenida"
+          }
+        }
+      }
+    },
+    "Transport": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transporte"
+          }
+        }
+      }
+    },
+    "Try again": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intentar de nuevo"
+          }
+        }
+      }
+    },
+    "Try again with good light, the document flat, and the camera straight on. Make sure the whole page is in frame.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inténtalo de nuevo con buena luz, el documento plano y la cámara de frente. Asegúrate de que se vea toda la página."
+          }
+        }
+      }
+    },
+    "Turn on policy alerts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activar alertas de políticas"
+          }
+        }
+      }
+    },
+    "Type": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tipo"
+          }
+        }
+      }
+    },
+    "Typical private premiums vs the US — plus what the public system covers once you're a resident.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Primas privadas típicas frente a EE. UU., y lo que cubre el sistema público cuando ya eres residente."
+          }
+        }
+      }
+    },
+    "Unavailable right now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No disponible por ahora"
+          }
+        }
+      }
+    },
+    "Unlock %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear %@"
+          }
+        }
+      }
+    },
+    "Unlock %lld countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear %lld países"
+          }
+        }
+      }
+    },
+    "Unlock all countries": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear todos los países"
+          }
+        }
+      }
+    },
+    "Unlock all Real Journeys with GoThere Pro": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea todas las Historias reales con GoThere Pro"
+          }
+        }
+      }
+    },
+    "Unlock Destinations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear destinos"
+          }
+        }
+      }
+    },
+    "Unlock Every Country — All-Access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea todos los países: All-Access"
+          }
+        }
+      }
+    },
+    "Unlock More Destinations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea más destinos"
+          }
+        }
+      }
+    },
+    "Unlock the %@ Pack to access immigration portals, housing sites, banking, healthcare, and expat communities — plus downloadable PDF guides.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea el paquete de %@ para acceder a portales de migración, sitios de vivienda, banca, salud y comunidades de expatriados, además de guías en PDF descargables."
+          }
+        }
+      }
+    },
+    "Unlock to view full guides": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea para ver las guías completas"
+          }
+        }
+      }
+    },
+    "Upcoming": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximos"
+          }
+        }
+      }
+    },
+    "Upcoming Events": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximos eventos"
+          }
+        }
+      }
+    },
+    "Upgrade": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mejorar plan"
+          }
+        }
+      }
+    },
+    "Upgrade: see plans and bundles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mejorar plan: ver planes y paquetes"
+          }
+        }
+      }
+    },
+    "Upload": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subir"
+          }
+        }
+      }
+    },
+    "Upload and save important documents, correspondence, and PDFs related to your move for easy access.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sube y guarda documentos importantes, cartas y PDF de tu mudanza para tenerlos a la mano."
+          }
+        }
+      }
+    },
+    "Uploaded": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subido"
+          }
+        }
+      }
+    },
+    "Uploading...": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subiendo..."
+          }
+        }
+      }
+    },
+    "US policy changes that affect your move — with alerts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambios de políticas de EE. UU. que afectan tu mudanza, con alertas"
+          }
+        }
+      }
+    },
+    "US policy, decoded for leaving": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Políticas de EE. UU., explicadas para irte"
+          }
+        }
+      }
+    },
+    "Utilities": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Servicios"
+          }
+        }
+      }
+    },
+    "Validity periods are informational — verify with official sources.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los periodos de validez son informativos: verifica con fuentes oficiales."
+          }
+        }
+      }
+    },
+    "Vault status": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estado de la bóveda"
+          }
+        }
+      }
+    },
+    "Veteran": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Veterano"
+          }
+        }
+      }
+    },
+    "View": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vista"
+          }
+        }
+      }
+    },
+    "View details": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver detalles"
+          }
+        }
+      }
+    },
+    "View file": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver archivo"
+          }
+        }
+      }
+    },
+    "View Map": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver mapa"
+          }
+        }
+      }
+    },
+    "Visa Comparison": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparación de visas"
+          }
+        }
+      }
+    },
+    "Visa paths": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rutas de visa"
+          }
+        }
+      }
+    },
+    "Visa Tracks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rutas de visa"
+          }
+        }
+      }
+    },
+    "Visa Tracks in this Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rutas de visa en este plan"
+          }
+        }
+      }
+    },
+    "Visa Wizard": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistente de visa"
+          }
+        }
+      }
+    },
+    "Visa-ready health insurance and banking for %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro médico apto para visa y banca para %@"
+          }
+        }
+      }
+    },
+    "Visas to look at next": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visas que puedes revisar"
+          }
+        }
+      }
+    },
+    "Visas with no income test (ancestry, work, points-based) always show.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las visas sin requisito de ingresos (ascendencia, trabajo, por puntos) siempre aparecen."
+          }
+        }
+      }
+    },
+    "Visas you could afford on €%@/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visas que podrías costear con €%@/mes"
+          }
+        }
+      }
+    },
+    "Warm & Coastal": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cálido y costero"
+          }
+        }
+      }
+    },
+    "We'll anchor reminders to this date. Pick the date you'd like to submit your visa application. You can adjust later.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vamos a basar los recordatorios en esta fecha. Elige cuándo te gustaría presentar tu solicitud de visa. Puedes cambiarla después."
+          }
+        }
+      }
+    },
+    "Website": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sitio web"
+          }
+        }
+      }
+    },
+    "Week": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Semana"
+          }
+        }
+      }
+    },
+    "Weight your move on what matters": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Decide tu mudanza según lo que te importa"
+          }
+        }
+      }
+    },
+    "What healthcare really costs": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que realmente cuesta la salud"
+          }
+        }
+      }
+    },
+    "What it really costs to land": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que de verdad cuesta llegar"
+          }
+        }
+      }
+    },
+    "What the lawyer typically says": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que suele decir el abogado"
+          }
+        }
+      }
+    },
+    "What this means for you": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué significa para ti"
+          }
+        }
+      }
+    },
+    "What this says": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Qué dice"
+          }
+        }
+      }
+    },
+    "What you can carry in": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que puedes llevar"
+          }
+        }
+      }
+    },
+    "What you'll get": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lo que vas a obtener"
+          }
+        }
+      }
+    },
+    "Where do I start?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por dónde empiezo?"
+          }
+        }
+      }
+    },
+    "Where do you want to go, what's your household look like, do you have any ancestry that might open doors? I'll suggest visa paths and ballpark costs from GoThere's data.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿A dónde quieres ir, cómo es tu hogar, tienes alguna ascendencia que te pueda abrir puertas? Te sugiero rutas de visa y costos aproximados con los datos de GoThere."
+          }
+        }
+      }
+    },
+    "Where should I start?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Por dónde debería empezar?"
+          }
+        }
+      }
+    },
+    "Where you'd live": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dónde vivirías"
+          }
+        }
+      }
+    },
+    "White-glove relocation support for people who'd rather pay to get it right than spend months figuring it out alone.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apoyo de mudanza personalizado para quienes prefieren pagar para hacerlo bien en vez de pasar meses resolviéndolo solos."
+          }
+        }
+      }
+    },
+    "White-glove relocation: vetted lawyers, done-with-you prep": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mudanza personalizada: abogados verificados y preparación acompañada"
+          }
+        }
+      }
+    },
+    "Who it affects": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A quién afecta"
+          }
+        }
+      }
+    },
+    "Will your treatment travel with you?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Tu tratamiento puede viajar contigo?"
+          }
+        }
+      }
+    },
+    "Wizard": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asistente"
+          }
+        }
+      }
+    },
+    "Workaround available: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alternativa disponible: %@"
+          }
+        }
+      }
+    },
+    "Yes": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sí"
+          }
+        }
+      }
+    },
+    "You both get a month of All-Access when they redeem your code.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los dos reciben un mes de All-Access cuando tu amigo canjee tu código."
+          }
+        }
+      }
+    },
+    "You could already be a citizen — check your eligibility.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quizás ya eres ciudadano: revisa si calificas."
+          }
+        }
+      }
+    },
+    "You might already be a citizen.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quizás ya eres ciudadano."
+          }
+        }
+      }
+    },
+    "You're in — %lld days of All-Access unlocked.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¡Listo! Desbloqueaste %lld días de All-Access."
+          }
+        }
+      }
+    },
+    "You're on the list — we'll be in touch.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya estás en la lista. Te contactaremos."
+          }
+        }
+      }
+    },
+    "You're well-prepared": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estás bien preparado"
+          }
+        }
+      }
+    },
+    "You've completed all tasks in %@. Keep going!": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Completaste todas las tareas de %@. ¡Sigue así!"
+          }
+        }
+      }
+    },
+    "You've reached today's AI limit. Try again tomorrow.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Llegaste al límite de IA de hoy. Inténtalo mañana."
+          }
+        }
+      }
+    },
+    "You've used all free messages. Upgrade to keep going.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya usaste todos los mensajes gratis. Mejora tu plan para seguir."
+          }
+        }
+      }
+    },
+    "You've used your 5 free messages. Upgrade to keep going.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ya usaste tus 5 mensajes gratis. Mejora tu plan para seguir."
+          }
+        }
+      }
+    },
+    "Your %@ Move Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de mudanza: %@"
+          }
+        }
+      }
+    },
+    "Your %@ visa insurance requirement": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Requisito de seguro para tu visa de %@"
+          }
+        }
+      }
+    },
+    "Your ancestry unlocks a path here": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu ascendencia te abre una ruta aquí"
+          }
+        }
+      }
+    },
+    "Your Argentina Move Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de mudanza a Argentina"
+          }
+        }
+      }
+    },
+    "Your fastest route": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu ruta más rápida"
+          }
+        }
+      }
+    },
+    "Your Germany Restoration Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de restitución alemana"
+          }
+        }
+      }
+    },
+    "Your Hungary Citizenship Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de ciudadanía húngara"
+          }
+        }
+      }
+    },
+    "Your invite code": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu código de invitación"
+          }
+        }
+      }
+    },
+    "Your Ireland Citizenship Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de ciudadanía irlandesa"
+          }
+        }
+      }
+    },
+    "Your Italy Citizenship Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de ciudadanía italiana"
+          }
+        }
+      }
+    },
+    "Your meds & care abroad": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus medicinas y atención fuera"
+          }
+        }
+      }
+    },
+    "Your Mexico Move Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de mudanza a México"
+          }
+        }
+      }
+    },
+    "Your move co-pilot": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu copiloto de mudanza"
+          }
+        }
+      }
+    },
+    "Your move, month by month": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu mudanza, mes a mes"
+          }
+        }
+      }
+    },
+    "Your next step": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu siguiente paso"
+          }
+        }
+      }
+    },
+    "Your Personalized Checklist": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu lista personalizada"
+          }
+        }
+      }
+    },
+    "Your personalized visa checklist is ready with due dates based on your timeline.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu lista personalizada de visa está lista, con fechas límite según tu calendario."
+          }
+        }
+      }
+    },
+    "Your plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan"
+          }
+        }
+      }
+    },
+    "Your Poland Citizenship Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de ciudadanía polaca"
+          }
+        }
+      }
+    },
+    "Your Portugal Move Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan de mudanza a Portugal"
+          }
+        }
+      }
+    },
+    "Your purchase is waiting for approval. You'll get access as soon as it goes through.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu compra está esperando aprobación. Tendrás acceso en cuanto se complete."
+          }
+        }
+      }
+    },
+    "Your Top Destinations": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus mejores destinos"
+          }
+        }
+      }
+    },
+    "Your UK Ancestry Plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu plan UK Ancestry"
+          }
+        }
+      }
+    },
+    "·· pts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "·· pts"
+          }
+        }
+      }
+    },
+    "€···/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "€···/mes"
+          }
+        }
+      }
+    },
+    "≈ $%@/yr less than a US family plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "≈ $%@/año menos que un plan familiar en EE. UU."
+          }
+        }
+      }
+    },
+    "≈ €%@/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "≈ €%@/mes"
+          }
+        }
+      }
+    },
+    "≤ $%lld/mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "≤ $%lld/mes"
+          }
+        }
+      }
+    },
+    "⚖️ Legal / gestor": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚖️ Legal / gestor"
+          }
+        }
+      }
+    },
+    "⚠️ Tax-residency warnings": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⚠️ Alertas de residencia fiscal"
+          }
+        }
+      }
+    },
+    "✅ Before you leave the US (any country)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "✅ Antes de salir de EE. UU. (cualquier país)"
+          }
+        }
+      }
+    },
+    "✈️ Flights (%lld ppl)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "✈️ Vuelos (%lld pers.)"
+          }
+        }
+      }
+    },
+    "🇺🇸 US family (total)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🇺🇸 Familia en EE. UU. (total)"
+          }
+        }
+      }
+    },
+    "🇺🇸 US marketplace": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🇺🇸 Marketplace de EE. UU."
+          }
+        }
+      }
+    },
+    "🍽️ Living runway (%lld mo)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🍽️ Gastos de vida (%lld meses)"
+          }
+        }
+      }
+    },
+    "🎒 Public schooling": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🎒 Escuela pública"
+          }
+        }
+      }
+    },
+    "🏛️ Residency by investment (EU & LatAm)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🏛️ Residencia por inversión (UE y Latinoamérica)"
+          }
+        }
+      }
+    },
+    "🏠 Deposit + first month": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🏠 Depósito + primer mes"
+          }
+        }
+      }
+    },
+    "🏠 Homeschooling": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🏠 Educación en casa"
+          }
+        }
+      }
+    },
+    "🏥 Public system": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🏥 Sistema público"
+          }
+        }
+      }
+    },
+    "🏫 International schools": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🏫 Escuelas internacionales"
+          }
+        }
+      }
+    },
+    "👪 %@ parent tips": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "👪 Consejos para padres: %@"
+          }
+        }
+      }
+    },
+    "📄 Government fees": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📄 Tarifas del gobierno"
+          }
+        }
+      }
+    },
+    "📄 Letter templates": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📄 Plantillas de cartas"
+          }
+        }
+      }
+    },
+    "📉 Recently ended / changed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📉 Terminados o cambiados hace poco"
+          }
+        }
+      }
+    },
+    "📦 Setup & shipping": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "📦 Instalación y envío"
+          }
+        }
+      }
+    },
+    "🛂 Citizenship by investment (second passport)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🛂 Ciudadanía por inversión (segundo pasaporte)"
+          }
+        }
+      }
+    },
+    "🛂 Kids on your visa": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🛂 Tus hijos en tu visa"
+          }
+        }
+      }
+    },
+    "🩺 Children's healthcare": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "🩺 Salud infantil"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

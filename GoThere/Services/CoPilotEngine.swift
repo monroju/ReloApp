@@ -138,10 +138,10 @@ enum CoPilotEngine {
     }
 
     private static func label(for value: Int, hasData: Bool) -> String {
-        guard hasData else { return "Let's set up your move" }
-        if value >= 80 { return "You're well-prepared" }
-        if value >= 50 { return "A few things need attention" }
-        return "Action required before your target date"
+        guard hasData else { return String(localized: "Let's set up your move") }
+        if value >= 80 { return String(localized: "You're well-prepared") }
+        if value >= 50 { return String(localized: "A few things need attention") }
+        return String(localized: "Action required before your target date")
     }
 
     // Component scores — each returns nil when there's no data to judge it on.

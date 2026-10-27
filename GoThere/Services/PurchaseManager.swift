@@ -153,16 +153,16 @@ final class PurchaseManager: ObservableObject {
     /// Plain-language reason for the current access level, shown in Settings so a user
     /// (or support) can see why everything is unlocked.
     var accessSourceDescription: String? {
-        if isLegacyPaidInstall { return "Early supporter: you bought GoThere before it went free" }
+        if isLegacyPaidInstall { return String(localized: "Early supporter: you bought GoThere before it went free") }
         if let until = promoAccessUntil, until > Date() {
-            return "Gift month until \(until.formatted(date: .abbreviated, time: .omitted))"
+            return String(localized: "Gift month until \(until.formatted(date: .abbreviated, time: .omitted))")
         }
-        if subscriptionStatus.isActive { return "All-Access subscription" }
-        if ownedSKUs.contains(Self.productAllCountries) { return "Lifetime: all countries" }
+        if subscriptionStatus.isActive { return String(localized: "All-Access subscription") }
+        if ownedSKUs.contains(Self.productAllCountries) { return String(localized: "Lifetime: all countries") }
         if ownedSKUs.contains(Self.productEuropeBundle) && ownedSKUs.contains(Self.productAmericasBundle) {
-            return "Europe + Americas bundles"
+            return String(localized: "Europe + Americas bundles")
         }
-        if hasAllAccess { return "Every country purchased" }
+        if hasAllAccess { return String(localized: "Every country purchased") }
         return nil
     }
 
@@ -271,13 +271,13 @@ final class PurchaseManager: ObservableObject {
                 Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "user_cancelled", "source": source])
             case .pending:
                 Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "pending", "source": source])
-                purchaseErrorMessage = "Your purchase is waiting for approval. You'll get access as soon as it goes through."
+                purchaseErrorMessage = String(localized: "Your purchase is waiting for approval. You'll get access as soon as it goes through.")
             @unknown default:
                 break
             }
         } catch {
             Analytics.log(.purchaseFailed, properties: ["product_id": product.id, "reason": "exception", "source": source])
-            purchaseErrorMessage = "The purchase couldn't be completed. You weren't charged. Please try again."
+            purchaseErrorMessage = String(localized: "The purchase couldn't be completed. You weren't charged. Please try again.")
             throw error
         }
     }

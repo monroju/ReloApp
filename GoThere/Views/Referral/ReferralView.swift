@@ -204,7 +204,7 @@ struct ReferralView: View {
             let result = try await ReferralService.shared.redeem(code: code)
             purchaseManager.applyPromoGrant(until: result.premiumUntil)
             redeemSucceeded = true
-            redeemMessage = "You're in — \(result.rewardDays) days of All-Access unlocked."
+            redeemMessage = String(localized: "You're in — \(result.rewardDays) days of All-Access unlocked.")
             Analytics.log(.referralRedeemed, properties: [
                 "reward_days": result.rewardDays
             ])

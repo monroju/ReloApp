@@ -77,7 +77,7 @@ struct FamilyMoveView: View {
         }
     }
 
-    private func section(_ title: String, _ body: String) -> some View {
+    private func section(_ title: LocalizedStringKey, _ body: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title).font(.subheadline.bold()).foregroundColor(.primary)
             Text(body).font(.footnote).foregroundColor(.secondary)
@@ -89,7 +89,7 @@ struct FamilyMoveView: View {
         .cornerRadius(10)
     }
 
-    private func tipsCard(_ title: String, _ tips: [String]) -> some View {
+    private func tipsCard(_ title: LocalizedStringKey, _ tips: [String]) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title).font(.subheadline.bold()).foregroundColor(.goPrimary)
             ForEach(tips, id: \.self) { tip in

@@ -84,9 +84,9 @@ extension UserDocument {
     /// Short human-readable countdown, e.g. "Expires in 14 days", "Expired
     /// 3 days ago", "No expiry". Used on the row + detail header.
     var expiryLabel: String {
-        guard let days = daysUntilExpiration else { return "No expiry date" }
-        if days < 0 { return "Expired \(-days) day\(-days == 1 ? "" : "s") ago" }
-        if days == 0 { return "Expires today" }
-        return "Expires in \(days) day\(days == 1 ? "" : "s")"
+        guard let days = daysUntilExpiration else { return String(localized: "No expiry date") }
+        if days < 0 { return String(localized: "Expired \(-days) day\(-days == 1 ? "" : "s") ago") }
+        if days == 0 { return String(localized: "Expires today") }
+        return String(localized: "Expires in \(days) day\(days == 1 ? "" : "s")")
     }
 }

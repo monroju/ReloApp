@@ -111,7 +111,7 @@ struct CareContinuityView: View {
             HStack(spacing: 8) {
                 Image(systemName: section.icon)
                     .foregroundColor(.goPrimary)
-                Text(section.title)
+                Text(section.title.uiLocalized)
                     .font(.subheadline.bold())
                     .foregroundColor(.goPrimary)
             }

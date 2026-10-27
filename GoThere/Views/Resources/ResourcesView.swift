@@ -504,7 +504,7 @@ struct ResourcesView: View {
                                 VStack(alignment: .leading, spacing: 8) {
                                     ForEach(notes, id: \.0) { (persona, note) in
                                         VStack(alignment: .leading, spacing: 4) {
-                                            Text(persona.rawValue)
+                                            Text(persona.rawValue.uiLocalized)
                                                 .font(.caption.weight(.semibold))
                                                 .foregroundColor(.goPrimary)
                                             Text(note)

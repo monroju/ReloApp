@@ -27,7 +27,7 @@ final class AuthViewModel: ObservableObject {
 
     func signIn() async {
         guard isEmailValid, isPasswordValid else {
-            errorMessage = "Please enter a valid email and password (6+ characters)."
+            errorMessage = String(localized: "Please enter a valid email and password (6+ characters).")
             return
         }
         isLoading = true
@@ -42,11 +42,11 @@ final class AuthViewModel: ObservableObject {
 
     func signUp() async {
         guard isEmailValid, isPasswordValid else {
-            errorMessage = "Please enter a valid email and password (6+ characters)."
+            errorMessage = String(localized: "Please enter a valid email and password (6+ characters).")
             return
         }
         guard passwordsMatch else {
-            errorMessage = "Passwords do not match."
+            errorMessage = String(localized: "Passwords do not match.")
             return
         }
         isLoading = true
@@ -61,10 +61,10 @@ final class AuthViewModel: ObservableObject {
 
     private func friendlyError(_ error: NSError) -> String {
         switch error.code {
-        case 17008: return "Please enter a valid email address."
-        case 17009: return "Incorrect password. Please try again."
-        case 17011: return "No account found with this email."
-        case 17026: return "Password must be at least 6 characters."
+        case 17008: return String(localized: "Please enter a valid email address.")
+        case 17009: return String(localized: "Incorrect password. Please try again.")
+        case 17011: return String(localized: "No account found with this email.")
+        case 17026: return String(localized: "Password must be at least 6 characters.")
         default: return error.localizedDescription
         }
     }
@@ -73,7 +73,7 @@ final class AuthViewModel: ObservableObject {
 
     func sendPasswordReset() async {
         guard isEmailValid else {
-            errorMessage = "Please enter your email address first."
+            errorMessage = String(localized: "Please enter your email address first.")
             return
         }
         isLoading = true

@@ -78,7 +78,7 @@ struct StartHereView: View {
         .padding(.bottom, 4)
     }
 
-    private func route<Destination: View>(icon: String, title: String, subtitle: String,
+    private func route<Destination: View>(icon: String, title: LocalizedStringKey, subtitle: LocalizedStringKey,
                                           @ViewBuilder destination: @escaping () -> Destination) -> some View {
         NavigationLink {
             destination()

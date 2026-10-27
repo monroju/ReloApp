@@ -10,12 +10,12 @@ enum DocumentCategory: String, Codable, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .identity:  return "Identity"
-        case .criminal:  return "Criminal Record"
-        case .financial: return "Financial"
-        case .civil:     return "Civil"
-        case .medical:   return "Medical"
-        case .other:     return "Other"
+        case .identity:  return String(localized: "Identity")
+        case .criminal:  return String(localized: "Criminal Record")
+        case .financial: return String(localized: "Financial")
+        case .civil:     return String(localized: "Civil")
+        case .medical:   return String(localized: "Medical")
+        case .other:     return String(localized: "Other")
         }
     }
 
@@ -45,12 +45,12 @@ enum DocumentStatus: String, Codable {
 
     var label: String {
         switch self {
-        case .pending:            return "Missing"
-        case .uploaded:           return "Uploaded"
-        case .apostillePending:   return "Apostille needed"
-        case .translationPending: return "Translation needed"
-        case .complete:           return "Complete"
-        case .expired:            return "Expired"
+        case .pending:            return String(localized: "Missing")
+        case .uploaded:           return String(localized: "Uploaded")
+        case .apostillePending:   return String(localized: "Apostille needed")
+        case .translationPending: return String(localized: "Translation needed")
+        case .complete:           return String(localized: "Complete")
+        case .expired:            return String(localized: "Expired")
         }
     }
 }

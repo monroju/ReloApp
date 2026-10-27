@@ -187,7 +187,7 @@ struct VisaCompareView: View {
                 .foregroundColor(.secondary)
             Picker("Sort", selection: $sortMode) {
                 ForEach(SortMode.allCases) { mode in
-                    Text(mode.rawValue).tag(mode)
+                    Text(mode.rawValue.uiLocalized).tag(mode)
                 }
             }
             .pickerStyle(.segmented)
@@ -228,7 +228,7 @@ struct VisaCompareView: View {
                 if let icon = icon {
                     Image(systemName: icon).font(.caption2)
                 }
-                Text(title).font(.caption)
+                Text(title.uiLocalized).font(.caption)
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 6)

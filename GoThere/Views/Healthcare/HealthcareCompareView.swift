@@ -101,7 +101,7 @@ struct HealthcareCompareView: View {
         .cornerRadius(14)
     }
 
-    private func compareRow(_ destLabel: String, _ destUSD: Int, _ usLabel: String, _ usUSD: Int) -> some View {
+    private func compareRow(_ destLabel: LocalizedStringKey, _ destUSD: Int, _ usLabel: LocalizedStringKey, _ usUSD: Int) -> some View {
         HStack {
             VStack(alignment: .leading, spacing: 2) {
                 Text(destLabel).font(.subheadline).foregroundColor(.primary)

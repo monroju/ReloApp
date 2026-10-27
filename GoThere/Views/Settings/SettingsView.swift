@@ -24,6 +24,7 @@ struct SettingsView: View {
             List {
                 planSection
                 appearanceSection
+                languageSection
                 toolsSection
                 accountSection
                 moreFromUsSection
@@ -93,7 +94,7 @@ struct SettingsView: View {
                     await purchaseManager.restorePurchases()
                     isRestoring = false
                     restoreMessage = purchaseManager.purchaseErrorMessage
-                        ?? "Restore finished. Anything bought with this Apple ID is unlocked."
+                        ?? String(localized: "Restore finished. Anything bought with this Apple ID is unlocked.")
                 }
             } label: {
                 HStack {
@@ -133,6 +134,31 @@ struct SettingsView: View {
                 }
             }
             .pickerStyle(.segmented)
+        }
+    }
+
+    /// Per-app language lives in iOS Settings (Apple's recommended pattern). It shows up
+    /// there automatically once the app ships 2+ localizations, so this row just deep links
+    /// to the app's own page in Settings instead of overriding the locale in-app.
+    private var languageSection: some View {
+        Section {
+            Button {
+                AppLanguage.openSystemSettings()
+            } label: {
+                HStack {
+                    Label("Language / Idioma", systemImage: "globe")
+                        .foregroundColor(.primary)
+                    Spacer()
+                    Text(AppLanguage.currentDisplayName)
+                        .foregroundColor(.secondary)
+                    Image(systemName: "arrow.up.forward.app")
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                }
+            }
+            .accessibilityHint("Opens iOS Settings to change the app language")
+        } footer: {
+            Text("Change the app language in iOS Settings. GoThere follows your choice.")
         }
     }
 
@@ -219,7 +245,7 @@ struct SettingsView: View {
                 AuthService.shared.signOut()
                 dismiss()
             } catch {
-                deleteError = "For security, please sign out, sign back in, and try again. (\(error.localizedDescription))"
+                deleteError = String(localized: "For security, please sign out, sign back in, and try again. (\(error.localizedDescription))")
             }
         }
     }

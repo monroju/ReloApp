@@ -321,7 +321,7 @@ struct PaywallView: View {
 
     // MARK: - Card helpers
 
-    private func sectionHeader(_ title: String, subtitle: String? = nil) -> some View {
+    private func sectionHeader(_ title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
                 .font(.headline)
@@ -353,7 +353,7 @@ struct PaywallView: View {
                     .font(.title)
                 VStack(alignment: .leading, spacing: 4) {
                     HStack(spacing: 6) {
-                        Text(title).font(.headline)
+                        Text(title.uiLocalized).font(.headline)
                         if recommended {
                             Text("BEST VALUE")
                                 .font(.caption2.bold())
@@ -364,7 +364,7 @@ struct PaywallView: View {
                                 .cornerRadius(4)
                         }
                     }
-                    Text(description)
+                    Text(description.uiLocalized)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -378,7 +378,7 @@ struct PaywallView: View {
                         Text(purchaseManager.formattedPrice(for: productId))
                             .font(.headline)
                             .foregroundColor(.goPrimary)
-                        Text(periodSuffix)
+                        Text(periodSuffix.uiLocalized)
                             .font(.caption.bold())
                             .foregroundColor(.goPrimary)
                     }
@@ -422,8 +422,8 @@ struct PaywallView: View {
                 Text(emoji)
                     .font(.title)
                 VStack(alignment: .leading) {
-                    Text(title).font(.headline)
-                    Text(description)
+                    Text(title.uiLocalized).font(.headline)
+                    Text(description.uiLocalized)
                         .font(.caption)
                         .foregroundColor(.secondary)
                 }
@@ -459,14 +459,14 @@ struct PaywallView: View {
         let isUnlocked = countryId.map { purchaseManager.isCountryUnlocked($0) } ?? purchaseManager.hasAllAccess
         // Prefer the live-computed metric teaser when a countryId is present and CountryMetrics
         // produces one. Falls back to the static description for the bundle card and as a safety net.
-        let displayDescription = countryId.flatMap { metricDescription(for: $0) } ?? description
+        let displayDescription = countryId.flatMap { metricDescription(for: $0) } ?? description.uiLocalized
 
         return VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Text(emoji)
                     .font(.title)
                 VStack(alignment: .leading) {
-                    Text(title)
+                    Text(title.uiLocalized)
                         .font(.headline)
                     Text(displayDescription)
                         .font(.caption)
@@ -545,15 +545,15 @@ struct PaywallView: View {
         let m = CountryMetricsService.compute(for: countryId)
         var parts: [String] = []
         if m.wizardTracksCount > 0 {
-            parts.append("\(m.wizardTracksCount) step-by-step wizard\(m.wizardTracksCount == 1 ? "" : "s")")
+            parts.append(String(localized: "\(m.wizardTracksCount) step-by-step wizard\(m.wizardTracksCount == 1 ? "" : "s")"))
         } else if m.visaPathsCount > 0 {
-            parts.append("\(m.visaPathsCount) visa path\(m.visaPathsCount == 1 ? "" : "s")")
+            parts.append(String(localized: "\(m.visaPathsCount) visa path\(m.visaPathsCount == 1 ? "" : "s")"))
         }
         if m.documentsCount > 0 {
-            parts.append("\(m.documentsCount) documents")
+            parts.append(String(localized: "\(m.documentsCount) documents"))
         }
         if m.citiesCovered > 0 {
-            parts.append("\(m.citiesCovered) \(m.citiesCovered == 1 ? "city" : "cities")")
+            parts.append(m.citiesCovered == 1 ? String(localized: "1 city") : String(localized: "\(m.citiesCovered) cities"))
         }
         return parts.isEmpty ? nil : parts.joined(separator: " · ")
     }

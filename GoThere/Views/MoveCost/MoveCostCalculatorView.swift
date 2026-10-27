@@ -98,7 +98,7 @@ struct MoveCostCalculatorView: View {
         }
     }
 
-    private func stepper(label: String, value: Binding<Int>, range: ClosedRange<Int>) -> some View {
+    private func stepper(label: LocalizedStringKey, value: Binding<Int>, range: ClosedRange<Int>) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(label).font(.caption.bold()).foregroundColor(.secondary)
             Stepper(value: value, in: range) {
@@ -115,7 +115,7 @@ struct MoveCostCalculatorView: View {
         VStack(alignment: .leading, spacing: 6) {
             Text("Lifestyle").font(.caption.bold()).foregroundColor(.secondary)
             Picker("Lifestyle", selection: $lifestyle) {
-                ForEach(MoveLifestyle.allCases) { l in Text(l.rawValue).tag(l) }
+                ForEach(MoveLifestyle.allCases) { l in Text(l.rawValue.uiLocalized).tag(l) }
             }
             .pickerStyle(.segmented)
         }
@@ -126,7 +126,7 @@ struct MoveCostCalculatorView: View {
             HStack {
                 Text("Cash runway").font(.caption.bold()).foregroundColor(.secondary)
                 Spacer()
-                Text("\(monthsRunway) month\(monthsRunway == 1 ? "" : "s")")
+                Text(monthsRunway == 1 ? String(localized: "1 month") : String(localized: "\(monthsRunway) months"))
                     .font(.caption.bold()).foregroundColor(.goPrimary)
             }
             Stepper(value: $monthsRunway, in: 1...12) {
@@ -161,7 +161,7 @@ struct MoveCostCalculatorView: View {
         .cornerRadius(14)
     }
 
-    private func lineItem(_ label: String, _ amount: Int) -> some View {
+    private func lineItem(_ label: LocalizedStringKey, _ amount: Int) -> some View {
         HStack {
             Text(label).font(.subheadline).foregroundColor(.primary)
             Spacer()

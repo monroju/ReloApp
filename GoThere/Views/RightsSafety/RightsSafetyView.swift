@@ -71,7 +71,7 @@ struct RightsSafetyView: View {
                         Button {
                             if isOn { selected.remove(c) } else { selected.insert(c) }
                         } label: {
-                            Text(c.rawValue)
+                            Text(c.rawValue.uiLocalized)
                                 .font(.caption)
                                 .padding(.horizontal, 12).padding(.vertical, 6)
                                 .background(isOn ? Color.goPrimary.opacity(0.15) : Color.secondary.opacity(0.1))
@@ -89,7 +89,7 @@ struct RightsSafetyView: View {
 
     private func considerationSection(_ c: PersonalConsideration) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(c.rawValue).font(.subheadline.bold()).foregroundColor(.goPrimary)
+            Text(c.rawValue.uiLocalized).font(.subheadline.bold()).foregroundColor(.goPrimary)
             ForEach(destinations) { dest in
                 if let note = CountrySafetyProfiles.profile(for: dest.id)?
                     .note(for: c, householdIsSingleParent: false) {

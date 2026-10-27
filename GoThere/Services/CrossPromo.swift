@@ -15,8 +15,8 @@ enum PromoApp: String {
 
     var subtitle: String {
         switch self {
-        case .localista: return "Spain news, alerts and trámites in English"
-        case .passdgt: return "Practice the Spanish DGT theory test in English. Free, offline."
+        case .localista: return String(localized: "Spain news, alerts and trámites in English")
+        case .passdgt: return String(localized: "Practice the Spanish DGT theory test in English. Free, offline.")
         }
     }
 

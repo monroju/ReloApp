@@ -108,12 +108,12 @@ struct AncestryCheckerView: View {
     private func quickStats(_ path: AncestryPath) -> some View {
         HStack(spacing: 12) {
             statCard(title: "Cost", value: "$\(path.estCostUSD.low)–$\(path.estCostUSD.high)")
-            statCard(title: "Timeline", value: "\(path.estTimelineMonths.low)–\(path.estTimelineMonths.high) mo")
-            statCard(title: "Income test", value: path.incomeRequired ? "Yes" : "None")
+            statCard(title: "Timeline", value: String(localized: "\(path.estTimelineMonths.low)–\(path.estTimelineMonths.high) mo"))
+            statCard(title: "Income test", value: path.incomeRequired ? String(localized: "Yes") : String(localized: "None"))
         }
     }
 
-    private func statCard(title: String, value: String) -> some View {
+    private func statCard(title: LocalizedStringKey, value: String) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title).font(.caption2).foregroundColor(.secondary)
             Text(value).font(.subheadline.bold())

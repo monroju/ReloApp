@@ -237,7 +237,7 @@ struct DecisionTreeView: View {
                 }
                 ForEach(notes, id: \.0) { (persona, note) in
                     VStack(alignment: .leading, spacing: 3) {
-                        Text(persona.rawValue)
+                        Text(persona.rawValue.uiLocalized)
                             .font(.caption.weight(.semibold))
                             .foregroundColor(.secondary)
                         Text(note)
@@ -476,7 +476,7 @@ struct DecisionTreeView: View {
         DestinationConfig.getDestination(vm.profile.countryId)?.name ?? "Spain"
     }
 
-    private func sectionHeader(_ title: String) -> some View {
+    private func sectionHeader(_ title: LocalizedStringKey) -> some View {
         Text(title)
             .font(.headline)
     }
