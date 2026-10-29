@@ -42,6 +42,7 @@ enum AnalyticsEvent: String {
     case conciergeWaitlistJoined = "concierge_waitlist_joined"
     case reviewPromptRequested = "review_prompt_requested"
     case crossPromoTapped = "cross_promo_tapped"   // props `app`, `placement`, `country_id`
+    case deepLinkOpened = "deep_link_opened"       // prop `route`, from gothere:// URLs (In-App Events)
 
     // Wave 2 — AI conversational entry point
     case aiConversationOpened = "ai_conversation_opened"

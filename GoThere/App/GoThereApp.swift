@@ -54,6 +54,7 @@ struct GoThereApp: App {
                 }
             }
             .preferredColorScheme(themeVM.colorScheme)
+            .onOpenURL { DeepLinkRouter.shared.open($0) }
         }
     }
 }
