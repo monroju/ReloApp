@@ -116,7 +116,9 @@ workflows:
 
       - name: Resolve SPM packages
         script: |
-          xcodebuild -resolvePackageDependencies             -project "$XCODE_PROJECT"             -scheme "$XCODE_SCHEME"
+          xcodebuild -resolvePackageDependencies \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME"
 
       - name: Boot 6.9-inch simulator
         script: |
@@ -126,19 +128,44 @@ workflows:
           echo "SIM_UDID=$UDID" >> $CM_ENV
           xcrun simctl boot "$UDID" || true
           xcrun simctl bootstatus "$UDID" -b
-          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged             --batteryLevel 100 --wifiBars 3 --cellularMode active --cellularBars 4 --dataNetwork wifi
+          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged \
+            --batteryLevel 100 --wifiBars 3 --cellularMode active --cellularBars 4 --dataNetwork wifi
 
       - name: Run screenshot tests
         ignore_failure: true
         script: |
-          perl -e 'alarm shift; exec @ARGV' 1800 xcodebuild test             -project "$XCODE_PROJECT"             -scheme "$XCODE_SCHEME"             -destination "id=$SIM_UDID"             -configuration Debug             -resultBundlePath "$CM_BUILD_DIR/shots.xcresult"             CODE_SIGNING_ALLOWED=NO             CODE_SIGNING_REQUIRED=NO             CODE_SIGN_IDENTITY=""             -only-testing:GoThereUITests
+          perl -e 'alarm shift; exec @ARGV' 1800 xcodebuild test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -destination "id=$SIM_UDID" \
+            -configuration Debug \
+            -resultBundlePath "$CM_BUILD_DIR/shots.xcresult" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            -only-testing:GoThereUITests
 
       - name: Export screenshots
         script: |
           mkdir -p "$CM_BUILD_DIR/shots"
-          xcrun xcresulttool export attachments             --path "$CM_BUILD_DIR/shots.xcresult"             --output-path "$CM_BUILD_DIR/shots"
+          xcrun xcresulttool export attachments \
+            --path "$CM_BUILD_DIR/shots.xcresult" \
+            --output-path "$CM_BUILD_DIR/shots"
           ls -la "$CM_BUILD_DIR/shots" | head -80
           cd "$CM_BUILD_DIR" && zip -qr screenshots.zip shots
+
+      - name: Run unit tests
+        # After the export so a failing test fails the build without losing the captures.
+        script: |
+          perl -e 'alarm shift; exec @ARGV' 900 xcodebuild test \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -destination "id=$SIM_UDID" \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            -only-testing:GoThereTests
 
     artifacts:
       - screenshots.zip
