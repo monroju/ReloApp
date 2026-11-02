@@ -96,6 +96,53 @@ workflows:
     artifacts:
       - "*.zip"
 
+  ios-screenshots:
+    # Manual only (no triggering block). Runs GoThereUITests/StoreScreenshotTests on a
+    # 6.9" simulator in Spanish + English and exports the captures as screenshots.zip.
+    name: App Store screenshots (simulator)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      xcode: 26.0
+      vars:
+        XCODE_PROJECT: "GoThere.xcodeproj"
+        XCODE_SCHEME: "GoThere"
+    scripts:
+      - name: Install XcodeGen
+        script: brew install xcodegen
+
+      - name: Generate Xcode project
+        script: xcodegen generate
+
+      - name: Resolve SPM packages
+        script: |
+          xcodebuild -resolvePackageDependencies             -project "$XCODE_PROJECT"             -scheme "$XCODE_SCHEME"
+
+      - name: Boot 6.9-inch simulator
+        script: |
+          xcrun simctl list devices available | grep -i "pro max" || true
+          UDID=$(xcrun simctl list devices available | grep -E "iPhone (17|16) Pro Max" | head -1 | grep -oE "[0-9A-F-]{36}")
+          if [ -z "$UDID" ]; then echo "No Pro Max simulator"; exit 1; fi
+          echo "SIM_UDID=$UDID" >> $CM_ENV
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+          xcrun simctl status_bar "$UDID" override --time "9:41" --batteryState charged             --batteryLevel 100 --wifiBars 3 --cellularMode active --cellularBars 4 --dataNetwork wifi
+
+      - name: Run screenshot tests
+        ignore_failure: true
+        script: |
+          perl -e 'alarm shift; exec @ARGV' 1800 xcodebuild test             -project "$XCODE_PROJECT"             -scheme "$XCODE_SCHEME"             -destination "id=$SIM_UDID"             -configuration Debug             -resultBundlePath "$CM_BUILD_DIR/shots.xcresult"             CODE_SIGNING_ALLOWED=NO             CODE_SIGNING_REQUIRED=NO             CODE_SIGN_IDENTITY=""             -only-testing:GoThereUITests
+
+      - name: Export screenshots
+        script: |
+          mkdir -p "$CM_BUILD_DIR/shots"
+          xcrun xcresulttool export attachments             --path "$CM_BUILD_DIR/shots.xcresult"             --output-path "$CM_BUILD_DIR/shots"
+          ls -la "$CM_BUILD_DIR/shots" | head -80
+          cd "$CM_BUILD_DIR" && zip -qr screenshots.zip shots
+
+    artifacts:
+      - screenshots.zip
+
   ios-appstore-build:
     name: Build & Publish to App Store Connect
     max_build_duration: 90
