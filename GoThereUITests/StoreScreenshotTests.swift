@@ -97,7 +97,9 @@ final class StoreScreenshotTests: XCTestCase {
         let button = app.buttons.matching(pred).firstMatch
         guard button.waitForExistence(timeout: 4) else { return false }
         for _ in 0..<8 {
-            if button.isHittable && button.frame.maxY < app.frame.maxY - 110 {
+            let bar = app.tabBars.firstMatch
+            let limit = bar.exists ? bar.frame.minY : app.frame.maxY - 90
+            if button.isHittable && button.frame.maxY <= limit {
                 button.tap()
                 usleep(600_000)
                 return true
