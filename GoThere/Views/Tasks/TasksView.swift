@@ -40,7 +40,7 @@ struct TasksView: View {
                     ContentUnavailableView {
                         Label("No Tasks Yet", systemImage: "checklist")
                     } description: {
-                        Text("Load the step-by-step checklist for \(DestinationConfig.getDestination(countrySelection.current)?.name ?? "your country"), or add your own tasks.")
+                        Text("Load the step-by-step checklist for \(DestinationConfig.getDestination(countrySelection.current)?.displayName ?? String(localized: "your country")), or add your own tasks.")
                     } actions: {
                         if purchaseManager.isCountryUnlocked(countrySelection.current) {
                             Button("Load Checklist") { importSeedTasks(for: countrySelection.current) }
@@ -159,7 +159,7 @@ struct TasksView: View {
             .confirmationDialog("Import Seed Tasks", isPresented: $showImportSeed) {
                 ForEach(DestinationConfig.allDestinations) { dest in
                     if purchaseManager.isCountryUnlocked(dest.id) {
-                        Button("\(dest.flagEmoji) \(dest.name)") { importSeedTasks(for: dest.id) }
+                        Button("\(dest.flagEmoji) \(dest.displayName)") { importSeedTasks(for: dest.id) }
                     }
                 }
                 Button("Cancel", role: .cancel) {}
@@ -516,7 +516,7 @@ struct TaskRow: View {
                                 HStack(spacing: 4) {
                                     Image(systemName: isInternal ? "arrow.forward.circle" : "link")
                                         .font(.caption2)
-                                    Text(link.label ?? urlStr).font(.caption)
+                                    Text(link.label?.uiLocalized ?? urlStr).font(.caption)
                                 }
                                 .foregroundColor(.goPrimary)
                             }

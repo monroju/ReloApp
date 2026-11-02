@@ -215,23 +215,23 @@ enum CoPilotEngine {
         if s.selectedVisa == nil {
             out.append(InsightCard(
                 id: "setup_visa", severity: .amber, icon: "wand.and.stars",
-                title: "Pick your visa path",
-                message: "Choose a visa so GoThere can check your income fit and build your document list.",
-                ctaLabel: "Open Visa Wizard", route: .wizard))
+                title: String(localized: "Pick your visa path"),
+                message: String(localized: "Choose a visa so GoThere can check your income fit and build your document list."),
+                ctaLabel: String(localized: "Open Visa Wizard"), route: .wizard))
         }
         if s.targetMoveDate == nil {
             out.append(InsightCard(
                 id: "setup_date", severity: .amber, icon: "calendar.badge.plus",
-                title: "Set a target move date",
-                message: "Add when you want to land. We'll pace your tasks and flag documents that expire before then.",
-                ctaLabel: "Open Visa Wizard", route: .wizard))
+                title: String(localized: "Set a target move date"),
+                message: String(localized: "Add when you want to land. We'll pace your tasks and flag documents that expire before then."),
+                ctaLabel: String(localized: "Open Visa Wizard"), route: .wizard))
         }
         if s.estimatedMonthlyCostEUR == nil {
             out.append(InsightCard(
                 id: "setup_cost", severity: .amber, icon: "dollarsign.circle",
-                title: "Estimate your monthly cost",
-                message: "Run the Cost Calculator so we can compare your budget to the income your visa requires.",
-                ctaLabel: "Open Cost Calculator", route: .calculator))
+                title: String(localized: "Estimate your monthly cost"),
+                message: String(localized: "Run the Cost Calculator so we can compare your budget to the income your visa requires."),
+                ctaLabel: String(localized: "Open Cost Calculator"), route: .calculator))
         }
         return out
     }
@@ -245,25 +245,26 @@ enum CoPilotEngine {
             if doc.daysUntil < 0 {
                 out.append(InsightCard(
                     id: "doc_\(doc.name)", severity: .red, icon: "doc.badge.ellipsis",
-                    title: "Document expired",
-                    message: "\(doc.name) expired \(-doc.daysUntil) day\(-doc.daysUntil == 1 ? "" : "s") ago. Renew it before you submit.",
-                    ctaLabel: "See documents", route: .documents))
+                    title: String(localized: "Document expired"),
+                    message: String(localized: "\(doc.name) expired \(-doc.daysUntil) days ago. Renew it before you submit."),
+                    ctaLabel: String(localized: "See documents"), route: .documents))
             } else {
-                let targetNote = beforeTarget ? " — before your target date" : ""
                 out.append(InsightCard(
                     id: "doc_\(doc.name)", severity: doc.daysUntil <= 14 ? .red : .amber,
                     icon: "doc.badge.clock",
-                    title: "Document expiring",
-                    message: "\(doc.name) expires in \(doc.daysUntil) day\(doc.daysUntil == 1 ? "" : "s")\(targetNote). Plan its renewal.",
-                    ctaLabel: "See documents", route: .documents))
+                    title: String(localized: "Document expiring"),
+                    message: beforeTarget
+                        ? String(localized: "\(doc.name) expires in \(doc.daysUntil) days, before your target date. Plan its renewal.")
+                        : String(localized: "\(doc.name) expires in \(doc.daysUntil) days. Plan its renewal."),
+                    ctaLabel: String(localized: "See documents"), route: .documents))
             }
         }
         if s.docMissing > 0 {
             out.append(InsightCard(
                 id: "doc_missing", severity: .amber, icon: "tray.full",
-                title: "\(s.docMissing) document\(s.docMissing == 1 ? "" : "s") still needed",
-                message: "Your visa checklist has \(s.docMissing) document\(s.docMissing == 1 ? "" : "s") not yet uploaded.",
-                ctaLabel: "Open vault", route: .documents))
+                title: String(localized: "\(s.docMissing) documents still needed"),
+                message: String(localized: "Your visa checklist has \(s.docMissing) documents not yet uploaded."),
+                ctaLabel: String(localized: "Open vault"), route: .documents))
         }
         return out
     }
@@ -273,35 +274,37 @@ enum CoPilotEngine {
         // Name the specific documents when we have a couple; otherwise summarize.
         let named = s.prepDocuments.prefix(2).joined(separator: ", ")
         let detail = named.isEmpty
-            ? "\(s.docPrepPending) uploaded document\(s.docPrepPending == 1 ? "" : "s") still need an apostille or sworn translation."
-            : "\(named)\(s.docPrepPending > 2 ? " and others" : "") still need an apostille or sworn translation before they're accepted."
+            ? String(localized: "\(s.docPrepPending) uploaded documents still need an apostille or sworn translation.")
+            : s.docPrepPending > 2
+                ? String(localized: "\(named) and others still need an apostille or sworn translation before they're accepted.")
+                : String(localized: "\(named) still need an apostille or sworn translation before they're accepted.")
         return [InsightCard(
             id: "doc_prep", severity: .amber, icon: "rosette",
-            title: "Apostille / translation pending",
+            title: String(localized: "Apostille / translation pending"),
             message: detail,
-            ctaLabel: "See documents", route: .documents)]
+            ctaLabel: String(localized: "See documents"), route: .documents)]
     }
 
     private static func incomeCards(_ s: UserMoveState) -> [InsightCard] {
         guard let visa = s.selectedVisa else { return [] }
         guard let required = visa.requiredMonthlyEUR(dependents: s.dependents), required > 0 else { return [] }
         guard let estimate = s.estimatedMonthlyCostEUR else { return [] } // setup card already nudges
-        let depSuffix = s.dependents > 0 ? " (you + \(s.dependents))" : ""
-        let cityNote = s.estimateCity.map { "Your \($0) cost estimate" } ?? "Your cost estimate"
+        let depSuffix = s.dependents > 0 ? String(localized: " (you + \(s.dependents))") : ""
+        let cityNote = s.estimateCity.map { String(localized: "Your \($0) cost estimate") } ?? String(localized: "Your cost estimate")
         if estimate >= required {
             let over = estimate - required
             return [InsightCard(
                 id: "income_ok", severity: .green, icon: "checkmark.seal",
-                title: "Income bar in reach",
-                message: "\(cityNote) (€\(estimate.formatted())/mo) already meets the \(visa.shortName) minimum of €\(required.formatted())/mo\(depSuffix) — €\(over.formatted())/mo of headroom. Make sure your provable income clears it.",
-                ctaLabel: "Understand the requirement", route: .resources)]
+                title: String(localized: "Income bar in reach"),
+                message: String(localized: "\(cityNote) (€\(estimate.formatted())/mo) already meets the \(visa.shortName) minimum of €\(required.formatted())/mo\(depSuffix), with €\(over.formatted())/mo of headroom. Make sure your provable income clears it."),
+                ctaLabel: String(localized: "Understand the requirement"), route: .resources)]
         } else {
             let gap = required - estimate
             return [InsightCard(
                 id: "income_gap", severity: .amber, icon: "exclamationmark.triangle",
-                title: "Mind the income minimum",
-                message: "The \(visa.shortName) asks you to prove €\(required.formatted())/mo\(depSuffix). Your budget estimate is €\(estimate.formatted())/mo — €\(gap.formatted())/mo under the bar you must document.",
-                ctaLabel: "Adjust your budget", route: .calculator)]
+                title: String(localized: "Mind the income minimum"),
+                message: String(localized: "The \(visa.shortName) asks you to prove €\(required.formatted())/mo\(depSuffix). Your budget estimate is €\(estimate.formatted())/mo, which is €\(gap.formatted())/mo under the bar you must document."),
+                ctaLabel: String(localized: "Adjust your budget"), route: .calculator)]
         }
     }
 
@@ -310,9 +313,9 @@ enum CoPilotEngine {
         if daysLeft < 0 {
             return [InsightCard(
                 id: "timeline_past", severity: .amber, icon: "calendar.badge.exclamationmark",
-                title: "Update your timeline",
-                message: "Your target move date has passed. Set a new one to re-pace your checklist.",
-                ctaLabel: "Open Visa Wizard", route: .wizard)]
+                title: String(localized: "Update your timeline"),
+                message: String(localized: "Your target move date has passed. Set a new one to re-pace your checklist."),
+                ctaLabel: String(localized: "Open Visa Wizard"), route: .wizard)]
         }
         guard let weeksToFinish = projectedWeeksToFinish(s), weeksToFinish > 0 else { return [] }
         let weeksToTarget = Double(daysLeft) / 7.0
@@ -320,15 +323,15 @@ enum CoPilotEngine {
         if weeksToFinish > weeksToTarget {
             return [InsightCard(
                 id: "timeline_behind", severity: .red, icon: "tortoise",
-                title: "Pace check",
-                message: "Your target is \(daysLeft) days away. At your current pace you'll finish in ~\(projected) weeks. Pick up a few tasks to stay on track.",
-                ctaLabel: "View your tasks", route: .tasks)]
+                title: String(localized: "Pace check"),
+                message: String(localized: "Your target is \(daysLeft) days away. At your current pace you'll finish in ~\(projected) weeks. Pick up a few tasks to stay on track."),
+                ctaLabel: String(localized: "View your tasks"), route: .tasks)]
         } else {
             return [InsightCard(
                 id: "timeline_ontrack", severity: .green, icon: "hare",
-                title: "On pace",
-                message: "Your target is \(daysLeft) days away and your current pace finishes the remaining tasks in ~\(projected) weeks. Nicely ahead.",
-                ctaLabel: "View your tasks", route: .tasks)]
+                title: String(localized: "On pace"),
+                message: String(localized: "Your target is \(daysLeft) days away and your current pace finishes the remaining tasks in ~\(projected) weeks. Nicely ahead."),
+                ctaLabel: String(localized: "View your tasks"), route: .tasks)]
         }
     }
 
@@ -337,9 +340,9 @@ enum CoPilotEngine {
         let sample = s.citaSample.map { " — \($0)" } ?? ""
         return [InsightCard(
             id: "cita_active", severity: .green, icon: "calendar.badge.clock",
-            title: "Cita reminders active",
-            message: "You're tracking \(s.activeCitaMonitors) cita target\(s.activeCitaMonitors == 1 ? "" : "s")\(sample). Tap to open the portal and check now.",
-            ctaLabel: "Manage cita monitor", route: .cita)]
+            title: String(localized: "Cita reminders active"),
+            message: String(localized: "You're tracking \(s.activeCitaMonitors) cita targets\(sample). Tap to open the portal and check now."),
+            ctaLabel: String(localized: "Manage cita monitor"), route: .cita)]
     }
 
     private static func readyCards(_ s: UserMoveState) -> [InsightCard] {
@@ -347,8 +350,8 @@ enum CoPilotEngine {
         guard s.docComplete > 0, s.docExpired == 0, s.docExpiringSoon == 0, s.docMissing == 0 else { return [] }
         return [InsightCard(
             id: "docs_ready", severity: .green, icon: "checkmark.circle",
-            title: "Documents in good shape",
-            message: "\(s.docComplete) document\(s.docComplete == 1 ? "" : "s") complete and valid. No action needed right now.",
+            title: String(localized: "Documents in good shape"),
+            message: String(localized: "\(s.docComplete) documents complete and valid. No action needed right now."),
             ctaLabel: nil, route: nil)]
     }
 }

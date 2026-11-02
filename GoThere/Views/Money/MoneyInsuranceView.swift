@@ -18,7 +18,7 @@ struct MoneyInsuranceView: View {
 
     private var region: String? { DestinationConfig.getDestination(countryId)?.region }
     private var insuranceNote: String? { HealthcareCostData.profile(for: countryId)?.note }
-    private var countryName: String { DestinationConfig.getDestination(countryId)?.name ?? "your destination" }
+    private var countryName: String { DestinationConfig.getDestination(countryId)?.displayName ?? String(localized: "your destination") }
 
     var body: some View {
         ScrollView {

@@ -35,3 +35,22 @@ struct UserDestination: Codable, Identifiable {
     var lastSeededAt: Date?
     var seedVersion: Int = 0
 }
+
+extension DestinationCountry {
+    private static let regionCodes: [String: String] = [
+        "spain": "ES", "portugal": "PT", "mexico": "MX", "canada": "CA", "ireland": "IE",
+        "italy": "IT", "germany": "DE", "poland": "PL", "argentina": "AR", "hungary": "HU",
+    ]
+
+    /// Country name in the app's UI language ("España" in Spanish). `name` stays English
+    /// because it feeds data, seeds and analytics.
+    var displayName: String {
+        let code = Bundle.main.preferredLocalizations.first ?? "en"
+        guard code != "en" else { return name }
+        if id == "uk_ancestry" { return name.uiLocalized }
+        guard let region = Self.regionCodes[id],
+              let local = Locale(identifier: code).localizedString(forRegionCode: region)
+        else { return name }
+        return local
+    }
+}

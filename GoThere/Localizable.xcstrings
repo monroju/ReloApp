@@ -51,6 +51,206 @@
         }
       }
     },
+    "%@ (€%@/mo) already meets the %@ minimum of €%@/mo%@, with €%@/mo of headroom. Make sure your provable income clears it.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (€%2$@/mes) ya cubre el mínimo de la %3$@ de €%4$@/mes%5$@, con €%6$@/mes de margen. Asegúrate de que tus ingresos comprobables lo superen."
+          }
+        }
+      }
+    },
+    "%@ and others still need an apostille or sworn translation before they're accepted.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ y otros aún necesitan apostilla o traducción jurada para que los acepten."
+          }
+        }
+      }
+    },
+    "%@ expired %lld days ago. Renew it before you submit.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ expired %2$#@days@ ago. Renew it before you submit."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg day"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ venció hace %2$#@days@. Renuévalo antes de presentarlo."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg día"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg días"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%@ expires in %lld days, before your target date. Plan its renewal.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ expires in %2$#@days@, before your target date. Plan its renewal."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg day"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ vence en %2$#@days@, antes de tu fecha de mudanza. Planea su renovación."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg día"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg días"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%@ expires in %lld days. Plan its renewal.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ expires in %2$#@days@. Plan its renewal."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg day"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg days"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ vence en %2$#@days@. Planea su renovación."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg día"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg días"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%@ Family of 4": {
       "localizations": {
         "es": {
@@ -77,6 +277,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ Individual"
+          }
+        }
+      }
+    },
+    "%@ still need an apostille or sworn translation before they're accepted.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ aún necesitan apostilla o traducción jurada para que los acepten."
           }
         }
       }
@@ -326,6 +536,126 @@
                 "stringUnit": {
                   "state": "translated",
                   "value": "%lld documents"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld documents complete and valid. No action needed right now.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@ No action needed right now."
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg document complete and valid."
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documents complete and valid."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@ No necesitas hacer nada por ahora."
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documento completo y vigente."
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documentos completos y vigentes."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld documents still needed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@ still needed"
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg document"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documents"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@"
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "Falta %arg documento"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "Faltan %arg documentos"
+                    }
+                  }
                 }
               }
             }
@@ -717,6 +1047,66 @@
         }
       }
     },
+    "%lld uploaded documents still need an apostille or sworn translation.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@"
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg uploaded document still needs an apostille or sworn translation."
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg uploaded documents still need an apostille or sworn translation."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%#@docs@"
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documento subido aún necesita apostilla o traducción jurada."
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documentos subidos aún necesitan apostilla o traducción jurada."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "%lld visa paths": {
       "localizations": {
         "es": {
@@ -997,6 +1387,16 @@
         }
       }
     },
+    "Active nightlife": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vida nocturna activa"
+          }
+        }
+      }
+    },
     "Add": {
       "localizations": {
         "es": {
@@ -1097,6 +1497,16 @@
         }
       }
     },
+    "Add when you want to land. We'll pace your tasks and flag documents that expire before then.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indica cuándo quieres llegar. Repartimos tus tareas y te avisamos de documentos que vencen antes."
+          }
+        }
+      }
+    },
     "ADHD medication": {
       "localizations": {
         "es": {
@@ -1127,12 +1537,42 @@
         }
       }
     },
+    "Adjust your budget": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ajustar presupuesto"
+          }
+        }
+      }
+    },
+    "Adult ND assessment via public system": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Evaluación ND adulta en el sistema público"
+          }
+        }
+      }
+    },
     "Adults": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Adultos"
+          }
+        }
+      }
+    },
+    "Affordable": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Asequible"
           }
         }
       }
@@ -1237,6 +1677,16 @@
         }
       }
     },
+    "Already have an account? Log In": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Ya tienes cuenta? Inicia sesión"
+          }
+        }
+      }
+    },
     "Already purchased? Restore": {
       "localizations": {
         "es": {
@@ -1317,6 +1767,26 @@
         }
       }
     },
+    "Anti-discrimination law applies; less ethnically diverse": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ley antidiscriminación vigente; menos diversidad étnica"
+          }
+        }
+      }
+    },
+    "Anti-discrimination law; diversity varies by region": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ley antidiscriminación; la diversidad varía por región"
+          }
+        }
+      }
+    },
     "Any": {
       "localizations": {
         "es": {
@@ -1353,6 +1823,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Apostilla y traducción"
+          }
+        }
+      }
+    },
+    "Apostille / translation pending": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apostilla o traducción pendiente"
           }
         }
       }
@@ -1467,6 +1947,16 @@
         }
       }
     },
+    "Authentic local experience": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Experiencia local auténtica"
+          }
+        }
+      }
+    },
     "Availability of your meds, who can prescribe them, and what you're allowed to bring through the border.": {
       "localizations": {
         "es": {
@@ -1527,6 +2017,16 @@
         }
       }
     },
+    "Banking resources in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos de banca"
+          }
+        }
+      }
+    },
     "Banks": {
       "localizations": {
         "es": {
@@ -1573,6 +2073,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mejor precio: tarifa fija, todos los países, todas las actualizaciones"
+          }
+        }
+      }
+    },
+    "Better accessibility in city": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mejor accesibilidad en la ciudad"
           }
         }
       }
@@ -1797,6 +2307,16 @@
         }
       }
     },
+    "Choose a visa so GoThere can check your income fit and build your document list.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige una visa para que GoThere revise si tus ingresos alcanzan y arme tu lista de documentos."
+          }
+        }
+      }
+    },
     "Choose Your Visa Path": {
       "localizations": {
         "es": {
@@ -1813,6 +2333,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Monitor de citas"
+          }
+        }
+      }
+    },
+    "Cita reminders active": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recordatorios de cita activos"
           }
         }
       }
@@ -1853,6 +2383,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ciudadanía por opción: para hijos de argentinos nativos"
+          }
+        }
+      }
+    },
+    "Citizenship resources in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos de ciudadanía"
           }
         }
       }
@@ -1933,6 +2473,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cerrar"
+          }
+        }
+      }
+    },
+    "Coastal location": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En la costa"
           }
         }
       }
@@ -2057,12 +2607,32 @@
         }
       }
     },
+    "Compare Spain visas in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar visas de España"
+          }
+        }
+      }
+    },
     "Compare Visa Types": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Comparar tipos de visa"
+          }
+        }
+      }
+    },
+    "Compare visas in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comparar visas"
           }
         }
       }
@@ -2537,6 +3107,16 @@
         }
       }
     },
+    "Diverse cities + EU anti-discrimination law": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ciudades diversas + ley antidiscriminación de la UE"
+          }
+        }
+      }
+    },
     "Do you qualify?": {
       "localizations": {
         "es": {
@@ -2567,6 +3147,26 @@
         }
       }
     },
+    "Document expired": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documento vencido"
+          }
+        }
+      }
+    },
+    "Document expiring": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documento por vencer"
+          }
+        }
+      }
+    },
     "Document name": {
       "localizations": {
         "es": {
@@ -2587,6 +3187,16 @@
         }
       }
     },
+    "Documents in good shape": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Documentos en orden"
+          }
+        }
+      }
+    },
     "Documents you need": {
       "localizations": {
         "es": {
@@ -2603,6 +3213,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Documentos que vas a necesitar"
+          }
+        }
+      }
+    },
+    "Don't have an account? Sign Up": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿No tienes cuenta? Regístrate"
           }
         }
       }
@@ -2717,6 +3337,16 @@
         }
       }
     },
+    "English-speaking ND community": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comunidad ND de habla inglesa"
+          }
+        }
+      }
+    },
     "Enter code": {
       "localizations": {
         "es": {
@@ -2733,6 +3363,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Error"
+          }
+        }
+      }
+    },
+    "Established international community": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comunidad internacional consolidada"
+          }
+        }
+      }
+    },
+    "Estimate your monthly cost": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calcula tu costo mensual"
           }
         }
       }
@@ -2783,6 +3433,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Solo son estimaciones: las primas varían según edad, salud y plan. Cifras de EE. UU. según promedios KFF/marketplace 2024. No es asesoría de seguros."
+          }
+        }
+      }
+    },
+    "EU Disability Card recognised": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconoce la Tarjeta Europea de Discapacidad"
           }
         }
       }
@@ -2953,6 +3613,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Familia con hijos"
+          }
+        }
+      }
+    },
+    "Family-friendly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ideal para familias"
           }
         }
       }
@@ -3143,6 +3813,16 @@
         }
       }
     },
+    "Gender recognition needs court process": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El reconocimiento de género requiere proceso judicial"
+          }
+        }
+      }
+    },
     "German": {
       "localizations": {
         "es": {
@@ -3273,12 +3953,32 @@
         }
       }
     },
+    "Great for singles": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ideal para solteros"
+          }
+        }
+      }
+    },
     "Groceries": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Supermercado"
+          }
+        }
+      }
+    },
+    "Growing ND support networks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Redes de apoyo ND en crecimiento"
           }
         }
       }
@@ -3373,12 +4073,32 @@
         }
       }
     },
+    "Healthcare resources in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos de salud"
+          }
+        }
+      }
+    },
     "High": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Alto"
+          }
+        }
+      }
+    },
+    "Highly multicultural; strong anti-discrimination law": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muy multicultural; ley antidiscriminación sólida"
           }
         }
       }
@@ -3419,6 +4139,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vivienda"
+          }
+        }
+      }
+    },
+    "Housing resources in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos de vivienda"
           }
         }
       }
@@ -3573,6 +4303,16 @@
         }
       }
     },
+    "Income bar in reach": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alcanzas el ingreso mínimo"
+          }
+        }
+      }
+    },
     "Income fit": {
       "localizations": {
         "es": {
@@ -3669,6 +4409,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Insulina y atención de la diabetes"
+          }
+        }
+      }
+    },
+    "Insurer resources in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recursos de seguros"
+          }
+        }
+      }
+    },
+    "International schools": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escuelas internacionales"
           }
         }
       }
@@ -3813,6 +4573,16 @@
         }
       }
     },
+    "Legal gender recognition banned": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconocimiento legal de género prohibido"
+          }
+        }
+      }
+    },
     "Let's set up your move": {
       "localizations": {
         "es": {
@@ -3829,6 +4599,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "LGBTQ+"
+          }
+        }
+      }
+    },
+    "LGBTQ+ legal but uneven": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LGBTQ+ legal pero desigual"
+          }
+        }
+      }
+    },
+    "LGBTQ+ rights limited": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Derechos LGBTQ+ limitados"
           }
         }
       }
@@ -3953,6 +4743,16 @@
         }
       }
     },
+    "Long NHS gender-care waits": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esperas largas en el NHS para atención de género"
+          }
+        }
+      }
+    },
     "Low": {
       "localizations": {
         "es": {
@@ -3963,12 +4763,42 @@
         }
       }
     },
+    "Lower cost of senior living": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vida más barata para mayores"
+          }
+        }
+      }
+    },
     "Lowest income": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Menor ingreso"
+          }
+        }
+      }
+    },
+    "Major city": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gran ciudad"
+          }
+        }
+      }
+    },
+    "Manage cita monitor": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gestionar monitor de citas"
           }
         }
       }
@@ -4049,6 +4879,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Intermedio"
+          }
+        }
+      }
+    },
+    "Mind the income minimum": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ojo con el ingreso mínimo"
           }
         }
       }
@@ -4149,6 +4989,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Montaña"
+          }
+        }
+      }
+    },
+    "Mountain access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acceso a montaña"
           }
         }
       }
@@ -4533,6 +5383,16 @@
         }
       }
     },
+    "On pace": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vas a buen ritmo"
+          }
+        }
+      }
+    },
     "One or more required rules failed. Check the workaround notes above — some failed rules have court-petition paths that still work.": {
       "localizations": {
         "es": {
@@ -4593,6 +5453,36 @@
         }
       }
     },
+    "Open Cost Calculator": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir calculadora de costos"
+          }
+        }
+      }
+    },
+    "Open Decision Tree in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir árbol de decisión"
+          }
+        }
+      }
+    },
+    "Open Documents in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir documentos"
+          }
+        }
+      }
+    },
     "Open Official — %@": {
       "localizations": {
         "es": {
@@ -4609,6 +5499,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Abre la Calculadora de costos cuando quieras para compararlo con tu estilo de vida mensual estimado."
+          }
+        }
+      }
+    },
+    "Open vault": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir documentos"
+          }
+        }
+      }
+    },
+    "Open Visa Wizard": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir asistente de visa"
+          }
+        }
+      }
+    },
+    "Open Visa Wizard in app": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir asistente de visa"
           }
         }
       }
@@ -4659,6 +5579,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Otros archivos"
+          }
+        }
+      }
+    },
+    "Pace check": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisa tu ritmo"
           }
         }
       }
@@ -4789,6 +5719,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Elige lo que se parece a tu situación y te llevamos directo a la herramienta correcta."
+          }
+        }
+      }
+    },
+    "Pick your visa path": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Elige tu ruta de visa"
           }
         }
       }
@@ -5203,6 +6143,16 @@
         }
       }
     },
+    "Remote work friendly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ideal para trabajo remoto"
+          }
+        }
+      }
+    },
     "Remove": {
       "localizations": {
         "es": {
@@ -5413,6 +6363,16 @@
         }
       }
     },
+    "Retiree-friendly": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ideal para jubilados"
+          }
+        }
+      }
+    },
     "Rights & Safety": {
       "localizations": {
         "es": {
@@ -5429,6 +6389,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Las reglas están cambiando: verifica antes de empezar"
+          }
+        }
+      }
+    },
+    "Run the Cost Calculator so we can compare your budget to the income your visa requires.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa la calculadora de costos para comparar tu presupuesto con los ingresos que pide tu visa."
+          }
+        }
+      }
+    },
+    "Safe for kids": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguro para niños"
           }
         }
       }
@@ -5603,6 +6583,16 @@
         }
       }
     },
+    "See documents": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver documentos"
+          }
+        }
+      }
+    },
     "See plans and bundles": {
       "localizations": {
         "es": {
@@ -5683,6 +6673,26 @@
         }
       }
     },
+    "Self-ID gender recognition + care access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autodeterminación de género + acceso a atención"
+          }
+        }
+      }
+    },
+    "Self-ID recognition (care waits long)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autodeterminación de género (esperas largas)"
+          }
+        }
+      }
+    },
     "Senior (60+)": {
       "localizations": {
         "es": {
@@ -5699,6 +6709,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Fijar"
+          }
+        }
+      }
+    },
+    "Set a target move date": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fija tu fecha de mudanza"
           }
         }
       }
@@ -6005,6 +7025,66 @@
         }
       }
     },
+    "Strong accessibility law": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ley de accesibilidad sólida"
+          }
+        }
+      }
+    },
+    "Strong expat community": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuerte comunidad de expatriados"
+          }
+        }
+      }
+    },
+    "Strong LGBTQ+ protections": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Protecciones LGBTQ+ sólidas"
+          }
+        }
+      }
+    },
+    "Strong maternity care": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buena atención de maternidad"
+          }
+        }
+      }
+    },
+    "Strong public healthcare": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buena salud pública"
+          }
+        }
+      }
+    },
+    "Strong public transit": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buen transporte público"
+          }
+        }
+      }
+    },
     "Studio": {
       "localizations": {
         "es": {
@@ -6185,6 +7265,16 @@
         }
       }
     },
+    "Tech hub": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Polo tecnológico"
+          }
+        }
+      }
+    },
     "Tell me about your situation.": {
       "localizations": {
         "es": {
@@ -6225,6 +7315,16 @@
         }
       }
     },
+    "Temperate climate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clima templado"
+          }
+        }
+      }
+    },
     "Temporary resident visa guides, tasks, and resources": {
       "localizations": {
         "es": {
@@ -6251,6 +7351,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Eso no parece un documento oficial"
+          }
+        }
+      }
+    },
+    "The %@ asks you to prove €%@/mo%@. Your budget estimate is €%@/mo, which is €%@/mo under the bar you must document.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La %1$@ te pide demostrar €%2$@/mes%3$@. Tu presupuesto estimado es €%4$@/mes, €%5$@/mes por debajo del mínimo que debes comprobar."
           }
         }
       }
@@ -6405,6 +7515,26 @@
         }
       }
     },
+    "Top retiree healthcare & climate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Salud y clima ideales para jubilados"
+          }
+        }
+      }
+    },
+    "Top-tier hospitals": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hospitales de primer nivel"
+          }
+        }
+      }
+    },
     "Total": {
       "localizations": {
         "es": {
@@ -6421,6 +7551,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Turismo"
+          }
+        }
+      }
+    },
+    "Tourism-oriented": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Orientado al turismo"
+          }
+        }
+      }
+    },
+    "Trans recognition varies by region": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El reconocimiento trans varía por región"
           }
         }
       }
@@ -6515,12 +7665,32 @@
         }
       }
     },
+    "UK (Ancestry)": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reino Unido (ascendencia)"
+          }
+        }
+      }
+    },
     "Unavailable right now": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "No disponible por ahora"
+          }
+        }
+      }
+    },
+    "Understand the requirement": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entender el requisito"
           }
         }
       }
@@ -6665,6 +7835,16 @@
         }
       }
     },
+    "Update your timeline": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualiza tu calendario"
+          }
+        }
+      }
+    },
     "Upgrade": {
       "localizations": {
         "es": {
@@ -6745,12 +7925,32 @@
         }
       }
     },
+    "US totalization agreement": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acuerdo de totalización con EE. UU."
+          }
+        }
+      }
+    },
     "Utilities": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
             "value": "Servicios"
+          }
+        }
+      }
+    },
+    "VA FMP coverage available": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cobertura VA FMP disponible"
           }
         }
       }
@@ -6771,6 +7971,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Estado de la bóveda"
+          }
+        }
+      }
+    },
+    "Very safe": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muy seguro"
           }
         }
       }
@@ -6821,6 +8031,16 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ver mapa"
+          }
+        }
+      }
+    },
+    "View your tasks": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ver tus tareas"
           }
         }
       }
@@ -6915,7 +8135,27 @@
         }
       }
     },
+    "Walkable — lower sensory load": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Caminable, menos carga sensorial"
+          }
+        }
+      }
+    },
     "Warm & Coastal": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cálido y costero"
+          }
+        }
+      }
+    },
+    "Warm & coastal": {
       "localizations": {
         "es": {
           "stringUnit": {
@@ -7225,6 +8465,66 @@
         }
       }
     },
+    "You're tracking %lld cita targets%@. Tap to open the portal and check now.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You're tracking %1$#@targets@%2$@. Tap to open the portal and check now."
+          },
+          "substitutions": {
+            "targets": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg cita target"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg cita targets"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sigues %1$#@targets@%2$@. Toca para abrir el portal y revisar ahora."
+          },
+          "substitutions": {
+            "targets": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg cita"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg citas"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "You're well-prepared": {
       "localizations": {
         "es": {
@@ -7275,6 +8575,16 @@
         }
       }
     },
+    "Your %@ cost estimate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu estimado de costos en %@"
+          }
+        }
+      }
+    },
     "Your %@ Move Plan": {
       "localizations": {
         "es": {
@@ -7311,6 +8621,36 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu plan de mudanza a Argentina"
+          }
+        }
+      }
+    },
+    "Your cost estimate": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu estimado de costos"
+          }
+        }
+      }
+    },
+    "your country": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tu país"
+          }
+        }
+      }
+    },
+    "your destination": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "tu destino"
           }
         }
       }
@@ -7485,6 +8825,216 @@
         }
       }
     },
+    "Your target is %lld days away and your current pace finishes the remaining tasks in ~%lld weeks. Nicely ahead.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your target is %1$#@days@ away and your current pace finishes the remaining tasks in ~%2$#@weeks@. Nicely ahead."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg day"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg days"
+                    }
+                  }
+                }
+              }
+            },
+            "weeks": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg week"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg weeks"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faltan %1$#@days@ para tu fecha y a tu ritmo terminas las tareas pendientes en ~%2$#@weeks@. Vas adelantado."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg día"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg días"
+                    }
+                  }
+                }
+              }
+            },
+            "weeks": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg semana"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg semanas"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Your target is %lld days away. At your current pace you'll finish in ~%lld weeks. Pick up a few tasks to stay on track.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your target is %1$#@days@ away. At your current pace you'll finish in ~%2$#@weeks@. Pick up a few tasks to stay on track."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg day"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg days"
+                    }
+                  }
+                }
+              }
+            },
+            "weeks": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg week"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg weeks"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Faltan %1$#@days@ para tu fecha. A tu ritmo actual terminarás en ~%2$#@weeks@. Avanza algunas tareas para no atrasarte."
+          },
+          "substitutions": {
+            "days": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg día"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg días"
+                    }
+                  }
+                }
+              }
+            },
+            "weeks": {
+              "argNum": 2,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg semana"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg semanas"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Your target move date has passed. Set a new one to re-pace your checklist.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu fecha de mudanza ya pasó. Fija una nueva para reorganizar tu lista."
+          }
+        }
+      }
+    },
     "Your Top Destinations": {
       "localizations": {
         "es": {
@@ -7501,6 +9051,66 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tu plan UK Ancestry"
+          }
+        }
+      }
+    },
+    "Your visa checklist has %lld documents not yet uploaded.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your visa checklist has %#@docs@ not yet uploaded."
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg document"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documents"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu lista de visa tiene %#@docs@ sin subir."
+          },
+          "substitutions": {
+            "docs": {
+              "argNum": 1,
+              "formatSpecifier": "lld",
+              "variations": {
+                "plural": {
+                  "one": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documento"
+                    }
+                  },
+                  "other": {
+                    "stringUnit": {
+                      "state": "translated",
+                      "value": "%arg documentos"
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

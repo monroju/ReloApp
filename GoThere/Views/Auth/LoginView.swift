@@ -145,8 +145,8 @@ struct LoginView: View {
                     withAnimation { vm.isSignUpMode.toggle() }
                 } label: {
                     Text(vm.isSignUpMode
-                         ? "Already have an account? Log In"
-                         : "Don't have an account? Sign Up")
+                         ? String(localized: "Already have an account? Log In")
+                         : String(localized: "Don't have an account? Sign Up"))
                         .font(.system(size: 14))
                         .foregroundColor(.goPrimary)
                 }

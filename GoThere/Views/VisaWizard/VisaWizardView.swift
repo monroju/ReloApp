@@ -78,7 +78,7 @@ struct VisaWizardView: View {
                     .font(.title2.bold())
                     .foregroundColor(.goPrimary)
 
-                let countryName = DestinationConfig.getDestination(countryId)?.name ?? "Spain"
+                let countryName = DestinationConfig.getDestination(countryId)?.displayName ?? "Spain"
                 Text("Select the visa type you're pursuing in \(countryName). We'll create a personalized step-by-step checklist.")
                     .font(.body)
                     .foregroundColor(.secondary)
