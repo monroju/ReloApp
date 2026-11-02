@@ -11,6 +11,7 @@ final class CountrySelection: ObservableObject {
     @Published var current: String {
         didSet {
             UserDefaults.standard.set(current, forKey: Self.storageKey)
+            PushNotificationService.shared.syncRuleAlertTopic(for: current)
         }
     }
 

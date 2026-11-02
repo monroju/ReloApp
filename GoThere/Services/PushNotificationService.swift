@@ -26,6 +26,7 @@ final class PushNotificationService: NSObject {
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
                 self.subscribeToUSPolicyAlertsIfNeeded()
+                self.syncRuleAlertTopicForSelection()
             }
         }
     }
@@ -38,6 +39,44 @@ final class PushNotificationService: NSObject {
                 defaults.set(true, forKey: Self.subscribedKey)
             }
         }
+    }
+
+    // MARK: Rule-change alerts per destination
+
+    /// Destinations with verified rule-change alerts. Topic is `rules_<code>`;
+    /// the sender is shared/alerts/alerts.py in the parent repo.
+    static let ruleAlertCodes: [String: String] = [
+        DestinationConfig.spain: "es", DestinationConfig.portugal: "pt",
+        DestinationConfig.ireland: "ie", DestinationConfig.italy: "it",
+        DestinationConfig.mexico: "mx",
+    ]
+    private static let ruleTopicKey = "fcm_rule_alert_topic"
+
+    static func ruleAlertTopic(for countryId: String) -> String? {
+        ruleAlertCodes[countryId].map { "rules_\($0)" }
+    }
+
+    /// Keep exactly one `rules_<code>` topic, matching the selected destination.
+    /// Only acts once the user has opted in to notifications, so it never prompts.
+    func syncRuleAlertTopic(for countryId: String) {
+        let defaults = UserDefaults.standard
+        guard defaults.bool(forKey: Self.subscribedKey) else { return }
+        let wanted = Self.ruleAlertTopic(for: countryId)
+        let current = defaults.string(forKey: Self.ruleTopicKey)
+        guard wanted != current else { return }
+        if let current {
+            Messaging.messaging().unsubscribe(fromTopic: current)
+            defaults.removeObject(forKey: Self.ruleTopicKey)
+        }
+        guard let wanted else { return }
+        Messaging.messaging().subscribe(toTopic: wanted) { error in
+            if error == nil { defaults.set(wanted, forKey: Self.ruleTopicKey) }
+        }
+    }
+
+    private func syncRuleAlertTopicForSelection() {
+        let id = UserDefaults.standard.string(forKey: "selectedCountryId") ?? DestinationConfig.spain
+        syncRuleAlertTopic(for: id)
     }
 }
 
@@ -52,5 +91,6 @@ extension PushNotificationService: UNUserNotificationCenterDelegate {
 extension PushNotificationService: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         subscribeToUSPolicyAlertsIfNeeded()
+        syncRuleAlertTopicForSelection()
     }
 }
