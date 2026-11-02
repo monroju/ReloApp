@@ -26,7 +26,7 @@ struct DestinationsView: View {
                                 .font(.largeTitle)
                             VStack(alignment: .leading) {
                                 HStack {
-                                    Text(dest.name)
+                                    Text(dest.displayName)
                                         .font(.title2.bold())
                                     if !isUnlocked {
                                         Image(systemName: "lock.fill")
@@ -99,11 +99,11 @@ struct DestinationsView: View {
                                 // preview's bundle CTA.
                                 lockedCountryPreview = LockedCountryDescriptor(
                                     id: dest.id,
-                                    name: dest.name,
+                                    name: dest.displayName,
                                     flag: dest.flagEmoji
                                 )
                             } label: {
-                                Label("Unlock \(dest.name)", systemImage: "lock.open.fill")
+                                Label("Unlock \(dest.displayName)", systemImage: "lock.open.fill")
                                     .font(.subheadline.bold())
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 10)

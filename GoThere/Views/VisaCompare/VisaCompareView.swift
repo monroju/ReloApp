@@ -128,7 +128,7 @@ struct VisaCompareView: View {
                     }
                     ForEach(DestinationConfig.allDestinations) { dest in
                         chipButton(
-                            title: "\(dest.flagEmoji) \(dest.name)",
+                            title: "\(dest.flagEmoji) \(dest.displayName)",
                             isSelected: selectedCountryFilter == dest.id
                         ) {
                             selectedCountryFilter = (selectedCountryFilter == dest.id) ? nil : dest.id

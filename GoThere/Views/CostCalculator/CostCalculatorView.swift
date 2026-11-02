@@ -56,7 +56,7 @@ struct CostCalculatorView: View {
                         .foregroundColor(.secondary)
                     Menu {
                         ForEach(DestinationConfig.allDestinations) { dest in
-                            Section(dest.name) {
+                            Section(dest.displayName) {
                                 ForEach(CostDatabase.cities(for: dest.id)) { city in
                                     Button {
                                         selectedCountry = dest.id

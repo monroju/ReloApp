@@ -74,13 +74,13 @@ struct GoThereTopBar: ViewModifier {
                     if isUnlocked {
                         countrySelection.current = dest.id
                     } else {
-                        lockedCountry = LockedCountry(id: dest.id, name: dest.name, flag: dest.flagEmoji)
+                        lockedCountry = LockedCountry(id: dest.id, name: dest.displayName, flag: dest.flagEmoji)
                     }
                 } label: {
                     if isUnlocked {
-                        Text("\(dest.flagEmoji) \(dest.name)")
+                        Text("\(dest.flagEmoji) \(dest.displayName)")
                     } else {
-                        Label("\(dest.flagEmoji) \(dest.name)", systemImage: "lock.fill")
+                        Label("\(dest.flagEmoji) \(dest.displayName)", systemImage: "lock.fill")
                     }
                 }
             }
@@ -109,7 +109,7 @@ struct GoThereTopBar: ViewModifier {
     }
 
     private func nameForCountry(_ id: String) -> String {
-        DestinationConfig.getDestination(id)?.name ?? "Spain"
+        DestinationConfig.getDestination(id)?.displayName ?? "Spain"
     }
 }
 

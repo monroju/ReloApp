@@ -90,7 +90,7 @@ struct CareContinuityView: View {
                         Button {
                             countryId = dest.id
                         } label: {
-                            Text("\(dest.flagEmoji) \(dest.name)")
+                            Text("\(dest.flagEmoji) \(dest.displayName)")
                                 .font(.caption)
                                 .padding(.horizontal, 12).padding(.vertical, 6)
                                 .background(isOn ? Color.goPrimary.opacity(0.15) : Color.secondary.opacity(0.1))

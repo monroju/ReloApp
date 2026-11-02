@@ -844,7 +844,7 @@ struct ResourcesView: View {
     }
 
     private var countryName: String {
-        DestinationConfig.getDestination(countrySelection.current)?.name ?? "Spain"
+        DestinationConfig.getDestination(countrySelection.current)?.displayName ?? "Spain"
     }
 
     private var countryFlag: String {

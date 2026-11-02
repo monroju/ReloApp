@@ -160,7 +160,7 @@ struct HomeView: View {
                         }
                     } label: {
                         HStack {
-                            Text("\(dest.flagEmoji) \(dest.name)")
+                            Text("\(dest.flagEmoji) \(dest.displayName)")
                             if !isUnlocked {
                                 Image(systemName: "lock.fill")
                             }

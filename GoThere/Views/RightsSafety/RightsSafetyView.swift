@@ -94,7 +94,7 @@ struct RightsSafetyView: View {
                 if let note = CountrySafetyProfiles.profile(for: dest.id)?
                     .note(for: c, householdIsSingleParent: false) {
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("\(dest.flagEmoji) \(dest.name)")
+                        Text("\(dest.flagEmoji) \(dest.displayName)")
                             .font(.caption.bold()).foregroundColor(.primary)
                         Text(note).font(.caption).foregroundColor(.secondary)
                             .fixedSize(horizontal: false, vertical: true)

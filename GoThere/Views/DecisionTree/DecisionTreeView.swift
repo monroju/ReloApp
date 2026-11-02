@@ -340,7 +340,7 @@ struct DecisionTreeView: View {
                 if !item.reasons.isEmpty {
                     FlowLayout(spacing: 6) {
                         ForEach(item.reasons.prefix(3), id: \.self) { reason in
-                            Text(reason)
+                            Text(reason.uiLocalized)
                                 .font(.caption)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 4)
@@ -425,7 +425,7 @@ struct DecisionTreeView: View {
             if !ranked.reasons.isEmpty {
                 FlowLayout(spacing: 6) {
                     ForEach(ranked.reasons, id: \.self) { reason in
-                        Text(reason)
+                        Text(reason.uiLocalized)
                             .font(.caption)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 4)
@@ -473,7 +473,7 @@ struct DecisionTreeView: View {
     // MARK: - Helpers
 
     private var countryName: String {
-        DestinationConfig.getDestination(vm.profile.countryId)?.name ?? "Spain"
+        DestinationConfig.getDestination(vm.profile.countryId)?.displayName ?? "Spain"
     }
 
     private func sectionHeader(_ title: LocalizedStringKey) -> some View {

@@ -48,7 +48,7 @@ final class CoPilotViewModel: ObservableObject {
         var s = UserMoveState()
 
         // Visa + country
-        s.selectedCountryName = DestinationConfig.getDestination(destRepo.activeDestinationId)?.name
+        s.selectedCountryName = DestinationConfig.getDestination(destRepo.activeDestinationId)?.displayName
         s.selectedVisa = VisaCatalog.all.first { $0.wizardTrackId == destRepo.activeVisaTrackId }
 
         // Calculator / target / household
