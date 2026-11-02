@@ -40,13 +40,78 @@ final class StoreScreenshotTests: XCTestCase {
             capture(app, lang, 1, "after_guest")
         }
 
-        let routes = ["tasks", "calendar", "documents", "resources", "decision", "wizard"]
-        for (i, route) in routes.enumerated() {
-            if let url = URL(string: "gothere://\(route)") {
-                app.open(url)
+        // Home (Tasks tab) flows. Deep links relaunch the app and drop the guest
+        // session, so everything below is driven by taps.
+        capture(app, lang, 10, "tasks")
+        openAndCapture(app, lang, 20, "copilot", label: ["copiloto", "copilot"])
+        openAndCapture(app, lang, 30, "wizard", label: ["Visa Wizard", "Asistente de visa"], steps: 4)
+        openAndCapture(app, lang, 40, "compare", label: ["Compare Spain", "Comparar"])
+        openAndCapture(app, lang, 50, "paywall", label: ["Mejorar plan", "Upgrade"])
+
+        let tabs = app.tabBars.buttons
+        for (i, name) in ["calendar", "documents", "resources", "decision"].enumerated() {
+            let tab = tabs.element(boundBy: i + 1)
+            guard tab.waitForExistence(timeout: 5) else { continue }
+            tab.tap()
+            sleep(2)
+            capture(app, lang, 60 + i * 10, name)
+            if name == "decision" {
+                // Walk the Decide flow: tap the first option on each screen.
+                for step in 1...6 {
+                    let option = app.buttons.allElementsBoundByIndex.first {
+                        $0.isHittable && $0.frame.minY > 250 && $0.frame.maxY < app.frame.maxY - 120
+                    }
+                    guard let option else { break }
+                    option.tap()
+                    sleep(2)
+                    capture(app, lang, 90 + step, "decision_step")
+                }
             }
-            sleep(3)
-            capture(app, lang, 10 + i, route)
+        }
+    }
+
+    /// Tap the first button whose label contains any of `label`, capture the result
+    /// (plus `steps` more taps on the primary/next button), then dismiss.
+    private func openAndCapture(_ app: XCUIApplication, _ lang: String, _ n: Int, _ name: String,
+                                label: [String], steps: Int = 0) {
+        let tasksTab = app.tabBars.buttons.element(boundBy: 0)
+        if tasksTab.exists { tasksTab.tap() }
+        let pred = NSPredicate(format: label.map { _ in "label CONTAINS[c] %@" }.joined(separator: " OR "),
+                               argumentArray: label)
+        let button = app.buttons.matching(pred).firstMatch
+        guard button.waitForExistence(timeout: 5) else {
+            capture(app, lang, n, name + "_NOTFOUND")
+            return
+        }
+        button.tap()
+        sleep(2)
+        capture(app, lang, n, name)
+        if steps > 0 {
+            let nextPred = NSPredicate(format:
+                "label CONTAINS[c] 'next' OR label CONTAINS[c] 'siguiente' OR label CONTAINS[c] 'continu' OR label CONTAINS[c] 'start' OR label CONTAINS[c] 'empezar' OR label CONTAINS[c] 'comenzar'")
+            for step in 1...steps {
+                // Pick the first visible answer, then advance.
+                let answer = app.buttons.allElementsBoundByIndex.first {
+                    $0.isHittable && $0.frame.minY > 300 && $0.frame.maxY < app.frame.maxY - 200
+                }
+                answer?.tap()
+                let next = app.buttons.matching(nextPred).firstMatch
+                if next.exists && next.isHittable { next.tap() }
+                sleep(2)
+                capture(app, lang, n + step, name)
+            }
+        }
+        dismiss(app)
+    }
+
+    private func dismiss(_ app: XCUIApplication) {
+        for _ in 0..<3 {
+            let close = app.buttons.matching(NSPredicate(format:
+                "label IN {'Close','Cerrar','Done','Listo','Cancel','Cancelar','Atrás','Back'}")).firstMatch
+            if close.exists && close.isHittable { close.tap(); sleep(1); continue }
+            if app.tabBars.firstMatch.isHittable { return }
+            app.swipeDown(velocity: .fast)
+            sleep(1)
         }
     }
 
