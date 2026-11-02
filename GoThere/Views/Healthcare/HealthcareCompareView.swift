@@ -63,7 +63,7 @@ struct HealthcareCompareView: View {
                     Button {
                         countryId = p.countryId
                     } label: {
-                        Text("\(p.flag) \(p.name)")
+                        Text("\(p.flag) \(DestinationCountry.displayName(for: p.countryId, fallback: p.name))")
                             .font(.caption)
                             .padding(.horizontal, 12).padding(.vertical, 6)
                             .background(countryId == p.countryId ? Color.goPrimary.opacity(0.15) : Color.secondary.opacity(0.1))
