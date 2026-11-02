@@ -709,7 +709,7 @@ def build_llms(built):
               "", "## Tools", "",
               f"- [Citizenship by descent checker]({SITE}/tools/citizenship-by-descent/): web form over the same rules, Ireland and Canada",
               f"- [Visa income calculator]({SITE}/tools/visa-income-calculator/): your income against every verified visa threshold, ECB exchange rates",
-              f"- [Citizenship by descent MCP server]({SITE}/mcp): deterministic eligibility checks for Ireland and Canada (MCP Registry: app.getgothere/citizenship)",
+              f"- [Use GoThere in AI assistants]({SITE}/ai/): MCP server at {SITE}/mcp with visa options, move checklists, rule changes and citizenship by descent checks (MCP Registry: app.getgothere/citizenship)",
               "", "## Optional", "",
               f"- [Blog]({SITE}/blog/): long-form visa guides",
               f"- [Safe Harbor Index]({SITE}/safe-harbor/): destination safety for specific groups", ""]
