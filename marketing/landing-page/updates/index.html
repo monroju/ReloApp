@@ -123,6 +123,32 @@
       <p>The 2025 visa guidelines (DOF 25 July 2025) set solvency in days of UMA: temporary residence 680 days monthly income (MXN 79,770.80) or 11,460 days savings; permanent (pension) 1,140 days (MXN 133,733.40) or 45,850 days. INM card fees for 2026: MXN 11,140.74 (temporary, 1 year), MXN 13,578.96 (permanent).</p>
       <p class="diff">Was: <del>Temp ~$4,300/mo, Perm ~$5,300/mo</del> &rarr; Now: <ins>Temp MXN 79,771/mo, Perm MXN 133,733/mo</ins> <a class="src" href="https://consulmex.sre.gob.mx/houston/images/lineamientos-visas-25-jul-2025.pdf" rel="nofollow noopener" target="_blank">[official source]</a> &middot; <a href="/move/us-to-mx/">US to Mexico guide</a></p>
     </div>
+    <form class="alert-form answer" novalidate>
+      <h3>Get an email when the rules change</h3>
+      <p class="alert-countries"><label><input type="checkbox" name="list" value="b2fab118-91ec-4f35-934e-2bde4c229cac"> Spain</label> <label><input type="checkbox" name="list" value="88ae1a71-eab0-4ba8-8044-78ccca04c960"> Portugal</label> <label><input type="checkbox" name="list" value="551246aa-6e9f-44b2-9d15-17ecbe4a8377"> Ireland</label> <label><input type="checkbox" name="list" value="96d71316-70eb-4af3-a8f7-96f22cc29432"> Italy</label> <label><input type="checkbox" name="list" value="5b7633c4-1885-472a-8add-17b982a9d621"> Mexico</label></p>
+      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> <button type="submit">Notify me</button></p>
+      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>
+      <p class="alert-status" role="status" aria-live="polite"></p>
+    </form>
+<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
   </main>
   <footer><div class="container"><p>&copy; 2026 GoThere &middot; <a href="/">Home</a> &middot; <a href="/move/">Move abroad</a> &middot; <a href="/compare/">Compare visas</a> &middot; <a href="/updates/">Rule changes</a> &middot; <a href="/blog/">Blog</a></p>
   <p>GoThere is research, not legal advice. Rules change; confirm with the consulate or a qualified immigration lawyer before you file.</p></div></footer>

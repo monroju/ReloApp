@@ -113,6 +113,32 @@
       <li>See the full <a href="/move/us-to-ie/">US to Ireland guide</a> for every route and step.</li>
       <li>See <a href="/updates/">all recent rule changes</a>.</li>
     </ul>
+    <form class="alert-form answer" novalidate>
+      <h3>Get an email when Ireland rules change</h3>
+      <input type="hidden" name="list" value="551246aa-6e9f-44b2-9d15-17ecbe4a8377">
+      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> <button type="submit">Notify me</button></p>
+      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>
+      <p class="alert-status" role="status" aria-live="polite"></p>
+    </form>
+<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
     <div class="cta-box"><h3>Track your move as the rules change</h3><p>GoThere keeps your checklist, deadlines and documents in one place, with every requirement sourced.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=move_rule_ie&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dmove%26utm_medium%3Dorganic%26utm_campaign%3Drule_ie">Get on Google Play</a></div></div>
   </main>
   <footer><div class="container"><p>&copy; 2026 GoThere &middot; <a href="/">Home</a> &middot; <a href="/move/">Move abroad</a> &middot; <a href="/compare/">Compare visas</a> &middot; <a href="/updates/">Rule changes</a> &middot; <a href="/blog/">Blog</a></p>
