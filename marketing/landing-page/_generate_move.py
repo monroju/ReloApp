@@ -96,6 +96,9 @@ EXTRA_CSS = """
     .change { border-bottom:1px solid var(--border); padding:18px 0; }
     .change h2 { font-size:20px; margin:8px 0; }
     .diff { font-size:14px; } .diff del { color:#f87171; } .diff ins { color:var(--teal); text-decoration:none; }
+    .alert-form h3 { margin:0 0 8px; } .alert-form input[type=email] { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg); color:var(--text); min-width:240px; }
+    .alert-form button { padding:10px 16px; border-radius:8px; border:0; background:var(--teal); color:#0B0F14; font-weight:600; cursor:pointer; }
+    .alert-countries label { margin-right:14px; white-space:nowrap; } .alert-status { font-size:13px; color:var(--teal); min-height:18px; }
     @media (max-width:600px){ dl.facts{grid-template-columns:1fr;} dl.facts dt{margin-top:8px;} }
 """
 
@@ -238,6 +241,57 @@ def cta(campaign, heading, sub):
     apple, play = store_links(campaign)
     return (f'    <div class="cta-box"><h3>{heading}</h3><p>{sub}</p><div class="cta-buttons">'
             f'<a href="{apple}">Download for iOS</a><a href="{play}">Get on Google Play</a></div></div>\n')
+
+
+# ---------- rule-change alert sign-up (E13) ----------
+# Renders only for countries whose Listmonk list exists (shared/alerts/lists.json,
+# filled by `alerts.py setup-lists --apply`). Posts to Listmonk's public API on the
+# same origin; the lists are double opt-in, so Listmonk sends the confirmation.
+
+ALERT_LISTS = (json.loads((PROJECT / "shared" / "alerts" / "lists.json").read_text(encoding="utf-8"))
+               if (PROJECT / "shared" / "alerts" / "lists.json").exists() else {})
+
+ALERT_JS = """<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
+"""
+
+
+def alert_form(ccs, heading=None):
+    ccs = [cc for cc in ccs if (ALERT_LISTS.get(cc) or {}).get("uuid")]
+    if not ccs:
+        return ""
+    names = {cc: COUNTRIES[cc]["name"] for cc in ccs if cc in COUNTRIES}
+    heading = heading or (f"Get an email when {names[ccs[0]]} rules change" if len(ccs) == 1
+                          else "Get an email when the rules change")
+    out = f'    <form class="alert-form answer" novalidate>\n      <h3>{esc(heading)}</h3>\n'
+    if len(ccs) == 1:
+        out += f'      <input type="hidden" name="list" value="{esc(ALERT_LISTS[ccs[0]]["uuid"])}">\n'
+    else:
+        out += '      <p class="alert-countries">' + " ".join(
+            f'<label><input type="checkbox" name="list" value="{esc(ALERT_LISTS[cc]["uuid"])}"> {esc(names[cc])}</label>'
+            for cc in ccs) + "</p>\n"
+    out += ('      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> '
+            '<button type="submit">Notify me</button></p>\n'
+            '      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>\n'
+            '      <p class="alert-status" role="status" aria-live="polite"></p>\n    </form>\n' + ALERT_JS)
+    return out
 
 
 def og_image(slug, country):
@@ -392,6 +446,7 @@ def build_country(cc, c):
         body += f'      <li><a href="{href}">{label}</a></li>\n'
     body += '      <li><a href="/updates/">Recent rule changes</a></li>\n'
     body += f'      <li><a href="/api/countries/{c["slug"]}.json">This data as JSON</a></li>\n    </ul>\n'
+    body += alert_form([cc])
     body += cta(slug, f"Plan your move to {c['name']}",
                 "GoThere checks your income and family against each route, then tracks every document and deadline for the one you pick.")
 
@@ -553,6 +608,7 @@ def build_change_pages():
         if move:
             body += f'      <li>See the full <a href="{move}">US to {esc(country)} guide</a> for every route and step.</li>\n'
         body += '      <li>See <a href="/updates/">all recent rule changes</a>.</li>\n    </ul>\n'
+        body += alert_form([e["country"]])
         body += cta(f"rule_{e['country'].lower()}", "Track your move as the rules change",
                     "GoThere keeps your checklist, deadlines and documents in one place, with every requirement sourced.")
         og = change_og(e, slug)
@@ -593,6 +649,7 @@ def build_updates():
         if move:
             body += f' &middot; <a href="{move}">US to {country} guide</a>'
         body += "</p>\n    </div>\n"
+    body += alert_form(list(COUNTRIES))
     schema = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Visa and residency rule changes",
                "url": SITE + "/updates/", "dateModified": CHANGELOG[0]["date"] if CHANGELOG else PUBLISHED}]
     page("/updates/", "Visa Rule Changes for Americans Moving Abroad (2026)",
