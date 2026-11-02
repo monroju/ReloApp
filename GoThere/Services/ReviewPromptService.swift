@@ -23,6 +23,8 @@ enum ReviewPromptService {
     }
 
     private static func requestIfEligible(_ milestone: ReviewMilestone) {
+        // CI store screenshots: never cover the screen with the rating sheet.
+        if ProcessInfo.processInfo.arguments.contains("-GTScreenshots") { return }
         let defaults = UserDefaults.standard
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         if defaults.string(forKey: promptedThisVersionKey) == version { return }
