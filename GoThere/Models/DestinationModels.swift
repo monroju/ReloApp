@@ -42,6 +42,11 @@ extension DestinationCountry {
         "italy": "IT", "germany": "DE", "poland": "PL", "argentina": "AR", "hungary": "HU",
     ]
 
+    /// Same as `displayName`, for views that carry only a country id (cost, family, health data).
+    static func displayName(for countryId: String, fallback: String) -> String {
+        DestinationConfig.getDestination(countryId)?.displayName ?? fallback
+    }
+
     /// Country name in the app's UI language ("España" in Spanish). `name` stays English
     /// because it feeds data, seeds and analytics.
     var displayName: String {
