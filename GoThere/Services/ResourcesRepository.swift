@@ -143,7 +143,7 @@ final class ResourcesRepository: ObservableObject {
             ]
         case "hungary":
             return [
-                ResourceItem(name: "Simplified_Naturalization_Application_Form.pdf", path: "VisaForms/hungary/Simplified_Naturalization_Application_Form.pdf", sizeBytes: 235_000, downloadUrl: "https://allampolgarsag.gov.hu/letoltheto-dokumentumok", category: "VisaForms"),
+                ResourceItem(name: "Simplified_Naturalization_Application_Form.pdf", path: "VisaForms/hungary/Simplified_Naturalization_Application_Form.pdf", sizeBytes: 235_000, downloadUrl: "https://newyork.mfa.gov.hu/en/simplified-naturalization", category: "VisaForms"),
                 ResourceItem(name: "Hungarian_Ancestor_Records_Guide.pdf", path: "Resources/hungary/Hungarian_Ancestor_Records_Guide.pdf", sizeBytes: 185_000, downloadUrl: "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary", category: "Resources"),
                 ResourceItem(name: "OFFI_Translation_Process_Guide.pdf", path: "Resources/hungary/OFFI_Translation_Process_Guide.pdf", sizeBytes: 155_000, downloadUrl: "https://www.offi.hu/", category: "Resources"),
                 ResourceItem(name: "Hungarian_Language_Interview_Prep.pdf", path: "Resources/hungary/Hungarian_Language_Interview_Prep.pdf", sizeBytes: 175_000, downloadUrl: "https://newyork.balassiintezet.hu/en/", category: "Resources"),

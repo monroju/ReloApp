@@ -815,7 +815,7 @@ enum VisaCatalog {
             costEstimate: "Free",
             pros: ["No residency requirement", "Children eligible", "Free application"],
             cons: ["Must show Hungarian ancestor + basic conversational Hungarian", "Embassy backlog 6-12mo", "Documentation rigorous"],
-            officialUrl: "https://allampolgarsag.gov.hu/",
+            officialUrl: "https://newyork.mfa.gov.hu/en/simplified-naturalization",
             wizardTrackId: nil
         ),
         VisaInfo(

@@ -115,7 +115,7 @@
         "Certified German translations of all US documents"
       ],
       "lowIncomeNotes": "Filing fee is €0 (zero) for StAG §5 cases. Only out-of-pocket is translation + apostille. German consulates in the US handle the entire process by mail. After approval, full access to German public healthcare + Kindergeld (€250/child/month) from day 1.",
-      "officialUrl": "https://www.bva.bund.de/EN/Services/Citizens/Citizenship/Restoration/restoration_node.html"
+      "officialUrl": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/Feststellung/01_Informationen_Feststellung/01_02_F_wie_geht_es/01_02_F_wie_geht_es_node.html"
     },
     {
       "id": "poland_confirmation_of_citizenship",
@@ -149,7 +149,7 @@
         "Sworn Polish translations of all foreign documents"
       ],
       "lowIncomeNotes": "Filing fee is ~€60. Archival research is the main cost — Polish State Archives charge per document. Self-research via PRADZIAD database is free if you read Polish or use a translator app. No interview, no travel to Poland required.",
-      "officialUrl": "https://www.gov.pl/web/usa/citizenship-confirmation"
+      "officialUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss"
     },
     {
       "id": "hungary_simplified_naturalization",
@@ -183,7 +183,7 @@
         "Sworn Hungarian translations"
       ],
       "lowIncomeNotes": "No filing fee. Main cost is the language requirement — budget 6–18 months of self-study. Once Hungarian, full EU citizenship including right to relocate to any of 27 EU member states under Schengen rules.",
-      "officialUrl": "https://allampolgarsag.gov.hu/"
+      "officialUrl": "https://newyork.mfa.gov.hu/en/simplified-naturalization"
     }
   ]
 }
