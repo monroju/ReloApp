@@ -503,7 +503,7 @@ enum VisaCatalog {
             costEstimate: "€600+ + research costs",
             pros: ["EU passport without moving", "No language test for descent claims", "Children automatically eligible"],
             cons: ["2025 reform: parent/grandparent with only Italian citizenship (DL 36/2025)", "Consulate backlogs years long", "1948 maternal-line cases need lawsuit"],
-            officialUrl: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/",
+            officialUrl: "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/",
             wizardTrackId: "it_jure_sanguinis"
         ),
         VisaInfo(

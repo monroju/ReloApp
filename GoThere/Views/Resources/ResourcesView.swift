@@ -961,7 +961,7 @@ struct ResourcesView: View {
     private var italyResources: [WebResourceCategory] {
         [
             WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
-                WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis + visa types portal", url: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
+                WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis + visa types portal", url: "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
                 WebResource(id: "vistoperitalia", title: "Visto per l'Italia", description: "Italian visa portal — all national visas", url: "https://vistoperitalia.esteri.it/", type: "official"),
                 WebResource(id: "prenotami", title: "Prenot@mi", description: "Book consulate appointments", url: "https://prenotami.esteri.it/", type: "official"),
                 WebResource(id: "consulates-it", title: "Italian Consulates in USA", description: "Find your assigned consulate", url: "https://www.esteri.it/en/ministero/laministero/lerappresentanze/", type: "official"),
