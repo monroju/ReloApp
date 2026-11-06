@@ -45,14 +45,14 @@
       "documents": [
         "Italian ancestor's birth certificate (estratto dell'atto di nascita) from comune of birth",
         "Italian ancestor's marriage certificate",
-        "Italian ancestor's US naturalisation record (or proof they never naturalised — NARA Form N-565)",
+        "Italian ancestor's US naturalisation record, or proof they never naturalised: USCIS Certificate of Non-Existence (Form G-1566) plus a NARA negative search letter",
         "Every birth + marriage + death certificate in the chain from Italian ancestor down to you",
         "Apostille on every US-issued document",
         "Certified Italian translation of every US document",
         "Your own valid US passport"
       ],
       "lowIncomeNotes": "No income or asset test at any stage. Costs are paperwork only. Many applicants use a 1948-case attorney on contingency. After approval, you can move to Italy and access SSN-equivalent (codice fiscale) + public healthcare immediately.",
-      "officialUrl": "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/"
+      "officialUrl": "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/"
     },
     {
       "id": "ireland_foreign_births_register",

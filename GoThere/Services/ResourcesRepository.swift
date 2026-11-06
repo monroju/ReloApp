@@ -105,7 +105,7 @@ final class ResourcesRepository: ObservableObject {
             ]
         case "italy":
             return [
-                ResourceItem(name: "Jure_Sanguinis_Document_Checklist.pdf", path: "VisaForms/italy/Jure_Sanguinis_Document_Checklist.pdf", sizeBytes: 250_000, downloadUrl: "https://www.esteri.it/en/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", category: "VisaForms"),
+                ResourceItem(name: "Jure_Sanguinis_Document_Checklist.pdf", path: "VisaForms/italy/Jure_Sanguinis_Document_Checklist.pdf", sizeBytes: 250_000, downloadUrl: "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", category: "VisaForms"),
                 ResourceItem(name: "Consulate_Appointment_Booking_Guide.pdf", path: "VisaForms/italy/Consulate_Appointment_Booking_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://prenotami.esteri.it/", category: "VisaForms"),
                 ResourceItem(name: "1948_Case_Court_Route_Guide.pdf", path: "Resources/italy/1948_Case_Court_Route_Guide.pdf", sizeBytes: 195_000, downloadUrl: "https://www.esteri.it/en/", category: "Resources"),
                 ResourceItem(name: "Apostille_and_Sworn_Translation_Guide_IT.pdf", path: "Resources/italy/Apostille_and_Sworn_Translation_Guide_IT.pdf", sizeBytes: 175_000, downloadUrl: "https://www.esteri.it/en/", category: "Resources"),
