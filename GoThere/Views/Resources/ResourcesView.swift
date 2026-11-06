@@ -1090,7 +1090,7 @@ struct ResourcesView: View {
     private var hungaryResources: [WebResourceCategory] {
         [
             WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
-                WebResource(id: "allampolgarsag", title: "Hungarian Citizenship Portal", description: "Simplified naturalization application", url: "https://allampolgarsag.gov.hu/", type: "official"),
+                WebResource(id: "allampolgarsag", title: "Hungarian Citizenship Portal", description: "Simplified naturalization application", url: "https://newyork.mfa.gov.hu/en/simplified-naturalization", type: "official"),
                 WebResource(id: "oif-hu", title: "Office for Immigration (OIF)", description: "D-Visa, White Card, residence permits", url: "https://oif.gov.hu/", type: "official"),
                 WebResource(id: "nemzetikartya", title: "Nemzeti Kártya", description: "Guest Investor + White Card portal", url: "https://nemzetikartya.gov.hu/", type: "official"),
                 WebResource(id: "kormanyablak", title: "Kormányablak (Govt Office)", description: "One-stop government office", url: "https://kormanyablak.hu/en", type: "official"),

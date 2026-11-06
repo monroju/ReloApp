@@ -399,12 +399,12 @@ enum DestinationConfig {
                     "Dual citizenship permitted"
                 ],
                 estimatedProcessingTime: "12–24 months from filing to oath",
-                officialUrl: "https://allampolgarsag.gov.hu/"
+                officialUrl: "https://newyork.mfa.gov.hu/en/simplified-naturalization"
             )
         ],
         defaultVisaTrackId: hungarySimplifiedNaturalization,
         seedVersion: currentSeedVersion,
-        officialImmigrationUrl: "https://allampolgarsag.gov.hu/"
+        officialImmigrationUrl: "https://newyork.mfa.gov.hu/en/simplified-naturalization"
     )
 
     // MARK: - UK Ancestry Visa
