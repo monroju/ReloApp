@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": "2026-10-12",
+  "lastUpdated": "2026-11-06",
   "disclaimer": "Eligibility rules summarised from publicly available consular guidance. Final eligibility is determined by the destination country's consulate or government. This is research, not legal advice — confirm with a qualified immigration lawyer before filing.",
   "paths": [
     {
@@ -9,12 +9,19 @@
       "countryName": "Italy",
       "shortName": "Jure Sanguinis",
       "fullName": "Italian Citizenship by Descent",
-      "summary": "Since 28 March 2025, if you were born abroad and hold another citizenship, Italy only recognizes citizenship by descent if you have a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born. An Italian-born grandparent who later became a US citizen does not count. Applications, booked consulate appointments and court cases filed by 27 March 2025 keep the old rules. Italy's Constitutional Court upheld the law in 2026 (ruling 63/2026).",
-      "lastVerified": "2026-10-12",
-      "legalSource": "Law 91/1992 art. 3-bis (added by Decree-Law 36/2025, converted by Law 74/2025); Corte costituzionale sentenza 63/2026",
+      "summary": "Since 28 March 2025, if you were born abroad and hold another citizenship, Italy only recognizes citizenship by descent if you have a parent or grandparent who has (or had when they died) only Italian citizenship, or a parent who lived in Italy for 2+ continuous years after becoming Italian and before you were born. An Italian-born grandparent who later became a US citizen does not count. Applications, booked consulate appointments and court cases filed by 27 March 2025 keep the old rules. Italy's Constitutional Court upheld the law in 2026 (ruling 63/2026). In July 2026 the Constitutional Court sent a separate question on this rule to the EU Court of Justice (ordinance 147/2026). The rule stays in force while that case is pending.",
+      "lastVerified": "2026-11-06",
+      "legalSource": "Law 91/1992 art. 3-bis (added by Decree-Law 36/2025, converted by Law 74/2025); Corte costituzionale sentenza 63/2026; Corte costituzionale ordinanza 147/2026",
       "incomeRequired": false,
-      "estCostUSD": { "low": 700, "high": 4500, "note": "Document procurement + apostilles + consular fees. Most cost is paperwork hunt, not government fees." },
-      "estTimelineMonths": { "low": 18, "high": 48 },
+      "estCostUSD": {
+        "low": 700,
+        "high": 4500,
+        "note": "Document procurement + apostilles + consular fees. Most cost is paperwork hunt, not government fees."
+      },
+      "estTimelineMonths": {
+        "low": 18,
+        "high": 48
+      },
       "outcome": "Full Italian + EU citizenship + passport. Right to live and work anywhere in the EU/EEA.",
       "eligibilityRules": [
         {
@@ -62,8 +69,15 @@
       "fullName": "Irish Citizenship via Foreign Births Register",
       "summary": "If you have an Irish-born grandparent, you can register on the Foreign Births Register and receive Irish + EU citizenship. The rule stops at grandparent unless your parent registered before you were born.",
       "incomeRequired": false,
-      "estCostUSD": { "low": 450, "high": 900, "note": "€278 FBR fee + document procurement + posting." },
-      "estTimelineMonths": { "low": 12, "high": 30 },
+      "estCostUSD": {
+        "low": 450,
+        "high": 900,
+        "note": "EUR 278 FBR fee for adults (EUR 153 under 18), about EUR 20 per Irish civil certificate, plus postage."
+      },
+      "estTimelineMonths": {
+        "low": 12,
+        "high": 30
+      },
       "outcome": "Full Irish + EU citizenship + passport. Right to live and work anywhere in the EU/EEA + UK.",
       "eligibilityRules": [
         {
@@ -78,44 +92,65 @@
         }
       ],
       "documents": [
-        "Irish grandparent's Irish birth certificate (long form)",
-        "Marriage certificate of grandparent (if applicable)",
-        "Parent's birth certificate",
-        "Parent's marriage certificate (if applicable)",
-        "Your own birth certificate",
-        "Your current valid passport (any nationality)",
-        "Two witnesses to certify the application form"
+        "Foreign Births Register online application, printed, signed and witnessed",
+        "Witness sign off: stamp on the form, 2 signed photos and a certified copy of your ID. The witness must be from a profession on the DFA list and must not be a relative",
+        "Irish-born grandparent's civil birth certificate (original, showing parents)",
+        "Your birth certificate and your parent's birth certificate (original civil, long form showing parents)",
+        "Marriage certificate or change of name document for you, your parent and your grandparent, if they married or changed name",
+        "Certified copy of current photo ID for your parent and grandparent (their death certificate instead if they have died)",
+        "Certified copy of your own current photo ID",
+        "Two separate original proofs of address",
+        "Four colour passport photos (two signed and dated by the witness)",
+        "Great-grandparent line only: your parent's original Foreign Birth Registration certificate, issued before you were born"
       ],
-      "lowIncomeNotes": "No income test. €278 fee is the only government cost. Application is by post — no travel required. Once registered, you can apply for an Irish passport for €80 and move to Ireland (or any EU country) without further immigration paperwork.",
-      "officialUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/"
+      "lowIncomeNotes": "No income test. The FBR fee is EUR 278 for adults (EUR 153 under 18), plus about EUR 20 for each Irish civil certificate. Application is by post, no travel required. DFA processes applications in date order, currently about 12 months. Once registered, you can apply for an Irish passport and move to Ireland (or any EU country) without further immigration paperwork.",
+      "officialUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+      "lastVerified": "2026-11-06",
+      "legalSource": "Irish Nationality and Citizenship Act 1956 (as amended), s.6A and s.7; Act of 1994 s.2"
     },
     {
       "id": "germany_stag",
       "countryId": "germany",
       "countryName": "Germany",
-      "shortName": "StAG §5",
-      "fullName": "German Citizenship Restoration (StAG §5)",
-      "summary": "2021 law restoring German citizenship to descendants of those who lost it due to Nazi-era persecution, gender-discriminatory pre-1975 rules, or post-marriage naturalisation. Broader than people realise — covers descendants of women who lost citizenship by marrying foreigners pre-1953.",
+      "shortName": "Descent / StAG",
+      "fullName": "German Citizenship by Descent (Feststellung, Art. 116, StAG §5 and §15)",
+      "summary": "Three routes. Feststellung: you may already be German by descent, and the Federal Office of Administration (BVA) confirms it. Art. 116(2) of the Basic Law and StAG §15: for descendants of people persecuted between 1933 and 1945. StAG §5 declaration: for people born after 23 May 1949 who did not get German citizenship from a German parent, for example children of a German mother who lost it by marrying a foreigner, and their descendants. The §5 declaration has been open since 20 August 2021 and can only be made within ten years. In October 2026 the BVA reported temporary delays for Art. 116 reviews.",
       "incomeRequired": false,
-      "estCostUSD": { "low": 200, "high": 1200, "note": "Mostly translation + apostille. Filing is free." },
-      "estTimelineMonths": { "low": 12, "high": 36 },
+      "estCostUSD": {
+        "low": 200,
+        "high": 1200,
+        "note": "Feststellung fee EUR 51 (EUR 25 to 51 if refused). Art. 116 and §15 are free; the §5 fee is not yet verified. Most cost is documents and certified copies."
+      },
+      "estTimelineMonths": {
+        "low": 24,
+        "high": 36
+      },
       "outcome": "Full German + EU citizenship + passport. Right to live and work anywhere in the EU/EEA. Does NOT require renouncing US citizenship.",
       "eligibilityRules": [
         {
           "id": "ancestor_persecuted_or_disadvantaged",
-          "label": "You descend from someone who was: (a) persecuted on political, racial, or religious grounds between 1933–1945; OR (b) a German woman who lost citizenship by marrying a foreigner before 1953; OR (c) a child of a German mother + foreign father born before 1975",
-          "required": true
+          "label": "You descend from someone who was: (a) persecuted on political, racial, or religious grounds between 1933 and 1945; OR (b) a German woman who lost citizenship by marrying a foreigner before 1953; OR (c) a German mother whose child with a foreign father was born before 1975; OR (d) a German citizen whose citizenship passed down to you unbroken (Feststellung: you may already be German)",
+          "required": true,
+          "explanation": "(a) uses Art. 116 or §15. (b) and (c) use the §5 declaration, for people born after 23 May 1949, open for ten years from 20 August 2021. (d) uses Feststellung; US missions ask for proof of descent back to an ancestor born in 1914 or earlier."
         }
       ],
       "documents": [
-        "German ancestor's birth certificate (Geburtsurkunde)",
-        "Proof of persecution / marriage record / loss-of-citizenship event",
-        "Marriage + birth certificates connecting ancestor to you",
-        "Your own birth certificate + passport",
-        "Certified German translations of all US documents"
+        "Application form for your route, filled in German: Antrag F (Feststellung), Antrag A (Art. 116), Antrag E15 (§15) or Vordruck EER (§5)",
+        "Ancestor supplement for each generation: Anlage V (Feststellung), Annex VA (Art. 116) or Anlage AV (§15, §5)",
+        "Long form birth certificates for you and every person in the line",
+        "Marriage certificates for each couple in the line, and final divorce decrees if any",
+        "German ancestor's birth or marriage record (Geburtsurkunde, Heiratsurkunde) from the Standesamt",
+        "Proof of the ancestor's German citizenship (old German passport, Heimatschein or citizenship certificate)",
+        "§15 only: proof of persecution between 1933 and 1945",
+        "US naturalization record of the ancestor who emigrated, or a no-record letter",
+        "Name change records, if names differ between documents",
+        "Certified copy of your current passport",
+        "§5 only: original criminal record certificate (FBI Identity History Summary)"
       ],
-      "lowIncomeNotes": "Filing fee is €0 (zero) for StAG §5 cases. Only out-of-pocket is translation + apostille. German consulates in the US handle the entire process by mail. After approval, full access to German public healthcare + Kindergeld (€250/child/month) from day 1.",
-      "officialUrl": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/Feststellung/01_Informationen_Feststellung/01_02_F_wie_geht_es/01_02_F_wie_geht_es_node.html"
+      "lowIncomeNotes": "No income test. Feststellung costs EUR 51; Art. 116 and §15 are free; the §5 fee is not yet verified. German missions in the US offer a free pre-check questionnaire and handle the application by mail. The BVA says reviews often take two years or more.",
+      "officialUrl": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/Feststellung/01_Informationen_Feststellung/01_02_F_wie_geht_es/01_02_F_wie_geht_es_node.html",
+      "lastVerified": "2026-11-06",
+      "legalSource": "Grundgesetz Art. 116(2); Staatsangehörigkeitsgesetz (StAG) §5, §15, §30"
     },
     {
       "id": "poland_confirmation_of_citizenship",
@@ -123,10 +158,17 @@
       "countryName": "Poland",
       "shortName": "Confirmation",
       "fullName": "Polish Citizenship Confirmation",
-      "summary": "If you have a Polish ancestor who was a Polish citizen after 1920 and the line was never broken by voluntary loss, you can apply to have your existing Polish citizenship confirmed. No generational cap.",
+      "summary": "If you have a Polish ancestor who was a Polish citizen after 1920 and the line was never broken by voluntary loss, you can apply to have your existing Polish citizenship confirmed. Most applications go through a parent or grandparent. Older lines may work, but no official page states a generation limit.",
       "incomeRequired": false,
-      "estCostUSD": { "low": 400, "high": 2500, "note": "Government fee + archival research (Polish archives often require paid lookups)." },
-      "estTimelineMonths": { "low": 8, "high": 24 },
+      "estCostUSD": {
+        "low": 400,
+        "high": 2500,
+        "note": "USD 118 consulate fee, archive lookups and sworn Polish translations."
+      },
+      "estTimelineMonths": {
+        "low": 8,
+        "high": 24
+      },
       "outcome": "Full Polish + EU citizenship + passport.",
       "eligibilityRules": [
         {
@@ -148,8 +190,10 @@
         "Your birth certificate + parents' + grandparents'",
         "Sworn Polish translations of all foreign documents"
       ],
-      "lowIncomeNotes": "Filing fee is ~€60. Archival research is the main cost — Polish State Archives charge per document. Self-research via PRADZIAD database is free if you read Polish or use a translator app. No interview, no travel to Poland required.",
-      "officialUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss"
+      "lowIncomeNotes": "Filing fee is USD 118 at a US consulate (PLN 277 if filed in Poland). Archival research is the main cost: Polish State Archives charge per document. Self-research via the PRADZIAD database is free if you read Polish or use a translator app. No travel to Poland is needed to apply; the consulate forwards your application. By law the voivode has 6 months to decide, which can be extended.",
+      "officialUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+      "lastVerified": "2026-11-06",
+      "legalSource": "Act on Polish Citizenship of 2 April 2009"
     },
     {
       "id": "hungary_simplified_naturalization",
@@ -157,10 +201,17 @@
       "countryName": "Hungary",
       "shortName": "Simplified Naturalisation",
       "fullName": "Hungarian Simplified Naturalisation (2011 law)",
-      "summary": "If you have a Hungarian ancestor and you speak basic Hungarian, you can apply for citizenship under the simplified procedure. No residency requirement. Language is the practical gate.",
+      "summary": "If you have a Hungarian ancestor and you speak Hungarian well enough to hold a conversation, you can apply for citizenship under the simplified procedure. No residency requirement. Language is the practical gate.",
       "incomeRequired": false,
-      "estCostUSD": { "low": 300, "high": 1500, "note": "Government filing free; cost is translation, document procurement, and Hungarian-language tutoring." },
-      "estTimelineMonths": { "low": 12, "high": 36 },
+      "estCostUSD": {
+        "low": 300,
+        "high": 1500,
+        "note": "No filing fee at the consulate; cost is translation, document procurement, and Hungarian lessons."
+      },
+      "estTimelineMonths": {
+        "low": 12,
+        "high": 36
+      },
       "outcome": "Full Hungarian + EU citizenship + passport.",
       "eligibilityRules": [
         {
@@ -170,20 +221,25 @@
         },
         {
           "id": "basic_hungarian_language",
-          "label": "You can demonstrate basic conversational Hungarian (A2-equivalent) at the consular interview",
-          "explanation": "This is the real gate. Most US applicants need 6–18 months of study to pass. Free apps (Drops, Memrise) + Pimsleur cover the threshold.",
+          "label": "You can present your application and answer the officer's questions in Hungarian on your own (intermediate conversation)",
+          "explanation": "The officer who takes your application checks this in a short conversation. No exam certificate is needed. Free apps and courses help, but plan for real speaking practice.",
           "required": true
         }
       ],
       "documents": [
-        "Hungarian ancestor's birth + marriage + death certificates",
-        "Connecting documents from ancestor to you",
-        "Your CV/résumé in Hungarian",
-        "Photo IDs of you and parents",
-        "Sworn Hungarian translations"
+        "Naturalization application form, with your CV handwritten in the space on the form",
+        "Valid photo ID (for example your US passport), shown at submission",
+        "Your birth certificate, original or certified copy",
+        "Your marriage certificate, divorce decree or spouse's death certificate, if applicable",
+        "Data sheets to register your foreign birth (and marriage) in Hungary",
+        "Civil birth, marriage or death certificates for every generation between you and the Hungarian ancestor",
+        "Proof of the ancestor's Hungarian citizenship (church or archive certificate with volume, page and entry)",
+        "Certified Hungarian translations of foreign documents"
       ],
-      "lowIncomeNotes": "No filing fee. Main cost is the language requirement — budget 6–18 months of self-study. Once Hungarian, full EU citizenship including right to relocate to any of 27 EU member states under Schengen rules.",
-      "officialUrl": "https://newyork.mfa.gov.hu/en/simplified-naturalization"
+      "lowIncomeNotes": "No filing fee at the consulate (only translations made by the consulate are charged). Main cost is the language requirement. You apply in person. Once Hungarian, you have full EU citizenship including the right to move to any EU member state.",
+      "officialUrl": "https://newyork.mfa.gov.hu/en/simplified-naturalization",
+      "lastVerified": "2026-11-06",
+      "legalSource": "Act LV of 1993 on Hungarian Citizenship, §4(3)"
     }
   ]
 }
