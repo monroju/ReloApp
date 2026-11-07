@@ -9637,16 +9637,6 @@
         }
       }
     },
-    "Your %@ ancestor is your": {
-      "localizations": {
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tu ancestro de %@ es tu"
-          }
-        }
-      }
-    },
     "Track this path": {
       "localizations": {
         "es": {
@@ -9963,6 +9953,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Segundo pasaporte por inversión"
+          }
+        }
+      }
+    },
+    "Five EU countries pass citizenship down to grandchildren or further. No income test, no residency requirement, no language test (mostly). The hardest part is the paperwork.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cinco países de la UE transmiten la ciudadanía a nietos o más allá. Sin requisito de ingresos, sin residencia y (casi siempre) sin examen de idioma. Lo más difícil es el papeleo."
+          }
+        }
+      }
+    },
+    "Your ancestor from %@ is your": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu ancestro de %@ es tu"
           }
         }
       }

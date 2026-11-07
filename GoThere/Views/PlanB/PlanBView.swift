@@ -274,6 +274,8 @@ struct PlanBHomeCard: View {
 struct PlanBTrackSheet: View {
     let chain: DescentChain
     let countryName: String
+    /// Called after tracking, once this sheet is dismissed. The checker pops itself and opens Plan B.
+    var onTracked: () -> Void = {}
     @Environment(\.dismiss) private var dismiss
     @State private var ancestor: PlanBRole = .grandparent
 
@@ -281,7 +283,7 @@ struct PlanBTrackSheet: View {
         NavigationStack {
             Form {
                 Section {
-                    Picker("Your \(countryName) ancestor is your", selection: $ancestor) {
+                    Picker("Your ancestor from \(countryName) is your", selection: $ancestor) {
                         ForEach(chain.ancestorChoices) { role in
                             Text(role.displayName).tag(role)
                         }
@@ -296,7 +298,7 @@ struct PlanBTrackSheet: View {
                     Button("Track this path") {
                         PlanBStore.shared.trackDescent(chain: chain, ancestor: ancestor)
                         dismiss()
-                        NotificationCenter.default.post(name: .gothereDeepLink, object: nil, userInfo: ["route": "planb"])
+                        onTracked()
                     }
                     .font(.body.bold())
                 } footer: {

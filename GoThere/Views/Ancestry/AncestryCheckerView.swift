@@ -5,6 +5,7 @@ struct AncestryCheckerView: View {
     @State private var selectedPath: AncestryPath?
     @State private var ruleAnswers: [String: Bool] = [:]
     @State private var trackChain: DescentChain?
+    @Environment(\.dismiss) private var dismissChecker
     @ObservedObject private var planB = PlanBStore.shared
 
     var body: some View {
@@ -26,7 +27,13 @@ struct AncestryCheckerView: View {
         .background(Color.goBackgroundLight.opacity(0.4))
         .sheet(isPresented: Binding(get: { trackChain != nil }, set: { if !$0 { trackChain = nil } })) {
             if let chain = trackChain, let path = selectedPath {
-                PlanBTrackSheet(chain: chain, countryName: DestinationConfig.getDestination(path.countryId)?.displayName ?? path.countryName)
+                PlanBTrackSheet(chain: chain, countryName: DestinationConfig.getDestination(path.countryId)?.displayName ?? path.countryName) {
+                    // Let the sheet finish closing, then leave the checker and show Plan B.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+                        dismissChecker()
+                        NotificationCenter.default.post(name: .gothereDeepLink, object: nil, userInfo: ["route": "planb"])
+                    }
+                }
             }
         }
     }
@@ -36,7 +43,7 @@ struct AncestryCheckerView: View {
             Text("You might already be a citizen.")
                 .font(.title2.bold())
                 .foregroundColor(.goPrimary)
-            Text("Six EU countries pass citizenship down to grandchildren or further. No income test, no residency requirement, no language test (mostly). The hardest part is the paperwork.")
+            Text("Five EU countries pass citizenship down to grandchildren or further. No income test, no residency requirement, no language test (mostly). The hardest part is the paperwork.")
                 .font(.subheadline)
                 .foregroundColor(.secondary)
 
