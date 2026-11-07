@@ -1,0 +1,2069 @@
+{
+  "version": 1,
+  "generatedAt": "2026-11-06",
+  "disclaimer": "Information, not legal advice. Rules and fees change; check the linked official source before you apply.",
+  "disclaimerEs": "Información, no asesoría legal. Las reglas y tarifas cambian. Revisa la fuente oficial antes de presentar tu solicitud.",
+  "usOrderHints": [
+    {
+      "id": "us_vital_records",
+      "label": "US birth, marriage and death certificates (state vital records office)",
+      "labelEs": "Actas de nacimiento, matrimonio y defunción de EE. UU. (oficina estatal de registro civil)",
+      "howTo": "Find the state or area where the birth, marriage or death happened on the CDC Where to Write for Vital Records page, then order a certified long form copy from that state's office. The federal government does not issue these certificates.",
+      "howToEs": "Busca el estado donde ocurrió el nacimiento, el matrimonio o la defunción en la página de los CDC Where to Write for Vital Records. Luego pide una copia certificada en formato largo a la oficina de ese estado. El gobierno federal no emite estas actas.",
+      "url": "https://www.cdc.gov/nchs/w2w/index.htm",
+      "typicalWaitDays": null,
+      "fee": null,
+      "sourceUrl": "https://www.cdc.gov/nchs/w2w/index.htm",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "Fees and wait times are set by each state and are listed on each state's CDC page. CDC says the federal government does not distribute certificates, files, or indexes with identifying information for vital records."
+    },
+    {
+      "id": "us_uscis_genealogy",
+      "label": "USCIS Genealogy Program (naturalization C-files, A-files, AR-2)",
+      "labelEs": "Programa de Genealogía de USCIS (expedientes C, expedientes A, AR-2)",
+      "howTo": "Order online at the USCIS Genealogy site. If you do not have a file number, first file Form G-1041 (index search). With a file number, file Form G-1041A (record request). For people born less than 100 years ago, include proof of death. C-files cover naturalizations from 27 September 1906 to 31 March 1956.",
+      "howToEs": "Haz el pedido en línea en el sitio de Genealogía de USCIS. Si no tienes número de expediente, primero presenta el Formulario G-1041 (búsqueda en el índice). Con el número de expediente, presenta el Formulario G-1041A (solicitud de registros). Si la persona nació hace menos de 100 años, incluye prueba de su fallecimiento. Los expedientes C cubren naturalizaciones del 27 de septiembre de 1906 al 31 de marzo de 1956.",
+      "url": "https://genealogy.uscis.dhs.gov/",
+      "typicalWaitDays": null,
+      "fee": "G-1041 index search: USD 30 online, USD 80 paper. G-1041A record request: USD 30 online, USD 80 paper (Form G-1055 fee schedule, edition 10/26/26).",
+      "sourceUrl": "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "Process and record series from https://www.uscis.gov/records/genealogy and the G-1041 page https://www.uscis.gov/g-1041 (proof of death checklist), both opened 2026-11-06. Fees come from the G-1055 PDF. Processing time is not published on these pages."
+    },
+    {
+      "id": "us_nara_naturalization",
+      "label": "National Archives (NARA) naturalization records",
+      "labelEs": "Registros de naturalización del Archivo Nacional (NARA)",
+      "howTo": "Contact the National Archives facility that serves the state where the person lived. Give the full name and variants, date of birth, approximate dates of arrival and naturalization, place of residence at naturalization (city, county, state) and country of origin. NARA usually holds federal court records. Records from state and local courts are often at state archives or the county.",
+      "howToEs": "Contacta la sede del Archivo Nacional que atiende el estado donde vivía la persona. Da el nombre completo y sus variantes, la fecha de nacimiento, las fechas aproximadas de llegada y de naturalización, el lugar de residencia al naturalizarse (ciudad, condado, estado) y el país de origen. NARA suele tener los registros de tribunales federales. Los de tribunales estatales y locales suelen estar en archivos estatales o en el condado.",
+      "url": "https://www.archives.gov/research/naturalization",
+      "typicalWaitDays": null,
+      "fee": null,
+      "sourceUrl": "https://www.archives.gov/research/naturalization",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "NARA says it usually does not have a copy of the certificate of naturalization itself. Before 27 September 1906 any court of record could naturalize, so records may be at a county or state court. Fees and wait times were not on the page opened."
+    },
+    {
+      "id": "us_no_record_letter",
+      "label": "Proof of no US naturalization (USCIS Certificate of Non-Existence, NARA negative search letter)",
+      "labelEs": "Prueba de que no hubo naturalización en EE. UU. (Certificado de No Existencia de USCIS, carta de búsqueda negativa de NARA)",
+      "howTo": "File USCIS Form G-1566, Request for a Certificate of Non-Existence, online or by mail. List all possible names, aliases and dates of birth, the country of birth, and a US mailing address. Include proof of death if the person was born less than 100 years ago. If USCIS finds no record, it issues a Certificate of Non-Existence. If it finds a record, it sends more information instead. NARA can only issue a negative search letter for its own holdings.",
+      "howToEs": "Presenta el Formulario G-1566 de USCIS, Request for a Certificate of Non-Existence, en línea o por correo. Incluye todos los nombres posibles, alias y fechas de nacimiento, el país de nacimiento y una dirección postal en EE. UU. Si la persona nació hace menos de 100 años, incluye prueba de su fallecimiento. Si USCIS no encuentra registro, emite un Certificado de No Existencia. Si encuentra uno, te envía más información. NARA solo puede emitir una carta de búsqueda negativa sobre sus propios archivos.",
+      "url": "https://www.uscis.gov/g-1566",
+      "typicalWaitDays": null,
+      "fee": "G-1566: USD 280 online, USD 330 paper (Form G-1055 fee schedule, edition 10/26/26).",
+      "sourceUrl": "https://www.uscis.gov/g-1566",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "NARA page (https://www.archives.gov/research/naturalization, opened 2026-11-06) says: NARA has no authority to certify non-existence of a record and can only issue a negative search letter; USCIS has exclusive authority over citizenship records after 1906. Fee from https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf. Processing time not published on the page opened."
+    },
+    {
+      "id": "us_state_apostille",
+      "label": "Apostille for state documents (from the issuing state)",
+      "labelEs": "Apostilla para documentos estatales (del estado que los emitió)",
+      "howTo": "State documents such as birth, marriage and death certificates, county court records and notarized forms are certified by the state that issued them, not by the US Department of State. For a Hague Convention country such as Ireland or Italy, ask that state's apostille office.",
+      "howToEs": "Los documentos estatales, como actas de nacimiento, matrimonio y defunción, registros de tribunales de condado y formularios notariados, los certifica el estado que los emitió, no el Departamento de Estado de EE. UU. Para un país del Convenio de La Haya, como Irlanda o Italia, pide la apostilla a la oficina de ese estado.",
+      "url": null,
+      "typicalWaitDays": null,
+      "fee": null,
+      "sourceUrl": "https://travel.state.gov/en/replace-certify/authenticate-documents/apostille-certificate.html",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "The State Department page says to get state documents certified by the state who issued it. It does not name the state office. The office (often the Secretary of State), fees and times vary by state and were not verified here."
+    },
+    {
+      "id": "us_federal_apostille",
+      "label": "Apostille for federal documents (US Department of State, Office of Authentications)",
+      "labelEs": "Apostilla para documentos federales (Departamento de Estado de EE. UU., Oficina de Autenticaciones)",
+      "howTo": "Use this for documents signed by a federal official, for example a certificate of naturalization or USCIS records from the Department of Homeland Security. Send Form DS-4194 naming the country where you will use the document, the original or certified copy, and the fee. Do not notarize the original document.",
+      "howToEs": "Úsala para documentos firmados por un funcionario federal, por ejemplo un certificado de naturalización o registros de USCIS del Departamento de Seguridad Nacional. Envía el Formulario DS-4194 con el país donde usarás el documento, el original o una copia certificada, y el pago. No notaríes el documento original.",
+      "url": "https://travel.state.gov/en/replace-certify/authenticate-documents/request-services.html",
+      "typicalWaitDays": {
+        "low": 0,
+        "high": 35
+      },
+      "fee": "USD 20 per document, nonrefundable.",
+      "sourceUrl": "https://travel.state.gov/en/replace-certify/authenticate-documents/request-services.html",
+      "sourceType": "official",
+      "lastVerified": "2026-11-06",
+      "note": "Mail requests are processed within 5 weeks from receipt (shown as 0 to 35 days). Walk in drop off is processed within 7 business days. Federal document rules from https://travel.state.gov/en/replace-certify/authenticate-documents/apostille-certificate.html, opened 2026-11-06. Both pages loaded only in a real browser; scripted fetches returned 403."
+    }
+  ],
+  "chains": {
+    "de_stag": {
+      "pathwayId": "de_stag",
+      "ancestryPathId": "germany_stag",
+      "countryCode": "de",
+      "lastVerified": "2026-11-06",
+      "disclaimer": "Information, not legal advice. Your German mission in the US can pre-check your case before you file.",
+      "sources": [
+        {
+          "title": "BVA Merkblatt zum Antrag auf Feststellung der deutschen Staatsangehörigkeit (Stand Oktober 2025)",
+          "url": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "type": "official"
+        },
+        {
+          "title": "BVA Feststellung: Wie geht es?",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/Feststellung/01_Informationen_Feststellung/01_02_F_wie_geht_es/01_02_F_wie_geht_es_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Feststellung: Wie lange dauert die Bearbeitung?",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/_documents/Infobox_F_1.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Information sheet, naturalization under Article 116 (2) GG (as at June 2024)",
+          "url": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/Anspruch/Anspruch_Merkblatt_englisch.pdf?__blob=publicationFile&v=5",
+          "type": "official"
+        },
+        {
+          "title": "BVA Wiedergutmachungseinbürgerung nach Entzug (Art. 116 Abs. 2 GG)",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/Anspruch/EinbuergerungA_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Gebühren Anspruchseinbürgerung",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/Anspruch/01-Informationen_E_A/01_03_E_A_Gebuehren/01_03_EA_Gebuehren_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA notice 2026-10-19: Article 116 naturalization, temporary procedural delays",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/_documents/Meldung/20261019_citizenship.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Wiedergutmachungseinbürgerung nach Verfolgung (§ 15 StAG): Anleitung",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EB15/01-Informationen_E15/01_02_Erm15_Wie_geht_es/02_02_Erm15_Anleitung_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA § 15 StAG Gebühren",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EB15/01-Informationen_E15/01_03_Erm15_Gebuehren/01_03_Erm15_Gebuehren_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Erklärungserwerb nach § 5 StAG: Was ist das?",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EER/01-Informationen_EER/01_01_EER_was_ist/01_02_EER_was_ist_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Erklärungserwerb nach § 5 StAG: Wie geht das?",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EER/01-Informationen_EER/01_02_EER_Wie_geht_es/02_02_EER_Anleitung_node.html",
+          "type": "official"
+        },
+        {
+          "title": "BVA Erklärungserwerb: Wie lange dauert das Verfahren?",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EER/Infobox_EER/Infobox_EER_4.html",
+          "type": "official"
+        },
+        {
+          "title": "Staatsangehörigkeitsgesetz § 5",
+          "url": "https://www.gesetze-im-internet.de/stag/__5.html",
+          "type": "official"
+        },
+        {
+          "title": "Staatsangehörigkeitsgesetz § 15",
+          "url": "https://www.gesetze-im-internet.de/stag/__15.html",
+          "type": "official"
+        },
+        {
+          "title": "German Missions in the US: Feststellung der deutschen Staatsangehörigkeit",
+          "url": "https://www.germany.info/us-de/service/staatsangehoerigkeit/feststellung-der-deutschen-staatsangehoerigkeit-1216742",
+          "type": "official"
+        },
+        {
+          "title": "German Missions in the US: Certificate of Citizenship",
+          "url": "https://www.germany.info/us-en/service/03-citizenship/certificate-of-citizenship-933536",
+          "type": "official"
+        },
+        {
+          "title": "German Missions in the US: Verfahrensfragen (Gebühren, Beglaubigungen)",
+          "url": "https://www.germany.info/us-de/service/verfahrensfragen/1216686",
+          "type": "official"
+        },
+        {
+          "title": "German Missions in the US: Passport for Adults",
+          "url": "https://www.germany.info/us-en/service/02-passportsandidcards/passport-adult-951294",
+          "type": "official"
+        },
+        {
+          "title": "German Missions in the US: Obtaining a Birth Certificate if born in Germany",
+          "url": "https://www.germany.info/us-en/service/04-familymatters/birth-certificates-895588",
+          "type": "official"
+        }
+      ],
+      "lineage": {
+        "maxRole": "ggp",
+        "note": "This list covers three routes. (1) Feststellung: you may already be German by descent; the BVA checks it and issues a Staatsangehörigkeitsausweis. US missions ask for proof of descent back to an ancestor born in 1914 or earlier, with one Anlage V per generation, so the line often reaches a great grandparent or further. (2) Art. 116 (2) GG and § 15 StAG: naturalization for descendants of people persecuted between 1933 and 1945; all descendants qualify under Art. 116 (2). (3) § 5 StAG declaration: for people born after 23 May 1949 who did not get German citizenship from a German parent, for example children of a German mother who lost it by marrying a foreigner, and their descendants. The § 5 right can only be used within ten years after the law took effect (BVA: possible since 20 August 2021). Documents that apply to only some routes say so in the condition field.",
+        "noteEs": "Esta lista cubre tres vías. (1) Feststellung: quizá ya eres alemán por ascendencia; la BVA lo revisa y emite un Staatsangehörigkeitsausweis. Las misiones en EE. UU. piden probar la línea hasta un ancestro nacido en 1914 o antes, con un Anlage V por generación, así que la línea a menudo llega a un bisabuelo o más atrás. (2) Art. 116 (2) GG y § 15 StAG: naturalización para descendientes de personas perseguidas entre 1933 y 1945; según el Art. 116 (2), todos los descendientes califican. (3) Declaración § 5 StAG: para personas nacidas después del 23 de mayo de 1949 que no recibieron la ciudadanía de un padre o madre alemán, por ejemplo hijos de una madre alemana que la perdió al casarse con un extranjero, y sus descendientes. El derecho del § 5 solo se puede usar dentro de los diez años después de que entró en vigor la ley (BVA: posible desde el 20 de agosto de 2021). Los documentos que aplican solo a algunas vías lo indican en el campo de condición.",
+        "sourceUrl": "https://www.germany.info/us-de/service/staatsangehoerigkeit/feststellung-der-deutschen-staatsangehoerigkeit-1216742",
+        "sourceType": "official",
+        "lastVerified": "2026-11-06"
+      },
+      "documents": [
+        {
+          "kind": "application_form",
+          "label": "BVA application form: Antrag F (Feststellung), Antrag A (Art. 116), Antrag E15 (§ 15) or Vordruck EER (§ 5)",
+          "labelEs": "Formulario de la BVA: Antrag F (Feststellung), Antrag A (Art. 116), Antrag E15 (§ 15) o Vordruck EER (§ 5)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "Pick the form for your route. Fill it in German. Children under 16 use the K version (F_K, AK, E15_K).",
+          "conditionEs": "Elige el formulario de tu vía. Llénalo en alemán. Los menores de 16 años usan la versión K (F_K, AK, E15_K).",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_bva_forms"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Form names for Art. 116 (Application A, AK, Annex VA) are from the BVA Art. 116 information sheet; E15 and EER from the BVA § 15 and § 5 pages. The Art. 116 application may also be informal, but the BVA recommends its forms."
+        },
+        {
+          "kind": "ancestor_form",
+          "label": "Ancestor supplement: Anlage V (Feststellung), Annex VA (Art. 116) or Anlage AV (§ 15, § 5), one per generation",
+          "labelEs": "Anexo de ancestros: Anlage V (Feststellung), Annex VA (Art. 116) o Anlage AV (§ 15, § 5), uno por generación",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Feststellung: fill one Anlage V for each generation up to the ancestor born in Germany before 1914, or who held a German citizenship certificate, or who became German by naturalization.",
+          "conditionEs": "Feststellung: llena un Anlage V por cada generación hasta el ancestro nacido en Alemania antes de 1914, o que tuvo un certificado de ciudadanía alemana, o que se hizo alemán por naturalización.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_bva_forms"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "US missions ask for Formular F and each Formular V as original plus one copy. If several family members apply at once, one set of Anlage V is enough."
+        },
+        {
+          "kind": "passport_id",
+          "label": "Current passport or ID (photo and data pages), certified copy",
+          "labelEs": "Pasaporte o identificación vigente (páginas de foto y datos), copia certificada",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_certified_copies"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Always required on all routes. Also include any old German passport or ID you once had."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Birth certificate (long form, showing parents)",
+          "labelEs": "Acta de nacimiento (versión larga, con los nombres de los padres)",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Needed for you and every person you derive citizenship from, back to the ancestor at the top of the line.",
+          "conditionEs": "Se necesita para ti y para cada persona de la que derivas la ciudadanía, hasta el ancestro al inicio de la línea.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "de_certified_copies",
+            "de_sworn_translation"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Apostille: the BVA sheet says foreign public documents usually need legalization or a Hague apostille, but the US missions page tells only applicants with documents not from Germany or the US to ask about it. Translation: the BVA sheets ask for a sworn translation of all foreign language documents (and the Art. 116 sheet asks for it with each civil record), while the US missions page for Feststellung lists only divorce decrees and custody agreements, adding that the BVA may ask for more. Ask your mission."
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Marriage certificate",
+          "labelEs": "Acta de matrimonio",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "For each couple in the line. Art. 116 and § 15: the marriage certificate of your parents is always listed. Yours only if you are married or changed your name.",
+          "conditionEs": "Para cada pareja de la línea. Art. 116 y § 15: el acta de matrimonio de tus padres siempre se pide. La tuya solo si estás casado o cambiaste de nombre.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "de_certified_copies"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/Anspruch/Anspruch_Merkblatt_englisch.pdf?__blob=publicationFile&v=5",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Marriage dates matter for Feststellung: before 1 January 1975 a child born in wedlock generally got citizenship only from a German father (BVA sheet annex). Same apostille and translation caveat as the birth certificate."
+        },
+        {
+          "kind": "divorce_decree",
+          "label": "Divorce decree (final), certified translation",
+          "labelEs": "Sentencia de divorcio (firme), con traducción certificada",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Only if a person in the line divorced.",
+          "conditionEs": "Solo si alguien de la línea se divorció.",
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "de_certified_copies",
+            "de_sworn_translation"
+          ],
+          "sourceUrl": "https://www.germany.info/us-de/service/staatsangehoerigkeit/feststellung-der-deutschen-staatsangehoerigkeit-1216742",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The US missions page says divorce decrees and custody agreements must come with a certified translation."
+        },
+        {
+          "kind": "ancestor_birth_record_de",
+          "label": "German ancestor's birth or marriage record (Geburtsurkunde, Heiratsurkunde) from the Standesamt",
+          "labelEs": "Acta de nacimiento o matrimonio del ancestro alemán (Geburtsurkunde, Heiratsurkunde) del Standesamt",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "When the event happened in Germany.",
+          "conditionEs": "Cuando el hecho ocurrió en Alemania.",
+          "needsApostille": false,
+          "needsTranslation": false,
+          "orderHintIds": [
+            "de_standesamt_records"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The BVA sheet exempts civil status records from EU states from legalization or apostille, and asks for translations only of foreign language documents. Family books (Familienbücher) also count if they exist."
+        },
+        {
+          "kind": "ancestor_citizenship_proof",
+          "label": "Proof of the ancestor's German citizenship (old German passport, Heimatschein, citizenship certificate, naturalization certificate, registration or military records)",
+          "labelEs": "Prueba de la ciudadanía alemana del ancestro (pasaporte alemán antiguo, Heimatschein, certificado de ciudadanía, carta de naturalización, registros de domicilio o militares)",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "Feststellung and § 15: proof the ancestor was German. Art. 116: proof of former German citizenship, plus documents on the deprivation (for example Reich Gazette listing).",
+          "conditionEs": "Feststellung y § 15: prueba de que el ancestro era alemán. Art. 116: prueba de la ciudadanía alemana anterior, más documentos sobre la privación (por ejemplo, la lista en la Gaceta del Reich).",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_certified_copies"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Art. 116 detail from the BVA Art. 116 information sheet (June 2024)."
+        },
+        {
+          "kind": "persecution_proof",
+          "label": "Proof of the reason and type of persecution (1933 to 1945)",
+          "labelEs": "Prueba del motivo y del tipo de persecución (1933 a 1945)",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "Only for § 15 StAG. For Art. 116 (2) GG, the BVA asks for documents showing the former German citizenship and the persecution suffered.",
+          "conditionEs": "Solo para el § 15 StAG. Para el Art. 116 (2) GG, la BVA pide documentos que muestren la ciudadanía alemana anterior y la persecución sufrida.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_certified_copies"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EB15/01-Informationen_E15/01_02_Erm15_Wie_geht_es/02_02_Erm15_Anleitung_node.html",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "§ 15 also covers people whose usual residence in Germany began before 30 January 1933 and was given up or lost (StAG § 15 no. 4)."
+        },
+        {
+          "kind": "naturalization_record",
+          "label": "US naturalization record of the ancestor who emigrated (certificate or file)",
+          "labelEs": "Registro de naturalización en EE. UU. del ancestro que emigró (certificado o expediente)",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Feststellung: if a person in the line took another citizenship. The date of US naturalization compared with the next child's birth decides whether citizenship passed on.",
+          "conditionEs": "Feststellung: si alguien de la línea tomó otra ciudadanía. La fecha de la naturalización en EE. UU. comparada con el nacimiento del siguiente hijo decide si la ciudadanía se transmitió.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_uscis_genealogy",
+            "us_nara_naturalization",
+            "us_federal_apostille"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The BVA sheet lists proof of acquiring or holding other citizenships. The US missions page names, as a first check, ancestors who did not naturalize in the US before their children were born."
+        },
+        {
+          "kind": "no_naturalization_proof",
+          "label": "Proof of non-acquisition of another citizenship (no-record letter)",
+          "labelEs": "Prueba de que no se adquirió otra ciudadanía (carta de no registro)",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Feststellung, if needed, when no naturalization record exists.",
+          "conditionEs": "Feststellung, si se necesita, cuando no existe registro de naturalización.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_no_record_letter",
+            "us_uscis_genealogy",
+            "us_federal_apostille"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Listed by the BVA as 'Nichterwerbsbescheinigung' under further documents that may be needed."
+        },
+        {
+          "kind": "name_change_record",
+          "label": "Name change records",
+          "labelEs": "Registros de cambio de nombre",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "If a name differs between documents in the line.",
+          "conditionEs": "Si un nombre cambia entre los documentos de la línea.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "de_certified_copies"
+          ],
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "police_certificate",
+          "label": "Criminal record certificate from your country of residence (FBI Identity History Summary or similar)",
+          "labelEs": "Certificado de antecedentes penales de tu país de residencia (FBI Identity History Summary o similar)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "§ 5 declaration: always, as an original. § 15: only if the BVA asks.",
+          "conditionEs": "Declaración § 5: siempre, en original. § 15: solo si la BVA lo pide.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Einbuergerung/EER/01-Informationen_EER/01_02_EER_Wie_geht_es/02_02_EER_Anleitung_node.html",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "§ 15 rule from the BVA § 15 Anleitung page. The FBI product name is an example, not named by the BVA."
+        }
+      ],
+      "orderHints": [
+        {
+          "id": "de_bva_forms",
+          "label": "Download BVA forms and send the application",
+          "labelEs": "Descarga los formularios de la BVA y envía la solicitud",
+          "howTo": "Download the forms from the BVA citizenship pages. Fill them in German. Send the signed application to your German mission in the US or by mail to Bundesverwaltungsamt, Barbarastr. 1, 50735 Köln, Germany. Do not use email or fax. Pay only when the BVA asks you to.",
+          "howToEs": "Descarga los formularios en las páginas de ciudadanía de la BVA. Llénalos en alemán. Envía la solicitud firmada a tu misión alemana en EE. UU. o por correo a Bundesverwaltungsamt, Barbarastr. 1, 50735 Köln, Alemania. No uses correo electrónico ni fax. Paga solo cuando la BVA te lo pida.",
+          "url": "https://www.bva.bund.de/DE/Services/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung_Start/Feststellung/01_Informationen_Feststellung/01_02_F_wie_geht_es/01_02_F_wie_geht_es_node.html",
+          "typicalWaitDays": null,
+          "fee": "Feststellung: EUR 51 if approved; EUR 25 to 51 if refused; EUR 38 if withdrawn after work starts. Art. 116 (2) GG and § 15 StAG: free. § 5 declaration: not verified.",
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Art. 116 and § 15 fee status from the BVA fee pages for each route. US missions suggest sending their citizenship questionnaire first, for a free pre-check."
+        },
+        {
+          "id": "de_certified_copies",
+          "label": "Get certified copies (US notary or German mission)",
+          "labelEs": "Obtén copias certificadas (notario de EE. UU. o misión alemana)",
+          "howTo": "Send certified copies, not originals. The BVA accepts copies certified by a US notary public who adds a note that the copy matches the original, for example 'I certify this to be a true copy of the original'. German missions certify copies for citizenship cases free of charge if you bring the original. Copy both sides of each document.",
+          "howToEs": "Envía copias certificadas, no originales. La BVA acepta copias certificadas por un notario público de EE. UU. que agregue una nota de que la copia coincide con el original, por ejemplo 'I certify this to be a true copy of the original'. Las misiones alemanas certifican copias para casos de ciudadanía sin costo si llevas el original. Copia ambos lados de cada documento.",
+          "url": "https://www.germany.info/us-de/service/verfahrensfragen/1216686",
+          "typicalWaitDays": null,
+          "fee": "Free at German missions for citizenship applications.",
+          "sourceUrl": "https://www.germany.info/us-de/service/verfahrensfragen/1216686",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "US missions ask for one set of certified copies and one set of simple copies for Feststellung."
+        },
+        {
+          "id": "de_sworn_translation",
+          "label": "Sworn translation into German",
+          "labelEs": "Traducción jurada al alemán",
+          "howTo": "When a translation is needed, use a sworn translator. The translation must be clearly linked to its original. Translations by people who are not sworn are not accepted.",
+          "howToEs": "Cuando se necesite una traducción, usa un traductor jurado. La traducción debe quedar claramente unida a su original. No se aceptan traducciones de personas que no sean juradas.",
+          "url": null,
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Staatsangehoerigkeit/Feststellung/MerkblattF.pdf?__blob=publicationFile&v=6",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "For Feststellung, US missions list only divorce decrees and custody agreements as needing translation."
+        },
+        {
+          "id": "de_standesamt_records",
+          "label": "Order German civil records from the Standesamt",
+          "labelEs": "Pide actas civiles alemanas al Standesamt",
+          "howTo": "Write directly to the Standesamt (registrar's office) of the town where the birth, marriage or death took place. Give full name, date written with the month in letters, place, and parents' names. The office sends fee details with the certificate. German missions in the US cannot issue these records.",
+          "howToEs": "Escribe directamente al Standesamt (registro civil) de la localidad donde ocurrió el nacimiento, matrimonio o defunción. Da el nombre completo, la fecha con el mes en letras, el lugar y los nombres de los padres. La oficina envía el costo junto con el certificado. Las misiones alemanas en EE. UU. no pueden emitir estas actas.",
+          "url": "https://www.germany.info/us-en/service/04-familymatters/birth-certificates-895588",
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.germany.info/us-en/service/04-familymatters/birth-certificates-895588",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The mission page is written for people born in Germany; the same Standesamt request is the official path for birth, marriage and death records. Very old records may sit in archives; that path was not verified."
+        }
+      ],
+      "stages": [
+        {
+          "id": "gather",
+          "label": "Gather documents",
+          "labelEs": "Reunir documentos",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time found."
+        },
+        {
+          "id": "apply",
+          "label": "Send application to the BVA",
+          "labelEs": "Enviar la solicitud a la BVA",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "You get a receipt with a file number (Aktenzeichen). No official time found."
+        },
+        {
+          "id": "wait",
+          "label": "BVA review",
+          "labelEs": "Revisión de la BVA",
+          "typicalMonths": {
+            "low": 24,
+            "high": 36
+          },
+          "sourceUrl": "https://www.germany.info/us-en/service/03-citizenship/certificate-of-citizenship-933536",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Range is for Feststellung (certificate of citizenship). The BVA says about 1,000 new Feststellung applications arrive each month and two years is not unusual. No figures for Art. 116, § 15 or § 5. BVA notice of 19 October 2026: temporary delays in Art. 116 reviews and in document issuance at missions; § 15 cases not affected."
+        },
+        {
+          "id": "decision",
+          "label": "Decision and certificate",
+          "labelEs": "Decisión y certificado",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "Feststellung gives a Staatsangehörigkeitsausweis; the fee request usually goes through your mission. Art. 116 and § 15 naturalization certificates take effect only when handed over, so at least one in person visit is needed (germany.info Verfahrensfragen). No official time found."
+        },
+        {
+          "id": "passport",
+          "label": "Apply for a German passport",
+          "labelEs": "Solicitar el pasaporte alemán",
+          "typicalMonths": {
+            "low": 1.4,
+            "high": 1.9
+          },
+          "sourceUrl": "https://www.germany.info/us-en/service/02-passportsandidcards/passport-adult-951294",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Mission says about six to eight weeks after an in person appointment; longer if a name declaration is needed."
+        }
+      ]
+    },
+    "hu_simplified_naturalization": {
+      "pathwayId": "hu_simplified_naturalization",
+      "ancestryPathId": "hungary_simplified_naturalization",
+      "countryCode": "hu",
+      "lastVerified": "2026-11-06",
+      "disclaimer": "Information, not legal advice. The President of Hungary decides each application.",
+      "sources": [
+        {
+          "title": "Budapest Főváros Kormányhivatala: Egyszerűsített honosítási eljárás",
+          "url": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "type": "official"
+        },
+        {
+          "title": "Consulate General of Hungary New York: Simplified Naturalization",
+          "url": "https://newyork.mfa.gov.hu/en/simplified-naturalization",
+          "type": "official"
+        },
+        {
+          "title": "Consulate General of Hungary Los Angeles: Simplified naturalization",
+          "url": "https://losangeles.mfa.gov.hu/en/simplified-naturalization",
+          "type": "official"
+        },
+        {
+          "title": "Consulate General of Hungary Chicago: Consular information",
+          "url": "https://chicago.mfa.gov.hu/en/konzuli-informaciok",
+          "type": "official"
+        },
+        {
+          "title": "Embassy of Hungary Ottawa: Simplified Naturalization (fee statement)",
+          "url": "https://ottawa.mfa.gov.hu/en/egyszeruesitett-honositas",
+          "type": "official"
+        }
+      ],
+      "lineage": {
+        "maxRole": "ggp",
+        "note": "Simplified naturalization is open to a non-Hungarian whose ancestor was a Hungarian citizen, or who can show likely origin from Hungary. Ancestor records can come from parents, grandparents, great grandparents and further back, but the chain must be complete: every generation in between needs a record. On the maternal line, marriage records are needed to link maiden and married names. A relative already naturalized through the same ancestor can save you the ancestor records. Hungarian language is a legal condition: the officer who takes the application checks it in a short conversation; no exam certificate is needed, but you must understand and answer on your own at an intermediate level.",
+        "noteEs": "La naturalización simplificada está abierta a una persona no húngara cuyo ancestro fue ciudadano húngaro, o que puede mostrar un probable origen en Hungría. Las actas de ancestros pueden venir de padres, abuelos, bisabuelos y más atrás, pero la cadena debe estar completa: cada generación intermedia necesita un acta. En la línea materna se necesitan actas de matrimonio para unir el apellido de soltera y el de casada. Un familiar ya naturalizado por el mismo ancestro te puede ahorrar las actas del ancestro. El idioma húngaro es una condición legal: el funcionario que recibe la solicitud lo revisa en una breve conversación; no se necesita certificado de examen, pero debes entender y responder por tu cuenta a un nivel intermedio.",
+        "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+        "sourceType": "official",
+        "lastVerified": "2026-11-06"
+      },
+      "documents": [
+        {
+          "kind": "language_check",
+          "label": "Hungarian language check at submission (no exam certificate)",
+          "labelEs": "Revisión del idioma húngaro al presentar (sin certificado de examen)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "Every applicant aged 14 or older. You must present your application and answer the officer's questions in Hungarian on your own, in short sentences. No statutory exemption exists.",
+          "conditionEs": "Todo solicitante de 14 años o más. Debes presentar tu solicitud y responder las preguntas del funcionario en húngaro por tu cuenta, con frases cortas. No hay exención legal.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "hu_consulate_appointment"
+          ],
+          "sourceUrl": "https://newyork.mfa.gov.hu/en/simplified-naturalization",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The 14 year threshold and 'intermediate level, no exam' are from the Budapest government office page. Language can be checked at any stage of the procedure."
+        },
+        {
+          "kind": "application_form",
+          "label": "Naturalization application form (Honosítási, visszahonosítási kérelem, Act LV of 1993 § 4 (3)), with handwritten CV",
+          "labelEs": "Formulario de naturalización (Honosítási, visszahonosítási kérelem, Ley LV de 1993 § 4 (3)), con currículum escrito a mano",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "File in person only. Applicants 18 or older write their CV by hand, in the space on the form. Family members can file a joint application.",
+          "conditionEs": "Se presenta solo en persona. Los solicitantes de 18 años o más escriben su currículum a mano, en el espacio del formulario. Los familiares pueden presentar una solicitud conjunta.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "hu_consulate_appointment"
+          ],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Forms and official communication are in Hungarian only (Los Angeles consulate)."
+        },
+        {
+          "kind": "passport_id",
+          "label": "Valid photo ID (for example US passport), shown at submission",
+          "labelEs": "Identificación vigente con foto (por ejemplo, pasaporte de EE. UU.), mostrada al presentar",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Photo, signature and fingerprints for a Hungarian ID card are taken at submission."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Your birth certificate, original or certified copy, with certified Hungarian translation",
+          "labelEs": "Tu acta de nacimiento, original o copia certificada, con traducción certificada al húngaro",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "hu_certified_translation"
+          ],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The source asks for diplomatic legalization unless an international treaty says otherwise. It does not name the apostille, so ask the consulate whether a US apostille is enough."
+        },
+        {
+          "kind": "birth_registration_form",
+          "label": "Data sheet to register your foreign birth (and marriage) in Hungary",
+          "labelEs": "Hoja de datos para registrar en Hungría tu nacimiento (y matrimonio) en el extranjero",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "Marriage sheet only if you are married, divorced or widowed. Not needed for events in Hungary.",
+          "conditionEs": "La hoja de matrimonio solo si estás casado, divorciado o viudo. No se necesita para hechos ocurridos en Hungría.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Your marriage certificate, divorce decree or spouse's death certificate, with certified Hungarian translation",
+          "labelEs": "Tu acta de matrimonio, sentencia de divorcio o acta de defunción del cónyuge, con traducción certificada al húngaro",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "If you are married, divorced or widowed. If single, a statement on the form is enough.",
+          "conditionEs": "Si estás casado, divorciado o viudo. Si eres soltero, basta una declaración en el formulario.",
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "hu_certified_translation"
+          ],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Same legalization caveat as the birth certificate."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Civil birth, marriage or death certificates of parents, grandparents and great grandparents, with certified Hungarian translation",
+          "labelEs": "Actas civiles de nacimiento, matrimonio o defunción de padres, abuelos y bisabuelos, con traducción certificada al húngaro",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "Every generation between you and the Hungarian ancestor. Marriage records are needed on the maternal line.",
+          "conditionEs": "Cada generación entre tú y el ancestro húngaro. En la línea materna se necesitan actas de matrimonio.",
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "hu_certified_translation"
+          ],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The source asks for official (state) civil records. Translation applies to records not in Hungarian."
+        },
+        {
+          "kind": "ancestor_citizenship_proof",
+          "label": "Proof of the ancestor's Hungarian citizenship (church or archive certificate with exact volume, page and entry, Hungarian passport, military book, work book, school certificate, naturalization or citizenship certificate)",
+          "labelEs": "Prueba de la ciudadanía húngara del ancestro (certificado de iglesia o archivo con tomo, página y número de registro, pasaporte húngaro, libreta militar, libreta de trabajo, certificado escolar, carta de naturalización o de ciudadanía)",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "When you base the application on an ancestor. Not needed if a relative was already naturalized through the same ancestor; give that person's details instead.",
+          "conditionEs": "Cuando basas la solicitud en un ancestro. No se necesita si un familiar ya se naturalizó por el mismo ancestro; da los datos de esa persona.",
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "hu_ancestor_records",
+            "hu_certified_translation"
+          ],
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Translation is needed only when the document is in a foreign language."
+        }
+      ],
+      "orderHints": [
+        {
+          "id": "hu_consulate_appointment",
+          "label": "Submit in person at a Hungarian consulate in the US",
+          "labelEs": "Presenta en persona en un consulado de Hungría en EE. UU.",
+          "howTo": "Applications are taken in person only, by a consular officer. You can prepare the form online in Konzinfo Ügysegéd. The Chicago consulate handles simplified naturalization requests by email, not through online booking.",
+          "howToEs": "Las solicitudes se reciben solo en persona, ante un funcionario consular. Puedes preparar el formulario en línea en Konzinfo Ügysegéd. El consulado de Chicago gestiona la naturalización simplificada por correo electrónico, no por reserva en línea.",
+          "url": "https://konzinfougyseged.mfa.gov.hu",
+          "typicalWaitDays": null,
+          "fee": "Free. Only translations made by the consulate are charged.",
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Fee statement is from the Hungarian Embassy in Ottawa page; no US consulate page opened today states the fee. Chicago email rule from chicago.mfa.gov.hu consular information. The Konzinfo Ügysegéd URL was named on the source page but not opened."
+        },
+        {
+          "id": "hu_certified_translation",
+          "label": "Certified Hungarian translation and certified copies",
+          "labelEs": "Traducción certificada al húngaro y copias certificadas",
+          "howTo": "Every foreign language document needs a certified Hungarian translation bound to it. In Hungary, OFFI makes certified translations; abroad, the Hungarian consul does. Certified copies are made only by a notary or OFFI in Hungary, or by a Hungarian consular officer abroad. Plain photocopies are not accepted.",
+          "howToEs": "Cada documento en idioma extranjero necesita una traducción certificada al húngaro unida al documento. En Hungría, OFFI hace las traducciones certificadas; en el extranjero, el cónsul húngaro. Las copias certificadas solo las hacen un notario u OFFI en Hungría, o un funcionario consular húngaro en el extranjero. No se aceptan fotocopias simples.",
+          "url": null,
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Translations by sworn translators in EU states are also accepted since 16 February 2019."
+        },
+        {
+          "id": "hu_ancestor_records",
+          "label": "Find proof of the Hungarian ancestor",
+          "labelEs": "Busca la prueba del ancestro húngaro",
+          "howTo": "Church and archive certificates are accepted if they cite the exact source (volume, page, entry number). Before 1895, parish certificates can prove descent. State civil records, old Hungarian passports, military or work books and school certificates also count.",
+          "howToEs": "Se aceptan certificados de iglesia y de archivo si citan la fuente exacta (tomo, página, número de registro). Antes de 1895, los certificados parroquiales pueden probar la descendencia. También sirven actas civiles del Estado, pasaportes húngaros antiguos, libretas militares o de trabajo y certificados escolares.",
+          "url": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.kormanyhivatal.hu/hu/budapest/jarasok/egyszerusitett-honositasi-eljaras",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The pre-1895 parish rule is from the Hungarian Embassy in Ottawa page. How to order records from Hungarian registrars or archives was not verified."
+        }
+      ],
+      "stages": [
+        {
+          "id": "gather",
+          "label": "Gather documents and learn Hungarian",
+          "labelEs": "Reunir documentos y aprender húngaro",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time found."
+        },
+        {
+          "id": "apply",
+          "label": "Submit in person with language check",
+          "labelEs": "Presentar en persona con revisión del idioma",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time found."
+        },
+        {
+          "id": "wait",
+          "label": "Review in Hungary",
+          "labelEs": "Revisión en Hungría",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official processing time found. Time for missing documents, suspensions, expert opinions and requests to other offices is not counted in the deadline (kormanyhivatal.hu)."
+        },
+        {
+          "id": "decision",
+          "label": "Naturalization certificate and oath",
+          "labelEs": "Certificado de naturalización y juramento",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "The President issues a naturalization certificate. You become Hungarian on the day you take the oath or pledge, which can be at a consulate. If it is not taken within one year after the first invitation, the certificate lapses (kormanyhivatal.hu)."
+        },
+        {
+          "id": "passport",
+          "label": "Apply for a Hungarian passport",
+          "labelEs": "Solicitar el pasaporte húngaro",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "A passport is not automatic; it is a separate application after citizenship (Los Angeles consulate). The Hungarian ID card is handed over on the oath day (kormanyhivatal.hu). No passport processing time found."
+        }
+      ]
+    },
+    "ie_foreign_births_register": {
+      "pathwayId": "ie_foreign_births_register",
+      "ancestryPathId": "ireland_foreign_births_register",
+      "countryCode": "ie",
+      "lastVerified": "2026-11-06",
+      "disclaimer": "Information from official Irish government pages, not legal advice. The Department of Foreign Affairs decides each application.",
+      "sources": [
+        {
+          "title": "DFA: Registering a foreign birth",
+          "url": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "type": "official"
+        },
+        {
+          "title": "Citizens Information: The Foreign Births Register",
+          "url": "https://www.citizensinformation.ie/en/moving-country/irish-citizenship/foreign-births-register/",
+          "type": "official"
+        },
+        {
+          "title": "gov.ie: Birth, death, marriage and other certificates (General Register Office)",
+          "url": "https://www.gov.ie/en/department-of-social-protection/services/birth-death-marriage-and-other-certificates/",
+          "type": "official"
+        },
+        {
+          "title": "nidirect: Ordering life event certificates (GRONI)",
+          "url": "https://www.nidirect.gov.uk/articles/ordering-life-event-certificates",
+          "type": "official"
+        },
+        {
+          "title": "DFA: Current passport turnaround times",
+          "url": "https://www.ireland.ie/en/dfa/passports/turnaround-times/",
+          "type": "official"
+        },
+        {
+          "title": "Irish Nationality and Citizenship Act 1956 (revised), s.7",
+          "url": "https://revisedacts.lawreform.ie/eli/1956/act/26/revised/en/html",
+          "type": "official"
+        }
+      ],
+      "lineage": {
+        "maxRole": "grandparent",
+        "note": "You can register through a grandparent born on the island of Ireland, or through a parent who was an Irish citizen when you were born. A great-grandparent line works only if your parent was entered on the Foreign Births Register before you were born. If a parent was born on the island of Ireland, you are already Irish and apply for a passport instead.",
+        "noteEs": "Puedes registrarte por un abuelo o abuela nacido en la isla de Irlanda, o por un padre o madre que era ciudadano irlandés cuando naciste. La línea de un bisabuelo solo sirve si tu padre o madre se inscribió en el Registro de Nacimientos en el Extranjero antes de que nacieras. Si tu padre o madre nació en la isla de Irlanda, ya eres irlandés y pides el pasaporte directamente.",
+        "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+        "sourceType": "official",
+        "lastVerified": "2026-11-06"
+      },
+      "documents": [
+        {
+          "kind": "application_form",
+          "label": "Foreign Births Register online application (printed, signed and witnessed)",
+          "labelEs": "Solicitud en línea del Registro de Nacimientos en el Extranjero (impresa, firmada y atestiguada)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "ie_fbr_online"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Online only. Submit electronically, pay online, then print, sign in front of the witness and post with the documents. No public office, no in person filing."
+        },
+        {
+          "kind": "witness_certification",
+          "label": "Witness sign off: stamp on the form, 2 signed photos, certified copy of your ID",
+          "labelEs": "Validación del testigo: sello en el formulario, 2 fotos firmadas y copia certificada de tu identificación",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "ie_fbr_online"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "There is no separate witness form; the witness signs the printed application. The witness must know you personally, not be a relative, and be a practising member of a listed profession (for example police officer, teacher, doctor, nurse, pharmacist, lawyer, notary, bank manager, accountant). Add a business card if they have no official stamp."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Birth certificate (original civil, long form showing parents)",
+          "labelEs": "Acta de nacimiento (original del registro civil, formato largo con los datos de los padres)",
+          "appliesTo": [
+            "self",
+            "parent"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_vital_records"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Originals must be sent. DFA returns all original certificates by recorded mail at the end."
+        },
+        {
+          "kind": "ancestor_birth_cert",
+          "label": "Irish-born grandparent's civil birth certificate (original, showing parents)",
+          "labelEs": "Acta de nacimiento irlandesa del abuelo o abuela (original del registro civil, con los datos de sus padres)",
+          "appliesTo": [
+            "grandparent"
+          ],
+          "condition": "If you apply through a grandparent born on the island of Ireland",
+          "conditionEs": "Si solicitas por un abuelo o abuela nacido en la isla de Irlanda",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "ie_gro_certificates",
+            "ie_groni_certificates"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Order from the General Register Office (Republic of Ireland) or GRONI (Northern Ireland). If the grandparent was born before 1864, when civil birth registration began, DFA accepts a baptismal certificate."
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Marriage certificate or change of name document (original civil)",
+          "labelEs": "Acta de matrimonio o documento de cambio de nombre (original del registro civil)",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent"
+          ],
+          "condition": "If the person married or changed name",
+          "conditionEs": "Si la persona se casó o cambió de nombre",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_vital_records",
+            "ie_gro_certificates",
+            "ie_groni_certificates"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Listed by DFA as needed if applicable for the applicant, the Irish citizen parent and the Irish-born grandparent."
+        },
+        {
+          "kind": "passport_id",
+          "label": "Certified photocopy of current photo ID (passport, driver's license or national ID)",
+          "labelEs": "Fotocopia certificada de identificación vigente con foto (pasaporte, licencia de conducir o documento nacional)",
+          "appliesTo": [
+            "self",
+            "parent",
+            "grandparent"
+          ],
+          "condition": "For a parent or grandparent who has died, send the death certificate instead",
+          "conditionEs": "Si el padre, la madre o el abuelo falleció, envía el acta de defunción en su lugar",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Your own copy is certified by your application witness. Parent and grandparent copies are certified by a professional from the witness list. Do not send original photo ID."
+        },
+        {
+          "kind": "death_cert",
+          "label": "Death certificate (original civil)",
+          "labelEs": "Acta de defunción (original del registro civil)",
+          "appliesTo": [
+            "parent",
+            "grandparent"
+          ],
+          "condition": "If the person has died",
+          "conditionEs": "Si la persona falleció",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_vital_records",
+            "ie_gro_certificates",
+            "ie_groni_certificates"
+          ],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "proof_of_address",
+          "label": "Two separate original proofs of address",
+          "labelEs": "Dos comprobantes de domicilio originales y distintos",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Not photocopies. For a minor, a letter on headed paper from the school or family doctor with the child's address."
+        },
+        {
+          "kind": "photos",
+          "label": "Four colour passport photos (two signed and dated by the witness)",
+          "labelEs": "Cuatro fotos a color tamaño pasaporte (dos firmadas y fechadas por el testigo)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Do not attach the photos to the application form."
+        },
+        {
+          "kind": "fbr_certificate",
+          "label": "Parent's original Foreign Birth Registration certificate",
+          "labelEs": "Certificado original de Registro de Nacimiento en el Extranjero del padre o la madre",
+          "appliesTo": [
+            "parent"
+          ],
+          "condition": "If your parent became Irish through the Foreign Births Register (great-grandparent line)",
+          "conditionEs": "Si tu padre o madre obtuvo la ciudadanía por el Registro de Nacimientos en el Extranjero (línea de bisabuelo)",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The parent must have been registered before your birth. A lost certificate can be replaced at https://fbrcertreplacements.dfa.ie/."
+        },
+        {
+          "kind": "irish_naturalisation_cert",
+          "label": "Parent's original Irish naturalisation certificate",
+          "labelEs": "Certificado original de naturalización irlandesa del padre o la madre",
+          "appliesTo": [
+            "parent"
+          ],
+          "condition": "If your parent became Irish by naturalisation before your birth",
+          "conditionEs": "Si tu padre o madre se naturalizó irlandés antes de que nacieras",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "DFA also lists a Post Nuptial Citizenship certificate, or adoption certificate and order, for those routes."
+        }
+      ],
+      "orderHints": [
+        {
+          "id": "ie_fbr_online",
+          "label": "Foreign Births Register online application (DFA)",
+          "labelEs": "Solicitud en línea del Registro de Nacimientos en el Extranjero (DFA)",
+          "howTo": "Gather every document first, because incomplete applications are returned. Fill in the form at fbr.dfa.ie, pay online, print and sign it in front of your witness, then post it with the documents to the address on the printed form. Use recorded post, since DFA does not acknowledge receipt.",
+          "howToEs": "Reúne todos los documentos antes, porque las solicitudes incompletas se devuelven. Llena el formulario en fbr.dfa.ie, paga en línea, imprímelo y fírmalo frente a tu testigo. Luego envíalo con los documentos a la dirección del formulario impreso. Usa correo certificado, porque el DFA no confirma la recepción.",
+          "url": "https://fbr.dfa.ie/",
+          "typicalWaitDays": null,
+          "fee": "EUR 278 for adults (EUR 270 registration and certificate plus EUR 8 postage and handling); EUR 153 under 18.",
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Siblings may send applications in one envelope and share the ancestor's original documents, with a covering letter. Expectant parents can ask for priority on +353 1 568 3331."
+        },
+        {
+          "id": "ie_gro_certificates",
+          "label": "Irish civil certificates, Republic of Ireland (General Register Office)",
+          "labelEs": "Actas civiles de la República de Irlanda (Oficina General de Registro, GRO)",
+          "howTo": "Download the GRO application form from gov.ie and email it to GROonlinepayments@welfare.ie, or order a long form birth certificate online on the HSE website. Ask for a certificate on secure paper, not a research copy.",
+          "howToEs": "Descarga el formulario de la GRO en gov.ie y envíalo por correo electrónico a GROonlinepayments@welfare.ie, o pide el acta de nacimiento en formato largo en línea en el sitio de la HSE. Pide un certificado en papel de seguridad, no una copia para investigación.",
+          "url": "https://www.gov.ie/en/department-of-social-protection/services/birth-death-marriage-and-other-certificates/",
+          "typicalWaitDays": null,
+          "fee": "EUR 20 per certificate. A research copy of an entry is EUR 5 and is not a certificate.",
+          "sourceUrl": "https://www.gov.ie/en/department-of-social-protection/services/birth-death-marriage-and-other-certificates/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "gov.ie warns of a waiting period due to high demand but gives no time. HSE online ordering page: https://www2.hse.ie/services/births-deaths-and-marriages/order/birth-certificate/ (its fee table did not load). A free online record printout is not an original certificate."
+        },
+        {
+          "id": "ie_groni_certificates",
+          "label": "Northern Ireland civil certificates (GRONI, nidirect)",
+          "labelEs": "Actas civiles de Irlanda del Norte (GRONI, nidirect)",
+          "howTo": "Order online on nidirect with a credit or debit card. Give the full name, date and place of birth, parents' names including the mother's maiden name, and the mother's address at the time of birth. Birth certificates are available from 1864.",
+          "howToEs": "Pide el acta en línea en nidirect con tarjeta de crédito o débito. Da el nombre completo, la fecha y el lugar de nacimiento, los nombres de los padres con el apellido de soltera de la madre, y el domicilio de la madre al momento del nacimiento. Hay actas de nacimiento desde 1864.",
+          "url": "https://www.nidirect.gov.uk/services/order-birth-certificate-online",
+          "typicalWaitDays": null,
+          "fee": "GBP 15 per certificate; extra copies of the same certificate ordered together GBP 8 each; postage to the rest of the world from GBP 1.20.",
+          "sourceUrl": "https://www.nidirect.gov.uk/articles/ordering-life-event-certificates",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Certificates to addresses outside the UK go by untracked international post, which may take up to four weeks from issue. The fee includes a GBP 7 search fee kept even if no record is found."
+        }
+      ],
+      "stages": [
+        {
+          "id": "gather",
+          "label": "Gather documents",
+          "labelEs": "Reunir documentos",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time published. Depends on how fast each records office answers."
+        },
+        {
+          "id": "apply",
+          "label": "Apply online and post the documents",
+          "labelEs": "Solicitar en línea y enviar los documentos por correo",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time published."
+        },
+        {
+          "id": "wait",
+          "label": "DFA processing",
+          "labelEs": "Trámite en el DFA",
+          "typicalMonths": {
+            "low": 12,
+            "high": 12
+          },
+          "sourceUrl": "https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "DFA says applications are processed in strict date order and take approximately 12 months. Citizens Information also says 12 months."
+        },
+        {
+          "id": "decision",
+          "label": "Decision and Foreign Birth Registration certificate",
+          "labelEs": "Decisión y certificado de Registro de Nacimiento en el Extranjero",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No separate time published. Per Citizens Information, a refusal can be appealed by letter within 6 weeks of the refusal date. Originals come back by recorded mail."
+        },
+        {
+          "id": "passport",
+          "label": "Irish passport",
+          "labelEs": "Pasaporte irlandés",
+          "typicalMonths": {
+            "low": 1,
+            "high": 1
+          },
+          "sourceUrl": "https://www.ireland.ie/en/dfa/passports/turnaround-times/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "DFA lists 20 working days as the current average for a first time online application (about 1 month). You need the FBR certificate first; you cannot apply for the passport while the FBR application is pending."
+        }
+      ]
+    },
+    "it_jure_sanguinis": {
+      "pathwayId": "it_jure_sanguinis",
+      "ancestryPathId": "italy_jure_sanguinis",
+      "countryCode": "it",
+      "lastVerified": "2026-11-06",
+      "disclaimer": "Information from official Italian government pages, not legal advice. The Italian consulate for your area decides each application, and document lists vary by consulate. The list below follows the Consulate General in New York.",
+      "sources": [
+        {
+          "title": "MAECI (esteri.it): Cittadinanza, section 2.4 on Decree-Law 36/2025 and Law 74/2025",
+          "url": "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/",
+          "type": "official"
+        },
+        {
+          "title": "Consulate General of Italy in New York: How to apply for citizenship by descent (iure sanguinis)",
+          "url": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "type": "official"
+        },
+        {
+          "title": "Consulate General of Italy in New York: List of documents for US naturalization or non-naturalization (PDF)",
+          "url": "https://consnewyork.esteri.it/wp-content/uploads/2025/08/List_of_documents.pdf",
+          "type": "official"
+        },
+        {
+          "title": "Corte costituzionale: Sentenza 63/2026",
+          "url": "https://www.cortecostituzionale.it/scheda-pronuncia/2026/63",
+          "type": "official"
+        },
+        {
+          "title": "Corte costituzionale: Ordinanza 147/2026 (referral to the EU Court of Justice)",
+          "url": "https://www.cortecostituzionale.it/scheda-pronuncia/2026/147",
+          "type": "official"
+        }
+      ],
+      "lineage": {
+        "maxRole": "grandparent",
+        "note": "Since 28 March 2025, if you were born abroad and hold another citizenship, Italy recognizes you only if a parent or grandparent has, or had at death, only Italian citizenship, or a parent lived in Italy for 2 continuous years after becoming Italian and before your birth (Law 91/1992 art. 3-bis). Great-grandparent lines are closed unless your recognition was granted, or your application was filed at an appointment set, by 23:59 Rome time on 27 March 2025. Ruling 63/2026 rejected the challenge. In July 2026 ordinance 147/2026 sent a separate question on this rule to the EU Court of Justice; the rule stays in force while that is pending. Through a mother, the line passes only to children born after 1 January 1948.",
+        "noteEs": "Desde el 28 de marzo de 2025, si naciste fuera de Italia y tienes otra ciudadanía, Italia te reconoce solo si un padre, madre, abuelo o abuela tiene, o tenía al morir, únicamente la ciudadanía italiana, o si tu padre o madre vivió en Italia 2 años seguidos después de ser italiano y antes de tu nacimiento (Ley 91/1992 art. 3-bis). La línea de un bisabuelo está cerrada, salvo que te hayan reconocido, o hayas presentado la solicitud en una cita fijada, antes de las 23:59 hora de Roma del 27 de marzo de 2025. La sentencia 63/2026 rechazó la impugnación. En julio de 2026 la ordenanza 147/2026 envió otra pregunta sobre esta regla al Tribunal de Justicia de la UE. La regla sigue vigente mientras tanto. Por vía materna, la línea solo pasa a hijos nacidos después del 1 de enero de 1948.",
+        "sourceUrl": "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/",
+        "sourceType": "official",
+        "lastVerified": "2026-11-06"
+      },
+      "documents": [
+        {
+          "kind": "application_form",
+          "label": "Application for Italian citizenship recognition (notarized, with apostille)",
+          "labelEs": "Solicitud de reconocimiento de la ciudadanía italiana (notariada y con apostilla)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": true,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_consulate_forms",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Forms must be dated within six months of the appointment and notarized by a notary with jurisdiction in the signer's state of residence."
+        },
+        {
+          "kind": "consulate_forms",
+          "label": "Consulate Forms 1 and 2 (notarized, with apostille)",
+          "labelEs": "Formularios 1 y 2 del consulado (notariados y con apostilla)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": true,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_consulate_forms",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "consulate_form_3_or_4",
+          "label": "Form 3 signed by your living Italian parent or grandparent, or Form 4 signed by you if they died (notarized, with apostille)",
+          "labelEs": "Formulario 3 firmado por tu padre, madre, abuelo o abuela italiano si vive, o Formulario 4 firmado por ti si falleció (notariado y con apostilla)",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "Form 3 if the Italian parent or grandparent is living, Form 4 if deceased",
+          "conditionEs": "Formulario 3 si el padre, madre, abuelo o abuela italiano vive, Formulario 4 si falleció",
+          "needsApostille": true,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_consulate_forms",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "ancestor_birth_cert",
+          "label": "Italian parent's or grandparent's birth extract (estratto dell'atto di nascita) from the comune",
+          "labelEs": "Extracto del acta de nacimiento (estratto dell'atto di nascita) del padre, madre, abuelo o abuela italiano, emitido por el comune",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_comune_records"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Must be issued within the last six months by the comune where the birth was registered."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Birth certificate (long form, with apostille and Italian translation)",
+          "labelEs": "Acta de nacimiento (formato largo, con apostilla y traducción al italiano)",
+          "appliesTo": [
+            "self",
+            "parent"
+          ],
+          "condition": "Every descendant in the line after the Italian ancestor, including you",
+          "conditionEs": "Cada descendiente de la línea después del antepasado italiano, incluyéndote a ti",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The page says duly legalized and translated into Italian; for US state records the legalization is the state apostille. If the Italian ancestor is a grandparent, the parent is the only descendant between you."
+        },
+        {
+          "kind": "ancestor_marriage_cert",
+          "label": "Italian ancestor's marriage certificate",
+          "labelEs": "Acta de matrimonio del antepasado italiano",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "If married in Italy: estratto dell'atto di matrimonio from the comune, issued within six months. If married abroad: long form original, legalized and translated into Italian",
+          "conditionEs": "Si se casó en Italia: estratto dell'atto di matrimonio del comune, emitido en los últimos seis meses. Si se casó fuera: original en formato largo, legalizado y traducido al italiano",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_comune_records",
+            "us_vital_records",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Apostille and translation depend on where the marriage took place, so they are left null here."
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Marriage certificate (long form, with apostille and Italian translation)",
+          "labelEs": "Acta de matrimonio (formato largo, con apostilla y traducción al italiano)",
+          "appliesTo": [
+            "self",
+            "parent"
+          ],
+          "condition": "If the person married. Legalization and translation apply to certificates issued abroad",
+          "conditionEs": "Si la persona se casó. La legalización y la traducción aplican a actas emitidas fuera de Italia",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "death_cert",
+          "label": "Death certificate (long form, with apostille and Italian translation)",
+          "labelEs": "Acta de defunción (formato largo, con apostilla y traducción al italiano)",
+          "appliesTo": [
+            "parent",
+            "grandparent"
+          ],
+          "condition": "If the person has died. Legalization and translation apply to certificates issued abroad",
+          "conditionEs": "Si la persona falleció. La legalización y la traducción aplican a actas emitidas fuera de Italia",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "no_naturalization_proof",
+          "label": "Proof the Italian ancestor never naturalized in the US",
+          "labelEs": "Prueba de que el antepasado italiano nunca se naturalizó en EE. UU.",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "If the Italian-born ancestor never became a US citizen",
+          "conditionEs": "Si el antepasado nacido en Italia nunca se hizo ciudadano de EE. UU.",
+          "needsApostille": true,
+          "needsTranslation": false,
+          "orderHintIds": [
+            "us_no_record_letter",
+            "us_nara_naturalization",
+            "us_federal_apostille",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/wp-content/uploads/2025/08/List_of_documents.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "New York consulate list: USCIS Letter of No Record of Naturalization with the envelope it came in, AND a NARA no record letter, AND a certified declaration of no naturalization records from every county where the ancestor lived, each with apostille. Plus one of: a NARA certified census dated after the next-in-line's birth, USCIS or NARA proof of alien status after that birth (such as AR-2), or the ancestor's Italian passport copy or certified Green Card dated after that birth. List all aliases and dates of birth. No translation needed."
+        },
+        {
+          "kind": "naturalization_record",
+          "label": "Italian ancestor's US naturalization record",
+          "labelEs": "Registro de naturalización en EE. UU. del antepasado italiano",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "If the Italian-born ancestor became a US citizen",
+          "conditionEs": "Si el antepasado nacido en Italia se hizo ciudadano de EE. UU.",
+          "needsApostille": null,
+          "needsTranslation": false,
+          "orderHintIds": [
+            "us_uscis_genealogy",
+            "us_nara_naturalization",
+            "us_state_apostille"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/wp-content/uploads/2025/08/List_of_documents.pdf",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "A notarized copy of the naturalization certificate if it shows the correct name and date of birth. Otherwise one of: NARA certified copy of declaration of intention, petition and oath (no apostille); local court or county certified copy of the same (with apostille); or the USCIS file with the envelope it came in. No translation needed. Under the current law, a parent or grandparent who naturalized does not meet the only Italian citizenship test."
+        },
+        {
+          "kind": "exclusive_citizenship_proof",
+          "label": "Proof your parent or grandparent held only Italian citizenship",
+          "labelEs": "Prueba de que tu padre, madre, abuelo o abuela tenía solo la ciudadanía italiana",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "If you qualify through a parent or grandparent with only Italian citizenship",
+          "conditionEs": "Si calificas por un padre, madre, abuelo o abuela con solo la ciudadanía italiana",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "us_no_record_letter"
+          ],
+          "sourceUrl": "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "MAECI examples: negative citizenship certificates, certificates of renunciation of another citizenship, certificates of non-registration on electoral lists. The New York consulate also accepts non-naturalization certificates for each country of emigration, or records showing the ancestor lived there as a foreigner."
+        },
+        {
+          "kind": "italy_residence_history",
+          "label": "Historical residence certificate (certificato storico di residenza) from the comune",
+          "labelEs": "Certificado histórico de residencia (certificato storico di residenza) del comune",
+          "appliesTo": [
+            "parent"
+          ],
+          "condition": "If you qualify because your parent lived in Italy for 2 continuous years after becoming Italian and before your birth",
+          "conditionEs": "Si calificas porque tu padre o madre vivió en Italia 2 años seguidos después de ser italiano y antes de tu nacimiento",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_comune_records"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "passport_id",
+          "label": "Copy of your valid passport",
+          "labelEs": "Copia de tu pasaporte vigente",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "proof_of_address",
+          "label": "Proof of residence (driver's license, recent utility bill or latest tax statement)",
+          "labelEs": "Comprobante de domicilio (licencia de conducir, recibo reciente de servicios o última declaración de impuestos)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Your residence decides which consulate handles your application. Send only the page with your name and address."
+        },
+        {
+          "kind": "appointment_confirmation",
+          "label": "Printed Prenot@mi appointment confirmation",
+          "labelEs": "Confirmación impresa de la cita en Prenot@mi",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "it_prenotami"
+          ],
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        }
+      ],
+      "orderHints": [
+        {
+          "id": "it_comune_records",
+          "label": "Italian civil records from the comune (birth and marriage extracts, residence history)",
+          "labelEs": "Registros civiles italianos del comune (extractos de nacimiento y matrimonio, historial de residencia)",
+          "howTo": "Ask the civil records office of the comune where the event was registered for the estratto dell'atto di nascita or di matrimonio, or the certificato storico di residenza. The consulate wants extracts issued within the last six months.",
+          "howToEs": "Pide a la oficina de registro civil del comune donde se registró el hecho el estratto dell'atto di nascita o di matrimonio, o el certificato storico di residenza. El consulado pide extractos emitidos en los últimos seis meses.",
+          "url": null,
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Each comune sets its own request method. No single official ordering page was verified."
+        },
+        {
+          "id": "it_prenotami",
+          "label": "Consulate appointment booking (Prenot@mi)",
+          "labelEs": "Reserva de cita en el consulado (Prenot@mi)",
+          "howTo": "Create an account on Prenot@mi and choose Cittadinanza per Discendenza iure sanguinis at the consulate for your area. Confirm the appointment in the portal 10 to 3 days before the date. In New York you do not go in person: on the appointment day you mail the full application by certified mail, with your name, address, appointment date and Prenot@mi request code on the envelope.",
+          "howToEs": "Crea una cuenta en Prenot@mi y elige Cittadinanza per Discendenza iure sanguinis en el consulado de tu zona. Confirma la cita en el portal entre 10 y 3 días antes. En Nueva York no vas en persona: el día de la cita envías la solicitud completa por correo certificado, con tu nombre, domicilio, fecha de la cita y código de solicitud de Prenot@mi en el sobre.",
+          "url": "https://prenotami.esteri.it/",
+          "typicalWaitDays": null,
+          "fee": "EUR 600 per adult recognition application (consular fee table). New York takes payment by money order or cashier's check to the Consulate General of Italy in New York; the fee is non-refundable.",
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The EUR 600 fee is from https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/ (section 8), opened 2026-11-06. New York says it is no longer possible to join its waiting list. Incomplete applications are rejected and need a new appointment and payment. Documents are not returned."
+        },
+        {
+          "id": "it_consulate_forms",
+          "label": "Consulate citizenship forms (application, Forms 1 to 4)",
+          "labelEs": "Formularios de ciudadanía del consulado (solicitud, Formularios 1 a 4)",
+          "howTo": "Download the forms from your consulate's website under cittadinanza. Sign them in front of a notary public in your state of residence, then get the state apostille on each notarized form.",
+          "howToEs": "Descarga los formularios del sitio de tu consulado en la sección cittadinanza. Fírmalos ante un notario público de tu estado de residencia y luego pide la apostilla estatal para cada formulario notariado.",
+          "url": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-italiano/modulistica/",
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/cittadinanza/cittadinanza-per-discendenza-iure-sanguinis/",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Link is the New York consulate forms page. Other US consulates publish their own forms."
+        }
+      ],
+      "stages": [
+        {
+          "id": "gather",
+          "label": "Gather, apostille and translate documents",
+          "labelEs": "Reunir, apostillar y traducir documentos",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time published."
+        },
+        {
+          "id": "apply",
+          "label": "Book on Prenot@mi and file at the consulate",
+          "labelEs": "Reservar en Prenot@mi y presentar en el consulado",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official wait for an appointment is published."
+        },
+        {
+          "id": "wait",
+          "label": "Consulate review",
+          "labelEs": "Revisión en el consulado",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "The New York consulate says applications are processed within the time limits set by law, but gives no number. Not verified."
+        },
+        {
+          "id": "decision",
+          "label": "Decision and registration in the comune",
+          "labelEs": "Decisión y registro en el comune",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "The New York consulate notifies the outcome by email. No time published."
+        },
+        {
+          "id": "passport",
+          "label": "Italian passport",
+          "labelEs": "Pasaporte italiano",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "Not researched in this pass."
+        }
+      ]
+    },
+    "pl_citizenship_confirmation": {
+      "pathwayId": "pl_citizenship_confirmation",
+      "ancestryPathId": "poland_confirmation_of_citizenship",
+      "countryCode": "pl",
+      "lastVerified": "2026-11-06",
+      "disclaimer": "Information, not legal advice. The provincial governor (wojewoda) decides each case.",
+      "sources": [
+        {
+          "title": "Poland in the US: Confirming Polish citizenship or its loss",
+          "url": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "type": "official"
+        },
+        {
+          "title": "Polska w USA: Potwierdzenie posiadania lub utraty obywatelstwa polskiego",
+          "url": "https://www.gov.pl/web/usa/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "type": "official"
+        },
+        {
+          "title": "MSWiA: Złóż wniosek do wojewody o potwierdzenie posiadania lub utraty obywatelstwa polskiego",
+          "url": "https://www.gov.pl/web/mswia/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "type": "official"
+        },
+        {
+          "title": "Lubelski Urząd Wojewódzki: Potwierdzenie posiadania lub utraty obywatelstwa polskiego (cites Act of 2 April 2009 on Polish Citizenship, art. 10 ust. 3a)",
+          "url": "https://www.gov.pl/web/uw-lubelski/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "type": "official"
+        },
+        {
+          "title": "Poland in the US: Obtaining copies of civil status records from civil registry offices in Poland",
+          "url": "https://www.gov.pl/web/usa-en/obtaining-copies-of-civil-status-records-and-cerificates-of-civil-status-from-civil-registry-offices-in-poland",
+          "type": "official"
+        },
+        {
+          "title": "Poland in the US: Registration of foreign birth certificates in a Polish registry office",
+          "url": "https://www.gov.pl/web/usa-en/registration-of-foreign-birth-certificates-in-a-polish-registry-office",
+          "type": "official"
+        },
+        {
+          "title": "Poland in the US: Passport for an adult",
+          "url": "https://www.gov.pl/web/usa-en/passport-for-an-adult",
+          "type": "official"
+        },
+        {
+          "title": "Polska w USA: Opłaty konsularne",
+          "url": "https://www.gov.pl/web/usa/oplaty-konsularne",
+          "type": "official"
+        }
+      ],
+      "lineage": {
+        "maxRole": "grandparent",
+        "note": "Confirmation is for people who already hold Polish citizenship by descent and want an official decision. The national application asks for data on you, your parents and your grandparents, and the US consulate asks for documents on the Polish origin of parents or grandparents. Older lines (great grandparents) may be possible, but no official page opened today states a generation limit, so this is set to grandparent. Rules on loss of citizenship in earlier decades were not verified here.",
+        "noteEs": "La confirmación es para personas que ya tienen la ciudadanía polaca por ascendencia y quieren una decisión oficial. La solicitud nacional pide datos tuyos, de tus padres y de tus abuelos, y el consulado en EE. UU. pide documentos del origen polaco de padres o abuelos. Líneas más antiguas (bisabuelos) pueden ser posibles, pero ninguna página oficial consultada hoy indica un límite de generaciones, por eso se fija en abuelo. Las reglas de pérdida de ciudadanía de décadas anteriores no se verificaron aquí.",
+        "sourceUrl": "https://www.gov.pl/web/mswia/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+        "sourceType": "official",
+        "lastVerified": "2026-11-06"
+      },
+      "documents": [
+        {
+          "kind": "application_form",
+          "label": "Application for confirmation of Polish citizenship (wniosek o potwierdzenie posiadania lub utraty obywatelstwa polskiego)",
+          "labelEs": "Solicitud de confirmación de la ciudadanía polaca (wniosek o potwierdzenie posiadania lub utraty obywatelstwa polskiego)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "Fill it in Polish only. Each minor child needs a separate application.",
+          "conditionEs": "Llénala solo en polaco. Cada hijo menor necesita una solicitud aparte.",
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [
+            "pl_wniosek"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Separate application per minor is from the MSWiA page. Write 'NIEZNANE' (unknown) or 'NIE DOTYCZY' (not applicable) for blank fields (Lubelski office page)."
+        },
+        {
+          "kind": "passport_id",
+          "label": "Valid ID document, original shown for inspection (including pages with official notes)",
+          "labelEs": "Documento de identidad vigente, original para revisión (incluidas las páginas con anotaciones oficiales)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Applications filed directly with a voivode office ask for an officially certified copy of the current ID."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Your full birth certificate (long form, with parents' names)",
+          "labelEs": "Tu acta de nacimiento completa (versión larga, con los nombres de los padres)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "If you were born outside Poland.",
+          "conditionEs": "Si naciste fuera de Polonia.",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Documents made outside the EU need an apostille (Hague countries). Foreign language documents need a sworn or consular translation into Polish."
+        },
+        {
+          "kind": "birth_cert",
+          "label": "Birth certificate (long form) of each parent and grandparent in the line",
+          "labelEs": "Acta de nacimiento (versión larga) de cada padre y abuelo de la línea",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "To show descent from the Polish ancestor.",
+          "conditionEs": "Para mostrar la descendencia del ancestro polaco.",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Apostille and translation flags apply to US records. A Polish record (odpis aktu) for a person born in Poland is ordered from the USC instead."
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Marriage certificate, divorce decree or spouse's death certificate (your marital status)",
+          "labelEs": "Acta de matrimonio, sentencia de divorcio o acta de defunción del cónyuge (tu estado civil)",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "If you are or were married.",
+          "conditionEs": "Si estás o estuviste casado.",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "kind": "marriage_cert",
+          "label": "Marriage certificates in the line (and name change proof)",
+          "labelEs": "Actas de matrimonio de la línea (y prueba de cambio de nombre)",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "When a name changed, for example by marriage.",
+          "conditionEs": "Cuando un nombre cambió, por ejemplo por matrimonio.",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_vital_records",
+            "us_state_apostille",
+            "pl_usc_copy",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Apostille and translation flags apply to US records."
+        },
+        {
+          "kind": "ancestor_birth_record_pl",
+          "label": "Polish civil record copy (odpis aktu urodzenia or małżeństwa) from the USC",
+          "labelEs": "Copia de acta civil polaca (odpis aktu urodzenia o małżeństwa) del USC",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": "When the birth or marriage was registered in Poland.",
+          "conditionEs": "Cuando el nacimiento o el matrimonio se registró en Polonia.",
+          "needsApostille": null,
+          "needsTranslation": false,
+          "orderHintIds": [
+            "pl_usc_copy"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/uw-lubelski/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The voivode office lists copies of civil records issued by a Polish USC. They are in Polish, so no translation is needed. Baptism certificates are also listed by the US consulate."
+        },
+        {
+          "kind": "ancestor_citizenship_proof",
+          "label": "Proof of the ancestor's Polish citizenship (old Polish passport, ID card, military book, other Polish documents)",
+          "labelEs": "Prueba de la ciudadanía polaca del ancestro (pasaporte polaco antiguo, cédula, libreta militar, otros documentos polacos)",
+          "appliesTo": [
+            "ancestor"
+          ],
+          "condition": null,
+          "conditionEs": null,
+          "needsApostille": null,
+          "needsTranslation": null,
+          "orderHintIds": [],
+          "sourceUrl": "https://www.gov.pl/web/uw-lubelski/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Copies must be certified true by a consul or a notary (with apostille)."
+        },
+        {
+          "kind": "naturalization_record",
+          "label": "Record of acquiring a foreign citizenship (for example US naturalization certificate)",
+          "labelEs": "Registro de adquisición de otra ciudadanía (por ejemplo, carta de naturalización de EE. UU.)",
+          "appliesTo": [
+            "parent",
+            "grandparent",
+            "ggp"
+          ],
+          "condition": "If a person in the line took another citizenship. Also any document on renouncing Polish citizenship.",
+          "conditionEs": "Si alguien de la línea tomó otra ciudadanía. También cualquier documento de renuncia a la ciudadanía polaca.",
+          "needsApostille": true,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "us_uscis_genealogy",
+            "us_nara_naturalization",
+            "us_federal_apostille",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/uw-lubelski/potwierdzenie-posiadania-lub-utraty-obywatelstwa-polskiego",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Listed as 'akt nabycia obywatelstwa obcego'. Apostille and translation flags follow the US consulate rule for documents made outside the EU."
+        },
+        {
+          "kind": "transcription_application",
+          "label": "Transcription of your US birth certificate into the Polish civil registry",
+          "labelEs": "Transcripción de tu acta de nacimiento de EE. UU. al registro civil polaco",
+          "appliesTo": [
+            "self"
+          ],
+          "condition": "Needed before a Polish passport or PESEL number. Can be filed during the confirmation case.",
+          "conditionEs": "Se necesita antes del pasaporte polaco o del número PESEL. Se puede presentar durante el trámite de confirmación.",
+          "needsApostille": null,
+          "needsTranslation": true,
+          "orderHintIds": [
+            "pl_transcription",
+            "pl_sworn_translation"
+          ],
+          "sourceUrl": "https://www.gov.pl/web/usa-en/registration-of-foreign-birth-certificates-in-a-polish-registry-office",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "The page says apostille or legalization 'might be needed' for a parent's foreign birth certificate, so apostille is left unverified."
+        }
+      ],
+      "orderHints": [
+        {
+          "id": "pl_wniosek",
+          "label": "File the confirmation application through a Polish consulate in the US",
+          "labelEs": "Presenta la solicitud de confirmación en un consulado de Polonia en EE. UU.",
+          "howTo": "Download the wniosek, fill it in Polish, and submit it with your documents at the consulate for your area, in person or by mail. Book visits in e-konsulat. The consul forwards the file to the competent voivode.",
+          "howToEs": "Descarga el wniosek, llénalo en polaco y preséntalo con tus documentos en el consulado de tu zona, en persona o por correo. Reserva citas en e-konsulat. El cónsul envía el expediente al voivoda competente.",
+          "url": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "typicalWaitDays": null,
+          "fee": "USD 118 at a consulate in the US. PLN 277 if filed directly with a voivode office in Poland.",
+          "sourceUrl": "https://www.gov.pl/web/usa-en/confirming-polish-citizenship-or-its-loss",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "PLN 277 figure from the MSWiA page. With no last address in Poland, the case goes to the Mazowiecki voivode (MSWiA)."
+        },
+        {
+          "id": "pl_usc_copy",
+          "label": "Order Polish civil record copies (odpis) from a USC",
+          "labelEs": "Pide copias de actas civiles polacas (odpis) a un USC",
+          "howTo": "Polish consulates cannot get these for you. A relative in Poland (spouse, ascendant, descendant, sibling) can request a copy at any USC in Poland. From abroad, write to the competent USC and ask about a mail request with prepaid fee, or ask the USC to send the copy to your consulate for pickup (consular fee applies). Electronic copies from ePUAP may not be accepted outside Poland or by consulates.",
+          "howToEs": "Los consulados polacos no pueden obtenerlas por ti. Un familiar en Polonia (cónyuge, ascendiente, descendiente, hermano) puede pedir una copia en cualquier USC de Polonia. Desde el extranjero, escribe al USC competente y pregunta por una solicitud por correo con pago previo, o pide al USC que envíe la copia a tu consulado para recogerla (se cobra una tarifa consular). Las copias electrónicas de ePUAP pueden no aceptarse fuera de Polonia ni en los consulados.",
+          "url": "https://www.gov.pl/web/usa-en/obtaining-copies-of-civil-status-records-and-cerificates-of-civil-status-from-civil-registry-offices-in-poland",
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.gov.pl/web/usa-en/obtaining-copies-of-civil-status-records-and-cerificates-of-civil-status-from-civil-registry-offices-in-poland",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "Copies issued before 1 March 2015 stay valid; certificates of civil status are valid six months. Old records held in state archives were not verified."
+        },
+        {
+          "id": "pl_sworn_translation",
+          "label": "Sworn translation into Polish",
+          "labelEs": "Traducción jurada al polaco",
+          "howTo": "Have every foreign language document translated into Polish by a sworn translator on the Ministry of Justice list, a sworn translator authorised in an EU or EEA state, or a consul.",
+          "howToEs": "Haz traducir al polaco cada documento en idioma extranjero por un traductor jurado de la lista del Ministerio de Justicia, un traductor jurado autorizado en un país de la UE o del EEE, o un cónsul.",
+          "url": null,
+          "typicalWaitDays": null,
+          "fee": null,
+          "sourceUrl": "https://www.gov.pl/web/usa-en/registration-of-foreign-birth-certificates-in-a-polish-registry-office",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": null
+        },
+        {
+          "id": "pl_transcription",
+          "label": "Transcribe a US birth or marriage record into the Polish registry",
+          "labelEs": "Transcribe un acta de nacimiento o matrimonio de EE. UU. al registro polaco",
+          "howTo": "Submit the transcription form, the original US certificate with parents' names, and its sworn translation at a Polish consulate, in person or by mail. The consul forwards it to the USC you choose.",
+          "howToEs": "Presenta el formulario de transcripción, el acta original de EE. UU. con los nombres de los padres y su traducción jurada en un consulado polaco, en persona o por correo. El cónsul la envía al USC que elijas.",
+          "url": "https://www.gov.pl/web/usa-en/registration-of-foreign-birth-certificates-in-a-polish-registry-office",
+          "typicalWaitDays": null,
+          "fee": "USD 71",
+          "sourceUrl": "https://www.gov.pl/web/usa-en/registration-of-foreign-birth-certificates-in-a-polish-registry-office",
+          "sourceType": "official",
+          "lastVerified": "2026-11-06",
+          "note": "For people in a confirmation case, a positive voivode decision is an extra condition before a passport application is accepted and a PESEL is assigned."
+        }
+      ],
+      "stages": [
+        {
+          "id": "gather",
+          "label": "Gather documents",
+          "labelEs": "Reunir documentos",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No official time found."
+        },
+        {
+          "id": "apply",
+          "label": "File at the consulate",
+          "labelEs": "Presentar en el consulado",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "The consul forwards the application to the voivode right away (gov.pl/web/usa-en)."
+        },
+        {
+          "id": "wait",
+          "label": "Voivode review",
+          "labelEs": "Revisión del voivoda",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "No typical time published. By law the voivode has 6 months, which can be extended; time spent waiting for archives, other offices, consulates or missing documents is not counted (MSWiA page; Lubelski office cites art. 10 ust. 3a of the Act on Polish Citizenship). This is a legal deadline, not a typical time."
+        },
+        {
+          "id": "decision",
+          "label": "Decision",
+          "labelEs": "Decisión",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "Appeal to the Minister of the Interior and Administration through the voivode within 14 days of delivery (gov.pl/web/usa-en)."
+        },
+        {
+          "id": "passport",
+          "label": "Transcription, PESEL and Polish passport",
+          "labelEs": "Transcripción, PESEL y pasaporte polaco",
+          "typicalMonths": null,
+          "sourceUrl": null,
+          "sourceType": null,
+          "lastVerified": null,
+          "note": "Passport fee USD 165, in person at a consulate. Registering your US birth in Poland is required before a Polish ID document or PESEL. No processing time on the official page (gov.pl/web/usa-en/passport-for-an-adult)."
+        }
+      ]
+    }
+  }
+}

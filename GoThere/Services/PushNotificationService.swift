@@ -56,27 +56,69 @@ final class PushNotificationService: NSObject {
         ruleAlertCodes[countryId].map { "rules_\($0)" }
     }
 
-    /// Keep exactly one `rules_<code>` topic, matching the selected destination.
-    /// Only acts once the user has opted in to notifications, so it never prompts.
+    private static let ruleTopicsKey = "fcm_rule_alert_topics"
+
+    /// Rule-alert topics the user should hold right now. Free users get one country:
+    /// their first tracked Plan B path that has alerts, otherwise the selected
+    /// destination. All-Access adds every tracked path on top of the destination.
+    /// Pure so it can be unit tested.
+    static func desiredRuleTopics(destinationId: String, planBCodes: [String], allAccess: Bool) -> [String] {
+        let available = Set(ruleAlertCodes.values)
+        let planB = planBCodes.filter { available.contains($0) }.map { "rules_\($0)" }
+        let destination = ruleAlertTopic(for: destinationId)
+        var out: [String] = []
+        if allAccess {
+            out = (destination.map { [$0] } ?? []) + planB
+        } else if let first = planB.first {
+            out = [first]
+        } else if let destination {
+            out = [destination]
+        }
+        var seen = Set<String>()
+        return out.filter { seen.insert($0).inserted }
+    }
+
+    /// Destination changed. Kept for CountrySelection; the topic set is recomputed as a whole.
+    @MainActor
     func syncRuleAlertTopic(for countryId: String) {
+        syncRuleAlertTopics(destinationId: countryId)
+    }
+
+    /// Subscribe and unsubscribe so FCM holds exactly `desiredRuleTopics`.
+    /// Only acts once the user has opted in to notifications, so it never prompts.
+    @MainActor
+    func syncRuleAlertTopics(destinationId: String? = nil) {
         let defaults = UserDefaults.standard
         guard defaults.bool(forKey: Self.subscribedKey) else { return }
-        let wanted = Self.ruleAlertTopic(for: countryId)
-        let current = defaults.string(forKey: Self.ruleTopicKey)
-        guard wanted != current else { return }
-        if let current {
-            Messaging.messaging().unsubscribe(fromTopic: current)
+        let dest = destinationId ?? defaults.string(forKey: "selectedCountryId") ?? DestinationConfig.spain
+        let wanted = Self.desiredRuleTopics(destinationId: dest,
+                                            planBCodes: PlanBStore.shared.alertCountryCodes,
+                                            allAccess: PurchaseManager.shared.hasAllAccess)
+        var current = Set(defaults.stringArray(forKey: Self.ruleTopicsKey) ?? [])
+        // Migrate the single-topic key from 1.11.x.
+        if let legacy = defaults.string(forKey: Self.ruleTopicKey) {
+            current.insert(legacy)
             defaults.removeObject(forKey: Self.ruleTopicKey)
         }
-        guard let wanted else { return }
-        Messaging.messaging().subscribe(toTopic: wanted) { error in
-            if error == nil { defaults.set(wanted, forKey: Self.ruleTopicKey) }
+        for topic in current.subtracting(wanted) {
+            Messaging.messaging().unsubscribe(fromTopic: topic)
+        }
+        let keep = current.intersection(wanted)
+        defaults.set(Array(keep), forKey: Self.ruleTopicsKey)
+        for topic in wanted where !current.contains(topic) {
+            Messaging.messaging().subscribe(toTopic: topic) { error in
+                guard error == nil else { return }
+                DispatchQueue.main.async {
+                    var held = Set(defaults.stringArray(forKey: Self.ruleTopicsKey) ?? [])
+                    held.insert(topic)
+                    defaults.set(Array(held), forKey: Self.ruleTopicsKey)
+                }
+            }
         }
     }
 
     private func syncRuleAlertTopicForSelection() {
-        let id = UserDefaults.standard.string(forKey: "selectedCountryId") ?? DestinationConfig.spain
-        syncRuleAlertTopic(for: id)
+        Task { @MainActor in self.syncRuleAlertTopics() }
     }
 }
 

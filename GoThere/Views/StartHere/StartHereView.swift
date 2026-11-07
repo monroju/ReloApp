@@ -19,6 +19,12 @@ struct StartHereView: View {
             VStack(alignment: .leading, spacing: 12) {
                 intro
 
+                route(icon: "shield.lefthalf.filled",
+                      title: "Just keeping my options open",
+                      subtitle: "Not moving yet. Build a Plan B you can grow over time.") {
+                    PlanBScreen()
+                        .onAppear { PlanBStore.shared.selectPlanBIntent(source: "start_here") }
+                }
                 route(icon: "dollarsign.circle.fill",
                       title: "Money's tight — is this even possible?",
                       subtitle: "See the real cost to move + the cheapest visa paths.") {
@@ -40,7 +46,7 @@ struct StartHereView: View {
                     AncestryCheckerView()
                 }
                 route(icon: "chart.line.uptrend.xyaxis",
-                      title: "I want a Plan B / second passport",
+                      title: "Second passport by investment",
                       subtitle: "Golden visas & citizenship by investment.") {
                     InvestmentMigrationView(onStartWizard: onStartWizard)
                 }

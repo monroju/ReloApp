@@ -2,7 +2,7 @@ import SwiftUI
 
 extension Notification.Name {
     /// Cross-screen deep link request. userInfo["route"] is one of:
-    /// "tasks" | "calendar" | "documents" | "resources" | "decision" | "wizard".
+    /// "tasks" | "planb" | "calendar" | "documents" | "resources" | "decision" | "wizard".
     /// Wizard is handled inside TasksView's own sheet; the rest map to tabs.
     static let gothereDeepLink = Notification.Name("gothere.deeplink")
 }
@@ -29,7 +29,9 @@ final class DeepLinkRouter: ObservableObject {
 struct MainTabView: View {
     @EnvironmentObject var themeVM: ThemeViewModel
     @EnvironmentObject var purchaseManager: PurchaseManager
-    @State private var selectedTab = 0
+    // Plan B mode ("Just keeping my options open") opens on the Plan B tab.
+    @State private var selectedTab = UserDefaults.standard.string(forKey: "gothere.planMode") == "planB" ? MainTabView.planBTag : 0
+    static let planBTag = 5
     @ObservedObject private var deepLinks = DeepLinkRouter.shared
 
     var body: some View {
@@ -39,6 +41,12 @@ struct MainTabView: View {
                     Label("Tasks", systemImage: "checklist")
                 }
                 .tag(0)
+
+            PlanBView()
+                .tabItem {
+                    Label("Plan B", systemImage: "shield.lefthalf.filled")
+                }
+                .tag(MainTabView.planBTag)
 
             CalendarScreenView()
                 .tabItem {
@@ -84,6 +92,7 @@ struct MainTabView: View {
     private func selectTab(for route: String) {
         switch route {
         case "tasks":     selectedTab = 0
+        case "planb":     selectedTab = MainTabView.planBTag
         case "calendar":  selectedTab = 1
         case "documents": selectedTab = 2
         case "resources": selectedTab = 3

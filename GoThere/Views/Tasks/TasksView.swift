@@ -36,6 +36,13 @@ struct TasksView: View {
                     .padding(.top, 8)
                     .padding(.bottom, 4)
 
+                // Plan B entry for people with no move date (PLAN_B_SPEC 4.1).
+                if MoveProfileStore.targetMoveDate == nil {
+                    PlanBHomeCard()
+                        .padding(.horizontal)
+                        .padding(.bottom, 4)
+                }
+
                 if vm.tasksByPhase.isEmpty {
                     ContentUnavailableView {
                         Label("No Tasks Yet", systemImage: "checklist")

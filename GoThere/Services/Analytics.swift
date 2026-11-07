@@ -56,6 +56,13 @@ enum AnalyticsEvent: String {
     case citaMonitorOpened = "cita_monitor_opened"
     case citaPortalOpened = "cita_portal_opened"
     case documentExpirySet = "document_expiry_set"
+
+    // Plan B (growth/PLAN_B_SPEC.md section 6). Country code, kind and state only, never names or dates.
+    case planbIntentSelected = "planb_intent_selected"   // prop `source`
+    case planbPathTracked = "planb_path_tracked"         // props `cc`, `type`, `ancestor`
+    case planbDocState = "planb_doc_state"               // props `cc`, `kind`, `state`
+    case planbScoreViewed = "planb_score_viewed"         // prop `score_bucket`
+    case planbPaywallShown = "planb_paywall_shown"       // prop `reason`
 }
 
 enum Analytics {

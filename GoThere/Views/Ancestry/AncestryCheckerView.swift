@@ -4,6 +4,8 @@ struct AncestryCheckerView: View {
     private let repo = AncestryRepository.shared
     @State private var selectedPath: AncestryPath?
     @State private var ruleAnswers: [String: Bool] = [:]
+    @State private var trackChain: DescentChain?
+    @ObservedObject private var planB = PlanBStore.shared
 
     var body: some View {
         ScrollView {
@@ -22,6 +24,11 @@ struct AncestryCheckerView: View {
         .navigationTitle("Ancestry Citizenship")
         .navigationBarTitleDisplayMode(.inline)
         .background(Color.goBackgroundLight.opacity(0.4))
+        .sheet(isPresented: Binding(get: { trackChain != nil }, set: { if !$0 { trackChain = nil } })) {
+            if let chain = trackChain, let path = selectedPath {
+                PlanBTrackSheet(chain: chain, countryName: DestinationConfig.getDestination(path.countryId)?.displayName ?? path.countryName)
+            }
+        }
     }
 
     private var header: some View {
@@ -176,6 +183,7 @@ struct AncestryCheckerView: View {
                             .font(.headline)
                             .foregroundColor(.green)
                         Text(path.outcome).font(.subheadline)
+                        trackButton(path)
                     } else {
                         Text("Direct path blocked")
                             .font(.headline)
@@ -195,6 +203,34 @@ struct AncestryCheckerView: View {
                     ])
                     if allYes { ReviewPromptService.recordAndMaybeRequest(.ancestryLikelyEligible) }
                 }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func trackButton(_ path: AncestryPath) -> some View {
+        if let chain = DescentChainRepository.shared.chain(forAncestryPathId: path.id) {
+            if planB.isTracking(pathwayId: chain.pathwayId) {
+                Button {
+                    NotificationCenter.default.post(name: .gothereDeepLink, object: nil, userInfo: ["route": "planb"])
+                } label: {
+                    Label("Tracking in Plan B", systemImage: "checkmark.circle.fill")
+                        .font(.subheadline.bold())
+                }
+                .padding(.top, 4)
+            } else {
+                Button {
+                    trackChain = chain
+                } label: {
+                    Label("Track this path", systemImage: "plus.circle.fill")
+                        .font(.subheadline.bold())
+                        .frame(maxWidth: .infinity)
+                        .padding(10)
+                        .background(Color.goPrimary)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding(.top, 4)
             }
         }
     }

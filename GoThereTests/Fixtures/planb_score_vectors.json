@@ -1,0 +1,799 @@
+{
+  "paths": [
+    {
+      "name": "descent empty",
+      "path": {
+        "type": "descent",
+        "items": []
+      },
+      "score": 0
+    },
+    {
+      "name": "descent nothing done",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "5",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "6",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "7",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "8",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "9",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "10",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ]
+      },
+      "score": 0
+    },
+    {
+      "name": "descent 6 of 11",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "5",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "6",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "7",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "8",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "9",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "10",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ]
+      },
+      "score": 38
+    },
+    {
+      "name": "descent all docs",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "5",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "6",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "7",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "8",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "9",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "10",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          }
+        ]
+      },
+      "score": 70
+    },
+    {
+      "name": "descent all docs filed",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "5",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "6",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "7",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "8",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "9",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "10",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          }
+        ],
+        "filedOn": "2026-12-01"
+      },
+      "score": 90
+    },
+    {
+      "name": "descent all docs filed appointment",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "5",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "6",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "7",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "8",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "9",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "10",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          }
+        ],
+        "filedOn": "2026-12-01",
+        "appointmentOn": "2027-01-10"
+      },
+      "score": 100
+    },
+    {
+      "name": "descent appointment only",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ],
+        "appointmentOn": "2027-01-10"
+      },
+      "score": 10
+    },
+    {
+      "name": "descent 1 of 3 rounds half up",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ]
+      },
+      "score": 23
+    },
+    {
+      "name": "visa empty",
+      "path": {
+        "type": "visa",
+        "items": []
+      },
+      "score": 0
+    },
+    {
+      "name": "visa fit only",
+      "path": {
+        "type": "visa",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ],
+        "visa": {
+          "incomeFit": 1.0
+        }
+      },
+      "score": 30
+    },
+    {
+      "name": "visa half fit 2 of 5 savings",
+      "path": {
+        "type": "visa",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ],
+        "visa": {
+          "incomeFit": 0.5,
+          "savingsGoalSet": true
+        }
+      },
+      "score": 55
+    },
+    {
+      "name": "visa fit above 1 clamps",
+      "path": {
+        "type": "visa",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "3",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "4",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          }
+        ],
+        "visa": {
+          "incomeFit": 1.7,
+          "savingsGoalSet": true
+        }
+      },
+      "score": 100
+    },
+    {
+      "name": "visa fit null",
+      "path": {
+        "type": "visa",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered"
+          }
+        ],
+        "visa": {
+          "incomeFit": null
+        }
+      },
+      "score": 25
+    },
+    {
+      "name": "descent skipped items leave the denominator",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "done"
+          },
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered",
+            "skipped": true
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered",
+            "skipped": true
+          }
+        ]
+      },
+      "score": 70
+    },
+    {
+      "name": "descent all skipped",
+      "path": {
+        "type": "descent",
+        "items": [
+          {
+            "id": "0",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered",
+            "skipped": true
+          },
+          {
+            "id": "1",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered",
+            "skipped": true
+          },
+          {
+            "id": "2",
+            "personRole": "self",
+            "kind": "birth_cert",
+            "state": "ordered",
+            "skipped": true
+          }
+        ]
+      },
+      "score": 0
+    }
+  ],
+  "overall": [
+    {
+      "name": "no paths",
+      "paths": [],
+      "score": 0
+    },
+    {
+      "name": "best path wins",
+      "paths": [
+        {
+          "type": "descent",
+          "items": [
+            {
+              "id": "0",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "1",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "2",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "3",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "4",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "5",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "6",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "7",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "8",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "9",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "10",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            }
+          ]
+        },
+        {
+          "type": "visa",
+          "items": [
+            {
+              "id": "0",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "1",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "done"
+            },
+            {
+              "id": "2",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "3",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            },
+            {
+              "id": "4",
+              "personRole": "self",
+              "kind": "birth_cert",
+              "state": "ordered"
+            }
+          ],
+          "visa": {
+            "incomeFit": 0.5,
+            "savingsGoalSet": true
+          }
+        }
+      ],
+      "score": 55
+    }
+  ]
+}

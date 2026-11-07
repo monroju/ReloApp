@@ -9386,6 +9386,586 @@
           }
         }
       }
+    },
+    "You": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tú"
+          }
+        }
+      }
+    },
+    "Parent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padre o madre"
+          }
+        }
+      }
+    },
+    "Grandparent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abuelo o abuela"
+          }
+        }
+      }
+    },
+    "Great-grandparent": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bisabuelo o bisabuela"
+          }
+        }
+      }
+    },
+    "Not started": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sin empezar"
+          }
+        }
+      }
+    },
+    "Ordered": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitado"
+          }
+        }
+      }
+    },
+    "Received": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recibido"
+          }
+        }
+      }
+    },
+    "Apostilled": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apostillado"
+          }
+        }
+      }
+    },
+    "Translated": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traducido"
+          }
+        }
+      }
+    },
+    "Plan B": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plan B"
+          }
+        }
+      }
+    },
+    "Options, not exits.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opciones, no salidas."
+          }
+        }
+      }
+    },
+    "A second citizenship takes one to three years of paperwork. Start the slow part now, decide later.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una segunda ciudadanía lleva de uno a tres años de trámites. Empieza ahora la parte lenta y decide después."
+          }
+        }
+      }
+    },
+    "Your paths": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tus rutas"
+          }
+        }
+      }
+    },
+    "Check whether a parent, grandparent or great-grandparent can pass citizenship down to you. If it looks likely, tap Track this path and GoThere builds your document checklist.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisa si tu padre, madre, abuelo o bisabuelo puede transmitirte su ciudadanía. Si parece probable, toca Seguir esta ruta y GoThere arma tu lista de documentos."
+          }
+        }
+      }
+    },
+    "Check my ancestry": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Revisar mi ascendencia"
+          }
+        }
+      }
+    },
+    "%lld of %lld documents done": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld de %2$lld documentos listos"
+          }
+        }
+      }
+    },
+    "Next steps": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Próximos pasos"
+          }
+        }
+      }
+    },
+    "%@ · %@ · %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@ · %3$@"
+          }
+        }
+      }
+    },
+    "Rule watch": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vigilancia de reglas"
+          }
+        }
+      }
+    },
+    "GoThere checks the official sources every week. When a rule changes for a country you track, you get one alert with what changed and the source link.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GoThere revisa las fuentes oficiales cada semana. Cuando cambia una regla de un país que sigues, recibes una alerta con lo que cambió y el enlace a la fuente."
+          }
+        }
+      }
+    },
+    "Turn on alerts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activar alertas"
+          }
+        }
+      }
+    },
+    "Readiness %lld of 100": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preparación %lld de 100"
+          }
+        }
+      }
+    },
+    "Not moving yet? Build your Plan B.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Todavía no te mudas? Arma tu Plan B."
+          }
+        }
+      }
+    },
+    "Your Plan B: %lld of 100": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu Plan B: %lld de 100"
+          }
+        }
+      }
+    },
+    "See if you can inherit a second citizenship and track the paperwork.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descubre si puedes heredar una segunda ciudadanía y sigue tus trámites."
+          }
+        }
+      }
+    },
+    "Your %@ ancestor is your": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu ancestro de %@ es tu"
+          }
+        }
+      }
+    },
+    "Track this path": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seguir esta ruta"
+          }
+        }
+      }
+    },
+    "Names and dates you add stay on this phone.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Los nombres y fechas que agregues se quedan en este teléfono."
+          }
+        }
+      }
+    },
+    "Path not found": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruta no encontrada"
+          }
+        }
+      }
+    },
+    "Stop tracking this path": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dejar de seguir esta ruta"
+          }
+        }
+      }
+    },
+    "Stop tracking %@?": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Dejar de seguir %@?"
+          }
+        }
+      }
+    },
+    "Stop tracking": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dejar de seguir"
+          }
+        }
+      }
+    },
+    "Score counts documents marked Done, plus filing and your appointment. It is not a prediction of approval.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El puntaje cuenta los documentos marcados como Listo, la solicitud presentada y tu cita. No predice si te aprueban."
+          }
+        }
+      }
+    },
+    "Citizen ancestor": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ancestro ciudadano"
+          }
+        }
+      }
+    },
+    "Not needed for me": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No lo necesito"
+          }
+        }
+      }
+    },
+    "Ordered on %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitado el %@"
+          }
+        }
+      }
+    },
+    "Where to get it": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dónde conseguirlo"
+          }
+        }
+      }
+    },
+    "Translation": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Traducción"
+          }
+        }
+      }
+    },
+    "Not yet verified": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aún sin verificar"
+          }
+        }
+      }
+    },
+    "Fee: %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Costo: %@"
+          }
+        }
+      }
+    },
+    "Open official page": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir página oficial"
+          }
+        }
+      }
+    },
+    "Stages": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etapas"
+          }
+        }
+      }
+    },
+    "Current stage": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Etapa actual"
+          }
+        }
+      }
+    },
+    "Keep your Plan B on track: unlock stage timelines": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mantén tu Plan B al día: desbloquea los plazos de cada etapa"
+          }
+        }
+      }
+    },
+    "about %@ mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "unos %@ meses"
+          }
+        }
+      }
+    },
+    "%@ to %@ mo": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ a %2$@ meses"
+          }
+        }
+      }
+    },
+    "Application filed": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitud presentada"
+          }
+        }
+      }
+    },
+    "Appointment booked": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cita reservada"
+          }
+        }
+      }
+    },
+    "Rule alerts": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alertas de reglas"
+          }
+        }
+      }
+    },
+    "Alert me when the rules change": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avísame cuando cambien las reglas"
+          }
+        }
+      }
+    },
+    "The free plan includes alerts for one country. Unlock alerts for every country you track.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El plan gratis incluye alertas para un país. Desbloquea alertas para todos los países que sigues."
+          }
+        }
+      }
+    },
+    "Rule alerts for this country are not available yet. GoThere still re-checks the official sources before each release.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Las alertas de reglas para este país aún no están disponibles. GoThere igual revisa las fuentes oficiales antes de cada versión."
+          }
+        }
+      }
+    },
+    "Official sources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fuentes oficiales"
+          }
+        }
+      }
+    },
+    "Rules last verified %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reglas verificadas por última vez el %@"
+          }
+        }
+      }
+    },
+    "Tracking in Plan B": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En seguimiento en Plan B"
+          }
+        }
+      }
+    },
+    "Just keeping my options open": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo quiero tener opciones"
+          }
+        }
+      }
+    },
+    "Not moving yet. Build a Plan B you can grow over time.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todavía no te mudas. Arma un Plan B que puedes ir completando."
+          }
+        }
+      }
+    },
+    "Second passport by investment": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segundo pasaporte por inversión"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
