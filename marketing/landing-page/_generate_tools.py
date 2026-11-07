@@ -163,6 +163,7 @@ DESCENT_JS = r"""
       }
       line.push(m);
     }
+    var trackBox = document.getElementById("track-in-app"); if (trackBox) trackBox.hidden = true;
     out.textContent = "Checking…";
     fetch(MCP, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" },
       body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "check_descent_eligibility", arguments: { country: country, line: line } } }) })
@@ -192,6 +193,11 @@ DESCENT_JS = r"""
           band.appendChild(a);
         }
         out.appendChild(band);
+        // Plan B (PLAN_B_SPEC 8): hand a likely result to the app's path tracker.
+        // The box sits right after the result; it is toggled, never moved into it,
+        // because each new check clears the result container.
+        var track = document.getElementById("track-in-app");
+        if (track) track.hidden = d.confidence === "red";
         out.scrollIntoView({ behavior: "smooth", block: "start" });
         if (window.gtTrack) window.gtTrack("tool_descent_check", { country: country, confidence: d.confidence, generations: depth });
       })
@@ -243,6 +249,15 @@ def requirements_html(req):
             f'    <p><strong>Watch out:</strong> {esc(req["gotcha"])}</p>\n')
 
 
+def track_box():
+    """Shown under a green or yellow result. Hidden until then, so it never promises on its own."""
+    apple, play = store_links("descent-track")
+    return ('    <div class="cta-box" id="track-in-app" hidden><h3>Track this path in the app</h3>'
+            "<p>GoThere's Plan B turns this result into a document checklist for each person in your line, "
+            'shows where to order every record, and keeps a readiness score. Free for descent paths.</p>'
+            f'<div class="cta-buttons"><a href="{apple}">Download for iOS</a><a href="{play}">Get on Google Play</a></div></div>\n')
+
+
 def build_descent():
     path = "/tools/citizenship-by-descent/"
     pathways = mcp_call("list_pathways", {})
@@ -290,7 +305,8 @@ def build_descent():
             f'      <button type="submit">Check eligibility</button>\n'
             f'    </form>\n'
             f'    <div class="result" id="descent-result" aria-live="polite"></div>\n'
-            f'    <h2>What you need for each pathway</h2>\n'
+            + track_box()
+            + f'    <h2>What you need for each pathway</h2>\n'
             + "".join(requirements_html(r) for r in reqs)
             + f'    <h2>Not covered yet</h2>\n'
             f'    <p>{esc(", ".join(p["country_name"] for p in planned))}. For Italy, read the '

@@ -77,6 +77,9 @@
     .change { border-bottom:1px solid var(--border); padding:18px 0; }
     .change h2 { font-size:20px; margin:8px 0; }
     .diff { font-size:14px; } .diff del { color:#f87171; } .diff ins { color:var(--teal); text-decoration:none; }
+    .alert-form h3 { margin:0 0 8px; } .alert-form input[type=email] { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg); color:var(--text); min-width:240px; }
+    .alert-form button { padding:10px 16px; border-radius:8px; border:0; background:var(--teal); color:#0B0F14; font-weight:600; cursor:pointer; }
+    .alert-countries label { margin-right:14px; white-space:nowrap; } .alert-status { font-size:13px; color:var(--teal); min-height:18px; }
     @media (max-width:600px){ dl.facts{grid-template-columns:1fr;} dl.facts dt{margin-top:8px;} }
 
     [hidden] { display:none !important; }
@@ -143,6 +146,7 @@
       <button type="submit">Check eligibility</button>
     </form>
     <div class="result" id="descent-result" aria-live="polite"></div>
+    <div class="cta-box" id="track-in-app" hidden><h3>Track this path in the app</h3><p>GoThere's Plan B turns this result into a document checklist for each person in your line, shows where to order every record, and keeps a readiness score. Free for descent paths.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_descent-track&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dtools%26utm_medium%3Dorganic%26utm_campaign%3Ddescent-track">Get on Google Play</a></div></div>
     <h2>What you need for each pathway</h2>
     <h3 id="requirements-ie">Ireland</h3>
     <dl class="facts"><dt>Cost</dt><dd>EUR 278 for adults (EUR 270 + EUR 8 postage), EUR 153 under 18</dd><dt>Processing time</dt><dd>approximately 12 months, in date order</dd><dt>Official site</dt><dd><a class="src" href="https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/" rel="nofollow noopener" target="_blank">https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/</a></dd></dl>
@@ -208,6 +212,7 @@
       }
       line.push(m);
     }
+    var trackBox = document.getElementById("track-in-app"); if (trackBox) trackBox.hidden = true;
     out.textContent = "Checking…";
     fetch(MCP, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" },
       body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "check_descent_eligibility", arguments: { country: country, line: line } } }) })
@@ -237,6 +242,11 @@
           band.appendChild(a);
         }
         out.appendChild(band);
+        // Plan B (PLAN_B_SPEC 8): hand a likely result to the app's path tracker.
+        // The box sits right after the result; it is toggled, never moved into it,
+        // because each new check clears the result container.
+        var track = document.getElementById("track-in-app");
+        if (track) track.hidden = d.confidence === "red";
         out.scrollIntoView({ behavior: "smooth", block: "start" });
         if (window.gtTrack) window.gtTrack("tool_descent_check", { country: country, confidence: d.confidence, generations: depth });
       })
