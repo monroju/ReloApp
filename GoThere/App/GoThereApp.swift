@@ -26,6 +26,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             PushNotificationService.shared.configureOnLaunch()
         }
         FirstWeekTrialService.bootstrap()
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-GTSeedPlanB") {
+            MainActor.assumeIsolated { PlanBStore.shared.seedForScreenshots() }
+        }
+        #endif
         return true
     }
 

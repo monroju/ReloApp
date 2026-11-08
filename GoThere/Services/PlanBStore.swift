@@ -116,3 +116,23 @@ final class PlanBStore: ObservableObject {
         PushNotificationService.shared.syncRuleAlertTopics()
     }
 }
+
+#if DEBUG
+extension PlanBStore {
+    /// CI store screenshots only (launch argument -GTSeedPlanB). Replaces any paths with one
+    /// Ireland grandparent path: most documents done, one apostilled, one ordered, so the
+    /// readiness ring reads about 60. Also opens the app on the Plan B tab.
+    func seedForScreenshots() {
+        for p in paths { remove(p) }
+        guard let chain = DescentChainRepository.shared.chain(pathwayId: "ie_foreign_births_register") else { return }
+        defaults.set("planB", forKey: Self.planModeKey)
+        let path = trackDescent(chain: chain, ancestor: .grandparent)
+        let items = path.activeItems
+        let done = Int((Double(items.count) * 6.0 / 7.0).rounded(.up))
+        for (i, item) in items.enumerated() {
+            let state: PlanBDocState = i < done ? .done : (i == done ? .apostilled : .ordered)
+            setState(state, itemId: item.id, in: path.id)
+        }
+    }
+}
+#endif
