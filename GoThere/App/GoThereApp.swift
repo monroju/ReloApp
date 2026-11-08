@@ -11,15 +11,20 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         if Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist") != nil {
             FirebaseApp.configure()
         }
-        let phConfig = PostHogConfig(
-            apiKey: "phc_zdWSqHah9LiyNqn38H2i3E48XPv5acrWsXedfUWVGSLb",
-            host: "https://eu.i.posthog.com"
-        )
-        phConfig.captureApplicationLifecycleEvents = true
-        PostHogSDK.shared.setup(phConfig)
-        Analytics.registerSuperProperties()
-        InstallAttribution.resolveOnce()
-        PushNotificationService.shared.configureOnLaunch()
+        // CI screenshot runs (GoThereUITests) pass -GTScreenshots: no analytics, no push
+        // prompt, so store captures never land in PostHog or block on a system alert.
+        let isScreenshotRun = ProcessInfo.processInfo.arguments.contains("-GTScreenshots")
+        if !isScreenshotRun {
+            let phConfig = PostHogConfig(
+                apiKey: "phc_zdWSqHah9LiyNqn38H2i3E48XPv5acrWsXedfUWVGSLb",
+                host: "https://eu.i.posthog.com"
+            )
+            phConfig.captureApplicationLifecycleEvents = true
+            PostHogSDK.shared.setup(phConfig)
+            Analytics.registerSuperProperties()
+            InstallAttribution.resolveOnce()
+            PushNotificationService.shared.configureOnLaunch()
+        }
         FirstWeekTrialService.bootstrap()
         return true
     }
