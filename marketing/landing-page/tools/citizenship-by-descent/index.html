@@ -147,6 +147,32 @@
     </form>
     <div class="result" id="descent-result" aria-live="polite"></div>
     <div class="cta-box" id="track-in-app" hidden><h3>Track this path in the app</h3><p>GoThere's Plan B turns this result into a document checklist for each person in your line, shows where to order every record, and keeps a readiness score. Free for descent paths.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_descent-track&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dtools%26utm_medium%3Dorganic%26utm_campaign%3Ddescent-track">Get on Google Play</a></div></div>
+    <form class="alert-form answer" novalidate>
+      <h3>Get an email when the rules change in Italy or Ireland</h3>
+      <p class="alert-countries"><label><input type="checkbox" name="list" value="96d71316-70eb-4af3-a8f7-96f22cc29432"> Italy</label> <label><input type="checkbox" name="list" value="551246aa-6e9f-44b2-9d15-17ecbe4a8377"> Ireland</label></p>
+      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> <button type="submit">Notify me</button></p>
+      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>
+      <p class="alert-status" role="status" aria-live="polite"></p>
+    </form>
+<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
     <h2>What you need for each pathway</h2>
     <h3 id="requirements-ie">Ireland</h3>
     <dl class="facts"><dt>Cost</dt><dd>EUR 278 for adults (EUR 270 + EUR 8 postage), EUR 153 under 18</dd><dt>Processing time</dt><dd>approximately 12 months, in date order</dd><dt>Official site</dt><dd><a class="src" href="https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/" rel="nofollow noopener" target="_blank">https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/</a></dd></dl>

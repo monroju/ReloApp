@@ -14,7 +14,7 @@ Deploy with the app release that ships the Plan B tab (Apple 4.2: the page point
 """
 import json
 
-from _generate_move import DATA, PROJECT, SITE, apple_link, esc, page, play_link
+from _generate_move import DATA, PROJECT, SITE, alert_form, apple_link, esc, page, play_link
 
 CHAINS = json.loads((DATA / "descent_chains.json").read_text(encoding="utf-8"))
 ANCESTRY = {p["id"]: p for p in json.loads(
@@ -180,6 +180,9 @@ def build():
         'score. Tracking descent paths is free.</p>\n'
         f'    <div class="cta-box"><h3>Start your Plan B</h3><p>Names and dates stay on your phone.</p>'
         f'<div class="cta-buttons"><a href="{apple}">Download for iOS</a><a href="{play}">Get on Google Play</a></div></div>\n'
+        # Only countries with a Listmonk list render (Italy and Ireland today).
+        + alert_form([c["countryCode"].upper() for c in chains()],
+                     heading="Get an email when the rules change in Italy or Ireland")
         + faq_html
         + f'    <p class="muted">{esc(CHAINS["disclaimer"])}</p>\n')
     page(PATH, title, desc, body, schema, campaign=CAMPAIGN)

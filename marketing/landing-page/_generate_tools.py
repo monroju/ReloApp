@@ -17,7 +17,7 @@ import json
 import urllib.request
 
 from _generate_move import (COUNTRIES, DISPLAY, EXTRA_CSS, FOOTER, FX, HEAD, SITE, UMAMI, VISAS,
-                            apple_link, esc, money, play_link, src, write)
+                            alert_form, apple_link, esc, money, play_link, src, write)
 from _generate_compare import CSS
 
 MCP_URL = f"{SITE}/mcp/"
@@ -306,6 +306,7 @@ def build_descent():
             f'    </form>\n'
             f'    <div class="result" id="descent-result" aria-live="polite"></div>\n'
             + track_box()
+            + alert_form(["IT", "IE"], heading="Get an email when the rules change in Italy or Ireland")
             + f'    <h2>What you need for each pathway</h2>\n'
             + "".join(requirements_html(r) for r in reqs)
             + f'    <h2>Not covered yet</h2>\n'

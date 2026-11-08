@@ -125,6 +125,32 @@
     <h2>Track it in GoThere</h2>
     <p>The Plan B tab turns a likely result into a checklist for each person in your line: ordered, received, apostilled, translated, done. It shows where to order every record and keeps a readiness score. Tracking descent paths is free.</p>
     <div class="cta-box"><h3>Start your Plan B</h3><p>Names and dates stay on your phone.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=planb_plan-b&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dplanb%26utm_medium%3Dorganic%26utm_campaign%3Dplan-b">Get on Google Play</a></div></div>
+    <form class="alert-form answer" novalidate>
+      <h3>Get an email when the rules change in Italy or Ireland</h3>
+      <p class="alert-countries"><label><input type="checkbox" name="list" value="551246aa-6e9f-44b2-9d15-17ecbe4a8377"> Ireland</label> <label><input type="checkbox" name="list" value="96d71316-70eb-4af3-a8f7-96f22cc29432"> Italy</label></p>
+      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> <button type="submit">Notify me</button></p>
+      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>
+      <p class="alert-status" role="status" aria-live="polite"></p>
+    </form>
+<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
     <h2>Questions</h2>
     <h3>Which countries pass citizenship down to Americans?</h3>
     <p>GoThere covers Ireland, Italy, Germany, Poland and Hungary. Each has its own rules on how far back the line can go, and the details on this page come from each country&#x27;s official pages.</p>
