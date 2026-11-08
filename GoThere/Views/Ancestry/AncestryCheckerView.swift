@@ -52,7 +52,7 @@ struct AncestryCheckerView: View {
             HStack(alignment: .top, spacing: 8) {
                 Image(systemName: "checkmark.seal.fill")
                     .foregroundColor(.goPrimary)
-                Text("A second passport for the cost of paperwork. What investors pay $200k+ for via citizenship-by-investment, you may inherit — full EU mobility, a tax-residency option, and a real Plan B.")
+                Text("A second passport for the cost of paperwork. What investors pay $200k+ for via citizenship-by-investment, you may inherit: full EU mobility, a tax-residency option, and a real Plan B.")
                     .font(.caption)
                     .foregroundColor(.primary)
                     .fixedSize(horizontal: false, vertical: true)
@@ -195,7 +195,7 @@ struct AncestryCheckerView: View {
                         Text("Direct path blocked")
                             .font(.headline)
                             .foregroundColor(.orange)
-                        Text("One or more required rules failed. Check the workaround notes above — some failed rules have court-petition paths that still work.")
+                        Text("One or more required rules failed. Check the workaround notes above. Some failed rules have court-petition paths that still work.")
                             .font(.subheadline)
                     }
                 }
@@ -208,7 +208,6 @@ struct AncestryCheckerView: View {
                         "path_id": path.id,
                         "likely_eligible": allYes
                     ])
-                    if allYes { ReviewPromptService.recordAndMaybeRequest(.ancestryLikelyEligible) }
                 }
             }
         }
