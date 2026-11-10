@@ -19,6 +19,7 @@ import urllib.request
 from _generate_move import (COUNTRIES, DISPLAY, EXTRA_CSS, FOOTER, FX, HEAD, SITE, UMAMI, VISAS,
                             alert_form, apple_link, esc, money, play_link, src, write)
 from _generate_compare import CSS
+from _partners import partner_box, expert_lead_box  # noqa: E402
 
 MCP_URL = f"{SITE}/mcp/"
 PUBLISHED = "2026-10-26"
@@ -315,6 +316,7 @@ def build_descent():
             f'<a href="/compare/irish-vs-italian-citizenship-by-descent/">here</a>.</p>\n'
             f'    <p>Going further on Ireland: <a href="/blog/ireland-foreign-births-register-2026.html">the Foreign Births Register guide</a>.</p>\n'
             + faq_html(faqs)
+            + expert_lead_box("descent", "citizenship-by-descent")
             + cta("citizenship-by-descent", "Track the whole claim in GoThere",
                   "Build your family tree, store the certificates, and follow each step of the application.")
             + DESCENT_JS)
@@ -459,6 +461,7 @@ def build_income():
             f'    <p>These test the salary of a job you have been offered in the country, not the income you have now:</p>\n'
             f'    <ul>{salary_html}</ul>\n'
             + faq_html(faqs)
+            + partner_box(["health_insurance", "money"], "", "visa-income-calculator")
             + cta("visa-income-calculator", "Found a visa that fits?",
                   "GoThere turns it into a step-by-step checklist, with the documents and deadlines for your situation.")
             + f'    <script type="application/json" id="income-data">{json.dumps(data, ensure_ascii=False)}</script>\n'

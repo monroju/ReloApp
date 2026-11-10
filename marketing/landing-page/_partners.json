@@ -1,0 +1,71 @@
+{
+  "_readme": "Partner links for getgothere.app pages and the apps (/api/partners.json). A partner renders ONLY when enabled=true AND affiliate_url is set. Paste the tracking link from each program's dashboard into affiliate_url, flip enabled, rerun the generators. Never put a plain homepage URL here: no commission, no point.",
+  "disclosure": "Some links on this page are partner links. If you buy through one, GoThere may earn a commission at no extra cost to you. We only list services that fit the visa requirements on this page; check the policy terms yourself before you pay.",
+  "partners": [
+    {
+      "id": "safetywing",
+      "name": "SafetyWing Nomad Health",
+      "category": "health_insurance",
+      "countries": ["*"],
+      "blurb": "Monthly international health cover for remote workers. Check whether your consulate accepts it before you rely on it for a visa.",
+      "program": "https://hello.safetywing.com/ambassador-page",
+      "affiliate_url": "",
+      "enabled": false
+    },
+    {
+      "id": "genki",
+      "name": "Genki",
+      "category": "health_insurance",
+      "countries": ["*"],
+      "blurb": "Expat health insurance with monthly billing. Has a visa certificate for some Schengen applications.",
+      "program": "https://genki.world/partners",
+      "affiliate_url": "",
+      "enabled": false
+    },
+    {
+      "id": "cigna_global",
+      "name": "Cigna Global",
+      "category": "health_insurance",
+      "countries": ["*"],
+      "blurb": "Full international private medical plans, often used for long-stay visas that require no copays.",
+      "program": "https://cignaglobal.com/affiliates/sign-up",
+      "affiliate_url": "",
+      "enabled": false
+    },
+    {
+      "id": "spain_visa_insurer",
+      "name": "Spanish visa health insurance (local insurer)",
+      "category": "health_insurance",
+      "countries": ["spain"],
+      "blurb": "A Spain-authorised insurer policy with no copays and no waiting periods, the format Spanish consulates ask for on the NLV.",
+      "program": "outreach: broker for Sanitas / Adeslas / DKV / Asisa",
+      "affiliate_url": "",
+      "enabled": false
+    },
+    {
+      "id": "feather",
+      "category": "health_insurance",
+      "name": "Feather",
+      "countries": ["spain", "germany"],
+      "blurb": "English-speaking expat health insurance. Says its expat plan meets the requirements for several Spanish and German visas; confirm for yours.",
+      "program": "ask Feather for partner terms",
+      "affiliate_url": "",
+      "enabled": false
+    },
+    {
+      "id": "wise",
+      "name": "Wise",
+      "category": "money",
+      "countries": ["*"],
+      "blurb": "Move savings and proof-of-funds money abroad at the mid-market rate, and hold EUR, GBP or MXN before you open a local bank account.",
+      "program": "https://wise.com/gb/blog/affiliate-onboarding-guide",
+      "affiliate_url": "",
+      "enabled": false
+    }
+  ],
+  "expert_lead": {
+    "enabled": true,
+    "_note": "Lead list, not a referral yet. We email leads only to introduce a vetted partner and only after they reply yes. Turn off if no partner is signed by 2027-01-11.",
+    "topics": ["italy_descent", "ireland_descent", "spain_visa", "portugal_visa", "general"]
+  }
+}

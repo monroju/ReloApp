@@ -6315,6 +6315,16 @@
         }
       }
     },
+    "Some links are partner links: GoThere may earn a commission if you sign up, at no extra cost to you.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Algunos enlaces son de socios: GoThere puede recibir una comisión si te registras, sin costo extra para ti."
+          }
+        }
+      }
+    },
     "This is an informational directory, not financial advice or an endorsement. Coverage rules differ by visa — always confirm a policy meets your specific visa's requirements before you buy, and check fees and terms with each provider.": {
       "localizations": {
         "es": {

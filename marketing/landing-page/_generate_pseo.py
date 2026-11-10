@@ -13,6 +13,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from _partners import partner_box, expert_lead_box
+
 ROOT = Path(__file__).parent
 DATA = json.load(open(ROOT / "_pseo_data.json"))
 POI_DIR = ROOT.parent.parent.parent / "shared" / "poi"
@@ -229,12 +231,14 @@ PAGE_TPL = """<!DOCTYPE html>
 
     {poi_section}
 
+    {partners}
+
     <div class="cta-box">
       <h3>Skip the 47-tab browser session</h3>
       <p>GoThere has visa checklists, cost calculators, and document tracking for {country}, ready to use today.</p>
       <div class="cta-buttons">
         <a href="{app_url}?utm_source=blog&utm_medium=organic&utm_campaign=pseo-{city_slug}">Download for iOS</a>
-        <a href="{play_url}&referrer=utm_source%3Dblog%26utm_medium%3Dorganic%26utm_campaign%3Dpseo-{city_slug}">Get on Google Play</a>
+        <a href="{play_url}&referrer=utm_source%3Dsite%26utm_medium%3Dreferral%26utm_campaign%3D{country_slug}-{city_slug}">Get on Google Play</a>
       </div>
     </div>
 
@@ -316,6 +320,9 @@ def render_city(country_slug: str, city_slug: str, country: dict, city: dict, re
     poi_section = render_poi_section(city_slug, city["name"])
 
     cross_promo = CROSS_PROMO_SPAIN if country_slug == "spain" else ""
+    lead_topic = {"spain": "spain_visa", "portugal": "portugal_visa"}.get(country_slug, "general")
+    partners = (partner_box(["health_insurance", "money"], country_slug, f"pseo-{city_slug}")
+                + expert_lead_box(lead_topic, f"pseo-{city_slug}"))
 
     return PAGE_TPL.format(
         umami=UMAMI_SCRIPT,
@@ -345,6 +352,7 @@ def render_city(country_slug: str, city_slug: str, country: dict, city: dict, re
         poi_section=poi_section,
         related_links=related_html,
         cross_promo=cross_promo,
+        partners=partners,
         app_url=APP_URL,
         play_url=PLAY_URL,
     )

@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 sys.path.insert(0, str(ROOT.parent.parent.parent / "_marketing" / "paid"))
 from link_builder import apple_link  # noqa: E402
+from _partners import partner_box, expert_lead_box  # noqa: E402
 
 # Visas re-verified field by field against official sources (canonical data).
 VERIFIED = {v["id"]: v for v in json.load(open(ROOT.parent.parent.parent / "shared" / "data" / "visas.json", encoding="utf-8"))}
@@ -135,6 +136,14 @@ FOOTER = """  </main>
 def ios_link(path):
     """App Store link with pt/ct (Apple ignores utm_*). ct matches the audit fixer's path-derived name."""
     return apple_link("gothere", "blog", path.strip("/").replace("/", "-")[:32])
+
+
+def partner_extras(cfg):
+    """Descent pages get the expert-intro form; visa pages get insurance + money partners."""
+    if "descent" in cfg["campaign"] or "ancestry" in cfg["campaign"]:
+        return expert_lead_box("descent", cfg["campaign"])
+    cats = ["money"] if cfg["campaign"] in ("cmp-work", "cmp-de-ca-work", "cmp-invest") else ["health_insurance", "money"]
+    return partner_box(cats, "", cfg["campaign"]) + expert_lead_box("general", cfg["campaign"])
 
 
 def cta(campaign, heading, sub, path):
@@ -268,6 +277,7 @@ def build_roundup(cfg):
     body += "    <h2>Each visa in detail</h2>\n"
     for vid in cfg["ids"]:
         body += visa_detail(vid)
+    body += partner_extras(cfg)
     body += cta(cfg["campaign"], "Not sure which one fits?",
                 "GoThere's visa matcher takes your income, timeline, and goals and ranks every route for you, then tracks the checklist for the one you pick.", cfg["path"])
     # related roundups
@@ -357,6 +367,7 @@ def build_headtohead(cfg):
     body += compare_table([cfg["a"], cfg["b"]], cfg["cols"])
     body += "    <h2>The details</h2>\n"
     body += visa_detail(cfg["a"]) + visa_detail(cfg["b"])
+    body += partner_extras(cfg)
     body += cta(cfg["campaign"], "Model both against your own numbers",
                 "GoThere runs your real income and family size against every visa's threshold, then tracks the document checklist for the one you choose.", cfg["path"])
     body += ('    <h2>Related</h2>\n    <p><a href="/compare/passive-income-visas/">All passive-income visas</a> '
