@@ -16,6 +16,19 @@
       "enabled": true
     },
     {
+      "id": "safetywing_complete",
+      "name": "SafetyWing Nomad Insurance Complete",
+      "category": "health_insurance",
+      "countries": ["*"],
+      "blurb": "Full global health cover for people living abroad: hospital, preventive care, mental health and maternity, billed monthly. Ask whether it meets your visa's insurance rules before you apply.",
+      "program": "https://hello.safetywing.com/ambassador-page",
+      "affiliate_url": "https://explore.safetywing.com/nomad-insurance-complete?referenceID=26635006&utm_source=26635006&utm_medium=Ambassador",
+      "web_only": true,
+      "exclude_countries": ["spain"],
+      "_note": "Same ambassador ID as safetywing. Old name Nomad Health (safetywing.com/nomad-health redirects here). Same web_only and Spain rules as safetywing.",
+      "enabled": true
+    },
+    {
       "id": "genki",
       "name": "Genki",
       "category": "health_insurance",
