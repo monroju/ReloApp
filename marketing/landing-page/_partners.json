@@ -1,16 +1,19 @@
 {
-  "_readme": "Partner links for getgothere.app pages and the apps (/api/partners.json). A partner renders ONLY when enabled=true AND affiliate_url is set. Paste the tracking link from each program's dashboard into affiliate_url, flip enabled, rerun the generators. Never put a plain homepage URL here: no commission, no point.",
-  "disclosure": "Some links on this page are partner links. If you buy through one, GoThere may earn a commission at no extra cost to you. We only list services that fit the visa requirements on this page; check the policy terms yourself before you pay.",
+  "_readme": "web_only=true keeps a partner off /api/partners.json (the apps). Partner links for getgothere.app pages and the apps (/api/partners.json). A partner renders ONLY when enabled=true AND affiliate_url is set. Paste the tracking link from each program's dashboard into affiliate_url, flip enabled, rerun the generators. Never put a plain homepage URL here: no commission, no point.",
+  "disclosure": "Some links on this page are partner links. If you buy through one, GoThere may earn a commission at no extra cost to you. Visa rules differ by consulate, so check the policy terms and what your consulate asks for before you pay.",
   "partners": [
     {
       "id": "safetywing",
-      "name": "SafetyWing Nomad Health",
+      "name": "SafetyWing Nomad Insurance",
       "category": "health_insurance",
       "countries": ["*"],
-      "blurb": "Monthly international health cover for remote workers. Check whether your consulate accepts it before you rely on it for a visa.",
+      "blurb": "Monthly travel medical cover for remote workers and long trips. It has a deductible, so many consulates will not accept it for a residence visa: check yours first.",
       "program": "https://hello.safetywing.com/ambassador-page",
-      "affiliate_url": "",
-      "enabled": false
+      "affiliate_url": "https://safetywing.com/nomad-insurance?referenceID=26635006&utm_source=26635006&utm_medium=Ambassador",
+      "web_only": true,
+      "exclude_countries": ["spain"],
+      "_note": "Ambassador ID 26635006, approved 2026-11-10. web_only until SafetyWing approves the iOS app placement; then delete web_only. Excluded from Spain pages: Spanish consulates want a Spain-authorised insurer with no copays.",
+      "enabled": true
     },
     {
       "id": "genki",

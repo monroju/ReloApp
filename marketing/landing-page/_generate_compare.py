@@ -143,7 +143,8 @@ def partner_extras(cfg):
     if "descent" in cfg["campaign"] or "ancestry" in cfg["campaign"]:
         return expert_lead_box("descent", cfg["campaign"])
     cats = ["money"] if cfg["campaign"] in ("cmp-work", "cmp-de-ca-work", "cmp-invest") else ["health_insurance", "money"]
-    return partner_box(cats, "", cfg["campaign"]) + expert_lead_box("general", cfg["campaign"])
+    country = "spain" if cfg["path"].startswith("/compare/spain-") else ""
+    return partner_box(cats, country, cfg["campaign"]) + expert_lead_box("general", cfg["campaign"])
 
 
 def cta(campaign, heading, sub, path):

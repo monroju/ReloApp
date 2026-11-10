@@ -38,7 +38,7 @@ CSS = """
 """
 
 HEADINGS = {
-    "health_insurance": ("Health insurance that fits the visa", "Most long-stay visas need private cover with no copays. Options people use:"),
+    "health_insurance": ("Health insurance for your move", "Long-stay visas usually need private health cover, and some consulates require no copays or deductibles. Check what yours asks for, then compare:"),
     "money": ("Moving your money", "Banks charge 3 to 5% on currency conversion. A cheaper way to move savings and proof of funds:"),
 }
 
@@ -64,6 +64,8 @@ def _active(categories, country):
         if p["category"] not in categories:
             continue
         if "*" not in p["countries"] and country not in p["countries"]:
+            continue
+        if country and country in p.get("exclude_countries", []):
             continue
         out.append(p)
     return out
@@ -134,7 +136,7 @@ def expert_lead_box(topic="general", campaign="site"):
 def write_api():
     """Public feed for the apps: only live partners, no internal notes."""
     live = [{k: p[k] for k in ("id", "name", "category", "countries", "blurb")} | {"url": p["affiliate_url"]}
-            for p in CFG["partners"] if p.get("enabled") and p.get("affiliate_url")]
+            for p in CFG["partners"] if p.get("enabled") and p.get("affiliate_url") and not p.get("web_only")]
     out = {"version": 1, "disclosure": CFG["disclosure"], "partners": live}
     (ROOT / "api").mkdir(exist_ok=True)
     (ROOT / "api" / "partners.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -144,6 +146,6 @@ def write_api():
 if __name__ == "__main__":
     live = write_api()
     for p in CFG["partners"]:
-        state = "LIVE" if (p.get("enabled") and p.get("affiliate_url")) else "off (needs affiliate_url + enabled)"
+        state = ("LIVE web only" if p.get("web_only") else "LIVE") if (p.get("enabled") and p.get("affiliate_url")) else "off (needs affiliate_url + enabled)"
         print(f"{p['id']:20} {state}")
     print(f"api/partners.json written, {len(live)} live")
