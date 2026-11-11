@@ -14,14 +14,49 @@ struct LoginView: View {
             VStack(spacing: 0) {
                 Spacer()
 
-                // Logo — ic_logo_full.png circular, 240dp on Android
+                // Logo — ic_logo_full.png circular (matches Android)
                 Image("GoThereLogoFull")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 200, height: 200)
+                    .frame(width: 140, height: 140)
                     .clipShape(Circle())
 
-                Spacer().frame(height: 32)
+                Spacer().frame(height: 20)
+
+                // One clear heading per mode, so it is obvious which of the two flows is active
+                Text(vm.isSignUpMode
+                     ? String(localized: "Create your account")
+                     : String(localized: "Welcome back"))
+                    .font(.title2.weight(.semibold))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+
+                Text(vm.isSignUpMode
+                     ? String(localized: "New here? Choose an email and a password.")
+                     : String(localized: "Use the email and password you signed up with."))
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+                    .padding(.top, 4)
+
+                Spacer().frame(height: 20)
+
+                // Mode switch: two tabs, the selected one filled
+                HStack(spacing: 0) {
+                    modeTab(String(localized: "Create account"), selected: vm.isSignUpMode) {
+                        setMode(signUp: true)
+                    }
+                    modeTab(String(localized: "Log In"), selected: !vm.isSignUpMode) {
+                        setMode(signUp: false)
+                    }
+                }
+                .padding(4)
+                .background(Color.secondary.opacity(0.15))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .padding(.horizontal, 32)
+
+                Spacer().frame(height: 20)
 
                 // Email field — OutlinedTextField style with rounded border
                 VStack(spacing: 16) {
@@ -126,7 +161,9 @@ struct LoginView: View {
                             .frame(maxWidth: .infinity)
                             .frame(height: 48)
                     } else {
-                        Text(vm.isSignUpMode ? "Sign Up" : "Log In")
+                        Text(vm.isSignUpMode
+                             ? String(localized: "Create account")
+                             : String(localized: "Log In"))
                             .font(.system(size: 16, weight: .semibold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
@@ -137,19 +174,6 @@ struct LoginView: View {
                 .cornerRadius(8)
                 .disabled(vm.isLoading)
                 .padding(.horizontal, 32)
-
-                Spacer().frame(height: 24)
-
-                // Toggle sign up / sign in
-                Button {
-                    withAnimation { vm.isSignUpMode.toggle() }
-                } label: {
-                    Text(vm.isSignUpMode
-                         ? String(localized: "Already have an account? Log In")
-                         : String(localized: "Don't have an account? Sign Up"))
-                        .font(.system(size: 14))
-                        .foregroundColor(.goPrimary)
-                }
 
                 Spacer().frame(height: 16)
 
@@ -195,5 +219,30 @@ struct LoginView: View {
                 }
             }
         }
+    }
+
+    private func setMode(signUp: Bool) {
+        guard vm.isSignUpMode != signUp else { return }
+        withAnimation {
+            vm.isSignUpMode = signUp
+            vm.errorMessage = nil
+            vm.resetEmailSent = false
+        }
+    }
+
+    private func modeTab(_ title: String, selected: Bool, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 15, weight: selected ? .semibold : .regular))
+                .foregroundColor(selected ? .white : .secondary)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .background(selected ? Color.goPrimary : Color.clear)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .disabled(vm.isLoading)
+        .accessibilityAddTraits(selected ? [.isSelected] : [])
     }
 }

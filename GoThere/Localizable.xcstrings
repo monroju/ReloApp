@@ -4723,6 +4723,66 @@
         }
       }
     },
+    "Create account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crear cuenta"
+          }
+        }
+      }
+    },
+    "Create your account": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Crea tu cuenta"
+          }
+        }
+      }
+    },
+    "Welcome back": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hola de nuevo"
+          }
+        }
+      }
+    },
+    "New here? Choose an email and a password.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "¿Primera vez? Elige un correo y una contraseña."
+          }
+        }
+      }
+    },
+    "Use the email and password you signed up with.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usa el correo y la contraseña con los que te registraste."
+          }
+        }
+      }
+    },
+    "This email already has an account. Enter its password to log in, or tap Forgot Password.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Este correo ya tiene una cuenta. Escribe su contraseña para iniciar sesión, o toca ¿Olvidaste tu contraseña?"
+          }
+        }
+      }
+    },
     "Log In": {
       "localizations": {
         "es": {
