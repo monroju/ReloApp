@@ -41,6 +41,7 @@ enum AnalyticsEvent: String {
     case referralRedeemed = "referral_redeemed"
     case conciergeWaitlistJoined = "concierge_waitlist_joined"
     case reviewPromptRequested = "review_prompt_requested"
+    case partnerLinkTapped = "partner_link_tapped" // props `partner`, `country_id`, `is_partner`
     case crossPromoTapped = "cross_promo_tapped"   // props `app`, `placement`, `country_id`
     case deepLinkOpened = "deep_link_opened"       // prop `route`, from gothere:// URLs (In-App Events)
 
