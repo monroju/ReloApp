@@ -39,6 +39,7 @@ CSS = """
 
 HEADINGS = {
     "health_insurance": ("Health insurance for your move", "Long-stay visas usually need private health cover, and some consulates require no copays or deductibles. Check what yours asks for, then compare:"),
+    "car": ("Driving in Spain", "Once you live here and drive, you need Spanish car insurance:"),
     "money": ("Moving your money", "Banks charge 3 to 5% on currency conversion. A cheaper way to move savings and proof of funds:"),
 }
 

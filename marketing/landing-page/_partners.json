@@ -100,6 +100,20 @@
       "enabled": true
     },
     {
+      "id": "feather_car_es",
+      "name": "Feather Car Insurance (Spain)",
+      "category": "car",
+      "countries": [
+        "spain"
+      ],
+      "blurb": "Car insurance in English for people living in Spain. Check the cover and the price yourself before you buy.",
+      "program": "https://affiliates.feather-insurance.com",
+      "affiliate_url": "https://feather-insurance.com/en-es/car-insurance?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO",
+      "web_only": true,
+      "_note": "Car ES EUR15 fixed per policy, VAT incl. Same source ID as feather_es (Feather tracks on utm_source, do not change). web_only until the apps handle the car category.",
+      "enabled": true
+    },
+    {
       "id": "wise",
       "name": "Wise",
       "category": "money",

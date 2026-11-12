@@ -448,7 +448,7 @@ def build_country(cc, c):
     body += '      <li><a href="/updates/">Recent rule changes</a></li>\n'
     body += f'      <li><a href="/api/countries/{c["slug"]}.json">This data as JSON</a></li>\n    </ul>\n'
     body += alert_form([cc])
-    body += partner_box(["health_insurance", "money"], c["name"].lower(), slug)
+    body += partner_box(["health_insurance", "car", "money"], c["name"].lower(), slug)
     body += expert_lead_box({"ES": "spain_visa", "PT": "portugal_visa", "IT": "italy_descent", "IE": "ireland_descent"}.get(cc, "general"), slug)
     body += cta(slug, f"Plan your move to {c['name']}",
                 "GoThere checks your income and family against each route, then tracks every document and deadline for the one you pick.")

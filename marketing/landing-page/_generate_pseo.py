@@ -321,7 +321,7 @@ def render_city(country_slug: str, city_slug: str, country: dict, city: dict, re
 
     cross_promo = CROSS_PROMO_SPAIN if country_slug == "spain" else ""
     lead_topic = {"spain": "spain_visa", "portugal": "portugal_visa"}.get(country_slug, "general")
-    partners = (partner_box(["health_insurance", "money"], country_slug, f"pseo-{city_slug}")
+    partners = (partner_box(["health_insurance", "car", "money"], country_slug, f"pseo-{city_slug}")
                 + expert_lead_box(lead_topic, f"pseo-{city_slug}"))
 
     return PAGE_TPL.format(

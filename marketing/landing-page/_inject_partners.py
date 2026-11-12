@@ -31,7 +31,7 @@ POSTS = {
     "mexico-temporary-resident-visa-2026": (["health_insurance", "money"], "mexico", "general"),
     "poland-citizenship-confirmation-2026": (["money"], "poland", "descent"),
     "portugal-d7-d8-visa-2026": (["health_insurance", "money"], "portugal", "portugal_visa"),
-    "spain-non-lucrative-visa-2026": (["health_insurance", "money"], "spain", "spain_visa"),
+    "spain-non-lucrative-visa-2026": (["health_insurance", "car", "money"], "spain", "spain_visa"),
     "uk-ancestry-visa-2026": (["money"], "uk", "general"),
     "uk-skilled-worker-visa-2026": (["money"], "uk", "general"),
 }
