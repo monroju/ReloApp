@@ -16,7 +16,7 @@ from pathlib import Path
 from _partners import partner_box, expert_lead_box
 
 ROOT = Path(__file__).parent
-DATA = json.load(open(ROOT / "_pseo_data.json"))
+DATA = json.load(open(ROOT / "_pseo_data.json", encoding="utf-8"))
 POI_DIR = ROOT.parent.parent.parent / "shared" / "poi"
 
 UMAMI_SCRIPT = '''<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "64a77b8c518846cd99a83b9c13466ac3"}'></script><!-- End Cloudflare Web Analytics --><script src="/assets/gt.js" defer></script>'''

@@ -6,12 +6,16 @@
       "id": "safetywing",
       "name": "SafetyWing Nomad Insurance",
       "category": "health_insurance",
-      "countries": ["*"],
+      "countries": [
+        "*"
+      ],
       "blurb": "Monthly travel medical cover for remote workers and long trips. It has a deductible, so many consulates will not accept it for a residence visa: check yours first.",
       "program": "https://hello.safetywing.com/ambassador-page",
       "affiliate_url": "https://safetywing.com/nomad-insurance?referenceID=26635006&utm_source=26635006&utm_medium=Ambassador",
       "web_only": true,
-      "exclude_countries": ["spain"],
+      "exclude_countries": [
+        "spain"
+      ],
       "_note": "Ambassador ID 26635006, approved 2026-11-10. web_only until SafetyWing approves the iOS app placement; then delete web_only. Excluded from Spain pages: Spanish consulates want a Spain-authorised insurer with no copays.",
       "enabled": true
     },
@@ -19,12 +23,16 @@
       "id": "safetywing_complete",
       "name": "SafetyWing Nomad Insurance Complete",
       "category": "health_insurance",
-      "countries": ["*"],
+      "countries": [
+        "*"
+      ],
       "blurb": "Full global health cover for people living abroad: hospital, preventive care, mental health and maternity, billed monthly. Ask whether it meets your visa's insurance rules before you apply.",
       "program": "https://hello.safetywing.com/ambassador-page",
       "affiliate_url": "https://explore.safetywing.com/nomad-insurance-complete?referenceID=26635006&utm_source=26635006&utm_medium=Ambassador",
       "web_only": true,
-      "exclude_countries": ["spain"],
+      "exclude_countries": [
+        "spain"
+      ],
       "_note": "Same ambassador ID as safetywing. Old name Nomad Health (safetywing.com/nomad-health redirects here). Same web_only and Spain rules as safetywing.",
       "enabled": true
     },
@@ -32,9 +40,12 @@
       "id": "genki",
       "name": "Genki",
       "category": "health_insurance",
-      "countries": ["*"],
-      "blurb": "Expat health insurance with monthly billing. Has a visa certificate for some Schengen applications.",
+      "countries": [
+        "*"
+      ],
+      "blurb": "International health insurance for people living abroad (Genki Native), billed monthly. Genki says it suits most visas and residence permits that accept international health insurance and gives you a Certificate of Insurance in English. Approval is up to the authorities, so check what yours asks for before you pay.",
       "program": "https://genki.world/partners",
+      "_note": "Referral Agreement v2 signed by operator 2026-11-11, username gothere. Waiting for Genki countersignature; they email the referral link after both sign. Paste THAT link (do not guess the format), then enable. Terms: no insurance advice, no misleading claims on product or price, follow Referral Guidelines in partners.genki.world. Payout from EUR50. Partner Center (read 2026-11-11): link format genki.world/with/gothere or genki.world/products/native?with=gothere, live only after countersignature. Professional partner rates: Traveler EUR6.60/month, Native Basic EUR18.60/month, Native Premium EUR27.30/month (Native capped at 12 months). Rules: no paid ads mentioning Genki without approval, no bidding on the Genki name, no custom landing page with Genki branding, link only to official Genki pages, keep product and price claims exact. Recheck the blurb against genki.world before enabling.",
       "affiliate_url": "",
       "enabled": false
     },
@@ -42,7 +53,9 @@
       "id": "cigna_global",
       "name": "Cigna Global",
       "category": "health_insurance",
-      "countries": ["*"],
+      "countries": [
+        "*"
+      ],
       "blurb": "Full international private medical plans, often used for long-stay visas that require no copays.",
       "program": "https://cignaglobal.com/affiliates/sign-up",
       "affiliate_url": "",
@@ -52,27 +65,47 @@
       "id": "spain_visa_insurer",
       "name": "Spanish visa health insurance (local insurer)",
       "category": "health_insurance",
-      "countries": ["spain"],
+      "countries": [
+        "spain"
+      ],
       "blurb": "A Spain-authorised insurer policy with no copays and no waiting periods, the format Spanish consulates ask for on the NLV.",
       "program": "outreach: broker for Sanitas / Adeslas / DKV / Asisa",
       "affiliate_url": "",
       "enabled": false
     },
     {
-      "id": "feather",
+      "id": "feather_es",
+      "name": "Feather Expat Health (Spain)",
       "category": "health_insurance",
-      "name": "Feather",
-      "countries": ["spain", "germany"],
-      "blurb": "English-speaking expat health insurance. Says its expat plan meets the requirements for several Spanish and German visas; confirm for yours.",
-      "program": "ask Feather for partner terms",
-      "affiliate_url": "",
-      "enabled": false
+      "countries": [
+        "spain"
+      ],
+      "blurb": "English-speaking health insurance for people moving to Spain. Feather says its expat plan is accepted for visa applications and covers up to five years. Check what your consulate asks for (some want no copays) before you pay.",
+      "program": "https://affiliates.feather-insurance.com",
+      "_note": "Approved 2026-11-12, source ID oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO (Feather tracks on utm_source, keep it). Fixed commission, VAT inclusive: Expat ES EUR30, Expat DE EUR40, Expat long-term (APRIL) EUR60, Home ES EUR15, Car ES EUR15, Car DE EUR35. Partner Toolkit allows Feather content and banners on our site and app.",
+      "affiliate_url": "https://feather-insurance.com/en-es/expat-health-insurance?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO",
+      "enabled": true
+    },
+    {
+      "id": "feather_de",
+      "name": "Feather Expat Health (Germany)",
+      "category": "health_insurance",
+      "countries": [
+        "germany"
+      ],
+      "blurb": "English-speaking expat health insurance for your first years in Germany. Feather says it is accepted at the visa office, and you can switch to public insurance once you have a job.",
+      "program": "https://affiliates.feather-insurance.com",
+      "_note": "Approved 2026-11-12, source ID oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO (Feather tracks on utm_source, keep it). Fixed commission, VAT inclusive: Expat ES EUR30, Expat DE EUR40, Expat long-term (APRIL) EUR60, Home ES EUR15, Car ES EUR15, Car DE EUR35. Partner Toolkit allows Feather content and banners on our site and app.",
+      "affiliate_url": "https://feather-insurance.com/health-insurance/expat/short-term?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO",
+      "enabled": true
     },
     {
       "id": "wise",
       "name": "Wise",
       "category": "money",
-      "countries": ["*"],
+      "countries": [
+        "*"
+      ],
       "blurb": "Move savings and proof-of-funds money abroad at the mid-market rate, and hold EUR, GBP or MXN before you open a local bank account.",
       "program": "https://wise.com/gb/blog/affiliate-onboarding-guide",
       "affiliate_url": "",
@@ -82,6 +115,12 @@
   "expert_lead": {
     "enabled": true,
     "_note": "Lead list, not a referral yet. We email leads only to introduce a vetted partner and only after they reply yes. Turn off if no partner is signed by 2027-01-11.",
-    "topics": ["italy_descent", "ireland_descent", "spain_visa", "portugal_visa", "general"]
+    "topics": [
+      "italy_descent",
+      "ireland_descent",
+      "spain_visa",
+      "portugal_visa",
+      "general"
+    ]
   }
 }
