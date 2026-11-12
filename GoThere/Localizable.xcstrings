@@ -2787,6 +2787,16 @@
         }
       }
     },
+    "Couldn't open the code sheet. Please try again.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo abrir la hoja de códigos. Inténtalo de nuevo."
+          }
+        }
+      }
+    },
     "Couldn't process that image. Please try again.": {
       "localizations": {
         "es": {
@@ -3779,6 +3789,56 @@
           "stringUnit": {
             "state": "translated",
             "value": "Acepta ingreso freelance / propio"
+          }
+        }
+      }
+    },
+    "Get help": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obtener ayuda"
+          }
+        }
+      }
+    },
+    "Opens the App Store sheet to enter an offer code": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre la hoja del App Store para introducir un código de oferta"
+          }
+        }
+      }
+    },
+    "Opens their website in your browser": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre su sitio web en tu navegador"
+          }
+        }
+      }
+    },
+    "Organizations that support people moving abroad. GoThere is not affiliated with them unless stated.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Organizaciones que apoyan a las personas que se mudan al extranjero. GoThere no está afiliado a ellas salvo que se indique."
+          }
+        }
+      }
+    },
+    "Redeem a code": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canjear un código"
           }
         }
       }
