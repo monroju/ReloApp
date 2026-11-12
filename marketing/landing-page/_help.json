@@ -1,0 +1,18 @@
+{
+  "_readme": "Source for /api/help.json (the Get help section in GoThere + Localista, iOS + Android) and the partner pages /p/<id>/. Add an org ONLY after it agrees in writing. enabled=false keeps it out of everything. Run: python _help.py, then deploy api/help.json and p/. Apps hide Get help while the feed is empty.",
+  "orgs": [
+    {
+      "id": "example-org",
+      "name": "Example Org",
+      "blurb": "One short sentence on what they do for people moving abroad.",
+      "url": "https://example.org",
+      "audiences": ["general"],
+      "apps": ["gothere", "localista"],
+      "countries": ["*"],
+      "partner_page": true,
+      "members_word": "members",
+      "_note": "Template entry. Copy it, fill it in, set enabled=true once the org has agreed.",
+      "enabled": false
+    }
+  ]
+}
