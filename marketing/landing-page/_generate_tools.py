@@ -17,8 +17,9 @@ import json
 import urllib.request
 
 from _generate_move import (COUNTRIES, DISPLAY, EXTRA_CSS, FOOTER, FX, HEAD, SITE, UMAMI, VISAS,
-                            apple_link, esc, money, play_link, src, write)
+                            alert_form, apple_link, esc, money, play_link, src, write)
 from _generate_compare import CSS
+from _partners import partner_box, expert_lead_box  # noqa: E402
 
 MCP_URL = f"{SITE}/mcp/"
 PUBLISHED = "2026-10-26"
@@ -163,6 +164,7 @@ DESCENT_JS = r"""
       }
       line.push(m);
     }
+    var trackBox = document.getElementById("track-in-app"); if (trackBox) trackBox.hidden = true;
     out.textContent = "Checking…";
     fetch(MCP, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" },
       body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "check_descent_eligibility", arguments: { country: country, line: line } } }) })
@@ -192,6 +194,11 @@ DESCENT_JS = r"""
           band.appendChild(a);
         }
         out.appendChild(band);
+        // Plan B (PLAN_B_SPEC 8): hand a likely result to the app's path tracker.
+        // The box sits right after the result; it is toggled, never moved into it,
+        // because each new check clears the result container.
+        var track = document.getElementById("track-in-app");
+        if (track) track.hidden = d.confidence === "red";
         out.scrollIntoView({ behavior: "smooth", block: "start" });
         if (window.gtTrack) window.gtTrack("tool_descent_check", { country: country, confidence: d.confidence, generations: depth });
       })
@@ -243,6 +250,15 @@ def requirements_html(req):
             f'    <p><strong>Watch out:</strong> {esc(req["gotcha"])}</p>\n')
 
 
+def track_box():
+    """Shown under a green or yellow result. Hidden until then, so it never promises on its own."""
+    apple, play = store_links("descent-track")
+    return ('    <div class="cta-box" id="track-in-app" hidden><h3>Track this path in the app</h3>'
+            "<p>GoThere's Plan B turns this result into a document checklist for each person in your line, "
+            'shows where to order every record, and keeps a readiness score. Free for descent paths.</p>'
+            f'<div class="cta-buttons"><a href="{apple}">Download for iOS</a><a href="{play}">Get on Google Play</a></div></div>\n')
+
+
 def build_descent():
     path = "/tools/citizenship-by-descent/"
     pathways = mcp_call("list_pathways", {})
@@ -290,7 +306,9 @@ def build_descent():
             f'      <button type="submit">Check eligibility</button>\n'
             f'    </form>\n'
             f'    <div class="result" id="descent-result" aria-live="polite"></div>\n'
-            f'    <h2>What you need for each pathway</h2>\n'
+            + track_box()
+            + alert_form(["IT", "IE"], heading="Get an email when the rules change in Italy or Ireland")
+            + f'    <h2>What you need for each pathway</h2>\n'
             + "".join(requirements_html(r) for r in reqs)
             + f'    <h2>Not covered yet</h2>\n'
             f'    <p>{esc(", ".join(p["country_name"] for p in planned))}. For Italy, read the '
@@ -298,6 +316,7 @@ def build_descent():
             f'<a href="/compare/irish-vs-italian-citizenship-by-descent/">here</a>.</p>\n'
             f'    <p>Going further on Ireland: <a href="/blog/ireland-foreign-births-register-2026.html">the Foreign Births Register guide</a>.</p>\n'
             + faq_html(faqs)
+            + expert_lead_box("descent", "citizenship-by-descent")
             + cta("citizenship-by-descent", "Track the whole claim in GoThere",
                   "Build your family tree, store the certificates, and follow each step of the application.")
             + DESCENT_JS)
@@ -442,6 +461,7 @@ def build_income():
             f'    <p>These test the salary of a job you have been offered in the country, not the income you have now:</p>\n'
             f'    <ul>{salary_html}</ul>\n'
             + faq_html(faqs)
+            + partner_box(["health_insurance", "money"], "", "visa-income-calculator")
             + cta("visa-income-calculator", "Found a visa that fits?",
                   "GoThere turns it into a step-by-step checklist, with the documents and deadlines for your situation.")
             + f'    <script type="application/json" id="income-data">{json.dumps(data, ensure_ascii=False)}</script>\n'

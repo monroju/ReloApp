@@ -24,7 +24,7 @@
         "perDependent": "+100% of IPREM per family member: EUR 600/month (EUR 7,200/year)",
         "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/autorizacion-inicial-de-residencia-temporal-no-lucrativa",
         "sourceType": "official",
-        "lastVerified": "2026-10-26",
+        "lastVerified": "2026-11-02",
         "note": "Rule (400% IPREM applicant, 100% IPREM per family member) from Ministerio de Inclusión Hoja 6 (updated May 2025, cites RD 1155/2024 arts. 60-63) and US consulate pages (Boston, Chicago, Washington). IPREM 2026 = EUR 600/month, EUR 7,200/year (12 pagas): SEPE https://www.sepe.es/HomeSepe/prestaciones-desempleo/Cuantias-anuales.html and Consulate LA https://www.exteriores.gob.es/Consulados/losangeles/en/ServiciosConsulares/Documents/IPREM.pdf; legal basis Ley 31/2022 (PGE 2023) prorogued, IPREM unchanged since 2023. Arithmetic: 4 x 600 = 2,400/month; 2,400 x 12 = 28,800/year. Couple: 2,400 + 600 = 3,000/month (36,000/year). Couple + 1 child: 3,600/month (43,200/year). Washington consulate states the requirement on an annual basis (400% IPREM annually)."
       },
       "savings": {
@@ -69,7 +69,7 @@
         "renewal": "Renewable for 2 years at a time, then eligible for long-term residence after 5 years",
         "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/renovacion-de-la-autorizacion-de-residencia-temporal-no-lucrativa",
         "sourceType": "official",
-        "lastVerified": "2026-10-26",
+        "lastVerified": "2026-11-02",
         "note": "Initial authorization lasts 1 year from entry (Hoja 6). Visa itself valid up to 90 days for entry (Boston; Hoja 6: never more than 3 months). Renewed authorization valid 2 years unless long-term residence applies (Hoja 7); apply in the 2 months before expiry or up to 3 months after. Renewal also requires sufficient means for the renewal period."
       },
       "workAllowed": {
@@ -83,7 +83,7 @@
         "years": 5,
         "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
         "sourceType": "official",
-        "lastVerified": "2026-10-26",
+        "lastVerified": "2026-11-02",
         "note": "Residencia de larga duración (national): 5 years of legal and continuous residence in Spain before applying (Hoja 49; Ley Orgánica 4/2000 art. 32; RD 1155/2024). Long-term EU status (Hoja 50) also requires 5 years. Absence limits that break continuity are not verified here."
       },
       "pathToCitizenship": {
@@ -202,7 +202,7 @@
         "years": 5,
         "sourceUrl": "https://www.inclusion.gob.es/web/migraciones/w/49.-autorizacion-de-residencia-de-larga-duracion-nacional",
         "sourceType": "official",
-        "lastVerified": "2026-10-26",
+        "lastVerified": "2026-11-02",
         "note": "Residencia de larga duración: 5 years of legal and continuous residence (Hoja 49; Ley Orgánica 4/2000 art. 32). Time on the DNV counts as legal residence (inference: it is a residence title under Ley 14/2013; no official page found that addresses DNV time explicitly)."
       },
       "pathToCitizenship": {

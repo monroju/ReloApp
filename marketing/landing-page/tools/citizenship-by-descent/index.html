@@ -77,6 +77,9 @@
     .change { border-bottom:1px solid var(--border); padding:18px 0; }
     .change h2 { font-size:20px; margin:8px 0; }
     .diff { font-size:14px; } .diff del { color:#f87171; } .diff ins { color:var(--teal); text-decoration:none; }
+    .alert-form h3 { margin:0 0 8px; } .alert-form input[type=email] { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg); color:var(--text); min-width:240px; }
+    .alert-form button { padding:10px 16px; border-radius:8px; border:0; background:var(--teal); color:#0B0F14; font-weight:600; cursor:pointer; }
+    .alert-countries label { margin-right:14px; white-space:nowrap; } .alert-status { font-size:13px; color:var(--teal); min-height:18px; }
     @media (max-width:600px){ dl.facts{grid-template-columns:1fr;} dl.facts dt{margin-top:8px;} }
 
     [hidden] { display:none !important; }
@@ -143,6 +146,33 @@
       <button type="submit">Check eligibility</button>
     </form>
     <div class="result" id="descent-result" aria-live="polite"></div>
+    <div class="cta-box" id="track-in-app" hidden><h3>Track this path in the app</h3><p>GoThere's Plan B turns this result into a document checklist for each person in your line, shows where to order every record, and keeps a readiness score. Free for descent paths.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_descent-track&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dtools%26utm_medium%3Dorganic%26utm_campaign%3Ddescent-track">Get on Google Play</a></div></div>
+    <form class="alert-form answer" novalidate>
+      <h3>Get an email when the rules change in Italy or Ireland</h3>
+      <p class="alert-countries"><label><input type="checkbox" name="list" value="96d71316-70eb-4af3-a8f7-96f22cc29432"> Italy</label> <label><input type="checkbox" name="list" value="551246aa-6e9f-44b2-9d15-17ecbe4a8377"> Ireland</label></p>
+      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> <button type="submit">Notify me</button></p>
+      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>
+      <p class="alert-status" role="status" aria-live="polite"></p>
+    </form>
+<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
     <h2>What you need for each pathway</h2>
     <h3 id="requirements-ie">Ireland</h3>
     <dl class="facts"><dt>Cost</dt><dd>EUR 278 for adults (EUR 270 + EUR 8 postage), EUR 153 under 18</dd><dt>Processing time</dt><dd>approximately 12 months, in date order</dd><dt>Official site</dt><dd><a class="src" href="https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/" rel="nofollow noopener" target="_blank">https://www.ireland.ie/en/dfa/citizenship/born-abroad/registering-a-foreign-birth/</a></dd></dl>
@@ -164,6 +194,36 @@
     <p>No. It asks for countries and years only, never names. The answer is computed and nothing is saved.</p>
     <h3>Which countries does it cover?</h3>
     <p>Ireland and Canada today. Italy (jure sanguinis), Poland (confirmation of citizenship), Germany (StAG §15), Portugal (descent), United Kingdom (ancestry visa) are in progress, and the checker says so rather than guessing.</p>
+<style>
+.gt-partners{border:1px solid rgba(127,127,127,.25);border-radius:14px;padding:20px 22px;margin:28px 0;background:rgba(127,127,127,.06)}
+.gt-partners h3{margin:0 0 6px;font-size:19px}
+.gt-partners>p{margin:0 0 14px;opacity:.85;font-size:15px}
+.gt-partners ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.gt-partners li{display:flex;gap:14px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.gt-partners li div{flex:1 1 260px}
+.gt-partners li strong{display:block}
+.gt-partners li span{font-size:14px;opacity:.8}
+.gt-partners a.gt-p-btn{white-space:nowrap;padding:8px 14px;border-radius:999px;border:1px solid currentColor;text-decoration:none;font-weight:600;font-size:14px}
+.gt-partners small{display:block;margin-top:14px;font-size:12px;opacity:.7}
+.gt-lead form{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.gt-lead input[type=email]{flex:1 1 220px;padding:10px 12px;border-radius:10px;border:1px solid rgba(127,127,127,.4);font:inherit;min-width:0}
+.gt-lead button{padding:10px 16px;border-radius:10px;border:0;font:inherit;font-weight:600;cursor:pointer;background:#0f766e;color:#fff}
+.gt-lead .gt-lead-ok{display:none;font-weight:600}
+.gt-lead .gt-lead-err{font-size:14px;color:#b91c1c}
+</style><aside class="gt-partners gt-lead" aria-label="Expert introduction"><h3>Claiming citizenship by descent: want an intro to a vetted lawyer or document service?</h3><p>We are lining up a small list of lawyers and services we have checked. Leave your email and we will write once, to offer an introduction. We share your details with a partner only if you reply yes.</p><form data-topic="descent" data-campaign="citizenship-by-descent" novalidate><input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email" required><button type="submit">Request an intro</button></form><p class="gt-lead-ok">Thanks. We will be in touch when a vetted partner is ready.</p><p class="gt-lead-err" role="alert"></p><small>GoThere is research, not legal advice. See our <a href="/privacy.html">privacy policy</a>.</small></aside><script>
+(function(){document.querySelectorAll('.gt-lead form').forEach(function(f){
+ f.addEventListener('submit',async function(ev){ev.preventDefault();
+  var box=f.parentNode,err=box.querySelector('.gt-lead-err'),ok=box.querySelector('.gt-lead-ok'),b=f.querySelector('button'),em=f.email.value.trim();
+  err.textContent='';if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){err.textContent='Please enter a valid email address.';return;}
+  b.disabled=true;var q=new URLSearchParams(location.search);
+  try{var r=await fetch('https://api.mylocalista.com/marketing/capture',{method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({app:'gothere',email:em,source:'expert_lead_'+f.dataset.topic,language:document.documentElement.lang||'en',
+   utm_source:q.get('utm_source')||'site',utm_medium:q.get('utm_medium')||'organic',utm_campaign:f.dataset.campaign,utm_content:location.pathname})});
+   if(!r.ok)throw 0;f.style.display='none';ok.style.display='block';
+   if(window.gtTrack)try{gtTrack('expert_lead',{topic:f.dataset.topic})}catch(e){}
+  }catch(e){err.textContent="Couldn't reach the server. Try again in a minute.";b.disabled=false;}
+ });});})();
+</script>
     <div class="cta-box"><h3>Track the whole claim in GoThere</h3><p>Build your family tree, store the certificates, and follow each step of the application.</p><div class="cta-buttons"><a href="https://apps.apple.com/app/gothere-relocation-guide/id6760248690?pt=128632140&ct=tools_citizenship-by-descent&mt=8">Download for iOS</a><a href="https://play.google.com/store/apps/details?id=com.gothere.app&referrer=utm_source%3Dtools%26utm_medium%3Dorganic%26utm_campaign%3Dcitizenship-by-descent">Get on Google Play</a></div></div>
 
 <script>
@@ -208,6 +268,7 @@
       }
       line.push(m);
     }
+    var trackBox = document.getElementById("track-in-app"); if (trackBox) trackBox.hidden = true;
     out.textContent = "Checking…";
     fetch(MCP, { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json, text/event-stream" },
       body: JSON.stringify({ jsonrpc: "2.0", id: 1, method: "tools/call", params: { name: "check_descent_eligibility", arguments: { country: country, line: line } } }) })
@@ -237,6 +298,11 @@
           band.appendChild(a);
         }
         out.appendChild(band);
+        // Plan B (PLAN_B_SPEC 8): hand a likely result to the app's path tracker.
+        // The box sits right after the result; it is toggled, never moved into it,
+        // because each new check clears the result container.
+        var track = document.getElementById("track-in-app");
+        if (track) track.hidden = d.confidence === "red";
         out.scrollIntoView({ behavior: "smooth", block: "start" });
         if (window.gtTrack) window.gtTrack("tool_descent_check", { country: country, confidence: d.confidence, generations: depth });
       })

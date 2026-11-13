@@ -9,6 +9,7 @@ struct MoneyInsuranceView: View {
 
     @Environment(\.dismiss) private var dismiss
     @State private var countryId: String
+    @ObservedObject private var links = PartnerLinks.shared
 
     init(initialCountryId: String? = nil) {
         self.initialCountryId = initialCountryId
@@ -42,6 +43,7 @@ struct MoneyInsuranceView: View {
         }
         .navigationTitle("Money & Insurance")
         .navigationBarTitleDisplayMode(.inline)
+        .task { await links.refresh() }
     }
 
     // MARK: - Sections
@@ -114,7 +116,7 @@ struct MoneyInsuranceView: View {
     }
 
     private func providerCard(_ p: MoneyProvider) -> some View {
-        Link(destination: URL(string: p.url) ?? URL(string: "https://getgothere.app")!) {
+        Link(destination: links.url(for: p, countryId: countryId)) {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(p.name)
@@ -137,13 +139,24 @@ struct MoneyInsuranceView: View {
             .cornerRadius(12)
         }
         .buttonStyle(.plain)
+        .simultaneousGesture(TapGesture().onEnded {
+            Analytics.log(.partnerLinkTapped, properties: ["partner": p.id, "country_id": countryId,
+                                                           "is_partner": links.isPartner(p, countryId: countryId)])
+        })
     }
 
+    @ViewBuilder
     private var disclaimer: some View {
         Text("This is an informational directory, not financial advice or an endorsement. Coverage rules differ by visa — always confirm a policy meets your specific visa's requirements before you buy, and check fees and terms with each provider.")
             .font(.caption2)
             .foregroundColor(.secondary)
             .fixedSize(horizontal: false, vertical: true)
             .padding(.top, 4)
+        if !links.urls.isEmpty {
+            Text("Some links are partner links: GoThere may earn a commission if you sign up, at no extra cost to you.")
+                .font(.caption2)
+                .foregroundColor(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 }

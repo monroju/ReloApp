@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "disclosure": "Some links on this page are partner links. If you buy through one, GoThere may earn a commission at no extra cost to you. Visa rules differ by consulate, so check the policy terms and what your consulate asks for before you pay.",
+  "partners": [
+    {
+      "id": "feather_es",
+      "name": "Feather Expat Health (Spain)",
+      "category": "health_insurance",
+      "countries": [
+        "spain"
+      ],
+      "blurb": "English-speaking health insurance for people moving to Spain. Feather says its expat plan is accepted for visa applications and covers up to five years. Check what your consulate asks for (some want no copays) before you pay.",
+      "url": "https://feather-insurance.com/en-es/expat-health-insurance?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO"
+    },
+    {
+      "id": "feather_de",
+      "name": "Feather Expat Health (Germany)",
+      "category": "health_insurance",
+      "countries": [
+        "germany"
+      ],
+      "blurb": "English-speaking expat health insurance for your first years in Germany. Feather says it is accepted at the visa office, and you can switch to public insurance once you have a job.",
+      "url": "https://feather-insurance.com/health-insurance/expat/short-term?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO"
+    }
+  ]
+}

@@ -31,6 +31,7 @@ sys.path.insert(0, str(PROJECT / "_marketing" / "paid"))
 from link_builder import apple_link, play_link  # noqa: E402
 
 from _generate_compare import CSS, UMAMI  # noqa: E402
+from _partners import partner_box, expert_lead_box  # noqa: E402
 
 VISAS = json.loads((DATA / "visas.json").read_text(encoding="utf-8"))
 CHANGELOG = sorted(json.loads((DATA / "changelog.json").read_text(encoding="utf-8")),
@@ -96,6 +97,9 @@ EXTRA_CSS = """
     .change { border-bottom:1px solid var(--border); padding:18px 0; }
     .change h2 { font-size:20px; margin:8px 0; }
     .diff { font-size:14px; } .diff del { color:#f87171; } .diff ins { color:var(--teal); text-decoration:none; }
+    .alert-form h3 { margin:0 0 8px; } .alert-form input[type=email] { padding:10px 12px; border-radius:8px; border:1px solid var(--border); background:var(--bg); color:var(--text); min-width:240px; }
+    .alert-form button { padding:10px 16px; border-radius:8px; border:0; background:var(--teal); color:#0B0F14; font-weight:600; cursor:pointer; }
+    .alert-countries label { margin-right:14px; white-space:nowrap; } .alert-status { font-size:13px; color:var(--teal); min-height:18px; }
     @media (max-width:600px){ dl.facts{grid-template-columns:1fr;} dl.facts dt{margin-top:8px;} }
 """
 
@@ -238,6 +242,57 @@ def cta(campaign, heading, sub):
     apple, play = store_links(campaign)
     return (f'    <div class="cta-box"><h3>{heading}</h3><p>{sub}</p><div class="cta-buttons">'
             f'<a href="{apple}">Download for iOS</a><a href="{play}">Get on Google Play</a></div></div>\n')
+
+
+# ---------- rule-change alert sign-up (E13) ----------
+# Renders only for countries whose Listmonk list exists (shared/alerts/lists.json,
+# filled by `alerts.py setup-lists --apply`). Posts to Listmonk's public API on the
+# same origin; the lists are double opt-in, so Listmonk sends the confirmation.
+
+ALERT_LISTS = (json.loads((PROJECT / "shared" / "alerts" / "lists.json").read_text(encoding="utf-8"))
+               if (PROJECT / "shared" / "alerts" / "lists.json").exists() else {})
+
+ALERT_JS = """<script>
+document.querySelectorAll('form.alert-form').forEach(function (f) {
+  f.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var st = f.querySelector('.alert-status'), btn = f.querySelector('button');
+    var lists = Array.from(f.querySelectorAll('input[name=list]')).filter(function (i) { return i.type === 'hidden' || i.checked; }).map(function (i) { return i.value; });
+    var email = f.email.value.trim();
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) { st.style.color = '#f87171'; st.textContent = 'Please enter a valid email address.'; return; }
+    if (!lists.length) { st.style.color = '#f87171'; st.textContent = 'Pick at least one country.'; return; }
+    btn.disabled = true; st.textContent = '';
+    try {
+      var r = await fetch('/_lm/api/public/subscription', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, name: '', list_uuids: lists }) });
+      if (!r.ok) throw new Error(r.status);
+      st.style.color = ''; st.textContent = 'Check your inbox to confirm. We only email when a rule changes.'; f.reset();
+    } catch (e) { st.style.color = '#f87171'; st.textContent = "Couldn't reach the server. Try again in a minute."; btn.disabled = false; }
+  });
+});
+</script>
+"""
+
+
+def alert_form(ccs, heading=None):
+    ccs = [cc for cc in ccs if (ALERT_LISTS.get(cc) or {}).get("uuid")]
+    if not ccs:
+        return ""
+    names = {cc: COUNTRIES[cc]["name"] for cc in ccs if cc in COUNTRIES}
+    heading = heading or (f"Get an email when {names[ccs[0]]} rules change" if len(ccs) == 1
+                          else "Get an email when the rules change")
+    out = f'    <form class="alert-form answer" novalidate>\n      <h3>{esc(heading)}</h3>\n'
+    if len(ccs) == 1:
+        out += f'      <input type="hidden" name="list" value="{esc(ALERT_LISTS[ccs[0]]["uuid"])}">\n'
+    else:
+        out += '      <p class="alert-countries">' + " ".join(
+            f'<label><input type="checkbox" name="list" value="{esc(ALERT_LISTS[cc]["uuid"])}"> {esc(names[cc])}</label>'
+            for cc in ccs) + "</p>\n"
+    out += ('      <p><input type="email" name="email" required placeholder="your@email.com" aria-label="Email address"> '
+            '<button type="submit">Notify me</button></p>\n'
+            '      <p class="verified">Only verified changes, with the official source. Confirm by email, unsubscribe anytime.</p>\n'
+            '      <p class="alert-status" role="status" aria-live="polite"></p>\n    </form>\n' + ALERT_JS)
+    return out
 
 
 def og_image(slug, country):
@@ -392,6 +447,9 @@ def build_country(cc, c):
         body += f'      <li><a href="{href}">{label}</a></li>\n'
     body += '      <li><a href="/updates/">Recent rule changes</a></li>\n'
     body += f'      <li><a href="/api/countries/{c["slug"]}.json">This data as JSON</a></li>\n    </ul>\n'
+    body += alert_form([cc])
+    body += partner_box(["health_insurance", "car", "money"], c["name"].lower(), slug)
+    body += expert_lead_box({"ES": "spain_visa", "PT": "portugal_visa", "IT": "italy_descent", "IE": "ireland_descent"}.get(cc, "general"), slug)
     body += cta(slug, f"Plan your move to {c['name']}",
                 "GoThere checks your income and family against each route, then tracks every document and deadline for the one you pick.")
 
@@ -433,6 +491,148 @@ def build_hub(built):
          body, schema)
 
 
+# ---------- /updates/<slug>/ : "rule just changed" template (E14) ----------
+
+KIT_DIR = PROJECT / "_marketing" / "rule-changes"
+KIND_LABEL = {"law": "Law change", "threshold": "Threshold change", "fee": "Fee change",
+              "process": "Process change", "timing": "Processing time change"}
+
+
+def change_slug(e):
+    """Stable URL: date, country, first visa and the first words of the title."""
+    import re
+    words = re.sub(r"[^a-z0-9]+", "-", e["title"].lower()).strip("-").split("-")
+    return f'{e["date"]}-{e["country"].lower()}-' + "-".join(words[:6])
+
+
+def change_og(e, slug):
+    from PIL import Image, ImageDraw, ImageFont
+    w, h = 1200, 630
+    im = Image.new("RGB", (w, h), "#0B0F14")
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, h - 10, w, h], fill="#15B8A6")
+    bold = lambda n: ImageFont.truetype("C:/Windows/Fonts/segoeuib.ttf", n)
+    semi = lambda n: ImageFont.truetype("C:/Windows/Fonts/seguisb.ttf", n)
+    country = COUNTRIES.get(e["country"], {}).get("name", e["country"])
+    d.text((80, 60), f'RULE CHANGE  ·  {country.upper()}  ·  {e["date"]}', font=semi(30), fill="#15B8A6")
+
+    def wrap(text, font, width):
+        lines, cur = [], ""
+        for word in text.split():
+            trial = (cur + " " + word).strip()
+            if d.textlength(trial, font=font) > width and cur:
+                lines.append(cur)
+                cur = word
+            else:
+                cur = trial
+        return lines + [cur]
+    y = 120
+    for line in wrap(e["title"], bold(56), w - 160)[:3]:
+        d.text((80, y), line, font=bold(56), fill="#F1F5F9")
+        y += 68
+    y += 24
+    for label, text, colour in (("Was", e["old"], "#f87171"), ("Now", e["new"], "#15B8A6")):
+        d.text((80, y), label, font=semi(30), fill="#94A3B8")
+        d.text((170, y), wrap(text, semi(34), w - 260)[0], font=semi(34), fill=colour)
+        y += 54
+    d.text((80, 540), "Official source linked  ·  getgothere.app/updates", font=semi(30), fill="#94A3B8")
+    out = ROOT / "updates" / "og" / f"{slug}.png"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    im.save(out, optimize=True)
+    return f"{SITE}/updates/og/{slug}.png"
+
+
+def change_kit(e, slug, country):
+    """Email + social copy for the alert (E13 sends it). Review before sending."""
+    url = f"{SITE}/updates/{slug}/?utm_source=alert&utm_medium=email&utm_campaign=rule_change"
+    social = f'{e["title"]}. Was {e["old"]}, now {e["new"]}. Source and what it means: {SITE}/updates/{slug}/'
+    text = "\n".join([
+        f'# {e["title"]}', "",
+        f'Generated by _generate_move.py from changelog.json ({e["date"]}). Review before sending.', "",
+        "## Email", "",
+        "Subject: " + (e["title"] if e["title"].startswith(country) else f'{country} rule change: {e["title"]}'),
+        f'Preview: Was {e["old"]}. Now {e["new"]}.', "",
+        e["summary"], "",
+        f'Was: {e["old"]}',
+        f'Now: {e["new"]}', "",
+        f'Official source: {e["sourceUrl"]}',
+        f"What it means for your move: {url}", "",
+        "GoThere is research, not legal advice. Confirm with the consulate before you file.", "",
+        f"## Social ({len(social)} chars)", "", social, "",
+    ])
+    KIT_DIR.mkdir(parents=True, exist_ok=True)
+    (KIT_DIR / f"{slug}.md").write_text(text, encoding="utf-8", newline="\n")
+
+
+def build_change_pages():
+    by_id = {v["id"]: v for v in VISAS}
+    for e in CHANGELOG:
+        slug = change_slug(e)
+        c = COUNTRIES.get(e["country"])
+        country = c["name"] if c else e["country"]
+        move = f'/move/us-to-{c["slug"]}/' if c else None
+        body = (f'    <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/updates/">Rule changes</a>'
+                f' &rsaquo; {esc(country)}</div>\n')
+        body += (f'    <span class="tag">{e["date"]}</span><span class="tag">{esc(country)}</span>'
+                 f'<span class="tag">{esc(KIND_LABEL.get(e["kind"], e["kind"]))}</span>\n')
+        body += f'    <h1>{esc(e["title"])}</h1>\n'
+        body += '    <div class="answer">\n'
+        body += f'      <p class="diff">Was: <del>{esc(e["old"])}</del><br>Now: <ins>{esc(e["new"])}</ins></p>\n'
+        body += f'      <p>{esc(e["summary"])}</p>\n'
+        body += (f'      <p><a class="src" href="{esc(e["sourceUrl"])}" rel="nofollow noopener" '
+                 f'target="_blank">[official source]</a></p>\n    </div>\n')
+        body += f'    <p class="verified">Verified {e["date"]}. Every figure links to its source.</p>\n'
+
+        affected = [by_id[i] for i in e["visaIds"] if i in by_id]
+        if affected:
+            body += "    <h2>Who this affects</h2>\n    <ul>\n"
+            for v in affected:
+                name, who = DISPLAY.get(v["id"], (v["shortName"], ""))
+                link = f'{move}#{v["id"]}' if move else None
+                label = f'<a href="{link}">{esc(country)} {esc(name)}</a>' if link else esc(name)
+                body += f'      <li>{label}: {esc(who)}</li>\n'
+            body += "    </ul>\n"
+            body += "    <h2>Current requirements</h2>\n"
+            for v in affected:
+                name, _ = DISPLAY.get(v["id"], (v["shortName"], ""))
+                rows = [("Income required", (income_text(v) or NV) + src(v["income"]))]
+                ft = fees_text(v)
+                rows.append(("Fees", (ft or NV)))
+                pt = processing_text(v)
+                rows.append(("Processing", (pt or NV) + src(v["processingTimeDays"])))
+                cit = v["pathToCitizenship"].get("years")
+                rows.append(("Citizenship after", (years(cit) if cit is not None else NV) + src(v["pathToCitizenship"])))
+                body += f'    <h3>{esc(name)}</h3>\n    <dl class="facts">\n'
+                body += "".join(f"      <dt>{k}</dt><dd>{val}</dd>\n" for k, val in rows)
+                body += "    </dl>\n"
+        body += "    <h2>What to do now</h2>\n    <ul>\n"
+        body += "      <li>If you already filed, check whether the old rule still applies to pending applications. The source above says so when it does.</li>\n"
+        body += "      <li>If you have not filed, plan with the new figure and confirm it with your consulate before you book an appointment.</li>\n"
+        if move:
+            body += f'      <li>See the full <a href="{move}">US to {esc(country)} guide</a> for every route and step.</li>\n'
+        body += '      <li>See <a href="/updates/">all recent rule changes</a>.</li>\n    </ul>\n'
+        body += alert_form([e["country"]])
+        body += cta(f"rule_{e['country'].lower()}", "Track your move as the rules change",
+                    "GoThere keeps your checklist, deadlines and documents in one place, with every requirement sourced.")
+        og = change_og(e, slug)
+        desc = f'{e["title"]}. Was {e["old"]}, now {e["new"]}. Official source and what it means for Americans moving to {country}.'
+        schema = [{"@context": "https://schema.org", "@type": "NewsArticle", "headline": e["title"],
+                   "description": e["summary"], "datePublished": e["date"], "dateModified": e["date"],
+                   "image": [og], "mainEntityOfPage": f"{SITE}/updates/{slug}/",
+                   "author": {"@type": "Organization", "name": "GoThere", "url": SITE},
+                   "publisher": {"@type": "Organization", "name": "GoThere", "url": SITE},
+                   "isBasedOn": e["sourceUrl"]},
+                  {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                      {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
+                      {"@type": "ListItem", "position": 2, "name": "Rule changes", "item": SITE + "/updates/"},
+                      {"@type": "ListItem", "position": 3, "name": e["title"], "item": f"{SITE}/updates/{slug}/"}]}]
+        title = e["title"] if len(e["title"]) <= 60 else e["title"][:57].rsplit(" ", 1)[0] + "..."
+        page(f"/updates/{slug}/", title, desc[:300], body, schema, og_image=og,
+             campaign=f"rule_{e['country'].lower()}")
+        change_kit(e, slug, country)
+    print(f"  -> {len(CHANGELOG)} kits in {KIT_DIR}")
+
+
 # ---------- /updates/ ----------
 
 def build_updates():
@@ -446,12 +646,13 @@ def build_updates():
         move = f'/move/us-to-{e["country"].lower()}/' if e["country"] in COUNTRIES else None
         body += f'    <div class="change" id="{e["date"]}-{e["country"].lower()}-{e["visaIds"][0]}">\n'
         body += f'      <span class="tag">{e["date"]}</span><span class="tag">{country}</span><span class="tag">{e["kind"]}</span>\n'
-        body += f'      <h2>{esc(e["title"])}</h2>\n      <p>{esc(e["summary"])}</p>\n'
+        body += f'      <h2><a href="/updates/{change_slug(e)}/">{esc(e["title"])}</a></h2>\n      <p>{esc(e["summary"])}</p>\n'
         body += f'      <p class="diff">Was: <del>{esc(e["old"])}</del> &rarr; Now: <ins>{esc(e["new"])}</ins> '
         body += f'<a class="src" href="{esc(e["sourceUrl"])}" rel="nofollow noopener" target="_blank">[official source]</a>'
         if move:
             body += f' &middot; <a href="{move}">US to {country} guide</a>'
         body += "</p>\n    </div>\n"
+    body += alert_form(list(COUNTRIES))
     schema = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Visa and residency rule changes",
                "url": SITE + "/updates/", "dateModified": CHANGELOG[0]["date"] if CHANGELOG else PUBLISHED}]
     page("/updates/", "Visa Rule Changes for Americans Moving Abroad (2026)",
@@ -461,7 +662,7 @@ def build_updates():
     feed = {"version": "https://jsonfeed.org/version/1.1", "title": "GoThere: visa rule changes",
             "home_page_url": SITE + "/updates/", "feed_url": SITE + "/updates/feed.json",
             "items": [{"id": f'{e["date"]}-{e["country"]}-{"-".join(e["visaIds"])}',
-                       "url": f'{SITE}/updates/#{e["date"]}-{e["country"].lower()}-{e["visaIds"][0]}',
+                       "url": f'{SITE}/updates/{change_slug(e)}/',
                        "title": e["title"], "content_text": e["summary"], "date_published": e["date"] + "T00:00:00Z",
                        "external_url": e["sourceUrl"], "tags": [e["country"], e["kind"]]} for e in CHANGELOG]}
     (ROOT / "updates" / "feed.json").write_text(json.dumps(feed, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -511,7 +712,7 @@ def build_llms(built):
               "", "## Tools", "",
               f"- [Citizenship by descent checker]({SITE}/tools/citizenship-by-descent/): web form over the same rules, Ireland and Canada",
               f"- [Visa income calculator]({SITE}/tools/visa-income-calculator/): your income against every verified visa threshold, ECB exchange rates",
-              f"- [Citizenship by descent MCP server]({SITE}/mcp): deterministic eligibility checks for Ireland and Canada (MCP Registry: app.getgothere/citizenship)",
+              f"- [Use GoThere in AI assistants]({SITE}/ai/): MCP server at {SITE}/mcp with visa options, move checklists, rule changes and citizenship by descent checks (MCP Registry: app.getgothere/citizenship)",
               "", "## Optional", "",
               f"- [Blog]({SITE}/blog/): long-form visa guides",
               f"- [Safe Harbor Index]({SITE}/safe-harbor/): destination safety for specific groups", ""]
@@ -523,6 +724,7 @@ def main():
     built = [b for cc, c in COUNTRIES.items() if (b := build_country(cc, c))]
     build_hub(built)
     build_updates()
+    build_change_pages()
     build_api(built)
     build_llms(built)
     print("\ndone")

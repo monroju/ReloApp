@@ -24,7 +24,9 @@
       "pregnant": "Public maternity care is free and high-quality even on a tourist registration once your padrón is filed. 16 weeks paid leave for both parents (equalised in 2021). Hospital birth standard; home-birth midwifery is private.",
       "neurodivergent": "Adult ASD/ADHD diagnosis through the public system is slow (12–24 month waitlist); private assessment runs €600–1200. Catalonia, Madrid and Valencia have the strongest English-speaking ND clinical communities. [Confederación Autismo España]",
       "senior": "Non-Lucrative Visa is the established retiree path (passive income ~€2,400/month + private health insurance). Spain ranks #1 globally on Bloomberg Healthcare Efficiency; Mediterranean coast offers walkable senior-friendly towns (Dénia, Estepona, Alicante).",
-      "trans": "The 2023 trans law allows legal gender change by self-declaration from 16 and bans conversion practices; public-system HRT with regional gender units. One of Europe's strongest frameworks. [Ley Trans 4/2023]",
+      "trans": "The 2023 trans law allows legal gender change by self declaration from 16 (younger with consent or a court) and bans conversion practices; public system HRT through regional gender units. A Constitutional Court challenge to parts of the law is still pending. [Ley 4/2023]",
+      "trans_sources": [{"label": "Ley 4/2023 (BOE)", "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2023-5366"}],
+      "trans_verified": "2026-11-03",
       "poc": "Anti-discrimination law (Ley 15/2022) protects on racial and ethnic grounds; Madrid, Barcelona and the Canaries have large, established communities, while everyday racism is reported more around bureaucracy and in rural areas. [Ley 15/2022; ECRI]"
     },
     "portugal": {
@@ -35,7 +37,9 @@
       "pregnant": "SNS maternity care is free once registered. 120–150 days paid parental leave shared between parents. Lisbon, Porto and Coimbra have public maternity hospitals with English-speaking staff.",
       "neurodivergent": "Adult ND diagnosis is improving but still limited — most expats use private clinics in Lisbon (€500–1000). FPDA and APPDA are the main support associations.",
       "senior": "D7 retiree visa is the most popular EU retirement route. Lower cost of living than Spain, NHR tax regime closed to new entrants in 2024 but the IFICI replacement covers high-value professions. Cascais, Tavira and Funchal are senior-favorite walkable towns.",
-      "trans": "Self-ID legal gender recognition since 2018 (16+); HRT via SNS or private. Strong legal protection, smaller clinical network than Spain. [Lei 38/2018]",
+      "trans": "Self ID legal gender recognition since 2018 for adults, from 16 with parental consent; HRT via the SNS or private clinics. In March 2026 parliament approved in principle bills to bring back a medical report requirement and bar minors; they were still in committee in late 2026, so watch this closely. [Lei 38/2018; Euronews, March 2026]",
+      "trans_sources": [{"label": "Lei 38/2018 (Diário da República)", "url": "https://diariodarepublica.pt/dr/detalhe/lei/38-2018-115933863"}, {"label": "Euronews, March 2026", "url": "https://pt.euronews.com/2026/03/20/parlamento-aprova-reintroducao-da-obrigatoriedade-de-validacao-medica-para-a-mudanca-de-ge"}],
+      "trans_verified": "2026-11-03",
       "poc": "Long-standing Afro-Portuguese and Brazilian communities, especially around Lisbon; a 2021 National Plan to Combat Racism is in place, though civil-society groups report under-reporting. [Plano Nacional 2021; ECRI]"
     },
     "italy": {
@@ -46,7 +50,9 @@
       "pregnant": "SSN maternity care is universal and excellent. 5 months mandatory paid leave at 80%. North Italian hospitals (Milan, Bologna) consistently rank top-10 in EU maternity outcomes.",
       "neurodivergent": "Adult ND assessment via SSN possible but waitlists exceed 18 months. Private clinics in Milan and Rome cost €400–800. Angsa is the main autism association.",
       "senior": "Jure sanguinis (citizenship by descent) is the strongest senior pathway if you qualify. Since March 2025 that generally means a parent or grandparent who held only Italian citizenship; it opens full EU rights. Elective Residence visa requires ~€31k/year passive income. Tuscan and Apulian hill towns are senior-walkable; major cities have stairs/cobblestones.",
-      "trans": "Legal gender change still requires a court process and medical documentation; HRT available via SSN gender pathways in major cities. Same-sex/trans family recognition is contested politically. [ILGA-Europe Rainbow 2025]",
+      "trans": "Legal gender change still requires a court process under the 1982 law; a 2024 Constitutional Court ruling removed the need for separate court approval of surgery but did not recognise non binary people. HRT via SSN gender pathways in major cities. [Law 164/1982; Corte costituzionale 143/2024]",
+      "trans_sources": [{"label": "Law 164/1982 (Normattiva)", "url": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1982-04-14;164"}, {"label": "Corte costituzionale 143/2024", "url": "https://www.cortecostituzionale.it/scheda-pronuncia/ECLI:IT:COST:2024:143"}],
+      "trans_verified": "2026-11-03",
       "poc": "Constitutional equality protections and diverse northern cities (Milan, Bologna); UNAR handles complaints, but monitors flag persistent racism and uneven enforcement, with experience varying north vs. south. [UNAR; ECRI 2024]"
     },
     "germany": {
@@ -57,7 +63,9 @@
       "pregnant": "GKV (statutory health insurance) covers all maternity care plus a midwife at home. 14 weeks Mutterschutz at full pay + 14 months Elterngeld parental leave shared. Birth outcomes among the best in Europe.",
       "neurodivergent": "Adult ASD/ADHD diagnosis via SPZ (sozialpädiatrische Zentren) covered by GKV; waitlists 6–12 months. Strong autism research base; Berlin and Munich have English-speaking ND clinical networks.",
       "senior": "Public Krankenversicherung continues into retirement at low contribution rates. No specific retiree visa — non-EU seniors typically use family reunification or freelance Aufenthaltserlaubnis. Excellent rail makes car-free senior life viable.",
-      "trans": "The 2024 Self-Determination Act allows legal gender change by simple declaration at the registry office; GKV covers HRT with diagnosis. Berlin has one of the world's largest trans communities. [SBGG 2024]",
+      "trans": "The Self Determination Act (in force since November 2024) allows legal gender change by declaration at the registry office, filed three months ahead; statutory insurance covers HRT with a diagnosis. The governing coalition has promised a review of the law, which was still unfinished in late 2026. [SBGG; queer.de]",
+      "trans_sources": [{"label": "SBGG (gesetze-im-internet.de)", "url": "https://www.gesetze-im-internet.de/sbgg/"}, {"label": "queer.de on the delayed review", "url": "https://www.queer.de/detail.php?article_id=59741"}],
+      "trans_verified": "2026-11-03",
       "poc": "Comprehensive anti-discrimination law (AGG 2006) and very diverse metros (Berlin, Frankfurt, Hamburg); the Federal Anti-Discrimination Agency is active, though eastern rural regions report higher incidence. [AGG 2006; ADS]"
     },
     "ireland": {
@@ -68,7 +76,9 @@
       "pregnant": "HSE maternity care free for residents. 26 weeks Maternity Benefit + 7 weeks Parent's Benefit shared. Domiciliary midwifery available in Dublin and parts of Cork.",
       "neurodivergent": "HSE adult ASD/ADHD pathway exists but waitlists 18–36 months — most adults use private (€500–1500). AsIAm is the leading autism advocacy org with English-speaking community.",
       "senior": "Stamp 0 retiree permission requires €50k/year + private health insurance. Foreign Birth Registration (FBR) for Irish-grandparent descent grants full citizenship and bypasses visa entirely.",
-      "trans": "Gender Recognition Act 2015 grants self-declaration legal recognition — among the simplest in Europe — but public gender-affirming healthcare has multi-year waits; most use private/online providers. [GRA 2015]",
+      "trans": "The Gender Recognition Act 2015 gives legal recognition by self declaration, among the simplest in Europe. Public care is in crisis: the National Gender Service has a waiting list of over 2,500 and moved to close it to new referrals in 2026, so most people use private or online providers. [GRA 2015; GCN]",
+      "trans_sources": [{"label": "Gender Recognition Act 2015", "url": "https://www.irishstatutebook.ie/eli/2015/act/25/enacted/en/html"}, {"label": "GCN on the waiting list closure", "url": "https://gcn.ie/trans-community-national-gender-service-waiting-list-ireland/"}],
+      "trans_verified": "2026-11-03",
       "poc": "The Equality Acts prohibit racial discrimination and Dublin and Cork are increasingly diverse; the 2023 National Action Plan Against Racism responds to a documented rise in reported incidents. [Equality Acts; NAPAR 2023]"
     },
     "poland": {
@@ -79,7 +89,9 @@
       "pregnant": "NFZ covers prenatal and birth fully. 20 weeks maternity leave at 100%, 32 weeks parental leave at 70%. 2021 near-total abortion ban remains a significant consideration; reform stalled in 2025.",
       "neurodivergent": "Adult ND services through NFZ are limited; private psychiatrists in Warsaw and Kraków charge PLN 250–500 per session. JIM Foundation supports autistic adults.",
       "senior": "Karta Polaka (Pole's Card) accelerates residency for Polish-descent applicants. Cost of living low for retirees (~€1500/month comfortable). Healthcare quality solid but slower than Western EU.",
-      "trans": "No administrative recognition procedure — legal gender change requires a civil-court lawsuit naming your parents as defendants. HRT via private endocrinologists in Warsaw/Kraków. [ILGA-Europe Rainbow 2025]",
+      "trans": "No gender recognition law. Since a March 2025 Supreme Court ruling you apply to a court directly instead of suing your parents, but the process still runs through the courts and results vary. HRT via private endocrinologists in Warsaw and Kraków. [TGEU]",
+      "trans_sources": [{"label": "TGEU on the 2025 Supreme Court ruling", "url": "https://www.tgeu.org/supreme-court-poland-reforms-legal-gender-recognition/"}],
+      "trans_verified": "2026-11-03",
       "poc": "EU and constitutional anti-discrimination protections apply, but Poland is ethnically homogeneous and ECRI's 2023 report flags discrimination against Roma plus antisemitism; Warsaw and Krakow are the most international. [ECRI Poland 2023]"
     },
     "hungary": {
@@ -90,7 +102,9 @@
       "pregnant": "Public maternity care free for residents. 24 weeks CSED at 70% then GYED. Government heavily subsidises larger families through CSOK housing program.",
       "neurodivergent": "Adult ND services very limited via NEAK; private psychiatrists in Budapest €40–80/session. Smaller advocacy infrastructure than Western EU.",
       "senior": "Hungarian Simplified Naturalisation by descent grants full EU citizenship — fast track. Cost of living low; healthcare passable for routine but seniors often supplement with private.",
-      "trans": "Legal gender recognition has been BANNED since 2020 — documents cannot be changed, including for foreign residents' Hungarian paperwork. Combined with the 2021 content law, the most restrictive GoThere country for trans people. [ILGA-Europe Rainbow 2025]",
+      "trans": "Legal gender recognition has been banned since 2020, and an April 2025 constitutional amendment wrote the ban into the constitution. Documents cannot be changed, including foreign residents' Hungarian paperwork. The most restrictive GoThere country for trans people. [ILGA-Europe Rainbow Map 2026]",
+      "trans_sources": [{"label": "ILGA-Europe Rainbow Map: Hungary", "url": "https://rainbowmap.ilga-europe.org/countries/hungary/"}, {"label": "Oxford Human Rights Hub on the 2020 law", "url": "https://ohrh.law.ox.ac.uk/hungary-passes-law-ending-legal-recognition-of-transgender-people/"}],
+      "trans_verified": "2026-11-03",
       "poc": "EU anti-discrimination law applies, but Hungary is ethnically homogeneous and ECRI flags racism (notably Roma school segregation and police racial profiling) with weak enforcement; expect less diversity outside Budapest. [ECRI Hungary]"
     },
     "uk_ancestry": {
@@ -101,7 +115,9 @@
       "pregnant": "NHS maternity care free for ordinarily-resident. 52 weeks Statutory Maternity Leave (39 paid). Shared Parental Leave available. Birth outcomes vary by trust — London and Edinburgh among best.",
       "neurodivergent": "NHS adult ASD/ADHD diagnosis waitlists exceed 36 months in most areas; Right to Choose lets you select an independent provider on NHS funding (~6 months). Strong ND advocacy culture.",
       "senior": "UK Ancestry visa requires one UK-born grandparent; leads to ILR in 5 years. State Pension reciprocity with US through totalization. NHS continues into retirement at no cost.",
-      "trans": "Gender Recognition Certificate requires a diagnosis and panel approval; the 2025 Supreme Court Equality Act ruling narrowed trans inclusion in single-sex provisions. NHS clinic waits exceed 5 years — private shared-care is the norm. [UK GRA / 2025 UKSC ruling]",
+      "trans": "A Gender Recognition Certificate requires a diagnosis, two years lived in role and panel approval. The 2025 Supreme Court ruling read sex in the Equality Act as biological sex, and the EHRC code built on it took effect in August 2026. NHS adult clinic waits run many years, so private care is the norm. [GRA 2004; UKSC 2025; DHSC]",
+      "trans_sources": [{"label": "Gender Recognition Act 2004", "url": "https://www.legislation.gov.uk/ukpga/2004/7"}, {"label": "UK Supreme Court, For Women Scotland", "url": "https://www.supremecourt.uk/cases/uksc-2024-0042"}, {"label": "DHSC on adult clinic waits", "url": "https://www.gov.uk/government/news/support-for-adults-facing-staggering-waits-for-gender-services"}],
+      "trans_verified": "2026-11-03",
       "poc": "One of Europe's most multicultural societies with strong protection under the Equality Act 2010; London, Birmingham and Manchester are highly diverse, though regional differences and disparities in policing are documented. [Equality Act 2010; EHRC]"
     },
     "canada": {
@@ -112,7 +128,9 @@
       "pregnant": "Provincial health plans cover all maternity care. 17 weeks maternity + up to 61 weeks parental leave (EI). Strong perinatal outcomes in major cities.",
       "neurodivergent": "Provincial coverage for adult ASD/ADHD diagnosis varies — Ontario covers via OHIP psychiatrists (6–18 month wait); BC similar. Vancouver and Toronto have established ND adult communities.",
       "senior": "Super Visa for parents/grandparents allows 10-year multi-entry. Provincial Medicare continues into retirement. Vancouver Island, Victoria and the Okanagan are top senior-walkable choices.",
-      "trans": "All provinces allow gender-marker changes (most by declaration); X markers on federal documents since 2019. Provincial coverage for HRT and some surgeries; informed-consent clinics in major cities. [Canadian Human Rights Act]",
+      "trans": "Every province allows gender marker changes, most by declaration, and federal documents including passports offer an X marker. Provincial plans cover HRT and some surgeries. Alberta restricts care for minors and shielded that law with the notwithstanding clause in 2025. [IRCC; CTV News]",
+      "trans_sources": [{"label": "IRCC: gender identifier on passports", "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/canadian-passports/change-sex.html"}, {"label": "CTV News on Alberta's law", "url": "https://www.ctvnews.ca/edmonton/article/court-lifts-injunction-on-trans-law-after-alberta-uses-notwithstanding-clause/"}],
+      "trans_verified": "2026-11-03",
       "poc": "Multiculturalism is federal policy and the Canadian Human Rights Act protects against racial discrimination; Toronto and Vancouver are among the world's most diverse cities, with smaller and rural areas less so. [Multiculturalism Act; CHRA]"
     },
     "argentina": {
@@ -123,7 +141,9 @@
       "pregnant": "Public hospital maternity care free. 90 days paid maternity leave (minimum). Buenos Aires hospitals (Italiano, Alemán) are top-tier; provincial care more variable.",
       "neurodivergent": "Adult ND diagnosis through public system slow but accessible; private psicólogos common and affordable (~ARS 15,000/session). Strong therapy culture; less ND-specific clinical infrastructure than EU.",
       "senior": "Rentista visa requires modest passive income (~USD $2,000/month). Cost of senior living is very low post-2024 devaluation. PAMI public senior healthcare is universal but quality varies by province.",
-      "trans": "The 2012 Gender Identity Law remains the world's benchmark: self-ID document change and a legal right to free gender-affirming care at public hospitals. Monitor Milei-era federal policy reviews. [Ley 26.743]",
+      "trans": "The 2012 Gender Identity Law lets adults change documents by simple request and guarantees gender affirming care in the public and private systems. A 2025 decree barred hormones and surgery for under 18s; a federal appeals court suspended it in July 2026, so the law applies in full again while the case continues. [Ley 26.743; Agencia Presentes, July 2026]",
+      "trans_sources": [{"label": "Ley 26.743 (InfoLEG)", "url": "https://servicios.infoleg.gob.ar/infolegInternet/anexos/195000-199999/197860/norma.htm"}, {"label": "Agencia Presentes, July 2026", "url": "https://agenciapresentes.org/en/2026/07/21/la-justicia-suspendio-el-decreto-de-milei-contra-las-infancias-y-las-adolescencias-trans/"}],
+      "trans_verified": "2026-11-03",
       "poc": "Anti-discrimination law (Ley 23.592) prohibits racial discrimination, though the national anti-discrimination agency (INADI) was dissolved in 2024; the population is less racially diverse and Afro- and Indigenous Argentines report under-representation, with Buenos Aires the most cosmopolitan. [Ley 23.592; INADI dissolved 2024]"
     },
     "mexico": {
@@ -134,7 +154,9 @@
       "pregnant": "IMSS or Seguro Popular successor (IMSS-Bienestar) provides basic maternity care. Private maternity hospitals in CDMX, Guadalajara, Monterrey are affordable and English-friendly (~MXN 80,000 vaginal, MXN 120,000 c-section).",
       "neurodivergent": "Adult ND diagnosis primarily private (~MXN 5,000–15,000). CDMX and Guadalajara have a growing ND-aware therapist community. Limited public infrastructure.",
       "senior": "Temporary/Permanent Resident visa with passive income (~USD $2,500/month temporary, $4,300 permanent). INAPAM senior discount card for residents 60+. Lake Chapala, San Miguel de Allende, Mérida, Playa del Carmen are established expat-senior hubs.",
-      "trans": "Mexico City and most states now allow administrative gender-marker change (self-ID); CDMX's Clínica Condesa provides free HRT. Protection and access drop off sharply outside major cities — choose the state carefully. [CNDH state tracker]",
+      "trans": "At least 22 of 32 states, including Mexico City, allow administrative gender marker change by self ID; CDMX's Clínica Condesa provides free HRT. Protection and access drop off sharply elsewhere, so choose the state carefully. [Human Rights Watch state tracker, 2025]",
+      "trans_sources": [{"label": "Human Rights Watch: gender recognition by state", "url": "https://www.hrw.org/feature/2025/03/11/gender-recognition-mexico-state"}],
+      "trans_verified": "2026-11-03",
       "poc": "Federal law (LFPED) and CONAPRED protect against racial and ethnic discrimination; large expat and diverse communities in CDMX, Guadalajara and the coasts, though colorism and treatment of Afro-Mexican and Indigenous people are documented issues. [LFPED; CONAPRED]"
     }
   }

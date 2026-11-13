@@ -13,6 +13,11 @@ SERVER="gabriel"  # SSH config alias -> ubuntu@54.152.75.2
 REMOTE_DIR="/var/www/gothere-landing"
 LOCAL_DIR="$(cd "$(dirname "$0")" && pwd)"
 
+# Partner links: refresh blog boxes + /api/partners.json from _partners.json.
+# (Generated pages pick them up when their generator runs.)
+echo "==> Refreshing partner boxes"
+(cd "$LOCAL_DIR" && PYTHONUTF8=1 python _inject_partners.py && PYTHONUTF8=1 python _partners.py)
+
 # Attribution gate: App Store links must carry pt/ct (utm_* is ignored by Apple)
 # and Play links must carry a url-encoded `referrer=`. See
 # Projects/GoThere/_marketing/paid/audit_store_links.py
