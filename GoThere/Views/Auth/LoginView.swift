@@ -14,12 +14,23 @@ struct LoginView: View {
             VStack(spacing: 0) {
                 Spacer()
 
-                // Logo — ic_logo_full.png circular (matches Android)
-                Image("GoThereLogoFull")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 140, height: 140)
-                    .clipShape(Circle())
+                // Logo: vector pin mark (light/dark variants in the asset) + live wordmark,
+                // so it stays sharp at every size and follows the app theme.
+                HStack(spacing: 10) {
+                    Image("GoThereMark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 60)
+                        .accessibilityHidden(true)
+                    Text(verbatim: "GoThere")
+                        .font(.system(size: 40, weight: .bold))
+                        .foregroundColor(.primary)
+                        .minimumScaleFactor(0.7)
+                        .lineLimit(1)
+                }
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(Text(verbatim: "GoThere"))
+                .accessibilityAddTraits(.isHeader)
 
                 Spacer().frame(height: 20)
 
