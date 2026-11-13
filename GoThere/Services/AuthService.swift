@@ -113,9 +113,9 @@ final class AuthService: ObservableObject {
     func deleteAccount() async throws {
         guard firebaseAvailable else { return }
         guard let user = Auth.auth().currentUser else { return }
-        let uid = user.uid
-        let db = Firestore.firestore()
-        try? await db.collection("users").document(uid).delete()
+        // Delete the Auth account first. If Firebase needs a recent login this throws
+        // and nothing is lost. Once the account is gone, the onUserDeleted Cloud Function
+        // removes users/{uid} with every subcollection and the user's Storage files.
         try await user.delete()
     }
 
