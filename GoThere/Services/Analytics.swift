@@ -64,6 +64,8 @@ enum AnalyticsEvent: String {
     case planbDocState = "planb_doc_state"               // props `cc`, `kind`, `state`
     case planbScoreViewed = "planb_score_viewed"         // prop `score_bucket`
     case planbPaywallShown = "planb_paywall_shown"       // prop `reason`
+    case planbOfferShown = "planb_offer_shown"           // props `cc`, `country_id`
+    case planbOfferTapped = "planb_offer_tapped"         // props `cc`, `country_id`, `choice` (country|all_access|dismiss)
 }
 
 enum Analytics {
@@ -72,7 +74,8 @@ enum Analytics {
 
     /// Events that count as activation (02-metrics.md). The first one fired also fires `activated`.
     private static let activationEvents: Set<AnalyticsEvent> = [
-        .wizardCompleted, .decisionTreeCompleted, .ancestryResultViewed, .visaCompareViewed
+        .wizardCompleted, .decisionTreeCompleted, .ancestryResultViewed, .visaCompareViewed,
+        .planbPathTracked
     ]
 
     /// Which screen opened the paywall currently on screen. Purchase events carry it so

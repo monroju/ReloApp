@@ -11,6 +11,9 @@ final class PlanBStore: ObservableObject {
     nonisolated static let planModeKey = "gothere.planMode"  // also read raw in MainTabView
 
     @Published private(set) var paths: [PlanBPath] = []
+    /// A path tracked in this session whose one-time unlock offer has not been shown yet.
+    /// PlanBScreen presents PlanBUnlockOfferSheet for it and clears it.
+    @Published var offerPathId: String?
     private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -55,6 +58,7 @@ final class PlanBStore: ObservableObject {
         )
         paths.append(path)
         save()
+        offerPathId = path.id
         Analytics.log(.planbPathTracked, properties: ["cc": chain.countryCode, "type": "descent",
                                                       "ancestor": ancestor.rawValue])
         return path

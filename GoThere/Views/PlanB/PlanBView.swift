@@ -13,8 +13,44 @@ struct PlanBView: View {
 struct PlanBScreen: View {
     @ObservedObject private var store = PlanBStore.shared
     @State private var scoreLogged = false
+    @State private var offer: PlanBOffer?
     private let chains = DescentChainRepository.shared
     private let ancestry = AncestryRepository.shared
+
+    /// The one-time unlock offer for a freshly tracked path (see PlanBUnlockOfferSheet).
+    struct PlanBOffer: Identifiable {
+        let path: PlanBPath
+        let countryId: String
+        let countryName: String
+        var id: String { path.id }
+    }
+
+    private func presentOfferSoon() {
+        guard store.offerPathId != nil else { return }
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(700))
+            presentOfferIfDue()
+        }
+    }
+
+    private func presentOfferIfDue() {
+        guard offer == nil, let pathId = store.offerPathId else { return }
+        store.offerPathId = nil
+        let defaults = UserDefaults.standard
+        let key = PlanBUnlockOfferSheet.shownKey(pathId)
+        guard !defaults.bool(forKey: key),
+              !ProcessInfo.processInfo.arguments.contains("-GTScreenshots"),
+              let path = store.paths.first(where: { $0.id == pathId }),
+              let chain = chains.chain(pathwayId: path.pathwayId),
+              let ancestorPath = ancestry.paths.first(where: { $0.id == chain.ancestryPathId }),
+              PurchaseManager.allPaidCountries.contains(ancestorPath.countryId),
+              !PurchaseManager.shared.isCountryUnlocked(ancestorPath.countryId)
+        else { return }
+        defaults.set(true, forKey: key)
+        let name = DestinationConfig.getDestination(ancestorPath.countryId)?.displayName ?? ancestorPath.countryName
+        offer = PlanBOffer(path: path, countryId: ancestorPath.countryId, countryName: name)
+        Analytics.log(.planbOfferShown, properties: ["cc": path.countryCode, "country_id": ancestorPath.countryId])
+    }
 
     var body: some View {
         ScrollView {
@@ -36,7 +72,13 @@ struct PlanBScreen: View {
         .background(Color.goBackgroundLight.opacity(0.4))
         .navigationTitle("Plan B")
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $offer) { o in
+            PlanBUnlockOfferSheet(path: o.path, countryId: o.countryId, countryName: o.countryName)
+        }
+        // Delay so the Track sheet and the checker finish dismissing before this sheet presents.
+        .onChange(of: store.offerPathId) { _, _ in presentOfferSoon() }
         .onAppear {
+            presentOfferSoon()
             guard !scoreLogged else { return }
             scoreLogged = true
             Analytics.log(.planbScoreViewed, properties: ["score_bucket": PlanBScore.bucket(store.overallScore),

@@ -10046,6 +10046,106 @@
           }
         }
       }
+    },
+    "Your %@ path is set up": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu ruta de %@ está lista"
+          }
+        }
+      }
+    },
+    "%lld of %lld documents ready": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld de %lld documentos listos"
+          }
+        }
+      }
+    },
+    "Unlock your %@ plan": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquea tu plan de %@"
+          }
+        }
+      }
+    },
+    "Every stage after you gather your papers, with how long each one takes": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cada etapa después de reunir tus papeles, con cuánto tarda cada una"
+          }
+        }
+      }
+    },
+    "All of GoThere's %@ guides, tasks and sources": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Todas las guías, tareas y fuentes de GoThere para %@"
+          }
+        }
+      }
+    },
+    "One purchase. No subscription.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un solo pago. Sin suscripción."
+          }
+        }
+      }
+    },
+    "Unlock %@ for %@": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Desbloquear %@ por %@"
+          }
+        }
+      }
+    },
+    "Or unlock every country with All-Access": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O desbloquea todos los países con All-Access"
+          }
+        }
+      }
+    },
+    "Your checklist and readiness score stay free either way.": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tu lista y tu puntaje siguen gratis de todas formas."
+          }
+        }
+      }
+    },
+    "Not now": {
+      "localizations": {
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ahora no"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
