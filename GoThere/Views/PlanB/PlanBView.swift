@@ -299,6 +299,8 @@ struct PlanBTrackSheet: View {
                         PlanBStore.shared.trackDescent(chain: chain, ancestor: ancestor)
                         dismiss()
                         onTracked()
+                        // Ask for a review after the user acts on the result, not on the verdict itself.
+                        ReviewPromptService.recordAndMaybeRequest(.planbPathTracked)
                     }
                     .font(.body.bold())
                 } footer: {
