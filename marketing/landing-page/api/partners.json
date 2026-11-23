@@ -3,13 +3,23 @@
   "disclosure": "Some links on this page are partner links. If you buy through one, GoThere may earn a commission at no extra cost to you. Visa rules differ by consulate, so check the policy terms and what your consulate asks for before you pay.",
   "partners": [
     {
+      "id": "genki",
+      "name": "Genki",
+      "category": "health_insurance",
+      "countries": [
+        "*"
+      ],
+      "blurb": "International health insurance for people living abroad (Genki Native), billed monthly. Genki says it suits most visas and residence permits that accept international health insurance and gives you a Certificate of Insurance in English. Approval is up to the authorities, so check what yours asks for before you pay.",
+      "url": "https://genki.world/products/native?with=gothere"
+    },
+    {
       "id": "feather_es",
       "name": "Feather Expat Health (Spain)",
       "category": "health_insurance",
       "countries": [
         "spain"
       ],
-      "blurb": "English-speaking health insurance for people moving to Spain. Feather says its expat plan is accepted for visa applications and covers up to five years. Check what your consulate asks for (some want no copays) before you pay.",
+      "blurb": "English-speaking expat health insurance from an insurer registered in Spain (DGSFP code L1497). Feather says it has no copays, deductibles or waiting periods and gives a signed certificate for your visa file. Some extras are capped and pregnancy has a 6-month wait, so check it against your consulate's list.",
       "url": "https://feather-insurance.com/en-es/expat-health-insurance?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO"
     },
     {

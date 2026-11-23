@@ -45,9 +45,12 @@
       ],
       "blurb": "International health insurance for people living abroad (Genki Native), billed monthly. Genki says it suits most visas and residence permits that accept international health insurance and gives you a Certificate of Insurance in English. Approval is up to the authorities, so check what yours asks for before you pay.",
       "program": "https://genki.world/partners",
-      "_note": "Referral Agreement v2 signed by operator 2026-11-11, username gothere. Waiting for Genki countersignature; they email the referral link after both sign. Paste THAT link (do not guess the format), then enable. Terms: no insurance advice, no misleading claims on product or price, follow Referral Guidelines in partners.genki.world. Payout from EUR50. Partner Center (read 2026-11-11): link format genki.world/with/gothere or genki.world/products/native?with=gothere, live only after countersignature. Professional partner rates: Traveler EUR6.60/month, Native Basic EUR18.60/month, Native Premium EUR27.30/month (Native capped at 12 months). Rules: no paid ads mentioning Genki without approval, no bidding on the Genki name, no custom landing page with Genki branding, link only to official Genki pages, keep product and price claims exact. Recheck the blurb against genki.world before enabling.",
-      "affiliate_url": "",
-      "enabled": false
+      "_note": "LIVE 2026-11-16. Genki countersigned, welcome mail from Ninotchka (partnerships) 2026-11-16 gave genki.world/with/gothere (all products) and per product ?with=gothere links. Native link used because the blurb is about Native. Rates: Traveler EUR6.60/month; Native Basic EUR18.60/month or Premium EUR27.30/month for up to 12 months (EUR9.00 / EUR13.50 under 20), VAT incl. Payout from EUR50, needs an invoice (operator has no EU VAT ID yet). Private dashboard link arrives by mail within ~10 days of first referral. Rules: no insurance advice, exact product and price claims, no paid ads mentioning Genki without approval, no bidding on the Genki name, no Genki-branded landing pages, link only to official Genki pages. Blurb rechecked against genki.world/products/native 2026-11-16. 2026-11-16: excluded from Spain pages: Native reimburses, has deductible options and waiting periods; Spanish consulates want non-reimbursement cover with no copay, deficiency or limit from an insurer authorised in Spain (exteriores.gob.es Miami/Melbourne/London).",
+      "affiliate_url": "https://genki.world/products/native?with=gothere",
+      "enabled": true,
+      "exclude_countries": [
+        "spain"
+      ]
     },
     {
       "id": "cigna_global",
@@ -80,7 +83,7 @@
       "countries": [
         "spain"
       ],
-      "blurb": "English-speaking health insurance for people moving to Spain. Feather says its expat plan is accepted for visa applications and covers up to five years. Check what your consulate asks for (some want no copays) before you pay.",
+      "blurb": "English-speaking expat health insurance from an insurer registered in Spain (DGSFP code L1497). Feather says it has no copays, deductibles or waiting periods and gives a signed certificate for your visa file. Some extras are capped and pregnancy has a 6-month wait, so check it against your consulate's list.",
       "program": "https://affiliates.feather-insurance.com",
       "_note": "Approved 2026-11-12, source ID oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO (Feather tracks on utm_source, keep it). Fixed commission, VAT inclusive: Expat ES EUR30, Expat DE EUR40, Expat long-term (APRIL) EUR60, Home ES EUR15, Car ES EUR15, Car DE EUR35. Partner Toolkit allows Feather content and banners on our site and app.",
       "affiliate_url": "https://feather-insurance.com/en-es/expat-health-insurance?utm_source=oLtur90q5nUPpJD6nvs9ZBB8x8QrDHVO",
@@ -124,6 +127,36 @@
       "program": "https://wise.com/gb/blog/affiliate-onboarding-guide",
       "affiliate_url": "",
       "enabled": false
+    },
+    {
+      "id": "expatsi_test",
+      "name": "The Expatsi Test",
+      "category": "planning",
+      "countries": [
+        "*"
+      ],
+      "blurb": "A free quiz from Expatsi, a US company that helps Americans move abroad. It takes about five minutes and ranks countries against your budget, health and priorities, then gives you a top ten with the visa path for each. Paid plans with coaching start at $19 a month; the quiz itself is free.",
+      "program": "https://www.expatsi.com/affiliate",
+      "affiliate_url": "https://expatsiinc.sjv.io/c/8250997/4027765/54613",
+      "subid_param": "subId1",
+      "web_only": true,
+      "_note": "impact.com partner 8250997, campaign 54613, approved 2026-11-23 by invitation (contact Jen Barnett). 20% recurring on memberships, 2.5% on other products, 30 day last click, monthly payout from $50 (needs Bank Account + Tax Info set in impact). Copy from expatsi.com 2026-11-23. web_only until the apps handle the planning categories.",
+      "enabled": true
+    },
+    {
+      "id": "expatsi_passive",
+      "name": "Expatsi: retirement and passive income visas",
+      "category": "visa_passive",
+      "countries": [
+        "*"
+      ],
+      "blurb": "Expatsi's guide to visas for people living on a pension, Social Security or investment income, and the income each country asks for. Expatsi also offers a free country quiz and paid coaching from $19 a month.",
+      "program": "https://www.expatsi.com/affiliate",
+      "affiliate_url": "https://expatsiinc.sjv.io/c/8250997/4027872/54613",
+      "subid_param": "subId1",
+      "web_only": true,
+      "_note": "impact.com partner 8250997, campaign 54613, approved 2026-11-23 by invitation (contact Jen Barnett). 20% recurring on memberships, 2.5% on other products, 30 day last click, monthly payout from $50 (needs Bank Account + Tax Info set in impact). Copy from expatsi.com 2026-11-23. web_only until the apps handle the planning categories.",
+      "enabled": true
     }
   ],
   "expert_lead": {

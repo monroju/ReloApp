@@ -41,6 +41,8 @@ HEADINGS = {
     "health_insurance": ("Health insurance for your move", "Long-stay visas usually need private health cover, and some consulates require no copays or deductibles. Check what yours asks for, then compare:"),
     "car": ("Driving in Spain", "Once you live here and drive, you need Spanish car insurance:"),
     "money": ("Moving your money", "Banks charge 3 to 5% on currency conversion. A cheaper way to move savings and proof of funds:"),
+    "planning": ("Not sure which country fits you?", "Before you pick a visa, see which countries match your budget and priorities:"),
+    "visa_passive": ("Living on a pension or investment income?", "Compare the passive income visas other countries offer and what each one asks for:"),
 }
 
 TOPIC_COPY = {
@@ -72,10 +74,15 @@ def _active(categories, country):
     return out
 
 
-def _tag(url, campaign):
-    """Append our sub-id so the partner dashboard shows which page converted."""
+def _tag(url, campaign, subid_param=None):
+    """Append our sub-id so the partner dashboard shows which page converted.
+
+    Networks with their own sub-id (impact.com: subId1) get only that param, no utm tags."""
     u = urlparse(url)
     q = dict(parse_qsl(u.query))
+    if subid_param:
+        q[subid_param] = campaign
+        return urlunparse(u._replace(query=urlencode(q)))
     q.setdefault("utm_source", "gothere")
     q.setdefault("utm_medium", "partner")
     q["utm_campaign"] = campaign
@@ -92,7 +99,7 @@ def partner_box(categories, country="", campaign="site"):
         items = "".join(
             f'<li><div><strong>{_e(p["name"])}</strong><span>{_e(p["blurb"])}</span></div>'
             f'<a class="gt-p-btn" rel="sponsored nofollow noopener" target="_blank" '
-            f'data-partner="{_e(p["id"])}" href="{_e(_tag(p["affiliate_url"], campaign))}">See options &rarr;</a></li>'
+            f'data-partner="{_e(p["id"])}" href="{_e(_tag(p["affiliate_url"], campaign, p.get("subid_param")))}">See options &rarr;</a></li>'
             for p in ps)
         blocks.append(f'<h3>{_e(h)}</h3><p>{_e(sub)}</p><ul>{items}</ul>')
     if not blocks:
