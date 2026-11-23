@@ -80,3 +80,45 @@ def test_new_page_linked_and_in_sitemap():
 def test_api_feed_keeps_genki_for_apps():
     feed = json.loads((SITE / "api" / "partners.json").read_text(encoding="utf-8"))
     assert {p["id"] for p in feed["partners"]} == {"genki", "feather_es", "feather_de"}
+
+
+# --- Expatsi (impact.com, approved 2026-11-23) ---
+from _partners import _tag  # noqa: E402
+
+PASSIVE_POSTS = ["argentina-rentista-visa-2026", "ireland-stamp-0-retiree-visa-2026", "italy-elective-residency-visa-2026",
+                 "mexico-temporary-resident-visa-2026", "portugal-d7-d8-visa-2026", "spain-non-lucrative-visa-2026"]
+PLANNING_PAGES = ["blog/how-to-move-abroad-from-the-us.html", "tools/visa-income-calculator/index.html",
+                  *(f"move/us-to-{c}/index.html" for c in ("es", "ie", "it", "mx", "pt"))]
+
+
+def test_impact_links_get_subid_not_utm():
+    url = _tag("https://expatsiinc.sjv.io/c/8250997/4027765/54613", "us-to-pt", "subId1")
+    assert url == "https://expatsiinc.sjv.io/c/8250997/4027765/54613?subId1=us-to-pt"
+
+
+def test_other_partners_keep_utm_tags():
+    url = _tag("https://genki.world/products/native?with=gothere", "x")
+    assert "with=gothere" in url and "utm_source=gothere" in url and "utm_campaign=x" in url and "subId1" not in url
+
+
+def test_planning_box_has_expatsi_and_disclosure():
+    html = partner_box(["planning"], "portugal", "t")
+    assert 'data-partner="expatsi_test"' in html and "subId1=t" in html
+    assert 'rel="sponsored nofollow noopener"' in html and "partner links" in html
+
+
+def test_expatsi_not_in_app_feed():
+    feed = json.loads((SITE / "api" / "partners.json").read_text(encoding="utf-8"))
+    assert not [p for p in feed["partners"] if p["id"].startswith("expatsi")]
+
+
+def test_planning_pages_carry_expatsi_test():
+    for rel in PLANNING_PAGES:
+        assert "expatsi_test" in partners_on(rel), rel
+
+
+def test_passive_posts_carry_expatsi_passive_only_there():
+    for slug in PASSIVE_POSTS:
+        assert "expatsi_passive" in partners_on(f"blog/{slug}.html"), slug
+    for other in ("uk-skilled-worker-visa-2026", "germany-eu-blue-card-2026", "spain-nlv-health-insurance-2026"):
+        assert not {"expatsi_passive", "expatsi_test"} & partners_on(f"blog/{other}.html"), other

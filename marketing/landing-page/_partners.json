@@ -127,6 +127,36 @@
       "program": "https://wise.com/gb/blog/affiliate-onboarding-guide",
       "affiliate_url": "",
       "enabled": false
+    },
+    {
+      "id": "expatsi_test",
+      "name": "The Expatsi Test",
+      "category": "planning",
+      "countries": [
+        "*"
+      ],
+      "blurb": "A free quiz from Expatsi, a US company that helps Americans move abroad. It takes about five minutes and ranks countries against your budget, health and priorities, then gives you a top ten with the visa path for each. Paid plans with coaching start at $19 a month; the quiz itself is free.",
+      "program": "https://www.expatsi.com/affiliate",
+      "affiliate_url": "https://expatsiinc.sjv.io/c/8250997/4027765/54613",
+      "subid_param": "subId1",
+      "web_only": true,
+      "_note": "impact.com partner 8250997, campaign 54613, approved 2026-11-23 by invitation (contact Jen Barnett). 20% recurring on memberships, 2.5% on other products, 30 day last click, monthly payout from $50 (needs Bank Account + Tax Info set in impact). Copy from expatsi.com 2026-11-23. web_only until the apps handle the planning categories.",
+      "enabled": true
+    },
+    {
+      "id": "expatsi_passive",
+      "name": "Expatsi: retirement and passive income visas",
+      "category": "visa_passive",
+      "countries": [
+        "*"
+      ],
+      "blurb": "Expatsi's guide to visas for people living on a pension, Social Security or investment income, and the income each country asks for. Expatsi also offers a free country quiz and paid coaching from $19 a month.",
+      "program": "https://www.expatsi.com/affiliate",
+      "affiliate_url": "https://expatsiinc.sjv.io/c/8250997/4027872/54613",
+      "subid_param": "subId1",
+      "web_only": true,
+      "_note": "impact.com partner 8250997, campaign 54613, approved 2026-11-23 by invitation (contact Jen Barnett). 20% recurring on memberships, 2.5% on other products, 30 day last click, monthly payout from $50 (needs Bank Account + Tax Info set in impact). Copy from expatsi.com 2026-11-23. web_only until the apps handle the planning categories.",
+      "enabled": true
     }
   ],
   "expert_lead": {

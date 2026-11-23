@@ -461,7 +461,7 @@ def build_income():
             f'    <p>These test the salary of a job you have been offered in the country, not the income you have now:</p>\n'
             f'    <ul>{salary_html}</ul>\n'
             + faq_html(faqs)
-            + partner_box(["health_insurance", "money"], "", "visa-income-calculator")
+            + partner_box(["planning", "health_insurance", "money"], "", "visa-income-calculator")
             + cta("visa-income-calculator", "Found a visa that fits?",
                   "GoThere turns it into a step-by-step checklist, with the documents and deadlines for your situation.")
             + f'    <script type="application/json" id="income-data">{json.dumps(data, ensure_ascii=False)}</script>\n'
