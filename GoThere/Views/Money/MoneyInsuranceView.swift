@@ -116,7 +116,7 @@ struct MoneyInsuranceView: View {
     }
 
     private func providerCard(_ p: MoneyProvider) -> some View {
-        Link(destination: links.url(for: p)) {
+        Link(destination: links.url(for: p, countryId: countryId)) {
             HStack(spacing: 12) {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(p.name)
@@ -141,7 +141,7 @@ struct MoneyInsuranceView: View {
         .buttonStyle(.plain)
         .simultaneousGesture(TapGesture().onEnded {
             Analytics.log(.partnerLinkTapped, properties: ["partner": p.id, "country_id": countryId,
-                                                           "is_partner": links.isPartner(p)])
+                                                           "is_partner": links.isPartner(p, countryId: countryId)])
         })
     }
 

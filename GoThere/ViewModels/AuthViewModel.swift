@@ -54,7 +54,18 @@ final class AuthViewModel: ObservableObject {
         do {
             try await auth.createUser(email: email, password: password)
         } catch let error as NSError {
-            errorMessage = friendlyError(error)
+            if error.code == 17007 {
+                // Email already registered: the person meant to log in.
+                // Try that with what they typed instead of dead-ending on an error.
+                do {
+                    try await auth.signIn(email: email, password: password)
+                } catch {
+                    isSignUpMode = false
+                    errorMessage = String(localized: "This email already has an account. Enter its password to log in, or tap Forgot Password.")
+                }
+            } else {
+                errorMessage = friendlyError(error)
+            }
         }
         isLoading = false
     }

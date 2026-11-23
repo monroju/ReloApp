@@ -1,7 +1,8 @@
 /* GoThere site analytics: PostHog (EU), cookieless.
  * persistence 'memory' = no cookies, no localStorage; a visitor is not recognised across page loads.
  * No autocapture, no session recording, no person profiles. Only the events below + pageviews.
- * Events: store_click {store, campaign, placement}, source_click {host}, move_nav {to}, api_click {to},
+ * Events: store_click {store, campaign, placement}, partner_click {partner, campaign, placement, host},
+ * source_click {host}, move_nav {to}, api_click {to},
  * tool_descent_check {country, confidence, generations}, tool_income_calc {currency, period, meets}.
  */
 (function () {
@@ -23,7 +24,7 @@
   window.gtTrack = send;
 
   function placement(a) {
-    var box = a.closest(".cta-box, nav, footer, .footer, .hero, .country-card, .callout, .answer");
+    var box = a.closest(".gt-partners, .cta-box, nav, footer, .footer, .hero, .country-card, .callout, .answer");
     return box ? (box.className.split(" ")[0] || box.tagName.toLowerCase()) : "body";
   }
 
@@ -42,6 +43,13 @@
       send("move_nav", { to: url.pathname });
     } else if (url.hostname === location.hostname && url.pathname.indexOf("/api/") === 0) {
       send("api_click", { to: url.pathname });
+    } else if (a.getAttribute("data-partner")) {
+      send("partner_click", {
+        partner: a.getAttribute("data-partner"),
+        campaign: url.searchParams.get("utm_campaign") || "",
+        placement: placement(a),
+        host: url.hostname
+      });
     } else if (url.hostname !== location.hostname && (a.classList.contains("src") || /nofollow/.test(a.rel))) {
       send("source_click", { host: url.hostname });
     }
