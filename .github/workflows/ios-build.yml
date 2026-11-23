@@ -3,7 +3,16 @@ name: Build iOS Simulator App
 on:
   push:
     branches: [main]
+  # Every PR into main gets this check (no path filter on purpose: the merge gate
+  # needs a CI result on website-only PRs too).
+  pull_request:
+    branches: [main]
   workflow_dispatch:
+
+# A new push to the same PR cancels the older run; pushes to main never cancel.
+concurrency:
+  group: ios-build-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
