@@ -1,4 +1,6 @@
 import SwiftUI
+import StoreKit
+import UIKit
 
 /// One place for plan, appearance, tools and account. Opened from the gear in the
 /// top bar on every tab.
@@ -7,6 +9,7 @@ struct SettingsView: View {
     @EnvironmentObject var purchaseManager: PurchaseManager
     @EnvironmentObject var countrySelection: CountrySelection
     @ObservedObject private var auth = AuthService.shared
+    @ObservedObject private var help = HelpOrgs.shared
     @Environment(\.dismiss) private var dismiss
 
     @State private var showPaywall = false
@@ -14,6 +17,7 @@ struct SettingsView: View {
     @State private var restoreMessage: String?
     @State private var showDeleteConfirm = false
     @State private var deleteError: String?
+    @State private var redeemMessage: String?
 
     private var unlockedCount: Int {
         DestinationConfig.allDestinations.filter { purchaseManager.isCountryUnlocked($0.id) }.count
@@ -28,8 +32,12 @@ struct SettingsView: View {
                 toolsSection
                 accountSection
                 moreFromUsSection
+                if !help.orgs.isEmpty {
+                    getHelpSection
+                }
                 aboutSection
             }
+            .task { await help.refresh() }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -109,6 +117,19 @@ struct SettingsView: View {
 
             if let restoreMessage {
                 Text(restoreMessage)
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+            }
+
+            Button {
+                presentRedeemSheet()
+            } label: {
+                Label("Redeem a code", systemImage: "giftcard")
+            }
+            .accessibilityHint("Opens the App Store sheet to enter an offer code")
+
+            if let redeemMessage {
+                Text(redeemMessage)
                     .font(.footnote)
                     .foregroundColor(.secondary)
             }
@@ -222,6 +243,16 @@ struct SettingsView: View {
         }
     }
 
+    private var getHelpSection: some View {
+        Section {
+            NavigationLink {
+                GetHelpView()
+            } label: {
+                Label("Get help", systemImage: "hands.sparkles")
+            }
+        }
+    }
+
     private var aboutSection: some View {
         Section {
             Link("Privacy Policy", destination: URL(string: "https://getgothere.app/privacy.html")!)
@@ -236,6 +267,24 @@ struct SettingsView: View {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
         return "\(v) (\(b))"
+    }
+
+    /// StoreKit 2 offer code sheet. A redeemed code arrives through
+    /// `PurchaseManager`'s `Transaction.updates` listener, which unlocks access.
+    private func presentRedeemSheet() {
+        redeemMessage = nil
+        let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+        guard let scene = scenes.first(where: { $0.activationState == .foregroundActive }) ?? scenes.first else {
+            redeemMessage = String(localized: "Couldn't open the code sheet. Please try again.")
+            return
+        }
+        Task {
+            do {
+                try await AppStore.presentOfferCodeRedeemSheet(in: scene)
+            } catch {
+                redeemMessage = String(localized: "Couldn't open the code sheet. Please try again.")
+            }
+        }
     }
 
     private func deleteAccount() {
