@@ -16,21 +16,22 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-15
+    # Xcode 27 image (GA 2026-10-15, arm64). iOS 27 SDK is required by the
+    # App Store from April 2027 (ITMS-90725).
+    runs-on: xcode-27
     steps:
       - uses: actions/checkout@v4
 
-      - name: Select Xcode 26
+      - name: Select Xcode 27
         run: |
           # List available Xcode versions for debugging
-          ls /Applications/ | grep Xcode
-          # Pick an Xcode 26 that actually exists on the runner. The GitHub image
-          # ships versioned bundles (Xcode_26.0.app, Xcode_26.1.app, ...) and the
-          # exact set drifts, so resolve dynamically: prefer newest 26.0.x, then
-          # newest 26.x, then the default Xcode.app. (iOS 26 SDK required by the
-          # App Store from 2026-04-28.)
-          XC=$(ls -d /Applications/Xcode_26.0*.app 2>/dev/null | sort -V | tail -1)
-          [ -z "$XC" ] && XC=$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)
+          ls /Applications/ | grep Xcode || true
+          # Pick an Xcode 27 that actually exists on the runner. Bundle names
+          # drift (Xcode_27.1.app, Xcode-27.1.app, ...), so resolve dynamically:
+          # prefer newest 27.1.x (matches codemagic.yaml), then newest 27.x,
+          # then the image default Xcode.app.
+          XC=$(ls -d /Applications/Xcode[_-]27.1*.app 2>/dev/null | sort -V | tail -1)
+          [ -z "$XC" ] && XC=$(ls -d /Applications/Xcode[_-]27*.app 2>/dev/null | sort -V | tail -1)
           [ -z "$XC" ] && XC=/Applications/Xcode.app
           echo "Selecting $XC"
           sudo xcode-select -s "$XC/Contents/Developer"
