@@ -143,7 +143,7 @@ def test_spain_lead_box_is_grupo_abrazo():
     assert 'rel="sponsored nofollow noopener"' in html and "partner links" in html
     assert "10% off for GoThere readers" in html
     assert 'data-topic="spain_visa"' in html  # email intro form kept
-    assert "147" not in html and "€" not in html and "EUR" not in html  # no price until currency confirmed
+    assert "consultations €132.30 instead of €147" in html  # euros confirmed by Grupo Abrazo 2026-11-24
     text = html.split("<aside", 1)[1].split("<script>", 1)[0]
     assert not any(d in text for d in DASHES)
 
