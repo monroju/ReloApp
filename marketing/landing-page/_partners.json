@@ -157,6 +157,22 @@
       "web_only": true,
       "_note": "impact.com partner 8250997, campaign 54613, approved 2026-11-23 by invitation (contact Jen Barnett). 20% recurring on memberships, 2.5% on other products, 30 day last click, monthly payout from $50 (needs Bank Account + Tax Info set in impact). Copy from expatsi.com 2026-11-23. web_only until the apps handle the planning categories.",
       "enabled": true
+    },
+    {
+      "id": "grupo_abrazo",
+      "name": "Grupo Abrazo",
+      "category": "expert",
+      "countries": [
+        "spain"
+      ],
+      "lead_topic": "spain_visa",
+      "blurb": "Spain immigration consultants run by Bea and Paul of Everything Is Boffo. They help with the non lucrative visa, the digital nomad visa, student visas, the Highly Qualified Professional visa, renewals and citizenship, and work with partner experts on other visas, tax and wealth planning. Consultations are in English and online, or in person in Valencia.",
+      "offer": "10% off for GoThere readers.",
+      "program": "email: hello@everythingisboffo.com",
+      "affiliate_url": "https://dashboard.grupoabrazo.com/go-there",
+      "web_only": true,
+      "_note": "Approved by operator 2026-11-24. Terms by email 2026-11-12 and 2026-11-23 (Gmail thread 1a1d004789c1d925): 10% referral fee to GoThere, 10% discount for our readers on consultation and visa services. Use /go-there, NOT /gabriel-go-there (duplicate, asked to remove). Consultation 147, currency unconfirmed: do NOT publish a price. Link 302s to /signup and sets a session cookie; utm params do not change that. web_only: site only for now, apps untouched.",
+      "enabled": true
     }
   ],
   "expert_lead": {
