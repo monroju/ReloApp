@@ -24,3 +24,7 @@ def test_dry_run_needs_no_key(monkeypatch, capsys):
     assert partner_report.main(["--dry-run", "--days", "7"]) == 0
     out = capsys.readouterr().out
     assert "partner_click" in out and "phx_" not in out
+
+
+def test_partner_hosts_include_grupo_abrazo():
+    assert "dashboard.grupoabrazo.com" in partner_report.partner_hosts()

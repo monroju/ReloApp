@@ -18,6 +18,8 @@ Usage:
 import json
 from pathlib import Path
 
+from _partners import expert_lead_box
+
 ROOT = Path(__file__).parent
 DATA = json.load(open(ROOT / "_pseo_data.json", encoding="utf-8"))
 
@@ -311,6 +313,9 @@ def build_country_hub(cslug):
              f'<a href="/safe-harbor/">Safe Harbor Index</a> has a {name} profile with legal and '
              "safety context for LGBTQ+, trans, disabled, senior, pregnant, single-parent and "
              "veteran movers.</div>\n")
+
+    if cslug == "spain":
+        html += expert_lead_box("spain_visa", "hub-spain")
 
     html += cta_block(f"hub-{cslug}", f"Plan your {name} move end to end",
                       f"GoThere has the visa checklist, cost calculator, and document tracker "

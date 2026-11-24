@@ -72,3 +72,14 @@ def test_plain_source_link_still_sends_source_click(tmp_path):
 
 def test_internal_link_sends_nothing(tmp_path):
     assert run(tmp_path, [{"href": "https://getgothere.app/blog/", "attrs": {}}]) == []
+
+
+def test_grupo_abrazo_link_sends_partner_click(tmp_path):
+    sent = run(tmp_path, [{
+        "href": "https://dashboard.grupoabrazo.com/go-there?utm_source=gothere&utm_medium=partner&utm_campaign=pseo-madrid",
+        "attrs": {"data-partner": "grupo_abrazo", "rel": "sponsored nofollow noopener", "class": "gt-p-btn"},
+        "box": "gt-partners gt-lead",
+    }])
+    assert sent == [["partner_click", {
+        "partner": "grupo_abrazo", "campaign": "pseo-madrid", "placement": "gt-partners",
+        "host": "dashboard.grupoabrazo.com", "page": "/spain/madrid/"}]]

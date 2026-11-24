@@ -124,9 +124,47 @@ LEAD_JS = """<script>
 </script>"""
 
 
+def _expert_for(topic):
+    """The signed expert partner for a lead topic (category "expert", lead_topic match), or None."""
+    for p in CFG["partners"]:
+        if p.get("category") == "expert" and p.get("lead_topic") == topic and p.get("enabled") and p.get("affiliate_url"):
+            return p
+    return None
+
+
+def _expert_partner_box(p, topic, campaign):
+    """Lead box for a topic with a signed partner: direct partner link first, email intro second."""
+    name = _e(p["name"])
+    offer = f' <strong>{_e(p["offer"])}</strong>' if p.get("offer") else ""
+    return (f'<style>{CSS}</style><aside class="gt-partners gt-lead" aria-label="Expert introduction">'
+            f'<h3>{_e(EXPERT_HEADINGS.get(topic, "Want expert help with your move?"))}</h3>'
+            f'<ul><li><div><strong>{name}</strong><span>{_e(p["blurb"])}{offer}</span></div>'
+            f'<a class="gt-p-btn" rel="sponsored nofollow noopener" target="_blank" '
+            f'data-partner="{_e(p["id"])}" href="{_e(_tag(p["affiliate_url"], campaign, p.get("subid_param")))}">'
+            f'Book with {name} &rarr;</a></li></ul>'
+            f'<p style="margin-top:14px">Prefer an introduction by email? Leave your address and we will write once '
+            f'to introduce you to {name}. We share your details with them only if you reply yes.</p>'
+            f'<form data-topic="{_e(topic)}" data-campaign="{_e(campaign)}" novalidate>'
+            '<input type="email" name="email" autocomplete="email" placeholder="you@example.com" aria-label="Email" required>'
+            '<button type="submit">Request an intro</button></form>'
+            '<p class="gt-lead-ok">Thanks. We will be in touch soon.</p>'
+            '<p class="gt-lead-err" role="alert"></p>'
+            f'<small>{_e(CFG["disclosure"])} GoThere is research, not legal advice. See our '
+            '<a href="/privacy.html">privacy policy</a>.</small>'
+            f'</aside>{LEAD_JS}\n')
+
+
+EXPERT_HEADINGS = {
+    "spain_visa": "Applying for a Spanish visa? Talk to a Spain immigration consultant",
+}
+
+
 def expert_lead_box(topic="general", campaign="site"):
     if not CFG["expert_lead"].get("enabled"):
         return ""
+    p = _expert_for(topic)
+    if p:
+        return _expert_partner_box(p, topic, campaign)
     q = TOPIC_COPY.get(topic, TOPIC_COPY["general"])
     return (f'<style>{CSS}</style><aside class="gt-partners gt-lead" aria-label="Expert introduction">'
             f'<h3>{_e(q)}</h3>'

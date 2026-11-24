@@ -122,3 +122,50 @@ def test_passive_posts_carry_expatsi_passive_only_there():
         assert "expatsi_passive" in partners_on(f"blog/{slug}.html"), slug
     for other in ("uk-skilled-worker-visa-2026", "germany-eu-blue-card-2026", "spain-nlv-health-insurance-2026"):
         assert not {"expatsi_passive", "expatsi_test"} & partners_on(f"blog/{other}.html"), other
+
+
+# --- Grupo Abrazo (Spain consultants, operator approved 2026-11-24) ---
+from _partners import expert_lead_box  # noqa: E402
+
+ABRAZO_PAGES = [*(f"spain/{c}/index.html" for c in ("barcelona", "bilbao", "granada", "madrid", "sansebastian", "valencia")),
+                "spain/index.html", "move/us-to-es/index.html", "blog/spain-non-lucrative-visa-2026.html",
+                "blog/spain-nlv-health-insurance-2026.html",
+                *(f"compare/{c}/index.html" for c in ("spain-nlv-vs-dnv", "spain-nlv-vs-portugal-d7", "spain-dnv-vs-portugal-d8"))]
+NOT_ABRAZO = ["portugal/lisbon/index.html", "move/us-to-pt/index.html", "blog/portugal-d7-d8-visa-2026.html",
+              "compare/passive-income-visas/index.html", "mexico/tulum/index.html"]
+DASHES = ("—", "–", " - ")
+
+
+def test_spain_lead_box_is_grupo_abrazo():
+    html = expert_lead_box("spain_visa", "t")
+    assert 'data-partner="grupo_abrazo"' in html
+    assert 'href="https://dashboard.grupoabrazo.com/go-there?' in html and "gabriel-go-there" not in html
+    assert 'rel="sponsored nofollow noopener"' in html and "partner links" in html
+    assert "10% off for GoThere readers" in html
+    assert 'data-topic="spain_visa"' in html  # email intro form kept
+    assert "147" not in html and "€" not in html and "EUR" not in html  # no price until currency confirmed
+    text = html.split("<aside", 1)[1].split("<script>", 1)[0]
+    assert not any(d in text for d in DASHES)
+
+
+def test_other_topics_unchanged():
+    for topic in ("portugal_visa", "general", "italy_descent", "descent"):
+        html = expert_lead_box(topic, "t")
+        assert "grupo_abrazo" not in html and "vetted" in html, topic
+
+
+def test_abrazo_on_every_spain_page_once():
+    for rel in ABRAZO_PAGES:
+        html = (SITE / rel).read_text(encoding="utf-8")
+        assert html.count('data-partner="grupo_abrazo"') == 1, rel
+        assert "dashboard.grupoabrazo.com/go-there" in html and "partner links" in html, rel
+
+
+def test_abrazo_not_on_other_countries():
+    for rel in NOT_ABRAZO:
+        assert "grupo_abrazo" not in partners_on(rel), rel
+
+
+def test_abrazo_not_in_app_feed():
+    feed = json.loads((SITE / "api" / "partners.json").read_text(encoding="utf-8"))
+    assert "grupo_abrazo" not in {p["id"] for p in feed["partners"]}
