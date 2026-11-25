@@ -57,7 +57,7 @@ enum DestinationConfig {
                     "No intention to work in Spain"
                 ],
                 estimatedProcessingTime: "2-3 months",
-                officialUrl: "https://www.exteriores.gob.es/Consulados/"
+                officialUrl: "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
             ),
             VisaTrack(
                 id: spainDigitalNomad,
@@ -72,12 +72,12 @@ enum DestinationConfig {
                     "Clean criminal record"
                 ],
                 estimatedProcessingTime: "2-4 months",
-                officialUrl: "https://www.exteriores.gob.es/Consulados/"
+                officialUrl: "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
             )
         ],
         defaultVisaTrackId: spainNonLucrative,
         seedVersion: currentSeedVersion,
-        officialImmigrationUrl: "https://www.exteriores.gob.es/Consulados/"
+        officialImmigrationUrl: "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
     )
 
     // MARK: - Portugal
@@ -103,7 +103,7 @@ enum DestinationConfig {
                     "Proof of accommodation"
                 ],
                 estimatedProcessingTime: "2-4 months",
-                officialUrl: "https://www.vistos.mne.gov.pt/"
+                officialUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal"
             ),
             VisaTrack(
                 id: portugalD8,
@@ -119,12 +119,12 @@ enum DestinationConfig {
                     "Proof of accommodation"
                 ],
                 estimatedProcessingTime: "2-4 months",
-                officialUrl: "https://www.vistos.mne.gov.pt/"
+                officialUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal"
             )
         ],
         defaultVisaTrackId: portugalD7,
         seedVersion: currentSeedVersion,
-        officialImmigrationUrl: "https://www.vistos.mne.gov.pt/"
+        officialImmigrationUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal"
     )
 
     // MARK: - Mexico
@@ -288,7 +288,7 @@ enum DestinationConfig {
                     "Dual citizenship permitted — you keep your US citizenship"
                 ],
                 estimatedProcessingTime: "18–36 months at Bundesverwaltungsamt",
-                officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html"
+                officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html"
             ),
             VisaTrack(
                 id: germanyStag15,
@@ -304,7 +304,7 @@ enum DestinationConfig {
                     "No language test, no residency requirement, no fee"
                 ],
                 estimatedProcessingTime: "18–36 months at Bundesverwaltungsamt",
-                officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html"
+                officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html"
             )
         ],
         defaultVisaTrackId: germanyArticle116,
@@ -367,12 +367,12 @@ enum DestinationConfig {
                     "Dual citizenship permitted — Argentina accepts dual nationality with the US, Canada, Spain, Italy, and most countries"
                 ],
                 estimatedProcessingTime: "6–18 months from consulate filing to Argentine birth certificate issuance",
-                officialUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship"
+                officialUrl: "https://www.cancilleria.gob.ar/es/servicios/nacionalidad-argentina/opcion-de-nacionalidad-argentina-para-hijos-de-argentinos-nativos"
             )
         ],
         defaultVisaTrackId: argentinaCitizenshipByOption,
         seedVersion: currentSeedVersion,
-        officialImmigrationUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad"
+        officialImmigrationUrl: "https://www.cancilleria.gob.ar/es/servicios"
     )
 
     // MARK: - Hungary (Simplified Naturalization)

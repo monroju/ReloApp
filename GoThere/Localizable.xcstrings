@@ -3447,12 +3447,12 @@
         }
       }
     },
-    "EU Disability Card recognised": {
+    "EU Disability Card from June 2028": {
       "localizations": {
         "es": {
           "stringUnit": {
             "state": "translated",
-            "value": "Reconoce la Tarjeta Europea de Discapacidad"
+            "value": "Tarjeta Europea de Discapacidad desde junio de 2028"
           }
         }
       }

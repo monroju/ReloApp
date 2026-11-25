@@ -16,7 +16,7 @@
       },
       {
         "label": "Spain Consulates (US)",
-        "url": "https://www.exteriores.gob.es/Consulados/"
+        "url": "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
       },
       {
         "label": "Long-stay visa overview",
@@ -33,7 +33,7 @@
     "links": [
       {
         "label": "Spain Consulates (US)",
-        "url": "https://www.exteriores.gob.es/Consulados/"
+        "url": "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
       }
     ]
   },
@@ -136,7 +136,7 @@
     "links": [
       {
         "label": "Spain Consulates (US)",
-        "url": "https://www.exteriores.gob.es/Consulados/"
+        "url": "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx"
       }
     ]
   },
@@ -488,7 +488,7 @@
     "links": [
       {
         "label": "DGT License Exchange",
-        "url": "https://sede.dgt.gob.es/es/permisos-de-conducir/canje-de-permisos/"
+        "url": "https://sede.dgt.gob.es/es/permisos-de-conducir/canjes-de-permisos/canjes-de-permisos-extranjeros"
       }
     ]
   },

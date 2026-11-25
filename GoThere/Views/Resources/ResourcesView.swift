@@ -964,10 +964,10 @@ struct ResourcesView: View {
                 WebResource(id: "esteri", title: "Italian MFA Citizenship", description: "Jure sanguinis + visa types portal", url: "https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/cittadinanza/", type: "official"),
                 WebResource(id: "vistoperitalia", title: "Visto per l'Italia", description: "Italian visa portal — all national visas", url: "https://vistoperitalia.esteri.it/", type: "official"),
                 WebResource(id: "prenotami", title: "Prenot@mi", description: "Book consulate appointments", url: "https://prenotami.esteri.it/", type: "official"),
-                WebResource(id: "consulates-it", title: "Italian Consulates in USA", description: "Find your assigned consulate", url: "https://www.esteri.it/en/ministero/laministero/lerappresentanze/", type: "official"),
+                WebResource(id: "consulates-it", title: "Italian Consulates in USA", description: "Find your assigned consulate", url: "https://ambwashingtondc.esteri.it/en/chi-siamo/la-rete-consolare", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "Codice Fiscale & Anagrafe", icon: "person.text.rectangle", resources: [
-                WebResource(id: "codice-fiscale", title: "Agenzia delle Entrate (Codice Fiscale)", description: "Italian tax code", url: "https://www.agenziaentrate.gov.it/portale/codice-fiscale-tessera-sanitaria", type: "official"),
+                WebResource(id: "codice-fiscale", title: "Agenzia delle Entrate (Codice Fiscale)", description: "Italian tax code", url: "https://www.agenziaentrate.gov.it/portale/web/english/nse/individuals/tax-identification-number-for-foreign-citizens", type: "official"),
                 WebResource(id: "anagrafe", title: "Anagrafe Nazionale", description: "National residents registry", url: "https://www.anagrafenazionale.interno.it/", type: "official"),
             ]),
             WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
@@ -993,7 +993,7 @@ struct ResourcesView: View {
     private var germanyResources: [WebResourceCategory] {
         [
             WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
-                WebResource(id: "bva", title: "Bundesverwaltungsamt (BVA)", description: "Citizenship restoration (Art. 116, StAG §15)", url: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", type: "official"),
+                WebResource(id: "bva", title: "Bundesverwaltungsamt (BVA)", description: "Citizenship restoration (Art. 116, StAG §15)", url: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html", type: "official"),
                 WebResource(id: "make-it-de", title: "Make it in Germany", description: "Official visa portal — Blue Card, Freelancer, Chancenkarte, etc.", url: "https://www.make-it-in-germany.com/en/visa-residence/", type: "official"),
                 WebResource(id: "consulates-de", title: "German Consulates in USA", description: "Find your assigned consulate", url: "https://www.germany.info/us-en", type: "official"),
                 WebResource(id: "yadvashem", title: "Yad Vashem", description: "Persecution evidence research (StAG §15)", url: "https://www.yadvashem.org/", type: "official"),
@@ -1058,13 +1058,13 @@ struct ResourcesView: View {
     private var argentinaResources: [WebResourceCategory] {
         [
             WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
-                WebResource(id: "cancilleria", title: "Argentine MFA Citizenship", description: "Citizenship by option (Ley 346) portal", url: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", type: "official"),
+                WebResource(id: "cancilleria", title: "Argentine MFA Citizenship", description: "Citizenship by option (Ley 346) portal", url: "https://www.cancilleria.gob.ar/es/servicios/nacionalidad-argentina/opcion-de-nacionalidad-argentina-para-hijos-de-argentinos-nativos", type: "official"),
                 WebResource(id: "ar-migraciones", title: "Argentine Migrations Portal", description: "Residence permits — Rentista, Pensionado, Investor", url: "https://www.argentina.gob.ar/migraciones", type: "official"),
-                WebResource(id: "consulates-ar", title: "Argentine Consulates in USA", description: "Find your assigned consulate", url: "https://www.cancilleria.gob.ar/en/foreign-policy/embassies-and-consulates", type: "official"),
+                WebResource(id: "consulates-ar", title: "Argentine Consulates in USA", description: "Find your assigned consulate", url: "https://www.cancilleria.gob.ar/es/representaciones", type: "official"),
                 WebResource(id: "renaper", title: "RENAPER", description: "National Persons Registry (DNI)", url: "https://www.argentina.gob.ar/interior/renaper", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "DNI & Tax", icon: "person.text.rectangle", resources: [
-                WebResource(id: "dni", title: "DNI Application", description: "Argentine national ID card", url: "https://www.argentina.gob.ar/interior/renaper/dni", type: "official"),
+                WebResource(id: "dni", title: "DNI Application", description: "Argentine national ID card", url: "https://www.argentina.gob.ar/interior/dni", type: "official"),
                 WebResource(id: "afip", title: "AFIP", description: "Tax authority (CUIT/CUIL)", url: "https://www.afip.gob.ar/", type: "official"),
             ]),
             WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
@@ -1091,8 +1091,7 @@ struct ResourcesView: View {
         [
             WebResourceCategory(id: "citizenship", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "allampolgarsag", title: "Hungarian Citizenship Portal", description: "Simplified naturalization application", url: "https://newyork.mfa.gov.hu/en/simplified-naturalization", type: "official"),
-                WebResource(id: "oif-hu", title: "Office for Immigration (OIF)", description: "D-Visa, White Card, residence permits", url: "https://oif.gov.hu/", type: "official"),
-                WebResource(id: "nemzetikartya", title: "Nemzeti Kártya", description: "Guest Investor + White Card portal", url: "https://nemzetikartya.gov.hu/", type: "official"),
+                WebResource(id: "oif-hu", title: "Hungary MFA Consular Info", description: "Visas for Hungary, how to apply", url: "https://konzinfo.mfa.gov.hu/en", type: "official"),
                 WebResource(id: "kormanyablak", title: "Kormányablak (Govt Office)", description: "One-stop government office", url: "https://kormanyablak.hu/en", type: "official"),
                 WebResource(id: "embassy-hu", title: "Hungarian Embassy USA", description: "Washington DC consulate", url: "https://washington.mfa.gov.hu/eng", type: "official"),
             ]),
@@ -1102,7 +1101,7 @@ struct ResourcesView: View {
                 WebResource(id: "familysearch-hu", title: "FamilySearch — Hungary", description: "Ancestor records research", url: "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "ID Cards & Tax", icon: "person.text.rectangle", resources: [
-                WebResource(id: "nyilvantarto", title: "Nyilvántartó", description: "ID card and address registry", url: "https://nyilvantarto.hu/", type: "official"),
+                WebResource(id: "magyarorszag", title: "Magyarorszag.hu", description: "Government e-services portal (ID card, address card)", url: "https://magyarorszag.hu/", type: "official"),
                 WebResource(id: "nav-hu", title: "NAV (Tax Authority)", description: "Hungarian taxation", url: "https://www.nav.gov.hu/", type: "official"),
             ]),
             WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
@@ -1133,7 +1132,7 @@ struct ResourcesView: View {
             WebResourceCategory(id: "documents", title: "Birth Certificates & Records", icon: "doc.text", resources: [
                 WebResource(id: "gro", title: "GRO (England & Wales)", description: "Order birth/marriage certificates", url: "https://www.gro.gov.uk/gro/content/certificates/", type: "official"),
                 WebResource(id: "scotlandspeople", title: "ScotlandsPeople", description: "Scottish family records", url: "https://www.scotlandspeople.gov.uk/", type: "official"),
-                WebResource(id: "groni", title: "GRONI (Northern Ireland)", description: "Order NI certificates", url: "https://www.nidirect.gov.uk/articles/general-register-office", type: "official"),
+                WebResource(id: "groni", title: "GRONI (Northern Ireland)", description: "Order NI certificates", url: "https://www.nidirect.gov.uk/contacts/general-register-office-northern-ireland", type: "official"),
                 WebResource(id: "tb-test", title: "TB Test Country List", description: "Required pre-visa health check", url: "https://www.gov.uk/tb-test-visa", type: "official"),
             ]),
             WebResourceCategory(id: "id", title: "NIN & Tax", icon: "person.text.rectangle", resources: [
@@ -1166,7 +1165,7 @@ struct ResourcesView: View {
         [
             WebResourceCategory(id: "visas", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
                 WebResource(id: "spain-consulate", title: "Spanish Consulates in USA", description: "Find your assigned consulate", url: "https://www.exteriores.gob.es/en/EmbajadasConsulados/Paginas/index.aspx", type: "official"),
-                WebResource(id: "spain-nie", title: "NIE/TIE Application Guide", description: "Foreigner identification numbers", url: "https://www.inclusion.gob.es/web/migraciones/w/extranjeria", type: "official"),
+                WebResource(id: "spain-nie", title: "NIE/TIE Application Guide", description: "Foreigner identification numbers", url: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/NIE.aspx", type: "official"),
                 WebResource(id: "spain-migr", title: "Spanish Immigration Portal", description: "Official Inclusión y Migraciones", url: "https://www.inclusion.gob.es/web/migraciones", type: "official"),
             ]),
             WebResourceCategory(id: "housing", title: "Housing & Rentals", icon: "house", resources: [
@@ -1193,8 +1192,8 @@ struct ResourcesView: View {
     private var portugalResources: [WebResourceCategory] {
         [
             WebResourceCategory(id: "visas", title: "Government & Immigration Portals", icon: "person.text.rectangle", resources: [
-                WebResource(id: "aima", title: "AIMA (Immigration Agency)", description: "Portuguese immigration portal", url: "https://www.aima.gov.pt", type: "official"),
-                WebResource(id: "pt-mne", title: "Portuguese MFA Visas Portal", description: "All national visas (D7, D8, D2, etc.)", url: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa", type: "official"),
+                WebResource(id: "aima", title: "AIMA (Immigration Agency)", description: "Portuguese immigration portal", url: "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo", type: "official"),
+                WebResource(id: "pt-mne", title: "Portuguese MFA Visas Portal", description: "All national visas (D7, D8, D2, etc.)", url: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal", type: "official"),
             ]),
             WebResourceCategory(id: "nif", title: "NIF & Tax Registration", icon: "person.text.rectangle", resources: [
                 WebResource(id: "nif", title: "Portal das Finanças", description: "Get your NIF tax number", url: "https://www.portaldasfinancas.gov.pt", type: "official"),
@@ -1250,8 +1249,8 @@ struct ResourcesView: View {
                 WebResource(id: "wise", title: "Wise", description: "International transfers", url: "https://wise.com", type: "service"),
             ]),
             WebResourceCategory(id: "healthcare", title: "Healthcare", icon: "cross.case", resources: [
-                WebResource(id: "imss", title: "IMSS (Public Health)", description: "Mexican Social Security", url: "http://www.imss.gob.mx", type: "official"),
-                WebResource(id: "imss-vol", title: "IMSS Voluntario", description: "Voluntary enrollment for expats", url: "http://www.imss.gob.mx/tramites/imss02025a", type: "official"),
+                WebResource(id: "imss", title: "IMSS (Public Health)", description: "Mexican Social Security", url: "https://www.imss.gob.mx", type: "official"),
+                WebResource(id: "imss-vol", title: "IMSS Voluntario", description: "Voluntary enrollment for expats", url: "https://www.imss.gob.mx/tramites/imss02025a", type: "official"),
                 WebResource(id: "gnp", title: "GNP Seguros", description: "Private health insurance", url: "https://www.gnp.com.mx", type: "service"),
             ]),
             WebResourceCategory(id: "community", title: "Expat Communities", icon: "person.3", resources: [

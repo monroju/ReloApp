@@ -70,9 +70,9 @@ final class ResourcesRepository: ObservableObject {
         case "portugal":
             return [
                 ResourceItem(name: "NIF_Application_Guide.pdf", path: "VisaForms/portugal/NIF_Application_Guide.pdf", sizeBytes: 195_000, downloadUrl: "https://www.portaldasfinancas.gov.pt", category: "VisaForms"),
-                ResourceItem(name: "D7_Visa_Checklist.pdf", path: "VisaForms/portugal/D7_Visa_Checklist.pdf", sizeBytes: 210_000, downloadUrl: "https://vistos.mne.gov.pt", category: "VisaForms"),
-                ResourceItem(name: "D8_Digital_Nomad_Visa_Guide.pdf", path: "VisaForms/portugal/D8_Digital_Nomad_Visa_Guide.pdf", sizeBytes: 275_000, downloadUrl: "https://www.aima.gov.pt", category: "VisaForms"),
-                ResourceItem(name: "SEF_Appointment_Guide.pdf", path: "Arrival/portugal/SEF_Appointment_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://www.aima.gov.pt", category: "Arrival"),
+                ResourceItem(name: "D7_Visa_Checklist.pdf", path: "VisaForms/portugal/D7_Visa_Checklist.pdf", sizeBytes: 210_000, downloadUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal", category: "VisaForms"),
+                ResourceItem(name: "D8_Digital_Nomad_Visa_Guide.pdf", path: "VisaForms/portugal/D8_Digital_Nomad_Visa_Guide.pdf", sizeBytes: 275_000, downloadUrl: "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo", category: "VisaForms"),
+                ResourceItem(name: "SEF_Appointment_Guide.pdf", path: "Arrival/portugal/SEF_Appointment_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo", category: "Arrival"),
                 ResourceItem(name: "SNS_Health_Registration.pdf", path: "Arrival/portugal/SNS_Health_Registration.pdf", sizeBytes: 140_000, downloadUrl: "https://www.sns.gov.pt", category: "Arrival"),
                 ResourceItem(name: "Rental_Contract_Template_PT.pdf", path: "Templates/portugal/Rental_Contract_Template_PT.pdf", sizeBytes: 260_000, downloadUrl: nil, category: "Templates"),
             ]
@@ -82,7 +82,7 @@ final class ResourcesRepository: ObservableObject {
                 ResourceItem(name: "CURP_Registration_Guide.pdf", path: "VisaForms/mexico/CURP_Registration_Guide.pdf", sizeBytes: 175_000, downloadUrl: "https://www.gob.mx/curp/", category: "VisaForms"),
                 ResourceItem(name: "RFC_Tax_ID_Guide.pdf", path: "VisaForms/mexico/RFC_Tax_ID_Guide.pdf", sizeBytes: 190_000, downloadUrl: "https://www.sat.gob.mx", category: "VisaForms"),
                 ResourceItem(name: "INM_Card_Exchange_Guide.pdf", path: "Arrival/mexico/INM_Card_Exchange_Guide.pdf", sizeBytes: 155_000, downloadUrl: "https://citas.inm.gob.mx/", category: "Arrival"),
-                ResourceItem(name: "IMSS_Enrollment_Guide.pdf", path: "Arrival/mexico/IMSS_Enrollment_Guide.pdf", sizeBytes: 200_000, downloadUrl: "http://www.imss.gob.mx", category: "Arrival"),
+                ResourceItem(name: "IMSS_Enrollment_Guide.pdf", path: "Arrival/mexico/IMSS_Enrollment_Guide.pdf", sizeBytes: 200_000, downloadUrl: "https://www.imss.gob.mx", category: "Arrival"),
                 ResourceItem(name: "Rental_Contract_Template_MX.pdf", path: "Templates/mexico/Rental_Contract_Template_MX.pdf", sizeBytes: 245_000, downloadUrl: nil, category: "Templates"),
             ]
         case "canada":
@@ -109,14 +109,14 @@ final class ResourcesRepository: ObservableObject {
                 ResourceItem(name: "Consulate_Appointment_Booking_Guide.pdf", path: "VisaForms/italy/Consulate_Appointment_Booking_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://prenotami.esteri.it/", category: "VisaForms"),
                 ResourceItem(name: "1948_Case_Court_Route_Guide.pdf", path: "Resources/italy/1948_Case_Court_Route_Guide.pdf", sizeBytes: 195_000, downloadUrl: "https://www.esteri.it/en/", category: "Resources"),
                 ResourceItem(name: "Apostille_and_Sworn_Translation_Guide_IT.pdf", path: "Resources/italy/Apostille_and_Sworn_Translation_Guide_IT.pdf", sizeBytes: 175_000, downloadUrl: "https://www.esteri.it/en/", category: "Resources"),
-                ResourceItem(name: "Codice_Fiscale_Application.pdf", path: "Arrival/italy/Codice_Fiscale_Application.pdf", sizeBytes: 155_000, downloadUrl: "https://www.agenziaentrate.gov.it/portale/codice-fiscale-tessera-sanitaria", category: "Arrival"),
+                ResourceItem(name: "Codice_Fiscale_Application.pdf", path: "Arrival/italy/Codice_Fiscale_Application.pdf", sizeBytes: 155_000, downloadUrl: "https://www.agenziaentrate.gov.it/portale/web/english/nse/individuals/tax-identification-number-for-foreign-citizens", category: "Arrival"),
                 ResourceItem(name: "Anagrafe_Registration_Guide.pdf", path: "Arrival/italy/Anagrafe_Registration_Guide.pdf", sizeBytes: 145_000, downloadUrl: "https://www.anagrafenazionale.interno.it/", category: "Arrival"),
                 ResourceItem(name: "Rental_Contract_Template_IT.pdf", path: "Templates/italy/Rental_Contract_Template_IT.pdf", sizeBytes: 245_000, downloadUrl: nil, category: "Templates"),
             ]
         case "germany":
             return [
-                ResourceItem(name: "BVA_Antrag_Article_116_Form.pdf", path: "VisaForms/germany/BVA_Antrag_Article_116_Form.pdf", sizeBytes: 215_000, downloadUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", category: "VisaForms"),
-                ResourceItem(name: "StAG_15_Application_Form.pdf", path: "VisaForms/germany/StAG_15_Application_Form.pdf", sizeBytes: 205_000, downloadUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html", category: "VisaForms"),
+                ResourceItem(name: "BVA_Antrag_Article_116_Form.pdf", path: "VisaForms/germany/BVA_Antrag_Article_116_Form.pdf", sizeBytes: 215_000, downloadUrl: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html", category: "VisaForms"),
+                ResourceItem(name: "StAG_15_Application_Form.pdf", path: "VisaForms/germany/StAG_15_Application_Form.pdf", sizeBytes: 205_000, downloadUrl: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html", category: "VisaForms"),
                 ResourceItem(name: "Article_116_Eligibility_Checklist.pdf", path: "Resources/germany/Article_116_Eligibility_Checklist.pdf", sizeBytes: 165_000, downloadUrl: "https://www.bva.bund.de/", category: "Resources"),
                 ResourceItem(name: "Persecution_Evidence_Guide.pdf", path: "Resources/germany/Persecution_Evidence_Guide.pdf", sizeBytes: 185_000, downloadUrl: "https://www.yadvashem.org/", category: "Resources"),
                 ResourceItem(name: "Anmeldung_Registration_Guide.pdf", path: "Arrival/germany/Anmeldung_Registration_Guide.pdf", sizeBytes: 150_000, downloadUrl: "https://service.berlin.de/dienstleistung/120335/", category: "Arrival"),
@@ -134,7 +134,7 @@ final class ResourcesRepository: ObservableObject {
             ]
         case "argentina":
             return [
-                ResourceItem(name: "Option_Declaration_Form_Argentine_Citizenship.pdf", path: "VisaForms/argentina/Option_Declaration_Form_Argentine_Citizenship.pdf", sizeBytes: 200_000, downloadUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship", category: "VisaForms"),
+                ResourceItem(name: "Option_Declaration_Form_Argentine_Citizenship.pdf", path: "VisaForms/argentina/Option_Declaration_Form_Argentine_Citizenship.pdf", sizeBytes: 200_000, downloadUrl: "https://www.cancilleria.gob.ar/es/servicios/nacionalidad-argentina/opcion-de-nacionalidad-argentina-para-hijos-de-argentinos-nativos", category: "VisaForms"),
                 ResourceItem(name: "Consular_Document_Requirements_AR.pdf", path: "VisaForms/argentina/Consular_Document_Requirements_AR.pdf", sizeBytes: 175_000, downloadUrl: "https://www.cancilleria.gob.ar/", category: "VisaForms"),
                 ResourceItem(name: "Apostille_and_Sworn_Translation_Guide_AR.pdf", path: "Resources/argentina/Apostille_and_Sworn_Translation_Guide_AR.pdf", sizeBytes: 165_000, downloadUrl: "https://www.traductores.org.ar/", category: "Resources"),
                 ResourceItem(name: "DNI_Application_Guide.pdf", path: "Arrival/argentina/DNI_Application_Guide.pdf", sizeBytes: 155_000, downloadUrl: "https://www.argentina.gob.ar/interior/renaper", category: "Arrival"),
@@ -147,7 +147,7 @@ final class ResourcesRepository: ObservableObject {
                 ResourceItem(name: "Hungarian_Ancestor_Records_Guide.pdf", path: "Resources/hungary/Hungarian_Ancestor_Records_Guide.pdf", sizeBytes: 185_000, downloadUrl: "https://www.familysearch.org/en/search/collection/list?page=1&place=Hungary", category: "Resources"),
                 ResourceItem(name: "OFFI_Translation_Process_Guide.pdf", path: "Resources/hungary/OFFI_Translation_Process_Guide.pdf", sizeBytes: 155_000, downloadUrl: "https://www.offi.hu/", category: "Resources"),
                 ResourceItem(name: "Hungarian_Language_Interview_Prep.pdf", path: "Resources/hungary/Hungarian_Language_Interview_Prep.pdf", sizeBytes: 175_000, downloadUrl: "https://newyork.balassiintezet.hu/en/", category: "Resources"),
-                ResourceItem(name: "Lakcimkartya_Address_Card_Guide.pdf", path: "Arrival/hungary/Lakcimkartya_Address_Card_Guide.pdf", sizeBytes: 145_000, downloadUrl: "https://nyilvantarto.hu/", category: "Arrival"),
+                ResourceItem(name: "Lakcimkartya_Address_Card_Guide.pdf", path: "Arrival/hungary/Lakcimkartya_Address_Card_Guide.pdf", sizeBytes: 145_000, downloadUrl: "https://magyarorszag.hu/", category: "Arrival"),
                 ResourceItem(name: "TAJ_Health_Insurance_Card_Guide.pdf", path: "Arrival/hungary/TAJ_Health_Insurance_Card_Guide.pdf", sizeBytes: 165_000, downloadUrl: "https://neak.gov.hu/", category: "Arrival"),
                 ResourceItem(name: "Rental_Contract_Template_HU.pdf", path: "Templates/hungary/Rental_Contract_Template_HU.pdf", sizeBytes: 245_000, downloadUrl: nil, category: "Templates"),
             ]

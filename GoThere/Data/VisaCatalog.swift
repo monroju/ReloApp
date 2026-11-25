@@ -39,7 +39,7 @@ enum VisaCatalog {
             costEstimate: "$153 consular fee (US) + lawyer optional",
             pros: ["No employer needed", "Family included (+25% IPREM per dependent)", "Path to EU passport"],
             cons: ["No work in Spain at all", "Renewal scrutinizes time outside Spain", "Costly health insurance required"],
-            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/InformacionParaExtranjeros/Paginas/Visados.aspx",
+            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/Visado-de-residencia-no-lucrativa.aspx",
             wizardTrackId: "es_non_lucrative"
         ),
         VisaInfo(
@@ -77,7 +77,7 @@ enum VisaCatalog {
             costEstimate: "€100 + employer-sponsored",
             pros: ["Direct work rights", "Employer typically covers paperwork", "Counts toward PR/citizenship"],
             cons: ["Labor market test required", "Tied to specific employer", "Limited transferability"],
-            officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo",
+            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/Visado-de-trabajo-por-cuenta-ajena.aspx",
             wizardTrackId: "es_work"
         ),
         VisaInfo(
@@ -94,7 +94,7 @@ enum VisaCatalog {
             costEstimate: "€100 + university fees",
             pros: ["Easy initial entry", "Schengen-wide travel", "Can switch to work after 3yr study"],
             cons: ["Time only counts half toward residency", "Must remain enrolled", "Limited work hours"],
-            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/InformacionParaExtranjeros/Paginas/Estudios.aspx",
+            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/Visado-de-estudios.aspx",
             wizardTrackId: "es_student"
         ),
         VisaInfo(
@@ -111,7 +111,7 @@ enum VisaCatalog {
             costEstimate: "€60-€100 + apostille/translation costs",
             pros: ["No income requirement on applicant", "Path to PR + citizenship", "Includes minor children"],
             cons: ["Sponsor must initiate from Spain", "Housing adequacy report required", "Approval timeline tied to sponsor's province"],
-            officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/reagrupacion-familiar",
+            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/Visado-de-reagrupacion-familiar-en-regimen-general.aspx",
             wizardTrackId: "es_family_reunification"
         ),
         VisaInfo(
@@ -128,7 +128,7 @@ enum VisaCatalog {
             costEstimate: "€100 + lawyer/gestor ~€1,000",
             pros: ["Full work rights for your business", "No employer dependency", "Counts toward PR/citizenship"],
             cons: ["Viable business plan required (memoria de actividad)", "Quarterly tax filings from day one", "Social Security autónomo fee even when revenue is low"],
-            officialUrl: "https://www.inclusion.gob.es/web/migraciones/w/empleo-y-trabajo",
+            officialUrl: "https://www.exteriores.gob.es/Consulados/sanfrancisco/en/ServiciosConsulares/Paginas/Consular/Visado-de-trabajo-por-cuenta-propia.aspx",
             wizardTrackId: "es_autonomo",
             taxRegimes: [TaxRegime.beckhamLawAutonomo, TaxRegime.tarifaPlanaAutonomo]
         ),
@@ -152,7 +152,7 @@ enum VisaCatalog {
             costEstimate: "€110 visa + lawyer ~€1,500",
             pros: ["Lowest income bar in Europe", "Permanent residence after 5 years", "Work allowed in Portugal"],
             cons: ["Slow AIMA processing", "183-day/yr presence required", "NHR tax regime ended Mar 2024"],
-            officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
+            officialUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal",
             wizardTrackId: "pt_d7_passive_income"
         ),
         VisaInfo(
@@ -170,7 +170,7 @@ enum VisaCatalog {
             costEstimate: "€110 visa + lawyer ~€1,500",
             pros: ["Permanent residence in 5yr", "Family included", "EU residency rights"],
             cons: ["4× higher income bar than D7", "AIMA backlog 9-18mo", "No NHR tax benefit anymore"],
-            officialUrl: "https://www.aima.gov.pt",
+            officialUrl: "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo",
             wizardTrackId: "pt_d8_digital_nomad"
         ),
         VisaInfo(
@@ -187,7 +187,7 @@ enum VisaCatalog {
             costEstimate: "€350+ + business setup",
             pros: ["For startup founders / freelancers", "Path to EU citizenship", "No minimum investment"],
             cons: ["Business plan must convince AIMA", "Need Portuguese tax rep", "Slow consular processing"],
-            officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
+            officialUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal",
             wizardTrackId: "pt_d2",
             taxRegimes: [TaxRegime.ifici]
         ),
@@ -222,7 +222,7 @@ enum VisaCatalog {
             costEstimate: "€110 + university fees",
             pros: ["Low income bar", "Cheap EU university tuition", "Schengen travel"],
             cons: ["No direct path to PR", "Must switch tracks post-study", "Limited work hours"],
-            officialUrl: "https://vistos.mne.gov.pt/en/national-visas/general-information/type-of-visa",
+            officialUrl: "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal",
             wizardTrackId: "pt_student"
         ),
         VisaInfo(
@@ -239,7 +239,7 @@ enum VisaCatalog {
             costEstimate: "€110 visa + apostille/translation costs",
             pros: ["No income requirement on applicant", "Path to PR + EU citizenship", "Includes minor children + dependent parents"],
             cons: ["Sponsor must initiate from Portugal", "AIMA processing can stretch 4-6 months", "Housing proof required"],
-            officialUrl: "https://www.aima.gov.pt",
+            officialUrl: "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo",
             wizardTrackId: "pt_d6"
         ),
     ]
@@ -445,7 +445,7 @@ enum VisaCatalog {
             costEstimate: "€300 IRP registration + accountant certification",
             pros: ["Live in EU member state", "Low presence requirement", "No work obligation"],
             cons: ["High income bar", "No Stamp 4 route; citizenship counting disputed", "Cannot work — ever"],
-            officialUrl: "https://www.irishimmigration.ie/coming-to-join-family-in-ireland/stamp-0/",
+            officialUrl: "https://www.irishimmigration.ie/coming-to-live-in-ireland/i-want-to-retire-to-ireland",
             wizardTrackId: nil,
             inclusivityFlags: [InclusivityFlag.caregiverPathway, InclusivityFlag.seniorFriendly]
         ),
@@ -521,7 +521,7 @@ enum VisaCatalog {
             costEstimate: "€116 visa + ~€120 permit + lawyer optional",
             pros: ["Lowest passive bar in Western Europe", "Family included", "Path to EU citizenship"],
             cons: ["No work allowed, ever", "Must own/rent property in Italy", "Slow Questura processing"],
-            officialUrl: "https://vistoperitalia.esteri.it/home/dettagliovisto/76/47",
+            officialUrl: "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -539,7 +539,7 @@ enum VisaCatalog {
             costEstimate: "€116 visa + ~€120 permit + lawyer optional",
             pros: ["Launched Apr 2024, fast track", "Spouse/kids included", "5% flat tax regime for high-skilled"],
             cons: ["Must prove 'highly skilled' (degree or 5yr exp, 3 for ICT)", "Income bar varies by consulate", "Tax residency complex"],
-            officialUrl: "https://www.esteri.it/en/servizi-consolari-e-visti/visti-per-litalia/",
+            officialUrl: "https://consnewyork.esteri.it/en/servizi-consolari-e-visti/servizi-per-il-cittadino-straniero/visti",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -578,7 +578,7 @@ enum VisaCatalog {
             costEstimate: "Free or €255",
             pros: ["No language test required", "No residency requirement", "Children also eligible"],
             cons: ["Must prove ancestor's Nazi-era persecution", "BVA backlog 1-2yr", "Documentation rigorous"],
-            officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/Migration-Citizenship/Citizenship/Restoration-of-citizenship/restoration-of-citizenship_node.html",
+            officialUrl: "https://www.bva.bund.de/EN/Services/Citizens/ID-Documents-Law/Citizenship/citizenship_node.html",
             wizardTrackId: "de_stag_15"
         ),
         VisaInfo(
@@ -612,7 +612,7 @@ enum VisaCatalog {
             costEstimate: "€100 + lawyer optional",
             pros: ["Berlin Künstler visa for creatives", "No employer needed", "Path to PR"],
             cons: ["Must demonstrate German economic interest", "Health insurance hard for self-employed", "Tax filing complex"],
-            officialUrl: "https://www.berlin.de/en/visa/visa-categories/freelance-self-employment/",
+            officialUrl: "https://service.berlin.de/dienstleistung/328332/en/",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -741,7 +741,7 @@ enum VisaCatalog {
             costEstimate: "~$200",
             pros: ["No residency required", "Children of native-born Argentines qualify", "Mercosur passport"],
             cons: ["Documentation rigorous", "Slow federal court process", "Must prove parent's Argentine birth"],
-            officialUrl: "https://www.cancilleria.gob.ar/en/services/argentinians-abroad/argentine-citizenship",
+            officialUrl: "https://www.cancilleria.gob.ar/es/servicios/nacionalidad-argentina/opcion-de-nacionalidad-argentina-para-hijos-de-argentinos-nativos",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -833,7 +833,7 @@ enum VisaCatalog {
             costEstimate: "~€100",
             pros: ["Easy entry to Central Europe", "Tax residency at 15% flat", "Schengen access"],
             cons: ["No path to PR or citizenship", "Max 2yr total", "Cannot bring spouse on White Card"],
-            officialUrl: "https://nemzetikartya.gov.hu/",
+            officialUrl: "https://konzinfo.mfa.gov.hu/en",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -850,7 +850,7 @@ enum VisaCatalog {
             costEstimate: "€60",
             pros: ["Work/study/family/investment tracks", "Cheap fee", "Schengen access"],
             cons: ["Initial 1yr only", "OIF backlogs", "Switch to residence permit needed"],
-            officialUrl: "https://oif.gov.hu/",
+            officialUrl: "https://konzinfo.mfa.gov.hu/en",
             wizardTrackId: nil
         ),
         VisaInfo(
@@ -867,7 +867,7 @@ enum VisaCatalog {
             costEstimate: "€250k+ investment + ~€100k fees",
             pros: ["Long 10yr residence card", "Family included", "Schengen access"],
             cons: ["Relaunched 2024 — process new", "Large capital lockup", "Investment options limited"],
-            officialUrl: "https://nemzetikartya.gov.hu/",
+            officialUrl: "https://konzinfo.mfa.gov.hu/en",
             wizardTrackId: nil
         ),
     ]

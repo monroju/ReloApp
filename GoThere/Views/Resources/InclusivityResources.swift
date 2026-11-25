@@ -232,8 +232,8 @@ enum InclusivityResources {
         let title = "Disability & Accessibility"
         let common = [
             WebResource(id: "eu-disab-card", title: "EU Disability Card",
-                        description: "Mutual recognition across EU member states",
-                        url: "https://employment-social-affairs.ec.europa.eu/policies-and-activities/social-protection-social-inclusion/persons-disabilities/european-disability-card_en",
+                        description: "Adopted in 2024. EU countries issue it from June 2028",
+                        url: "https://commission.europa.eu/strategy-and-policy/policies/justice-and-fundamental-rights/disability/european-disability-card-and-european-parking-card-persons-disabilities_en",
                         type: "official"),
         ]
         let countrySpecific: [WebResource]
@@ -346,9 +346,9 @@ enum InclusivityResources {
         switch countryId {
         case "germany":
             countrySpecific = [
-                WebResource(id: "ramstein-va", title: "Ramstein VA Outreach",
-                            description: "USAF Ramstein veteran services",
-                            url: "https://www.benefits.va.gov/persona/veteran-livingabroad.asp",
+                WebResource(id: "va-abroad", title: "VA: Veterans living overseas",
+                            description: "Benefits and care while you live abroad",
+                            url: "https://www.benefits.va.gov/persona/veteran-abroad.asp",
                             type: "official"),
             ]
         case "mexico":
@@ -379,9 +379,9 @@ enum InclusivityResources {
         switch countryId {
         case "spain":
             countrySpecific = [
-                WebResource(id: "sespa-mat", title: "Maternity in the SNS",
-                            description: "Public maternity care + Tarjeta Sanitaria registration",
-                            url: "https://www.sanidad.gob.es/", type: "official"),
+                WebResource(id: "ss-birth", title: "Birth and childcare benefit",
+                            description: "Seguridad Social paid leave after a birth",
+                            url: "https://www.seg-social.es/wps/portal/wss/internet/InformacionUtil/44539/de513c99-5885-48bd-8c66-45d2c97ad947", type: "official"),
                 WebResource(id: "elparto-es", title: "El Parto es Nuestro",
                             description: "Respectful-birth advocacy + birth-plan templates",
                             url: "https://www.elpartoesnuestro.es/", type: "community"),
@@ -405,7 +405,7 @@ enum InclusivityResources {
             countrySpecific = [
                 WebResource(id: "hse-mat", title: "HSE Maternity Service",
                             description: "Public maternity, choose-your-midwife",
-                            url: "https://www2.hse.ie/services/maternity-services/",
+                            url: "https://www2.hse.ie/pregnancy-birth/pregnancy-care/care-options",
                             type: "official"),
                 WebResource(id: "cuidiu", title: "Cuidiú",
                             description: "Parent support, antenatal classes",
