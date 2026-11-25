@@ -40,7 +40,7 @@ enum FamilyMoveData {
             internationalSchooling: "Strong international-school scene (Lisbon, Cascais, Algarve). ~$8,000–$20,000/yr.",
             homeschooling: "Legal and recognized (ensino doméstico) with registration and annual exams.",
             childHealthcare: "SNS public health covers registered residents including children; private insurance common as a top-up.",
-            childVisaNote: "Children included as dependents on D7/D8/D2. Citizenship after 5 years applies to the whole family.",
+            childVisaNote: "Children included as dependents on D7/D8/D2. Since 19 May 2026, citizenship needs 10 years of legal residence (7 for EU and CPLP citizens).",
             tips: [
                 "Get each child a NIF (tax number) early — needed for school and health registration.",
                 "Algarve and Cascais have the densest English-speaking family communities.",

@@ -16,7 +16,7 @@
       },
       {
         "label": "Portugal Visa Portal",
-        "url": "https://www.vistos.mne.gov.pt/"
+        "url": "https://www.gov.pt/guias/migrantes-vistos-e-autorizacoes-para-entrar-e-viver-em-portugal"
       },
       {
         "label": "VFS Global Portugal",
@@ -284,7 +284,7 @@
     "links": [
       {
         "label": "AIMA Portal",
-        "url": "https://www.aima.gov.pt/"
+        "url": "https://www.gov.pt/entidades/agencia-para-a-integracao-migracoes-e-asilo"
       }
     ]
   },

@@ -18,7 +18,7 @@
   "countries": {
     "spain": {
       "lgbtq": "Marriage equality since 2005 and a 2023 trans self-ID law. Madrid, Barcelona, Valencia, Sitges and Torremolinos rank among Europe's most queer-friendly cities; rural inland areas more reserved. [ILGA-Europe Rainbow 2025]",
-      "disabled": "EU Disability Card recognised. Public hospitals are excellent; Madrid and Barcelona metros are ~75% step-free. Beach towns often have 'playa accesible' beach wheelchairs in summer. [ONCE / EU Disability Card 2024]",
+      "disabled": "EU Disability Card arrives June 2028. Public hospitals are excellent; Madrid and Barcelona metros are ~75% step-free. Beach towns often have 'playa accesible' beach wheelchairs in summer. [ONCE / EU Disability Card 2024]",
       "single_parent": "'Familia monoparental' status grants tax credits, school meal subsidies, and reduced-fee daycare in most autonomous communities. Family reunification visa accepts single-parent dependents. [BOE 2023, Ley 18/2022]",
       "veteran": "US-Spain SSA totalization in force; VA Foreign Medical Program covers service-connected conditions at any Spanish hospital you pay first and claim back. No dedicated veteran visa — use the regular non-lucrative or Digital Nomad visa.",
       "pregnant": "Public maternity care is free and high-quality even on a tourist registration once your padrón is filed. 16 weeks paid leave for both parents (equalised in 2021). Hospital birth standard; home-birth midwifery is private.",
@@ -31,7 +31,7 @@
     },
     "portugal": {
       "lgbtq": "Marriage equality since 2010, full adoption rights, constitutional anti-discrimination on sexual orientation. Lisbon and Porto are highly inclusive; Algarve is welcoming due to large expat presence. [ILGA-Europe Rainbow 2025]",
-      "disabled": "EU Disability Card recognised. Lisbon metro is ~90% step-free; old-town Porto and Lisbon hills remain a challenge. SNS (public health) is affordable but stretched for non-urgent specialist care.",
+      "disabled": "EU Disability Card arrives June 2028. Lisbon metro is ~90% step-free; old-town Porto and Lisbon hills remain a challenge. SNS (public health) is affordable but stretched for non-urgent specialist care.",
       "single_parent": "D7 visa accepts single-parent applicants with passive income (~€920/month + 30% per child). RSI (social insertion income) available after one year of residency. School lunches subsidised at the SASE rate 1.",
       "veteran": "US-Portugal totalization in force. VA FMP covers service-connected conditions. Strong US-veteran community in the Algarve and Cascais.",
       "pregnant": "SNS maternity care is free once registered. 120–150 days paid parental leave shared between parents. Lisbon, Porto and Coimbra have public maternity hospitals with English-speaking staff.",
@@ -44,7 +44,7 @@
     },
     "italy": {
       "lgbtq": "Civil unions since 2016 but no marriage equality and no same-sex adoption. Rome, Milan, Bologna and Florence are inclusive; southern rural areas more conservative. The 2023 Meloni-era directive instructed municipalities to stop registering foreign same-sex parents on birth certificates. [ILGA-Europe Rainbow 2025]",
-      "disabled": "EU Disability Card recognised. Historic centres (cobblestones, no elevators) are challenging; Milan metro is best for accessibility. Law 104/1992 grants caregiver leave + tax benefits.",
+      "disabled": "EU Disability Card arrives June 2028. Historic centres (cobblestones, no elevators) are challenging; Milan metro is best for accessibility. Law 104/1992 grants caregiver leave + tax benefits.",
       "single_parent": "Assegno Unico universal child benefit (€57–199/month per child). Family reunification visa accepts single-parent dependents. Schools provide subsidised hot lunches (mensa).",
       "veteran": "US-Italy totalization in force. Italy hosts several US military bases — Aviano, Vicenza, Naples — with veteran communities and VA reciprocity at those base hospitals.",
       "pregnant": "SSN maternity care is universal and excellent. 5 months mandatory paid leave at 80%. North Italian hospitals (Milan, Bologna) consistently rank top-10 in EU maternity outcomes.",
@@ -57,7 +57,7 @@
     },
     "germany": {
       "lgbtq": "Marriage equality since 2017. Berlin is one of the world's most queer-inclusive cities; Cologne, Hamburg, Munich all hold major Prides. 2024 Self-Determination Act allows legal gender change by self-declaration. [ILGA-Europe Rainbow 2025]",
-      "disabled": "EU Disability Card recognised; Schwerbehindertenausweis grants tax breaks, free transit, and dismissal protection. Public transit is ~80% step-free in major cities. Sign-language interpretation funded by Integrationsamt.",
+      "disabled": "EU Disability Card arrives June 2028. Schwerbehindertenausweis grants tax breaks, free transit, and dismissal protection. Public transit is ~80% step-free in major cities. Sign-language interpretation funded by Integrationsamt.",
       "single_parent": "Unterhaltsvorschuss state child support advance covers cases where the non-custodial parent can't pay. Kindergeld €250/month per child. Alleinerziehende tax class II reduces income tax.",
       "veteran": "US-Germany totalization in force. Largest US-veteran community in Europe — Ramstein, Wiesbaden, Stuttgart hubs. VA FMP coverage for service-connected conditions.",
       "pregnant": "GKV (statutory health insurance) covers all maternity care plus a midwife at home. 14 weeks Mutterschutz at full pay + 14 months Elterngeld parental leave shared. Birth outcomes among the best in Europe.",
@@ -83,7 +83,7 @@
     },
     "poland": {
       "lgbtq": "Civil partnerships introduced 2025 under Tusk government but no marriage or adoption rights. Several voivodeships repealed 'LGBT-free zone' declarations 2023–2024. Warsaw, Kraków, Poznań are safe and increasingly visible; small-town climate remains conservative. [ILGA-Europe Rainbow 2025: 41/49 — middle-lower EU]",
-      "disabled": "EU Disability Card recognised. NFZ public healthcare; long waits for specialists. Warsaw and Kraków metros are step-free; older buildings often inaccessible.",
+      "disabled": "EU Disability Card arrives June 2028. NFZ public healthcare; long waits for specialists. Warsaw and Kraków metros are step-free; older buildings often inaccessible.",
       "single_parent": "Rodzina 800+ child benefit (PLN 800/month per child). Family reunification accepts single-parent dependents. Alimentation Fund advances unpaid child support.",
       "veteran": "US-Poland totalization in force since 2009. US troop presence in Poznań and Powidz is growing; veteran community building but smaller than Germany.",
       "pregnant": "NFZ covers prenatal and birth fully. 20 weeks maternity leave at 100%, 32 weeks parental leave at 70%. 2021 near-total abortion ban remains a significant consideration; reform stalled in 2025.",
@@ -96,7 +96,7 @@
     },
     "hungary": {
       "lgbtq": "2020 constitutional amendment defines family as man + woman; no marriage or adoption. 2021 'child protection' law restricts LGBTQ content visibility to minors. Budapest Pride still operates but faces 2025 restrictions. [ILGA-Europe Rainbow 2025: 33/49 — among lowest in EU]",
-      "disabled": "EU Disability Card recognised. NEAK public healthcare adequate but underfunded. Budapest metro M4 is fully accessible; older lines and most regional transit are not.",
+      "disabled": "EU Disability Card arrives June 2028. NEAK public healthcare adequate but underfunded. Budapest metro M4 is fully accessible; older lines and most regional transit are not.",
       "single_parent": "CSED maternity allowance + GYED childcare benefit. Family-tax credit doubles for single parents. Single-parent visa reunification accepted.",
       "veteran": "US-Hungary totalization in force. Smaller US-veteran community; VA FMP coverage for service-connected conditions.",
       "pregnant": "Public maternity care free for residents. 24 weeks CSED at 70% then GYED. Government heavily subsidises larger families through CSOK housing program.",

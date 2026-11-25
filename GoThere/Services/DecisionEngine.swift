@@ -179,7 +179,7 @@ enum DecisionEngine {
                 // EU Disability Card members get scored higher; large cities with public transit score higher.
                 switch countryId {
                 case "germany", "spain", "portugal", "ireland", "italy", "poland", "hungary":
-                    score += 8; reasons.append("EU Disability Card recognised")
+                    score += 8; reasons.append("EU Disability Card from June 2028")
                 case "canada", "uk_ancestry":
                     score += 7; reasons.append("Strong accessibility law")
                 case "mexico", "argentina":
