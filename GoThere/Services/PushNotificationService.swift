@@ -128,6 +128,20 @@ extension PushNotificationService: UNUserNotificationCenterDelegate {
                                  withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .sound, .badge])
     }
+
+    /// The user opened the app from a notification (local or push). Dismissals are not opens.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        defer { completionHandler() }
+        guard response.actionIdentifier != UNNotificationDismissActionIdentifier else { return }
+        let request = response.notification.request
+        let props = NotificationOpenTracking.properties(
+            identifier: request.identifier,
+            userInfo: request.content.userInfo,
+            isRemote: request.trigger is UNPushNotificationTrigger)
+        Analytics.log(.notificationOpened, properties: props)
+    }
 }
 
 extension PushNotificationService: MessagingDelegate {

@@ -44,6 +44,7 @@ enum AnalyticsEvent: String {
     case partnerLinkTapped = "partner_link_tapped" // props `partner`, `country_id`, `is_partner`
     case crossPromoTapped = "cross_promo_tapped"   // props `app`, `placement`, `country_id`
     case deepLinkOpened = "deep_link_opened"       // prop `route`, from gothere:// URLs (In-App Events)
+    case notificationOpened = "notification_opened" // props `type`, `source` (local/push), `id`, `topic`, `platform`
 
     // Wave 2 — AI conversational entry point
     case aiConversationOpened = "ai_conversation_opened"
