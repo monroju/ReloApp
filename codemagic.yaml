@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m2
     environment:
-      xcode: 26.0
+      xcode: 27.1
       groups:
         # Codemagic env group "APPETIZE" must define:
         #   APPETIZE_TOKEN       (required) — Appetize API token, from appetize.io account settings
@@ -101,7 +101,7 @@ workflows:
     max_build_duration: 90
     instance_type: mac_mini_m2
     environment:
-      xcode: 26.0
+      xcode: 27.1
       groups:
         - ios_signing
         - app_store
